@@ -2,7 +2,7 @@
 
 import React from "react";
 import { motion } from "framer-motion";
-import { useLanguage } from "./LanguageContext";
+import { useLanguage } from "@/context/LanguageContext";
 import { Workflow, BarChart3, Zap } from "lucide-react";
 
 export default function FeaturesSection() {
@@ -11,7 +11,7 @@ export default function FeaturesSection() {
     const icons = [Workflow, BarChart3, Zap];
 
     return (
-        <section className="py-20 bg-background-light px-6">
+        <section className="py-20 bg-surface-hover px-6 transition-colors duration-300">
             <div className="max-w-7xl mx-auto">
                 <motion.div
                     initial={{ opacity: 0, y: 30 }}
@@ -20,14 +20,14 @@ export default function FeaturesSection() {
                     viewport={{ once: true }}
                     className="text-center mb-16"
                 >
-                    <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-primary">
+                    <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-primary-theme">
                         Features
                     </h2>
                 </motion.div>
 
                 <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
                     {t.features.map((feature, index) => {
-                        const Icon = icons[index];
+                        const Icon = icons[index % icons.length];
                         return (
                             <motion.div
                                 key={index}
@@ -35,16 +35,16 @@ export default function FeaturesSection() {
                                 whileInView={{ opacity: 1, y: 0 }}
                                 transition={{ duration: 0.5, delay: index * 0.1 }}
                                 viewport={{ once: true }}
-                                whileHover={{ y: -5, boxShadow: "0 20px 40px rgba(0,0,0,0.1)" }}
-                                className="bg-white p-8 rounded-xl shadow-md hover:shadow-xl transition-all duration-300"
+                                whileHover={{ y: -5 }}
+                                className="bg-surface p-8 rounded-xl shadow-md hover:shadow-xl transition-all duration-300 border border-border"
                             >
-                                <div className="w-16 h-16 bg-secondary/20 rounded-lg flex items-center justify-center mb-6">
-                                    <Icon className="w-8 h-8 text-primary" />
+                                <div className="w-16 h-16 bg-secondary-theme/20 rounded-lg flex items-center justify-center mb-6">
+                                    <Icon className="w-8 h-8 text-primary-theme" />
                                 </div>
-                                <h3 className="text-2xl font-semibold text-primary mb-4">
+                                <h3 className="text-2xl font-semibold text-primary-theme mb-4">
                                     {feature.title}
                                 </h3>
-                                <p className="text-gray-700 leading-relaxed">{feature.desc}</p>
+                                <p className="text-muted leading-relaxed">{feature.desc}</p>
                             </motion.div>
                         );
                     })}

@@ -2,13 +2,13 @@
 
 import React from "react";
 import { motion } from "framer-motion";
-import { useLanguage } from "./LanguageContext";
+import { useLanguage } from "@/context/LanguageContext";
 
 export default function FinalCTA() {
     const { t } = useLanguage();
 
     return (
-        <section className="py-24 bg-primary px-6">
+        <section className="py-24 bg-primary-theme px-6 transition-colors duration-300">
             <div className="max-w-4xl mx-auto text-center">
                 <motion.div
                     initial={{ opacity: 0, y: 30 }}
@@ -17,10 +17,10 @@ export default function FinalCTA() {
                     viewport={{ once: true }}
                     className="space-y-8"
                 >
-                    <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white">
+                    <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-background uppercase tracking-tight">
                         {t.finalCTA.title}
                     </h2>
-                    <p className="text-lg md:text-xl text-white/90 leading-relaxed">
+                    <p className="text-lg md:text-xl text-background/80 leading-relaxed font-medium">
                         {t.finalCTA.subtext}
                     </p>
 
@@ -29,21 +29,23 @@ export default function FinalCTA() {
                         <motion.button
                             whileHover={{ scale: 1.05 }}
                             whileTap={{ scale: 0.95 }}
-                            className="px-8 py-4 bg-accent text-white font-semibold rounded-lg shadow-lg hover:shadow-xl transition-all duration-300"
+                            onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
+                            className="px-8 py-4 bg-secondary-theme text-background font-black rounded-full shadow-2xl hover:shadow-secondary-theme/40 transition-all duration-300"
                         >
                             {t.finalCTA.primaryCTA}
                         </motion.button>
                         <motion.button
                             whileHover={{ scale: 1.05 }}
                             whileTap={{ scale: 0.95 }}
-                            className="px-8 py-4 bg-transparent text-white font-semibold border-2 border-white rounded-lg hover:bg-white hover:text-primary transition-all duration-300"
+                            onClick={() => document.getElementById('portfolio')?.scrollIntoView({ behavior: 'smooth' })}
+                            className="px-8 py-4 bg-transparent text-background font-bold border-2 border-background rounded-full hover:bg-background hover:text-primary-theme transition-all duration-300"
                         >
                             {t.finalCTA.secondaryCTA}
                         </motion.button>
                     </div>
 
                     {/* Reassurance Text */}
-                    <p className="text-sm text-white/80 pt-4">{t.finalCTA.reassurance}</p>
+                    <p className="text-sm text-background/60 pt-4 font-medium">{t.finalCTA.reassurance}</p>
                 </motion.div>
             </div>
         </section>

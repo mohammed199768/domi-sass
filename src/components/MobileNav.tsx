@@ -2,7 +2,7 @@
 
 import React from "react";
 import { Home, User, Briefcase, Mail, Layers } from "lucide-react";
-import { useLanguage } from "./LanguageContext";
+import { useLanguage } from "@/context/LanguageContext";
 
 export default function MobileNav() {
     const { t } = useLanguage();
@@ -31,13 +31,13 @@ export default function MobileNav() {
     ];
 
     return (
-        <div className="fixed bottom-0 left-0 right-0 z-50 lg:hidden pb-safe">
-            <nav className="glass bg-white/80 dark:bg-black/80 backdrop-blur-xl border-t border-white/20 dark:border-white/10 px-6 py-4 flex justify-between items-center pb-6">
+        <div className="fixed bottom-0 left-0 right-0 z-50 lg:hidden pb-safe transition-colors duration-300">
+            <nav className="glass bg-surface/80 backdrop-blur-xl border-t border-border px-6 py-4 flex justify-between items-center pb-8 rounded-t-[2rem] shadow-[0_-10px_40px_rgba(0,0,0,0.1)]">
                 {navItems.map((item) => (
                     <button
                         key={item.label}
                         onClick={() => scrollTo(item.href)}
-                        className="flex flex-col items-center gap-1 text-gray-500 dark:text-gray-400 hover:text-primary dark:hover:text-primary-dark transition-colors"
+                        className="flex flex-col items-center gap-1 text-muted hover:text-primary-theme transition-colors"
                     >
                         <item.icon className="w-6 h-6" />
                         <span className="text-[10px] font-medium">{item.label}</span>

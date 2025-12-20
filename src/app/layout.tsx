@@ -1,10 +1,10 @@
 import type { Metadata } from "next";
 import { Montserrat, Cairo } from "next/font/google";
-import "./globals.css";
+import "@/styles/globals.css";
 import { ThemeProvider } from "@/components/ThemeProvider";
 import SmoothScroll from "@/components/SmoothScroll";
 import MobileNav from "@/components/MobileNav";
-import { LanguageProvider } from "@/components/LanguageContext";
+import { LanguageProvider } from "@/context/LanguageContext";
 
 const montserrat = Montserrat({
   variable: "--font-montserrat",

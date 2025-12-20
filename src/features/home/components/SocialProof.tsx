@@ -2,7 +2,7 @@
 
 import React from "react";
 import { motion } from "framer-motion";
-import { useLanguage } from "./LanguageContext";
+import { useLanguage } from "@/context/LanguageContext";
 
 export default function SocialProof() {
     const { t } = useLanguage();
@@ -18,7 +18,7 @@ export default function SocialProof() {
     ];
 
     return (
-        <section className="py-20 bg-white px-6">
+        <section className="py-20 bg-background px-6 transition-colors duration-300">
             <div className="max-w-7xl mx-auto">
                 <motion.div
                     initial={{ opacity: 0, y: 30 }}
@@ -27,7 +27,7 @@ export default function SocialProof() {
                     viewport={{ once: true }}
                     className="text-center mb-12"
                 >
-                    <p className="text-lg text-gray-600 mb-12">{t.socialProof.trustedBy}</p>
+                    <p className="text-lg text-muted mb-12">{t.socialProof.trustedBy}</p>
 
                     {/* Company Logos Grid */}
                     <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-8 mb-16">
@@ -38,9 +38,9 @@ export default function SocialProof() {
                                 whileInView={{ opacity: 1, scale: 1 }}
                                 transition={{ duration: 0.4, delay: index * 0.05 }}
                                 viewport={{ once: true }}
-                                className="flex items-center justify-center p-4 bg-gray-100 rounded-lg"
+                                className="flex items-center justify-center p-4 bg-surface-hover rounded-lg border border-border"
                             >
-                                <span className="text-gray-400 font-semibold text-sm">
+                                <span className="text-muted/60 font-semibold text-sm">
                                     {company}
                                 </span>
                             </motion.div>
@@ -53,12 +53,12 @@ export default function SocialProof() {
                         whileInView={{ opacity: 1, y: 0 }}
                         transition={{ duration: 0.6, delay: 0.3 }}
                         viewport={{ once: true }}
-                        className="max-w-3xl mx-auto bg-background-light p-8 rounded-2xl shadow-lg"
+                        className="max-w-3xl mx-auto bg-surface p-8 rounded-2xl shadow-lg border border-border"
                     >
-                        <p className="text-xl md:text-2xl text-primary italic mb-4">
+                        <p className="text-xl md:text-2xl text-primary-theme italic mb-4">
                             {t.socialProof.testimonial}
                         </p>
-                        <p className="text-gray-600 font-medium">{t.socialProof.attribution}</p>
+                        <p className="text-muted font-medium">{t.socialProof.attribution}</p>
                     </motion.div>
                 </motion.div>
             </div>

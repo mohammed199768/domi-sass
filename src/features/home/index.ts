@@ -1,0 +1,11 @@
+export { default as Hero } from './components/Hero';
+export { default as AboutSection } from './components/AboutSection';
+export { default as ServicesSection } from './components/ServicesSection';
+export { default as PortfolioSection } from './components/PortfolioSection';
+export { default as TestimonialsSection } from './components/TestimonialsSection';
+export { default as ContactSection } from './components/ContactSection';
+export { default as FeaturesSection } from './components/FeaturesSection';
+export { default as ProblemSection } from './components/ProblemSection';
+export { default as SolutionSection } from './components/SolutionSection';
+export { default as SocialProof } from './components/SocialProof';
+export { default as FinalCTA } from './components/FinalCTA';

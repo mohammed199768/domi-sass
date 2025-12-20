@@ -2,7 +2,7 @@
 
 import React, { useState, useEffect } from "react";
 import Link from "next/link";
-import { useLanguage } from "./LanguageContext";
+import { useLanguage } from "@/context/LanguageContext";
 import { Globe } from "lucide-react";
 import ThemeToggle from "./ThemeToggle";
 
@@ -42,14 +42,14 @@ export default function Header() {
 
     return (
         <header
-            className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${scrolled ? "bg-white shadow-md py-4" : "bg-transparent py-6"
+            className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${scrolled ? "bg-surface/80 backdrop-blur-lg border-b border-border shadow-md py-4" : "bg-transparent py-6"
                 }`}
         >
             <div className="max-w-7xl mx-auto px-6 flex items-center justify-between">
                 {/* Logo */}
-                <Link href="#" className="font-bold text-2xl text-primary flex items-center gap-2">
-                    <span className="text-3xl">domi</span>
-                    <div className="w-2 h-2 rounded-full bg-secondary mt-2"></div>
+                <Link href="#" className="font-bold text-2xl text-primary-theme flex items-center gap-2">
+                    <span className="text-3xl">Domi</span>
+                    <div className="w-2 h-2 rounded-full bg-secondary-theme mt-2"></div>
                 </Link>
 
                 {/* Desktop Nav */}
@@ -58,7 +58,7 @@ export default function Header() {
                         <button
                             key={link.label}
                             onClick={() => scrollTo(link.href)}
-                            className="text-gray-600 dark:text-gray-300 hover:text-primary dark:hover:text-primary-dark font-medium transition-colors text-sm"
+                            className="text-muted hover:text-primary-theme font-medium transition-colors text-sm"
                         >
                             {link.label}
                         </button>
@@ -70,14 +70,14 @@ export default function Header() {
                     <ThemeToggle />
                     <button
                         onClick={toggleLanguage}
-                        className="flex items-center gap-2 px-3 py-1.5 rounded-full border border-gray-200 dark:border-white/10 hover:border-primary transition-colors text-xs font-bold text-primary dark:text-white glass"
+                        className="flex items-center gap-2 px-3 py-1.5 rounded-full border border-border hover:border-primary-theme transition-colors text-xs font-bold text-primary-theme glass"
                     >
                         <Globe className="w-3 h-3" />
                         {language === "en" ? "AR" : "EN"}
                     </button>
                     <button
                         onClick={() => scrollTo("#contact")}
-                        className="bg-primary dark:bg-primary-dark text-white dark:text-gray-900 px-6 py-2.5 rounded-full font-bold hover:opacity-90 transition-all shadow-lg hover:shadow-primary/20 text-sm"
+                        className="bg-primary-theme text-background px-6 py-2.5 rounded-full font-bold hover:opacity-90 transition-all shadow-lg hover:shadow-primary-theme/20 text-sm"
                     >
                         {t.nav.cta}
                     </button>
@@ -88,7 +88,7 @@ export default function Header() {
                     <ThemeToggle />
                     <button
                         onClick={toggleLanguage}
-                        className="p-2 rounded-full border border-gray-200 dark:border-white/10 text-primary dark:text-white glass"
+                        className="p-2 rounded-full border border-border text-primary-theme glass"
                     >
                         <span className="text-xs font-bold">{language === "en" ? "AR" : "EN"}</span>
                     </button>

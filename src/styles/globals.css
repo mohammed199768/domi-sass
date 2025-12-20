@@ -1,0 +1,100 @@
+@import "tailwindcss";
+
+@variant dark (&:where(.dark, .dark *));
+
+@theme {
+  --font-sans: var(--font-montserrat);
+  --font-arabic: var(--font-cairo);
+
+  /* Semantic Theme Tokens */
+  --color-background: var(--bg);
+  --color-foreground: var(--fg);
+  --color-surface: var(--surface);
+  --color-surface-hover: var(--surface-hover);
+  --color-border: var(--border);
+  --color-primary-theme: var(--primary);
+  --color-secondary-theme: var(--secondary);
+  --color-muted: var(--muted);
+
+  /* Preserve original color names for compatibility if needed, but pointed to tokens */
+  --color-primary: var(--primary);
+  --color-secondary: var(--secondary);
+}
+
+:root {
+  --bg: #ffffff;
+  --fg: #111827;
+  /* gray-900 */
+  --surface: #ffffff;
+  --surface-hover: #f9fafb;
+  /* gray-50 */
+  --border: #e5e7eb;
+  /* gray-200 */
+  --primary: #0D3B66;
+  --secondary: #FF7F11;
+  --muted: #4b5563;
+  /* gray-600 */
+}
+
+.dark {
+  --bg: #050505;
+  --fg: #f9fafb;
+  /* gray-50 */
+  --surface: #121212;
+  --surface-hover: #1a1a1a;
+  --border: rgba(255, 255, 255, 0.1);
+  --primary: #2DD4BF;
+  /* Teal Neon */
+  --secondary: #F472B6;
+  /* Pink Neon */
+  --muted: #9ca3af;
+  /* gray-400 */
+}
+
+@layer base {
+  body {
+    @apply bg-background text-foreground antialiased transition-colors duration-300 ease-in-out font-sans;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    @apply font-bold text-foreground;
+  }
+}
+
+/* Glassmorphism Utility - Updated to use tokens */
+.glass {
+  @apply backdrop-blur-xl border border-border shadow-xl transition-all duration-300;
+  background-color: var(--surface);
+  /* Fallback for older browsers */
+  background-color: color-mix(in srgb, var(--surface) 70%, transparent);
+}
+
+.glass-card {
+  @apply backdrop-blur-md border border-border shadow-lg hover:shadow-2xl transition-all duration-300;
+  background-color: var(--surface);
+  /* Fallback for older browsers */
+  background-color: color-mix(in srgb, var(--surface) 60%, transparent);
+}
+
+/* Hide scrollbar for "App-like" feel on mobile sometimes */
+@layer utilities {
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+
+  .no-scrollbar {
+    -ms-overflow-style: none;
+    /* IE and Edge */
+  }
+
+  @supports (scrollbar-width: none) {
+    .no-scrollbar {
+      scrollbar-width: none;
+    }
+  }
+}
