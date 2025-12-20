@@ -1,6 +1,10 @@
 import type { Metadata } from "next";
 import { Montserrat, Cairo } from "next/font/google";
 import "./globals.css";
+import { ThemeProvider } from "@/components/ThemeProvider";
+import SmoothScroll from "@/components/SmoothScroll";
+import MobileNav from "@/components/MobileNav";
+import { LanguageProvider } from "@/components/LanguageContext";
 
 const montserrat = Montserrat({
   variable: "--font-montserrat",
@@ -15,8 +19,8 @@ const cairo = Cairo({
 });
 
 export const metadata: Metadata = {
-  title: "domi - General Business Agency",
-  description: "Domi is a general business agency specialized in consulting, marketing, and digital development.",
+  title: "Mohammad Aldomi - Frontend Developer",
+  description: "Portfolio of Mohammad Aldomi, a Frontend Developer creating unforgettable digital experiences.",
 };
 
 export default function RootLayout({
@@ -25,11 +29,18 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="en" suppressHydrationWarning>
       <body
         className={`${montserrat.variable} ${cairo.variable} antialiased`}
       >
-        {children}
+        <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
+          <LanguageProvider>
+            <SmoothScroll>
+              {children}
+              <MobileNav />
+            </SmoothScroll>
+          </LanguageProvider>
+        </ThemeProvider>
       </body>
     </html>
   );

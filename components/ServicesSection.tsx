@@ -3,11 +3,11 @@
 import React from "react";
 import { motion } from "framer-motion";
 import { useLanguage } from "./LanguageContext";
-import { Briefcase, Megaphone, TrendingUp, Code } from "lucide-react";
+import { Code, Sparkles, Zap, Briefcase } from "lucide-react";
 
 const iconMap: Record<string, React.ReactNode> = {
-    consulting: <TrendingUp className="w-10 h-10 text-secondary" />,
-    marketing: <Megaphone className="w-10 h-10 text-secondary" />,
+    consulting: <Zap className="w-10 h-10 text-secondary" />,
+    marketing: <Sparkles className="w-10 h-10 text-secondary" />,
     development: <Code className="w-10 h-10 text-secondary" />,
 };
 
@@ -15,7 +15,8 @@ export default function ServicesSection() {
     const { t } = useLanguage();
 
     return (
-        <section id="services" className="py-20 bg-white">
+        <section id="services" className="py-20 relative">
+            <div className="absolute top-0 right-0 w-1/2 h-1/2 bg-primary/5 dark:bg-primary-dark/10 blur-[100px] -z-10" />
             <div className="max-w-7xl mx-auto px-6">
                 <div className="text-center max-w-3xl mx-auto mb-16">
                     <h2 className="text-3xl md:text-4xl font-bold text-primary mb-4">
@@ -34,7 +35,7 @@ export default function ServicesSection() {
                             whileInView={{ opacity: 1, y: 0 }}
                             transition={{ duration: 0.5, delay: index * 0.1 }}
                             viewport={{ once: true }}
-                            className="bg-gray-50 p-8 rounded-2xl hover:shadow-lg transition-shadow border border-gray-100"
+                            className="glass-card p-8 rounded-2xl group"
                         >
                             <div className="w-16 h-16 bg-white rounded-xl flex items-center justify-center shadow-sm mb-6">
                                 {service.icon && iconMap[service.icon] ? iconMap[service.icon] : <Briefcase className="w-10 h-10 text-secondary" />}
@@ -50,7 +51,10 @@ export default function ServicesSection() {
                 </div>
 
                 <div className="text-center mt-12">
-                    <button className="px-8 py-3 bg-secondary text-white font-bold rounded-lg hover:bg-opacity-90 transition-colors">
+                    <button
+                        onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
+                        className="px-8 py-3 bg-secondary text-white font-bold rounded-lg hover:bg-opacity-90 transition-colors"
+                    >
                         {t.services.cta}
                     </button>
                 </div>

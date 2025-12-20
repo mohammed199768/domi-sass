@@ -8,21 +8,19 @@ import PortfolioSection from "@/components/PortfolioSection";
 import TestimonialsSection from "@/components/TestimonialsSection";
 import ContactSection from "@/components/ContactSection";
 import Footer from "@/components/Footer";
-import { LanguageProvider } from "@/components/LanguageContext";
+
 
 export default function Home() {
   return (
-    <LanguageProvider>
-      <main className="min-h-screen font-sans">
-        <Header />
-        <Hero />
-        <AboutSection />
-        <ServicesSection />
-        <PortfolioSection />
-        <TestimonialsSection />
-        <ContactSection />
-        <Footer />
-      </main>
-    </LanguageProvider>
+    <main className="min-h-screen font-sans">
+      <Header />
+      <Hero />
+      <AboutSection />
+      <ServicesSection />
+      <PortfolioSection />
+      <TestimonialsSection />
+      <ContactSection />
+      <Footer />
+    </main>
   );
 }

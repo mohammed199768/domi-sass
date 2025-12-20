@@ -21,8 +21,8 @@ export default function AboutSection() {
                         className="relative h-[400px] rounded-2xl overflow-hidden shadow-xl"
                     >
                         <Image
-                            src="https://images.unsplash.com/photo-1542744173-8e7e53415bb0?auto=format&fit=crop&w=800&q=80"
-                            alt="About Domi Agency"
+                            src="/images/solution.jpg"
+                            alt="About Mohammad Aldomi"
                             fill
                             className="object-cover"
                         />
@@ -43,7 +43,10 @@ export default function AboutSection() {
                             <p>{t.about.story}</p>
                         </div>
                         <div className="mt-8">
-                            <button className="px-8 py-3 bg-primary text-white font-bold rounded-lg hover:bg-opacity-90 transition-colors">
+                            <button
+                                onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
+                                className="px-8 py-3 bg-primary text-white font-bold rounded-lg hover:bg-opacity-90 transition-colors"
+                            >
                                 {t.about.cta}
                             </button>
                         </div>

@@ -3,22 +3,23 @@
 import React, { useState, useEffect } from "react";
 import Link from "next/link";
 import { useLanguage } from "./LanguageContext";
-import { Globe, Menu, X } from "lucide-react";
+import { Globe } from "lucide-react";
+import ThemeToggle from "./ThemeToggle";
 
 export default function Header() {
     const { t, language, toggleLanguage } = useLanguage();
+
     const [scrolled, setScrolled] = useState(false);
-    const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
     useEffect(() => {
         const handleScroll = () => {
-            setScrolled(window.scrollY > 50);
+            setScrolled(window.scrollY > 20);
         };
         window.addEventListener("scroll", handleScroll);
         return () => window.removeEventListener("scroll", handleScroll);
     }, []);
 
-    const navLinks = [
+    const navItems = [
         { label: t.nav.about, href: "#about" },
         { label: t.nav.services, href: "#services" },
         { label: t.nav.portfolio, href: "#portfolio" },
@@ -27,7 +28,6 @@ export default function Header() {
     ];
 
     const scrollTo = (href: string) => {
-        setMobileMenuOpen(false);
         const element = document.querySelector(href);
         if (element) {
             const offset = 80;
@@ -53,72 +53,48 @@ export default function Header() {
                 </Link>
 
                 {/* Desktop Nav */}
-                <nav className="hidden lg:flex items-center gap-8">
-                    {navLinks.map((link) => (
+                <nav className="hidden lg:flex items-center gap-8 glass px-8 py-3 rounded-full">
+                    {navItems.map((link) => (
                         <button
                             key={link.label}
                             onClick={() => scrollTo(link.href)}
-                            className="text-gray-600 hover:text-primary font-medium transition-colors"
+                            className="text-gray-600 dark:text-gray-300 hover:text-primary dark:hover:text-primary-dark font-medium transition-colors text-sm"
                         >
                             {link.label}
                         </button>
                     ))}
                 </nav>
 
-                {/* Actions */}
+                {/* Actions Desktop */}
                 <div className="hidden lg:flex items-center gap-4">
+                    <ThemeToggle />
                     <button
                         onClick={toggleLanguage}
-                        className="flex items-center gap-2 px-3 py-1.5 rounded-full border border-gray-200 hover:border-primary transition-colors text-sm font-semibold text-primary"
+                        className="flex items-center gap-2 px-3 py-1.5 rounded-full border border-gray-200 dark:border-white/10 hover:border-primary transition-colors text-xs font-bold text-primary dark:text-white glass"
                     >
-                        <Globe className="w-4 h-4" />
-                        {language === "en" ? "عربي" : "English"}
+                        <Globe className="w-3 h-3" />
+                        {language === "en" ? "AR" : "EN"}
                     </button>
                     <button
                         onClick={() => scrollTo("#contact")}
-                        className="bg-primary text-white px-5 py-2 rounded-lg font-bold hover:bg-opacity-90 transition-colors"
+                        className="bg-primary dark:bg-primary-dark text-white dark:text-gray-900 px-6 py-2.5 rounded-full font-bold hover:opacity-90 transition-all shadow-lg hover:shadow-primary/20 text-sm"
                     >
                         {t.nav.cta}
                     </button>
                 </div>
 
-                {/* Mobile Menu Button */}
-                <div className="lg:hidden flex items-center gap-4">
+                {/* Mobile Top Bar (Just Logo + Toggles) */}
+                <div className="lg:hidden flex items-center gap-3">
+                    <ThemeToggle />
                     <button
                         onClick={toggleLanguage}
-                        className="p-2 rounded-full border border-gray-200 text-primary"
+                        className="p-2 rounded-full border border-gray-200 dark:border-white/10 text-primary dark:text-white glass"
                     >
                         <span className="text-xs font-bold">{language === "en" ? "AR" : "EN"}</span>
                     </button>
-                    <button
-                        onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-                        className="text-primary"
-                    >
-                        {mobileMenuOpen ? <X className="w-8 h-8" /> : <Menu className="w-8 h-8" />}
-                    </button>
                 </div>
             </div>
-
-            {/* Mobile Menu */}
-            {mobileMenuOpen && (
-                <div className="absolute top-full left-0 w-full bg-white shadow-lg border-t border-gray-100 lg:hidden p-6 flex flex-col gap-4">
-                    {navLinks.map((link) => (
-                        <button
-                            key={link.label}
-                            onClick={() => scrollTo(link.href)}
-                            className="text-left text-lg font-medium text-gray-700 hover:text-primary py-2"
-                        >
-                            {link.label}
-                        </button>
-                    ))}
-                    <button
-                        onClick={() => scrollTo("#contact")}
-                        className="bg-primary text-white w-full py-3 rounded-lg font-bold text-center mt-2"
-                    >
-                        {t.nav.cta}
-                    </button>
-                </div>
-            )}
         </header>
     );
 }
+
