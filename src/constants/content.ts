@@ -97,9 +97,9 @@ export const content = {
             title: "Contact Us",
             subtitle: "We are happy to answer your inquiries. Reach out to us anytime.",
             info: {
-                phone: "+962-791234567",
-                email: "info@domiagency.com",
-                address: "123 Business St, Amman, Jordan",
+                phone: "+962779667168",
+                email: "mohammed.aldomi68@gmail.com",
+                address: ", Amman, Jordan",
             },
             form: {
                 name: "Name",
