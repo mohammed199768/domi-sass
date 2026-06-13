@@ -17,6 +17,7 @@ type BookSize = {
     pageHeight: number;
     compact: boolean;
     short: boolean;
+    singlePage: boolean;
     ready: boolean;
 };
 
@@ -103,6 +104,18 @@ const labels = {
     },
 };
 
+labels.ar = {
+    selected: "مختارات من الأعمال",
+    endTitle: "نهاية عرض المشروع",
+    endBody: "لقطة بأسلوب مطبوع لتفكير المنتج، تفاصيل الواجهة، وحرفة التنفيذ خلف المشروع.",
+    brand: "Mohammed Aldomi / Domi",
+    previous: "السابق",
+    next: "التالي",
+    hint: "اسحب أو اضغط على زوايا الصفحة",
+    page: "صفحة",
+    of: "من",
+};
+
 function text(value: LocalizedText | undefined, language: Language, fallback = "") {
     return value?.[language] || value?.en || value?.ar || fallback;
 }
@@ -123,6 +136,7 @@ function useMeasuredBookSize(stageRef: React.RefObject<HTMLDivElement | null>): 
         pageHeight: 430,
         compact: true,
         short: true,
+        singlePage: true,
         ready: false,
     });
 
@@ -147,6 +161,7 @@ function useMeasuredBookSize(stageRef: React.RefObject<HTMLDivElement | null>): 
                 pageHeight,
                 compact: pageWidth < 340 || pageHeight < 470,
                 short: pageHeight < 520,
+                singlePage: isNarrow,
                 ready: true,
             });
         };
@@ -391,17 +406,19 @@ function FlipbookControls({
     currentPage,
     totalPages,
     language,
+    singlePage,
     onPrevious,
     onNext,
 }: {
     currentPage: number;
     totalPages: number;
     language: Language;
+    singlePage: boolean;
     onPrevious: () => void;
     onNext: () => void;
 }) {
     const isFirstPage = currentPage <= 0;
-    const isLastPage = currentPage >= totalPages - 2;
+    const isLastPage = currentPage >= totalPages - (singlePage ? 1 : 2);
 
     return (
         <div className="realistic-book-controls flex h-16 flex-none shrink-0 flex-col items-center justify-center gap-2 px-4 pb-2 pt-2 sm:h-[72px]">
@@ -441,7 +458,7 @@ export default function ProjectFlipbook({
     const bookRef = useRef<FlipBookHandle | null>(null);
     const stageRef = useRef<HTMLDivElement | null>(null);
     const [currentPage, setCurrentPage] = useState(0);
-    const { pageWidth, pageHeight, compact, short, ready } = useMeasuredBookSize(stageRef);
+    const { pageWidth, pageHeight, compact, short, singlePage, ready } = useMeasuredBookSize(stageRef);
 
     const flipbookPages = useMemo(() => buildFlipbookPages(project), [project]);
     const totalPages = flipbookPages.length;
@@ -474,7 +491,7 @@ export default function ProjectFlipbook({
                             maxShadowOpacity={0.35}
                             showCover={false}
                             mobileScrollSupport
-                            usePortrait
+                            usePortrait={singlePage}
                             flippingTime={850}
                             startPage={0}
                             startZIndex={0}
@@ -511,6 +528,7 @@ export default function ProjectFlipbook({
                 currentPage={currentPage}
                 totalPages={totalPages}
                 language={language}
+                singlePage={singlePage}
                 onPrevious={flipPrev}
                 onNext={flipNext}
             />

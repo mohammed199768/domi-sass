@@ -19,15 +19,24 @@ export default function SmoothScroll({ children }: { children: ReactNode }) {
 
         lenis.on("scroll", ScrollTrigger.update);
 
-        gsap.ticker.add((time) => {
+        const tick = (time: number) => {
             lenis.raf(time * 1000);
-        });
+        };
+
+        const stopScroll = () => lenis.stop();
+        const startScroll = () => lenis.start();
+
+        gsap.ticker.add(tick);
+        window.addEventListener("portfolio-modal:open", stopScroll);
+        window.addEventListener("portfolio-modal:close", startScroll);
 
         gsap.ticker.lagSmoothing(0);
 
         return () => {
+            window.removeEventListener("portfolio-modal:open", stopScroll);
+            window.removeEventListener("portfolio-modal:close", startScroll);
+            gsap.ticker.remove(tick);
             lenis.destroy();
-            gsap.ticker.remove((time) => lenis.raf(time * 1000));
         };
     }, []);
 

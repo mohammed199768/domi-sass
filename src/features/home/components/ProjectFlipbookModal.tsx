@@ -66,7 +66,7 @@ export default function ProjectFlipbookModal({
             role="dialog"
             aria-modal="true"
             aria-labelledby="project-flipbook-title"
-            className="realistic-book-modal portfolio-modal-scroll-lock fixed inset-0 z-[9999] flex h-[100dvh] w-screen items-center justify-center overflow-hidden overscroll-contain bg-[rgba(10,12,16,0.72)] p-2 text-[#252525] backdrop-blur-sm sm:p-4 lg:p-6"
+            className="realistic-book-modal portfolio-modal-scroll-lock fixed inset-0 z-[9999] flex h-[100dvh] w-screen items-center justify-center overflow-hidden overscroll-contain bg-[rgba(32,27,20,0.46)] p-2 text-[#252525] backdrop-blur-sm sm:p-4 lg:p-6"
             onWheelCapture={(event) => event.stopPropagation()}
             onTouchMoveCapture={(event) => event.stopPropagation()}
             onMouseDown={(event) => {
@@ -106,7 +106,7 @@ export default function ProjectFlipbookModal({
                     </button>
                 </header>
 
-                <main className="flex min-h-0 flex-1 flex-col overflow-hidden bg-[radial-gradient(circle_at_center,rgba(0,0,0,0.08),transparent_38%),linear-gradient(180deg,#f7f4ee,#ebe5da)]">
+                <main className="flex min-h-0 flex-1 flex-col overflow-hidden bg-[radial-gradient(circle_at_center,rgba(78,60,33,0.13),transparent_40%),linear-gradient(180deg,#f8f4ec,#e9dece)]">
                     <div className="flex min-h-0 flex-1 flex-col px-2 py-2 sm:px-4 sm:py-3 lg:px-6 lg:py-4">
                         <p
                             dir={isArabic ? "rtl" : "ltr"}
