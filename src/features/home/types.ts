@@ -4,4 +4,5 @@ export interface PortfolioItem {
     desc: string;
     image: string;
     link: string;
+    slug?: string;
 }

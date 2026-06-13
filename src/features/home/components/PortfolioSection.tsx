@@ -5,10 +5,12 @@ import Image from "next/image";
 import { useLanguage } from "@/context/LanguageContext";
 import { usePortfolioAnimation } from "../hooks/usePortfolioAnimation";
 import { PortfolioItem } from "../types";
+import ProjectFlipbookModal from "./ProjectFlipbookModal";
 
 export default function PortfolioSection() {
     const { t } = useLanguage();
     const { sectionRef, titleRef, cardsRef, handleMouseEnter, handleMouseLeave } = usePortfolioAnimation();
+    const [selectedProjectSlug, setSelectedProjectSlug] = React.useState<string | null>(null);
 
     return (
         <section ref={sectionRef} id="portfolio" className="py-24 relative overflow-hidden bg-background transition-colors duration-300">
@@ -25,17 +27,13 @@ export default function PortfolioSection() {
                     </p>
                 </div>
 
-                <div ref={cardsRef} className="grid md:grid-cols-3 gap-8">
-                    {t.portfolio.items.map((item: PortfolioItem, index: number) => (
-                        <a
-                            href={item.link}
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            key={index}
-                            className="block"
-                        >
+                <div ref={cardsRef} className="grid md:grid-cols-2 xl:grid-cols-4 gap-8">
+                    {t.portfolio.items.map((item: PortfolioItem, index: number) => {
+                        const hasProjectModal = Boolean(item.slug);
+                        const hasExternalLink = !hasProjectModal && item.link && item.link !== "#";
+                        const card = (
                             <div
-                                className="group relative glass-card rounded-2xl overflow-hidden h-full flex flex-col cursor-pointer border border-border"
+                                className={`group relative glass-card rounded-2xl overflow-hidden h-full flex flex-col border border-border ${hasProjectModal || hasExternalLink ? "cursor-pointer" : ""}`}
                                 onMouseEnter={handleMouseEnter}
                                 onMouseLeave={handleMouseLeave}
                             >
@@ -46,6 +44,7 @@ export default function PortfolioSection() {
                                             src={item.image}
                                             alt={item.title}
                                             fill
+                                            sizes="(max-width: 768px) 100vw, (max-width: 1280px) 50vw, 25vw"
                                             className="object-cover portfolio-img transition-transform duration-500 group-hover:scale-110"
                                         />
                                         <div className="absolute top-4 left-4 z-20">
@@ -66,12 +65,45 @@ export default function PortfolioSection() {
                                         </p>
                                     </div>
                                     <div className="flex items-center text-primary-theme font-bold group-hover:gap-2 transition-all">
-                                        View Project <span className="ml-2">&rarr;</span>
+                                        {t.portfolio.projectCTA} <span className="ml-2">&rarr;</span>
                                     </div>
                                 </div>
                             </div>
-                        </a>
-                    ))}
+                        );
+
+                        if (hasProjectModal) {
+                            return (
+                                <button
+                                    type="button"
+                                    key={index}
+                                    onClick={() => setSelectedProjectSlug(item.slug ?? null)}
+                                    className="block h-full text-left"
+                                >
+                                    {card}
+                                </button>
+                            );
+                        }
+
+                        if (hasExternalLink) {
+                            return (
+                                <a
+                                    href={item.link}
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    key={index}
+                                    className="block h-full"
+                                >
+                                    {card}
+                                </a>
+                            );
+                        }
+
+                        return (
+                            <div key={index} className="block h-full">
+                                {card}
+                            </div>
+                        );
+                    })}
                 </div>
 
                 <div className="text-center mt-20">
@@ -83,6 +115,12 @@ export default function PortfolioSection() {
                     </button>
                 </div>
             </div>
+
+            <ProjectFlipbookModal
+                open={Boolean(selectedProjectSlug)}
+                slug={selectedProjectSlug}
+                onClose={() => setSelectedProjectSlug(null)}
+            />
         </section>
     );
 }
