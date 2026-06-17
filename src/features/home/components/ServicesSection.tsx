@@ -3,12 +3,12 @@
 import React from "react";
 import { motion } from "framer-motion";
 import { useLanguage } from "@/context/LanguageContext";
-import { Code, Sparkles, Zap, Briefcase } from "lucide-react";
+import { Briefcase, LayoutDashboard, MonitorPlay, Route } from "lucide-react";
 
 const iconMap: Record<string, React.ReactNode> = {
-    consulting: <Zap className="w-10 h-10 text-secondary-theme" />,
-    marketing: <Sparkles className="w-10 h-10 text-secondary-theme" />,
-    development: <Code className="w-10 h-10 text-secondary-theme" />,
+    consulting: <LayoutDashboard className="w-10 h-10 text-secondary-theme" />,
+    marketing: <Route className="w-10 h-10 text-secondary-theme" />,
+    development: <MonitorPlay className="w-10 h-10 text-secondary-theme" />,
 };
 
 export default function ServicesSection() {

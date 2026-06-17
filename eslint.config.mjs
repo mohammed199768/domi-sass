@@ -11,6 +11,7 @@ const eslintConfig = defineConfig([
     ".next/**",
     "out/**",
     "build/**",
+    "react-pageflip-master/**",
     "next-env.d.ts",
   ]),
 ]);

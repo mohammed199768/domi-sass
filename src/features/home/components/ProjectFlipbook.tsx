@@ -34,6 +34,12 @@ type FlipEvent = {
     data: number;
 };
 
+type InitEvent = {
+    data: {
+        page: number;
+    };
+};
+
 type FlipbookPage =
     | { kind: "intro"; key: string }
     | { kind: "cover"; key: string; image: string }
@@ -67,6 +73,7 @@ type HTMLFlipBookProps = {
     disableFlipByClick: boolean;
     renderOnlyPageLengthChange?: boolean;
     onFlip?: (event: FlipEvent) => void;
+    onInit?: (event: InitEvent) => void;
     ref?: React.Ref<FlipBookHandle>;
     startPage: number;
 };
@@ -121,7 +128,13 @@ function text(value: LocalizedText | undefined, language: Language, fallback = "
 }
 
 function pageSide(pageIndex: number): PageSide {
-    return pageIndex % 2 === 0 ? "left" : "right";
+    if (pageIndex === 0) return "right";
+
+    return pageIndex % 2 === 1 ? "left" : "right";
+}
+
+function pageDensity(bookPage: FlipbookPage) {
+    return bookPage.kind === "cover" || bookPage.kind === "back" ? "hard" : "soft";
 }
 
 const PAGE_RATIO = 520 / 700;
@@ -178,23 +191,25 @@ function useMeasuredBookSize(stageRef: React.RefObject<HTMLDivElement | null>): 
 }
 
 function buildFlipbookPages(project: ProjectCaseStudy): FlipbookPage[] {
-    const pages: FlipbookPage[] = [
+    const insidePages: FlipbookPage[] = [
         { kind: "intro", key: `${project.slug}-intro` },
-        { kind: "cover", key: `${project.slug}-cover`, image: project.cover },
         ...project.pages.map((page, index) => ({
             kind: "content" as const,
             key: `${project.slug}-content-${index}-${page.image}`,
             page,
             contentIndex: index + 1,
         })),
-        { kind: "back", key: `${project.slug}-back` },
     ];
 
-    if (pages.length % 2 !== 0) {
-        pages.push({ kind: "blank", key: `${project.slug}-blank` });
+    if (insidePages.length % 2 !== 0) {
+        insidePages.push({ kind: "blank", key: `${project.slug}-blank-inside` });
     }
 
-    return pages;
+    return [
+        { kind: "cover", key: `${project.slug}-cover`, image: project.cover },
+        ...insidePages,
+        { kind: "back", key: `${project.slug}-back` },
+    ];
 }
 
 const RealBookPage = forwardRef<
@@ -232,6 +247,7 @@ const RealBookPage = forwardRef<
             <div
                 ref={ref}
                 dir={isArabic ? "rtl" : "ltr"}
+                data-density={pageDensity(bookPage)}
                 className={`realistic-book-page realistic-paper-texture h-full w-full ${sideClass}`}
             >
                 <article className={`flex h-full flex-col overflow-hidden text-[#252525] ${pagePadding}`}>
@@ -267,14 +283,16 @@ const RealBookPage = forwardRef<
             <div
                 ref={ref}
                 dir={isArabic ? "rtl" : "ltr"}
-                className={`realistic-book-page realistic-book-cover realistic-paper-texture h-full w-full ${sideClass}`}
+                data-density={pageDensity(bookPage)}
+                className={`realistic-book-page realistic-book-cover realistic-book-front-cover realistic-paper-texture h-full w-full ${sideClass}`}
             >
-                <article className={`flex h-full flex-col overflow-hidden text-[#252525] ${pagePadding}`}>
+                <article className={`relative flex h-full flex-col overflow-hidden text-[#252525] ${pagePadding}`}>
+                    <div className="realistic-cover-spine" />
                     <div
-                        className={`relative flex-none overflow-hidden rounded-[14px] border border-black/10 bg-[#f1eee7] shadow-[inset_0_1px_10px_rgba(34,28,18,0.06)] ${compact ? "p-2" : "p-3"}`}
+                        className={`relative flex-none overflow-hidden rounded-[10px] border border-white/25 bg-[#18130f] shadow-[inset_0_1px_10px_rgba(255,255,255,0.08),0_18px_34px_rgba(24,18,12,0.24)] ${compact ? "p-2" : "p-3"}`}
                         style={imageFrameStyle}
                     >
-                        <div className="relative h-full w-full overflow-hidden rounded-[10px] bg-[#e9e4da]">
+                        <div className="relative h-full w-full overflow-hidden rounded-[7px] bg-[#efe7d7]">
                             <Image
                                 src={bookPage.image}
                                 alt={`${projectTitle} cover screenshot`}
@@ -288,18 +306,18 @@ const RealBookPage = forwardRef<
                     </div>
 
                     <div className={`mt-4 min-h-0 flex-1 overflow-hidden ${isArabic ? "text-right" : "text-left"}`}>
-                        <p className={`font-black uppercase tracking-[0.22em] text-[#8b7d6b] ${compact ? "text-[9px]" : "text-xs"}`}>
+                        <p className={`font-black uppercase tracking-[0.22em] text-[#f0d7aa] ${compact ? "text-[9px]" : "text-xs"}`}>
                             {projectCategory}
                         </p>
-                        <h3 className={`mt-2 font-black leading-tight text-[#202020] ${compact ? "text-xl" : "text-3xl"}`}>
+                        <h3 className={`mt-2 font-black leading-tight text-[#fff7e8] ${compact ? "text-xl" : "text-3xl"}`}>
                             {projectTitle}
                         </h3>
-                        <p className={`mt-3 text-[#55514b] ${compact ? "line-clamp-3 text-[11px] leading-5" : "line-clamp-4 text-sm leading-6"}`}>
+                        <p className={`mt-3 text-[#ddc9aa] ${compact ? "line-clamp-3 text-[11px] leading-5" : "line-clamp-4 text-sm leading-6"}`}>
                             {projectSummary}
                         </p>
                     </div>
 
-                    <footer className={`flex flex-none items-center justify-between border-t border-black/10 pt-2 font-semibold text-[#8b7d6b] ${compact ? "text-[9px]" : "text-[11px]"}`}>
+                    <footer className={`flex flex-none items-center justify-between border-t border-white/15 pt-2 font-semibold text-[#d9be8e] ${compact ? "text-[9px]" : "text-[11px]"}`}>
                         <span>{labels[language].selected}</span>
                         <span>{pageNumber} / {totalPages}</span>
                     </footer>
@@ -318,6 +336,7 @@ const RealBookPage = forwardRef<
             <div
                 ref={ref}
                 dir={isArabic ? "rtl" : "ltr"}
+                data-density={pageDensity(bookPage)}
                 className={`realistic-book-page realistic-paper-texture h-full w-full ${sideClass}`}
             >
                 <article className={`flex h-full flex-col overflow-hidden text-[#252525] ${pagePadding}`}>
@@ -366,20 +385,22 @@ const RealBookPage = forwardRef<
             <div
                 ref={ref}
                 dir={isArabic ? "rtl" : "ltr"}
-                className={`realistic-book-page realistic-book-cover realistic-paper-texture h-full w-full ${sideClass}`}
+                data-density={pageDensity(bookPage)}
+                className={`realistic-book-page realistic-book-cover realistic-book-back-cover realistic-paper-texture h-full w-full ${sideClass}`}
             >
-                <article className={`flex h-full flex-col items-center justify-center overflow-hidden text-center text-[#252525] ${pagePadding}`}>
-                    <div className={compact ? "mb-5 h-12 w-px bg-black/15" : "mb-8 h-16 w-px bg-black/15"} />
-                    <p className="text-[11px] font-black uppercase tracking-[0.24em] text-[#8b7d6b]">
+                <article className={`relative flex h-full flex-col items-center justify-center overflow-hidden text-center text-[#fff7e8] ${pagePadding}`}>
+                    <div className="realistic-cover-spine" />
+                    <div className={compact ? "mb-5 h-12 w-px bg-white/20" : "mb-8 h-16 w-px bg-white/20"} />
+                    <p className="text-[11px] font-black uppercase tracking-[0.24em] text-[#f0d7aa]">
                         {labels[language].endTitle}
                     </p>
-                    <h4 className={`mt-5 max-w-sm font-black leading-tight text-[#202020] ${compact ? "text-xl" : "text-3xl"}`}>
+                    <h4 className={`mt-5 max-w-sm font-black leading-tight text-[#fff7e8] ${compact ? "text-xl" : "text-3xl"}`}>
                         {projectTitle}
                     </h4>
-                    <p className={`mt-5 max-w-sm text-[#55514b] ${compact ? "line-clamp-4 text-[11px] leading-5" : "line-clamp-5 text-sm leading-6"}`}>
+                    <p className={`mt-5 max-w-sm text-[#ddc9aa] ${compact ? "line-clamp-4 text-[11px] leading-5" : "line-clamp-5 text-sm leading-6"}`}>
                         {labels[language].endBody}
                     </p>
-                    <div className="mt-8 rounded-full border border-black/10 bg-white/50 px-5 py-2 text-xs font-bold tracking-[0.18em] text-[#8b7d6b]">
+                    <div className="mt-8 rounded-full border border-white/15 bg-white/10 px-5 py-2 text-xs font-bold tracking-[0.18em] text-[#d9be8e]">
                         {labels[language].brand}
                     </div>
                 </article>
@@ -391,6 +412,7 @@ const RealBookPage = forwardRef<
         <div
             ref={ref}
             dir={isArabic ? "rtl" : "ltr"}
+            data-density={pageDensity(bookPage)}
             className={`realistic-book-page realistic-paper-texture h-full w-full ${sideClass}`}
         >
             <article className={`flex h-full flex-col justify-end overflow-hidden text-[#8b7d6b] ${pagePadding}`}>
@@ -462,6 +484,7 @@ export default function ProjectFlipbook({
 
     const flipbookPages = useMemo(() => buildFlipbookPages(project), [project]);
     const totalPages = flipbookPages.length;
+    const flipbookKey = `${project.slug}-${pageWidth}x${pageHeight}-${singlePage ? "portrait" : "landscape"}`;
 
     const flipPrev = () => {
         bookRef.current?.pageFlip()?.flipPrev("bottom");
@@ -477,6 +500,7 @@ export default function ProjectFlipbook({
                 <div className="realistic-book-shadow max-h-full min-h-0">
                     {ready ? (
                         <HTMLFlipBook
+                            key={flipbookKey}
                             ref={bookRef}
                             className="realistic-book-gutter overflow-visible"
                             style={{ margin: "0 auto" }}
@@ -488,11 +512,11 @@ export default function ProjectFlipbook({
                             minHeight={300}
                             maxHeight={700}
                             drawShadow
-                            maxShadowOpacity={0.35}
-                            showCover={false}
+                            maxShadowOpacity={0.62}
+                            showCover
                             mobileScrollSupport
                             usePortrait={singlePage}
-                            flippingTime={850}
+                            flippingTime={1050}
                             startPage={0}
                             startZIndex={0}
                             autoSize={false}
@@ -502,6 +526,7 @@ export default function ProjectFlipbook({
                             showPageCorners
                             disableFlipByClick={false}
                             renderOnlyPageLengthChange
+                            onInit={(event) => setCurrentPage(event.data.page)}
                             onFlip={(event) => setCurrentPage(event.data)}
                         >
                             {flipbookPages.map((bookPage, index) => (

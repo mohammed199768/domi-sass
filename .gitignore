@@ -12,7 +12,7 @@
 
 # testing
 /coverage
-
+/react-pageflip-master
 # next.js
 /.next/
 /out/
