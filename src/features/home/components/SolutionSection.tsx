@@ -72,6 +72,8 @@ export default function SolutionSection() {
                             src="/images/solution.jpg"
                             alt="Clean organized workspace"
                             fill
+                            loading="lazy"
+                            sizes="(max-width: 1024px) 100vw, 50vw"
                             className="object-cover"
                         />
                     </motion.div>

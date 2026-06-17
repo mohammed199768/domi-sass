@@ -7,7 +7,7 @@ import {
   ServicesSection,
   PortfolioSection,
   TestimonialsSection,
-  ContactSection
+  ContactPortalSection
 } from "@/features/home";
 import Footer from "@/components/Footer";
 
@@ -21,7 +21,7 @@ export default function Home() {
       <ServicesSection />
       <PortfolioSection />
       <TestimonialsSection />
-      <ContactSection />
+      <ContactPortalSection />
       <Footer />
     </main>
   );

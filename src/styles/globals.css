@@ -16,7 +16,7 @@
   --color-secondary-theme: var(--secondary);
   --color-muted: var(--muted);
 
-  /* Preserve original color names for compatibility if needed, but pointed to tokens */
+  /* Preserve original color names for compatibility */
   --color-primary: var(--primary);
   --color-secondary: var(--secondary);
 }
@@ -24,31 +24,23 @@
 :root {
   --bg: #ffffff;
   --fg: #111827;
-  /* gray-900 */
   --surface: #ffffff;
   --surface-hover: #f9fafb;
-  /* gray-50 */
   --border: #e5e7eb;
-  /* gray-200 */
   --primary: #0D3B66;
   --secondary: #FF7F11;
   --muted: #4b5563;
-  /* gray-600 */
 }
 
 .dark {
   --bg: #050505;
   --fg: #f9fafb;
-  /* gray-50 */
   --surface: #121212;
   --surface-hover: #1a1a1a;
   --border: rgba(255, 255, 255, 0.1);
   --primary: #2DD4BF;
-  /* Teal Neon */
   --secondary: #F472B6;
-  /* Pink Neon */
   --muted: #9ca3af;
-  /* gray-400 */
 }
 
 @layer base {
@@ -56,311 +48,55 @@
     @apply bg-background text-foreground antialiased transition-colors duration-300 ease-in-out font-sans;
   }
 
-  h1,
-  h2,
-  h3,
-  h4,
-  h5,
-  h6 {
+  h1, h2, h3, h4, h5, h6 {
     @apply font-bold text-foreground;
   }
 }
 
-/* Glassmorphism Utility - Updated to use tokens */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    scroll-behavior: auto !important;
+    transition-duration: 0.001ms !important;
+  }
+}
+
+/* Glassmorphism utilities */
 .glass {
   @apply backdrop-blur-xl border border-border shadow-xl transition-all duration-300;
-  background-color: var(--surface);
-  /* Fallback for older browsers */
   background-color: color-mix(in srgb, var(--surface) 70%, transparent);
 }
 
 .glass-card {
   @apply backdrop-blur-md border border-border shadow-lg hover:shadow-2xl transition-all duration-300;
-  background-color: var(--surface);
-  /* Fallback for older browsers */
   background-color: color-mix(in srgb, var(--surface) 60%, transparent);
 }
 
 @layer components {
+  /* Scroll-lock applied by gallery modal */
   .portfolio-modal-scroll-lock {
     overscroll-behavior: contain;
   }
+}
 
-  .realistic-book-modal {
-    height: 100dvh;
-    overflow: hidden;
-    overscroll-behavior: contain;
-  }
+/* Gallery modal image cross-fade */
+@keyframes showcase-img-fade {
+  from { opacity: 0; transform: scale(1.018); }
+  to   { opacity: 1; transform: scale(1); }
+}
 
-  .realistic-book-shell {
-    max-height: 100dvh;
-    overflow: hidden;
-  }
+.showcase-img-fade {
+  animation: showcase-img-fade 0.28s ease-out both;
+}
 
-  .realistic-book-stage {
-    min-height: 0;
-    overflow: hidden;
-    perspective: 1800px;
-  }
-
-  .realistic-book-shadow {
-    position: relative;
-    width: max-content;
-    max-width: 100%;
-  }
-
-  .realistic-book-shadow::after {
-    content: "";
-    position: absolute;
-    left: 8%;
-    right: 8%;
-    bottom: -18px;
-    height: 42px;
-    pointer-events: none;
-    background: radial-gradient(ellipse at center, rgba(42, 34, 23, 0.32), transparent 68%);
-    filter: blur(8px);
-  }
-
-  .realistic-book-gutter {
-    position: relative;
-    filter: drop-shadow(0 24px 34px rgba(38, 30, 18, 0.24));
-  }
-
-  .realistic-book-gutter .stf__block {
-    overflow: visible !important;
-  }
-
-  .realistic-book-gutter .stf__item {
-    backface-visibility: hidden;
-    transform-style: preserve-3d;
-    will-change: transform, clip-path;
-  }
-
-  .realistic-book-gutter .stf__item.--hard {
-    filter: drop-shadow(0 18px 28px rgba(24, 18, 12, 0.22));
-  }
-
-  .realistic-book-gutter .stf__item.--soft {
-    filter: drop-shadow(0 6px 14px rgba(57, 44, 25, 0.08));
-  }
-
-  .realistic-book-gutter::before {
-    content: "";
-    position: absolute;
-    top: 2%;
-    bottom: 2%;
-    left: 50%;
-    z-index: 40;
-    width: 22px;
-    pointer-events: none;
-    transform: translateX(-50%);
-    background: linear-gradient(
-      90deg,
-      rgba(42, 34, 23, 0),
-      rgba(42, 34, 23, 0.16),
-      rgba(255, 255, 255, 0.48),
-      rgba(42, 34, 23, 0.13),
-      rgba(42, 34, 23, 0)
-    );
-    opacity: 0.72;
-  }
-
-  .realistic-book-page {
-    overflow: hidden;
-    border-radius: 3px;
-    background:
-      linear-gradient(90deg, rgba(255, 255, 255, 0.72), rgba(255, 255, 255, 0) 16%),
-      linear-gradient(180deg, #fffef9, #f7f0e5);
-    border: 1px solid rgba(55, 44, 28, 0.1);
-    box-shadow:
-      inset 0 0 0 1px rgba(255, 255, 255, 0.78),
-      inset 0 -18px 35px rgba(72, 55, 31, 0.045),
-      0 12px 28px rgba(42, 34, 23, 0.12);
-  }
-
-  .realistic-book-page > * {
-    position: relative;
-    z-index: 1;
-  }
-
-  .realistic-paper-texture::before {
-    content: "";
-    position: absolute;
-    inset: 0;
-    z-index: 0;
-    pointer-events: none;
-    opacity: 0.34;
-    background-image:
-      radial-gradient(rgba(50, 38, 20, 0.045) 0.55px, transparent 0.55px),
-      linear-gradient(90deg, rgba(118, 93, 55, 0.025), transparent 22%, transparent 78%, rgba(118, 93, 55, 0.03));
-    background-size: 6px 6px, 100% 100%;
-    mix-blend-mode: multiply;
-  }
-
-  .realistic-book-page::before {
-    content: "";
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    z-index: 2;
-    width: 20px;
-    pointer-events: none;
-  }
-
-  .realistic-book-page-left::before {
-    right: 0;
-    background: linear-gradient(90deg, transparent, rgba(42, 34, 23, 0.15));
-  }
-
-  .realistic-book-page-right::before {
-    left: 0;
-    background: linear-gradient(270deg, transparent, rgba(42, 34, 23, 0.15));
-  }
-
-  .realistic-book-page::after {
-    content: "";
-    position: absolute;
-    top: 4px;
-    bottom: 4px;
-    z-index: 0;
-    width: 5px;
-    pointer-events: none;
-    background: repeating-linear-gradient(
-      180deg,
-      rgba(80, 62, 35, 0.12) 0,
-      rgba(80, 62, 35, 0.12) 1px,
-      rgba(255, 255, 255, 0.1) 1px,
-      rgba(255, 255, 255, 0.1) 3px
-    );
-    opacity: 0.5;
-  }
-
-  .realistic-book-page-left::after {
-    left: 0;
-  }
-
-  .realistic-book-page-right::after {
-    right: 0;
-  }
-
-  .realistic-book-cover {
-    background:
-      radial-gradient(circle at 28% 18%, rgba(255, 238, 190, 0.18), transparent 28%),
-      linear-gradient(145deg, #21150e 0%, #4a2f1c 48%, #1b110c 100%);
-    border-color: rgba(255, 236, 196, 0.2);
-    box-shadow:
-      inset 0 0 0 1px rgba(255, 247, 230, 0.16),
-      inset 0 0 28px rgba(255, 244, 218, 0.08),
-      inset 0 -34px 60px rgba(0, 0, 0, 0.18),
-      0 22px 48px rgba(25, 18, 11, 0.24);
-  }
-
-  .realistic-book-front-cover::before,
-  .realistic-book-back-cover::before {
-    width: 28px;
-    background: linear-gradient(90deg, rgba(255, 255, 255, 0.08), rgba(0, 0, 0, 0.28));
-  }
-
-  .realistic-book-front-cover::after,
-  .realistic-book-back-cover::after {
-    top: 0;
-    bottom: 0;
-    width: 12px;
-    background:
-      linear-gradient(90deg, rgba(255, 245, 220, 0.18), rgba(255, 255, 255, 0)),
-      repeating-linear-gradient(
-        180deg,
-        rgba(255, 235, 188, 0.1) 0,
-        rgba(255, 235, 188, 0.1) 1px,
-        rgba(38, 25, 15, 0.12) 1px,
-        rgba(38, 25, 15, 0.12) 4px
-      );
-    opacity: 0.7;
-  }
-
-  .realistic-book-front-cover.realistic-book-page-right::after {
-    left: 0;
-    right: auto;
-  }
-
-  .realistic-book-back-cover.realistic-book-page-left::after {
-    left: auto;
-    right: 0;
-  }
-
-  .realistic-cover-spine {
-    position: absolute;
-    inset-block: 0;
-    width: 18px;
-    pointer-events: none;
-    background: linear-gradient(
-      90deg,
-      rgba(0, 0, 0, 0.34),
-      rgba(255, 240, 206, 0.12),
-      rgba(0, 0, 0, 0.22)
-    );
-    opacity: 0.76;
-    z-index: 3;
-  }
-
-  .realistic-book-front-cover .realistic-cover-spine {
-    left: 0;
-  }
-
-  .realistic-book-back-cover .realistic-cover-spine {
-    right: 0;
-  }
-
-  .realistic-book-controls {
-    width: fit-content;
-    margin-inline: auto;
-    border-radius: 999px;
-    border: 1px solid rgba(48, 39, 27, 0.12);
-    background: rgba(255, 252, 246, 0.84);
-    box-shadow:
-      0 14px 35px rgba(40, 30, 18, 0.12),
-      inset 0 1px 0 rgba(255, 255, 255, 0.82);
-    backdrop-filter: blur(14px);
-  }
-
-  .realistic-book-controls button,
-  .realistic-book-controls > div > div {
-    border-color: rgba(48, 39, 27, 0.14) !important;
-    background: #fffdf8 !important;
-  }
-
-  .realistic-book-controls button:hover:not(:disabled) {
-    background: #f4eadb !important;
-  }
-
-  .realistic-book-controls button:disabled {
-    opacity: 0.38;
-  }
-
-  @media (max-width: 760px) {
-    .realistic-book-gutter::before {
-      display: none;
-    }
-
-    .realistic-book-shadow::after {
-      left: 18%;
-      right: 18%;
-      bottom: -14px;
-    }
-
-    .realistic-book-controls {
-      max-width: calc(100vw - 2rem);
-    }
-  }
-
-  @media (max-height: 700px) {
-    .realistic-book-summary {
-      display: none;
-    }
+@media (prefers-reduced-motion: reduce) {
+  .showcase-img-fade {
+    animation: none;
   }
 }
 
-/* Hide scrollbar for "App-like" feel on mobile sometimes */
+/* Hide scrollbar for app-like feel */
 @layer utilities {
   .no-scrollbar::-webkit-scrollbar {
     display: none;
@@ -368,7 +104,6 @@
 
   .no-scrollbar {
     -ms-overflow-style: none;
-    /* IE and Edge */
   }
 
   @supports (scrollbar-width: none) {

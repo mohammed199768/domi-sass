@@ -13,6 +13,9 @@ const eslintConfig = defineConfig([
     "build/**",
     "react-pageflip-master/**",
     "next-env.d.ts",
+    // Standalone Node.js utility scripts — not part of the Next.js app
+    "compress-images.js",
+    "compress-images.mjs",
   ]),
 ]);
 

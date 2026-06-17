@@ -19,8 +19,8 @@ const cairo = Cairo({
 });
 
 export const metadata: Metadata = {
-  title: "Mohammad Aldomi - Frontend Developer",
-  description: "Portfolio of Mohammad Aldomi, a Frontend Developer creating unforgettable digital experiences.",
+  title: "Mohammed Aldomi - Digital Product Builder",
+  description: "Portfolio of Mohammed Aldomi, a Frontend Engineer building cinematic websites, SaaS interfaces, and operational digital systems.",
 };
 
 export default function RootLayout({

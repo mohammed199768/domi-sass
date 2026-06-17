@@ -12,6 +12,7 @@
 
 # testing
 /coverage
+/inspiration-repos
 /react-pageflip-master
 # next.js
 /.next/

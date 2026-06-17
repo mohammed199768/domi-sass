@@ -3,24 +3,10 @@
 import React from "react";
 import { Home, User, Briefcase, Mail, Layers } from "lucide-react";
 import { useLanguage } from "@/context/LanguageContext";
+import { scrollToSection } from "@/lib/motion/scrollToSection";
 
 export default function MobileNav() {
     const { t } = useLanguage();
-
-    const scrollTo = (href: string) => {
-        const element = document.querySelector(href);
-        if (element) {
-            const offset = 80;
-            const elementPosition = element.getBoundingClientRect().top;
-            const offsetPosition = elementPosition + window.pageYOffset - offset;
-            window.scrollTo({
-                top: offsetPosition,
-                behavior: "smooth"
-            });
-        } else if (href === "#home") {
-            window.scrollTo({ top: 0, behavior: "smooth" });
-        }
-    };
 
     const navItems = [
         { icon: Home, label: t.nav.home, href: "#home" },
@@ -36,7 +22,8 @@ export default function MobileNav() {
                 {navItems.map((item) => (
                     <button
                         key={item.label}
-                        onClick={() => scrollTo(item.href)}
+                        onClick={() => scrollToSection(item.href)}
+                        aria-label={item.label}
                         className="flex flex-col items-center gap-1 text-muted hover:text-primary-theme transition-colors"
                     >
                         <item.icon className="w-6 h-6" />

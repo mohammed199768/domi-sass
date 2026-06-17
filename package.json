@@ -6,7 +6,8 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "eslint"
+    "lint": "eslint",
+    "compress": "node compress-images.mjs"
   },
   "dependencies": {
     "clsx": "^2.1.1",
@@ -18,7 +19,7 @@
     "next-themes": "^0.4.6",
     "react": "19.2.1",
     "react-dom": "19.2.1",
-    "react-pageflip": "^2.0.3",
+    "sharp": "^0.35.1",
     "tailwind-merge": "^3.4.0"
   },
   "devDependencies": {

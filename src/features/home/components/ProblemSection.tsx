@@ -24,6 +24,8 @@ export default function ProblemSection() {
                             src="/images/problem.jpg"
                             alt="Cluttered desk with papers and notes"
                             fill
+                            loading="lazy"
+                            sizes="(max-width: 1024px) 100vw, 50vw"
                             className="object-cover"
                         />
                     </motion.div>

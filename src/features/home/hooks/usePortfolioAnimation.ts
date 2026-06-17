@@ -1,76 +1,94 @@
 import { useEffect, useRef } from "react";
-import gsap from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
-
-// Ensure plugin is registered. Note: Next.js HMR might warn about multiple registrations, which is fine.
-if (typeof window !== "undefined") {
-    gsap.registerPlugin(ScrollTrigger);
-}
+import { gsap, registerMotionPlugins, ScrollTrigger } from "@/lib/motion/gsapSetup";
+import { useReducedMotion } from "@/lib/motion/useReducedMotion";
 
 export function usePortfolioAnimation() {
     const sectionRef = useRef<HTMLElement>(null);
     const titleRef = useRef<HTMLDivElement>(null);
     const cardsRef = useRef<HTMLDivElement>(null);
+    const orbRef = useRef<HTMLDivElement>(null);
+    const prefersReducedMotion = useReducedMotion();
 
     useEffect(() => {
+        registerMotionPlugins();
+
+        if (prefersReducedMotion) {
+            gsap.set([titleRef.current, cardsRef.current, orbRef.current], { clearProps: "all" });
+            return;
+        }
+
         const ctx = gsap.context(() => {
-            // Title Animation
-            gsap.from(titleRef.current?.children || [], {
-                y: 50,
+            // Section heading reveal
+            gsap.from(titleRef.current?.children ?? [], {
+                y: 40,
                 opacity: 0,
-                duration: 1,
-                stagger: 0.2,
+                duration: 0.9,
+                stagger: 0.18,
                 ease: "power3.out",
                 scrollTrigger: {
                     trigger: titleRef.current,
-                    start: "top 80%",
-                }
+                    start: "top 82%",
+                },
             });
 
-            // Cards Animation
-            const cards = cardsRef.current?.children || [];
+            // Soft ambient orb
+            gsap.fromTo(
+                orbRef.current,
+                { scale: 0.45, opacity: 0.16 },
+                {
+                    scale: 1.22,
+                    opacity: 0.38,
+                    ease: "none",
+                    scrollTrigger: {
+                        trigger: sectionRef.current,
+                        start: "top 85%",
+                        end: "top 20%",
+                        scrub: 0.9,
+                        invalidateOnRefresh: true,
+                    },
+                }
+            );
+
+            // Grid cards stagger reveal
+            const cards = cardsRef.current?.children ?? [];
             gsap.from(cards, {
-                y: 100,
+                y: 60,
                 opacity: 0,
-                duration: 0.8,
-                stagger: 0.2,
-                ease: "back.out(1.7)",
+                duration: 0.7,
+                stagger: 0.1,
+                ease: "back.out(1.4)",
                 scrollTrigger: {
                     trigger: cardsRef.current,
-                    start: "top 75%",
-                }
+                    start: "top 78%",
+                },
             });
-
         }, sectionRef);
 
+        ScrollTrigger.refresh();
+
         return () => ctx.revert();
-    }, []);
+    }, [prefersReducedMotion]);
 
     const handleMouseEnter = (e: React.MouseEvent<HTMLDivElement>) => {
         const image = e.currentTarget.querySelector(".portfolio-img");
-        const category = e.currentTarget.querySelector(".portfolio-cat");
         const overlay = e.currentTarget.querySelector(".portfolio-overlay");
-
-        if (image) gsap.to(image, { scale: 1.1, duration: 0.5, ease: "power2.out" });
-        if (category) gsap.to(category, { y: -5, opacity: 1, duration: 0.3 });
-        if (overlay) gsap.to(overlay, { opacity: 1, duration: 0.3 });
+        if (image) gsap.to(image, { scale: 1.08, duration: 0.45, ease: "power2.out" });
+        if (overlay) gsap.to(overlay, { opacity: 1, duration: 0.25 });
     };
 
     const handleMouseLeave = (e: React.MouseEvent<HTMLDivElement>) => {
         const image = e.currentTarget.querySelector(".portfolio-img");
-        const category = e.currentTarget.querySelector(".portfolio-cat");
         const overlay = e.currentTarget.querySelector(".portfolio-overlay");
-
-        if (image) gsap.to(image, { scale: 1, duration: 0.5, ease: "power2.out" });
-        if (category) gsap.to(category, { y: 0, opacity: 1, duration: 0.3 });
-        if (overlay) gsap.to(overlay, { opacity: 0, duration: 0.3 });
+        if (image) gsap.to(image, { scale: 1, duration: 0.45, ease: "power2.out" });
+        if (overlay) gsap.to(overlay, { opacity: 0, duration: 0.25 });
     };
 
     return {
         sectionRef,
         titleRef,
         cardsRef,
+        orbRef,
         handleMouseEnter,
-        handleMouseLeave
+        handleMouseLeave,
     };
 }

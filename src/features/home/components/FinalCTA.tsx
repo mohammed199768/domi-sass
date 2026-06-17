@@ -3,6 +3,7 @@
 import React from "react";
 import { motion } from "framer-motion";
 import { useLanguage } from "@/context/LanguageContext";
+import { scrollToSection } from "@/lib/motion/scrollToSection";
 
 export default function FinalCTA() {
     const { t } = useLanguage();
@@ -29,7 +30,7 @@ export default function FinalCTA() {
                         <motion.button
                             whileHover={{ scale: 1.05 }}
                             whileTap={{ scale: 0.95 }}
-                            onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
+                            onClick={() => scrollToSection("#contact")}
                             className="px-8 py-4 bg-secondary-theme text-background font-black rounded-full shadow-2xl hover:shadow-secondary-theme/40 transition-all duration-300"
                         >
                             {t.finalCTA.primaryCTA}
@@ -37,7 +38,7 @@ export default function FinalCTA() {
                         <motion.button
                             whileHover={{ scale: 1.05 }}
                             whileTap={{ scale: 0.95 }}
-                            onClick={() => document.getElementById('portfolio')?.scrollIntoView({ behavior: 'smooth' })}
+                            onClick={() => scrollToSection("#portfolio")}
                             className="px-8 py-4 bg-transparent text-background font-bold border-2 border-background rounded-full hover:bg-background hover:text-primary-theme transition-all duration-300"
                         >
                             {t.finalCTA.secondaryCTA}

@@ -5,20 +5,30 @@ import Image from "next/image";
 import { useLanguage } from "@/context/LanguageContext";
 import { usePortfolioAnimation } from "../hooks/usePortfolioAnimation";
 import { PortfolioItem } from "../types";
-import ProjectFlipbookModal from "./ProjectFlipbookModal";
+import ProjectShowcaseModal from "./ProjectShowcaseModal";
 
 export default function PortfolioSection() {
     const { t } = useLanguage();
-    const { sectionRef, titleRef, cardsRef, handleMouseEnter, handleMouseLeave } = usePortfolioAnimation();
+    const { sectionRef, titleRef, cardsRef, orbRef, handleMouseEnter, handleMouseLeave } =
+        usePortfolioAnimation();
     const [selectedProjectSlug, setSelectedProjectSlug] = React.useState<string | null>(null);
 
     return (
-        <section ref={sectionRef} id="portfolio" className="py-24 relative overflow-hidden bg-background transition-colors duration-300">
+        <section
+            ref={sectionRef}
+            id="portfolio"
+            className="py-24 relative overflow-hidden bg-background transition-colors duration-300"
+        >
             {/* Background decoration */}
             <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-b from-transparent to-surface-hover/50 -z-10" />
+            <div
+                ref={orbRef}
+                className="pointer-events-none absolute left-1/2 top-20 h-48 w-48 -translate-x-1/2 rounded-full bg-foreground/10 blur-3xl dark:bg-primary-theme/10"
+            />
 
             <div className="max-w-7xl mx-auto px-6">
-                <div ref={titleRef} className="text-center max-w-3xl mx-auto mb-20 space-y-4">
+                {/* Section heading */}
+                <div ref={titleRef} className="text-center max-w-3xl mx-auto mb-16 space-y-4">
                     <h2 className="text-4xl md:text-5xl font-bold text-foreground leading-tight">
                         {t.portfolio.title}
                     </h2>
@@ -27,46 +37,57 @@ export default function PortfolioSection() {
                     </p>
                 </div>
 
-                <div ref={cardsRef} className="grid md:grid-cols-2 xl:grid-cols-4 gap-8">
+                {/* Gallery grid */}
+                <div
+                    ref={cardsRef}
+                    className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-5"
+                >
                     {t.portfolio.items.map((item: PortfolioItem, index: number) => {
                         const hasProjectModal = Boolean(item.slug);
-                        const hasExternalLink = !hasProjectModal && item.link && item.link !== "#";
+                        const hasExternalLink =
+                            !hasProjectModal && item.link && item.link !== "#";
+
                         const card = (
                             <div
-                                className={`group relative glass-card rounded-2xl overflow-hidden h-full flex flex-col border border-border ${hasProjectModal || hasExternalLink ? "cursor-pointer" : ""}`}
+                                className={`group relative glass-card rounded-2xl overflow-hidden border border-border flex flex-col ${hasProjectModal || hasExternalLink ? "cursor-pointer" : ""}`}
                                 onMouseEnter={handleMouseEnter}
                                 onMouseLeave={handleMouseLeave}
                             >
-                                <div className="p-4 bg-transparent">
-                                    <div className="relative h-64 overflow-hidden rounded-xl bg-surface-hover border border-border group-hover:border-primary-theme/30 transition-all duration-300">
-                                        <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity z-10 portfolio-overlay" />
-                                        <Image
-                                            src={item.image}
-                                            alt={item.title}
-                                            fill
-                                            sizes="(max-width: 768px) 100vw, (max-width: 1280px) 50vw, 25vw"
-                                            className="object-cover portfolio-img transition-transform duration-500 group-hover:scale-110"
-                                        />
-                                        <div className="absolute top-4 left-4 z-20">
-                                            <span className="bg-surface/90 backdrop-blur-md px-4 py-1.5 rounded-full text-sm font-bold text-foreground shadow-sm portfolio-cat border border-border">
-                                                {item.category}
-                                            </span>
-                                        </div>
+                                {/* Image tile */}
+                                <div className="relative aspect-[4/3] overflow-hidden bg-surface-hover">
+                                    <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-10 portfolio-overlay" />
+                                    <Image
+                                        src={item.image}
+                                        alt={item.title}
+                                        fill
+                                        loading="lazy"
+                                        sizes="(max-width: 640px) 100vw, (max-width: 1280px) 50vw, 25vw"
+                                        className="object-cover portfolio-img transition-transform duration-500 group-hover:scale-105"
+                                    />
+                                    {/* Hover overlay text */}
+                                    <div className="absolute bottom-0 inset-x-0 z-20 p-4 translate-y-2 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-300">
+                                        <p className="text-[10px] font-black uppercase tracking-[0.2em] text-white/70 mb-1">
+                                            {item.category}
+                                        </p>
+                                        <p className="text-sm font-bold text-white leading-snug">
+                                            {item.title}
+                                        </p>
                                     </div>
                                 </div>
 
-                                <div className="p-8 flex-1 flex flex-col justify-between relative z-20 bg-transparent">
-                                    <div>
-                                        <h3 className="text-2xl font-bold text-foreground mb-3 group-hover:text-primary-theme transition-colors">
+                                {/* Card footer */}
+                                <div className="px-5 py-4 flex items-center justify-between gap-3 bg-transparent">
+                                    <div className="min-w-0">
+                                        <div className="text-[10px] font-black uppercase tracking-[0.2em] text-muted/50 mb-0.5">
+                                            {String(index + 1).padStart(2, "0")} · {item.category}
+                                        </div>
+                                        <h3 className="text-sm font-bold text-foreground truncate group-hover:text-primary-theme transition-colors">
                                             {item.title}
                                         </h3>
-                                        <p className="text-muted leading-relaxed mb-6">
-                                            {item.desc}
-                                        </p>
                                     </div>
-                                    <div className="flex items-center text-primary-theme font-bold group-hover:gap-2 transition-all">
-                                        {t.portfolio.projectCTA} <span className="ml-2">&rarr;</span>
-                                    </div>
+                                    <span className="flex-none text-primary-theme font-bold text-sm group-hover:translate-x-0.5 transition-transform">
+                                        →
+                                    </span>
                                 </div>
                             </div>
                         );
@@ -77,7 +98,8 @@ export default function PortfolioSection() {
                                     type="button"
                                     key={index}
                                     onClick={() => setSelectedProjectSlug(item.slug ?? null)}
-                                    className="block h-full text-left"
+                                    className="block text-left"
+                                    aria-label={`Open ${item.title} case study`}
                                 >
                                     {card}
                                 </button>
@@ -91,7 +113,7 @@ export default function PortfolioSection() {
                                     target="_blank"
                                     rel="noopener noreferrer"
                                     key={index}
-                                    className="block h-full"
+                                    className="block"
                                 >
                                     {card}
                                 </a>
@@ -99,16 +121,17 @@ export default function PortfolioSection() {
                         }
 
                         return (
-                            <div key={index} className="block h-full">
+                            <div key={index} className="block">
                                 {card}
                             </div>
                         );
                     })}
                 </div>
 
-                <div className="text-center mt-20">
+                {/* CTA */}
+                <div className="text-center mt-16">
                     <button
-                        onClick={() => window.open('https://github.com/mohammed199768', '_blank')}
+                        onClick={() => window.open("https://github.com/mohammed199768", "_blank")}
                         className="px-10 py-4 bg-foreground text-background font-bold rounded-full hover:scale-105 transition-all duration-300 shadow-lg shadow-foreground/10"
                     >
                         {t.portfolio.cta}
@@ -116,7 +139,8 @@ export default function PortfolioSection() {
                 </div>
             </div>
 
-            <ProjectFlipbookModal
+            {/* Project showcase modal */}
+            <ProjectShowcaseModal
                 open={Boolean(selectedProjectSlug)}
                 slug={selectedProjectSlug}
                 onClose={() => setSelectedProjectSlug(null)}

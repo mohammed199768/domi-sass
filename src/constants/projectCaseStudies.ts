@@ -35,10 +35,10 @@ export const projectCaseStudies: Record<string, ProjectCaseStudy> = {
             en: "A complete venue platform shaped as a premium public experience, booking flow, checkout, admin system, and guest memory layer.",
             ar: "منصة متكاملة للقاعات تجمع بين تجربة عامة فاخرة، مسار حجز، دفع، إدارة، وطبقة ذكريات للضيوف.",
         },
-        cover: "/assest/hero-page2.png",
+        cover: "/assest/resize/qaser-alfarah.png",
         pages: [
             {
-                image: "/assest/hero-page2.png",
+                image: "/assest/resize/qaser-alfarah.png",
                 eyebrow: {
                     en: "Brand Entrance",
                     ar: "مدخل العلامة",
@@ -53,7 +53,7 @@ export const projectCaseStudies: Record<string, ProjectCaseStudy> = {
                 },
             },
             {
-                image: "/assest/booking-page.png",
+                image: "/assest/resize/qaser-alfarah1.png",
                 eyebrow: {
                     en: "Booking Flow",
                     ar: "مسار الحجز",
@@ -68,7 +68,7 @@ export const projectCaseStudies: Record<string, ProjectCaseStudy> = {
                 },
             },
             {
-                image: "/assest/admin-dashboard-wedding-page.png",
+                image: "/assest/resize/qaser-alfarah2.png",
                 eyebrow: {
                     en: "Admin System",
                     ar: "لوحة الإدارة",
@@ -80,6 +80,21 @@ export const projectCaseStudies: Record<string, ProjectCaseStudy> = {
                 body: {
                     en: "Admin screens help manage wedding data, requests, and operational details from one structured place.",
                     ar: "شاشات الإدارة تساعد على تنظيم بيانات الحفلات والطلبات والتفاصيل التشغيلية من مكان واحد.",
+                },
+            },
+            {
+                image: "/assest/resize/qaser-alfarah3.png",
+                eyebrow: {
+                    en: "Guest Experience",
+                    ar: "تجربة الضيوف",
+                },
+                title: {
+                    en: "A memorable guest layer",
+                    ar: "طبقة ذكريات لا تُنسى",
+                },
+                body: {
+                    en: "Digital invitations, RSVP, and photo uploads give guests a connected experience around the event.",
+                    ar: "الدعوات الرقمية وتأكيد الحضور ورفع الصور يمنحان الضيوف تجربة تفاعلية حول الحدث.",
                 },
             },
         ],
@@ -130,6 +145,36 @@ export const projectCaseStudies: Record<string, ProjectCaseStudy> = {
                     ar: "التصميم الصحي يمكن أن يكون إنسانيا وواضحا وموثوقا دون أن يبدو باردا.",
                 },
             },
+            {
+                image: "/assest/curevie2.jpeg",
+                eyebrow: {
+                    en: "Service Detail",
+                    ar: "تفاصيل الخدمة",
+                },
+                title: {
+                    en: "Depth behind the clean surface",
+                    ar: "عمق خلف السطح النظيف",
+                },
+                body: {
+                    en: "Individual service and specialty sections carry the brand clarity deeper into the experience.",
+                    ar: "أقسام الخدمات والتخصصات الفردية تحمل وضوح العلامة إلى أعماق التجربة.",
+                },
+            },
+            {
+                image: "/assest/curevie4.jpeg",
+                eyebrow: {
+                    en: "Patient Journey",
+                    ar: "رحلة المريض",
+                },
+                title: {
+                    en: "A flow built around trust",
+                    ar: "مسار مبني حول الثقة",
+                },
+                body: {
+                    en: "Clear steps and calm visual cues guide users through the healthcare journey with confidence.",
+                    ar: "خطوات واضحة وإشارات بصرية هادئة ترشد المستخدم عبر رحلته الصحية بثقة.",
+                },
+            },
         ],
     },
     "horvath-survey": {
@@ -146,10 +191,10 @@ export const projectCaseStudies: Record<string, ProjectCaseStudy> = {
             en: "A structured survey experience where clarity, input focus, and business usefulness lead the interface.",
             ar: "تجربة استبيان منظمة تقودها وضوح النماذج وتركيز الإدخال وقيمة البيانات للأعمال.",
         },
-        cover: "/assest/horvath1.jpeg",
+        cover: "/assest/resize/horvath1.jpg",
         pages: [
             {
-                image: "/assest/horvath1.jpeg",
+                image: "/assest/resize/horvath1.jpg",
                 eyebrow: {
                     en: "Survey Experience",
                     ar: "تجربة الاستبيان",
@@ -164,7 +209,7 @@ export const projectCaseStudies: Record<string, ProjectCaseStudy> = {
                 },
             },
             {
-                image: "/assest/horvath.jpeg",
+                image: "/assest/resize/horvath.jpg",
                 eyebrow: {
                     en: "Business Clarity",
                     ar: "وضوح الأعمال",
@@ -194,10 +239,10 @@ export const projectCaseStudies: Record<string, ProjectCaseStudy> = {
             en: "An education interface concept shaped around calm learning paths, organized content, and a polished student experience.",
             ar: "تصور لواجهة تعليمية مبنية حول مسارات تعلم هادئة ومحتوى منظم وتجربة طلابية مصقولة.",
         },
-        cover: "/assest/t%20(4).png",
+        cover: "/assest/resize/manal-alhihi3.png",
         pages: [
             {
-                image: "/assest/t%20(4).png",
+                image: "/assest/resize/manal-alhihi3.png",
                 eyebrow: {
                     en: "Learning Platform",
                     ar: "منصة تعليمية",
@@ -212,7 +257,7 @@ export const projectCaseStudies: Record<string, ProjectCaseStudy> = {
                 },
             },
             {
-                image: "/assest/t.png",
+                image: "/assest/resize/manal-alhihi1.png",
                 eyebrow: {
                     en: "Course Structure",
                     ar: "هيكلة المحتوى",
