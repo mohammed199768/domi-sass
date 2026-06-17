@@ -1,13 +1,57 @@
 "use client";
 
-import React from "react";
+import React, { useState } from "react";
 import Image from "next/image";
 import { motion } from "framer-motion";
 import { useLanguage } from "@/context/LanguageContext";
 import { Mail, MapPin, Phone } from "lucide-react";
 
+const FORMSPREE_ENDPOINT = "https://formspree.io/f/xrevvlod";
+
+const formStatusText = {
+    en: {
+        sending: "Sending...",
+        success: "Message sent. I will get back to you soon.",
+        error: "Something went wrong. Please try again or email me directly.",
+    },
+    ar: {
+        sending: "جاري الإرسال...",
+        success: "تم إرسال الرسالة. سأرد عليك قريباً.",
+        error: "حدث خطأ أثناء الإرسال. حاول مرة أخرى أو راسلني مباشرة.",
+    },
+};
+
 export default function ContactSection() {
-    const { t, dir } = useLanguage();
+    const { t, dir, language } = useLanguage();
+    const [formStatus, setFormStatus] = useState<"idle" | "sending" | "success" | "error">("idle");
+
+    const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
+        event.preventDefault();
+
+        const form = event.currentTarget;
+        const formData = new FormData(form);
+
+        setFormStatus("sending");
+
+        try {
+            const response = await fetch(FORMSPREE_ENDPOINT, {
+                method: "POST",
+                body: formData,
+                headers: {
+                    Accept: "application/json",
+                },
+            });
+
+            if (!response.ok) {
+                throw new Error("Formspree request failed");
+            }
+
+            form.reset();
+            setFormStatus("success");
+        } catch {
+            setFormStatus("error");
+        }
+    };
 
     return (
         <section id="contact" className="py-20 bg-foreground text-background transition-colors duration-300">
@@ -66,14 +110,18 @@ export default function ContactSection() {
                         viewport={{ once: true }}
                         className="bg-surface rounded-3xl p-8 lg:p-10 text-foreground shadow-2xl border border-border"
                     >
-                        <form className="space-y-6">
+                        <form className="space-y-6" onSubmit={handleSubmit}>
+                            <input type="hidden" name="_subject" value="New portfolio contact message" />
                             <div>
                                 <label htmlFor="name" className="block text-sm font-bold text-muted mb-2">
                                     {t.contact.form.name}
                                 </label>
                                 <input
                                     id="name"
+                                    name="name"
                                     type="text"
+                                    required
+                                    autoComplete="name"
                                     className="w-full px-4 py-3 rounded-lg bg-surface-hover border border-border focus:border-primary-theme focus:ring-2 focus:ring-primary-theme/20 outline-none transition-all text-foreground"
                                 />
                             </div>
@@ -83,7 +131,10 @@ export default function ContactSection() {
                                 </label>
                                 <input
                                     id="email"
+                                    name="email"
                                     type="email"
+                                    required
+                                    autoComplete="email"
                                     className="w-full px-4 py-3 rounded-lg bg-surface-hover border border-border focus:border-primary-theme focus:ring-2 focus:ring-primary-theme/20 outline-none transition-all text-foreground"
                                 />
                             </div>
@@ -93,7 +144,9 @@ export default function ContactSection() {
                                 </label>
                                 <input
                                     id="phone"
+                                    name="phone"
                                     type="tel"
+                                    autoComplete="tel"
                                     className="w-full px-4 py-3 rounded-lg bg-surface-hover border border-border focus:border-primary-theme focus:ring-2 focus:ring-primary-theme/20 outline-none transition-all text-foreground"
                                 />
                             </div>
@@ -103,15 +156,31 @@ export default function ContactSection() {
                                 </label>
                                 <textarea
                                     id="message"
+                                    name="message"
                                     rows={4}
+                                    required
                                     className="w-full px-4 py-3 rounded-lg bg-surface-hover border border-border focus:border-primary-theme focus:ring-2 focus:ring-primary-theme/20 outline-none transition-all text-foreground"
                                 ></textarea>
                             </div>
+                            {formStatus !== "idle" && (
+                                <p
+                                    role="status"
+                                    className={`text-sm font-semibold ${formStatus === "success"
+                                        ? "text-emerald-600"
+                                        : formStatus === "error"
+                                            ? "text-red-600"
+                                            : "text-muted"
+                                        }`}
+                                >
+                                    {formStatusText[language][formStatus]}
+                                </p>
+                            )}
                             <button
-                                type="button"
-                                className="w-full py-4 bg-primary-theme text-background font-bold rounded-lg hover:bg-opacity-90 transition-colors shadow-lg shadow-primary-theme/20"
+                                type="submit"
+                                disabled={formStatus === "sending"}
+                                className="w-full py-4 bg-primary-theme text-background font-bold rounded-lg shadow-lg shadow-primary-theme/20 transition-colors hover:bg-opacity-90 disabled:cursor-not-allowed disabled:opacity-70"
                             >
-                                {t.contact.form.submit}
+                                {formStatus === "sending" ? formStatusText[language].sending : t.contact.form.submit}
                             </button>
                         </form>
                     </motion.div>
