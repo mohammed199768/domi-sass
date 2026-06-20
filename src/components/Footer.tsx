@@ -56,6 +56,9 @@ export default function Footer() {
                     </div>
 
                     <div className="flex flex-wrap gap-6 text-sm">
+                        <Link href="/why-us" className="text-muted hover:text-secondary-theme transition-colors">
+                            {language === "ar" ? "لماذا نحن؟" : "Why Us?"}
+                        </Link>
                         <Link href="/why-change" className="text-muted hover:text-secondary-theme transition-colors">
                             {language === "ar" ? "لماذا التغيير؟" : "Why Change?"}
                         </Link>
