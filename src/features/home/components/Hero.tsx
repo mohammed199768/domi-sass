@@ -5,6 +5,7 @@ import Image from "next/image";
 import { useLanguage } from "@/context/LanguageContext";
 import { useHeroAnimation } from "../hooks/useHeroAnimation";
 import { scrollToSection } from "@/lib/motion/scrollToSection";
+import { HeroOrbitalSignatureSvg } from "./visuals";
 
 export default function Hero() {
     const { t } = useLanguage();
@@ -65,6 +66,10 @@ export default function Hero() {
 
                     {/* Hero Image - Adjusted Height & Position */}
                     <div className="relative mt-10 lg:mt-0">
+                        {/* Orbital signature — layered behind the portrait, desktop only.
+                            Low opacity so it never competes with text or the photo. */}
+                        <HeroOrbitalSignatureSvg className="absolute left-1/2 top-1/2 hidden h-[150%] w-[150%] max-w-none -translate-x-1/2 -translate-y-1/2 opacity-60 dark:opacity-45 lg:block" />
+
                         <div ref={imageRef} className="relative w-full max-w-sm mx-auto aspect-[4/5] rounded-[2rem] overflow-hidden shadow-2xl ring-1 ring-foreground/5 dark:ring-white/10 transform translate-y-6 lg:translate-y-12 group">
                             <Image
                                 src="/images/mohamed.webp"

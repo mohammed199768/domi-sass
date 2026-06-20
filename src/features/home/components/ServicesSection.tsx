@@ -5,6 +5,7 @@ import { motion } from "framer-motion";
 import { useLanguage } from "@/context/LanguageContext";
 import { Briefcase, LayoutDashboard, MonitorPlay, Route } from "lucide-react";
 import { scrollToSection } from "@/lib/motion/scrollToSection";
+import { ServiceOrbitSvg } from "./visuals";
 
 const iconMap: Record<string, React.ReactNode> = {
     consulting: <LayoutDashboard className="w-10 h-10 text-secondary-theme" />,
@@ -36,6 +37,9 @@ export default function ServicesSection() {
                                 {t.services.cta}
                             </button>
                         </div>
+
+                        {/* Service orbit — supporting instrumentation visual, desktop only. */}
+                        <ServiceOrbitSvg className="mx-auto mt-12 hidden h-56 w-56 opacity-80 dark:opacity-65 lg:mx-0 lg:block" />
                     </div>
 
                     <div className="grid gap-6">

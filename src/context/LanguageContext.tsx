@@ -19,19 +19,29 @@ export function LanguageProvider({ children }: { children: ReactNode }) {
     const [language, setLanguage] = useState<Language>("en");
 
     useEffect(() => {
-        const savedLanguage = window.localStorage.getItem(LANGUAGE_STORAGE_KEY);
+        let savedLanguage: string | null = null;
+        try {
+            savedLanguage = window.localStorage.getItem(LANGUAGE_STORAGE_KEY);
+        } catch (e) {
+            // Ignore if localStorage is disabled
+        }
+        
         if (savedLanguage !== "en" && savedLanguage !== "ar") return;
 
         // Keep the server and first client render identical, then restore the
         // visitor's explicit preference after hydration.
-        const timer = window.setTimeout(() => setLanguage(savedLanguage), 0);
+        const timer = window.setTimeout(() => setLanguage(savedLanguage as Language), 0);
         return () => window.clearTimeout(timer);
     }, []);
 
     const toggleLanguage = () => {
         setLanguage((prev) => {
             const nextLanguage = prev === "en" ? "ar" : "en";
-            window.localStorage.setItem(LANGUAGE_STORAGE_KEY, nextLanguage);
+            try {
+                window.localStorage.setItem(LANGUAGE_STORAGE_KEY, nextLanguage);
+            } catch (e) {
+                // Ignore
+            }
             return nextLanguage;
         });
     };

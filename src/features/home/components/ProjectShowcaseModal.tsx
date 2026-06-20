@@ -172,7 +172,6 @@ export default function ProjectShowcaseModal({ open, slug, onClose }: Props) {
                                     src={activePage.image}
                                     alt={pageTitle || project.title[language]}
                                     fill
-                                    loading="lazy"
                                     sizes="(max-width: 1024px) 100vw, 55vw"
                                     className="object-contain showcase-img-fade"
                                     priority={activeIndex === 0}

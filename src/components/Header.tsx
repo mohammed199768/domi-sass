@@ -6,6 +6,7 @@ import { useLanguage } from "@/context/LanguageContext";
 import { Globe } from "lucide-react";
 import ThemeToggle from "./ThemeToggle";
 import { scrollToSection } from "@/lib/motion/scrollToSection";
+import { usePathname } from "next/navigation";
 
 export default function Header() {
     const { t, language, toggleLanguage } = useLanguage();
@@ -20,10 +21,14 @@ export default function Header() {
         return () => window.removeEventListener("scroll", handleScroll);
     }, []);
 
+    const pathname = usePathname();
+    const isHome = pathname === "/";
+
     const navItems = [
         { label: t.nav.about, href: "#about" },
         { label: t.nav.services, href: "#services" },
         { label: t.nav.portfolio, href: "#portfolio" },
+        { label: t.nav.caseStudies, href: "/work", isRoute: true },
         { label: t.nav.testimonials, href: "#testimonials" },
         { label: t.nav.contact, href: "#contact" },
     ];
@@ -36,10 +41,12 @@ export default function Header() {
             <div className="max-w-7xl mx-auto px-6 flex items-center justify-between">
                 {/* Logo */}
                 <Link
-                    href="#home"
+                    href={isHome ? "#home" : "/"}
                     onClick={(event) => {
-                        event.preventDefault();
-                        scrollToSection("#home");
+                        if (isHome) {
+                            event.preventDefault();
+                            scrollToSection("#home");
+                        }
                     }}
                     className="font-bold text-2xl text-primary-theme flex items-center gap-2"
                 >
@@ -49,15 +56,43 @@ export default function Header() {
 
                 {/* Desktop Nav */}
                 <nav className="hidden lg:flex items-center gap-8 glass px-8 py-3 rounded-full">
-                    {navItems.map((link) => (
-                        <button
-                            key={link.label}
-                            onClick={() => scrollToSection(link.href)}
-                            className="text-muted hover:text-primary-theme font-medium transition-colors text-sm"
-                        >
-                            {link.label}
-                        </button>
-                    ))}
+                    {navItems.map((link) => {
+                        const isActive = link.isRoute && pathname.startsWith(link.href);
+
+                        if (link.isRoute) {
+                            return (
+                                <Link
+                                    key={link.label}
+                                    href={link.href}
+                                    className={`font-medium transition-colors text-sm ${isActive ? "text-primary-theme font-bold" : "text-muted hover:text-primary-theme"}`}
+                                >
+                                    {link.label}
+                                </Link>
+                            );
+                        }
+
+                        if (!isHome) {
+                            return (
+                                <Link
+                                    key={link.label}
+                                    href={`/${link.href}`}
+                                    className="text-muted hover:text-primary-theme font-medium transition-colors text-sm"
+                                >
+                                    {link.label}
+                                </Link>
+                            );
+                        }
+
+                        return (
+                            <button
+                                key={link.label}
+                                onClick={() => scrollToSection(link.href)}
+                                className="text-muted hover:text-primary-theme font-medium transition-colors text-sm"
+                            >
+                                {link.label}
+                            </button>
+                        );
+                    })}
                 </nav>
 
                 {/* Actions Desktop */}
@@ -71,12 +106,21 @@ export default function Header() {
                         <Globe className="w-3 h-3" />
                         {language === "en" ? "AR" : "EN"}
                     </button>
-                    <button
-                        onClick={() => scrollToSection("#contact")}
-                        className="bg-primary-theme text-background px-6 py-2.5 rounded-full font-bold hover:opacity-90 transition-all shadow-lg hover:shadow-primary-theme/20 text-sm"
-                    >
-                        {t.nav.cta}
-                    </button>
+                    {isHome ? (
+                        <button
+                            onClick={() => scrollToSection("#contact")}
+                            className="bg-primary-theme text-background px-6 py-2.5 rounded-full font-bold hover:opacity-90 transition-all shadow-lg hover:shadow-primary-theme/20 text-sm"
+                        >
+                            {t.nav.cta}
+                        </button>
+                    ) : (
+                        <Link
+                            href="/#contact"
+                            className="bg-primary-theme text-background px-6 py-2.5 rounded-full font-bold hover:opacity-90 transition-all shadow-lg hover:shadow-primary-theme/20 text-sm"
+                        >
+                            {t.nav.cta}
+                        </Link>
+                    )}
                 </div>
 
                 {/* Mobile Top Bar (Just Logo + Toggles) */}

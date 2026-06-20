@@ -109,3 +109,29 @@ for (const study of [
     await expect(page.locator("[data-panel='result']")).toHaveScreenshot(`${study.name}-reduced-result.png`);
   });
 }
+
+test("work index desktop", async ({ page }) => {
+  await openStablePage(page, "/work", { language: "en", theme: "dark", viewport: viewports.largeDesktop });
+  await expectCorePageAccessibility(page);
+  
+  // Assert all 4 links exist (desktop + mobile sections both render in DOM, use .first())
+  await expect(page.locator("a[href='/work/manal-alhihi']").first()).toBeVisible();
+  await expect(page.locator("a[href='/work/qasr-alfarah']").first()).toBeVisible();
+  await expect(page.locator("a[href='/work/curevie']").first()).toBeVisible();
+  await expect(page.locator("a[href='/work/horvath-survey']").first()).toBeVisible();
+
+  await expect(page).toHaveScreenshot("work-index-desktop.png");
+});
+
+test("work index mobile", async ({ page }) => {
+  await openStablePage(page, "/work", { language: "en", theme: "dark", viewport: viewports.mobile });
+  await expectCorePageAccessibility(page);
+  await expectNoHorizontalOverflow(page);
+  await expect(page).toHaveScreenshot("work-index-mobile.png");
+});
+
+test("work index reduced-motion", async ({ page }) => {
+  await openStablePage(page, "/work", { language: "en", theme: "dark", viewport: viewports.desktop, reducedMotion: "reduce" });
+  await expectCorePageAccessibility(page);
+  await expect(page).toHaveScreenshot("work-index-reduced.png");
+});

@@ -24,5 +24,27 @@ export default async function WorkCaseStudyPage({ params }: PageProps) {
   const { slug } = await params;
   const study = caseStudies[slug];
   if (!study) notFound();
-  return <CaseStudyHorizontalJourney study={study} />;
+
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@type": "CreativeWork",
+    "name": study.content.en.title || study.content.en.eyebrow,
+    "description": study.content.en.positioning,
+    "url": `https://www.dominase.art/work/${slug}`,
+    "creator": {
+      "@type": "Person",
+      "name": "Mohammed Aldomi"
+    },
+    "keywords": study.visualTheme.replace("-", " ")
+  };
+
+  return (
+    <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
+      <CaseStudyHorizontalJourney study={study} />
+    </>
+  );
 }

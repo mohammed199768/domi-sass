@@ -2,13 +2,15 @@
 
 import React from "react";
 import Image from "next/image";
+import Link from "next/link";
 import { useLanguage } from "@/context/LanguageContext";
 import { usePortfolioAnimation } from "../hooks/usePortfolioAnimation";
 import { PortfolioItem } from "../types";
 import ProjectShowcaseModal from "./ProjectShowcaseModal";
+import { TransformationConstellationSvg } from "./visuals";
 
 export default function PortfolioSection() {
-    const { t } = useLanguage();
+    const { t, language } = useLanguage();
     const { sectionRef, titleRef, cardsRef, orbRef, handleMouseEnter, handleMouseLeave } =
         usePortfolioAnimation();
     const [selectedProjectSlug, setSelectedProjectSlug] = React.useState<string | null>(null);
@@ -128,14 +130,26 @@ export default function PortfolioSection() {
                     })}
                 </div>
 
+                {/* Transformation network — echoes the /work tree as a bridge into
+                    the "view all case studies" CTA. Decorative, behind the buttons. */}
+                <div className="relative mt-16 flex justify-center">
+                    <TransformationConstellationSvg className="h-40 w-40 opacity-70 dark:opacity-60 sm:h-48 sm:w-48" />
+                </div>
+
                 {/* CTA */}
-                <div className="text-center mt-16">
+                <div className="text-center mt-6 flex flex-col sm:flex-row items-center justify-center gap-4">
                     <button
                         onClick={() => window.open("https://github.com/mohammed199768", "_blank")}
                         className="px-10 py-4 bg-foreground text-background font-bold rounded-full hover:scale-105 transition-all duration-300 shadow-lg shadow-foreground/10"
                     >
                         {t.portfolio.cta}
                     </button>
+                    <Link
+                        href="/work"
+                        className="px-10 py-4 bg-transparent text-foreground border border-border font-bold rounded-full hover:bg-surface-hover hover:scale-105 transition-all duration-300"
+                    >
+                        {language === "ar" ? "عرض جميع دراسات الحالة" : "View all case studies"}
+                    </Link>
                 </div>
             </div>
 
