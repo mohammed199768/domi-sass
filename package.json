@@ -7,6 +7,8 @@
     "build": "next build",
     "start": "next start",
     "lint": "eslint",
+    "test:visual": "playwright test",
+    "test:visual:update": "playwright test --update-snapshots",
     "compress": "node compress-images.mjs"
   },
   "dependencies": {
@@ -23,6 +25,7 @@
     "tailwind-merge": "^3.4.0"
   },
   "devDependencies": {
+    "@playwright/test": "^1.61.0",
     "@tailwindcss/postcss": "^4",
     "@types/node": "^20",
     "@types/react": "^19",

@@ -1,0 +1,12 @@
+export const fileCardPath =
+  "M0 12 Q0 0 12 0 L92 0 Q104 0 104 12 L104 70 Q104 82 92 82 L12 82 Q0 82 0 70 Z";
+
+export const courseModulePath =
+  "M0 12 Q0 0 12 0 L156 0 Q168 0 168 12 L168 70 Q168 82 156 82 L12 82 Q0 82 0 70 Z";
+
+export const connectionPaths = [
+  "M345 187 C405 187 408 228 458 228",
+  "M655 187 C596 187 594 228 544 228",
+  "M345 405 C405 405 408 367 458 367",
+  "M655 405 C596 405 594 367 544 367",
+];

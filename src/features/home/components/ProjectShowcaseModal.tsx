@@ -2,6 +2,7 @@
 
 import React, { useCallback, useEffect, useRef, useState } from "react";
 import Image from "next/image";
+import Link from "next/link";
 import { X, ChevronLeft, ChevronRight } from "lucide-react";
 import { projectCaseStudies } from "@/constants/projectCaseStudies";
 import { useLanguage } from "@/context/LanguageContext";
@@ -14,12 +15,18 @@ type Props = {
     onClose: () => void;
 };
 
+const fullCaseStudyRoutes: Record<string, string> = {
+    "manal-alhihi": "manal-alhihi",
+    "qasr-al-farah": "qasr-alfarah",
+};
+
 export default function ProjectShowcaseModal({ open, slug, onClose }: Props) {
     const { language } = useLanguage();
     const prefersReducedMotion = useReducedMotion();
     const backdropRef = useRef<HTMLDivElement>(null);
     const panelRef = useRef<HTMLDivElement>(null);
     const project = slug ? projectCaseStudies[slug] : null;
+    const fullCaseStudySlug = slug ? fullCaseStudyRoutes[slug] : null;
     const isArabic = language === "ar";
 
     const [activeIndex, setActiveIndex] = useState(0);
@@ -154,14 +161,6 @@ export default function ProjectShowcaseModal({ open, slug, onClose }: Props) {
                     LEFT — Image pane
                 ══════════════════════════════════════════ */}
                 <div className="relative flex-none w-full lg:w-[55%] bg-[#0a0a0a] flex flex-col min-h-[35vh] lg:min-h-0">
-                    {/* Preload adjacent images */}
-                    {open && activePage && (
-                        <>
-                            <link rel="preload" as="image" href={pages[(activeIndex + 1) % total]?.image} />
-                            <link rel="preload" as="image" href={pages[(activeIndex - 1 + total) % total]?.image} />
-                        </>
-                    )}
-
                     {/* Main image */}
                     <div className="relative flex-1 min-h-[260px] overflow-hidden">
                         {activePage && (
@@ -327,6 +326,14 @@ export default function ProjectShowcaseModal({ open, slug, onClose }: Props) {
 
                     {/* Footer CTA */}
                     <div className="flex-none px-6 py-5">
+                        {fullCaseStudySlug && (
+                            <Link
+                                href={`/work/${fullCaseStudySlug}`}
+                                className="mb-4 flex w-full items-center justify-center rounded-full bg-primary-theme px-5 py-3 text-sm font-black text-background transition hover:opacity-90"
+                            >
+                                {language === "ar" ? "عرض دراسة الحالة الكاملة" : "View full case study"}
+                            </Link>
+                        )}
                         <div className="text-xs text-muted/50 text-center font-medium">
                             {language === "ar"
                                 ? "مشروع من أعمال Mohammed Aldomi"

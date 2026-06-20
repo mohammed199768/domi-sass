@@ -4,9 +4,11 @@ import React from "react";
 import { Home, User, Briefcase, Mail, Layers } from "lucide-react";
 import { useLanguage } from "@/context/LanguageContext";
 import { scrollToSection } from "@/lib/motion/scrollToSection";
+import { usePathname } from "next/navigation";
 
 export default function MobileNav() {
     const { t } = useLanguage();
+    const pathname = usePathname();
 
     const navItems = [
         { icon: Home, label: t.nav.home, href: "#home" },
@@ -15,6 +17,8 @@ export default function MobileNav() {
         { icon: Briefcase, label: t.nav.portfolio, href: "#portfolio" },
         { icon: Mail, label: t.nav.contact, href: "#contact" },
     ];
+
+    if (pathname.startsWith("/work/")) return null;
 
     return (
         <div className="fixed bottom-0 left-0 right-0 z-50 lg:hidden pb-safe transition-colors duration-300">
