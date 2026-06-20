@@ -9,7 +9,7 @@ const looseModules = [
 
 export default function WeddingBookingSvg({ finalState }: Props) {
   return (
-    <svg viewBox="0 0 960 520" aria-hidden="true" className="h-auto w-full">
+    <svg viewBox="0 0 960 520" aria-hidden="true" className="mx-auto h-auto w-full max-w-3xl max-h-[50vh] lg:max-h-[65vh] object-contain" preserveAspectRatio="xMidYMid meet">
       <defs>
         <linearGradient id="booking-board" x1="0" y1="0" x2="1" y2="1">
           <stop stopColor="var(--surface)" />

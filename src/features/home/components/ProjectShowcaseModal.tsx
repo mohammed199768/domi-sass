@@ -18,6 +18,8 @@ type Props = {
 const fullCaseStudyRoutes: Record<string, string> = {
     "manal-alhihi": "manal-alhihi",
     "qasr-al-farah": "qasr-alfarah",
+    "curevie": "curevie",
+    "horvath-survey": "horvath-survey",
 };
 
 export default function ProjectShowcaseModal({ open, slug, onClose }: Props) {
@@ -144,8 +146,7 @@ export default function ProjectShowcaseModal({ open, slug, onClose }: Props) {
         >
             <div
                 ref={panelRef}
-                className="relative flex w-full max-w-5xl max-h-[calc(100dvh-1rem)] sm:max-h-[calc(100dvh-2rem)] lg:max-h-[calc(100dvh-3rem)] rounded-2xl overflow-hidden bg-surface shadow-[0_32px_80px_rgba(0,0,0,0.4)] border border-border"
-                style={{ flexDirection: isArabic ? "row-reverse" : "row" }}
+                className={`relative flex w-full max-w-5xl max-h-[calc(100dvh-1rem)] sm:max-h-[calc(100dvh-2rem)] lg:max-h-[calc(100dvh-3rem)] rounded-2xl overflow-hidden bg-surface shadow-[0_32px_80px_rgba(0,0,0,0.4)] border border-border flex-col ${isArabic ? "lg:flex-row-reverse" : "lg:flex-row"}`}
             >
                 {/* ── Close button ── */}
                 <button

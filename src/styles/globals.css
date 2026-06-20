@@ -51,6 +51,16 @@
   h1, h2, h3, h4, h5, h6 {
     @apply font-bold text-foreground;
   }
+
+  [dir="rtl"] h1 {
+    line-height: 1.35 !important;
+    word-break: break-word;
+  }
+  
+  [dir="rtl"] h2, [dir="rtl"] h3 {
+    line-height: 1.5 !important;
+    word-break: break-word;
+  }
 }
 
 @media (prefers-reduced-motion: reduce) {

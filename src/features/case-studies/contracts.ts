@@ -1,6 +1,6 @@
 export type CaseStudyLocale = "en" | "ar";
 
-export type CaseStudyVisualTheme = "training-platform" | "wedding-booking";
+export type CaseStudyVisualTheme = "training-platform" | "wedding-booking" | "healthcare-coordination" | "ai-readiness-index";
 
 export type CaseStudyFeature = {
   title: string;
@@ -26,6 +26,12 @@ export type CaseStudyContent = {
   featuresIntro: string;
   features: CaseStudyFeature[];
   result: string;
+  businessValue?: {
+    platformOwner: { title: string; points: string[] };
+    organization: { title: string; points: string[] };
+  };
+  technicalStory?: { title: string; body: string };
+  assessmentDimensions?: { title: string; description: string }[];
   cta: string;
   backHome: string;
   chapters: string[];

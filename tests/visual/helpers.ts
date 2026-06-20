@@ -61,6 +61,11 @@ export async function expectCorePageAccessibility(page: Page, workPage = false) 
   }
 }
 
+export async function expectNoHorizontalOverflow(page: Page) {
+  const isOverflowing = await page.evaluate(() => document.documentElement.scrollWidth > window.innerWidth);
+  expect(isOverflowing, "Page has horizontal overflow").toBe(false);
+}
+
 export async function expectLoadedImage(page: Page, locator: string) {
   const image = page.locator(locator).first();
   await expect(image).toBeVisible();

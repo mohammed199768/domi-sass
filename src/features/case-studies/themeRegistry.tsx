@@ -3,6 +3,8 @@ import type { ComponentType } from "react";
 import type { CaseStudy, CaseStudyVisualTheme } from "./contracts";
 import TrainingPlatformSvg from "./TrainingPlatformSvg";
 import WeddingBookingSvg from "./WeddingBookingSvg";
+import HealthcareCoordinationSvg from "./HealthcareCoordinationSvg";
+import AiReadinessIndexSvg from "./AiReadinessIndexSvg";
 
 type IntroVisualProps = { study: CaseStudy };
 type TransformationVisualProps = { finalState: boolean };
@@ -12,6 +14,7 @@ export type CaseStudyThemeDefinition = {
   TransformationVisual: ComponentType<TransformationVisualProps>;
   beforeFrameClassName: string;
   transformationFrameClassName: string;
+  transformationLayout?: "stacked" | "split";
 };
 
 function TrainingPlatformIntroVisual() {
@@ -46,6 +49,43 @@ function WeddingBookingIntroVisual({ study }: IntroVisualProps) {
   );
 }
 
+function HealthcareCoordinationIntroVisual({ study }: IntroVisualProps) {
+  return (
+    <div aria-hidden="true" className="relative mx-auto aspect-square w-full max-w-[26rem]">
+      <div className="absolute inset-[10%] overflow-hidden rounded-full border-4 border-surface bg-background shadow-2xl shadow-primary-theme/5">
+        <Image src={study.cover} alt="" fill priority sizes="(max-width: 1024px) 80vw, 30vw" className="object-cover opacity-80 mix-blend-luminosity hover:mix-blend-normal transition-all duration-700" />
+      </div>
+      <div className="absolute bottom-0 end-0 h-28 w-28 rounded-full border border-border bg-surface shadow-xl flex items-center justify-center">
+        <div className="h-14 w-14 rounded-full bg-primary-theme/10 flex items-center justify-center">
+          <div className="h-4 w-4 rounded-full bg-secondary-theme" />
+        </div>
+      </div>
+      <div className="absolute top-[10%] start-0 h-16 w-32 rounded-[1rem] border border-border bg-surface/80 shadow-lg backdrop-blur flex items-center px-4">
+        <div className="h-2 w-16 rounded-full bg-primary-theme/40" />
+      </div>
+    </div>
+  );
+}
+
+function AiReadinessIntroVisual({ study }: IntroVisualProps) {
+  return (
+    <div aria-hidden="true" className="relative mx-auto aspect-[4/3] w-full max-w-[30rem] overflow-hidden rounded-3xl border border-border bg-surface shadow-2xl">
+      <div className="absolute inset-0">
+        <Image src={study.cover} alt="" fill priority sizes="(max-width: 1024px) 90vw, 40vw" className="object-cover opacity-90" />
+      </div>
+      <div className="absolute bottom-6 end-6 rounded-xl border border-border bg-surface/90 px-5 py-4 shadow-xl backdrop-blur flex items-center gap-4">
+        <div className="h-10 w-10 rounded-full border-4 border-secondary-theme flex items-center justify-center">
+          <div className="text-xs font-black text-primary-theme">82</div>
+        </div>
+        <div>
+          <div className="h-2 w-16 rounded-full bg-primary-theme/60 mb-2" />
+          <div className="h-1.5 w-10 rounded-full bg-muted/30" />
+        </div>
+      </div>
+    </div>
+  );
+}
+
 export const caseStudyThemeRegistry = {
   "training-platform": {
     IntroVisual: TrainingPlatformIntroVisual,
@@ -58,5 +98,20 @@ export const caseStudyThemeRegistry = {
     TransformationVisual: WeddingBookingSvg,
     beforeFrameClassName: "rounded-t-[7rem] rounded-b-[2rem]",
     transformationFrameClassName: "rounded-t-[6rem] rounded-b-[2rem]",
+    transformationLayout: "split",
+  },
+  "healthcare-coordination": {
+    IntroVisual: HealthcareCoordinationIntroVisual,
+    TransformationVisual: HealthcareCoordinationSvg,
+    beforeFrameClassName: "rounded-[2.5rem]",
+    transformationFrameClassName: "rounded-[2.5rem]",
+    transformationLayout: "split",
+  },
+  "ai-readiness-index": {
+    IntroVisual: AiReadinessIntroVisual,
+    TransformationVisual: AiReadinessIndexSvg,
+    beforeFrameClassName: "rounded-[1.5rem]",
+    transformationFrameClassName: "rounded-2xl",
+    transformationLayout: "split",
   },
 } satisfies Record<CaseStudyVisualTheme, CaseStudyThemeDefinition>;

@@ -9,7 +9,7 @@ const nodes = [
 
 export default function TrainingPlatformSvg({ finalState }: Props) {
   return (
-    <svg viewBox="0 0 880 500" aria-hidden="true" className="h-auto w-full">
+    <svg viewBox="0 0 880 500" aria-hidden="true" className="mx-auto h-auto w-full max-w-3xl max-h-[50vh] lg:max-h-[65vh]" preserveAspectRatio="xMidYMid meet">
       <g className="text-border" stroke="currentColor" opacity=".55">
         {Array.from({ length: 9 }, (_, i) => <path key={`v${i}`} d={`M${i * 110} 0V500`} />)}
         {Array.from({ length: 6 }, (_, i) => <path key={`h${i}`} d={`M0 ${i * 100}H880`} />)}

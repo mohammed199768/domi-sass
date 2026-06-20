@@ -225,4 +225,326 @@ export const caseStudies: Record<string, CaseStudy> = {
       },
     },
   },
+  "curevie": {
+    slug: "curevie",
+    visualTheme: "healthcare-coordination",
+    cover: "/assest/curevie3.jpeg",
+    seo: {
+      title: "Curevie Home Healthcare Case Study | كيورفي",
+      description: "A case study transforming scattered home healthcare services into a clear, trustworthy, and coordinated digital experience.",
+    },
+    content: {
+      en: {
+        eyebrow: "Home healthcare case study",
+        title: "Curevie: From unclear care requests to an organized home healthcare experience",
+        positioning: "Transforming the home healthcare experience into a clear digital presence that helps the family understand services, choose the type of care, and communicate with greater confidence.",
+        before: {
+          title: "Before the platform: The family seeks care... but the path is unclear.",
+          intro: "When a family member needs home care, it is not just a medical question. There is anxiety, research, comparison, and repeated communication to understand the appropriate service. Without a clear presentation of services and an organized communication path, the experience becomes exhausting for the family before care even begins.",
+          points: [
+            "Difficulty understanding the right service from the first visit.",
+            "Information scattered across calls, messages, and repeated questions.",
+            "The need to reassure the family before deciding to request care.",
+            "Medical services presented in a dry or unclear way.",
+            "No visual path explaining how care reaches the home.",
+            "Difficulty building trust from the site alone if the experience is not clear."
+          ],
+          microcopy: "When the family looks for care, clarity becomes part of reassurance.",
+        },
+        transformation: {
+          title: "The experience became a more organized digital presence.",
+          body: "It explains home services in clear language, presents care in a professional and calm manner, and helps the family understand the next step without confusion.",
+        },
+        after: {
+          title: "After the digital experience: Clearer services and a calmer care path.",
+          intro: "The experience transformed into an organized digital presence. Services are explained simply, care is shown professionally, and the family is guided to the next step clearly and calmly.",
+          points: [
+            "Home healthcare services presented more clearly.",
+            "A message organized around trust, comfort, and dignity.",
+            "Clearer types of care like medical visits, nursing, and home care.",
+            "A responsive experience across phone, tablet, and laptop.",
+            "A calm medical visual language instead of random service displays.",
+            "A clearer communication path for the family when support is needed."
+          ],
+          microcopy: "From confusion to a clear path toward home care.",
+        },
+        storyboard: {
+          title: "A journey built on clarity and trust.",
+          intro: "The interface reflects a professional healthcare experience from the first service exploration to the final request.",
+          screenshots: [
+            { src: "/assest/curevie3.jpeg", alt: "Curevie home healthcare service presentation", caption: "Clarity concept and service presentation" },
+            { src: "/assest/curevie.jpeg", alt: "Visual tone and medical identity", caption: "A softer medical identity" },
+            { src: "/assest/curevie2.jpeg", alt: "Service detail and care path", caption: "Service detail and care path" },
+            { src: "/assest/curevie4.jpeg", alt: "Responsive device view for Curevie", caption: "A flow built around trust across devices" },
+          ],
+        },
+        featuresTitle: "Six features, one clear goal.",
+        featuresIntro: "Each feature is designed to reduce friction and build trust, guiding the family smoothly through the home healthcare process.",
+        features: [
+          { title: "Service Clarity", description: "Clear explanation of each home healthcare service." },
+          { title: "Home Care Experience", description: "A focused journey around receiving care at home." },
+          { title: "Calm Medical Presentation", description: "A soothing and professional visual tone." },
+          { title: "Responsive Design", description: "Accessible on any device for family convenience." },
+          { title: "Trust Building", description: "Reassuring language and professional design." },
+          { title: "Clearer Communication Path", description: "A straightforward way to request and coordinate care." },
+        ],
+        result: "The result was not simply a better-looking website, but a digital experience that helps the family understand the service, feel confident, and take the step to communicate clearly when home care is needed.",
+        cta: "See how home healthcare services became a clearer, more reassuring digital experience",
+        backHome: "Back to portfolio",
+        chapters: ["Introduction", "Before", "Transformation", "After", "Storyboard", "System", "Result"],
+      },
+      ar: {
+        eyebrow: "دراسة حالة للرعاية الصحية المنزلية",
+        title: "Curevie: من طلب رعاية غير واضح إلى تجربة صحية منزلية أكثر تنظيمًا",
+        positioning: "تحويل تجربة الرعاية الصحية المنزلية إلى حضور رقمي واضح يساعد العائلة على فهم الخدمات، اختيار نوع الرعاية، والتواصل بثقة أكبر.",
+        before: {
+          title: "قبل المنصة: العائلة تبحث عن رعاية… لكن الطريق غير واضح.",
+          intro: "عندما يحتاج أحد أفراد العائلة إلى رعاية في المنزل، لا يكون السؤال طبيًا فقط. هناك قلق، بحث، مقارنة، واتصال متكرر لفهم الخدمة المناسبة. بدون عرض واضح للخدمات ومسار تواصل منظم، تصبح التجربة مرهقة للعائلة قبل أن تبدأ الرعاية.",
+          points: [
+            "صعوبة فهم نوع الخدمة المناسبة من أول زيارة.",
+            "تشتت المعلومات بين مكالمات ورسائل وأسئلة متكررة.",
+            "الحاجة إلى طمأنة العائلة قبل اتخاذ قرار طلب الرعاية.",
+            "عرض الخدمات الطبية بطريقة قد تبدو جافة أو غير واضحة.",
+            "عدم وجود مسار بصري يشرح كيف تصل الرعاية إلى البيت.",
+            "صعوبة بناء الثقة من الموقع وحده إذا لم تكن التجربة واضحة."
+          ],
+          microcopy: "حين تبحث العائلة عن رعاية، الوضوح يصبح جزءًا من الطمأنينة.",
+        },
+        transformation: {
+          title: "التحول إلى حضور رقمي أكثر تنظيمًا.",
+          body: "يشرح الخدمات المنزلية بلغة واضحة، يعرض الرعاية بطريقة مهنية وهادئة، ويساعد العائلة على فهم الخطوة التالية دون ارتباك.",
+        },
+        after: {
+          title: "بعد التجربة الرقمية: خدمات أوضح ومسار رعاية أكثر هدوءًا.",
+          intro: "تحولت التجربة إلى حضور رقمي أكثر تنظيمًا، يشرح الخدمات المنزلية بلغة واضحة، يعرض الرعاية بطريقة مهنية وهادئة، ويساعد العائلة على فهم الخطوة التالية دون ارتباك.",
+          points: [
+            "عرض الخدمات الصحية المنزلية بطريقة أوضح.",
+            "تنظيم الرسالة حول الثقة، الراحة، والكرامة.",
+            "توضيح أنواع الرعاية مثل الزيارات الطبية والتمريض والرعاية المنزلية.",
+            "تجربة متجاوبة على الهاتف والتابلت واللابتوب.",
+            "لغة بصرية طبية هادئة بدل العرض العشوائي للخدمات.",
+            "مسار تواصل أوضح للعائلة عند الحاجة إلى الدعم."
+          ],
+          microcopy: "من الارتباك إلى مسار واضح للرعاية المنزلية.",
+        },
+        storyboard: {
+          title: "رحلة مبنية على الوضوح والثقة.",
+          intro: "تعكس الواجهة تجربة رعاية صحية مهنية من أول استكشاف للخدمة إلى الطلب النهائي.",
+          screenshots: [
+            { src: "/assest/curevie3.jpeg", alt: "عرض خدمات الرعاية الصحية المنزلية Curevie", caption: "مفهوم الوضوح وعرض الخدمة" },
+            { src: "/assest/curevie.jpeg", alt: "النبرة البصرية والهوية الطبية", caption: "هوية طبية أكثر إنسانية" },
+            { src: "/assest/curevie2.jpeg", alt: "تفاصيل الخدمة ومسار الرعاية", caption: "تفاصيل الخدمة ومسار الرعاية" },
+            { src: "/assest/curevie4.jpeg", alt: "عرض متجاوب عبر الأجهزة لـ Curevie", caption: "مسار مبني حول الثقة عبر الأجهزة" },
+          ],
+        },
+        featuresTitle: "ست مميزات، هدف واحد واضح.",
+        featuresIntro: "صُممت كل ميزة لتقليل الاحتكاك وبناء الثقة، لتوجيه العائلة بسلاسة خلال عملية الرعاية الصحية المنزلية.",
+        features: [
+          { title: "وضوح الخدمات", description: "شرح واضح لكل خدمة من خدمات الرعاية المنزلية." },
+          { title: "تجربة رعاية منزلية", description: "رحلة مركزة حول تلقي الرعاية في المنزل." },
+          { title: "عرض طبي هادئ", description: "نبرة بصرية مهدئة واحترافية." },
+          { title: "تصميم متجاوب", description: "متاح على أي جهاز لراحة العائلة." },
+          { title: "بناء الثقة", description: "لغة مطمئنة وتصميم احترافي." },
+          { title: "مسار تواصل أوضح", description: "طريقة مباشرة لطلب وتنسيق الرعاية." },
+        ],
+        result: "النتيجة لم تكن مجرد موقع أجمل، بل تجربة رقمية تساعد العائلة على فهم الخدمة، الشعور بالثقة، واتخاذ خطوة التواصل بشكل أوضح عند الحاجة إلى رعاية منزلية.",
+        cta: "شاهد كيف تحولت خدمات الرعاية المنزلية إلى تجربة رقمية أوضح وأكثر طمأنينة",
+        backHome: "العودة إلى معرض الأعمال",
+        chapters: ["المقدمة", "قبل", "التحول", "بعد", "المشاهد", "النظام", "النتيجة"],
+      },
+    },
+  },
+  "horvath-survey": {
+    slug: "horvath-survey",
+    visualTheme: "ai-readiness-index",
+    cover: "/assest/resize/horvath1.jpg",
+    seo: {
+      title: "HORVÁTH AI Readiness Index Case Study",
+      description: "Transforming a broad AI readiness question into a structured digital assessment that captures lead data, measures current vs target maturity, calculates gaps, and produces strategic recommendations.",
+    },
+    content: {
+      en: {
+        eyebrow: "AI Readiness Assessment Platform",
+        title: "HORVÁTH: From scattered AI readiness assessment to a clear measurement platform",
+        positioning: "Building an AI Readiness Index platform that measures organizational readiness across strategic and operational dimensions, transforming answers into visual results and prioritized recommendations.",
+        before: {
+          title: "Before the system: AI readiness was a broad question that was hard to measure.",
+          intro: "Before the system, AI readiness depended on general discussions, personal estimates, or disconnected questions. The problem was not lack of interest in AI, but difficulty turning that interest into a practical picture: where are we now, where do we want to go, and what gap should be addressed first?",
+          points: [
+            "Difficulty measuring AI readiness clearly.",
+            "Lack of precise separation between current state and future target.",
+            "Dimensions scattered across strategy, data, tech, governance, value, and capabilities.",
+            "Difficulty knowing which aspect needs intervention first.",
+            "Relying on impression instead of comparative indicators.",
+            "Absence of a clear path moving from answer to result to recommendation.",
+            "Difficulty turning assessment into organized lead generation without annoying the user."
+          ],
+        },
+        transformation: {
+          title: "The experience became an integrated digital assessment platform.",
+          body: "The user starts with a lead-capture landing step, continues through structured dimensions using Current and Target values, and then sees visual results including readiness score, gaps, top topics, and strategic recommendations.",
+        },
+        after: {
+          title: "After the system: A platform that measures, compares, and turns answers into clearer decisions.",
+          intro: "The assessment transformed into a clear digital experience, broken into understandable dimensions, guiding the user to a concrete result.",
+          points: [
+            "Converting AI readiness assessment into a clear digital experience.",
+            "Breaking assessment into understandable, measurable dimensions.",
+            "Using a Double Slider system to measure current vs target state.",
+            "Fixed sidebar clarifying user progress within the survey.",
+            "Dynamic routing for each dimension instead of repeated pages.",
+            "Saving user answers locally during navigation.",
+            "Preventing access to results before assessment completion.",
+            "Displaying results via Score, Charts, Top Topics, and Recommendations.",
+            "Turning the platform into a lead generation tool, not just a survey."
+          ],
+        },
+        storyboard: {
+          title: "A journey moving from capture to assessment to strategy.",
+          intro: "The visual interface supports the user through data entry to dynamic readiness dashboard.",
+          screenshots: [
+            { src: "/assest/resize/horvath1.jpg", alt: "HORVÁTH landing page and lead capture", caption: "Landing Page & Lead Capture" },
+            { src: "/assest/resize/horvath.jpg", alt: "HORVÁTH survey experience and sidebar navigation", caption: "Survey Experience & Sidebar" },
+          ],
+        },
+        featuresTitle: "A structured frontend system.",
+        featuresIntro: "The application separates starting pages, survey routing, and results, driven entirely by robust state management and JSON content.",
+        features: [
+          { title: "Lead Capture", description: "Secures user contact before the assessment." },
+          { title: "Dynamic Routing", description: "Efficiently navigates the survey without redundant pages." },
+          { title: "Double Slider", description: "Captures both current and target values simultaneously." },
+          { title: "State Persistence", description: "Maintains user progress throughout the multi-step journey." },
+          { title: "Results Dashboard", description: "Visualizes gaps and calculates readiness scores." },
+          { title: "Recommendations", description: "Generates strategic advice based on answers." },
+        ],
+        result: "The result was not just a survey page, but an integrated assessment system that transforms user answers into a clearer reading of the organization's AI readiness.",
+        businessValue: {
+          platformOwner: {
+            title: "For the platform owner",
+            points: [
+              "Converting visitors to leads from the start.",
+              "Providing an interactive tool that gives value before selling.",
+              "Opening a commercial conversation based on a tangible result.",
+              "Building an advisory impression instead of a standard marketing page."
+            ]
+          },
+          organization: {
+            title: "For the organization",
+            points: [
+              "Clearer understanding of their AI readiness level.",
+              "Visualizing the gap between current state and ambition.",
+              "Identifying which areas need intervention first.",
+              "Receiving initial recommendations ready for consulting discussion."
+            ]
+          }
+        },
+        technicalStory: {
+          title: "Technical Execution",
+          body: "Built as a structured frontend system using Next.js App Router. Starting page, survey, results, and recommendations are separated. Questions, dimensions, narratives, and recommendations are data-driven via JSON. Calculations convert answers into averages, gaps, priority topics, and executive readings. Zustand preserves user progress during the multi-step experience."
+        },
+        assessmentDimensions: [
+          { title: "Data", description: "Data foundations" },
+          { title: "Capabilities", description: "Team skills" },
+          { title: "Strategy", description: "AI alignment" },
+          { title: "Governance", description: "Ethics and rules" },
+          { title: "Value", description: "Business impact" },
+          { title: "Technology", description: "Infrastructure" }
+        ],
+        cta: "Discover how AI readiness transforms into a clear assessment",
+        backHome: "Back to portfolio",
+        chapters: ["Introduction", "Before", "Transformation", "After", "Storyboard", "System", "Result"],
+      },
+      ar: {
+        eyebrow: "منصة تقييم الجاهزية",
+        title: "HORVÁTH: من تقييم مبعثر لجاهزية الذكاء الاصطناعي إلى منصة قياس واضحة",
+        positioning: "بناء منصة AI Readiness Index تقيس جاهزية المؤسسة عبر محاور استراتيجية وتشغيلية، ثم تحول الإجابات إلى نتائج مرئية وتوصيات مرتبة حسب الأولوية.",
+        before: {
+          title: "قبل النظام: جاهزية الذكاء الاصطناعي كانت سؤالًا واسعًا يصعب قياسه",
+          intro: "قبل النظام، اعتمدت جاهزية الذكاء الاصطناعي على النقاشات العامة، التقديرات الشخصية، أو أسئلة غير مترابطة. المشكلة لم تكن في قلة الاهتمام بالذكاء الاصطناعي، بل في صعوبة تحويل هذا الاهتمام إلى صورة عملية: أين نحن الآن، إلى أين نريد الوصول، وما هي الفجوة التي يجب معالجتها أولًا؟",
+          points: [
+            "صعوبة قياس جاهزية الذكاء الاصطناعي بطريقة واضحة.",
+            "عدم وجود فصل دقيق بين الوضع الحالي والهدف المستقبلي.",
+            "تشتت المحاور بين الاستراتيجية، البيانات، التقنية، الحوكمة، القيمة، والقدرات.",
+            "صعوبة معرفة أي جانب يحتاج تدخلًا أولًا.",
+            "الاعتماد على الانطباع بدل المؤشرات المقارنة.",
+            "غياب مسار واضح ينتقل من الإجابة إلى النتيجة إلى التوصية.",
+            "صعوبة تحويل التقييم إلى Lead Generation منظم دون إزعاج المستخدم."
+          ],
+        },
+        transformation: {
+          title: "منصة تقييم استراتيجية متكاملة.",
+          body: "تحول التقييم إلى منصة متكاملة. يبدأ المستخدم بصفحة التقاط البيانات (Lead Capture)، يمر عبر محاور منظمة باستخدام أشرطة تمرير مزدوجة لقياس الوضع الحالي والهدف، ثم يصل لنتائج مرئية دقيقة.",
+        },
+        after: {
+          title: "بعد النظام: منصة تقيس، تقارن، وتحوّل الإجابات إلى قرار أوضح",
+          intro: "تحولت الفكرة إلى منصة تقييم رقمية متكاملة. يبدأ المستخدم بخطوة تسجيل البيانات، يكمل عبر محاور هيكلية، ويجيب عن كل سؤال باستخدام قيم (الحالي) و(الهدف)، ليحصل على نتائج وتوصيات.",
+          points: [
+            "تحويل تقييم AI Readiness إلى تجربة رقمية واضحة.",
+            "تقسيم التقييم إلى محاور قابلة للفهم والقياس.",
+            "استخدام نظام Double Slider لقياس الوضع الحالي مقابل الهدف.",
+            "Sidebar ثابت يوضح تقدم المستخدم داخل الاستبيان.",
+            "مسارات ديناميكية لكل محور بدل بناء صفحات مكررة.",
+            "حفظ إجابات المستخدم محليًا أثناء التنقل.",
+            "منع الوصول للنتائج قبل اكتمال التقييم.",
+            "عرض النتائج من خلال Score، Charts، Top Topics، وتوصيات.",
+            "تحويل المنصة إلى أداة جذب عملاء محتملين وليست مجرد استبيان."
+          ],
+        },
+        storyboard: {
+          title: "رحلة تنتقل من الإجابة إلى القرار.",
+          intro: "تدعم الواجهة المرئية المستخدم من مرحلة تسجيل البيانات وحتى لوحة قياس الجاهزية الديناميكية.",
+          screenshots: [
+            { src: "/assest/resize/horvath1.jpg", alt: "صفحة هبوط HORVÁTH وجمع البيانات", caption: "صفحة الهبوط وجمع البيانات" },
+            { src: "/assest/resize/horvath.jpg", alt: "تجربة الاستبيان من HORVÁTH والتنقل الجانبي", caption: "تجربة الاستبيان والتنقل" },
+          ],
+        },
+        featuresTitle: "نظام واجهة أمامية مهيكل.",
+        featuresIntro: "يفصل التطبيق بين صفحات البداية، مسار الاستبيان، والنتائج، ويعتمد بالكامل على إدارة الحالة ومحتوى JSON.",
+        features: [
+          { title: "تسجيل البيانات", description: "تأمين بيانات اتصال المستخدم قبل التقييم." },
+          { title: "توجيه ديناميكي", description: "التنقل بكفاءة في الاستبيان دون صفحات مكررة." },
+          { title: "شريط تمرير مزدوج", description: "التقاط القيم الحالية والمستهدفة في وقت واحد." },
+          { title: "حفظ الحالة", description: "الاحتفاظ بتقدم المستخدم خلال التجربة." },
+          { title: "لوحة النتائج", description: "تصور الفجوات وحساب درجات الجاهزية." },
+          { title: "التوصيات", description: "توليد نصائح استراتيجية بناءً على الإجابات." },
+        ],
+        result: "النتيجة لم تكن مجرد صفحة استبيان، بل نظام تقييم متكامل يحوّل إجابات المستخدم إلى قراءة أوضح لجاهزية المؤسسة للذكاء الاصطناعي.",
+        businessValue: {
+          platformOwner: {
+            title: "لمالك المنصة",
+            points: [
+              "تحويل الزائر إلى Lead من بداية التجربة.",
+              "تقديم أداة تفاعلية تعطي قيمة قبل البيع.",
+              "فتح محادثة تجارية بناءً على نتيجة ملموسة.",
+              "بناء انطباع استشاري بدل صفحة تسويقية عادية."
+            ]
+          },
+          organization: {
+            title: "للمؤسسة",
+            points: [
+              "فهم أوضح لمستوى جاهزية الذكاء الاصطناعي.",
+              "رؤية الفجوات بين الوضع الحالي والطموح.",
+              "تحديد المجالات التي تحتاج تدخلًا أولًا.",
+              "الحصول على توصيات أولية قابلة للنقاش مع فريق استشاري."
+            ]
+          }
+        },
+        technicalStory: {
+          title: "القصة التقنية",
+          body: "تم البناء كنظام واجهة أمامية مهيكل باستخدام Next.js App Router. تم فصل صفحة البداية، الاستبيان، النتائج، والتوصيات. الأسئلة، المحاور، النصوص، والتوصيات تعمل من خلال JSON. تقوم العمليات الحسابية بتحويل الإجابات إلى متوسطات، فجوات، مواضيع ذات أولوية، وقراءات تنفيذية. Zustand يحفظ تقدم المستخدم أثناء التجربة."
+        },
+        assessmentDimensions: [
+          { title: "Data", description: "أساسيات البيانات" },
+          { title: "Capabilities", description: "مهارات الفريق" },
+          { title: "Strategy", description: "محاذاة الذكاء الاصطناعي" },
+          { title: "Governance", description: "الأخلاقيات والقواعد" },
+          { title: "Value", description: "التأثير على الأعمال" },
+          { title: "Technology", description: "البنية التحتية" }
+        ],
+        cta: "اكتشف كيف تتحول الجاهزية إلى تقييم واضح",
+        backHome: "العودة إلى معرض الأعمال",
+        chapters: ["المقدمة", "قبل", "التحول", "بعد", "المشاهد", "النظام", "النتيجة"],
+      },
+    },
+  },
 };

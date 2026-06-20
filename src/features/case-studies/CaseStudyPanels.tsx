@@ -58,18 +58,35 @@ export function CaseStudyBeforePanel({ content, theme }: { content: CaseStudyCon
 
 export function CaseStudyTransformationPanel({ content, finalState, theme }: { content: CaseStudyContent; finalState: boolean; theme: CaseStudyThemeDefinition }) {
   const TransformationVisual = theme.TransformationVisual;
+  const isSplit = theme.transformationLayout === "split";
+
   return (
     <div className={`${panelClass} bg-background`} data-panel="transformation">
       <AmbientLayer />
-      <div className="mx-auto w-full max-w-7xl">
-        <div className="mb-8 flex flex-col justify-between gap-5 md:flex-row md:items-end">
-          <div className="max-w-3xl"><ChapterLabel number="03" label={content.chapters[2]} /><h2 className="mt-5 text-4xl font-black sm:text-6xl">{content.transformation.title}</h2></div>
-          <p className="max-w-md text-base leading-8 text-muted">{content.transformation.body}</p>
+      {isSplit ? (
+        <div className="mx-auto grid w-full max-w-7xl gap-10 lg:grid-cols-[.8fr_1.2fr] lg:items-center">
+          <div className="flex flex-col gap-6">
+            <div>
+              <ChapterLabel number="03" label={content.chapters[2]} />
+              <h2 className="mt-5 text-4xl font-black sm:text-6xl">{content.transformation.title}</h2>
+            </div>
+            <p className="max-w-md text-base leading-8 text-muted">{content.transformation.body}</p>
+          </div>
+          <div className={`overflow-hidden border border-border bg-surface/70 p-3 shadow-2xl shadow-primary-theme/10 sm:p-7 ${theme.transformationFrameClassName}`}>
+            <TransformationVisual key={finalState ? "final" : "animated"} finalState={finalState} />
+          </div>
         </div>
-        <div className={`overflow-hidden border border-border bg-surface/70 p-3 shadow-2xl shadow-primary-theme/10 sm:p-7 ${theme.transformationFrameClassName}`}>
-          <TransformationVisual key={finalState ? "final" : "animated"} finalState={finalState} />
+      ) : (
+        <div className="mx-auto w-full max-w-7xl">
+          <div className="mb-8 flex flex-col justify-between gap-5 md:flex-row md:items-end">
+            <div className="max-w-3xl"><ChapterLabel number="03" label={content.chapters[2]} /><h2 className="mt-5 text-4xl font-black sm:text-6xl">{content.transformation.title}</h2></div>
+            <p className="max-w-md text-base leading-8 text-muted">{content.transformation.body}</p>
+          </div>
+          <div className={`overflow-hidden border border-border bg-surface/70 p-3 shadow-2xl shadow-primary-theme/10 sm:p-7 ${theme.transformationFrameClassName}`}>
+            <TransformationVisual key={finalState ? "final" : "animated"} finalState={finalState} />
+          </div>
         </div>
-      </div>
+      )}
     </div>
   );
 }
@@ -102,8 +119,8 @@ export function CaseStudyStoryboardPanel({ content }: { content: CaseStudyConten
     <div className={`${panelClass} bg-surface-hover/50`} data-panel="storyboard">
       <div className="mx-auto w-full max-w-7xl">
         <div className="flex flex-col justify-between gap-5 md:flex-row md:items-end"><div><ChapterLabel number="05" label={content.chapters[4]} /><h2 className="mt-5 max-w-3xl text-4xl font-black sm:text-6xl">{content.storyboard.title}</h2></div><p className="max-w-md text-base leading-8 text-muted">{content.storyboard.intro}</p></div>
-        <div className={`mt-10 grid gap-5 md:grid-cols-2 ${content.storyboard.screenshots.length > 3 ? "xl:grid-cols-4" : "xl:grid-cols-3"}`}>
-          {content.storyboard.screenshots.map((shot, index) => <figure key={`${shot.src}-${index}`} className={`overflow-hidden rounded-[1.5rem] border border-border bg-surface shadow-xl shadow-foreground/5 ${index === 1 ? "xl:-translate-y-5" : ""}`}><StoryboardVisual shot={shot} /><figcaption className="flex min-h-24 items-start justify-between gap-3 px-5 py-4 text-sm font-bold leading-6"><span>{shot.caption}</span><span className="shrink-0 text-xs text-muted/40">0{index + 1}</span></figcaption></figure>)}
+        <div className={`mt-10 grid gap-5 ${content.storyboard.screenshots.length === 2 ? "md:grid-cols-2 max-w-5xl mx-auto" : content.storyboard.screenshots.length > 3 ? "md:grid-cols-2 xl:grid-cols-4" : "md:grid-cols-2 xl:grid-cols-3"}`}>
+          {content.storyboard.screenshots.map((shot, index) => <figure key={`${shot.src}-${index}`} className={`overflow-hidden rounded-[1.5rem] border border-border bg-surface shadow-xl shadow-foreground/5 ${content.storyboard.screenshots.length > 2 && index === 1 ? "xl:-translate-y-5" : ""}`}><StoryboardVisual shot={shot} /><figcaption className="flex min-h-24 items-start justify-between gap-3 px-5 py-4 text-sm font-bold leading-6"><span>{shot.caption}</span><span className="shrink-0 text-xs text-muted/40">0{index + 1}</span></figcaption></figure>)}
         </div>
       </div>
     </div>
@@ -130,6 +147,35 @@ export function CaseStudyResultPanel({ content }: { content: CaseStudyContent })
       <div className="relative mx-auto w-full max-w-6xl">
         <ChapterLabel number="07" label={content.chapters[6]} />
         <h2 className="mt-8 text-balance text-4xl font-black leading-[1.35] !text-background sm:text-6xl lg:text-7xl">{content.result}</h2>
+        
+        {content.businessValue && (
+          <div className="mt-12 grid gap-10 md:grid-cols-2 border-t border-background/20 pt-10">
+            <div>
+              <h3 className="text-xl font-bold text-primary-theme mb-4">{content.businessValue.platformOwner.title}</h3>
+              <ul className="grid gap-3">
+                {content.businessValue.platformOwner.points.map((pt, i) => (
+                  <li key={i} className="flex gap-3 text-sm text-background/80"><span className="text-primary-theme opacity-60">■</span>{pt}</li>
+                ))}
+              </ul>
+            </div>
+            <div>
+              <h3 className="text-xl font-bold text-primary-theme mb-4">{content.businessValue.organization.title}</h3>
+              <ul className="grid gap-3">
+                {content.businessValue.organization.points.map((pt, i) => (
+                  <li key={i} className="flex gap-3 text-sm text-background/80"><span className="text-primary-theme opacity-60">■</span>{pt}</li>
+                ))}
+              </ul>
+            </div>
+          </div>
+        )}
+
+        {content.technicalStory && (
+          <div className="mt-10 border-t border-background/20 pt-10">
+            <h3 className="text-xl font-bold text-primary-theme mb-3">{content.technicalStory.title}</h3>
+            <p className="max-w-4xl text-sm leading-relaxed text-background/80">{content.technicalStory.body}</p>
+          </div>
+        )}
+
         <div className="mt-12 flex flex-wrap gap-4"><Link href="/#contact" className="rounded-full bg-background px-6 py-3 text-sm font-black text-foreground transition hover:opacity-85">{content.cta}</Link><Link href="/#portfolio" className="rounded-full border border-background/25 px-6 py-3 text-sm font-black text-background transition hover:bg-background/10">{content.backHome}</Link></div>
       </div>
     </div>
