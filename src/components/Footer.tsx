@@ -1,11 +1,12 @@
 "use client";
 
 import React from "react";
+import Link from "next/link";
 import { useLanguage } from "@/context/LanguageContext";
 import { Github, Linkedin, Briefcase } from "lucide-react";
 
 export default function Footer() {
-    const { t } = useLanguage();
+    const { t, language } = useLanguage();
 
     return (
         <footer className="bg-surface text-foreground py-12 px-6 border-t border-border transition-colors duration-300">
@@ -55,6 +56,9 @@ export default function Footer() {
                     </div>
 
                     <div className="flex flex-wrap gap-6 text-sm">
+                        <Link href="/why-change" className="text-muted hover:text-secondary-theme transition-colors">
+                            {language === "ar" ? "لماذا التغيير؟" : "Why Change?"}
+                        </Link>
                         {t.footer.links.map((link, index) => (
                             <a key={index} href="#" className="text-muted hover:text-secondary-theme transition-colors">
                                 {link}
