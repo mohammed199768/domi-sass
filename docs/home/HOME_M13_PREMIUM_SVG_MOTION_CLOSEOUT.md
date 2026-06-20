@@ -7,6 +7,32 @@ clear GSAP / Anime.js ownership split, fully theme- and reduced-motion-aware.
 
 ---
 
+## 0. Post-deploy hotfix (mobile invisible-visuals)
+
+After the first production deploy, the SVG nodes were stuck invisible on mobile
+(`opacity: 0`, paths un-drawn) on `www.dominase.art` — the homepage looked
+blank/broken on phones. Root cause: the reveal set an initial **hidden** state
+and only revealed elements when the `ScrollTrigger` fired; with Lenis
+smooth-scroll on touch devices, the trigger for in-view-at-load elements did
+not auto-fire, so they never became visible. (Vercel runtime logs confirmed the
+server was healthy — every `/` request returned 200/304, so it was purely a
+client reveal-gating bug, not a build/SSR failure.)
+
+Fix (`useSvgReveal.ts`), fail-safe contract:
+- Visuals render **fully visible by default**; JS only ever *hides then reveals*.
+- Trigger start moved `top 78%` → `top 92%` so in-view elements reliably fire.
+- A `requestAnimationFrame` → `ScrollTrigger.refresh()` nudge after layout.
+- A **1600 ms fallback timer**: if the trigger hasn't fired, it reverts the
+  hidden state and forces the final visible state — the visuals can never be
+  left as invisible holes.
+- `getTotalLength()` wrapped in try/catch so a bad path can't break the reveal.
+
+Verified on emulated iPhone (touch, no scroll): 0/32 invisible nodes, 0/20
+un-drawn paths, no console errors — both the fallback path and the normal
+scroll-reveal path.
+
+---
+
 ## 1. Summary
 
 Added three professional, brand-aligned inline SVG systems to the homepage and

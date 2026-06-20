@@ -14,9 +14,16 @@ import { useReducedMotion } from "@/lib/motion/useReducedMotion";
  *   - Anime.js (loaded by each component via `useNodePulse`) owns isolated
  *     local micro-pulses and runs only AFTER this reveal completes.
  *
- * Reduced motion: every element is placed in its final static state and no
- * timeline is created. The returned `played` ref lets callers gate Anime.js
- * so it never fights GSAP or runs under reduced motion.
+ * FAIL-SAFE CONTRACT:
+ *   The SVGs render fully visible by default (no SSR/CSS hidden state). JS only
+ *   ever *hides then reveals* — so if the effect never runs, throws, or the
+ *   ScrollTrigger fails to fire (a real mobile + smooth-scroll edge case), the
+ *   visuals stay visible instead of becoming invisible holes. A short fallback
+ *   timer also forces the final visible state if the trigger hasn't fired.
+ *
+ * Reduced motion: visuals are left in their default visible state, no timeline
+ * is created. The returned `played` ref gates Anime.js so it never fights GSAP
+ * or runs under reduced motion.
  */
 export function useSvgReveal<T extends HTMLElement>() {
   const containerRef = useRef<T>(null);
@@ -24,33 +31,50 @@ export function useSvgReveal<T extends HTMLElement>() {
   const prefersReducedMotion = useReducedMotion();
 
   useEffect(() => {
-    registerMotionPlugins();
-
     const root = containerRef.current;
     if (!root) return;
 
-    const draws = root.querySelectorAll<SVGPathElement>("[data-draw]");
-    const nodes = root.querySelectorAll<SVGElement>("[data-node]");
+    const draws = Array.from(root.querySelectorAll<SVGPathElement>("[data-draw]"));
+    const nodes = Array.from(root.querySelectorAll<SVGElement>("[data-node]"));
 
-    if (prefersReducedMotion) {
-      // Final static state — no drawing, no pop, no pulse.
+    // Force everything to its final visible state. Used by reduced-motion and as
+    // the fallback / cleanup so the visuals can never be left invisible.
+    const showFinal = () => {
       draws.forEach((p) => {
         p.style.strokeDasharray = "none";
         p.style.strokeDashoffset = "0";
-        p.style.opacity = "1";
+        p.style.opacity = "";
       });
-      gsap.set(nodes, { opacity: 1, scale: 1, transformOrigin: "center center" });
+      gsap.set(nodes, { clearProps: "opacity,transform" });
       played.current = true;
+    };
+
+    if (prefersReducedMotion) {
+      showFinal();
       return;
     }
 
-    // Prepare paths for stroke drawing (measured once, deterministic geometry).
-    draws.forEach((p) => {
-      const len = p.getTotalLength();
-      p.style.strokeDasharray = String(len);
-      p.style.strokeDashoffset = String(len);
-    });
+    registerMotionPlugins();
 
+    // Measure path lengths for the draw effect. getTotalLength can throw on some
+    // engines for unusual paths — guard it so a single bad path can't break the
+    // whole reveal (and never blanks the page).
+    let canDraw = true;
+    try {
+      draws.forEach((p) => {
+        const len = p.getTotalLength();
+        p.style.strokeDasharray = String(len);
+        p.style.strokeDashoffset = String(len);
+      });
+    } catch {
+      canDraw = false;
+      draws.forEach((p) => {
+        p.style.strokeDasharray = "none";
+        p.style.strokeDashoffset = "0";
+      });
+    }
+
+    let fired = false;
     const ctx = gsap.context(() => {
       gsap.set(nodes, { opacity: 0, scale: 0.4, transformOrigin: "center center" });
 
@@ -58,8 +82,11 @@ export function useSvgReveal<T extends HTMLElement>() {
         defaults: { ease: "power2.out" },
         scrollTrigger: {
           trigger: root,
-          start: "top 78%",
+          start: "top 92%",
           once: true,
+          onEnter: () => {
+            fired = true;
+          },
         },
         onComplete: () => {
           played.current = true;
@@ -67,22 +94,41 @@ export function useSvgReveal<T extends HTMLElement>() {
         },
       });
 
-      tl.to(draws, {
-        strokeDashoffset: 0,
-        opacity: 1,
-        duration: 1.1,
-        stagger: 0.08,
-        ease: "power2.inOut",
-      }).to(
+      if (canDraw) {
+        tl.to(draws, {
+          strokeDashoffset: 0,
+          opacity: 1,
+          duration: 1.1,
+          stagger: 0.08,
+          ease: "power2.inOut",
+        });
+      }
+
+      tl.to(
         nodes,
         { opacity: 1, scale: 1, duration: 0.5, stagger: 0.07, ease: "back.out(2)" },
-        "-=0.55"
+        canDraw ? "-=0.55" : 0
       );
     }, containerRef);
 
-    ScrollTrigger.refresh();
+    // Nudge ScrollTrigger after layout settles (smooth-scroll libraries can
+    // delay the first update on mobile).
+    const refreshId = window.requestAnimationFrame(() => ScrollTrigger.refresh());
+
+    // Fallback: if the trigger never fires (in-view-at-load on touch devices,
+    // or a stalled smooth-scroll), force the final visible state so nothing is
+    // left hidden. This is the safety net for the mobile white-screen case.
+    const fallback = window.setTimeout(() => {
+      if (!fired && !played.current) {
+        ctx.revert();
+        showFinal();
+        root.dispatchEvent(new CustomEvent("svgRevealDone"));
+      }
+    }, 1600);
 
     return () => {
+      window.cancelAnimationFrame(refreshId);
+      window.clearTimeout(fallback);
       ctx.revert();
       played.current = false;
     };
