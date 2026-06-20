@@ -1,7 +1,7 @@
 "use client";
 
 import React from "react";
-import { Home, User, Briefcase, Mail, Layers, Library } from "lucide-react";
+import { Home, User, Mail, Layers, Library, CircleHelp } from "lucide-react";
 import { useLanguage } from "@/context/LanguageContext";
 import { scrollToSection } from "@/lib/motion/scrollToSection";
 import { usePathname } from "next/navigation";
@@ -17,7 +17,7 @@ export default function MobileNav() {
         { icon: Home, label: t.nav.home, href: "#home" },
         { icon: User, label: t.nav.about, href: "#about" },
         { icon: Layers, label: t.nav.services, href: "#services" },
-        { icon: Briefcase, label: t.nav.portfolio, href: "#portfolio" },
+        { icon: CircleHelp, label: t.nav.whyChange, href: "/why-change", isRoute: true },
         { icon: Library, label: t.nav.caseStudies, href: "/work", isRoute: true },
         { icon: Mail, label: t.nav.contact, href: "#contact" },
     ];

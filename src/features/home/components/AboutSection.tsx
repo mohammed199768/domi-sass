@@ -2,9 +2,9 @@
 
 import React from "react";
 import Image from "next/image";
+import Link from "next/link";
 import { motion } from "framer-motion";
 import { useLanguage } from "@/context/LanguageContext";
-import { scrollToSection } from "@/lib/motion/scrollToSection";
 
 export default function AboutSection() {
     const { t, dir } = useLanguage();
@@ -44,16 +44,17 @@ export default function AboutSection() {
                             {t.about.title}
                         </h2>
                         <div className="space-y-6 text-muted text-lg leading-relaxed">
-                            <p>{t.about.description}</p>
-                            <p>{t.about.story}</p>
+                            {t.about.body.map((paragraph) => (
+                                <p key={paragraph}>{paragraph}</p>
+                            ))}
                         </div>
                         <div className="mt-8">
-                            <button
-                                onClick={() => scrollToSection("#contact")}
-                                className="px-8 py-3 bg-primary-theme text-background font-bold rounded-lg hover:bg-opacity-90 transition-colors shadow-lg shadow-primary-theme/10"
+                            <Link
+                                href="/why-change"
+                                className="inline-flex min-h-12 items-center justify-center px-8 py-3 bg-primary-theme text-background font-bold rounded-lg hover:opacity-90 transition-opacity shadow-lg shadow-primary-theme/10 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary-theme focus-visible:ring-offset-2 focus-visible:ring-offset-surface-hover"
                             >
                                 {t.about.cta}
-                            </button>
+                            </Link>
                         </div>
                     </motion.div>
                 </div>

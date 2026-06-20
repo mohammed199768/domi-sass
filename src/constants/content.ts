@@ -5,6 +5,7 @@ export const content = {
             about: "About",
             services: "Expertise",
             portfolio: "Work",
+            whyChange: "Why Change?",
             caseStudies: "Case Studies",
             testimonials: "Signals",
             contact: "Contact",
@@ -18,10 +19,13 @@ export const content = {
             secondaryCTA: "Build With Me",
         },
         about: {
-            title: "Built Like a Product, Presented Like a Brand",
-            description: "I build digital experiences for businesses that need more than a clean landing page. My work connects frontend craft with product thinking: clear flows, sharp interfaces, useful systems, and visuals that make the brand feel serious.",
-            story: "Across booking platforms, dashboards, education interfaces, healthcare experiences, surveys, and conversion-focused websites, I focus on the details that make software feel trusted: structure, speed, motion, hierarchy, and responsive execution. The goal is always the same: a site or system that looks premium and works hard.",
-            cta: "View the Systems",
+            title: "A website is not a page. It is the decision point.",
+            body: [
+                "Today’s customer moves through a complete digital journey before they trust or buy. They may discover you on social media, but they still need a clearer place to understand who you are, what you offer, and why they should choose you.",
+                "That is where the website matters: it turns attention into trust, trust into action, and action into a customer.",
+                "On this page, I explain why a website has become a core part of business growth, and how it creates the difference between a passing digital presence and one that actually converts.",
+            ],
+            cta: "Why does your company need a website?",
         },
         services: {
             title: "What I Build",
@@ -211,6 +215,7 @@ export const content = {
             about: "من أنا",
             services: "الخبرات",
             portfolio: "الأعمال",
+            whyChange: "لماذا التغيير؟",
             caseStudies: "دراسات الحالة",
             testimonials: "إشارات الثقة",
             contact: "تواصل",
@@ -224,10 +229,13 @@ export const content = {
             secondaryCTA: "تواصل معي",
         },
         about: {
-            title: "تجربة تُبنى كمنتج وتظهر كعلامة قوية",
-            description: "أبني تجارب رقمية للشركات التي تحتاج أكثر من صفحة جميلة. عملي يجمع بين دقة الواجهة وتفكير المنتج: مسارات واضحة، واجهات حادة، أنظمة مفيدة، وحضور بصري يجعل العلامة أكثر جدية.",
-            story: "من منصات الحجز ولوحات التحكم إلى التعليم، الصحة، الاستبيانات، ومواقع التحويل، أركز على التفاصيل التي تجعل التجربة موثوقة: البنية، السرعة، الحركة، التسلسل البصري، والتنفيذ المتجاوب. الهدف دائماً هو موقع أو نظام يبدو فاخراً ويعمل بجدية.",
-            cta: "شاهد الأنظمة",
+            title: "الموقع ليس صفحة. إنه نقطة القرار.",
+            body: [
+                "العميل اليوم يمر برحلة رقمية كاملة قبل أن يثق أو يشتري. قد يراك على السوشال ميديا، لكنه يحتاج مكانًا أوضح ليعرف من أنت، ماذا تقدم، ولماذا يختارك.",
+                "هنا يأتي دور الموقع الإلكتروني: أن يحوّل الانتباه إلى ثقة، والثقة إلى إجراء، والإجراء إلى عميل.",
+                "في هذه الصفحة، أشرح لماذا أصبح الموقع الإلكتروني عنصرًا أساسيًا في نمو الشركات، وكيف يصنع الفرق بين حضور رقمي عابر وحضور رقمي يبيع.",
+            ],
+            cta: "لماذا تحتاج شركتك إلى موقع؟",
         },
         services: {
             title: "ماذا أبني",

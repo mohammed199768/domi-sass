@@ -28,6 +28,7 @@ export default function Header() {
         { label: t.nav.about, href: "#about" },
         { label: t.nav.services, href: "#services" },
         { label: t.nav.portfolio, href: "#portfolio" },
+        { label: t.nav.whyChange, href: "/why-change", isRoute: true },
         { label: t.nav.caseStudies, href: "/work", isRoute: true },
         { label: t.nav.testimonials, href: "#testimonials" },
         { label: t.nav.contact, href: "#contact" },
@@ -55,7 +56,7 @@ export default function Header() {
                 </Link>
 
                 {/* Desktop Nav */}
-                <nav className="hidden lg:flex items-center gap-8 glass px-8 py-3 rounded-full">
+                <nav className="hidden lg:flex items-center gap-6 glass px-6 py-3 rounded-full">
                     {navItems.map((link) => {
                         const isActive = link.isRoute && pathname.startsWith(link.href);
 
