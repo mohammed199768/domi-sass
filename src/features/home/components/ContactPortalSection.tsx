@@ -87,15 +87,18 @@ export default function ContactPortalSection() {
 
     return (
         <div ref={sectionRef} className="relative isolate overflow-hidden bg-background transition-colors duration-300">
+            {/* Theme-aware expanding "console" surface: a warm off-white in light
+                mode, obsidian in dark mode — never a hard black block in light. */}
             <div
                 ref={dotRef}
                 aria-hidden="true"
-                className="pointer-events-none absolute left-1/2 top-[48%] z-0 h-12 w-12 -translate-x-1/2 -translate-y-1/2 rounded-full bg-[#070707] dark:bg-[#020202]"
+                className="pointer-events-none absolute left-1/2 top-[48%] z-0 h-12 w-12 -translate-x-1/2 -translate-y-1/2 rounded-full bg-[#f4f5f7] dark:bg-[#080808]"
             />
+            {/* Static low-opacity signal accents (no blur, no animation loop). */}
             <div
                 ref={atmosphereRef}
                 aria-hidden="true"
-                className="pointer-events-none absolute inset-0 z-[1] bg-[radial-gradient(circle_at_18%_20%,rgba(255,255,255,0.08),transparent_28%),linear-gradient(135deg,rgba(255,255,255,0.05),transparent_36%),linear-gradient(180deg,rgba(0,0,0,0),rgba(0,0,0,0.24))]"
+                className="pointer-events-none absolute inset-0 z-[1] bg-[radial-gradient(circle_at_16%_18%,color-mix(in_srgb,var(--primary)_9%,transparent),transparent_32%),radial-gradient(circle_at_84%_82%,color-mix(in_srgb,var(--secondary)_7%,transparent),transparent_30%)]"
             />
             <div className="relative z-10">
                 <ContactSection />

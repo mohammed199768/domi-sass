@@ -122,6 +122,35 @@ export const content = {
                 message: "Project Details",
                 submit: "Send Message",
             },
+            portal: {
+                eyebrow: "The decision point",
+                panelLabel: "Signal capture",
+                fields: {
+                    name: { label: "Name", placeholder: "Your full name" },
+                    phone: { label: "Phone number", placeholder: "Best number to reach you" },
+                    company: { label: "Company", placeholder: "Company (optional)" },
+                },
+                submit: "Start the conversation",
+                submitting: "Sending…",
+                errors: {
+                    name: "Please enter your name.",
+                    phone: "Please enter a phone number.",
+                    submit: "Something went wrong. Please try again, or reach me directly below.",
+                    config: "Contact form is not configured. Set NEXT_PUBLIC_FORMSPREE_ENDPOINT.",
+                },
+                success: {
+                    eyebrow: "Signal received",
+                    title: "Your request was sent",
+                    body: "You just took the first step toward changing how your project shows up to the world. I’ll review the details and get back to you soon.",
+                    button: "Send another message",
+                },
+                channels: {
+                    heading: "Direct routes",
+                    whatsapp: { label: "Message on WhatsApp", caption: "WhatsApp", helper: "Fastest reply" },
+                    phone: { label: "Call by phone", caption: "Call", helper: "Talk directly" },
+                    email: { label: "Send an email", caption: "Email", helper: "Formal details" },
+                },
+            },
         },
         features: [
             {
@@ -298,6 +327,35 @@ export const content = {
                 phone: "رقم الهاتف",
                 message: "تفاصيل المشروع",
                 submit: "أرسل الرسالة",
+            },
+            portal: {
+                eyebrow: "نقطة القرار",
+                panelLabel: "التقاط الإشارة",
+                fields: {
+                    name: { label: "الاسم", placeholder: "اسمك الكامل" },
+                    phone: { label: "رقم الهاتف", placeholder: "أفضل رقم للتواصل معك" },
+                    company: { label: "اسم الشركة", placeholder: "اسم الشركة (اختياري)" },
+                },
+                submit: "ابدأ المحادثة",
+                submitting: "جاري الإرسال…",
+                errors: {
+                    name: "الرجاء إدخال اسمك.",
+                    phone: "الرجاء إدخال رقم الهاتف.",
+                    submit: "حدث خطأ ما. حاول مرة أخرى، أو تواصل معي مباشرة بالأسفل.",
+                    config: "نموذج التواصل غير مهيأ. الرجاء ضبط NEXT_PUBLIC_FORMSPREE_ENDPOINT.",
+                },
+                success: {
+                    eyebrow: "تم استلام الإشارة",
+                    title: "تم إرسال طلبك بنجاح",
+                    body: "أخذت أول خطوة في القرار الذي قد يغيّر طريقة ظهور مشروعك للعالم. سأراجع التفاصيل وأتواصل معك قريبًا.",
+                    button: "إرسال رسالة أخرى",
+                },
+                channels: {
+                    heading: "مسارات مباشرة",
+                    whatsapp: { label: "راسلني على واتساب", caption: "واتساب", helper: "رد أسرع" },
+                    phone: { label: "اتصل بي هاتفياً", caption: "اتصال", helper: "تواصل مباشر" },
+                    email: { label: "أرسل بريداً إلكترونياً", caption: "بريد", helper: "تفاصيل رسمية" },
+                },
             },
         },
         features: [
