@@ -1,9 +1,9 @@
 "use client";
 
 import { useEffect, useRef } from "react";
-import Link from "next/link";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import WhyPageCtaCluster, { type WhyCtaAction } from "@/components/WhyPageCtaCluster";
 import { useLanguage } from "@/context/LanguageContext";
 import { gsap, registerMotionPlugins } from "@/lib/motion/gsapSetup";
 import WhyChangeProgressSpine from "./WhyChangeProgressSpine";
@@ -17,6 +17,12 @@ export default function WhyChangeFilmClient() {
   const { language } = useLanguage();
   const isAr = language === "ar";
   const filmRef = useRef<HTMLElement>(null);
+
+  const whyChangeCtaActions: WhyCtaAction[] = [
+    { label: isAr ? "ابدأ مشروعك" : "Start your project", href: "/#contact", intent: "primary" },
+    { label: isAr ? "شاهد دراسات الحالة" : "View case studies", href: "/work", intent: "secondary" },
+    { label: isAr ? "لماذا نحن؟" : "Why Us?", href: "/why-us", intent: "tertiary" },
+  ];
 
   useEffect(() => {
     registerMotionPlugins();
@@ -150,10 +156,12 @@ export default function WhyChangeFilmClient() {
       <section className="why-final-cta" aria-labelledby="why-final-title">
         <p className="why-kicker">{isAr ? "لا تدفع الانتباه نحو فراغ" : "Do not send attention into a leak"}</p>
         <h2 id="why-final-title">{isAr ? "ابنِ مكانًا يحوّل الاهتمام إلى خطوة." : "Build the place that turns interest into action."}</h2>
-        <div>
-          <Link className="why-button why-button--primary" href="/#contact">{isAr ? "ابدأ مشروعك" : "Start your project"}</Link>
-          <Link className="why-button" href="/work">{isAr ? "شاهد دراسات الحالة" : "View case studies"}</Link>
-        </div>
+        <WhyPageCtaCluster
+          className="why-cta-cluster"
+          buttonClassName="why-button"
+          ariaLabel={isAr ? "روابط الخطوة التالية" : "Next step links"}
+          actions={whyChangeCtaActions}
+        />
       </section>
       <WhyChangeSources isAr={isAr} />
       <Footer />

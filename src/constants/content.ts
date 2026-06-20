@@ -2,7 +2,7 @@ export const content = {
     en: {
         nav: {
             home: "Home",
-            about: "About",
+            whyUs: "Why Us?",
             services: "Expertise",
             portfolio: "Work",
             whyChange: "Why Change?",
@@ -212,7 +212,7 @@ export const content = {
     ar: {
         nav: {
             home: "الرئيسية",
-            about: "من أنا",
+            whyUs: "لماذا نحن؟",
             services: "الخبرات",
             portfolio: "الأعمال",
             whyChange: "لماذا التغيير؟",

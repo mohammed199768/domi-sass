@@ -25,10 +25,10 @@ export default function Header() {
     const isHome = pathname === "/";
 
     const navItems = [
-        { label: t.nav.about, href: "#about" },
         { label: t.nav.services, href: "#services" },
         { label: t.nav.portfolio, href: "#portfolio" },
         { label: t.nav.whyChange, href: "/why-change", isRoute: true },
+        { label: t.nav.whyUs, href: "/why-us", isRoute: true },
         { label: t.nav.caseStudies, href: "/work", isRoute: true },
         { label: t.nav.testimonials, href: "#testimonials" },
         { label: t.nav.contact, href: "#contact" },

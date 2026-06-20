@@ -102,6 +102,18 @@ test("why-change sources and conversion CTAs", async ({ page }) => {
   await expect(page.locator("[data-why-scene]").first()).toBeVisible();
   await expect(page.locator("[data-why-scene]").last()).toBeVisible();
   await expect(page.locator("a[target='_blank'][rel='noopener noreferrer']")).toHaveCount(8);
-  await expect(page.getByRole("link", { name: "Start your project" })).toHaveAttribute("href", "/#contact");
-  await expect(page.getByRole("link", { name: "View case studies" })).toHaveAttribute("href", "/work");
+  const cluster = page.locator(".why-final-cta .why-cta-cluster");
+  await expect(cluster.getByRole("link", { name: "Start your project" })).toHaveAttribute("href", "/#contact");
+  await expect(cluster.getByRole("link", { name: "View case studies" })).toHaveAttribute("href", "/work");
+  // Reciprocal route to the Why Us page.
+  await expect(cluster.getByRole("link", { name: "Why Us?" })).toHaveAttribute("href", "/why-us");
+});
+
+test("why-change Arabic final CTA carries the reciprocal Why Us route", async ({ page }) => {
+  await openStablePage(page, "/why-change", { language: "ar", theme: "light", viewport: viewports.mobile, reducedMotion: "reduce" });
+  const cluster = page.locator(".why-final-cta .why-cta-cluster");
+  await expect(cluster.getByRole("link", { name: "ابدأ مشروعك" })).toHaveAttribute("href", "/#contact");
+  await expect(cluster.getByRole("link", { name: "شاهد دراسات الحالة" })).toHaveAttribute("href", "/work");
+  await expect(cluster.getByRole("link", { name: "لماذا نحن؟" })).toHaveAttribute("href", "/why-us");
+  await expectNoHorizontalOverflow(page);
 });

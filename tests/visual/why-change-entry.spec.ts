@@ -1,23 +1,31 @@
 import { expect, test } from "@playwright/test";
 import { expectNoHorizontalOverflow, openStablePage, viewports } from "./helpers";
 
-test("desktop navigation exposes bilingual Why Change route", async ({ page }) => {
+test("desktop navigation exposes bilingual Why Change and Why Us routes", async ({ page }) => {
   await openStablePage(page, "/", { language: "en", theme: "dark", viewport: viewports.desktop });
   const desktopNav = page.locator("header nav.hidden");
   await expect(desktopNav.getByRole("link", { name: "Why Change?" })).toHaveAttribute("href", "/why-change");
+  await expect(desktopNav.getByRole("link", { name: "Why Us?" })).toHaveAttribute("href", "/why-us");
+  // The old About scroll item is gone from the navbar.
+  await expect(desktopNav.getByRole("link", { name: "About" })).toHaveCount(0);
+  await expect(desktopNav.getByRole("button", { name: "About" })).toHaveCount(0);
 
   await page.getByRole("button", { name: "Switch language" }).first().click();
   await expect(desktopNav.getByRole("link", { name: "لماذا التغيير؟" })).toHaveAttribute("href", "/why-change");
+  await expect(desktopNav.getByRole("link", { name: "لماذا نحن؟" })).toHaveAttribute("href", "/why-us");
+  await expect(desktopNav.getByRole("link", { name: "من أنا" })).toHaveCount(0);
   const switchedAbout = page.locator("#about");
   await switchedAbout.scrollIntoViewIfNeeded();
   await expect(switchedAbout.getByRole("link", { name: "لماذا تحتاج شركتك إلى موقع؟" })).toHaveAttribute("href", "/why-change");
 });
 
-test("mobile navigation includes Why Change without overflow", async ({ page }) => {
+test("mobile navigation includes Why Change and Why Us without overflow", async ({ page }) => {
   await openStablePage(page, "/", { language: "ar", theme: "light", viewport: viewports.mobile });
   const mobileNav = page.locator("nav.glass").last();
   await expect(mobileNav.getByRole("link", { name: "لماذا التغيير؟" })).toHaveAttribute("href", "/why-change");
-  await expect(mobileNav.getByRole("link")).toHaveCount(2);
+  await expect(mobileNav.getByRole("link", { name: "لماذا نحن؟" })).toHaveAttribute("href", "/why-us");
+  await expect(mobileNav.getByRole("link", { name: "من أنا" })).toHaveCount(0);
+  await expect(mobileNav.getByRole("link")).toHaveCount(3);
   await expectNoHorizontalOverflow(page);
 });
 

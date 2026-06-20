@@ -1,9 +1,9 @@
 "use client";
 
 import { useEffect, useRef } from "react";
-import Link from "next/link";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import WhyPageCtaCluster, { type WhyCtaAction } from "@/components/WhyPageCtaCluster";
 import { useLanguage } from "@/context/LanguageContext";
 import { gsap, registerMotionPlugins } from "@/lib/motion/gsapSetup";
 import WhyUsTrustFrame from "./WhyUsTrustFrame";
@@ -121,6 +121,7 @@ export default function WhyUsPageClient() {
     ctaBody: "أما إذا كنت تريد موقعًا يفهم عميلك، يعرض قيمتك بوضوح، ويكبر مع مشروعك… فنحن نبنيه معك من الفكرة إلى الإطلاق وما بعده.",
     primary: "ابدأ بناء موقعك معنا",
     secondary: "شاهد دراسات الحالة",
+    tertiary: "لماذا التغيير؟",
   } : {
     kicker: "DOMINASE / THE GUIDE",
     heroLabel: "A partnership that starts with understanding",
@@ -142,7 +143,14 @@ export default function WhyUsPageClient() {
     ctaBody: "But if you want a website that understands your customer, communicates your value clearly, and grows with your business, we build it with you from idea to launch and beyond.",
     primary: "Start building your website with us",
     secondary: "View case studies",
+    tertiary: "Why Change?",
   };
+
+  const whyUsCtaActions: WhyCtaAction[] = [
+    { label: pageCopy.primary, href: "/#contact", intent: "primary" },
+    { label: pageCopy.secondary, href: "/work", intent: "secondary" },
+    { label: pageCopy.tertiary, href: "/why-change", intent: "tertiary" },
+  ];
 
   return (
     <main ref={rootRef} className={styles.page} lang={language} dir={isAr ? "rtl" : "ltr"}>
@@ -211,10 +219,12 @@ export default function WhyUsPageClient() {
           <p className="why-us-kicker">{pageCopy.ctaEyebrow}</p>
           <h2 id="why-us-cta-title">{pageCopy.ctaTitle}</h2>
           <p>{pageCopy.ctaBody}</p>
-          <div className="why-us-cta__actions">
-            <Link href="/#contact" className="why-us-button why-us-button--primary">{pageCopy.primary}</Link>
-            <Link href="/work" className="why-us-button">{pageCopy.secondary}</Link>
-          </div>
+          <WhyPageCtaCluster
+            className="why-us-cta__actions"
+            buttonClassName="why-us-button"
+            ariaLabel={isAr ? "روابط الخطوة التالية" : "Next step links"}
+            actions={whyUsCtaActions}
+          />
         </div>
       </section>
 
