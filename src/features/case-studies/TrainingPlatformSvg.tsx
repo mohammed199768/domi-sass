@@ -1,4 +1,7 @@
-type Props = { finalState: boolean };
+import { transformationSvgClass } from "./transformationSvgClass";
+import type { PanelLayoutMode } from "./CaseStudyPanels";
+
+type Props = { finalState: boolean; mode: PanelLayoutMode };
 
 const nodes = [
   { x: 85, y: 95, dx: -90, dy: -55, rotate: -9 },
@@ -7,9 +10,9 @@ const nodes = [
   { x: 635, y: 300, dx: 110, dy: 70, rotate: -8 },
 ];
 
-export default function TrainingPlatformSvg({ finalState }: Props) {
+export default function TrainingPlatformSvg({ finalState, mode }: Props) {
   return (
-    <svg viewBox="0 0 880 500" aria-hidden="true" className="mx-auto h-auto w-full max-w-3xl max-h-[50vh] lg:max-h-[65vh]" preserveAspectRatio="xMidYMid meet">
+    <svg viewBox="0 0 880 500" aria-hidden="true" className={transformationSvgClass(mode)} preserveAspectRatio="xMidYMid meet">
       <g className="text-border" stroke="currentColor" opacity=".55">
         {Array.from({ length: 9 }, (_, i) => <path key={`v${i}`} d={`M${i * 110} 0V500`} />)}
         {Array.from({ length: 6 }, (_, i) => <path key={`h${i}`} d={`M0 ${i * 100}H880`} />)}

@@ -1,13 +1,15 @@
 import { memo } from "react";
+import { transformationSvgClass } from "./transformationSvgClass";
+import type { PanelLayoutMode } from "./CaseStudyPanels";
 
-function AiReadinessIndexSvg({ finalState }: { finalState?: boolean }) {
+function AiReadinessIndexSvg({ finalState, mode }: { finalState?: boolean; mode: PanelLayoutMode }) {
   const isFinal = finalState;
 
   // The 6 dimension labels
   const dimensions = ["DATA", "CAPABILITIES", "STRATEGY", "GOVERNANCE", "VALUE", "TECH"];
 
   return (
-    <svg viewBox="0 0 800 600" className="mx-auto h-auto w-full max-w-3xl max-h-[50vh] lg:max-h-[65vh]" aria-hidden="true" preserveAspectRatio="xMidYMid meet">
+    <svg viewBox="0 0 800 600" className={transformationSvgClass(mode)} aria-hidden="true" preserveAspectRatio="xMidYMid meet">
       {/* Background Grid */}
       <defs>
         <pattern id="ai-grid" width="40" height="40" patternUnits="userSpaceOnUse">

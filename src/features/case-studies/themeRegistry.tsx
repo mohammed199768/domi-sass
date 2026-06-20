@@ -1,13 +1,14 @@
 import Image from "next/image";
 import type { ComponentType } from "react";
 import type { CaseStudy, CaseStudyVisualTheme } from "./contracts";
+import type { PanelLayoutMode } from "./CaseStudyPanels";
 import TrainingPlatformSvg from "./TrainingPlatformSvg";
 import WeddingBookingSvg from "./WeddingBookingSvg";
 import HealthcareCoordinationSvg from "./HealthcareCoordinationSvg";
 import AiReadinessIndexSvg from "./AiReadinessIndexSvg";
 
 type IntroVisualProps = { study: CaseStudy };
-type TransformationVisualProps = { finalState: boolean };
+type TransformationVisualProps = { finalState: boolean; mode: PanelLayoutMode };
 
 export type CaseStudyThemeDefinition = {
   IntroVisual: ComponentType<IntroVisualProps>;

@@ -1,4 +1,7 @@
-type Props = { finalState: boolean };
+import { transformationSvgClass } from "./transformationSvgClass";
+import type { PanelLayoutMode } from "./CaseStudyPanels";
+
+type Props = { finalState: boolean; mode: PanelLayoutMode };
 
 const looseModules = [
   { x: 70, y: 100, dx: -105, dy: -60, rotate: -8, kind: "agenda" },
@@ -7,9 +10,9 @@ const looseModules = [
   { x: 710, y: 310, dx: 125, dy: 78, rotate: -7, kind: "memory" },
 ];
 
-export default function WeddingBookingSvg({ finalState }: Props) {
+export default function WeddingBookingSvg({ finalState, mode }: Props) {
   return (
-    <svg viewBox="0 0 960 520" aria-hidden="true" className="mx-auto h-auto w-full max-w-3xl max-h-[50vh] lg:max-h-[65vh] object-contain" preserveAspectRatio="xMidYMid meet">
+    <svg viewBox="0 0 960 520" aria-hidden="true" className={transformationSvgClass(mode, "object-contain")} preserveAspectRatio="xMidYMid meet">
       <defs>
         <linearGradient id="booking-board" x1="0" y1="0" x2="1" y2="1">
           <stop stopColor="var(--surface)" />

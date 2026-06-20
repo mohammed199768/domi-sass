@@ -1,4 +1,7 @@
-type Props = { finalState: boolean };
+import { transformationSvgClass } from "./transformationSvgClass";
+import type { PanelLayoutMode } from "./CaseStudyPanels";
+
+type Props = { finalState: boolean; mode: PanelLayoutMode };
 
 const scatteredNodes = [
   { x: 100, y: 80, dx: -120, dy: -50, kind: "nurse" },
@@ -7,9 +10,9 @@ const scatteredNodes = [
   { x: 700, y: 360, dx: 110, dy: 70, kind: "support" },
 ];
 
-export default function HealthcareCoordinationSvg({ finalState }: Props) {
+export default function HealthcareCoordinationSvg({ finalState, mode }: Props) {
   return (
-    <svg viewBox="0 0 960 520" aria-hidden="true" className="mx-auto h-auto w-full max-w-3xl max-h-[50vh] lg:max-h-[65vh] object-contain" preserveAspectRatio="xMidYMid meet">
+    <svg viewBox="0 0 960 520" aria-hidden="true" className={transformationSvgClass(mode, "object-contain")} preserveAspectRatio="xMidYMid meet">
       <defs>
         <radialGradient id="home-glow" cx="50%" cy="50%" r="50%">
           <stop offset="0%" stopColor="var(--primary)" stopOpacity="0.15" />
