@@ -252,12 +252,13 @@ export default function TestimonialsSection() {
 
                 {/* Main two-column layout */}
                 <div
-                    className={`flex flex-col gap-10 lg:grid lg:gap-16 ${isRtl ? "lg:grid-cols-[1fr_1.1fr]" : "lg:grid-cols-[1.1fr_1fr]"}`}
+                    dir="ltr"
+                    className="flex flex-col gap-10 lg:grid lg:grid-cols-[minmax(0,1.08fr)_minmax(0,0.92fr)] lg:items-center lg:gap-16"
                     role="region"
                     aria-label={isArabic ? "تقييمات العملاء" : "Client testimonials carousel"}
                 >
                     {/* ── Visual stack column ── */}
-                    <div className={`flex items-center justify-center ${isRtl ? "lg:order-2" : ""}`}>
+                    <div className="flex items-center justify-center">
                         <div className="relative h-[400px] w-full max-w-sm md:h-[480px] md:max-w-md">
                             {items.map((item, i) => (
                                 <VisualCard
@@ -274,7 +275,8 @@ export default function TestimonialsSection() {
 
                     {/* ── Text + controls column ── */}
                     <div
-                        className={`flex flex-col justify-center ${isRtl ? "lg:order-1 items-end text-end" : ""}`}
+                        dir={dir}
+                        className={`flex min-w-0 flex-col justify-center ${isRtl ? "items-end text-end" : ""}`}
                     >
                         {/* Active project chip */}
                         <div className={`mb-6 flex items-center gap-2 ${isRtl ? "justify-end" : ""}`}>
@@ -293,7 +295,7 @@ export default function TestimonialsSection() {
 
                         {/* Quote */}
                         <div
-                            className="relative min-h-[10rem] md:min-h-[9rem]"
+                            className={`relative w-full max-w-xl ${isArabic ? "min-h-[17rem] sm:min-h-[14rem] md:min-h-[12rem] lg:min-h-[18rem] xl:min-h-[15rem]" : "min-h-[10rem] md:min-h-[9rem]"}`}
                             aria-live="polite"
                             aria-atomic="true"
                         >
@@ -307,7 +309,7 @@ export default function TestimonialsSection() {
                                     exit={reducedMotion ? undefined : "exit"}
                                     className="absolute inset-0"
                                 >
-                                    <p className="text-xl font-black leading-snug text-foreground md:text-2xl lg:text-[1.65rem] lg:leading-snug">
+                                    <p className={isArabic ? "text-lg font-black leading-[1.85] text-foreground md:text-xl lg:text-[1.35rem] lg:leading-[1.75]" : "text-xl font-black leading-snug text-foreground md:text-2xl lg:text-[1.65rem] lg:leading-snug"}>
                                         &ldquo;{active.quote}&rdquo;
                                     </p>
                                 </motion.blockquote>
@@ -327,7 +329,7 @@ export default function TestimonialsSection() {
                                 initial={reducedMotion ? undefined : "enter"}
                                 animate={reducedMotion ? undefined : "center"}
                                 exit={reducedMotion ? undefined : "exit"}
-                                className="mt-8 border-t border-border pt-5"
+                                className="mt-8 w-full max-w-xl border-t border-border pt-5"
                             >
                                 <p className="text-base font-black text-foreground">{active.author}</p>
                                 <p className="mt-0.5 text-sm font-semibold text-muted">{active.role}</p>
@@ -341,6 +343,7 @@ export default function TestimonialsSection() {
                             {/* Prev */}
                             <button
                                 type="button"
+                                suppressHydrationWarning
                                 onClick={goPrev}
                                 aria-label={isArabic ? "الشهادة السابقة" : "Previous testimonial"}
                                 className="grid h-10 w-10 place-items-center rounded-full border border-border bg-surface text-muted transition-colors duration-200 hover:border-primary-theme/50 hover:text-primary-theme focus-visible:outline focus-visible:outline-2 focus-visible:outline-primary-theme"
@@ -356,6 +359,7 @@ export default function TestimonialsSection() {
                                     <button
                                         key={i}
                                         type="button"
+                                        suppressHydrationWarning
                                         role="tab"
                                         aria-selected={i === activeIndex}
                                         aria-label={`${isArabic ? "شهادة" : "Testimonial"} ${i + 1}`}
@@ -375,6 +379,7 @@ export default function TestimonialsSection() {
                             {/* Next */}
                             <button
                                 type="button"
+                                suppressHydrationWarning
                                 onClick={goNext}
                                 aria-label={isArabic ? "الشهادة التالية" : "Next testimonial"}
                                 className="grid h-10 w-10 place-items-center rounded-full border border-border bg-surface text-muted transition-colors duration-200 hover:border-primary-theme/50 hover:text-primary-theme focus-visible:outline focus-visible:outline-2 focus-visible:outline-primary-theme"
