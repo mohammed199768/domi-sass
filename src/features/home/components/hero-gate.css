@@ -222,9 +222,7 @@
     padding-top: 0;
   }
 
-  .hero-aura,
-  .retro-grid__flat,
-  .retro-grid__perspective {
+  .hero-aura {
     opacity: 0.56;
   }
 

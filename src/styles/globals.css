@@ -53,13 +53,9 @@
     radial-gradient(130% 120% at 50% 2%, transparent 56%, color-mix(in srgb, #25415c 10%, transparent) 100%),
     linear-gradient(180deg, #f3f6fb 0%, #e8eef6 52%, var(--bg) 100%);
 
-  /* RetroGrid — faint cyan / blue-gray perspective grid on mist. */
-  --rg-glow-1: color-mix(in srgb, var(--accent-cyan) 14%, transparent);
-  --rg-glow-2: color-mix(in srgb, var(--accent-violet) 11%, transparent);
-  --rg-flat-line: rgba(42, 84, 120, 0.07);
-  --rg-persp-1: color-mix(in srgb, var(--accent-cyan) 26%, transparent);
-  --rg-persp-2: color-mix(in srgb, var(--accent-violet) 20%, transparent);
-  --rg-fade: var(--bg);
+  /* Soft cyan/violet atmosphere glows — smooth radials, never a grid. */
+  --atmo-glow-1: color-mix(in srgb, var(--accent-cyan) 14%, transparent);
+  --atmo-glow-2: color-mix(in srgb, var(--accent-violet) 11%, transparent);
 }
 
 .dark {
@@ -85,13 +81,9 @@
     radial-gradient(130% 120% at 50% 2%, transparent 48%, rgba(0, 0, 0, 0.5) 100%),
     linear-gradient(180deg, #07090e 0%, #050609 58%, var(--bg) 100%);
 
-  /* RetroGrid — obsidian background, cyan/violet grid. */
-  --rg-glow-1: color-mix(in srgb, var(--accent-cyan) 18%, transparent);
-  --rg-glow-2: color-mix(in srgb, var(--accent-violet) 14%, transparent);
-  --rg-flat-line: rgba(220, 240, 245, 0.075);
-  --rg-persp-1: color-mix(in srgb, var(--accent-cyan) 26%, transparent);
-  --rg-persp-2: color-mix(in srgb, var(--accent-violet) 18%, transparent);
-  --rg-fade: var(--bg);
+  /* Soft cyan/violet atmosphere glows — smooth radials, never a grid. */
+  --atmo-glow-1: color-mix(in srgb, var(--accent-cyan) 18%, transparent);
+  --atmo-glow-2: color-mix(in srgb, var(--accent-violet) 14%, transparent);
 }
 
 @layer base {
@@ -103,6 +95,19 @@
   body {
     @apply bg-background text-foreground antialiased transition-colors duration-300 ease-in-out;
     font-family: var(--font-en-body), system-ui, sans-serif;
+  }
+
+  /* ── Global horizontal-overflow guard ─────────────────────────────────────
+   * Final safety net AFTER source-level fixes (Hero section + gate sticky use
+   * local `overflow: hidden`; `.flow-section` uses `overflow-x: clip`). This is
+   * NOT a blind `overflow-x: hidden` on body — we use `overflow-x: clip`, which
+   * prevents any stray sub-pixel/transform bleed from creating a horizontal
+   * scrollbar WITHOUT establishing a scroll container, so `position: sticky`
+   * (the Hero Gate viewport, the carousel, etc.) keeps working. */
+  html,
+  body {
+    max-width: 100%;
+    overflow-x: clip;
   }
 
   h1, h2, h3, h4, h5, h6 {
@@ -175,6 +180,10 @@ body.domi-booting :where(main, header, footer, .mobile-nav-shell) {
   transition: opacity 260ms ease;
 }
 
+:where(#about, #services, #portfolio, #testimonials, #contact) {
+  scroll-margin-top: 6rem;
+}
+
 @media (prefers-reduced-motion: reduce) {
   :where(main, header, footer, .mobile-nav-shell) {
     transition-duration: 80ms;
@@ -231,11 +240,11 @@ body.domi-booting :where(main, header, footer, .mobile-nav-shell) {
   aspect-ratio: 16 / 10;
 }
 
-/* Faint cyan/violet inner glow — depth without noise (reuses the grid tones). */
+/* Faint cyan/violet inner glow — depth without noise (smooth radials). */
 .spatial-card__glow {
   background:
-    radial-gradient(58% 58% at 16% 10%, var(--rg-glow-1), transparent 60%),
-    radial-gradient(54% 54% at 88% 90%, var(--rg-glow-2), transparent 58%);
+    radial-gradient(58% 58% at 16% 10%, var(--atmo-glow-1), transparent 60%),
+    radial-gradient(54% 54% at 88% 90%, var(--atmo-glow-2), transparent 58%);
 }
 
 /* Hero canvas + atmosphere — theme-aware, no hard black block in light mode. */
@@ -245,8 +254,8 @@ body.domi-booting :where(main, header, footer, .mobile-nav-shell) {
 
 .hero-aura {
   background:
-    radial-gradient(circle at 18% 28%, var(--rg-glow-1), transparent 32%),
-    radial-gradient(circle at 82% 45%, var(--rg-glow-2), transparent 33%);
+    radial-gradient(circle at 18% 28%, var(--atmo-glow-1), transparent 32%),
+    radial-gradient(circle at 82% 45%, var(--atmo-glow-2), transparent 33%);
 }
 
 /* Soft hand-off from the hero into the first section background. */
@@ -259,59 +268,6 @@ body.domi-booting :where(main, header, footer, .mobile-nav-shell) {
   );
 }
 
-/* ---- RetroGrid: theme-aware technical perspective grid ---- */
-.retro-grid {
-  @apply pointer-events-none absolute inset-0 overflow-hidden;
-}
-
-.retro-grid__glow {
-  position: absolute;
-  inset: 0;
-  background:
-    radial-gradient(circle at 50% 16%, var(--rg-glow-1), transparent 36%),
-    radial-gradient(circle at 78% 74%, var(--rg-glow-2), transparent 34%);
-}
-
-.retro-grid__flat {
-  position: absolute;
-  inset: 0;
-  opacity: 0.55;
-  background-image:
-    linear-gradient(to right, var(--rg-flat-line) 1px, transparent 1px),
-    linear-gradient(to bottom, var(--rg-flat-line) 1px, transparent 1px);
-  background-size: 44px 44px;
-  -webkit-mask-image: linear-gradient(to bottom, transparent, #000 18%, #000 66%, transparent);
-  mask-image: linear-gradient(to bottom, transparent, #000 18%, #000 66%, transparent);
-}
-
-.retro-grid__perspective {
-  position: absolute;
-  left: 50%;
-  top: 58%;
-  height: 56rem;
-  width: min(130vw, 1600px);
-  transform: translate(-50%, -50%) perspective(720px) rotateX(64deg);
-  transform-origin: center;
-  background-image:
-    linear-gradient(to right, var(--rg-persp-1) 1px, transparent 1px),
-    linear-gradient(to bottom, var(--rg-persp-2) 1px, transparent 1px);
-  background-size: 58px 58px;
-  -webkit-mask-image: linear-gradient(to bottom, transparent, #000 16%, #000 74%, transparent);
-  mask-image: linear-gradient(to bottom, transparent, #000 16%, #000 74%, transparent);
-}
-
-.retro-grid__fade {
-  position: absolute;
-  inset-inline: 0;
-  bottom: 0;
-  height: 55%;
-  background: linear-gradient(
-    to top,
-    var(--rg-fade) 0%,
-    color-mix(in srgb, var(--rg-fade) 64%, transparent) 42%,
-    transparent 100%
-  );
-}
 
 /* ---- Unified CTA language (cyan/teal → violet brand gradient) ----
    Scoped to @layer components so per-call-site utilities (radius, weight)

@@ -3,6 +3,7 @@
 import { getActiveLenis } from "./lenisStore";
 
 const DEFAULT_HEADER_OFFSET = 88;
+const CORRECTION_THRESHOLD_PX = 24;
 
 type ScrollToSectionOptions = {
   offset?: number;
@@ -17,6 +18,15 @@ function normalizeTarget(target: string) {
   return target.startsWith("#") ? target : `#${target}`;
 }
 
+function getTargetTop(href: string, offset: number) {
+  const element = href === "#home" ? null : document.querySelector<HTMLElement>(href);
+  if (!element) return 0;
+
+  const scrollMarginTop = Number.parseFloat(window.getComputedStyle(element).scrollMarginTop);
+  const targetOffset = Math.max(offset, Number.isFinite(scrollMarginTop) ? scrollMarginTop : 0);
+  return element.getBoundingClientRect().top + window.scrollY - targetOffset;
+}
+
 export function scrollToSection(target: string, options: ScrollToSectionOptions = {}) {
   if (typeof window === "undefined") {
     return;
@@ -27,8 +37,25 @@ export function scrollToSection(target: string, options: ScrollToSectionOptions 
   const updateHash = options.updateHash ?? true;
   const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
   const lenis = getActiveLenis();
-  const element = href === "#home" ? null : document.querySelector<HTMLElement>(href);
-  const top = element ? element.getBoundingClientRect().top + window.scrollY - offset : 0;
+  const top = getTargetTop(href, offset);
+
+  const correctFinalPosition = () => {
+    const correctedTop = getTargetTop(href, offset);
+    if (Math.abs(correctedTop - window.scrollY) < CORRECTION_THRESHOLD_PX) return;
+
+    if (lenis && !prefersReducedMotion) {
+      lenis.scrollTo(correctedTop, {
+        duration: 0.35,
+        easing: (t) => 1 - Math.pow(1 - t, 3),
+      });
+      return;
+    }
+
+    window.scrollTo({
+      top: correctedTop,
+      behavior: prefersReducedMotion ? "auto" : "smooth",
+    });
+  };
 
   if (updateHash) {
     const nextHash = href === "#home" ? window.location.pathname : href;
@@ -40,6 +67,7 @@ export function scrollToSection(target: string, options: ScrollToSectionOptions 
       duration: 1.05,
       easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
     });
+    window.setTimeout(correctFinalPosition, 1150);
     return;
   }
 
@@ -47,4 +75,5 @@ export function scrollToSection(target: string, options: ScrollToSectionOptions 
     top,
     behavior: prefersReducedMotion ? "auto" : "smooth",
   });
+  window.setTimeout(correctFinalPosition, prefersReducedMotion ? 80 : 650);
 }

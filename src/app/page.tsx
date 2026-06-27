@@ -1,5 +1,6 @@
 "use client";
 
+import { useEffect } from "react";
 import Header from "@/components/Header";
 import {
   Hero,
@@ -13,8 +14,23 @@ import {
 } from "@/features/home";
 import HeroScrollTransition from "@/features/home/components/HeroScrollTransition";
 import Footer from "@/components/Footer";
+import { scrollToSection } from "@/lib/motion/scrollToSection";
 
 export default function Home() {
+  useEffect(() => {
+    const hash = window.location.hash;
+    if (!hash) return;
+
+    const timers = [
+      window.setTimeout(() => scrollToSection(hash, { updateHash: false }), 250),
+      window.setTimeout(() => scrollToSection(hash, { updateHash: false }), 1250),
+    ];
+
+    return () => {
+      timers.forEach((timer) => window.clearTimeout(timer));
+    };
+  }, []);
+
   return (
     <main className="min-h-screen font-sans">
       <Header />

@@ -41,7 +41,6 @@ export default function FlowSection({ transition, children }: FlowSectionProps) 
     >
       {transition === "ominous-gate" && (
         <div ref={overlayRef} className="flow-ominous-overlay" aria-hidden="true">
-          <div className="flow-gate-grid" />
           <div ref={gateLineRef} className="flow-gate-line" />
         </div>
       )}

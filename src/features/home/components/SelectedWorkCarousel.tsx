@@ -180,14 +180,6 @@ function WorkRevealGate() {
               "linear-gradient(to top, color-mix(in srgb, var(--surface-muted) 44%, transparent), color-mix(in srgb, var(--bg) 96%, transparent))",
           }}
         />
-        <div
-          className="pointer-events-none absolute inset-0 opacity-[0.035] dark:opacity-[0.055]"
-          style={{
-            backgroundImage:
-              "linear-gradient(to right, var(--fg) 1px, transparent 1px), linear-gradient(to bottom, var(--fg) 1px, transparent 1px)",
-            backgroundSize: "64px 64px",
-          }}
-        />
         <svg
           className="relative z-10 h-24 w-[min(86vw,940px)]"
           viewBox="0 0 940 96"
@@ -383,15 +375,6 @@ function SelectedWorkScrollGallery() {
       aria-labelledby="selected-work-title"
     >
       <div className="sticky top-0 min-h-screen overflow-hidden" style={{ contain: "layout paint" }}>
-        <div
-          className="pointer-events-none absolute inset-0 opacity-[0.035] dark:opacity-[0.055]"
-          style={{
-            backgroundImage:
-              "linear-gradient(to right, var(--fg) 1px, transparent 1px), linear-gradient(to bottom, var(--fg) 1px, transparent 1px)",
-            backgroundSize: "80px 80px",
-          }}
-          aria-hidden="true"
-        />
         <div
           className="pointer-events-none absolute inset-0"
           style={{

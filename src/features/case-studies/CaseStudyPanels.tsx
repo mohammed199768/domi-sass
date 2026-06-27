@@ -127,7 +127,6 @@ export function CaseStudyBeforePanel({ content, theme, mode }: { content: CaseSt
           {content.before.microcopy && <p className={clsx("border-s-2 border-secondary-theme ps-4 font-black text-foreground/70", fit ? "mt-4 text-xs leading-6" : "mt-7 text-sm leading-7")}>{content.before.microcopy}</p>}
         </div>
         <div className={clsx("relative overflow-hidden border border-border bg-background/75 shadow-xl shadow-foreground/5", fit ? "min-h-[18rem] p-5 md:min-h-[21rem]" : "min-h-[31rem] p-7 sm:p-10", theme.beforeFrameClassName)}>
-          <div aria-hidden="true" className="absolute inset-0 opacity-50 [background-image:linear-gradient(to_right,var(--border)_1px,transparent_1px),linear-gradient(to_bottom,var(--border)_1px,transparent_1px)] [background-size:72px_72px]" />
           <ul className={clsx("relative grid sm:grid-cols-2", fit ? "gap-2" : "gap-3")}>
             {content.before.points.map((point, index) => <li key={point} className={clsx("flex items-center justify-between rounded-2xl border border-border bg-surface font-bold shadow-sm", fit ? "min-h-16 p-3 text-sm" : "min-h-24 p-5 text-base", index % 3 === 0 ? "sm:translate-y-5 sm:-rotate-2" : index % 3 === 1 ? "sm:-translate-y-2 sm:rotate-1" : "sm:translate-y-9 sm:-rotate-1")}><span>{point}</span><span className="text-xs text-muted/40">0{index + 1}</span></li>)}
           </ul>
@@ -231,7 +230,6 @@ export function CaseStudyResultPanel({ content, mode }: { content: CaseStudyCont
       panel="result"
       mode={mode}
       className="bg-foreground text-background"
-      decoration={<div aria-hidden="true" className="absolute inset-0 opacity-[.06] [background-image:linear-gradient(to_right,var(--bg)_1px,transparent_1px)] [background-size:12.5%_100%]" />}
     >
       <div className="relative mx-auto w-full max-w-6xl">
         <ChapterLabel number="07" label={content.chapters[6]} />

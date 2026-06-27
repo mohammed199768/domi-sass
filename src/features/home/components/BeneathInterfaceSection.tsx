@@ -179,16 +179,6 @@ function SceneCard({
       className={`relative ${isTablet ? "w-[46%] shrink-0" : "w-full"}`}
       aria-hidden="true"
     >
-      {/* Grid backdrop */}
-      <div
-        className="pointer-events-none absolute inset-0 rounded-xl opacity-[0.04] dark:opacity-[0.07]"
-        style={{
-          backgroundImage: `
-            linear-gradient(to right, var(--fg) 1px, transparent 1px),
-            linear-gradient(to bottom, var(--fg) 1px, transparent 1px)`,
-          backgroundSize: "32px 32px",
-        }}
-      />
       {/* SVG wrapper — fixed aspect ratio */}
       <div
         className="relative w-full overflow-hidden rounded-xl"
@@ -646,15 +636,6 @@ export default function BeneathInterfaceSection() {
             style={{ minHeight: "420px" }}
             aria-hidden="true"
           >
-            <div
-              className="pointer-events-none absolute inset-0 opacity-[0.04] dark:opacity-[0.06]"
-              style={{
-                backgroundImage: `
-                  linear-gradient(to right, var(--fg) 1px, transparent 1px),
-                  linear-gradient(to bottom, var(--fg) 1px, transparent 1px)`,
-                backgroundSize: "40px 40px",
-              }}
-            />
             <div className="relative w-full" style={{ maxWidth: "560px" }}>
               <BeneathInterfaceSvg
                 refCallback={handleSvgRefs}
