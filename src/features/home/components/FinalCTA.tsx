@@ -9,7 +9,7 @@ export default function FinalCTA() {
     const { t } = useLanguage();
 
     return (
-        <section className="py-24 bg-primary-theme px-6 transition-colors duration-300">
+        <section className="bg-[#102033] px-6 py-24 transition-colors duration-300 dark:bg-[#07131e]">
             <div className="max-w-4xl mx-auto text-center">
                 <motion.div
                     initial={{ opacity: 0, y: 30 }}
@@ -18,35 +18,35 @@ export default function FinalCTA() {
                     viewport={{ once: true }}
                     className="space-y-8"
                 >
-                    <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-background uppercase tracking-tight">
+                    <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-[#f6f8fb] uppercase tracking-tight">
                         {t.finalCTA.title}
                     </h2>
-                    <p className="text-lg md:text-xl text-background/80 leading-relaxed font-medium">
+                    <p className="text-lg md:text-xl text-[#d8e6ee] leading-relaxed font-medium dark:text-[#cbd5e1]">
                         {t.finalCTA.subtext}
                     </p>
 
-                    {/* CTAs */}
+                    {/* CTAs — CSS scale instead of per-button Framer Motion wrappers */}
                     <div className="flex flex-col sm:flex-row gap-4 justify-center items-center pt-4">
-                        <motion.button
-                            whileHover={{ scale: 1.05 }}
-                            whileTap={{ scale: 0.95 }}
+                        <button
+                            type="button"
+                            suppressHydrationWarning
                             onClick={() => scrollToSection("#contact")}
-                            className="px-8 py-4 bg-secondary-theme text-background font-black rounded-full shadow-2xl hover:shadow-secondary-theme/40 transition-all duration-300"
+                            className="btn-primary px-8 py-4 font-black transition-transform duration-200 hover:scale-105 active:scale-95"
                         >
                             {t.finalCTA.primaryCTA}
-                        </motion.button>
-                        <motion.button
-                            whileHover={{ scale: 1.05 }}
-                            whileTap={{ scale: 0.95 }}
+                        </button>
+                        <button
+                            type="button"
+                            suppressHydrationWarning
                             onClick={() => scrollToSection("#portfolio")}
-                            className="px-8 py-4 bg-transparent text-background font-bold border-2 border-background rounded-full hover:bg-background hover:text-primary-theme transition-all duration-300"
+                            className="px-8 py-4 bg-transparent text-[#f6f8fb] font-bold border-2 border-[#f6f8fb] rounded-full hover:bg-[#f6f8fb] hover:text-[#102033] transition-all duration-300 hover:scale-105 active:scale-95"
                         >
                             {t.finalCTA.secondaryCTA}
-                        </motion.button>
+                        </button>
                     </div>
 
                     {/* Reassurance Text */}
-                    <p className="text-sm text-background/60 pt-4 font-medium">{t.finalCTA.reassurance}</p>
+                    <p className="pt-4 text-sm font-medium text-[#d8e6ee]/75 dark:text-[#cbd5e1]/75">{t.finalCTA.reassurance}</p>
                 </motion.div>
             </div>
         </section>

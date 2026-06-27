@@ -92,7 +92,7 @@ export default function ContactPortalSection() {
             <div
                 ref={dotRef}
                 aria-hidden="true"
-                className="pointer-events-none absolute left-1/2 top-[48%] z-0 h-12 w-12 -translate-x-1/2 -translate-y-1/2 rounded-full bg-[#f4f5f7] dark:bg-[#080808]"
+                className="pointer-events-none absolute left-1/2 top-[48%] z-0 h-12 w-12 -translate-x-1/2 -translate-y-1/2 rounded-full bg-surface-hover dark:bg-[#080808]"
             />
             {/* Static low-opacity signal accents (no blur, no animation loop). */}
             <div

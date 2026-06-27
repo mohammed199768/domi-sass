@@ -27,7 +27,7 @@ export default function MobileNav() {
 
     return (
         <div className="fixed bottom-0 left-0 right-0 z-50 lg:hidden pb-safe transition-colors duration-300">
-            <nav className="glass bg-surface/80 backdrop-blur-xl border-t border-border px-6 py-4 flex justify-between items-center pb-8 rounded-t-[2rem] shadow-[0_-10px_40px_rgba(0,0,0,0.1)]">
+            <nav className="glass bg-surface/92 border-t border-border px-6 py-4 flex justify-between items-center pb-8 rounded-t-[2rem] shadow-[0_-8px_28px_rgba(0,0,0,0.08)]">
                 {navItems.map((item) => {
                     const isActive = item.isRoute && pathname === item.href;
 
@@ -62,6 +62,7 @@ export default function MobileNav() {
                     return (
                         <button
                             key={item.label}
+                            suppressHydrationWarning
                             onClick={() => scrollToSection(item.href)}
                             aria-label={item.label}
                             className="flex flex-col items-center gap-1 text-muted hover:text-primary-theme transition-colors"

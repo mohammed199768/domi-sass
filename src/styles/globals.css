@@ -3,14 +3,27 @@
 @variant dark (&:where(.dark, .dark *));
 
 @theme {
-  --font-sans: var(--font-montserrat);
-  --font-arabic: var(--font-cairo);
+  /* ── Typography tokens ──────────────────────────────────────────────────
+   * Two English + two Arabic families, routed by element + direction.
+   *   --font-en-display / --font-en-body  (Space Grotesk / Manrope)
+   *   --font-ar-display / --font-ar-body  (IBM Plex Sans Arabic / Noto Sans Arabic)
+   * Tailwind `font-sans` / `font-arabic` utilities keep working: they now
+   * resolve to the body families with a graceful display fallback. */
+  --font-en-display: var(--font-en-display);
+  --font-en-body: var(--font-en-body);
+  --font-ar-display: var(--font-ar-display);
+  --font-ar-body: var(--font-ar-body);
+
+  --font-display: var(--font-en-display), system-ui, sans-serif;
+  --font-sans: var(--font-en-body), system-ui, sans-serif;
+  --font-arabic: var(--font-ar-body), system-ui, sans-serif;
 
   /* Semantic Theme Tokens */
   --color-background: var(--bg);
   --color-foreground: var(--fg);
   --color-surface: var(--surface);
   --color-surface-hover: var(--surface-hover);
+  --color-surface-muted: var(--surface-muted);
   --color-border: var(--border);
   --color-primary-theme: var(--primary);
   --color-secondary-theme: var(--secondary);
@@ -22,41 +35,110 @@
 }
 
 :root {
-  --bg: #ffffff;
-  --fg: #111827;
-  --surface: #ffffff;
-  --surface-hover: #f9fafb;
-  --border: #e5e7eb;
-  --primary: #0D3B66;
-  --secondary: #FF7F11;
-  --muted: #4b5563;
+  --bg: #f6f8fb;
+  --fg: #102033;
+  --surface: #fbfdff;
+  --surface-hover: #eef4f8;
+  --surface-muted: #e6eef5;
+  --border: rgba(38, 66, 92, 0.15);
+  --primary: #0f766e;
+  --secondary: #6d5bd0;
+  --muted: #4d6075;
+  --cool-shadow: rgba(15, 35, 55, 0.1);
+
+  /* Brand accents — for glows / grids / gradients only, never small text. */
+  --accent-cyan: #18b6c0;
+  --accent-violet: #8b78ee;
+
+  /* Hero canvas — a bright, cinematic pearl/mist studio backdrop. */
+  --hero-gradient:
+    radial-gradient(125% 86% at 50% -14%, color-mix(in srgb, var(--accent-cyan) 16%, transparent) 0%, transparent 52%),
+    radial-gradient(96% 78% at 84% 16%, color-mix(in srgb, var(--accent-violet) 12%, transparent) 0%, transparent 48%),
+    radial-gradient(130% 120% at 50% 2%, transparent 56%, color-mix(in srgb, #25415c 10%, transparent) 100%),
+    linear-gradient(180deg, #f3f6fb 0%, #e8eef6 52%, var(--bg) 100%);
+
+  /* RetroGrid — faint cyan / blue-gray perspective grid on mist. */
+  --rg-glow-1: color-mix(in srgb, var(--accent-cyan) 14%, transparent);
+  --rg-glow-2: color-mix(in srgb, var(--accent-violet) 11%, transparent);
+  --rg-flat-line: rgba(42, 84, 120, 0.07);
+  --rg-persp-1: color-mix(in srgb, var(--accent-cyan) 26%, transparent);
+  --rg-persp-2: color-mix(in srgb, var(--accent-violet) 20%, transparent);
+  --rg-fade: var(--bg);
 }
 
 .dark {
-  --bg: #050505;
-  --fg: #f9fafb;
-  --surface: #121212;
-  --surface-hover: #1a1a1a;
-  --border: rgba(255, 255, 255, 0.1);
+  --bg: #050609;
+  --fg: #f8fbff;
+  --surface: #111318;
+  --surface-hover: #181c23;
+  --surface-muted: #0b0e13;
+  --border: rgba(218, 236, 244, 0.11);
   --primary: #2DD4BF;
-  --secondary: #F472B6;
-  --muted: #9ca3af;
+  --secondary: #A78BFA;
+  --muted: #a7b0bc;
+  --cool-shadow: rgba(0, 0, 0, 0.34);
+
+  /* Brand accents — obsidian-mode glow tones. */
+  --accent-cyan: #2DD4BF;
+  --accent-violet: #A78BFA;
+
+  /* Hero canvas — obsidian, cinematic, cyan/violet horizon glow. */
+  --hero-gradient:
+    radial-gradient(125% 86% at 50% -14%, color-mix(in srgb, var(--accent-cyan) 16%, transparent) 0%, transparent 50%),
+    radial-gradient(96% 78% at 84% 22%, color-mix(in srgb, var(--accent-violet) 14%, transparent) 0%, transparent 48%),
+    radial-gradient(130% 120% at 50% 2%, transparent 48%, rgba(0, 0, 0, 0.5) 100%),
+    linear-gradient(180deg, #07090e 0%, #050609 58%, var(--bg) 100%);
+
+  /* RetroGrid — obsidian background, cyan/violet grid. */
+  --rg-glow-1: color-mix(in srgb, var(--accent-cyan) 18%, transparent);
+  --rg-glow-2: color-mix(in srgb, var(--accent-violet) 14%, transparent);
+  --rg-flat-line: rgba(220, 240, 245, 0.075);
+  --rg-persp-1: color-mix(in srgb, var(--accent-cyan) 26%, transparent);
+  --rg-persp-2: color-mix(in srgb, var(--accent-violet) 18%, transparent);
+  --rg-fade: var(--bg);
 }
 
 @layer base {
+  /* ── Typography routing ───────────────────────────────────────────────────
+   * Default (LTR / English): Manrope body, Space Grotesk headings.
+   * RTL / [lang="ar"]: Noto Sans Arabic body, IBM Plex Sans Arabic headings.
+   * Buttons, nav and labels follow the body family of the active direction.
+   */
   body {
-    @apply bg-background text-foreground antialiased transition-colors duration-300 ease-in-out font-sans;
+    @apply bg-background text-foreground antialiased transition-colors duration-300 ease-in-out;
+    font-family: var(--font-en-body), system-ui, sans-serif;
   }
 
   h1, h2, h3, h4, h5, h6 {
     @apply font-bold text-foreground;
+    font-family: var(--font-en-display), system-ui, sans-serif;
+    letter-spacing: -0.01em;
+  }
+
+  /* Arabic: switch both body and headings to the Arabic families. */
+  [dir="rtl"],
+  [lang="ar"] {
+    font-family: var(--font-ar-body), system-ui, sans-serif;
+  }
+
+  [dir="rtl"] h1, [dir="rtl"] h2, [dir="rtl"] h3,
+  [dir="rtl"] h4, [dir="rtl"] h5, [dir="rtl"] h6,
+  [lang="ar"] h1, [lang="ar"] h2, [lang="ar"] h3,
+  [lang="ar"] h4, [lang="ar"] h5, [lang="ar"] h6 {
+    font-family: var(--font-ar-display), system-ui, sans-serif;
+    letter-spacing: 0; /* Arabic must never look stretched */
+  }
+
+  /* Buttons / nav / labels inherit the correct body family per direction. */
+  button, input, textarea, select {
+    font-family: inherit;
   }
 
   [dir="rtl"] h1 {
     line-height: 1.35 !important;
     word-break: break-word;
   }
-  
+
   [dir="rtl"] h2, [dir="rtl"] h3 {
     line-height: 1.5 !important;
     word-break: break-word;
@@ -74,13 +156,172 @@
 
 /* Glassmorphism utilities */
 .glass {
-  @apply backdrop-blur-xl border border-border shadow-xl transition-all duration-300;
-  background-color: color-mix(in srgb, var(--surface) 70%, transparent);
+  @apply border border-border transition-all duration-300;
+  background-color: color-mix(in srgb, var(--surface) 88%, transparent);
+  box-shadow: 0 16px 42px -34px var(--cool-shadow);
 }
 
 .glass-card {
-  @apply backdrop-blur-md border border-border shadow-lg hover:shadow-2xl transition-all duration-300;
-  background-color: color-mix(in srgb, var(--surface) 60%, transparent);
+  @apply border border-border transition-all duration-300;
+  background:
+    linear-gradient(135deg, color-mix(in srgb, var(--surface) 96%, transparent), color-mix(in srgb, var(--surface-hover) 72%, transparent));
+  box-shadow:
+    inset 0 1px 0 color-mix(in srgb, #ffffff 28%, transparent),
+    0 22px 60px -42px var(--cool-shadow);
+}
+
+.glass-card:hover {
+  border-color: color-mix(in srgb, var(--primary) 32%, var(--border));
+  box-shadow:
+    inset 0 1px 0 color-mix(in srgb, #ffffff 34%, transparent),
+    0 28px 74px -44px color-mix(in srgb, var(--primary) 26%, var(--cool-shadow));
+}
+
+/* Spatial UI card — a premium product surface that floats in the page. */
+.spatial-card {
+  position: relative;
+  border: 1px solid color-mix(in srgb, var(--primary) 14%, var(--border));
+  background:
+    linear-gradient(
+      135deg,
+      color-mix(in srgb, var(--surface) 92%, transparent),
+      color-mix(in srgb, var(--surface-hover) 68%, transparent)
+    );
+  box-shadow:
+    inset 0 1px 0 color-mix(in srgb, #ffffff 30%, transparent),
+    0 30px 80px -52px var(--cool-shadow);
+}
+
+.dark .spatial-card {
+  box-shadow:
+    inset 0 1px 0 color-mix(in srgb, #ffffff 8%, transparent),
+    0 36px 90px -50px var(--cool-shadow);
+}
+
+/* Stable video frame ratio — explicit rule avoids Tailwind's arbitrary
+   fraction ambiguity (aspect-[16/10]) and prevents layout shift (CLS). */
+.video-frame {
+  aspect-ratio: 16 / 10;
+}
+
+/* Faint cyan/violet inner glow — depth without noise (reuses the grid tones). */
+.spatial-card__glow {
+  background:
+    radial-gradient(58% 58% at 16% 10%, var(--rg-glow-1), transparent 60%),
+    radial-gradient(54% 54% at 88% 90%, var(--rg-glow-2), transparent 58%);
+}
+
+/* Hero canvas + atmosphere — theme-aware, no hard black block in light mode. */
+.hero-canvas {
+  background: var(--hero-gradient);
+}
+
+.hero-aura {
+  background:
+    radial-gradient(circle at 18% 28%, var(--rg-glow-1), transparent 32%),
+    radial-gradient(circle at 82% 45%, var(--rg-glow-2), transparent 33%);
+}
+
+/* Soft hand-off from the hero into the first section background. */
+.hero-base-fade {
+  background: linear-gradient(
+    to bottom,
+    transparent 0%,
+    color-mix(in srgb, var(--bg) 72%, transparent) 55%,
+    var(--bg) 100%
+  );
+}
+
+/* ---- RetroGrid: theme-aware technical perspective grid ---- */
+.retro-grid {
+  @apply pointer-events-none absolute inset-0 overflow-hidden;
+}
+
+.retro-grid__glow {
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(circle at 50% 16%, var(--rg-glow-1), transparent 36%),
+    radial-gradient(circle at 78% 74%, var(--rg-glow-2), transparent 34%);
+}
+
+.retro-grid__flat {
+  position: absolute;
+  inset: 0;
+  opacity: 0.55;
+  background-image:
+    linear-gradient(to right, var(--rg-flat-line) 1px, transparent 1px),
+    linear-gradient(to bottom, var(--rg-flat-line) 1px, transparent 1px);
+  background-size: 44px 44px;
+  -webkit-mask-image: linear-gradient(to bottom, transparent, #000 18%, #000 66%, transparent);
+  mask-image: linear-gradient(to bottom, transparent, #000 18%, #000 66%, transparent);
+}
+
+.retro-grid__perspective {
+  position: absolute;
+  left: 50%;
+  top: 58%;
+  height: 56rem;
+  width: min(130vw, 1600px);
+  transform: translate(-50%, -50%) perspective(720px) rotateX(64deg);
+  transform-origin: center;
+  background-image:
+    linear-gradient(to right, var(--rg-persp-1) 1px, transparent 1px),
+    linear-gradient(to bottom, var(--rg-persp-2) 1px, transparent 1px);
+  background-size: 58px 58px;
+  -webkit-mask-image: linear-gradient(to bottom, transparent, #000 16%, #000 74%, transparent);
+  mask-image: linear-gradient(to bottom, transparent, #000 16%, #000 74%, transparent);
+}
+
+.retro-grid__fade {
+  position: absolute;
+  inset-inline: 0;
+  bottom: 0;
+  height: 55%;
+  background: linear-gradient(
+    to top,
+    var(--rg-fade) 0%,
+    color-mix(in srgb, var(--rg-fade) 64%, transparent) 42%,
+    transparent 100%
+  );
+}
+
+/* ---- Unified CTA language (cyan/teal → violet brand gradient) ----
+   Scoped to @layer components so per-call-site utilities (radius, weight)
+   override predictably. */
+@layer components {
+.btn-primary {
+  @apply inline-flex items-center justify-center rounded-full font-bold transition-all duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary-theme focus-visible:ring-offset-2 focus-visible:ring-offset-background;
+  color: var(--bg);
+  background-image: linear-gradient(
+    135deg,
+    color-mix(in srgb, var(--primary) 88%, #ffffff) 0%,
+    var(--primary) 52%,
+    color-mix(in srgb, var(--primary) 70%, var(--secondary)) 100%
+  );
+  box-shadow: 0 16px 34px -16px color-mix(in srgb, var(--primary) 58%, transparent);
+}
+
+.btn-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 22px 46px -16px color-mix(in srgb, var(--primary) 70%, transparent);
+}
+
+.btn-primary:active {
+  transform: translateY(0);
+}
+
+.btn-secondary {
+  @apply inline-flex items-center justify-center rounded-full font-bold transition-all duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-secondary-theme focus-visible:ring-offset-2 focus-visible:ring-offset-background;
+  color: var(--fg);
+  background-color: color-mix(in srgb, var(--surface) 55%, transparent);
+  border: 1px solid color-mix(in srgb, var(--primary) 22%, var(--border));
+}
+
+.btn-secondary:hover {
+  border-color: color-mix(in srgb, var(--secondary) 55%, var(--border));
+  background-color: color-mix(in srgb, var(--surface) 78%, transparent);
+}
 }
 
 @layer components {
@@ -109,6 +350,21 @@
 @media (prefers-reduced-motion: reduce) {
   .showcase-img-fade {
     animation: none;
+  }
+}
+
+/* ── Typography helpers ──────────────────────────────────────────────────── */
+@layer utilities {
+  /* Technical / architectural display family for non-heading labels
+     (eyebrows, section kickers, UI chips). LTR uses Space Grotesk; under
+     RTL it falls back to the Arabic display family automatically. */
+  .font-display {
+    font-family: var(--font-en-display), system-ui, sans-serif;
+  }
+
+  [dir="rtl"] .font-display,
+  [lang="ar"] .font-display {
+    font-family: var(--font-ar-display), system-ui, sans-serif;
   }
 }
 

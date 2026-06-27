@@ -12,24 +12,27 @@ export const content = {
             cta: "Start a Build",
         },
         hero: {
-            title: "Digital Product Builder",
-            headline: "Mohammed Aldomi",
-            subheading: "Product-minded Frontend Engineer building cinematic websites, SaaS interfaces, and operational digital systems for real businesses.",
-            primaryCTA: "Explore the Work",
-            secondaryCTA: "Build With Me",
+            title: "DIGITAL PRODUCT STUDIO",
+            headline: "Digital systems built to move business.",
+            subheading: "We design websites, dashboards, and product experiences that turn complexity into trust, clarity, and action.",
+            supportingLine: "",
+            primaryCTA: "Start the build",
+            secondaryCTA: "View the method",
         },
         about: {
+            eyebrow: "Why the website matters",
             title: "A website is not a page. It is the decision point.",
-            body: [
-                "Today’s customer moves through a complete digital journey before they trust or buy. They may discover you on social media, but they still need a clearer place to understand who you are, what you offer, and why they should choose you.",
-                "That is where the website matters: it turns attention into trust, trust into action, and action into a customer.",
-                "On this page, I explain why a website has become a core part of business growth, and how it creates the difference between a passing digital presence and one that actually converts.",
+            summary: "Customers may discover you on social media, but they decide when they find a place that explains your offer, builds trust, and gives them a clear next step.",
+            points: [
+                "Turn attention into trust",
+                "Turn trust into action",
+                "Turn action into a customer",
             ],
-            cta: "Why does your company need a website?",
+            cta: "Why your company needs a website",
         },
         services: {
-            title: "What I Build",
-            subtitle: "Cinematic presentation, business logic, and polished frontend execution in one build process.",
+            title: "What DOMINASE Builds",
+            subtitle: "Cinematic presentation, business logic, and polished frontend execution shaped as one studio process.",
             items: [
                 {
                     title: "Cinematic Websites",
@@ -48,6 +51,56 @@ export const content = {
                 },
             ],
             cta: "Discuss a Project",
+        },
+        beneathInterface: {
+            eyebrow: "BUILD SYSTEM",
+            title: "Beneath the Interface",
+            intro: "DOMINASE reveals the system behind a serious digital experience.",
+            cta: "Discuss a Project",
+            scenes: [
+                {
+                    id: "surface",
+                    index: "01",
+                    label: "Surface",
+                    headline: "A website is only the surface.",
+                    body: "Most visitors see the finished interface. DOMINASE builds what makes it work.",
+                },
+                {
+                    id: "presentation",
+                    index: "02",
+                    label: "Presentation",
+                    headline: "The visible layer explains the business, shapes perception, and builds trust.",
+                    body: "Cinematic marketing pages with strong visual direction, conversion-aware structure, and purposeful motion.",
+                },
+                {
+                    id: "interaction",
+                    index: "03",
+                    label: "Interaction",
+                    headline: "The flow layer guides people through forms, bookings, surveys, RSVP, and next steps.",
+                    body: "Every step designed to feel clear, fast, and reliable for real users.",
+                },
+                {
+                    id: "logic",
+                    index: "04",
+                    label: "Logic",
+                    headline: "The logic layer handles rules, validation, data capture, and business paths.",
+                    body: "Conditional flows, form intelligence, and routing that makes the experience trustworthy.",
+                },
+                {
+                    id: "operations",
+                    index: "05",
+                    label: "Operations",
+                    headline: "The operations layer organizes requests, bookings, content, and admin workflows.",
+                    body: "Clean dashboards and admin screens so the business runs clearly behind the scenes.",
+                },
+                {
+                    id: "assembly",
+                    index: "06",
+                    label: "Operating Layer",
+                    headline: "One connected system built to turn attention into action.",
+                    body: "All four layers — assembled into a single DOMINASE digital operating layer.",
+                },
+            ],
         },
         portfolio: {
             title: "Selected Product Work",
@@ -91,7 +144,7 @@ export const content = {
         },
         testimonials: {
             title: "Proof Signals",
-            subtitle: "The portfolio is built around practical product surfaces, not placeholder praise.",
+            subtitle: "The studio is built around practical product surfaces, not placeholder praise.",
             items: [
                 {
                     quote: "Mohammed brought a calm, organized way of thinking to our digital presence. The Curevie experience feels clear, trusted, and polished without losing the human side we care about.",
@@ -99,7 +152,7 @@ export const content = {
                     role: "Director, Curevie",
                 },
                 {
-                    quote: "Working with Domi felt easy and professional from the first conversation. He understood the brand direction quickly and turned the idea into an interface that feels sharp, practical, and ready for real users.",
+                    quote: "Working with Dominase felt easy and professional from the first conversation. Mohammed understood the brand direction quickly and turned the idea into an interface that feels sharp, practical, and ready for real users.",
                     author: "Sultan Al-Hajj",
                     role: "Director, Inkspire",
                 },
@@ -113,7 +166,7 @@ export const content = {
         },
         contact: {
             title: "Let's Build Something Useful",
-            subtitle: "Send a message if you need a polished website, a SaaS-style interface, a booking flow, or a sharper digital system for your business.",
+            subtitle: "Send a message if your business needs a polished website, a SaaS-style interface, a booking flow, or a sharper digital system.",
             info: {
                 phone: "+962779667168",
                 email: "mohammed.aldomi68@gmail.com",
@@ -145,7 +198,7 @@ export const content = {
                 success: {
                     eyebrow: "Signal received",
                     title: "Your request was sent",
-                    body: "You just took the first step toward changing how your project shows up to the world. I’ll review the details and get back to you soon.",
+                    body: "You just took the first step toward changing how your project shows up to the world. Mohammed will review the details and get back to you soon.",
                     button: "Send another message",
                 },
                 channels: {
@@ -177,10 +230,10 @@ export const content = {
         socialProof: {
             trustedBy: "Built around real project surfaces",
             testimonial: "\"A strong digital product should feel premium on the surface and practical underneath.\"",
-            attribution: "- Mohammed Aldomi",
+            attribution: "- Mohammed Aldomi, Founder",
         },
         solution: {
-            title: "A Portfolio Built Around Working Digital Systems",
+            title: "A Studio Built Around Working Digital Systems",
             benefits: [
                 {
                     title: "Clear Presentation",
@@ -198,14 +251,14 @@ export const content = {
         },
         finalCTA: {
             title: "Ready to Build a Sharper Digital Product?",
-            subtext: "Bring the project, the business context, and the ambition. I will help turn it into a polished interface people can trust.",
+            subtext: "Bring the project, the business context, and the ambition. DOMINASE will help turn it into a polished interface people can trust.",
             primaryCTA: "Start a Build",
             secondaryCTA: "View the Work",
             reassurance: "Available for focused websites, product interfaces, and operational systems.",
         },
         footer: {
-            tagline: "Personal portfolio of Mohammed Aldomi, Digital Product Builder.",
-            rights: "© 2026 Mohammed Aldomi. All rights reserved.",
+            tagline: "DOMINASE — Digital Product Studio by Mohammed Aldomi.",
+            rights: "© 2026 DOMINASE. Built by Mohammed Aldomi.",
             links: ["Portfolio", "Contact"],
         },
     },
@@ -222,24 +275,27 @@ export const content = {
             cta: "ابدأ مشروعك",
         },
         hero: {
-            title: "مطوّر منتجات رقمية",
-            headline: "محمد الدومي",
-            subheading: "مهندس واجهات ومطوّر منتجات رقمية أبني مواقع سينمائية، واجهات SaaS، وأنظمة تشغيلية عملية للشركات والمشاريع الجادة.",
-            primaryCTA: "استكشف الأعمال",
-            secondaryCTA: "تواصل معي",
+            title: "\u0627\u0633\u062a\u0648\u062f\u064a\u0648 \u0645\u0646\u062a\u062c\u0627\u062a \u0631\u0642\u0645\u064a\u0629",
+            headline: "\u0623\u0646\u0638\u0645\u0629 \u0631\u0642\u0645\u064a\u0629 \u062a\u064f\u062d\u0631\u0651\u0643 \u0627\u0644\u0639\u0645\u0644 \u0628\u0648\u0636\u0648\u062d.",
+            subheading: "\u0646\u0628\u0646\u064a \u0645\u0648\u0627\u0642\u0639\u060c \u0644\u0648\u062d\u0627\u062a \u062a\u062d\u0643\u0645\u060c \u0648\u062a\u062c\u0627\u0631\u0628 \u0631\u0642\u0645\u064a\u0629 \u062a\u062d\u0648\u0651\u0644 \u0627\u0644\u062a\u0639\u0642\u064a\u062f \u0625\u0644\u0649 \u062b\u0642\u0629\u060c \u0648\u0636\u0648\u062d\u060c \u0648\u0641\u0639\u0644.",
+            supportingLine: "",
+            primaryCTA: "\u0627\u0628\u062f\u0623 \u0627\u0644\u0628\u0646\u0627\u0621",
+            secondaryCTA: "\u0634\u0627\u0647\u062f \u0627\u0644\u0645\u0646\u0647\u062c\u064a\u0629",
         },
         about: {
+            eyebrow: "لماذا الموقع مهم؟",
             title: "الموقع ليس صفحة. إنه نقطة القرار.",
-            body: [
-                "العميل اليوم يمر برحلة رقمية كاملة قبل أن يثق أو يشتري. قد يراك على السوشال ميديا، لكنه يحتاج مكانًا أوضح ليعرف من أنت، ماذا تقدم، ولماذا يختارك.",
-                "هنا يأتي دور الموقع الإلكتروني: أن يحوّل الانتباه إلى ثقة، والثقة إلى إجراء، والإجراء إلى عميل.",
-                "في هذه الصفحة، أشرح لماذا أصبح الموقع الإلكتروني عنصرًا أساسيًا في نمو الشركات، وكيف يصنع الفرق بين حضور رقمي عابر وحضور رقمي يبيع.",
+            summary: "قد يكتشفك العميل من السوشال ميديا، لكنه يقرر عندما يجد مكانًا واضحًا يشرح عرضك، يبني الثقة، ويعطيه الخطوة التالية.",
+            points: [
+                "يحوّل الانتباه إلى ثقة",
+                "يحوّل الثقة إلى إجراء",
+                "يحوّل الإجراء إلى عميل",
             ],
             cta: "لماذا تحتاج شركتك إلى موقع؟",
         },
         services: {
-            title: "ماذا أبني",
-            subtitle: "عرض سينمائي، منطق أعمال، وتنفيذ واجهات مصقول ضمن عملية بناء واحدة.",
+            title: "ماذا تبني DOMINASE",
+            subtitle: "عرض سينمائي، منطق أعمال، وتنفيذ واجهات مصقول ضمن عملية استوديو واحدة.",
             items: [
                 {
                     title: "مواقع سينمائية",
@@ -258,6 +314,56 @@ export const content = {
                 },
             ],
             cta: "ناقش مشروعك",
+        },
+        beneathInterface: {
+            eyebrow: "BUILD SYSTEM",
+            title: "خلف الواجهة",
+            intro: "يكشف DOMINASE النظام الذي يقف خلف التجربة الرقمية الجادة.",
+            cta: "ناقش مشروعك",
+            scenes: [
+                {
+                    id: "surface",
+                    index: "01",
+                    label: "السطح",
+                    headline: "الموقع هو الطبقة الظاهرة فقط.",
+                    body: "معظم الزوار يرون الواجهة النهائية. DOMINASE يبني ما يجعلها تعمل.",
+                },
+                {
+                    id: "presentation",
+                    index: "02",
+                    label: "Presentation",
+                    headline: "الطبقة الظاهرة تشرح العمل، تشكّل الانطباع، وتبني الثقة.",
+                    body: "صفحات تسويقية سينمائية بتوجه بصري قوي، هيكل موجه للتحويل، وحركة هادفة.",
+                },
+                {
+                    id: "interaction",
+                    index: "03",
+                    label: "Interaction",
+                    headline: "طبقة التفاعل توجه المستخدم عبر النماذج، الحجوزات، الاستبيانات، RSVP، والخطوة التالية.",
+                    body: "كل خطوة مصممة لتكون واضحة وسريعة وموثوقة للمستخدمين الحقيقيين.",
+                },
+                {
+                    id: "logic",
+                    index: "04",
+                    label: "Logic",
+                    headline: "طبقة المنطق تدير القواعد، التحقق، جمع البيانات، ومسارات العمل.",
+                    body: "مسارات شرطية، ذكاء النماذج، وتوجيه البيانات الذي يجعل التجربة موثوقة.",
+                },
+                {
+                    id: "operations",
+                    index: "05",
+                    label: "Operations",
+                    headline: "طبقة التشغيل تنظم الطلبات، الحجوزات، المحتوى، ولوحات الإدارة.",
+                    body: "لوحات تحكم نظيفة وشاشات إدارة حتى يعمل العمل بوضوح خلف الشاشة.",
+                },
+                {
+                    id: "assembly",
+                    index: "06",
+                    label: "Operating Layer",
+                    headline: "نظام واحد متصل مبني لتحويل الانتباه إلى إجراء.",
+                    body: "جميع الطبقات الأربع — مجمّعة في طبقة تشغيل رقمية واحدة من DOMINASE.",
+                },
+            ],
         },
         portfolio: {
             title: "أعمال مختارة",
@@ -301,20 +407,20 @@ export const content = {
         },
         testimonials: {
             title: "إشارات الثقة",
-            subtitle: "هذا المعرض مبني حول أسطح منتجات عملية وليس آراء عملاء وهمية.",
+            subtitle: "هذا الاستوديو مبني حول أسطح منتجات عملية وليس آراء عملاء وهمية.",
             items: [
                 {
-                    quote: "محمد تعامل مع حضور Curevie الرقمي بطريقة منظمة وهادئة. النتيجة كانت تجربة واضحة، موثوقة، ومصقولة، وفي نفس الوقت حافظت على الجانب الإنساني الذي نهتم به.",
+                    quote: "Mohammed Aldomi تعامل مع حضور Curevie الرقمي بطريقة منظمة وهادئة. النتيجة كانت تجربة واضحة، موثوقة، ومصقولة، وفي نفس الوقت حافظت على الجانب الإنساني الذي نهتم به.",
                     author: "الدكتور أحمد الأخرس",
                     role: "مدير شركة Curevie",
                 },
                 {
-                    quote: "التعامل مع Domi كان مريحاً واحترافياً من أول نقاش. فهم اتجاه العلامة بسرعة، وحوّل الفكرة إلى واجهة حادة، عملية، ومناسبة لمستخدمين حقيقيين.",
+                    quote: "التعامل مع Dominase كان مريحاً واحترافياً من أول نقاش. فهم Mohammed Aldomi اتجاه العلامة بسرعة، وحوّل الفكرة إلى واجهة حادة، عملية، ومناسبة لمستخدمين حقيقيين.",
                     author: "سلطان الحاج",
                     role: "مدير شركة Inkspire",
                 },
                 {
-                    quote: "النتيجة النهائية كان فيها التنظيم والثقة البصرية التي كنا نحتاجها. محمد اهتم بالتفاصيل الصغيرة، وشرح اختياراته بوضوح، وقدّم عملاً رفع صورة الشركة فعلاً.",
+                    quote: "النتيجة النهائية كان فيها التنظيم والثقة البصرية التي كنا نحتاجها. Mohammed Aldomi اهتم بالتفاصيل الصغيرة، وشرح اختياراته بوضوح، وقدّم عملاً رفع صورة الشركة فعلاً.",
                     author: "المهندس أحمد خالد",
                     role: "صاحب شركة هندسية",
                 },
@@ -323,7 +429,7 @@ export const content = {
         },
         contact: {
             title: "لنبنِ شيئاً مفيداً",
-            subtitle: "أرسل رسالة إذا كنت تحتاج موقعاً مصقولاً، واجهة بأسلوب SaaS، مسار حجز، أو نظاماً رقمياً أوضح لعملك.",
+            subtitle: "أرسل رسالة إذا كان عملك يحتاج موقعاً مصقولاً، واجهة بأسلوب SaaS، مسار حجز، أو نظاماً رقمياً أوضح.",
             info: {
                 phone: "+962779667168",
                 email: "mohammed.aldomi68@gmail.com",
@@ -355,7 +461,7 @@ export const content = {
                 success: {
                     eyebrow: "تم استلام الإشارة",
                     title: "تم إرسال طلبك بنجاح",
-                    body: "أخذت أول خطوة في القرار الذي قد يغيّر طريقة ظهور مشروعك للعالم. سأراجع التفاصيل وأتواصل معك قريبًا.",
+                    body: "أخذت أول خطوة في القرار الذي قد يغيّر طريقة ظهور مشروعك للعالم. سيراجع Mohammed التفاصيل ويتواصل معك قريبًا.",
                     button: "إرسال رسالة أخرى",
                 },
                 channels: {
@@ -387,10 +493,10 @@ export const content = {
         socialProof: {
             trustedBy: "مبني حول واجهات مشاريع حقيقية",
             testimonial: "\"المنتج الرقمي القوي يجب أن يبدو فاخراً على السطح وعملياً في الداخل.\"",
-            attribution: "- محمد الدومي",
+            attribution: "- Mohammed Aldomi، المؤسس",
         },
         solution: {
-            title: "معرض أعمال مبني حول أنظمة رقمية تعمل",
+            title: "استوديو مبني حول أنظمة رقمية تعمل",
             benefits: [
                 {
                     title: "عرض واضح",
@@ -408,14 +514,14 @@ export const content = {
         },
         finalCTA: {
             title: "جاهز لبناء منتج رقمي أوضح؟",
-            subtext: "أحضر المشروع، سياق العمل، والطموح. سأساعدك في تحويله إلى واجهة مصقولة يمكن للمستخدمين الوثوق بها.",
+            subtext: "أحضر المشروع، سياق العمل، والطموح. ستساعدك DOMINASE في تحويله إلى واجهة مصقولة يمكن للمستخدمين الوثوق بها.",
             primaryCTA: "ابدأ مشروعك",
             secondaryCTA: "شاهد الأعمال",
             reassurance: "متاح للمواقع المركزة، واجهات المنتجات، والأنظمة التشغيلية.",
         },
         footer: {
-            tagline: "المعرض الشخصي لمحمد الدومي، مطوّر منتجات رقمية.",
-            rights: "© 2026 محمد الدومي. جميع الحقوق محفوظة.",
+            tagline: "DOMINASE — Digital Product Studio by Mohammed Aldomi.",
+            rights: "© 2026 DOMINASE. Built by Mohammed Aldomi.",
             links: ["الأعمال", "تواصل"],
         },
     },

@@ -32,8 +32,12 @@ export default async function WorkCaseStudyPage({ params }: PageProps) {
     "description": study.content.en.positioning,
     "url": `https://www.dominase.art/work/${slug}`,
     "creator": {
-      "@type": "Person",
-      "name": "Mohammed Aldomi"
+      "@type": "Organization",
+      "name": "DOMINASE",
+      "founder": {
+        "@type": "Person",
+        "name": "Mohammed Aldomi"
+      }
     },
     "keywords": study.visualTheme.replace("-", " ")
   };

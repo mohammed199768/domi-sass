@@ -17,7 +17,7 @@ export default function Header() {
         const handleScroll = () => {
             setScrolled(window.scrollY > 20);
         };
-        window.addEventListener("scroll", handleScroll);
+        window.addEventListener("scroll", handleScroll, { passive: true });
         return () => window.removeEventListener("scroll", handleScroll);
     }, []);
 
@@ -36,7 +36,7 @@ export default function Header() {
 
     return (
         <header
-            className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${scrolled ? "bg-surface/80 backdrop-blur-lg border-b border-border shadow-md py-4" : "bg-transparent py-6"
+            className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${scrolled ? "bg-surface/92 border-b border-border shadow-[0_14px_34px_rgba(15,35,55,0.07)] dark:shadow-black/20 py-4" : "bg-transparent py-6"
                 }`}
         >
             <div className="max-w-7xl mx-auto px-6 flex items-center justify-between">
@@ -49,10 +49,13 @@ export default function Header() {
                             scrollToSection("#home");
                         }
                     }}
-                    className="font-bold text-2xl text-primary-theme flex items-center gap-2"
+                    className="flex items-center gap-3 text-primary-theme"
                 >
-                    <span className="text-3xl">Domi</span>
-                    <div className="w-2 h-2 rounded-full bg-secondary-theme mt-2"></div>
+                    <span className="text-2xl font-black tracking-wide">DOMINASE</span>
+                    <span className="hidden text-[10px] font-black uppercase tracking-[0.22em] text-muted sm:inline">
+                        Digital Product Studio
+                    </span>
+                    <div className="mt-1 h-2 w-2 rounded-full bg-secondary-theme" />
                 </Link>
 
                 {/* Desktop Nav */}
@@ -87,6 +90,7 @@ export default function Header() {
                         return (
                             <button
                                 key={link.label}
+                                suppressHydrationWarning
                                 onClick={() => scrollToSection(link.href)}
                                 className="text-muted hover:text-primary-theme font-medium transition-colors text-sm"
                             >
@@ -101,6 +105,7 @@ export default function Header() {
                     <ThemeToggle />
                     <button
                         onClick={toggleLanguage}
+                        suppressHydrationWarning
                         aria-label="Switch language"
                         className="flex items-center gap-2 px-3 py-1.5 rounded-full border border-border hover:border-primary-theme transition-colors text-xs font-bold text-primary-theme glass"
                     >
@@ -110,14 +115,15 @@ export default function Header() {
                     {isHome ? (
                         <button
                             onClick={() => scrollToSection("#contact")}
-                            className="bg-primary-theme text-background px-6 py-2.5 rounded-full font-bold hover:opacity-90 transition-all shadow-lg hover:shadow-primary-theme/20 text-sm"
+                            suppressHydrationWarning
+                            className="btn-primary px-6 py-2.5 text-sm"
                         >
                             {t.nav.cta}
                         </button>
                     ) : (
                         <Link
                             href="/#contact"
-                            className="bg-primary-theme text-background px-6 py-2.5 rounded-full font-bold hover:opacity-90 transition-all shadow-lg hover:shadow-primary-theme/20 text-sm"
+                            className="btn-primary px-6 py-2.5 text-sm"
                         >
                             {t.nav.cta}
                         </Link>
@@ -129,6 +135,7 @@ export default function Header() {
                     <ThemeToggle />
                     <button
                         onClick={toggleLanguage}
+                        suppressHydrationWarning
                         aria-label="Switch language"
                         className="p-2 rounded-full border border-border text-primary-theme glass"
                     >

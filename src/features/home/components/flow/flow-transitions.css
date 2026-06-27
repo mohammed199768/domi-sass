@@ -1,0 +1,254 @@
+/*
+ * DOMINASE homepage section-transition system.
+ *
+ * Cinematic scroll transitions layered on top of the existing sections.
+ * All colors derive from the semantic theme tokens defined in globals.css
+ * (--bg / --fg / --surface / --primary [cyan-teal] / --secondary [violet]).
+ * No hardcoded brand-foreign colors (no orange, no horror red).
+ *
+ * The system is transform/opacity/clip-path based and does NOT use
+ * ScrollTrigger pinning, so it never traps scroll or breaks sticky
+ * descendants, fixed header, or 100dvh behavior.
+ */
+
+/* Local aliases so transition styling reads against brand tokens. */
+.flow-art {
+  --flow-bg: var(--bg);
+  --flow-surface: var(--surface);
+  --flow-accent: var(--primary);
+  --flow-accent-2: var(--secondary);
+  --flow-border: var(--border);
+}
+
+.flow-section {
+  position: relative;
+}
+
+/*
+ * The inner wrapper is the only animated element. GSAP clears its transform
+ * once the intro settles (clearProps), so no lingering transform remains to
+ * break position: sticky / fixed descendants inside a section.
+ */
+.flow-inner {
+  position: relative;
+}
+
+/* Until JS marks the section ready, hint the GPU only for the animated inner. */
+.flow-section[data-flow-armed="true"] .flow-inner {
+  will-change: transform, opacity;
+}
+
+/* Once settled we drop the hint to free compositor memory. */
+.flow-section[data-flow-state="settled"] .flow-inner {
+  will-change: auto;
+}
+
+/* ----------------------------------------------------------------------------
+ * 1. OMINOUS GATE  (hero -> first section)
+ * A digital "gate" of cyan/violet light opens over a dark obsidian/violet
+ * fog as the first section folds in from the bottom-left.
+ * ------------------------------------------------------------------------- */
+
+.flow-transition-ominous {
+  isolation: isolate;
+}
+
+.flow-inner-ominous {
+  transform-origin: bottom left;
+}
+
+/* Full-bleed overlay that sits above the incoming section while it folds in. */
+.flow-ominous-overlay {
+  position: absolute;
+  inset: -14% 0 0 0; /* bleed upward to kiss the outgoing hero */
+  z-index: 5;
+  pointer-events: none;
+  overflow: hidden;
+  opacity: 1;
+}
+
+/* Dark obsidian/violet vignette + mist. Cinematic, never pure-horror. */
+.flow-ominous-overlay::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(
+      120% 78% at 50% -8%,
+      color-mix(in srgb, var(--bg) 92%, #000) 0%,
+      color-mix(in srgb, var(--bg) 64%, transparent) 34%,
+      transparent 62%
+    ),
+    radial-gradient(
+      80% 60% at 18% 12%,
+      color-mix(in srgb, var(--flow-accent-2) 26%, transparent) 0%,
+      transparent 60%
+    );
+  mix-blend-mode: normal;
+}
+
+/* The digital "gate": a thin cyan/violet seam of light that splits open. */
+.flow-gate-line {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  height: 2px;
+  transform-origin: center;
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    color-mix(in srgb, var(--flow-accent) 80%, transparent) 22%,
+    color-mix(in srgb, var(--flow-accent-2) 85%, transparent) 50%,
+    color-mix(in srgb, var(--flow-accent) 80%, transparent) 78%,
+    transparent 100%
+  );
+  box-shadow:
+    0 0 22px color-mix(in srgb, var(--flow-accent) 55%, transparent),
+    0 0 60px color-mix(in srgb, var(--flow-accent-2) 38%, transparent);
+}
+
+/* Faint technical grid that reads like a digital chamber wall. */
+.flow-gate-grid {
+  position: absolute;
+  inset: 0;
+  opacity: 0.5;
+  background-image:
+    linear-gradient(
+      to right,
+      color-mix(in srgb, var(--flow-accent) 16%, transparent) 1px,
+      transparent 1px
+    ),
+    linear-gradient(
+      to bottom,
+      color-mix(in srgb, var(--flow-accent-2) 14%, transparent) 1px,
+      transparent 1px
+    );
+  background-size: 64px 64px;
+  /* Fade the grid toward the bottom so it dissolves into the section. */
+  mask-image: linear-gradient(to bottom, #000 0%, transparent 72%);
+  -webkit-mask-image: linear-gradient(to bottom, #000 0%, transparent 72%);
+}
+
+/* Light mode stays cinematic but uses mist/pearl instead of pure obsidian,
+   so the gate feels like the same brand, just dimmed. */
+:root .flow-ominous-overlay::before {
+  background:
+    radial-gradient(
+      120% 78% at 50% -8%,
+      color-mix(in srgb, var(--surface-muted) 96%, #0b1a2a) 0%,
+      color-mix(in srgb, var(--surface-muted) 60%, transparent) 36%,
+      transparent 64%
+    ),
+    radial-gradient(
+      80% 60% at 18% 12%,
+      color-mix(in srgb, var(--flow-accent-2) 18%, transparent) 0%,
+      transparent 60%
+    );
+}
+
+.dark .flow-ominous-overlay::before {
+  background:
+    radial-gradient(
+      120% 78% at 50% -8%,
+      color-mix(in srgb, var(--bg) 94%, #000) 0%,
+      color-mix(in srgb, var(--bg) 62%, transparent) 34%,
+      transparent 62%
+    ),
+    radial-gradient(
+      80% 60% at 18% 12%,
+      color-mix(in srgb, var(--flow-accent-2) 30%, transparent) 0%,
+      transparent 60%
+    );
+}
+
+/* ----------------------------------------------------------------------------
+ * 2. DIAGONAL REVEAL  (section 1 -> section 2)
+ * Incoming section is revealed under a diagonal clip with a cool edge glow.
+ * ------------------------------------------------------------------------- */
+
+.flow-inner-diagonal {
+  position: relative;
+}
+
+.flow-diagonal-mask {
+  position: absolute;
+  inset: 0;
+  z-index: 4;
+  pointer-events: none;
+  background: linear-gradient(
+    118deg,
+    transparent 0%,
+    transparent 46%,
+    color-mix(in srgb, var(--flow-accent) 42%, transparent) 49%,
+    color-mix(in srgb, var(--flow-accent-2) 38%, transparent) 51%,
+    transparent 54%,
+    transparent 100%
+  );
+  opacity: 0;
+}
+
+/* ----------------------------------------------------------------------------
+ * 3. DEPTH LIFT  (section 2 -> section 3)
+ * Section lifts up out of a soft depth, very light blur removed on the way in.
+ * ------------------------------------------------------------------------- */
+
+.flow-inner-depth {
+  position: relative;
+}
+
+.flow-depth-layer {
+  position: absolute;
+  inset: 0;
+  z-index: 3;
+  pointer-events: none;
+  opacity: 0;
+  background: radial-gradient(
+    120% 80% at 50% 110%,
+    color-mix(in srgb, var(--flow-accent) 14%, transparent) 0%,
+    transparent 56%
+  );
+}
+
+/* ----------------------------------------------------------------------------
+ * 4. PANEL SLIDE  (section 3 -> section 4)
+ * Incoming section slides in like a clean editorial panel with brand border.
+ * ------------------------------------------------------------------------- */
+
+.flow-inner-panel {
+  position: relative;
+}
+
+.flow-section[data-flow-transition="panel-slide"] .flow-inner-panel {
+  border-top: 1px solid
+    color-mix(in srgb, var(--flow-accent) 22%, var(--flow-border));
+  box-shadow: 0 -28px 64px -52px var(--cool-shadow);
+}
+
+/* ----------------------------------------------------------------------------
+ * 5. SETTLE  (last section before contact/footer)
+ * Calm, stable, conversion-focused fade. No dramatic geometry.
+ * ------------------------------------------------------------------------- */
+
+.flow-inner-settle {
+  position: relative;
+}
+
+/* ----------------------------------------------------------------------------
+ * Reduced motion: neutralize every animated element. Content renders normally.
+ * JS also short-circuits, but this guarantees no residual styling.
+ * ------------------------------------------------------------------------- */
+@media (prefers-reduced-motion: reduce) {
+  .flow-inner {
+    transform: none !important;
+    opacity: 1 !important;
+    filter: none !important;
+    will-change: auto !important;
+  }
+
+  .flow-ominous-overlay,
+  .flow-diagonal-mask,
+  .flow-depth-layer {
+    display: none !important;
+  }
+}

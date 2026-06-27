@@ -1,0 +1,237 @@
+/*
+ * DOMINASE Gate Transition — companion styles for HeroScrollTransition.tsx
+ *
+ * All animation is driven by Framer Motion MotionValues applied as inline
+ * styles. This file handles:
+ *  1. Layout for the scroll-driver / sticky-viewport structure
+ *  2. CSS custom property reading for wordmark counter-scale + copy fade
+ *  3. Gate overlay and line visual styling
+ *  4. Reduced-motion belt-and-suspenders (React guard handles it first)
+ *  5. Mobile / tablet scroll-zone height adjustments
+ *
+ * Rules:
+ *  - transform + opacity only
+ *  - No filter / blur / backdrop-filter
+ *  - No keyframe animations / no permanent will-change on idle elements
+ *  - Colors from brand tokens: --accent-cyan / --accent-violet / --bg
+ */
+
+/* ── Scroll driver: sets the total scroll distance for the gate zone ─────── */
+.hero-gate-scroll-driver {
+  position: relative;
+  /*
+   * 260vh = gate scroll budget on desktop — slower, heavier, more directed.
+   * The sticky viewport consumes 100vh of actual viewport space;
+   * the remaining 160vh is the "scroll into" distance for the gate.
+   */
+  height: 260vh;
+}
+
+/* ── Sticky viewport: one screen, clips everything ───────────────────────── */
+.hero-gate-sticky {
+  position: sticky;
+  top: 0;
+  height: 100svh;
+  overflow: hidden;
+  isolation: isolate;
+}
+
+/* ── Camera stage: fills the sticky viewport, parent of the Hero ─────────── */
+.hero-gate-stage {
+  position: absolute;
+  inset: 0;
+  transform-origin: 50% 50%;
+  /* will-change is added/removed by Framer Motion via inline style */
+}
+
+/* ── CSS-variable bridge: invisible node that holds animated CSS vars ─────── */
+.hero-gate-css-bridge {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  /* Place behind hero content — vars still cascade to all descendants */
+  z-index: -1;
+}
+
+/* ── Wordmark counter-scale ──────────────────────────────────────────────────
+ * The bridge propagates --_gate-wm-scale as an inherited CSS var.
+ * We apply it to [data-hero-wordmark] inside .hero-gate-stage so the H1
+ * scales DOWN as the stage (camera) scales UP — creating gate depth.
+ */
+.hero-gate-stage [data-hero-wordmark] {
+  transform: scale(var(--_gate-wm-scale, 1));
+  transform-origin: 50% 50%;
+  /* MotionValue drives the var; CSS transitions must not fight it */
+  transition: none !important;
+  will-change: transform;
+}
+
+/* ── Copy fade: eyebrow / headline / subheadline drift down first ─────────── */
+.hero-gate-stage [data-hero-headline],
+.hero-gate-stage [data-hero-subheadline],
+.hero-gate-stage [data-hero-eyebrow] {
+  opacity: var(--_gate-copy-opacity, 1);
+  transform: translateY(calc(var(--_gate-copy-y, 0) * 1px));
+  transform-origin: 50% 0%;
+  transition: none !important;
+}
+
+/* ── CTA fade: trails the copy slightly for a directed sequence ───────────── */
+.hero-gate-stage [data-hero-cta] {
+  opacity: var(--_gate-cta-opacity, 1);
+  transform: translateY(calc(var(--_gate-cta-y, 0) * 1px));
+  transform-origin: 50% 0%;
+  transition: none !important;
+}
+
+/* ── Ambient vignette: radial centre shadow during gate peak ─────────────── */
+.hero-gate-vignette {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  pointer-events: none;
+  background: radial-gradient(
+    60% 54% at 50% 46%,
+    color-mix(in srgb, var(--bg) 80%, transparent) 0%,
+    transparent 68%
+  );
+}
+
+/* ── Gate seam: the DOMINASE line of light drawn at mid-transition ────────── */
+.hero-gate-line {
+  position: absolute;
+  left: 8%;
+  right: 8%;
+  top: 50%;
+  margin-top: -1px;
+  height: 2px;
+  z-index: 3;
+  pointer-events: none;
+  transform-origin: center;
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    color-mix(in srgb, var(--accent-cyan) 92%, transparent) 28%,
+    color-mix(in srgb, var(--accent-violet) 92%, transparent) 50%,
+    color-mix(in srgb, var(--accent-cyan) 92%, transparent) 72%,
+    transparent 100%
+  );
+  box-shadow:
+    0 0 22px color-mix(in srgb, var(--accent-cyan) 56%, transparent),
+    0 0 60px color-mix(in srgb, var(--accent-violet) 36%, transparent);
+}
+
+/* ── Camera stage stacking: keep the hero (incl. DOMINASE) above the field ── */
+.hero-gate-stage {
+  z-index: 1;
+}
+
+/* ── Geometric signal field: scroll-driven calibration marks ──────────────────
+ * Sits BEHIND the hero stage (z-index 0) so it never covers the wordmark or
+ * copy. Opacity per-element is driven by Framer Motion; colours/strokes static.
+ * Fine strokes + low opacity keep it quieter than DOMINASE.                  */
+.hero-gate-signal-field {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+}
+
+.hero-gate-signal-field .signal-dot {
+  transition: none !important;
+}
+
+.hero-gate-signal-field .signal-dot--cyan {
+  fill: color-mix(in srgb, var(--accent-cyan) 88%, transparent);
+}
+
+.hero-gate-signal-field .signal-dot--violet {
+  fill: color-mix(in srgb, var(--accent-violet) 80%, transparent);
+}
+
+.hero-gate-signal-field .signal-dot--pearl {
+  /* pearl / mist — neutral measurement marks */
+  fill: color-mix(in srgb, var(--fg) 55%, transparent);
+}
+
+/* Fine connector lines — thin, no glow, fainter than the points. */
+.hero-gate-signal-field .signal-line {
+  stroke: color-mix(in srgb, var(--accent-cyan) 70%, transparent);
+  stroke-width: 0.2;
+  vector-effect: non-scaling-stroke;
+  transition: none !important;
+}
+
+/* ── Mobile (< 768px): shorten gate zone, remove wordmark counter-scale ─────
+ * Avoid heavy scale on small viewports — camera zoom is still on the stage
+ * (done by Framer Motion) but the wordmark doesn't additionally shrink.   */
+@media (max-width: 767px) {
+  .hero-gate-scroll-driver {
+    height: 170vh;
+  }
+
+  /* Drop wordmark counter-scale on mobile to avoid oversized letterforms */
+  .hero-gate-stage [data-hero-wordmark] {
+    transform: none !important;
+    will-change: auto;
+  }
+
+  /* Keep mobile simple + safe: hide the calibration field entirely */
+  .hero-gate-signal-field {
+    display: none;
+  }
+}
+
+/* ── Tablet (768px – 1023px): moderate gate zone + thinned formation ──────────
+ * Drop the secondary cluster points and connector lines so the formation
+ * reads as ~6 clean marks instead of the full desktop set.                  */
+@media (min-width: 768px) and (max-width: 1023px) {
+  .hero-gate-scroll-driver {
+    height: 220vh;
+  }
+
+  .hero-gate-signal-field .signal-extra {
+    display: none;
+  }
+}
+
+/* ── Reduced motion: belt-and-suspenders ────────────────────────────────────
+ * The React component (HeroScrollTransition) returns un-animated DOM when
+ * prefers-reduced-motion is true, so these rules should never be needed.
+ * They guard against preference changes or SSR edge cases.               */
+@media (prefers-reduced-motion: reduce) {
+  .hero-gate-scroll-driver {
+    height: auto !important;
+  }
+
+  .hero-gate-sticky {
+    position: static !important;
+    height: auto !important;
+    overflow: visible !important;
+  }
+
+  .hero-gate-stage {
+    position: static !important;
+    transform: none !important;
+    opacity: 1 !important;
+  }
+
+  .hero-gate-vignette,
+  .hero-gate-line,
+  .hero-gate-signal-field,
+  .hero-gate-css-bridge {
+    display: none !important;
+  }
+
+  .hero-gate-stage [data-hero-wordmark],
+  .hero-gate-stage [data-hero-headline],
+  .hero-gate-stage [data-hero-subheadline],
+  .hero-gate-stage [data-hero-cta],
+  .hero-gate-stage [data-hero-eyebrow] {
+    transform: none !important;
+    opacity: 1 !important;
+    will-change: auto !important;
+  }
+}

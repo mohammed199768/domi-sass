@@ -2,16 +2,16 @@ import type { Metadata } from "next";
 import TransformationTreeClient from "@/features/work/TransformationTreeClient";
 
 export const metadata: Metadata = {
-  title: "Case Studies — Mohammed Aldomi",
-  description: "A collection of digital product case studies showing how scattered workflows became clearer platforms, dashboards, and digital systems.",
+  title: "Case Studies — DOMINASE",
+  description: "A collection of DOMINASE digital product case studies showing how scattered workflows became clearer platforms, dashboards, and digital systems.",
 };
 
 export default function WorkIndexPage() {
   const jsonLd = {
     "@context": "https://schema.org",
     "@type": "CollectionPage",
-    "name": "Case Studies — Mohammed Aldomi",
-    "description": "A collection of digital product case studies showing how scattered workflows became clearer platforms, dashboards, and digital systems.",
+    "name": "Case Studies — DOMINASE",
+    "description": "A collection of DOMINASE digital product case studies showing how scattered workflows became clearer platforms, dashboards, and digital systems.",
     "url": "https://www.dominase.art/work",
     "mainEntity": {
       "@type": "ItemList",

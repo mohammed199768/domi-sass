@@ -21,7 +21,8 @@ export default function ThemeToggle() {
     return (
         <button
             onClick={() => setTheme(resolvedTheme === "dark" ? "light" : "dark")}
-            className="p-2 rounded-full border border-gray-200 dark:border-gray-700 hover:border-primary dark:hover:border-primary transition-colors text-primary dark:text-white"
+            suppressHydrationWarning
+            className="rounded-full border border-border bg-surface/90 p-2 text-primary-theme transition-colors hover:border-primary-theme hover:bg-surface-hover dark:text-primary-theme"
             aria-label="Toggle Dark Mode"
         >
             {resolvedTheme === "dark" ? <Sun className="w-5 h-5" /> : <Moon className="w-5 h-5" />}

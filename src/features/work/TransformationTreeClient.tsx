@@ -170,7 +170,7 @@ export default function TransformationTreeClient() {
                         className="flex items-center gap-2 text-xl font-black text-primary-theme"
                         aria-label="Back to Home"
                     >
-                        Domi
+                        DOMINASE
                         <span className="mt-1 h-2 w-2 rounded-full bg-secondary-theme" />
                     </Link>
                     <div className="flex items-center gap-3">

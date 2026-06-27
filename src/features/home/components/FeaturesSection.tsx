@@ -36,9 +36,9 @@ export default function FeaturesSection() {
                                 transition={{ duration: 0.5, delay: index * 0.1 }}
                                 viewport={{ once: true }}
                                 whileHover={{ y: -5 }}
-                                className="bg-surface p-8 rounded-xl shadow-md hover:shadow-xl transition-all duration-300 border border-border"
+                                className="glass-card p-8 rounded-xl transition-all duration-300 border border-border"
                             >
-                                <div className="w-16 h-16 bg-secondary-theme/20 rounded-lg flex items-center justify-center mb-6">
+                                <div className="w-16 h-16 bg-primary-theme/10 border border-primary-theme/15 rounded-lg flex items-center justify-center mb-6">
                                     <Icon className="w-8 h-8 text-primary-theme" />
                                 </div>
                                 <h3 className="text-2xl font-semibold text-primary-theme mb-4">

@@ -1,0 +1,15 @@
+
+> domi-saas@0.1.0 dev
+> next dev --hostname 127.0.0.1 --port 3000
+
+   ▲ Next.js 16.0.10 (Turbopack)
+   - Local:         http://127.0.0.1:3000
+   - Network:       http://127.0.0.1:3000
+
+ ✓ Starting...
+Creating turbopack project { dir: 'C:\\Users\\domim\\Desktop\\domi-sass', testMode: true }
+ ✓ Ready in 956ms
+ ○ Compiling / ...
+ GET / 200 in 4.5s (compile: 4.2s, render: 316ms)
+ GET / 200 in 242ms (compile: 8ms, render: 234ms)
+[?25h

@@ -1,15 +1,15 @@
 .page {
-  --wu-bg: #f8f5ee;
-  --wu-panel: #fcfaf5;
+  --wu-bg: #f6f8fb;
+  --wu-panel: #fbfdff;
   --wu-ink: #0c2744;
   --wu-muted: #52606e;
   --wu-line: rgba(12, 39, 68, 0.15);
   --wu-signal: #079bb8;
   --wu-signal-soft: rgba(7, 155, 184, 0.1);
-  --wu-decision: #bb8a43;
+  --wu-decision: #6d5bd0;
   --bg: var(--wu-bg);
   --surface: var(--wu-panel);
-  --surface-hover: #f1ede4;
+  --surface-hover: #eef4f8;
   --border: var(--wu-line);
   min-height: 100vh;
   overflow: clip;
@@ -27,7 +27,7 @@
   --wu-line: rgba(202, 225, 233, 0.15);
   --wu-signal: #39cfe1;
   --wu-signal-soft: rgba(57, 207, 225, 0.1);
-  --wu-decision: #d6ad68;
+  --wu-decision: #a78bfa;
   --bg: var(--wu-bg);
   --surface: var(--wu-panel);
   --surface-hover: #0a1824;
@@ -768,4 +768,3 @@
     transition: none;
   }
 }
-

@@ -22,7 +22,7 @@ export function LanguageProvider({ children }: { children: ReactNode }) {
         let savedLanguage: string | null = null;
         try {
             savedLanguage = window.localStorage.getItem(LANGUAGE_STORAGE_KEY);
-        } catch (e) {
+        } catch {
             // Ignore if localStorage is disabled
         }
         
@@ -39,7 +39,7 @@ export function LanguageProvider({ children }: { children: ReactNode }) {
             const nextLanguage = prev === "en" ? "ar" : "en";
             try {
                 window.localStorage.setItem(LANGUAGE_STORAGE_KEY, nextLanguage);
-            } catch (e) {
+            } catch {
                 // Ignore
             }
             return nextLanguage;
@@ -51,7 +51,7 @@ export function LanguageProvider({ children }: { children: ReactNode }) {
 
     return (
         <LanguageContext.Provider value={{ language, toggleLanguage, t, dir }}>
-            <div dir={dir} className={language === "ar" ? "font-sans-ar" : "font-sans"}>
+            <div dir={dir} lang={language} className={language === "ar" ? "font-arabic" : "font-sans"}>
                 {children}
             </div>
         </LanguageContext.Provider>

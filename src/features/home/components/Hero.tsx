@@ -1,99 +1,71 @@
 "use client";
 
-import React from "react";
-import Image from "next/image";
 import { useLanguage } from "@/context/LanguageContext";
-import { useHeroAnimation } from "../hooks/useHeroAnimation";
 import { scrollToSection } from "@/lib/motion/scrollToSection";
-import { HeroOrbitalSignatureSvg } from "./visuals";
+import RetroGrid from "@/components/site/RetroGrid";
+import { useHeroAnimation } from "../hooks/useHeroAnimation";
 
 export default function Hero() {
-    const { t } = useLanguage();
-    const { componentRef, textRef, headlineRef, imageRef, haloRef, evidenceRef } = useHeroAnimation();
-    const headlineWords = t.hero.headline.split(" ");
-    const evidenceItems = t.portfolio.items.slice(0, 3);
+    const { t, dir } = useLanguage();
+    const { componentRef, wordmarkRef } = useHeroAnimation();
 
     return (
-        <section ref={componentRef} className="min-h-screen flex items-center justify-center bg-background px-6 pt-40 pb-32 lg:pt-28 lg:pb-36 relative overflow-hidden">
-            {/* Cinematic Background Gradient */}
-            <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-br from-surface-hover/50 via-transparent to-surface-hover/50 dark:from-primary-theme/5 dark:via-transparent dark:to-secondary-theme/5 -z-10" />
+        <section
+            ref={componentRef}
+            id="home"
+            className="hero-canvas relative flex min-h-dvh items-center justify-center overflow-hidden px-6 pb-24 pt-36 text-foreground lg:pb-28 lg:pt-28"
+        >
+            <RetroGrid />
 
-            {/* Ambient Light Orbs */}
-            <div ref={haloRef} className="absolute top-24 left-1/2 h-[34rem] w-[34rem] -translate-x-1/2 rounded-full bg-primary-theme/10 blur-[120px] opacity-70" />
-            <div className="absolute top-20 left-10 w-96 h-96 bg-primary-theme/20 rounded-full blur-[100px] opacity-40" />
-            <div className="absolute bottom-20 right-10 w-96 h-96 bg-secondary-theme/20 rounded-full blur-[100px] opacity-40" />
+            <div className="hero-aura pointer-events-none absolute inset-0" aria-hidden="true" />
+            <div className="hero-base-fade pointer-events-none absolute inset-x-0 bottom-0 h-40" aria-hidden="true" />
 
-            <div className="max-w-7xl mx-auto w-full z-10">
-                <div className="grid lg:grid-cols-2 gap-20 lg:gap-20 items-center">
-                    {/* Text Content with Glass Backdrop optionally, keeping clean for now but impactful */}
-                    <div ref={textRef} className="space-y-8 text-center lg:text-start">
-                        <div data-hero-support className="inline-block px-4 py-2 rounded-full glass border border-primary-theme/20 text-primary-theme font-bold text-sm tracking-wide uppercase mb-2">
+            <div className="relative z-10 mx-auto w-full max-w-7xl">
+                <div className="mx-auto flex max-w-5xl flex-col items-center text-center">
+                    <div className="space-y-6 md:space-y-8">
+                        <div data-hero-eyebrow className="font-display inline-flex min-h-11 items-center rounded-full border border-border bg-surface/86 px-4 py-2 text-xs font-black uppercase tracking-[0.28em] text-primary-theme shadow-lg shadow-primary-theme/10">
                             {t.hero.title}
                         </div>
+
                         <h1
-                            ref={headlineRef}
-                            aria-label={t.hero.headline}
-                            className="text-5xl md:text-6xl lg:text-8xl font-black text-foreground leading-[1.05] tracking-tight"
+                            ref={wordmarkRef}
+                            data-hero-wordmark
+                            className="mx-auto max-w-full text-[clamp(3.4rem,13vw,9.5rem)] font-black uppercase leading-[0.86] tracking-[0.08em] text-foreground sm:tracking-[0.12em]"
+                            dir="ltr"
                         >
-                            {headlineWords.map((word, index) => (
-                                <span key={`${word}-${index}`} className="inline-block overflow-hidden align-bottom ltr:mr-[0.22em] rtl:ml-[0.22em]">
-                                    <span data-hero-word aria-hidden="true" className="inline-block will-change-transform">
-                                        {word}
-                                    </span>
-                                </span>
-                            ))}
+                            DOMINASE
                         </h1>
-                        <p data-hero-support className="text-lg md:text-2xl text-muted leading-relaxed max-w-lg mx-auto lg:mx-0">
+
+                        <h2
+                            data-hero-headline
+                            aria-label={t.hero.headline}
+                            dir={dir}
+                            className="mx-auto max-w-3xl text-2xl font-black leading-tight text-foreground sm:text-3xl md:text-4xl"
+                        >
+                            {t.hero.headline}
+                        </h2>
+
+                        <p data-hero-subheadline className="mx-auto max-w-[760px] text-balance text-lg leading-relaxed text-foreground/80 md:text-xl">
                             {t.hero.subheading}
                         </p>
 
-                        {/* CTAs */}
-                        <div data-hero-support className="flex flex-col sm:flex-row gap-6 justify-center lg:justify-start pt-4">
+                        <div data-hero-cta className="flex flex-col justify-center gap-4 pt-2 sm:flex-row">
                             <button
-                                onClick={() => scrollToSection("#portfolio")}
-                                className="px-10 py-5 bg-foreground text-background font-bold rounded-full shadow-2xl hover:scale-105 transition-all duration-300 text-lg"
+                                type="button"
+                                suppressHydrationWarning
+                                onClick={() => scrollToSection("#contact")}
+                                className="btn-primary min-h-12 px-8 py-3.5 text-sm"
                             >
                                 {t.hero.primaryCTA}
                             </button>
                             <button
-                                onClick={() => scrollToSection("#contact")}
-                                className="px-10 py-5 glass text-foreground font-bold border border-border rounded-full hover:bg-surface-hover transition-all duration-300 text-lg"
+                                type="button"
+                                suppressHydrationWarning
+                                onClick={() => scrollToSection("#services")}
+                                className="btn-secondary min-h-12 px-8 py-3.5 text-sm"
                             >
                                 {t.hero.secondaryCTA}
                             </button>
-                        </div>
-                    </div>
-
-                    {/* Hero Image - Adjusted Height & Position */}
-                    <div className="relative mt-10 lg:mt-0">
-                        {/* Orbital signature — layered behind the portrait, desktop only.
-                            Low opacity so it never competes with text or the photo. */}
-                        <HeroOrbitalSignatureSvg className="absolute left-1/2 top-1/2 hidden h-[150%] w-[150%] max-w-none -translate-x-1/2 -translate-y-1/2 opacity-60 dark:opacity-45 lg:block" />
-
-                        <div ref={imageRef} className="relative w-full max-w-sm mx-auto aspect-[4/5] rounded-[2rem] overflow-hidden shadow-2xl ring-1 ring-foreground/5 dark:ring-white/10 transform translate-y-6 lg:translate-y-12 group">
-                            <Image
-                                src="/images/mohamed.webp"
-                                alt="Mohammad Aldomi"
-                                fill
-                                sizes="(max-width: 1024px) 90vw, 384px"
-                                className="object-cover transition-transform duration-700 group-hover:scale-105"
-                                priority
-                            />
-                            {/* Cinematic Overlay */}
-                            <div className="absolute inset-x-0 bottom-0 h-1/2 bg-gradient-to-t from-black/60 to-transparent pointer-events-none" />
-                            <div className="absolute bottom-6 left-6 text-white text-left z-20">
-                                <p className="font-bold text-xl">Mohammad Aldomi</p>
-                                <p className="text-gray-300 text-sm">Creative Developer</p>
-                            </div>
-                        </div>
-
-                        <div ref={evidenceRef} className="pointer-events-none absolute inset-x-0 -bottom-10 z-30 mx-auto hidden max-w-xl grid-cols-3 gap-3 lg:grid">
-                            {evidenceItems.map((item) => (
-                                <div key={item.title} className="rounded-2xl border border-border bg-surface/85 p-4 text-left shadow-2xl shadow-foreground/10 backdrop-blur-xl">
-                                    <p className="line-clamp-1 text-sm font-black text-foreground">{item.title}</p>
-                                    <p className="mt-1 line-clamp-2 text-xs leading-5 text-muted">{item.category}</p>
-                                </div>
-                            ))}
                         </div>
                     </div>
                 </div>

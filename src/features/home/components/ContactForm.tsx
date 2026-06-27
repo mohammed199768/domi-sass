@@ -62,7 +62,7 @@ export default function ContactForm() {
       payload.append("name", name);
       payload.append("phone", phone);
       if (company) payload.append("company", company);
-      payload.append("_subject", "New portfolio contact request");
+      payload.append("_subject", "New DOMINASE project request");
 
       const response = await fetch(FORMSPREE_ENDPOINT, {
         method: "POST",
@@ -94,6 +94,7 @@ export default function ContactForm() {
         <p className="max-w-md text-base leading-7 text-muted">{p.success.body}</p>
         <button
           type="button"
+          suppressHydrationWarning
           onClick={resetForm}
           className="rounded-xl border border-border bg-surface-hover px-6 py-3 text-sm font-bold text-foreground transition-colors duration-200 hover:border-secondary-theme/60 hover:text-secondary-theme focus-visible:border-secondary-theme focus-visible:ring-2 focus-visible:ring-secondary-theme/40 focus-visible:outline-none"
         >
@@ -111,7 +112,7 @@ export default function ContactForm() {
       {/* Honeypot: visually hidden, off the a11y/tab tree. */}
       <div aria-hidden="true" className="absolute h-0 w-0 overflow-hidden">
         <label htmlFor="company_url">Leave this field empty</label>
-        <input id="company_url" name="company_url" type="text" tabIndex={-1} autoComplete="off" />
+        <input id="company_url" name="company_url" type="text" tabIndex={-1} autoComplete="off" suppressHydrationWarning />
       </div>
 
       <div>
@@ -120,6 +121,7 @@ export default function ContactForm() {
         </label>
         <input
           id="contact-name"
+          suppressHydrationWarning
           name="name"
           type="text"
           required
@@ -142,6 +144,7 @@ export default function ContactForm() {
         </label>
         <input
           id="contact-phone"
+          suppressHydrationWarning
           name="phone"
           type="tel"
           required
@@ -164,6 +167,7 @@ export default function ContactForm() {
         </label>
         <input
           id="contact-company"
+          suppressHydrationWarning
           name="company"
           type="text"
           autoComplete="organization"
@@ -180,8 +184,9 @@ export default function ContactForm() {
 
       <button
         type="submit"
+        suppressHydrationWarning
         disabled={state === "submitting"}
-        className="w-full rounded-xl bg-secondary-theme px-6 py-4 font-bold text-[#0b0b0b] transition-colors duration-200 hover:bg-secondary-theme/90 focus-visible:ring-2 focus-visible:ring-secondary-theme focus-visible:ring-offset-2 focus-visible:ring-offset-surface focus-visible:outline-none disabled:cursor-not-allowed disabled:opacity-70"
+        className="btn-primary w-full rounded-xl px-6 py-4 disabled:cursor-not-allowed disabled:opacity-70"
       >
         {state === "submitting" ? p.submitting : p.submit}
       </button>

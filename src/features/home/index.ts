@@ -12,3 +12,6 @@ export { default as ProblemSection } from './components/ProblemSection';
 export { default as SolutionSection } from './components/SolutionSection';
 export { default as SocialProof } from './components/SocialProof';
 export { default as FinalCTA } from './components/FinalCTA';
+export { default as FlowArt } from './components/flow/FlowArt';
+export { default as FlowSection } from './components/flow/FlowSection';
+export { default as BeneathInterfaceSection } from './components/BeneathInterfaceSection';

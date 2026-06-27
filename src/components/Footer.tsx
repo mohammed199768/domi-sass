@@ -9,13 +9,18 @@ export default function Footer() {
     const { t, language } = useLanguage();
 
     return (
-        <footer className="bg-surface text-foreground py-12 px-6 border-t border-border transition-colors duration-300">
+        <footer className="bg-surface-muted text-foreground py-12 px-6 border-t border-border transition-colors duration-300">
             <div className="max-w-7xl mx-auto">
                 <div className="flex flex-col md:flex-row justify-between items-center gap-8 border-b border-border pb-8 mb-8">
                     {/* Logo/Brand */}
-                    <div className="text-3xl font-bold flex items-center gap-2 text-primary-theme">
-                        <span>Domi</span>
-                        <div className="w-2 h-2 rounded-full bg-secondary-theme mt-2"></div>
+                    <div className="flex flex-col items-center gap-1 text-primary-theme md:items-start">
+                        <div className="flex items-center gap-2 text-3xl font-black tracking-wide">
+                            <span>DOMINASE</span>
+                            <div className="mt-2 h-2 w-2 rounded-full bg-secondary-theme" />
+                        </div>
+                        <p className="text-xs font-bold uppercase tracking-[0.22em] text-muted">
+                            Digital Product Studio
+                        </p>
                     </div>
 
                     {/* Socials */}
@@ -25,7 +30,7 @@ export default function Footer() {
                             target="_blank"
                             rel="noopener noreferrer"
                             aria-label="GitHub"
-                            className="w-10 h-10 rounded-full bg-surface-hover border border-border flex items-center justify-center hover:bg-secondary-theme hover:text-background transition-colors"
+                            className="w-10 h-10 rounded-full bg-surface border border-border flex items-center justify-center text-muted hover:border-primary-theme hover:bg-primary-theme hover:text-background transition-colors"
                         >
                             <Github className="w-5 h-5" />
                         </a>
@@ -34,7 +39,7 @@ export default function Footer() {
                             target="_blank"
                             rel="noopener noreferrer"
                             aria-label="Upwork"
-                            className="w-10 h-10 rounded-full bg-surface-hover border border-border flex items-center justify-center hover:bg-secondary-theme hover:text-background transition-colors"
+                            className="w-10 h-10 rounded-full bg-surface border border-border flex items-center justify-center text-muted hover:border-primary-theme hover:bg-primary-theme hover:text-background transition-colors"
                         >
                             <Briefcase className="w-5 h-5" />
                         </a>
@@ -43,7 +48,7 @@ export default function Footer() {
                             target="_blank"
                             rel="noopener noreferrer"
                             aria-label="LinkedIn"
-                            className="w-10 h-10 rounded-full bg-surface-hover border border-border flex items-center justify-center hover:bg-secondary-theme hover:text-background transition-colors"
+                            className="w-10 h-10 rounded-full bg-surface border border-border flex items-center justify-center text-muted hover:border-primary-theme hover:bg-primary-theme hover:text-background transition-colors"
                         >
                             <Linkedin className="w-5 h-5" />
                         </a>

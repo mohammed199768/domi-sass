@@ -2,19 +2,19 @@
   --why-ink: #0c2440;
   --why-signal: #08a8c6;
   --why-signal-soft: rgba(8, 168, 198, 0.14);
-  --why-champagne: #b9883f;
+  --why-champagne: #6d5bd0;
   --why-danger: #d45858;
-  --why-panel: #fbf8f1;
+  --why-panel: #fbfdff;
   --why-hairline: rgba(12, 36, 64, 0.15);
-  --bg: #f8f5ee;
-  --surface: #fcfaf5;
-  --surface-hover: #f1ede4;
+  --bg: #f6f8fb;
+  --surface: #fbfdff;
+  --surface-hover: #eef4f8;
   --border: rgba(12, 36, 64, 0.13);
   position: relative;
   overflow: clip;
   background:
     linear-gradient(90deg, transparent 49.96%, color-mix(in srgb, var(--why-hairline) 42%, transparent) 50%, transparent 50.04%),
-    #f8f5ee;
+    #f6f8fb;
   color: var(--fg);
 }
 
@@ -22,7 +22,7 @@
   --why-ink: #ecf7fb;
   --why-signal: #39d5e7;
   --why-signal-soft: rgba(57, 213, 231, 0.12);
-  --why-champagne: #d8b06b;
+  --why-champagne: #a78bfa;
   --why-danger: #ff7c79;
   --why-panel: #08131f;
   --why-hairline: rgba(196, 222, 231, 0.16);

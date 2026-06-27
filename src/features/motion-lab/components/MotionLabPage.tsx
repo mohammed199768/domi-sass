@@ -19,7 +19,7 @@ export default function MotionLabPage() {
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_20%_20%,rgba(45,212,191,0.18),transparent_28%),radial-gradient(circle_at_80%_10%,rgba(244,114,182,0.16),transparent_30%)]" />
         <div className="relative z-10 mx-auto flex min-h-[calc(100vh-12rem)] max-w-7xl flex-col justify-end">
           <p className="mb-5 text-sm font-semibold uppercase tracking-[0.32em] text-white/45">
-            DOMI SASS / isolated experiments
+            DOMINASE / isolated experiments
           </p>
           <h1 className="max-w-5xl text-5xl font-black leading-[0.95] text-white md:text-8xl">
             Motion patterns for premium portfolio storytelling.

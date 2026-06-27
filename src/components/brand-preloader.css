@@ -1,0 +1,127 @@
+/*
+ * DOMINASE System Boot — BrandPreloader companion styles
+ *
+ * Visual: a thin segmented technical ring (CSS conic-gradient mask) that
+ * rotates for the brief life of the preloader, a centred DOMINASE wordmark,
+ * and a small system status line.
+ *
+ * Rules honoured:
+ *  - transform + opacity only for entrance/exit (Framer Motion)
+ *  - the ring rotation is the ONLY keyframe animation, scoped to the overlay
+ *    which is removed from the DOM as soon as boot completes (not a permanent
+ *    idle/background animation)
+ *  - no filter / blur / backdrop-filter
+ *  - no canvas / SVG-loop / Lottie
+ *  - brand palette only (cyan / violet on bg)
+ *  - reduced motion: ring is static, no rotation
+ */
+
+.brand-preloader {
+  position: fixed;
+  inset: 0;
+  z-index: 200;
+  display: grid;
+  place-items: center;
+  background: var(--bg);
+  /* solid cover — no transparency over content during boot */
+}
+
+.brand-preloader__inner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.6rem;
+  padding: 1.5rem;
+  text-align: center;
+}
+
+/* ── Segmented orbital ring ──────────────────────────────────────────────── */
+.brand-preloader__ring {
+  position: relative;
+  width: 84px;
+  height: 84px;
+  border-radius: 50%;
+  /* Thin technical ring: a conic gradient clipped to a 2px annulus via mask. */
+  background: conic-gradient(
+    from 0deg,
+    color-mix(in srgb, var(--accent-cyan) 90%, transparent) 0deg 60deg,
+    transparent 60deg 120deg,
+    color-mix(in srgb, var(--accent-violet) 90%, transparent) 120deg 200deg,
+    transparent 200deg 250deg,
+    color-mix(in srgb, var(--accent-cyan) 70%, transparent) 250deg 300deg,
+    transparent 300deg 360deg
+  );
+  -webkit-mask: radial-gradient(farthest-side, transparent calc(100% - 2px), #000 calc(100% - 2px));
+  mask: radial-gradient(farthest-side, transparent calc(100% - 2px), #000 calc(100% - 2px));
+  animation: brand-preloader-spin 1.15s linear infinite;
+  will-change: transform;
+}
+
+/* Inner reference dot grid — static, forms a calibration point at centre. */
+.brand-preloader__core {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-items: center;
+}
+
+.brand-preloader__core::before {
+  content: "";
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: color-mix(in srgb, var(--accent-cyan) 85%, var(--fg));
+}
+
+@keyframes brand-preloader-spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* ── Wordmark ────────────────────────────────────────────────────────────── */
+.brand-preloader__wordmark {
+  font-family: var(--font-en-display), system-ui, sans-serif;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.34em;
+  /* visual centring of tracked uppercase */
+  padding-inline-start: 0.34em;
+  font-size: clamp(1.4rem, 5vw, 2.1rem);
+  color: var(--fg);
+  line-height: 1;
+}
+
+/* ── System status line ──────────────────────────────────────────────────── */
+.brand-preloader__status {
+  font-family: var(--font-en-display), system-ui, sans-serif;
+  text-transform: uppercase;
+  letter-spacing: 0.26em;
+  padding-inline-start: 0.26em;
+  font-size: 0.66rem;
+  font-weight: 500;
+  color: color-mix(in srgb, var(--muted) 90%, transparent);
+}
+
+/* ── Thin draw line under the wordmark (scale from centre, one-shot) ──────── */
+.brand-preloader__seam {
+  width: clamp(120px, 40vw, 240px);
+  height: 1px;
+  transform-origin: center;
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    color-mix(in srgb, var(--accent-cyan) 80%, transparent) 30%,
+    color-mix(in srgb, var(--accent-violet) 80%, transparent) 50%,
+    color-mix(in srgb, var(--accent-cyan) 80%, transparent) 70%,
+    transparent 100%
+  );
+}
+
+/* ── Reduced motion: kill the ring rotation, keep static brand mark ───────── */
+@media (prefers-reduced-motion: reduce) {
+  .brand-preloader__ring {
+    animation: none;
+    will-change: auto;
+  }
+}

@@ -139,7 +139,7 @@ export default function ProjectShowcaseModal({ open, slug, onClose }: Props) {
             role="dialog"
             aria-modal="true"
             aria-labelledby="showcase-modal-title"
-            className="fixed inset-0 z-[9999] flex items-center justify-center p-2 sm:p-4 lg:p-6 bg-black/60 backdrop-blur-sm overflow-hidden"
+            className="fixed inset-0 z-[9999] flex items-center justify-center p-2 sm:p-4 lg:p-6 bg-black/65 overflow-hidden"
             onMouseDown={(e) => {
                 if (e.target === e.currentTarget) onClose();
             }}
@@ -151,9 +151,10 @@ export default function ProjectShowcaseModal({ open, slug, onClose }: Props) {
                 {/* ── Close button ── */}
                 <button
                     type="button"
+                    suppressHydrationWarning
                     onClick={onClose}
                     aria-label="Close project showcase"
-                    className="absolute top-3 right-3 z-30 flex h-9 w-9 items-center justify-center rounded-full bg-background/80 backdrop-blur-sm border border-border text-foreground shadow-sm hover:bg-surface-hover transition-colors"
+                    className="absolute top-3 right-3 z-30 flex h-9 w-9 items-center justify-center rounded-full bg-background/95 border border-border text-foreground shadow-sm hover:bg-surface-hover transition-colors"
                 >
                     <X className="h-4 w-4" />
                 </button>
@@ -190,17 +191,19 @@ export default function ProjectShowcaseModal({ open, slug, onClose }: Props) {
                             <>
                                 <button
                                     type="button"
+                                    suppressHydrationWarning
                                     onClick={goPrev}
                                     aria-label="Previous screenshot"
-                                    className={`absolute top-1/2 -translate-y-1/2 z-10 flex h-9 w-9 items-center justify-center rounded-full bg-black/50 backdrop-blur-sm text-white hover:bg-black/75 transition-colors ${isArabic ? "right-3" : "left-3"}`}
+                                    className={`absolute top-1/2 -translate-y-1/2 z-10 flex h-9 w-9 items-center justify-center rounded-full bg-black/60 text-white hover:bg-black/75 transition-colors ${isArabic ? "right-3" : "left-3"}`}
                                 >
                                     {isArabic ? <ChevronRight className="h-4 w-4" /> : <ChevronLeft className="h-4 w-4" />}
                                 </button>
                                 <button
                                     type="button"
+                                    suppressHydrationWarning
                                     onClick={goNext}
                                     aria-label="Next screenshot"
-                                    className={`absolute top-1/2 -translate-y-1/2 z-10 flex h-9 w-9 items-center justify-center rounded-full bg-black/50 backdrop-blur-sm text-white hover:bg-black/75 transition-colors ${isArabic ? "left-3" : "right-3"}`}
+                                    className={`absolute top-1/2 -translate-y-1/2 z-10 flex h-9 w-9 items-center justify-center rounded-full bg-black/60 text-white hover:bg-black/75 transition-colors ${isArabic ? "left-3" : "right-3"}`}
                                 >
                                     {isArabic ? <ChevronLeft className="h-4 w-4" /> : <ChevronRight className="h-4 w-4" />}
                                 </button>
@@ -214,6 +217,7 @@ export default function ProjectShowcaseModal({ open, slug, onClose }: Props) {
                                     <button
                                         key={i}
                                         type="button"
+                                        suppressHydrationWarning
                                         onClick={() => goTo(i)}
                                         aria-label={`Go to screenshot ${i + 1}`}
                                         className={`h-1.5 rounded-full transition-all duration-200 ${
@@ -234,6 +238,7 @@ export default function ProjectShowcaseModal({ open, slug, onClose }: Props) {
                                 <button
                                     key={i}
                                     type="button"
+                                    suppressHydrationWarning
                                     onClick={() => goTo(i)}
                                     aria-label={`View screenshot ${i + 1}`}
                                     className={`relative flex-none w-14 h-10 rounded overflow-hidden border-2 transition-all duration-150 ${
@@ -301,6 +306,7 @@ export default function ProjectShowcaseModal({ open, slug, onClose }: Props) {
                             <div className="flex gap-2">
                                 <button
                                     type="button"
+                                    suppressHydrationWarning
                                     onClick={goPrev}
                                     aria-label="Previous"
                                     disabled={activeIndex === 0}
@@ -310,6 +316,7 @@ export default function ProjectShowcaseModal({ open, slug, onClose }: Props) {
                                 </button>
                                 <button
                                     type="button"
+                                    suppressHydrationWarning
                                     onClick={goNext}
                                     aria-label="Next"
                                     disabled={activeIndex === total - 1}
@@ -336,8 +343,8 @@ export default function ProjectShowcaseModal({ open, slug, onClose }: Props) {
                         )}
                         <div className="text-xs text-muted/50 text-center font-medium">
                             {language === "ar"
-                                ? "مشروع من أعمال Mohammed Aldomi"
-                                : "A project by Mohammed Aldomi"}
+                                ? "مشروع من DOMINASE بقيادة Mohammed Aldomi"
+                                : "A DOMINASE project by Mohammed Aldomi"}
                         </div>
                     </div>
                 </div>

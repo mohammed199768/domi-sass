@@ -18,7 +18,10 @@ export default function ServicesSection() {
 
     return (
         <section id="services" className="py-24 relative bg-background transition-colors duration-300">
-            <div className="absolute top-0 right-0 w-1/2 h-1/2 bg-primary-theme/5 blur-[100px] -z-10" />
+            <div
+                className="pointer-events-none absolute right-0 top-0 -z-10 h-1/2 w-1/2 opacity-45"
+                style={{ background: "radial-gradient(circle at 100% 0%, color-mix(in srgb, var(--primary) 7%, transparent), transparent 66%)" }}
+            />
             <div className="max-w-7xl mx-auto px-6">
                 <div className="grid gap-12 lg:grid-cols-[0.82fr_1.18fr] lg:items-start">
                     <div className="text-center max-w-3xl mx-auto lg:sticky lg:top-28 lg:text-start">
@@ -31,8 +34,9 @@ export default function ServicesSection() {
 
                         <div className="mt-10">
                             <button
+                                suppressHydrationWarning
                                 onClick={() => scrollToSection("#contact")}
-                                className="px-8 py-3 bg-secondary-theme text-background font-bold rounded-lg hover:bg-opacity-90 transition-colors shadow-lg shadow-secondary-theme/10"
+                                className="btn-primary px-8 py-3"
                             >
                                 {t.services.cta}
                             </button>
@@ -53,7 +57,7 @@ export default function ServicesSection() {
                                 className="glass-card p-8 rounded-2xl group border border-border md:p-10"
                             >
                                 <div className="flex flex-col gap-6 md:flex-row md:items-start">
-                                    <div className="w-16 h-16 bg-surface rounded-xl flex shrink-0 items-center justify-center shadow-sm border border-border group-hover:border-primary-theme/30 transition-colors">
+                                    <div className="w-16 h-16 bg-surface-muted rounded-xl flex shrink-0 items-center justify-center shadow-sm border border-border group-hover:border-secondary-theme/35 transition-colors">
                                         {service.icon && iconMap[service.icon] ? iconMap[service.icon] : <Briefcase className="w-10 h-10 text-secondary-theme" />}
                                     </div>
                                     <div>

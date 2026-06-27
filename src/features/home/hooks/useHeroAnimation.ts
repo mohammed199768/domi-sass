@@ -7,79 +7,66 @@ export function useHeroAnimation() {
     const { dir } = useLanguage();
     const prefersReducedMotion = useReducedMotion();
     const componentRef = useRef<HTMLElement>(null);
-    const textRef = useRef<HTMLDivElement>(null);
-    const headlineRef = useRef<HTMLHeadingElement>(null);
-    const imageRef = useRef<HTMLDivElement>(null);
-    const haloRef = useRef<HTMLDivElement>(null);
-    const evidenceRef = useRef<HTMLDivElement>(null);
+    const wordmarkRef = useRef<HTMLHeadingElement>(null);
 
     useEffect(() => {
+        const root = componentRef.current;
+        if (!root) return;
+
         registerMotionPlugins();
 
-        const heroWords = headlineRef.current?.querySelectorAll("[data-hero-word]") || [];
-        const evidenceItems = evidenceRef.current?.children || [];
+        const heroEyebrow = root.querySelector<HTMLElement>("[data-hero-eyebrow]");
+        const heroWordmark = root.querySelector<HTMLElement>("[data-hero-wordmark]");
+        const heroHeadline = root.querySelector<HTMLElement>("[data-hero-headline]");
+        const heroSubheadline = root.querySelector<HTMLElement>("[data-hero-subheadline]");
+        const heroCtas = root.querySelector<HTMLElement>("[data-hero-cta]");
+
+        if (!heroEyebrow || !heroWordmark || !heroHeadline || !heroSubheadline || !heroCtas) return;
+
+        const animatedElements = [heroEyebrow, heroWordmark, heroHeadline, heroSubheadline, heroCtas];
 
         if (prefersReducedMotion) {
-            gsap.set([textRef.current, imageRef.current, haloRef.current, ...heroWords, ...evidenceItems], {
-                clearProps: "all",
+            gsap.set(animatedElements, {
                 opacity: 1,
+                x: 0,
                 y: 0,
                 scale: 1,
+                clearProps: "willChange",
             });
             return;
         }
 
         const ctx = gsap.context(() => {
-            const tl = gsap.timeline({ defaults: { ease: "power3.out" } });
+            const tl = gsap.timeline({
+                defaults: { ease: "power3.out" },
+                onComplete: () => {
+                    gsap.set(animatedElements, { clearProps: "willChange" });
+                },
+            });
 
-            gsap.set(heroWords, { opacity: 0, y: 42 });
-            gsap.set(evidenceItems, { opacity: 0, y: 28, scale: 0.96 });
-
-            // A short authored opening: ambient scale, word reveal, then evidence.
-            tl.from(haloRef.current, {
+            gsap.set(animatedElements, {
                 opacity: 0,
-                scale: 0.28,
-                duration: 0.9,
-                ease: "power2.out",
-            })
-                .to(heroWords, {
-                    opacity: 1,
-                    y: 0,
-                    stagger: 0.055,
-                    duration: 0.72,
-                }, "-=0.45")
-                .from(textRef.current?.querySelectorAll("[data-hero-support]") || [], {
-                    y: 28,
-                    opacity: 0,
-                    stagger: 0.08,
-                    duration: 0.72,
-                }, "-=0.48")
-                .from(imageRef.current, {
-                opacity: 0,
-                    scale: 1.08,
-                    y: 58,
-                    duration: 1,
-                    ease: "expo.out"
-                }, "-=0.68")
-                .to(evidenceItems, {
-                    opacity: 1,
-                    y: 0,
-                    scale: 1,
-                    stagger: 0.08,
-                    duration: 0.62,
-                }, "-=0.52");
+                y: 18,
+                willChange: "transform, opacity",
+            });
+            gsap.set(heroWordmark, {
+                y: 22,
+                scale: 0.985,
+                transformOrigin: "50% 50%",
+            });
 
-        }, componentRef);
+            tl.to(heroEyebrow, { opacity: 1, y: 0, duration: 0.42 })
+                .to(heroWordmark, { opacity: 1, y: 0, scale: 1, duration: 0.72 }, "-=0.16")
+                .to(heroHeadline, { opacity: 1, y: 0, duration: 0.46 }, "-=0.2")
+                .to(heroSubheadline, { opacity: 1, y: 0, duration: 0.46 }, "-=0.18")
+                .to(heroCtas, { opacity: 1, y: 0, duration: 0.44 }, "-=0.14");
+        }, root);
 
         return () => ctx.revert();
     }, [dir, prefersReducedMotion]);
 
     return {
         componentRef,
-        textRef,
-        headlineRef,
-        imageRef,
-        haloRef,
-        evidenceRef
+        wordmarkRef,
     };
 }
