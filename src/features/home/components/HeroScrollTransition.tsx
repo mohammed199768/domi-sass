@@ -12,8 +12,8 @@
  *   0.46 – 0.68  Camera stage zooms in (1 → 1.22) while the DOMINASE wordmark
  *                counter-scales (1 → 0.74) — feels like entering the wordmark.
  *                Gate seam draws in.
- *   0.68 – 0.84  Peak gate moment: controlled portal; signal particles align
- *                into a clean constellation around the seam.
+ *   0.68 – 0.84  Peak gate moment: controlled portal; calibration signal marks
+ *                align around the seam (behind the wordmark).
  *   0.84 – 1.00  Hero dissolves; stage settles (1.22 → 0.94). The next section
  *                (handled by FlowArt/FlowSection) arrives clean.
  *
@@ -136,8 +136,7 @@ function GateZone({ hero }: { hero: React.ReactNode }) {
     return (
         /*
          * Outer scroll driver: height = total scroll budget for the gate.
-         * Desktop: 200vh — comfortable, unhurried cinematic pace.
-         * (CSS overrides for tablet/mobile in hero-gate.css)
+         * Desktop 260vh / tablet 220vh / mobile 170vh — set in hero-gate.css.
          */
         <div ref={containerRef} className="hero-gate-scroll-driver">
 

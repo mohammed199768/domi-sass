@@ -63,7 +63,9 @@
   transform-origin: 50% 50%;
   /* MotionValue drives the var; CSS transitions must not fight it */
   transition: none !important;
-  will-change: transform;
+  /* No permanent will-change: the parent .hero-gate-stage is promoted by
+     Framer Motion only while the gate is actively animating, which covers
+     this single, GPU-cheap scale. Avoids an idle compositor layer. */
 }
 
 /* ── Copy fade: eyebrow / headline / subheadline drift down first ─────────── */
@@ -175,7 +177,6 @@
   /* Drop wordmark counter-scale on mobile to avoid oversized letterforms */
   .hero-gate-stage [data-hero-wordmark] {
     transform: none !important;
-    will-change: auto;
   }
 
   /* Keep mobile simple + safe: hide the calibration field entirely */

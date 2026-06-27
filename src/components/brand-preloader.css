@@ -101,6 +101,18 @@
   font-size: 0.66rem;
   font-weight: 500;
   color: color-mix(in srgb, var(--muted) 90%, transparent);
+  /* Stay on one line on phones; tracked uppercase shrinks gracefully. */
+  max-width: min(90vw, 30rem);
+  text-wrap: balance;
+}
+
+/* Very narrow phones: ease the tracking so the status never overflows. */
+@media (max-width: 380px) {
+  .brand-preloader__status {
+    letter-spacing: 0.16em;
+    padding-inline-start: 0.16em;
+    font-size: 0.6rem;
+  }
 }
 
 /* ── Thin draw line under the wordmark (scale from centre, one-shot) ──────── */

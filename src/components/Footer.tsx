@@ -14,11 +14,11 @@ export default function Footer() {
                 <div className="flex flex-col md:flex-row justify-between items-center gap-8 border-b border-border pb-8 mb-8">
                     {/* Logo/Brand */}
                     <div className="flex flex-col items-center gap-1 text-primary-theme md:items-start">
-                        <div className="flex items-center gap-2 text-3xl font-black tracking-wide">
+                        <div className="font-display flex items-center gap-2 text-3xl font-black tracking-wide">
                             <span>DOMINASE</span>
                             <div className="mt-2 h-2 w-2 rounded-full bg-secondary-theme" />
                         </div>
-                        <p className="text-xs font-bold uppercase tracking-[0.22em] text-muted">
+                        <p className="font-display text-xs font-bold uppercase tracking-[0.22em] text-muted">
                             Digital Product Studio
                         </p>
                     </div>

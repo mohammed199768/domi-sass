@@ -29,7 +29,6 @@
  * near-symmetric about x = 50.
  */
 
-import React from "react";
 import {
   motion,
   useTransform,

@@ -1,11 +1,22 @@
 "use client";
 
 import React from "react";
-import { Home, Mail, Layers, Library, CircleHelp, Sparkles } from "lucide-react";
+import { Briefcase, CircleHelp, Layers, Library, Mail, Quote, Sparkles } from "lucide-react";
 import { useLanguage } from "@/context/LanguageContext";
 import { scrollToSection } from "@/lib/motion/scrollToSection";
 import { usePathname } from "next/navigation";
 import Link from "next/link";
+import { getNavItemHref, getNavItemLabel, isNavItemActive, NAV_ITEMS, type NavItem } from "./navConfig";
+
+const navIcons: Record<NavItem["id"], React.ComponentType<{ className?: string }>> = {
+    services: Layers,
+    portfolio: Briefcase,
+    "why-change": CircleHelp,
+    "why-us": Sparkles,
+    "case-studies": Library,
+    testimonials: Quote,
+    contact: Mail,
+};
 
 export default function MobileNav() {
     const { t } = useLanguage();
@@ -13,34 +24,29 @@ export default function MobileNav() {
 
     const isHome = pathname === "/";
 
-    const navItems = [
-        { icon: Home, label: t.nav.home, href: "#home" },
-        { icon: Layers, label: t.nav.services, href: "#services" },
-        { icon: CircleHelp, label: t.nav.whyChange, href: "/why-change", isRoute: true },
-        { icon: Sparkles, label: t.nav.whyUs, href: "/why-us", isRoute: true },
-        { icon: Library, label: t.nav.caseStudies, href: "/work", isRoute: true },
-        { icon: Mail, label: t.nav.contact, href: "#contact" },
-    ];
-
     // Hide only on specific case study pages, not the /work index
     if (pathname.startsWith("/work/")) return null;
 
     return (
         <div className="fixed bottom-0 left-0 right-0 z-50 lg:hidden pb-safe transition-colors duration-300">
-            <nav className="glass bg-surface/92 border-t border-border px-6 py-4 flex justify-between items-center pb-8 rounded-t-[2rem] shadow-[0_-8px_28px_rgba(0,0,0,0.08)]">
-                {navItems.map((item) => {
-                    const isActive = item.isRoute && pathname === item.href;
+            <nav className="glass grid grid-cols-7 items-center gap-1 rounded-t-[2rem] border-t border-border bg-surface/92 px-2 pb-8 pt-4 shadow-[0_-8px_28px_rgba(0,0,0,0.08)]">
+                {NAV_ITEMS.map((item) => {
+                    const Icon = navIcons[item.id];
+                    const label = getNavItemLabel(t.nav, item);
+                    const href = getNavItemHref(item, isHome);
+                    const isActive = isNavItemActive(item, pathname);
+                    const itemClassName = `flex min-w-0 flex-col items-center gap-1 transition-colors ${isActive ? "text-primary-theme font-bold" : "text-muted hover:text-primary-theme"}`;
 
-                    if (item.isRoute) {
+                    if (item.kind === "route") {
                         return (
                             <Link
-                                key={item.label}
-                                href={item.href}
-                                aria-label={item.label}
-                                className={`flex flex-col items-center gap-1 transition-colors ${isActive ? "text-primary-theme font-bold" : "text-muted hover:text-primary-theme"}`}
+                                key={item.id}
+                                href={href}
+                                aria-label={label}
+                                className={itemClassName}
                             >
-                                <item.icon className="w-5 h-5" />
-                                <span className="text-[9px] font-medium whitespace-nowrap overflow-hidden text-ellipsis max-w-full text-center px-0.5">{item.label}</span>
+                                <Icon className="h-5 w-5" />
+                                <span className="max-w-full overflow-hidden text-ellipsis whitespace-nowrap px-0.5 text-center text-[9px] font-medium">{label}</span>
                             </Link>
                         );
                     }
@@ -48,27 +54,27 @@ export default function MobileNav() {
                     if (!isHome) {
                         return (
                             <Link
-                                key={item.label}
-                                href={`/${item.href}`}
-                                aria-label={item.label}
-                                className="flex flex-col items-center gap-1 text-muted hover:text-primary-theme transition-colors"
+                                key={item.id}
+                                href={href}
+                                aria-label={label}
+                                className={itemClassName}
                             >
-                                <item.icon className="w-5 h-5" />
-                                <span className="text-[9px] font-medium whitespace-nowrap overflow-hidden text-ellipsis max-w-full text-center px-0.5">{item.label}</span>
+                                <Icon className="h-5 w-5" />
+                                <span className="max-w-full overflow-hidden text-ellipsis whitespace-nowrap px-0.5 text-center text-[9px] font-medium">{label}</span>
                             </Link>
                         );
                     }
 
                     return (
                         <button
-                            key={item.label}
+                            key={item.id}
                             suppressHydrationWarning
                             onClick={() => scrollToSection(item.href)}
-                            aria-label={item.label}
-                            className="flex flex-col items-center gap-1 text-muted hover:text-primary-theme transition-colors"
+                            aria-label={label}
+                            className={itemClassName}
                         >
-                            <item.icon className="w-5 h-5" />
-                            <span className="text-[9px] font-medium whitespace-nowrap overflow-hidden text-ellipsis max-w-full text-center px-0.5">{item.label}</span>
+                            <Icon className="h-5 w-5" />
+                            <span className="max-w-full overflow-hidden text-ellipsis whitespace-nowrap px-0.5 text-center text-[9px] font-medium">{label}</span>
                         </button>
                     );
                 })}

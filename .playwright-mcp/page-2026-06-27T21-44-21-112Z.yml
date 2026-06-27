@@ -1,0 +1,331 @@
+- generic [active] [ref=e1]:
+  - main [ref=e3]:
+    - generic [ref=e5]:
+      - link "DOMINASE Digital Product Studio" [ref=e6] [cursor=pointer]:
+        - /url: "#home"
+        - generic [ref=e7]: DOMINASE
+        - generic [ref=e8]: Digital Product Studio
+      - navigation [ref=e10]:
+        - button "Expertise" [ref=e11]
+        - button "Work" [ref=e12]
+        - link "Why Change?" [ref=e13] [cursor=pointer]:
+          - /url: /why-change
+        - link "Why Us?" [ref=e14] [cursor=pointer]:
+          - /url: /why-us
+        - link "Case Studies" [ref=e15] [cursor=pointer]:
+          - /url: /work
+        - button "Signals" [ref=e16]
+        - button "Contact" [ref=e17]
+      - generic [ref=e18]:
+        - button "Switch language" [ref=e20]:
+          - img [ref=e21]
+          - text: AR
+        - button "Start a Build" [ref=e24]
+    - generic [ref=e26]:
+      - generic [ref=e31]:
+        - generic [ref=e32]: DIGITAL PRODUCT STUDIO
+        - heading "DOMINASE" [level=1] [ref=e33]
+        - heading "Digital systems built to move business." [level=2] [ref=e34]
+        - paragraph [ref=e35]: We design websites, dashboards, and product experiences that turn complexity into trust, clarity, and action.
+        - generic [ref=e36]:
+          - button "Start the build" [ref=e37]
+          - button "View the method" [ref=e38]
+      - img
+    - generic [ref=e39]:
+      - generic [ref=e45]:
+        - generic [ref=e47]: Decision layer
+        - generic [ref=e50]:
+          - paragraph [ref=e51]: Why the website matters
+          - heading "A website is not a page. It is the decision point." [level=2] [ref=e53]
+          - paragraph [ref=e54]: Customers may discover you on social media, but they decide when they find a place that explains your offer, builds trust, and gives them a clear next step.
+          - list [ref=e55]:
+            - listitem [ref=e56]:
+              - img [ref=e58]
+              - text: Turn attention into trust
+            - listitem [ref=e60]:
+              - img [ref=e62]
+              - text: Turn trust into action
+            - listitem [ref=e64]:
+              - img [ref=e66]
+              - text: Turn action into a customer
+          - link "Why your company needs a website" [ref=e69] [cursor=pointer]:
+            - /url: /why-change
+      - region "Beneath the Interface" [ref=e72]:
+        - generic [ref=e73]:
+          - paragraph [ref=e74]: BUILD SYSTEM
+          - heading "Beneath the Interface" [level=2] [ref=e75]
+          - paragraph [ref=e76]: DOMINASE reveals the system behind a serious digital experience.
+          - generic [ref=e77]:
+            - generic [ref=e80]: "01"
+            - generic [ref=e83]: "02"
+            - generic [ref=e86]: "03"
+            - generic [ref=e89]: "04"
+            - generic [ref=e92]: "05"
+            - generic [ref=e95]: "06"
+        - generic [ref=e96]:
+          - generic [ref=e98]:
+            - generic [ref=e100]:
+              - generic [ref=e101]:
+                - generic [ref=e102]: "01"
+                - generic [ref=e105]: Surface
+              - paragraph [ref=e106]: A website is only the surface.
+              - paragraph [ref=e107]: Most visitors see the finished interface. DOMINASE builds what makes it work.
+            - img [ref=e111]
+          - generic [ref=e135]:
+            - generic [ref=e137]:
+              - generic [ref=e138]:
+                - generic [ref=e139]: "02"
+                - generic [ref=e142]: Presentation
+              - paragraph [ref=e143]: The visible layer explains the business, shapes perception, and builds trust.
+              - paragraph [ref=e144]: Cinematic marketing pages with strong visual direction, conversion-aware structure, and purposeful motion.
+            - img [ref=e148]:
+              - generic [ref=e181]: PRESENTATION
+          - generic [ref=e183]:
+            - generic [ref=e185]:
+              - generic [ref=e186]:
+                - generic [ref=e187]: "03"
+                - generic [ref=e190]: Interaction
+              - paragraph [ref=e191]: The flow layer guides people through forms, bookings, surveys, RSVP, and next steps.
+              - paragraph [ref=e192]: Every step designed to feel clear, fast, and reliable for real users.
+            - img [ref=e196]:
+              - generic [ref=e197]:
+                - generic [ref=e202]: INTERACTION
+                - generic [ref=e208]: "1"
+                - generic [ref=e215]: "2"
+                - generic [ref=e223]: "3"
+                - generic [ref=e231]: "4"
+          - generic [ref=e240]:
+            - generic [ref=e242]:
+              - generic [ref=e243]:
+                - generic [ref=e244]: "04"
+                - generic [ref=e247]: Logic
+              - paragraph [ref=e248]: The logic layer handles rules, validation, data capture, and business paths.
+              - paragraph [ref=e249]: Conditional flows, form intelligence, and routing that makes the experience trustworthy.
+            - img [ref=e253]:
+              - generic [ref=e259]: LOGIC
+          - generic [ref=e289]:
+            - generic [ref=e291]:
+              - generic [ref=e292]:
+                - generic [ref=e293]: "05"
+                - generic [ref=e296]: Operations
+              - paragraph [ref=e297]: The operations layer organizes requests, bookings, content, and admin workflows.
+              - paragraph [ref=e298]: Clean dashboards and admin screens so the business runs clearly behind the scenes.
+            - img [ref=e302]:
+              - generic [ref=e363]: OPERATIONS
+          - generic [ref=e365]:
+            - generic [ref=e367]:
+              - generic [ref=e368]:
+                - generic [ref=e369]: "06"
+                - generic [ref=e372]: Operating Layer
+              - paragraph [ref=e373]: One connected system built to turn attention into action.
+              - paragraph [ref=e374]: All four layers — assembled into a single DOMINASE digital operating layer.
+              - button "Discuss a Project" [ref=e376]
+            - img [ref=e380]:
+              - generic [ref=e381]:
+                - generic [ref=e387]: PRESENTATION
+                - generic [ref=e398]: INTERACTION
+                - generic [ref=e409]: LOGIC
+                - generic [ref=e420]: OPERATIONS
+                - generic [ref=e426]: DOMINASE
+        - list [ref=e430]:
+          - listitem [ref=e431]:
+            - strong [ref=e432]: "Surface:"
+            - text: A website is only the surface. — Most visitors see the finished interface. DOMINASE builds what makes it work.
+          - listitem [ref=e433]:
+            - strong [ref=e434]: "Presentation:"
+            - text: The visible layer explains the business, shapes perception, and builds trust. — Cinematic marketing pages with strong visual direction, conversion-aware structure, and purposeful motion.
+          - listitem [ref=e435]:
+            - strong [ref=e436]: "Interaction:"
+            - text: The flow layer guides people through forms, bookings, surveys, RSVP, and next steps. — Every step designed to feel clear, fast, and reliable for real users.
+          - listitem [ref=e437]:
+            - strong [ref=e438]: "Logic:"
+            - text: The logic layer handles rules, validation, data capture, and business paths. — Conditional flows, form intelligence, and routing that makes the experience trustworthy.
+          - listitem [ref=e439]:
+            - strong [ref=e440]: "Operations:"
+            - text: The operations layer organizes requests, bookings, content, and admin workflows. — Clean dashboards and admin screens so the business runs clearly behind the scenes.
+          - listitem [ref=e441]:
+            - strong [ref=e442]: "Operating Layer:"
+            - text: One connected system built to turn attention into action. — All four layers — assembled into a single DOMINASE digital operating layer.
+      - region "Selected Work" [ref=e450]:
+        - generic [ref=e451]:
+          - paragraph [ref=e452]: SELECTED WORK
+          - heading "Selected Work" [level=2] [ref=e453]
+        - generic [ref=e454]:
+          - article [ref=e455]:
+            - generic:
+              - img
+            - generic:
+              - img
+            - generic [ref=e460]:
+              - generic [ref=e461]:
+                - paragraph [ref=e462]: 01 / 04
+                - link "View Case Study" [ref=e463] [cursor=pointer]:
+                  - /url: /work/curevie
+                  - text: View Case Study
+                  - img [ref=e464]
+              - link "Curevie project preview" [ref=e467] [cursor=pointer]:
+                - /url: /work/curevie
+                - img "Curevie project preview" [ref=e469]
+              - paragraph [ref=e470]: Curevie
+          - article [ref=e471]:
+            - generic:
+              - img
+            - generic:
+              - img
+            - generic [ref=e476]:
+              - generic [ref=e477]:
+                - paragraph [ref=e478]: 02 / 04
+                - link "View Case Study" [ref=e479] [cursor=pointer]:
+                  - /url: /work/horvath-survey
+                  - text: View Case Study
+                  - img [ref=e480]
+              - link "Horvath project preview" [ref=e483] [cursor=pointer]:
+                - /url: /work/horvath-survey
+                - img "Horvath project preview" [ref=e485]
+              - paragraph [ref=e486]: Horvath
+          - article [ref=e487]:
+            - generic:
+              - img
+            - generic:
+              - img
+            - generic [ref=e492]:
+              - generic [ref=e493]:
+                - paragraph [ref=e494]: 03 / 04
+                - link "View Case Study" [ref=e495] [cursor=pointer]:
+                  - /url: /work/manal-alhihi
+                  - text: View Case Study
+                  - img [ref=e496]
+              - link "Manal Alhihi project preview" [ref=e499] [cursor=pointer]:
+                - /url: /work/manal-alhihi
+                - img "Manal Alhihi project preview" [ref=e501]
+              - paragraph [ref=e502]: Manal Alhihi
+          - article [ref=e503]:
+            - generic:
+              - img
+            - generic:
+              - img
+            - generic [ref=e508]:
+              - generic [ref=e509]:
+                - paragraph [ref=e510]: 04 / 04
+                - link "View Case Study" [ref=e511] [cursor=pointer]:
+                  - /url: /work/qasr-alfarah
+                  - text: View Case Study
+                  - img [ref=e512]
+              - link "Qaser Al Farah project preview" [ref=e515] [cursor=pointer]:
+                - /url: /work/qasr-alfarah
+                - img "Qaser Al Farah project preview" [ref=e517]
+              - paragraph [ref=e518]: Qaser Al Farah
+      - region "What clients noticed after the build." [ref=e521]:
+        - generic [ref=e522]:
+          - generic [ref=e523]:
+            - paragraph [ref=e524]: Proof Signals
+            - heading "What clients noticed after the build." [level=2] [ref=e525]
+            - paragraph [ref=e526]: Real feedback from projects where clarity, trust, and execution mattered.
+          - region "Client testimonials carousel" [ref=e527]:
+            - generic [ref=e529]:
+              - generic [ref=e533]:
+                - img [ref=e534]
+                - generic [ref=e539]: CV
+                - generic [ref=e540]: Curevie
+              - generic [ref=e544]:
+                - img [ref=e545]
+                - generic [ref=e550]: IN
+                - generic [ref=e551]: Inkspire
+              - generic [ref=e555]:
+                - img [ref=e556]
+                - generic [ref=e561]: EC
+                - generic [ref=e562]: Engineering Co.
+            - generic [ref=e563]:
+              - generic [ref=e566]: Curevie
+              - blockquote [ref=e568]:
+                - paragraph [ref=e569]: “Mohammed brought a calm, organized way of thinking to our digital presence. The Curevie experience feels clear, trusted, and polished without losing the human side we care about.”
+              - generic [ref=e570]:
+                - paragraph [ref=e571]: Dr. Ahmad Al-Akhras
+                - paragraph [ref=e572]: Director, Curevie
+              - generic [ref=e573]:
+                - button "Previous testimonial" [ref=e574]:
+                  - img [ref=e575]
+                - tablist "Testimonial navigation" [ref=e577]:
+                  - tab "Testimonial 1" [selected] [ref=e578]
+                  - tab "Testimonial 2" [ref=e579]
+                  - tab "Testimonial 3" [ref=e580]
+                - button "Next testimonial" [ref=e581]:
+                  - img [ref=e582]
+              - button "Start a Serious Build" [ref=e585]
+      - generic [ref=e592]:
+        - generic [ref=e593]:
+          - paragraph [ref=e594]: The decision point
+          - heading "Let's Build Something Useful" [level=2] [ref=e596]
+          - paragraph [ref=e597]: Send a message if your business needs a polished website, a SaaS-style interface, a booking flow, or a sharper digital system.
+          - generic [ref=e598]:
+            - paragraph [ref=e599]: Direct routes
+            - generic [ref=e600]:
+              - img
+              - list [ref=e601]:
+                - listitem [ref=e602]:
+                  - link "Message on WhatsApp" [ref=e603] [cursor=pointer]:
+                    - /url: https://wa.me/962779667168
+                    - img [ref=e605]
+                    - generic [ref=e607]:
+                      - generic [ref=e608]: WhatsApp
+                      - generic [ref=e609]: Fastest reply
+                - listitem [ref=e611]:
+                  - link "Call by phone" [ref=e612] [cursor=pointer]:
+                    - /url: tel:+962779667168
+                    - img [ref=e614]
+                    - generic [ref=e616]:
+                      - generic [ref=e617]: Call
+                      - generic [ref=e618]: Talk directly
+                - listitem [ref=e620]:
+                  - link "Send an email" [ref=e621] [cursor=pointer]:
+                    - /url: mailto:mohammed.aldomi68@gmail.com
+                    - img [ref=e623]
+                    - generic [ref=e626]:
+                      - generic [ref=e627]: Email
+                      - generic [ref=e628]: Formal details
+        - generic [ref=e630]:
+          - generic [ref=e632]: Signal capture
+          - generic [ref=e637]:
+            - text: Leave this field empty
+            - textbox [ref=e638]
+            - generic [ref=e639]:
+              - generic [ref=e640]: Name
+              - textbox "Name" [ref=e641]:
+                - /placeholder: Your full name
+            - generic [ref=e642]:
+              - generic [ref=e643]: Phone number
+              - textbox "Phone number" [ref=e644]:
+                - /placeholder: Best number to reach you
+            - generic [ref=e645]:
+              - generic [ref=e646]: Company
+              - textbox "Company" [ref=e647]:
+                - /placeholder: Company (optional)
+            - button "Start the conversation" [ref=e648]
+    - generic [ref=e650]:
+      - generic [ref=e651]:
+        - generic [ref=e652]:
+          - generic [ref=e654]: DOMINASE
+          - paragraph [ref=e656]: Digital Product Studio
+        - generic [ref=e657]:
+          - link "GitHub" [ref=e658] [cursor=pointer]:
+            - /url: https://github.com/mohammed199768
+            - img [ref=e659]
+          - link "Upwork" [ref=e662] [cursor=pointer]:
+            - /url: https://www.upwork.com/freelancers/~012bcb31d6467e2e71?mp_source=share
+            - img [ref=e663]
+          - link "LinkedIn" [ref=e666] [cursor=pointer]:
+            - /url: https://linkedin.com/in/mohammed199768
+            - img [ref=e667]
+      - generic [ref=e671]:
+        - generic [ref=e672]: © 2026 DOMINASE. Built by Mohammed Aldomi.
+        - generic [ref=e673]:
+          - link "Why Us?" [ref=e674] [cursor=pointer]:
+            - /url: /why-us
+          - link "Why Change?" [ref=e675] [cursor=pointer]:
+            - /url: /why-change
+          - link "Portfolio" [ref=e676] [cursor=pointer]:
+            - /url: "#"
+          - link "Contact" [ref=e677] [cursor=pointer]:
+            - /url: "#"
+  - button "Open Next.js Dev Tools" [ref=e683] [cursor=pointer]:
+    - img [ref=e684]

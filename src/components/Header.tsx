@@ -7,6 +7,7 @@ import { Globe } from "lucide-react";
 import ThemeToggle from "./ThemeToggle";
 import { scrollToSection } from "@/lib/motion/scrollToSection";
 import { usePathname } from "next/navigation";
+import { getNavItemHref, getNavItemLabel, isNavItemActive, NAV_ITEMS } from "./navConfig";
 
 export default function Header() {
     const { t, language, toggleLanguage } = useLanguage();
@@ -23,16 +24,6 @@ export default function Header() {
 
     const pathname = usePathname();
     const isHome = pathname === "/";
-
-    const navItems = [
-        { label: t.nav.services, href: "#services" },
-        { label: t.nav.portfolio, href: "#portfolio" },
-        { label: t.nav.whyChange, href: "/why-change", isRoute: true },
-        { label: t.nav.whyUs, href: "/why-us", isRoute: true },
-        { label: t.nav.caseStudies, href: "/work", isRoute: true },
-        { label: t.nav.testimonials, href: "#testimonials" },
-        { label: t.nav.contact, href: "#contact" },
-    ];
 
     return (
         <header
@@ -51,8 +42,8 @@ export default function Header() {
                     }}
                     className="flex items-center gap-3 text-primary-theme"
                 >
-                    <span className="text-2xl font-black tracking-wide">DOMINASE</span>
-                    <span className="hidden text-[10px] font-black uppercase tracking-[0.22em] text-muted sm:inline">
+                    <span className="font-display text-2xl font-black tracking-wide">DOMINASE</span>
+                    <span className="font-display hidden text-[10px] font-black uppercase tracking-[0.22em] text-muted sm:inline">
                         Digital Product Studio
                     </span>
                     <div className="mt-1 h-2 w-2 rounded-full bg-secondary-theme" />
@@ -60,17 +51,19 @@ export default function Header() {
 
                 {/* Desktop Nav */}
                 <nav className="hidden lg:flex items-center gap-6 glass px-6 py-3 rounded-full">
-                    {navItems.map((link) => {
-                        const isActive = link.isRoute && pathname.startsWith(link.href);
+                    {NAV_ITEMS.map((item) => {
+                        const label = getNavItemLabel(t.nav, item);
+                        const href = getNavItemHref(item, isHome);
+                        const isActive = isNavItemActive(item, pathname);
 
-                        if (link.isRoute) {
+                        if (item.kind === "route") {
                             return (
                                 <Link
-                                    key={link.label}
-                                    href={link.href}
+                                    key={item.id}
+                                    href={href}
                                     className={`font-medium transition-colors text-sm ${isActive ? "text-primary-theme font-bold" : "text-muted hover:text-primary-theme"}`}
                                 >
-                                    {link.label}
+                                    {label}
                                 </Link>
                             );
                         }
@@ -78,23 +71,23 @@ export default function Header() {
                         if (!isHome) {
                             return (
                                 <Link
-                                    key={link.label}
-                                    href={`/${link.href}`}
+                                    key={item.id}
+                                    href={href}
                                     className="text-muted hover:text-primary-theme font-medium transition-colors text-sm"
                                 >
-                                    {link.label}
+                                    {label}
                                 </Link>
                             );
                         }
 
                         return (
                             <button
-                                key={link.label}
+                                key={item.id}
                                 suppressHydrationWarning
-                                onClick={() => scrollToSection(link.href)}
+                                onClick={() => scrollToSection(item.href)}
                                 className="text-muted hover:text-primary-theme font-medium transition-colors text-sm"
                             >
-                                {link.label}
+                                {label}
                             </button>
                         );
                     })}

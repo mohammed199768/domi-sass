@@ -99,7 +99,7 @@
 }
 
 :global(.why-scene__copy) { grid-area: copy; position: relative; z-index: 2; }
-:global(.why-scene__index) { display: flex; align-items: center; gap: .8rem; margin-bottom: 1.3rem; color: var(--why-champagne); font: 700 .67rem/1 var(--font-montserrat); letter-spacing: .2em; }
+:global(.why-scene__index) { display: flex; align-items: center; gap: .8rem; margin-bottom: 1.3rem; color: var(--why-champagne); font: 700 .67rem/1 var(--font-en-display); letter-spacing: .2em; }
 :global(.why-scene__index i) { width: 3rem; height: 1px; background: currentColor; }
 :global(.why-scene__eyebrow) { margin-bottom: 1rem; color: var(--why-signal); text-transform: uppercase; letter-spacing: .18em; font-size: .67rem; font-weight: 800; }
 :global([dir="rtl"] .why-scene__eyebrow) { letter-spacing: 0; }
@@ -147,8 +147,8 @@
 :global([dir="rtl"] .why-scene[data-layout="visual-left"]) { grid-template-areas: "copy visual"; }
 
 :global(.why-chart) { display: block; width: 100%; height: 100%; overflow: visible; }
-:global(.why-chart text) { font-family: var(--font-montserrat), sans-serif; }
-:global([dir="rtl"] .why-chart text) { font-family: var(--font-cairo), sans-serif; }
+:global(.why-chart text) { font-family: var(--font-en-display), sans-serif; }
+:global([dir="rtl"] .why-chart text) { font-family: var(--font-ar-display), sans-serif; }
 :global(.chart-grid) { fill: none; stroke: var(--why-hairline); stroke-width: 1; }
 :global(.chart-grid-line) { fill: none; stroke: var(--why-hairline); stroke-width: 1.2; }
 :global(.chart-grid-fill) { fill: var(--why-hairline); }
@@ -177,7 +177,7 @@
 :global(.why-progress__label) { writing-mode: vertical-rl; font-size: .48rem; letter-spacing: .24em; }
 :global(.why-progress__track) { width: 1px; height: 11rem; background: var(--why-hairline); position: relative; }
 :global(.why-progress__track i) { position: absolute; inset: 0; background: var(--why-signal); transform: scaleY(0); transform-origin: top; box-shadow: 0 0 8px color-mix(in srgb, var(--why-signal) 55%, transparent); }
-:global(.why-progress__count) { font: 600 .55rem/1 var(--font-montserrat); letter-spacing: .08em; }
+:global(.why-progress__count) { font: 600 .55rem/1 var(--font-en-display); letter-spacing: .08em; }
 :global(.why-progress__count b) { color: var(--why-ink); }
 
 :global(.why-final-cta), :global(.why-sources) { width: min(72rem, calc(100% - 3rem)); margin-inline: auto; }

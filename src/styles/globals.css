@@ -4,17 +4,13 @@
 
 @theme {
   /* ── Typography tokens ──────────────────────────────────────────────────
-   * Two English + two Arabic families, routed by element + direction.
-   *   --font-en-display / --font-en-body  (Space Grotesk / Manrope)
-   *   --font-ar-display / --font-ar-body  (IBM Plex Sans Arabic / Noto Sans Arabic)
-   * Tailwind `font-sans` / `font-arabic` utilities keep working: they now
-   * resolve to the body families with a graceful display fallback. */
-  --font-en-display: var(--font-en-display);
-  --font-en-body: var(--font-en-body);
-  --font-ar-display: var(--font-ar-display);
-  --font-ar-body: var(--font-ar-body);
-
-  --font-display: var(--font-en-display), system-ui, sans-serif;
+   * Four families are injected as CSS vars by next/font on <body>:
+   *   --font-en-display (Space Grotesk)  --font-en-body (Manrope)
+   *   --font-ar-display (IBM Plex Arabic) --font-ar-body (Noto Sans Arabic)
+   * Element/direction routing lives in @layer base; the RTL-aware
+   * `.font-display` helper lives in @layer utilities. Only the Tailwind
+   * `font-sans` / `font-arabic` utilities are registered here (used by the
+   * case-study pages + LanguageContext wrapper). */
   --font-sans: var(--font-en-body), system-ui, sans-serif;
   --font-arabic: var(--font-ar-body), system-ui, sans-serif;
 
@@ -142,6 +138,14 @@
   [dir="rtl"] h2, [dir="rtl"] h3 {
     line-height: 1.5 !important;
     word-break: break-word;
+  }
+
+  /* Arabic body copy reads better with a little more leading; Noto Sans
+     Arabic has tall ascenders/descenders. Keep tracking neutral. */
+  [dir="rtl"] p,
+  [lang="ar"] p {
+    line-height: 1.85;
+    letter-spacing: 0;
   }
 }
 
