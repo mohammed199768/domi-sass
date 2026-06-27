@@ -30,6 +30,7 @@ export default function Hero() {
                         <h1
                             ref={wordmarkRef}
                             data-hero-wordmark
+                            data-preload-critical
                             className="mx-auto max-w-full text-[clamp(3.4rem,13vw,9.5rem)] font-black uppercase leading-[0.86] tracking-[0.08em] text-foreground sm:tracking-[0.12em]"
                             dir="ltr"
                         >

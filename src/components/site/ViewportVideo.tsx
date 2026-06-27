@@ -13,6 +13,8 @@ type ViewportVideoProps = {
     poster?: string;
     /** Visible fraction that triggers playback (default 0.35). */
     threshold?: number;
+    /** Wait for metadata during the first boot reveal. */
+    preloadCritical?: boolean;
 };
 
 /**
@@ -32,6 +34,7 @@ export default function ViewportVideo({
     className = "",
     poster,
     threshold = 0.35,
+    preloadCritical = false,
 }: ViewportVideoProps) {
     const videoRef = useRef<HTMLVideoElement>(null);
     const prefersReducedMotion = useReducedMotion();
@@ -76,6 +79,7 @@ export default function ViewportVideo({
             loop
             playsInline
             preload="metadata"
+            data-preload-critical={preloadCritical ? "" : undefined}
             aria-hidden="true"
             tabIndex={-1}
         >

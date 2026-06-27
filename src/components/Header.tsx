@@ -50,7 +50,7 @@ export default function Header() {
                 </Link>
 
                 {/* Desktop Nav */}
-                <nav className="hidden lg:flex items-center gap-6 glass px-6 py-3 rounded-full">
+                <nav className="hidden min-[1025px]:flex items-center gap-6 glass px-6 py-3 rounded-full">
                     {NAV_ITEMS.map((item) => {
                         const label = getNavItemLabel(t.nav, item);
                         const href = getNavItemHref(item, isHome);
@@ -94,7 +94,7 @@ export default function Header() {
                 </nav>
 
                 {/* Actions Desktop */}
-                <div className="hidden lg:flex items-center gap-4">
+                <div className="hidden min-[1025px]:flex items-center gap-4">
                     <ThemeToggle />
                     <button
                         onClick={toggleLanguage}
@@ -124,7 +124,7 @@ export default function Header() {
                 </div>
 
                 {/* Mobile Top Bar (Just Logo + Toggles) */}
-                <div className="lg:hidden flex items-center gap-3">
+                <div className="flex items-center gap-3 min-[1025px]:hidden">
                     <ThemeToggle />
                     <button
                         onClick={toggleLanguage}

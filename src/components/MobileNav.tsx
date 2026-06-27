@@ -28,7 +28,7 @@ export default function MobileNav() {
     if (pathname.startsWith("/work/")) return null;
 
     return (
-        <div className="fixed bottom-0 left-0 right-0 z-50 lg:hidden pb-safe transition-colors duration-300">
+        <div className="mobile-nav-shell fixed bottom-0 left-0 right-0 z-50 pb-safe transition-colors duration-300 min-[1025px]:hidden">
             <nav className="glass grid grid-cols-7 items-center gap-1 rounded-t-[2rem] border-t border-border bg-surface/92 px-2 pb-8 pt-4 shadow-[0_-8px_28px_rgba(0,0,0,0.08)]">
                 {NAV_ITEMS.map((item) => {
                     const Icon = navIcons[item.id];

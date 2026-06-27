@@ -37,6 +37,7 @@ export default function AboutSection() {
                                     src="/assest/optimized/videos/marketing.webm"
                                     fallbackSrc="/assest/marketing.mp4"
                                     className="absolute inset-0 h-full w-full object-cover"
+                                    preloadCritical
                                 />
                             </div>
                         </div>

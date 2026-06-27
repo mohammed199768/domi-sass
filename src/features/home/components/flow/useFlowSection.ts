@@ -33,8 +33,8 @@ export function useFlowSection(transition: FlowTransition) {
   const gateLineRef = useRef<HTMLDivElement | null>(null);
 
   const prefersReducedMotion = useReducedMotion();
-  // Below this width we simplify dramatic transitions to avoid mobile jank.
-  const isDesktop = useMediaQuery("(min-width: 768px)");
+  // Tablets stay in the simplified path to avoid off-canvas staging overflow.
+  const isDesktop = useMediaQuery("(min-width: 1025px)");
 
   useEffect(() => {
     registerMotionPlugins();
@@ -186,7 +186,7 @@ export function useFlowSection(transition: FlowTransition) {
 
         case "panel-slide": {
           // Clean editorial panel slides in from the side (LTR-safe).
-          gsap.set(inner, { opacity: 0, xPercent: isDesktop ? 8 : 4, yPercent: 4 });
+          gsap.set(inner, { opacity: 0, xPercent: isDesktop ? 8 : 0, yPercent: 4 });
           const tl = gsap.timeline({
             scrollTrigger: baseTrigger,
             defaults: { ease: "power3.out" },

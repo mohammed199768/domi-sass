@@ -29,9 +29,115 @@ import "./brand-preloader.css";
 
 const SESSION_FLAG = "dominase-boot-shown";
 /** Minimum on-screen time so the boot never flashes (motion). */
-const MIN_DURATION_MS = 1400;
+const MIN_DURATION_MS = 1100;
 /** Shorter window for reduced-motion users. */
 const MIN_DURATION_REDUCED_MS = 650;
+/** Hard ceiling: readiness can fail, but the boot gate must not hang. */
+const MAX_READY_WAIT_MS = 4200;
+const WINDOW_LOAD_WAIT_MS = 1200;
+
+function wait(ms: number) {
+  return new Promise<void>((resolve) => {
+    window.setTimeout(resolve, ms);
+  });
+}
+
+function withTimeout(promise: Promise<unknown>, ms: number) {
+  return Promise.race([promise, wait(ms)]).then(() => undefined);
+}
+
+function markBootShown() {
+  try {
+    window.sessionStorage.setItem(SESSION_FLAG, "1");
+  } catch {
+    // Storage can be unavailable in private/restricted contexts.
+  }
+}
+
+function waitForDocumentInteractive() {
+  if (document.readyState === "interactive" || document.readyState === "complete") {
+    return Promise.resolve();
+  }
+
+  return new Promise<void>((resolve) => {
+    document.addEventListener("DOMContentLoaded", () => resolve(), { once: true });
+  });
+}
+
+function waitForWindowLoadBriefly() {
+  if (document.readyState === "complete") return Promise.resolve();
+
+  return withTimeout(
+    new Promise<void>((resolve) => {
+      window.addEventListener("load", () => resolve(), { once: true });
+    }),
+    WINDOW_LOAD_WAIT_MS,
+  );
+}
+
+function waitForFonts() {
+  if (!("fonts" in document)) return Promise.resolve();
+  return document.fonts.ready.then(() => undefined);
+}
+
+function waitForNextPaint() {
+  return new Promise<void>((resolve) => {
+    window.requestAnimationFrame(() => {
+      window.requestAnimationFrame(() => resolve());
+    });
+  });
+}
+
+function waitForImage(image: HTMLImageElement) {
+  if (image.complete) return Promise.resolve();
+
+  return new Promise<void>((resolve) => {
+    const done = () => resolve();
+    image.addEventListener("load", done, { once: true });
+    image.addEventListener("error", done, { once: true });
+  });
+}
+
+function waitForVideoMetadata(video: HTMLVideoElement) {
+  if (video.readyState >= HTMLMediaElement.HAVE_METADATA) {
+    return Promise.resolve();
+  }
+
+  return new Promise<void>((resolve) => {
+    const done = () => resolve();
+    video.addEventListener("loadedmetadata", done, { once: true });
+    video.addEventListener("canplay", done, { once: true });
+    video.addEventListener("error", done, { once: true });
+  });
+}
+
+function waitForCriticalVisuals() {
+  const criticalNodes = Array.from(
+    document.querySelectorAll<HTMLElement>(
+      "[data-preload-critical], [data-hero-wordmark]",
+    ),
+  );
+
+  const checks = criticalNodes.map((node) => {
+    if (node instanceof HTMLImageElement) return waitForImage(node);
+    if (node instanceof HTMLVideoElement) return waitForVideoMetadata(node);
+    return Promise.resolve();
+  });
+
+  return Promise.all(checks).then(() => undefined);
+}
+
+function waitForAppReady() {
+  return withTimeout(
+    Promise.all([
+      waitForDocumentInteractive(),
+      waitForFonts(),
+      waitForWindowLoadBriefly(),
+      waitForNextPaint().then(waitForCriticalVisuals),
+    ]),
+    MAX_READY_WAIT_MS,
+  );
+}
 
 export default function BrandPreloader() {
   const prefersReducedMotion = fmReducedMotion();
@@ -44,7 +150,6 @@ export default function BrandPreloader() {
     if (typeof window === "undefined") return false;
     try {
       if (window.sessionStorage.getItem(SESSION_FLAG) === "1") return false;
-      window.sessionStorage.setItem(SESSION_FLAG, "1");
     } catch {
       // sessionStorage unavailable — show once, never persists.
     }
@@ -58,14 +163,52 @@ export default function BrandPreloader() {
     return () => window.clearTimeout(id);
   }, []);
 
-  // Auto-dismiss after the minimal intro window.
+  useEffect(() => {
+    if (!mounted) return;
+
+    const root = document.documentElement;
+    const body = document.body;
+
+    if (show) {
+      root.classList.add("domi-booting");
+      body.classList.add("domi-booting");
+      root.classList.remove("domi-boot-revealed");
+
+      return () => {
+        root.classList.remove("domi-booting");
+        body.classList.remove("domi-booting");
+      };
+    }
+
+    root.classList.remove("domi-booting");
+    body.classList.remove("domi-booting");
+    root.classList.add("domi-boot-revealed");
+
+    const timer = window.setTimeout(() => {
+      root.classList.remove("domi-boot-revealed");
+    }, 700);
+
+    return () => window.clearTimeout(timer);
+  }, [mounted, show]);
+
+  // Auto-dismiss only after critical readiness and the branded minimum window.
   useEffect(() => {
     if (!mounted || show !== true) return;
     const duration = prefersReducedMotion
       ? MIN_DURATION_REDUCED_MS
       : MIN_DURATION_MS;
-    const timer = window.setTimeout(() => setShow(false), duration);
-    return () => window.clearTimeout(timer);
+
+    let cancelled = false;
+
+    Promise.all([wait(duration), waitForAppReady()]).then(() => {
+      if (cancelled) return;
+      markBootShown();
+      setShow(false);
+    });
+
+    return () => {
+      cancelled = true;
+    };
   }, [mounted, show, prefersReducedMotion]);
 
   return (

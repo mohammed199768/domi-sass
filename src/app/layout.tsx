@@ -12,6 +12,18 @@ import MobileNav from "@/components/MobileNav";
 import BrandPreloader from "@/components/BrandPreloader";
 import { LanguageProvider } from "@/context/LanguageContext";
 
+const bootClassScript = `
+(() => {
+  try {
+    if (window.sessionStorage.getItem("dominase-boot-shown") !== "1") {
+      document.documentElement.classList.add("domi-booting");
+    }
+  } catch {
+    document.documentElement.classList.add("domi-booting");
+  }
+})();
+`;
+
 /* ── Typography system ──────────────────────────────────────────────────────
  * English display  → Space Grotesk  (DOMINASE, headings, technical labels)
  * English body     → Manrope        (paragraphs, buttons, nav, supporting)
@@ -77,6 +89,7 @@ export default function RootLayout({
       <body
         className={`${enDisplay.variable} ${enBody.variable} ${arDisplay.variable} ${arBody.variable} antialiased`}
       >
+        <script dangerouslySetInnerHTML={{ __html: bootClassScript }} />
         <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
           <LanguageProvider>
             <BrandPreloader />

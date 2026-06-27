@@ -37,6 +37,7 @@ import {
     useReducedMotion as fmReducedMotion,
     type MotionValue,
 } from "framer-motion";
+import { useMediaQuery } from "@/lib/motion/useMediaQuery";
 import GeometricSignalField from "./GeometricSignalField";
 import "./hero-gate.css";
 
@@ -62,6 +63,11 @@ export default function HeroScrollTransition({ hero }: HeroScrollTransitionProps
 
 function GateZone({ hero }: { hero: React.ReactNode }) {
     const containerRef = useRef<HTMLDivElement>(null);
+    const isTablet = useMediaQuery("(min-width: 768px) and (max-width: 1024px)");
+    const stagePeakScale = isTablet ? 1.12 : 1.22;
+    const stageExitScale = isTablet ? 0.98 : 0.94;
+    const wordmarkGateScale = isTablet ? 0.9 : 0.74;
+    const vignettePeakOpacity = isTablet ? 0.34 : 0.6;
 
     const { scrollYProgress } = useScroll({
         target: containerRef,
@@ -72,7 +78,7 @@ function GateZone({ hero }: { hero: React.ReactNode }) {
     const stageScale = useTransform(
         scrollYProgress,
         [0, 0.46, 0.68, 0.84, 1.0],
-        [1, 1, 1.22, 1.22, 0.94]
+        [1, 1, stagePeakScale, stagePeakScale, stageExitScale]
     );
 
     // ── Hero container opacity: dissolve only in the final phase ──────────────
@@ -111,7 +117,7 @@ function GateZone({ hero }: { hero: React.ReactNode }) {
     const wordmarkScale = useTransform(
         scrollYProgress,
         [0.46, 0.68],
-        [1, 0.74]
+        [1, wordmarkGateScale]
     );
 
     // ── Gate seam: draws in as the zoom begins, peaks, then dissolves ─────────
@@ -130,7 +136,7 @@ function GateZone({ hero }: { hero: React.ReactNode }) {
     const vignetteOpacity = useTransform(
         scrollYProgress,
         [0.46, 0.68, 0.84, 1.0],
-        [0, 0.6, 0.6, 0]
+        [0, vignettePeakOpacity, vignettePeakOpacity, 0]
     );
 
     return (

@@ -188,13 +188,63 @@
 /* ── Tablet (768px – 1023px): moderate gate zone + thinned formation ──────────
  * Drop the secondary cluster points and connector lines so the formation
  * reads as ~6 clean marks instead of the full desktop set.                  */
-@media (min-width: 768px) and (max-width: 1023px) {
+@media (min-width: 768px) and (max-width: 1024px) {
   .hero-gate-scroll-driver {
-    height: 220vh;
+    height: 205vh;
+  }
+
+  .hero-canvas {
+    min-height: 100svh;
+    padding-inline: clamp(2rem, 5vw, 4rem);
+    padding-top: clamp(8.5rem, 12svh, 10rem);
+    padding-bottom: clamp(6rem, 9svh, 8rem);
+  }
+
+  .hero-canvas [data-hero-wordmark] {
+    max-width: min(100%, 920px);
+    overflow: visible;
+    font-size: clamp(4.7rem, 10.4vw, 6.8rem);
+    line-height: 0.9;
+    letter-spacing: 0.075em;
+  }
+
+  .hero-canvas [data-hero-headline] {
+    max-width: 44rem;
+    font-size: clamp(1.9rem, 3.4vw, 2.65rem);
+  }
+
+  .hero-canvas [data-hero-subheadline] {
+    max-width: 42rem;
+    font-size: clamp(1rem, 2.2vw, 1.18rem);
+  }
+
+  .hero-canvas [data-hero-cta] {
+    padding-top: 0;
+  }
+
+  .hero-aura,
+  .retro-grid__flat,
+  .retro-grid__perspective {
+    opacity: 0.56;
   }
 
   .hero-gate-signal-field .signal-extra {
     display: none;
+  }
+
+  .hero-gate-signal-field {
+    opacity: 0.5;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 860px) {
+  .hero-canvas [data-hero-wordmark] {
+    font-size: clamp(4.25rem, 9.8vw, 5.4rem);
+    letter-spacing: 0.055em;
+  }
+
+  .hero-canvas [data-hero-headline] {
+    font-size: clamp(1.7rem, 3.15vw, 2.25rem);
   }
 }
 

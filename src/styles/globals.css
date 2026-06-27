@@ -158,6 +158,29 @@
   }
 }
 
+/* Boot gate: keep the app measurable but hidden/protected until ready. */
+html.domi-booting,
+body.domi-booting {
+  overflow: hidden;
+}
+
+html.domi-booting :where(main, header, footer, .mobile-nav-shell),
+body.domi-booting :where(main, header, footer, .mobile-nav-shell) {
+  opacity: 0;
+  pointer-events: none;
+  user-select: none;
+}
+
+:where(main, header, footer, .mobile-nav-shell) {
+  transition: opacity 260ms ease;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  :where(main, header, footer, .mobile-nav-shell) {
+    transition-duration: 80ms;
+  }
+}
+
 /* Glassmorphism utilities */
 .glass {
   @apply border border-border transition-all duration-300;
