@@ -1,39 +1,42 @@
+/*
+ * Why Change — "The cost of standing still."
+ *
+ * Palette: mapped 1:1 onto the DOMINASE Obsidian + Emerald Aurora tokens so
+ * the page follows the site theme in BOTH modes automatically (the --domi-*
+ * tokens flip with [data-theme]). No local --bg/--surface hijacks: the page
+ * inherits the real theme surfaces.
+ *
+ *  --why-ink        headline / strong text        → --domi-text (pearl / green-black)
+ *  --why-signal     emerald signal accent         → --domi-accent
+ *  --why-champagne  secondary mint accent         → --domi-accent-bright
+ *                   (name kept for churn-free selectors; the old violet is gone)
+ *  --why-danger     semantic leak/warning tone    (only intentional non-token)
+ *  --why-panel      panel surface                 → --domi-surface
+ *  --why-hairline   separators                    → --domi-border
+ */
 .page {
-  --why-ink: #0c2440;
-  --why-signal: #08a8c6;
-  --why-signal-soft: rgba(8, 168, 198, 0.14);
-  --why-champagne: #6d5bd0;
-  --why-danger: #d45858;
-  --why-panel: #fbfdff;
-  --why-hairline: rgba(12, 36, 64, 0.15);
-  --bg: #f6f8fb;
-  --surface: #fbfdff;
-  --surface-hover: #eef4f8;
-  --border: rgba(12, 36, 64, 0.13);
+  --why-ink: var(--domi-text);
+  --why-signal: var(--domi-accent);
+  --why-signal-soft: color-mix(in srgb, var(--domi-accent) 12%, transparent);
+  --why-champagne: var(--domi-accent-bright);
+  --why-danger: #c65454;
+  --why-panel: var(--domi-surface);
+  --why-hairline: var(--domi-border);
   position: relative;
   overflow: clip;
   background:
     linear-gradient(90deg, transparent 49.96%, color-mix(in srgb, var(--why-hairline) 42%, transparent) 50%, transparent 50.04%),
-    #f6f8fb;
-  color: var(--fg);
+    var(--domi-bg);
+  color: var(--domi-text);
 }
 
-:global(.dark) .page {
-  --why-ink: #ecf7fb;
-  --why-signal: #39d5e7;
-  --why-signal-soft: rgba(57, 213, 231, 0.12);
-  --why-champagne: #a78bfa;
-  --why-danger: #ff7c79;
-  --why-panel: #08131f;
-  --why-hairline: rgba(196, 222, 231, 0.16);
-  --bg: #030910;
-  --surface: #07111b;
-  --surface-hover: #0a1723;
-  --border: rgba(196, 222, 231, 0.13);
+/* Dark mode: obsidian base with a faint emerald aurora breath (static). */
+:global([data-theme="dark"]) .page {
+  --why-danger: #e8776d;
   background:
-    radial-gradient(circle at 75% 22%, rgba(11, 103, 130, 0.13), transparent 32%),
+    radial-gradient(circle at 75% 20%, color-mix(in srgb, var(--domi-accent) 8%, transparent), transparent 34%),
     linear-gradient(90deg, transparent 49.96%, color-mix(in srgb, var(--why-hairline) 45%, transparent) 50%, transparent 50.04%),
-    #030910;
+    var(--domi-bg);
 }
 
 :global(.why-film-intro) {
@@ -80,7 +83,7 @@
 :global(.why-scroll-cue i) { display: block; width: 4.5rem; height: 1px; background: var(--why-hairline); position: relative; }
 :global(.why-scroll-cue i::after) { content: ""; position: absolute; inset-inline-start: 0; top: -1px; width: 42%; height: 3px; background: var(--why-signal); }
 
-:global(.why-film) { height: 100svh; min-height: 42rem; position: relative; isolation: isolate; overflow: hidden; background: linear-gradient(150deg, color-mix(in srgb, var(--why-panel) 72%, transparent), color-mix(in srgb, var(--why-signal) 2.5%, var(--bg))); border-block: 1px solid var(--why-hairline); }
+:global(.why-film) { height: 100svh; min-height: 42rem; position: relative; isolation: isolate; overflow: hidden; background: linear-gradient(150deg, color-mix(in srgb, var(--why-panel) 72%, transparent), color-mix(in srgb, var(--why-signal) 2.5%, var(--domi-bg))); border-block: 1px solid var(--why-hairline); }
 :global(.why-film__ambient) { position: absolute; width: 34rem; height: 34rem; border: 1px solid var(--why-hairline); border-radius: 50%; top: 50%; inset-inline-end: -14rem; transform: translateY(-50%); opacity: .55; }
 :global(.why-film__ambient::before), :global(.why-film__ambient::after) { display: none; }
 :global(.why-film__stage) { z-index: 1; height: 100%; position: relative; max-width: 86rem; margin: 0 auto; }
@@ -110,7 +113,8 @@
 :global(.why-scene__stat strong) { color: var(--why-ink); font-size: clamp(1.25rem, 2vw, 2.05rem); line-height: 1.12; letter-spacing: -.035em; }
 :global(.why-scene__stat span) { color: var(--muted); font-size: .76rem; line-height: 1.5; }
 :global(.why-scene__bullets) { margin-top: 1.25rem; display: flex; flex-wrap: wrap; gap: .48rem; }
-:global(.why-scene__bullets li) { padding: .42rem .65rem; border: 1px solid var(--why-hairline); color: var(--why-ink); font-size: .68rem; font-weight: 700; }
+:global(.why-scene__bullets li) { padding: .42rem .65rem; border: 1px solid var(--why-hairline); color: var(--why-ink); font-size: .68rem; font-weight: 700; transition: border-color .2s ease, transform .2s ease; }
+:global(.why-scene__bullets li:hover) { border-color: color-mix(in srgb, var(--why-signal) 55%, var(--why-hairline)); transform: translateY(-1px); }
 
 :global(.why-scene__visual) { grid-area: visual; min-width: 0; height: clamp(30rem, 70vh, 39rem); position: relative; isolation: isolate; }
 :global(.why-scene__guide) { position: absolute; z-index: -1; inset: 1% -4% 0; width: 108%; height: 92%; overflow: visible; }
@@ -119,7 +123,7 @@
 :global(.why-scene__frame) { height: 72%; position: relative; overflow: visible; background: transparent; }
 :global(.why-scene__frame::before) { content: ""; position: absolute; inset: 9% 5% 5%; border-block: 1px solid color-mix(in srgb, var(--why-hairline) 58%, transparent); opacity: .38; }
 :global(.why-scene__asset) { position: absolute; z-index: 1; inset: -2% 7% -1%; width: 86%; height: 103%; object-fit: contain; opacity: .91; transform-origin: center; }
-:global(.dark .why-scene__asset) { opacity: .82; }
+:global([data-theme="dark"] .why-scene__asset) { opacity: .82; }
 :global(.why-scene[data-scene-active="false"]) { pointer-events: none; }
 :global(.why-frame-statement) { position: absolute; inset: 12%; display: flex; flex-direction: column; justify-content: center; align-items: flex-start; color: var(--why-ink); }
 :global(.why-frame-statement span) { color: var(--why-signal); font-size: .62rem; font-weight: 800; letter-spacing: .2em; }
@@ -181,7 +185,7 @@
 :global(.why-progress__count b) { color: var(--why-ink); }
 
 :global(.why-final-cta), :global(.why-sources) { width: min(72rem, calc(100% - 3rem)); margin-inline: auto; }
-:global(.why-final-cta) { min-height: 78svh; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; border-bottom: 1px solid var(--why-hairline); }
+:global(.why-final-cta) { min-height: 78svh; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; border-bottom: 1px solid var(--why-hairline); position: relative; isolation: isolate; }
 :global(.why-final-cta h2) { max-width: 18ch; margin: .8rem 0 2rem; color: var(--why-ink); font-size: clamp(2.7rem, 6vw, 6rem); line-height: .97; letter-spacing: -.06em; font-weight: 900; }
 :global([dir="rtl"] .why-final-cta h2) { line-height: 1.25 !important; letter-spacing: -.035em; }
 :global(.why-final-cta .why-cta-cluster) { display: flex; gap: .85rem; flex-wrap: wrap; justify-content: center; }
@@ -208,12 +212,12 @@
 :global(.why-button:focus-visible) { outline: 2px solid var(--why-signal); outline-offset: 3px; }
 :global(.why-button--primary) {
   background: linear-gradient(135deg, var(--why-ink), color-mix(in srgb, var(--why-ink) 86%, var(--why-signal)));
-  color: var(--why-panel);
+  color: var(--domi-bg);
   border-color: var(--why-ink);
 }
 :global(.why-button--tertiary) {
   border-color: color-mix(in srgb, var(--why-champagne) 55%, var(--why-hairline));
-  color: var(--why-champagne);
+  color: color-mix(in srgb, var(--why-champagne) 72%, var(--why-ink));
 }
 :global(.why-button--tertiary:hover), :global(.why-button--tertiary:focus-visible) {
   border-color: var(--why-champagne);
@@ -226,6 +230,27 @@
 :global(.why-sources li) { counter-increment: source; border-bottom: 1px solid var(--why-hairline); }
 :global(.why-sources a) { min-height: 3.8rem; display: flex; align-items: center; gap: .7rem; color: var(--why-ink); font-size: .78rem; font-weight: 700; }
 :global(.why-sources a::before) { content: "0" counter(source); color: var(--why-signal); font-size: .58rem; letter-spacing: .1em; }
+
+/* ── Liquid Signal placement (SectionSignalField) ─────────────────────────
+ * Two moments only: the intro hero (diagnostic field, upper corner) and the
+ * final CTA (settling beneath the headline). Decorative, pointer-events
+ * none, contained — cannot overflow. */
+:global(.why-intro-signal-field) {
+  width: min(24rem, 30vw);
+  height: auto;
+  inset-inline-end: max(2.5rem, calc((100vw - 78rem) / 2));
+  bottom: 16%;
+  z-index: -1;
+}
+
+:global(.why-cta-signal-field) {
+  width: min(20rem, 26vw);
+  height: auto;
+  inset-inline-start: 8%;
+  top: 12%;
+  opacity: .55;
+  z-index: -1;
+}
 
 @media (max-width: 1099px), (prefers-reduced-motion: reduce) {
   :global(.why-film) { height: auto; min-height: 0; padding-block: 3rem; }

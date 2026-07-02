@@ -4,6 +4,7 @@ import { useEffect, useRef } from "react";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import WhyPageCtaCluster, { type WhyCtaAction } from "@/components/WhyPageCtaCluster";
+import SectionSignalField from "@/components/SectionSignalField";
 import { useLanguage } from "@/context/LanguageContext";
 import { gsap, registerMotionPlugins } from "@/lib/motion/gsapSetup";
 import WhyChangeProgressSpine from "./WhyChangeProgressSpine";
@@ -137,6 +138,7 @@ export default function WhyChangeFilmClient() {
     <main className={`${styles.page} why-change-page`} lang={language} dir={isAr ? "rtl" : "ltr"}>
       <Header />
       <section className="why-film-intro" aria-labelledby="why-change-title">
+        <SectionSignalField variant="diagnostic" className="why-intro-signal-field" />
         <div className="why-film-intro__signal" aria-hidden="true"><i /><span>WHY / CHANGE</span></div>
         <p className="why-kicker">{isAr ? "قصة تشخيصية تتحرك معك" : "A scroll-controlled diagnostic story"}</p>
         <h1 id="why-change-title">{isAr ? "لماذا التغيير؟" : "Why Change?"}</h1>
@@ -154,6 +156,7 @@ export default function WhyChangeFilmClient() {
       </section>
 
       <section className="why-final-cta" aria-labelledby="why-final-title">
+        <SectionSignalField variant="diagnostic" className="why-cta-signal-field" />
         <p className="why-kicker">{isAr ? "لا تدفع الانتباه نحو فراغ" : "Do not send attention into a leak"}</p>
         <h2 id="why-final-title">{isAr ? "ابنِ مكانًا يحوّل الاهتمام إلى خطوة." : "Build the place that turns interest into action."}</h2>
         <WhyPageCtaCluster

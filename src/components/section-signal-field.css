@@ -1,0 +1,88 @@
+/*
+ * SectionSignalField — "Liquid Signal" styles.
+ *
+ * Colors from DOMINASE tokens only. All motion is a one-shot CSS transition
+ * triggered by [data-in="true"] (set once by an IntersectionObserver); after
+ * that the field is completely static. transform + opacity +
+ * stroke-dashoffset only — no filters, no keyframe loops.
+ */
+
+.signal-field {
+  position: absolute;
+  pointer-events: none;
+  overflow: visible;
+  opacity: 0.9;
+}
+
+/* Hidden on small screens: decorative only, saves paint on mobile. */
+@media (max-width: 767px) {
+  .signal-field {
+    display: none;
+  }
+}
+
+/* ── Liquid flow lines: drawn in via pathLength dashoffset ────────────────── */
+.signal-field__flow {
+  fill: none;
+  stroke: color-mix(in srgb, var(--domi-accent) 46%, transparent);
+  stroke-width: 1;
+  vector-effect: non-scaling-stroke;
+  stroke-dasharray: 1;
+  stroke-dashoffset: 1;
+  transition: stroke-dashoffset 1100ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.signal-field[data-in="true"] .signal-field__flow {
+  stroke-dashoffset: 0;
+}
+
+/* ── Measurement ticks: static pearl hairlines, fade with the field ───────── */
+.signal-field__tick {
+  stroke: color-mix(in srgb, var(--domi-text) 34%, transparent);
+  stroke-width: 1;
+  vector-effect: non-scaling-stroke;
+  opacity: 0;
+  transition: opacity 500ms ease 600ms;
+}
+
+.signal-field[data-in="true"] .signal-field__tick {
+  opacity: 1;
+}
+
+/* ── Signal droplets: settle into place, then hold ────────────────────────── */
+.signal-field__drop {
+  opacity: 0;
+  transform: translateY(5px);
+  transform-box: fill-box;
+  transform-origin: center;
+  transition: opacity 420ms ease, transform 560ms cubic-bezier(0.32, 0.72, 0, 1);
+}
+
+.signal-field[data-in="true"] .signal-field__drop {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.signal-field__drop--emerald {
+  fill: color-mix(in srgb, var(--domi-accent) 88%, transparent);
+}
+
+.signal-field__drop--mint {
+  fill: color-mix(in srgb, var(--domi-accent-bright) 72%, transparent);
+}
+
+.signal-field__drop--pearl {
+  fill: color-mix(in srgb, var(--domi-text) 48%, transparent);
+}
+
+/* ── Reduced motion: final state instantly, no transitions ────────────────── */
+@media (prefers-reduced-motion: reduce) {
+  .signal-field__flow,
+  .signal-field__tick,
+  .signal-field__drop {
+    transition: none;
+    stroke-dashoffset: 0;
+    opacity: 1;
+    transform: none;
+  }
+}

@@ -4,6 +4,7 @@ import { useEffect, useRef } from "react";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import WhyPageCtaCluster, { type WhyCtaAction } from "@/components/WhyPageCtaCluster";
+import SectionSignalField from "@/components/SectionSignalField";
 import { useLanguage } from "@/context/LanguageContext";
 import { gsap, registerMotionPlugins } from "@/lib/motion/gsapSetup";
 import WhyUsTrustFrame from "./WhyUsTrustFrame";
@@ -157,6 +158,7 @@ export default function WhyUsPageClient() {
       <Header />
 
       <section className="why-us-hero" aria-labelledby="why-us-title">
+        <SectionSignalField variant="method" className="why-us-hero-signal-field" />
         <div className="why-us-hero__copy">
           <p className="why-us-kicker" data-why-us-hero>{pageCopy.kicker}</p>
           <h1 id="why-us-title" data-why-us-hero>{whyUsHero.title[locale]}</h1>
@@ -215,6 +217,7 @@ export default function WhyUsPageClient() {
       </section>
 
       <section className="why-us-cta" aria-labelledby="why-us-cta-title">
+        <SectionSignalField variant="method" className="why-us-cta-signal-field" />
         <div data-why-us-reveal>
           <p className="why-us-kicker">{pageCopy.ctaEyebrow}</p>
           <h2 id="why-us-cta-title">{pageCopy.ctaTitle}</h2>
@@ -232,4 +235,3 @@ export default function WhyUsPageClient() {
     </main>
   );
 }
-

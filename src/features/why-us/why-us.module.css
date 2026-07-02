@@ -1,37 +1,41 @@
+/*
+ * Why Us — "The method behind the studio."
+ *
+ * Palette mapped 1:1 onto the DOMINASE Obsidian + Emerald Aurora tokens; the
+ * --domi-* tokens flip with [data-theme] so both modes work automatically.
+ * No local --bg/--surface hijacks: the page inherits the real theme.
+ *
+ *  --wu-ink       headline / strong text     → --domi-text
+ *  --wu-muted     supporting copy            → --domi-text-muted
+ *  --wu-line      separators / hairlines     → --domi-border
+ *  --wu-signal    emerald signal accent      → --domi-accent
+ *  --wu-decision  secondary mint accent      → --domi-accent-bright
+ *                 (name kept; the old violet is gone)
+ *  --wu-panel     panel surface              → --domi-surface
+ */
 .page {
-  --wu-bg: #f6f8fb;
-  --wu-panel: #fbfdff;
-  --wu-ink: #0c2744;
-  --wu-muted: #52606e;
-  --wu-line: rgba(12, 39, 68, 0.15);
-  --wu-signal: #079bb8;
-  --wu-signal-soft: rgba(7, 155, 184, 0.1);
-  --wu-decision: #6d5bd0;
-  --bg: var(--wu-bg);
-  --surface: var(--wu-panel);
-  --surface-hover: #eef4f8;
-  --border: var(--wu-line);
+  --wu-bg: var(--domi-bg);
+  --wu-panel: var(--domi-surface);
+  --wu-ink: var(--domi-text);
+  --wu-muted: var(--domi-text-muted);
+  --wu-line: var(--domi-border);
+  --wu-signal: var(--domi-accent);
+  --wu-signal-soft: color-mix(in srgb, var(--domi-accent) 10%, transparent);
+  --wu-decision: var(--domi-accent-bright);
   min-height: 100vh;
   overflow: clip;
-  color: var(--wu-ink);
+  color: var(--domi-text);
   background:
     linear-gradient(90deg, transparent 49.96%, color-mix(in srgb, var(--wu-line) 28%, transparent) 50%, transparent 50.04%),
-    var(--wu-bg);
+    var(--domi-bg);
 }
 
-:global(.dark) .page {
-  --wu-bg: #030a12;
-  --wu-panel: #07131e;
-  --wu-ink: #edf7fa;
-  --wu-muted: #9aabb8;
-  --wu-line: rgba(202, 225, 233, 0.15);
-  --wu-signal: #39cfe1;
-  --wu-signal-soft: rgba(57, 207, 225, 0.1);
-  --wu-decision: #a78bfa;
-  --bg: var(--wu-bg);
-  --surface: var(--wu-panel);
-  --surface-hover: #0a1824;
-  --border: var(--wu-line);
+/* Dark mode: obsidian base with a faint static emerald aurora. */
+:global([data-theme="dark"]) .page {
+  background:
+    radial-gradient(circle at 22% 14%, color-mix(in srgb, var(--domi-accent) 7%, transparent), transparent 32%),
+    linear-gradient(90deg, transparent 49.96%, color-mix(in srgb, var(--wu-line) 32%, transparent) 50%, transparent 50.04%),
+    var(--domi-bg);
 }
 
 :global(.why-us-kicker) {
@@ -310,7 +314,7 @@
   align-items: center;
   gap: 0.8rem;
   margin-bottom: 1rem;
-  color: var(--wu-decision);
+  color: color-mix(in srgb, var(--wu-decision) 72%, var(--wu-ink));
   font-size: 0.65rem;
   font-weight: 800;
   letter-spacing: 0.15em;
@@ -415,6 +419,11 @@
   min-width: 0;
   padding-top: 1rem;
   border-top: 1px solid var(--wu-line);
+  transition: border-color 0.22s ease;
+}
+
+:global(.why-us-process-rail li:hover) {
+  border-top-color: color-mix(in srgb, var(--wu-signal) 55%, var(--wu-line));
 }
 
 :global(.why-us-process-rail li > span),
@@ -458,6 +467,12 @@
 :global(.why-us-matters article) {
   padding: 2.2rem;
   border-inline-end: 1px solid var(--wu-line);
+  transition: transform 0.24s ease, background-color 0.24s ease;
+}
+
+:global(.why-us-matters article:hover) {
+  transform: translateY(-3px);
+  background-color: color-mix(in srgb, var(--domi-surface) 62%, transparent);
 }
 
 :global(.why-us-matters article:last-child) {
@@ -481,16 +496,18 @@
   width: min(82rem, calc(100% - 3rem));
   margin: 4rem auto 8rem;
   padding: clamp(3rem, 8vw, 7rem);
-  color: var(--wu-panel);
-  background: var(--wu-ink);
+  color: var(--domi-bg);
+  background: linear-gradient(135deg, var(--domi-text), color-mix(in srgb, var(--domi-text) 88%, var(--domi-accent)));
   position: relative;
   overflow: hidden;
 }
 
-:global(.dark .why-us-cta) {
-  color: var(--wu-ink);
-  background: var(--wu-panel);
-  border: 1px solid var(--wu-line);
+/* Dark mode: elevated obsidian panel with an emerald-tinted border instead
+   of the light-mode inverted ink block. */
+:global([data-theme="dark"] .why-us-cta) {
+  color: var(--domi-text);
+  background: linear-gradient(135deg, var(--domi-surface), color-mix(in srgb, var(--domi-accent-deep) 34%, var(--domi-surface)));
+  border: 1px solid color-mix(in srgb, var(--domi-accent) 22%, var(--domi-border));
 }
 
 :global(.why-us-cta::after) {
@@ -527,7 +544,7 @@
 :global(.why-us-cta > div > p:not(.why-us-kicker)) {
   max-width: 48rem;
   line-height: 1.85;
-  opacity: 0.72;
+  opacity: 0.78;
 }
 
 :global(.why-us-cta__actions) {
@@ -554,20 +571,20 @@
 }
 
 :global(.why-us-button--primary) {
-  color: var(--wu-ink);
-  background: var(--wu-panel);
-  border-color: var(--wu-panel);
+  color: var(--domi-text);
+  background: var(--domi-bg);
+  border-color: var(--domi-bg);
 }
 
-:global(.dark .why-us-button--primary) {
-  color: var(--wu-panel);
-  background: var(--wu-ink);
-  border-color: var(--wu-ink);
+:global([data-theme="dark"] .why-us-button--primary) {
+  color: var(--primary-contrast);
+  background: linear-gradient(135deg, color-mix(in srgb, var(--domi-accent) 88%, #ffffff), var(--domi-accent));
+  border-color: var(--domi-accent);
 }
 
 :global(.why-us-button--tertiary) {
   border-color: color-mix(in srgb, var(--wu-decision) 65%, currentColor);
-  color: var(--wu-decision);
+  color: color-mix(in srgb, var(--wu-decision) 65%, currentColor);
 }
 
 :global(.why-us-button:hover),
@@ -585,6 +602,26 @@
 :global(.why-us-button:focus-visible) {
   outline: 2px solid var(--wu-signal);
   outline-offset: 3px;
+}
+
+/* ── Liquid Signal placement (SectionSignalField) ─────────────────────────
+ * Two calm "method" moments: hero (beneath the visual) and the closing CTA.
+ * Decorative, pointer-events none, contained by the host section. */
+:global(.why-us-hero-signal-field) {
+  width: min(22rem, 28vw);
+  height: auto;
+  inset-inline-start: -2rem;
+  bottom: 8%;
+  z-index: -1;
+  opacity: 0.6;
+}
+
+:global(.why-us-cta-signal-field) {
+  width: min(20rem, 24vw);
+  height: auto;
+  inset-inline-end: 6%;
+  bottom: 10%;
+  opacity: 0.4;
 }
 
 @media (max-width: 1023px) {
@@ -764,7 +801,10 @@
     stroke-dashoffset: 0 !important;
   }
 
-  :global(.why-us-button) {
+  :global(.why-us-button),
+  :global(.why-us-matters article),
+  :global(.why-us-process-rail li) {
     transition: none;
+    transform: none;
   }
 }
