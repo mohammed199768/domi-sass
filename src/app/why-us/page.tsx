@@ -1,11 +1,12 @@
 import type { Metadata } from "next";
-import WhyUsPageClient from "@/features/why-us/WhyUsPageClient";
+import WhyUsClient from "@/features/why-us/WhyUsClient";
 
 export const metadata: Metadata = {
   title: "Why Us? — DOMINASE",
-  description: "A strategic page explaining how DOMINASE builds websites and digital systems around clarity, conversion, direct communication, and long-term support.",
+  description:
+    "Built like a system, not a template. The DOMINASE method: diagnose, architect, build, refine — cinematic, bilingual digital systems engineered around your customer's next step.",
 };
 
 export default function WhyUsPage() {
-  return <WhyUsPageClient />;
+  return <WhyUsClient />;
 }
