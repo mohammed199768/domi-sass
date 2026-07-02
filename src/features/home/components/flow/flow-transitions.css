@@ -45,104 +45,7 @@
 }
 
 /* ----------------------------------------------------------------------------
- * 1. OMINOUS GATE  (hero -> first section)
- * A digital emerald seam opens over a dark obsidian
- * fog as the first section folds in from the bottom-left.
- * ------------------------------------------------------------------------- */
-
-.flow-transition-ominous {
-  isolation: isolate;
-}
-
-.flow-inner-ominous {
-  transform-origin: bottom left;
-}
-
-/* Full-bleed overlay that sits above the incoming section while it folds in. */
-.flow-ominous-overlay {
-  position: absolute;
-  inset: -14% 0 0 0; /* bleed upward to kiss the outgoing hero */
-  z-index: 5;
-  pointer-events: none;
-  overflow: hidden;
-  opacity: 1;
-}
-
-/* Dark obsidian vignette + mist. Cinematic, never pure-horror. */
-.flow-ominous-overlay::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background:
-    radial-gradient(
-      120% 78% at 50% -8%,
-      color-mix(in srgb, var(--bg) 92%, #000) 0%,
-      color-mix(in srgb, var(--bg) 64%, transparent) 34%,
-      transparent 62%
-    ),
-    radial-gradient(
-      80% 60% at 18% 12%,
-      color-mix(in srgb, var(--flow-accent-2) 26%, transparent) 0%,
-      transparent 60%
-    );
-  mix-blend-mode: normal;
-}
-
-/* The digital "gate": a thin emerald/mint seam of light that splits open. */
-.flow-gate-line {
-  position: absolute;
-  left: 0;
-  right: 0;
-  top: 0;
-  height: 2px;
-  transform-origin: center;
-  background: linear-gradient(
-    90deg,
-    transparent 0%,
-    color-mix(in srgb, var(--flow-accent) 80%, transparent) 22%,
-    color-mix(in srgb, var(--flow-accent-2) 72%, transparent) 50%,
-    color-mix(in srgb, var(--flow-accent) 80%, transparent) 78%,
-    transparent 100%
-  );
-  box-shadow:
-    0 0 22px color-mix(in srgb, var(--flow-accent) 55%, transparent),
-    0 0 48px color-mix(in srgb, var(--flow-accent-2) 22%, transparent);
-}
-
-/* Light mode stays cinematic but uses mist/pearl instead of pure obsidian,
-   so the gate feels like the same brand, just dimmed. */
-:root .flow-ominous-overlay::before {
-  background:
-    radial-gradient(
-      120% 78% at 50% -8%,
-      color-mix(in srgb, var(--surface-muted) 96%, #0b1a2a) 0%,
-      color-mix(in srgb, var(--surface-muted) 60%, transparent) 36%,
-      transparent 64%
-    ),
-    radial-gradient(
-      80% 60% at 18% 12%,
-      color-mix(in srgb, var(--flow-accent) 12%, transparent) 0%,
-      transparent 60%
-    );
-}
-
-[data-theme="dark"] .flow-ominous-overlay::before {
-  background:
-    radial-gradient(
-      120% 78% at 50% -8%,
-      color-mix(in srgb, var(--bg) 94%, #000) 0%,
-      color-mix(in srgb, var(--bg) 62%, transparent) 34%,
-      transparent 62%
-    ),
-    radial-gradient(
-      80% 60% at 18% 12%,
-      color-mix(in srgb, var(--flow-accent) 20%, transparent) 0%,
-      transparent 60%
-    );
-}
-
-/* ----------------------------------------------------------------------------
- * 2. DIAGONAL REVEAL  (section 1 -> section 2)
+ * 1. DIAGONAL REVEAL  (section 1 -> section 2)
  * Incoming section is revealed under a diagonal clip with a cool edge glow.
  * ------------------------------------------------------------------------- */
 
@@ -225,7 +128,6 @@
     will-change: auto !important;
   }
 
-  .flow-ominous-overlay,
   .flow-diagonal-mask,
   .flow-depth-layer {
     display: none !important;

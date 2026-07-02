@@ -7,7 +7,6 @@ import { useReducedMotion } from "@/lib/motion/useReducedMotion";
 
 export type FlowTransition =
   | "none"
-  | "ominous-gate"
   | "diagonal-reveal"
   | "depth-lift"
   | "panel-slide"
@@ -29,8 +28,6 @@ export type FlowTransition =
 export function useFlowSection(transition: FlowTransition) {
   const sectionRef = useRef<HTMLElement | null>(null);
   const innerRef = useRef<HTMLDivElement | null>(null);
-  const overlayRef = useRef<HTMLDivElement | null>(null);
-  const gateLineRef = useRef<HTMLDivElement | null>(null);
 
   const prefersReducedMotion = useReducedMotion();
   // Tablets stay in the simplified path to avoid off-canvas staging overflow.
@@ -60,8 +57,6 @@ export function useFlowSection(transition: FlowTransition) {
 
     section.setAttribute("data-flow-armed", "true");
 
-    const overlay = overlayRef.current;
-    const gateLine = gateLineRef.current;
     const diagonalMask = section.querySelector<HTMLElement>(".flow-diagonal-mask");
     const depthLayer = section.querySelector<HTMLElement>(".flow-depth-layer");
 
@@ -80,57 +75,6 @@ export function useFlowSection(transition: FlowTransition) {
       } as const;
 
       switch (transition) {
-        case "ominous-gate": {
-          // The dramatic one. The incoming section emerges THROUGH the
-          // DOMINASE gate: it arrives clean (no rotation/overflow) — opacity
-          // 0 -> 1, scale 0.94 -> 1, y 56px -> 0 while the emerald gate
-          // seam ignites and the obsidian atmosphere dissolves.
-          if (isDesktop) {
-            gsap.set(inner, {
-              y: 56,
-              scale: 0.94,
-              opacity: 0,
-              transformOrigin: "center top",
-            });
-            if (overlay) gsap.set(overlay, { opacity: 1 });
-            if (gateLine) gsap.set(gateLine, { scaleX: 0.12, opacity: 0 });
-
-            const tl = gsap.timeline({
-              scrollTrigger: { ...baseTrigger, start: "top 82%" },
-              defaults: { ease: "power3.out" },
-              onComplete: settle,
-            });
-
-            // Gate seam ignites, then the section rises through it.
-            if (gateLine) {
-              tl.to(gateLine, { opacity: 1, scaleX: 1, duration: 0.5 }, 0);
-            }
-            tl.to(
-              inner,
-              { y: 0, scale: 1, opacity: 1, duration: 1.15 },
-              0.12
-            );
-            if (overlay) {
-              tl.to(overlay, { opacity: 0, duration: 0.9 }, 0.55);
-            }
-            if (gateLine) {
-              tl.to(gateLine, { opacity: 0, duration: 0.45 }, 0.95);
-            }
-          } else {
-            // Mobile: keep the mood (fog + lift) but drop heavy rotation.
-            gsap.set(inner, { yPercent: 6, opacity: 0.9 });
-            if (overlay) gsap.set(overlay, { opacity: 1 });
-            const tl = gsap.timeline({
-              scrollTrigger: baseTrigger,
-              defaults: { ease: "power2.out" },
-              onComplete: settle,
-            });
-            tl.to(inner, { yPercent: 0, opacity: 1, duration: 0.8 }, 0);
-            if (overlay) tl.to(overlay, { opacity: 0, duration: 0.7 }, 0.2);
-          }
-          break;
-        }
-
         case "diagonal-reveal": {
           gsap.set(inner, {
             opacity: 0,
@@ -221,5 +165,5 @@ export function useFlowSection(transition: FlowTransition) {
     };
   }, [transition, prefersReducedMotion, isDesktop]);
 
-  return { sectionRef, innerRef, overlayRef, gateLineRef };
+  return { sectionRef, innerRef };
 }

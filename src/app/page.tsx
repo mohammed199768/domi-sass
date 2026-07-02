@@ -12,7 +12,6 @@ import {
   FlowArt,
   FlowSection
 } from "@/features/home";
-import HeroScrollTransition from "@/features/home/components/HeroScrollTransition";
 import Footer from "@/components/Footer";
 import { scrollToSection } from "@/lib/motion/scrollToSection";
 
@@ -36,24 +35,17 @@ export default function Home() {
       <Header />
 
       {/*
-       * DOMINASE Gate Transition
-       *
-       * A cinematic 200vh sticky scroll zone where the Hero is the subject:
-       *  - Camera stage zooms toward the DOMINASE wordmark
-       *  - Wordmark counter-scales (gate depth illusion)
-       *  - Supporting copy + CTAs fade out
-       *  - Hero fades to background; gate seam ignites and dissolves
-       *
-       * The first section (AboutSection) appears in normal document flow
-       * immediately after the gate zone ends — no scroll traps, no duplicate
-       * DOM, no overflow issues. Its entrance animation is handled by FlowArt.
+       * Hero — one viewport, normal document flow. The WebGL shader background
+       * lives entirely inside the Hero section (HeroShaderBackground). No
+       * sticky gate zone, no scroll trap: the next section simply rises after
+       * it as the user scrolls.
        */}
-      <HeroScrollTransition hero={<Hero />} />
+      <Hero />
 
       {/* All post-hero sections in the Flow Art entrance system */}
       <FlowArt>
-        {/* Hero -> AboutSection: "ominous-gate" folds in with the DOMINASE gate overlapping */}
-        <FlowSection transition="ominous-gate">
+        {/* Hero -> AboutSection: light one-shot lift (opacity + translateY + slight scale) */}
+        <FlowSection transition="depth-lift">
           <AboutSection />
         </FlowSection>
 

@@ -16,7 +16,7 @@ type FlowArtProps = {
  *
  * Usage:
  *   <FlowArt>
- *     <FlowSection transition="ominous-gate">...</FlowSection>
+ *     <FlowSection transition="depth-lift">...</FlowSection>
  *     <FlowSection transition="diagonal-reveal">...</FlowSection>
  *     ...
  *   </FlowArt>

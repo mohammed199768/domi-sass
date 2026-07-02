@@ -3,6 +3,7 @@
 import { useLanguage } from "@/context/LanguageContext";
 import { scrollToSection } from "@/lib/motion/scrollToSection";
 import { useHeroAnimation } from "../hooks/useHeroAnimation";
+import HeroShaderBackground from "./HeroShaderBackground";
 
 export default function Hero() {
     const { t, dir } = useLanguage();
@@ -14,6 +15,11 @@ export default function Hero() {
             id="home"
             className="hero-canvas relative flex min-h-dvh items-center justify-center overflow-hidden px-6 pb-24 pt-36 text-foreground lg:pb-28 lg:pt-28"
         >
+            {/* WebGL signal field — contained inside the Hero, behind all content.
+                Falls back to the static --hero-gradient CSS when WebGL is
+                unavailable or reduced motion is preferred. */}
+            <HeroShaderBackground />
+
             <div className="hero-aura pointer-events-none absolute inset-0" aria-hidden="true" />
             <div className="hero-base-fade pointer-events-none absolute inset-x-0 bottom-0 h-40" aria-hidden="true" />
 

@@ -10,7 +10,6 @@ type FlowSectionProps = {
 
 const innerClassByTransition: Record<FlowTransition, string> = {
   none: "",
-  "ominous-gate": "flow-inner-ominous",
   "diagonal-reveal": "flow-inner-diagonal",
   "depth-lift": "flow-inner-depth",
   "panel-slide": "flow-inner-panel",
@@ -26,25 +25,14 @@ const innerClassByTransition: Record<FlowTransition, string> = {
  * so they never affect the document/content flow.
  */
 export default function FlowSection({ transition, children }: FlowSectionProps) {
-  const { sectionRef, innerRef, overlayRef, gateLineRef } = useFlowSection(transition);
-
-  const sectionClass =
-    transition === "ominous-gate"
-      ? "flow-section flow-transition-ominous"
-      : "flow-section";
+  const { sectionRef, innerRef } = useFlowSection(transition);
 
   return (
     <div
       ref={sectionRef as React.RefObject<HTMLDivElement>}
-      className={sectionClass}
+      className="flow-section"
       data-flow-transition={transition}
     >
-      {transition === "ominous-gate" && (
-        <div ref={overlayRef} className="flow-ominous-overlay" aria-hidden="true">
-          <div ref={gateLineRef} className="flow-gate-line" />
-        </div>
-      )}
-
       {transition === "diagonal-reveal" && (
         <div className="flow-diagonal-mask" aria-hidden="true" />
       )}
