@@ -10,6 +10,7 @@ import { ThemeProvider } from "@/components/ThemeProvider";
 import SmoothScroll from "@/components/SmoothScroll";
 import MobileNav from "@/components/MobileNav";
 import BrandPreloader from "@/components/BrandPreloader";
+import DominaseCursor from "@/components/DominaseCursor";
 import { LanguageProvider } from "@/context/LanguageContext";
 
 const bootClassScript = `
@@ -117,6 +118,7 @@ export default function RootLayout({
               {children}
               <MobileNav />
             </SmoothScroll>
+            <DominaseCursor />
           </LanguageProvider>
         </ThemeProvider>
       </body>

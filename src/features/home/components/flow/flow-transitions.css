@@ -45,6 +45,31 @@
 }
 
 /* ----------------------------------------------------------------------------
+ * Hero hand-off: the first section after the Hero carries a static emerald
+ * hairline at its top edge, so it reads as a premium surface rising over the
+ * Hero's dark atmosphere (paired with the Hero's own .hero-base-fade).
+ * Static (no animation), pointer-events none, contained — no overflow.
+ * ------------------------------------------------------------------------- */
+.flow-art > .flow-section:first-child::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 10%;
+  right: 10%;
+  height: 1px;
+  z-index: 2;
+  pointer-events: none;
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    color-mix(in srgb, var(--flow-accent) 42%, transparent) 30%,
+    color-mix(in srgb, var(--flow-accent-2) 34%, transparent) 50%,
+    color-mix(in srgb, var(--flow-accent) 42%, transparent) 70%,
+    transparent 100%
+  );
+}
+
+/* ----------------------------------------------------------------------------
  * 1. DIAGONAL REVEAL  (section 1 -> section 2)
  * Incoming section is revealed under a diagonal clip with a cool edge glow.
  * ------------------------------------------------------------------------- */

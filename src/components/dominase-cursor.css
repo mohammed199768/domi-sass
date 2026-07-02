@@ -1,0 +1,141 @@
+/*
+ * DominaseCursor — "Emerald Signal" cursor styles.
+ *
+ * Colors come from DOMINASE tokens only (--domi-accent / --domi-accent-bright
+ * / --domi-text / --domi-border). Motion is transform + opacity only; the
+ * per-frame translate3d is written directly by the component. The transitions
+ * below cover state changes (size/opacity), never position.
+ *
+ * The whole layer is fixed + pointer-events:none: it can never block clicks
+ * or create horizontal overflow (children are centered with margin offsets,
+ * not layout).
+ */
+
+.domi-cursor {
+  position: fixed;
+  inset: 0;
+  z-index: 300; /* above header (50) and preloader (200); harmless: no hit-testing */
+  pointer-events: none;
+  contain: strict;
+}
+
+/* The layer only appears on precise-pointer devices (component gates JS-side
+   too); belt-and-suspenders so coarse/touch devices never see it. */
+@media (pointer: coarse), (hover: none) {
+  .domi-cursor {
+    display: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .domi-cursor {
+    display: none;
+  }
+}
+
+.domi-cursor[data-visible="false"] .domi-cursor__dot,
+.domi-cursor[data-visible="false"] .domi-cursor__ring {
+  opacity: 0;
+}
+
+/* ── Core dot: small, precise, pearl-emerald ─────────────────────────────── */
+.domi-cursor__dot {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 5px;
+  height: 5px;
+  margin: -2.5px 0 0 -2.5px;
+  border-radius: 50%;
+  background: color-mix(in srgb, var(--domi-accent-bright) 62%, var(--domi-text));
+  opacity: 1;
+  will-change: transform;
+  transition: opacity 160ms ease, width 160ms ease, height 160ms ease, margin 160ms ease;
+}
+
+/* ── Ring: thin, low-opacity, trails the dot ─────────────────────────────── */
+.domi-cursor__ring {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 30px;
+  height: 30px;
+  margin: -15px 0 0 -15px;
+  border-radius: 50%;
+  border: 1px solid color-mix(in srgb, var(--domi-accent) 42%, var(--domi-border));
+  opacity: 0.75;
+  will-change: transform;
+  transition:
+    opacity 180ms ease,
+    width 200ms cubic-bezier(0.32, 0.72, 0, 1),
+    height 200ms cubic-bezier(0.32, 0.72, 0, 1),
+    margin 200ms cubic-bezier(0.32, 0.72, 0, 1),
+    border-color 180ms ease;
+}
+
+/* ── Calibration tick: tiny horizontal signal line inside the ring ───────── */
+.domi-cursor__tick {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 10px;
+  height: 1px;
+  transform: translate(-50%, -50%) scaleX(0.4);
+  background: color-mix(in srgb, var(--domi-accent-bright) 78%, transparent);
+  opacity: 0;
+  transition: opacity 180ms ease, transform 220ms cubic-bezier(0.32, 0.72, 0, 1);
+}
+
+/* ── Interactive state: ring expands + brightens, tick appears ───────────── */
+.domi-cursor[data-state="interactive"] .domi-cursor__ring {
+  width: 44px;
+  height: 44px;
+  margin: -22px 0 0 -22px;
+  border-color: color-mix(in srgb, var(--domi-accent) 78%, var(--domi-border));
+  opacity: 1;
+}
+
+.domi-cursor[data-state="interactive"] .domi-cursor__tick {
+  opacity: 1;
+  transform: translate(-50%, -50%) scaleX(1);
+}
+
+/* ── Pressed: calm contraction, no bounce ────────────────────────────────── */
+.domi-cursor[data-pressed="true"] .domi-cursor__ring {
+  width: 26px;
+  height: 26px;
+  margin: -13px 0 0 -13px;
+}
+
+.domi-cursor[data-pressed="true"][data-state="interactive"] .domi-cursor__ring {
+  width: 38px;
+  height: 38px;
+  margin: -19px 0 0 -19px;
+}
+
+/* ── Text state: get out of the way — native text cursor takes over ──────── */
+.domi-cursor[data-state="text"] .domi-cursor__dot,
+.domi-cursor[data-state="text"] .domi-cursor__ring {
+  opacity: 0;
+}
+
+/* ── Native cursor handling (only while the custom cursor is active) ─────────
+ * `.domi-cursor-on` is added to <html> by the component ONLY on precise-
+ * pointer, motion-safe devices. Text fields keep their native cursor so
+ * caret placement and readability are never harmed. */
+html.domi-cursor-on body,
+html.domi-cursor-on a,
+html.domi-cursor-on button,
+html.domi-cursor-on [role="button"],
+html.domi-cursor-on summary,
+html.domi-cursor-on label {
+  cursor: none;
+}
+
+html.domi-cursor-on input,
+html.domi-cursor-on textarea,
+html.domi-cursor-on select,
+html.domi-cursor-on [contenteditable="true"],
+html.domi-cursor-on [data-cursor="text"] {
+  cursor: auto;
+}

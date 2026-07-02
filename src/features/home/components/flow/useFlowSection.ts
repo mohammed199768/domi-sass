@@ -55,6 +55,20 @@ export function useFlowSection(transition: FlowTransition) {
       return;
     }
 
+    // Direct hash navigation guard: if the page loaded with a hash that
+    // targets an anchor inside THIS section (e.g. /#contact), render it
+    // settled immediately — the target must never sit invisible waiting for
+    // a scroll-triggered entrance while anchor-correction scrolls to it.
+    const hash = window.location.hash;
+    if (hash.length > 1 && /^#[A-Za-z][\w-]*$/.test(hash)) {
+      const target = document.getElementById(hash.slice(1));
+      if (target && (section === target || section.contains(target))) {
+        gsap.set(inner, { clearProps: "all" });
+        section.setAttribute("data-flow-state", "settled");
+        return;
+      }
+    }
+
     section.setAttribute("data-flow-armed", "true");
 
     const diagonalMask = section.querySelector<HTMLElement>(".flow-diagonal-mask");
@@ -104,12 +118,14 @@ export function useFlowSection(transition: FlowTransition) {
         }
 
         case "depth-lift": {
-          // Lifts upward out of a soft depth. transform + opacity only
-          // (no filter blur — brand performance constraint).
+          // The signature editorial reveal: the section rises over the
+          // previous one — opacity 0→1, y 48px→0, scale 0.985→1. One-shot,
+          // transform + opacity only (no filter blur — brand constraint).
           gsap.set(inner, {
             opacity: 0,
-            yPercent: 7,
+            y: 48,
             scale: 0.985,
+            transformOrigin: "center top",
           });
           if (depthLayer) gsap.set(depthLayer, { opacity: 0.7 });
 
@@ -120,7 +136,7 @@ export function useFlowSection(transition: FlowTransition) {
           });
           tl.to(inner, {
             opacity: 1,
-            yPercent: 0,
+            y: 0,
             scale: 1,
             duration: 1,
           }, 0);
@@ -129,23 +145,24 @@ export function useFlowSection(transition: FlowTransition) {
         }
 
         case "panel-slide": {
-          // Clean editorial panel slides in from the side (LTR-safe).
-          gsap.set(inner, { opacity: 0, xPercent: isDesktop ? 8 : 0, yPercent: 4 });
+          // Clean editorial panel: same rising language with a restrained
+          // lateral drift on desktop (direction-safe, transform only).
+          gsap.set(inner, { opacity: 0, xPercent: isDesktop ? 5 : 0, y: 40 });
           const tl = gsap.timeline({
             scrollTrigger: baseTrigger,
             defaults: { ease: "power3.out" },
             onComplete: settle,
           });
-          tl.to(inner, { opacity: 1, xPercent: 0, yPercent: 0, duration: 0.9 }, 0);
+          tl.to(inner, { opacity: 1, xPercent: 0, y: 0, duration: 0.95 }, 0);
           break;
         }
 
         case "settle": {
-          // Calm, stable, conversion-focused. Gentle fade + tiny rise.
-          gsap.set(inner, { opacity: 0, yPercent: 3 });
+          // Calm, stable, conversion-focused. Gentle fade + small rise.
+          gsap.set(inner, { opacity: 0, y: 28 });
           gsap.to(inner, {
             opacity: 1,
-            yPercent: 0,
+            y: 0,
             duration: 0.9,
             ease: "power2.out",
             scrollTrigger: { ...baseTrigger, start: "top 85%" },
