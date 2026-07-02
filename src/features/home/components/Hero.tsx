@@ -34,7 +34,7 @@ export default function Hero() {
                             ref={wordmarkRef}
                             data-hero-wordmark
                             data-preload-critical
-                            className="mx-auto max-w-full text-[clamp(3.4rem,13vw,9.5rem)] font-black uppercase leading-[0.86] tracking-[0.08em] text-foreground sm:tracking-[0.12em]"
+                            className="mx-auto max-w-full whitespace-nowrap break-normal text-[clamp(2.85rem,12.2vw,9.5rem)] font-black uppercase leading-[0.86] tracking-[0.035em] text-foreground [direction:ltr] [overflow-wrap:normal] [word-break:normal] sm:tracking-[0.08em]"
                             dir="ltr"
                         >
                             DOMINASE

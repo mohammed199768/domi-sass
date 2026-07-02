@@ -1,9 +1,7 @@
 "use client";
 
-import Link from "next/link";
-import { Globe } from "lucide-react";
 import { useEffect, useRef } from "react";
-import ThemeToggle from "@/components/ThemeToggle";
+import Header from "@/components/Header";
 import { useLanguage } from "@/context/LanguageContext";
 import { gsap, registerMotionPlugins, ScrollTrigger } from "@/lib/motion/gsapSetup";
 import { useMediaQuery } from "@/lib/motion/useMediaQuery";
@@ -25,7 +23,7 @@ import { caseStudyThemeRegistry } from "./themeRegistry";
 type Props = { study: CaseStudy };
 
 export default function CaseStudyHorizontalJourney({ study }: Props) {
-  const { language, toggleLanguage } = useLanguage();
+  const { language } = useLanguage();
   const content = study.content[language];
   const theme = caseStudyThemeRegistry[study.visualTheme];
   const isArabic = language === "ar";
@@ -103,15 +101,7 @@ export default function CaseStudyHorizontalJourney({ study }: Props) {
 
   return (
     <main lang={language} dir={direction} className={`min-h-screen bg-background text-foreground ${isArabic ? "font-arabic" : "font-sans"}`}>
-      <header className="fixed inset-x-0 top-0 z-50 border-b border-border bg-background/75 backdrop-blur-xl">
-        <div className="mx-auto flex h-16 max-w-7xl items-center justify-between px-5 sm:px-8">
-          <Link href="/" className="flex items-center gap-2 text-xl font-black text-primary-theme" aria-label={content.backHome}>DOMINASE<span className="mt-1 h-2 w-2 rounded-full bg-secondary-theme" /></Link>
-          <div className="flex items-center gap-3">
-            <ThemeToggle />
-            <button type="button" onClick={toggleLanguage} aria-label={isArabic ? "Switch to English" : "التبديل إلى العربية"} className="flex h-9 items-center gap-2 rounded-full border border-border bg-surface px-3 text-xs font-black text-primary-theme"><Globe className="h-3.5 w-3.5" />{isArabic ? "EN" : "AR"}</button>
-          </div>
-        </div>
-      </header>
+      <Header />
 
       {journeyRunning && <div aria-hidden="true" className="fixed inset-x-0 top-16 z-40 h-0.5 bg-border"><div ref={progressRef} className="h-full origin-left scale-x-0 bg-secondary-theme" /></div>}
 

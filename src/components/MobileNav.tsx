@@ -24,9 +24,6 @@ export default function MobileNav() {
 
     const isHome = pathname === "/";
 
-    // Hide only on specific case study pages, not the /work index
-    if (pathname.startsWith("/work/")) return null;
-
     return (
         <div className="mobile-nav-shell fixed bottom-0 left-0 right-0 z-50 pb-safe transition-colors duration-300 min-[1025px]:hidden">
             <nav className="glass grid grid-cols-7 items-center gap-1 rounded-t-[2rem] border-t border-border bg-surface/92 px-2 pb-8 pt-4 shadow-[0_-8px_28px_var(--cool-shadow)]">

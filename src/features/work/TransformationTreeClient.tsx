@@ -4,8 +4,7 @@ import React, { useRef, useEffect } from "react";
 import Link from "next/link";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import { Globe } from "lucide-react";
-import ThemeToggle from "@/components/ThemeToggle";
+import Header from "@/components/Header";
 import { useLanguage } from "@/context/LanguageContext";
 import { caseStudies } from "@/constants/caseStudies";
 import type { CaseStudyLocale } from "@/features/case-studies/contracts";
@@ -87,7 +86,7 @@ function branchPath(x: number, y: number): string {
 }
 
 export default function TransformationTreeClient() {
-    const { language, toggleLanguage } = useLanguage();
+    const { language } = useLanguage();
     const isAr = language === "ar";
     const svgRef = useRef<SVGSVGElement>(null);
     const cardsRef = useRef<HTMLDivElement>(null);
@@ -163,30 +162,7 @@ export default function TransformationTreeClient() {
             dir={isAr ? "rtl" : "ltr"}
         >
             {/* ── Header ─────────────────────────────────────────────── */}
-            <header className="fixed inset-x-0 top-0 z-50 border-b border-border bg-background/80 backdrop-blur-xl">
-                <div className="mx-auto flex h-16 max-w-7xl items-center justify-between px-5 sm:px-8">
-                    <Link
-                        href="/"
-                        className="flex items-center gap-2 text-xl font-black text-primary-theme"
-                        aria-label="Back to Home"
-                    >
-                        DOMINASE
-                        <span className="mt-1 h-2 w-2 rounded-full bg-secondary-theme" />
-                    </Link>
-                    <div className="flex items-center gap-3">
-                        <ThemeToggle />
-                        <button
-                            type="button"
-                            onClick={toggleLanguage}
-                            aria-label="Switch language"
-                            className="glass flex h-9 items-center gap-2 rounded-full border border-border px-3 text-xs font-black text-primary-theme hover:border-primary-theme transition-colors"
-                        >
-                            <Globe className="h-3.5 w-3.5" />
-                            {isAr ? "EN" : "AR"}
-                        </button>
-                    </div>
-                </div>
-            </header>
+            <Header />
 
             {/* ── Page content ────────────────────────────────────────── */}
             <div className="pt-16">
