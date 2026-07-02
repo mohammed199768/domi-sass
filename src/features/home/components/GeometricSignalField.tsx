@@ -36,7 +36,7 @@ import {
   type MotionValue,
 } from "framer-motion";
 
-type Accent = "pearl" | "cyan" | "violet";
+type Accent = "pearl" | "emerald" | "mint";
 
 type Point = {
   /** final formation position (viewBox units) */
@@ -54,25 +54,25 @@ type Point = {
 
 /*
  * Deterministic, near-symmetric calibration formation about x = 50:
- *  - 2 cyan seam points above/below the seam
+ *  - 2 emerald seam points above/below the seam
  *  - left + right clusters (3 each) as measurement marks
  *  - 2 small pearl axis ticks straddling the centre
  * Movement is intentionally small (a settle, not a flight across the screen).
  */
 const POINTS: Point[] = [
-  // Central seam points (primary cyan accents)
-  { x: 50, y: 38, dx: 0, dy: -3, r: 0.7, accent: "cyan" },
-  { x: 50, y: 62, dx: 0, dy: 3, r: 0.7, accent: "cyan" },
+  // Central seam points (primary emerald accents)
+  { x: 50, y: 38, dx: 0, dy: -3, r: 0.7, accent: "emerald" },
+  { x: 50, y: 62, dx: 0, dy: 3, r: 0.7, accent: "emerald" },
 
   // Left cluster — secondary reference points
-  { x: 38, y: 44, dx: -2.5, dy: 0, r: 0.5, accent: "violet", extra: true },
-  { x: 32, y: 50, dx: -3.5, dy: 0, r: 0.55, accent: "cyan" },
-  { x: 38, y: 56, dx: -2.5, dy: 0, r: 0.5, accent: "violet", extra: true },
+  { x: 38, y: 44, dx: -2.5, dy: 0, r: 0.5, accent: "mint", extra: true },
+  { x: 32, y: 50, dx: -3.5, dy: 0, r: 0.55, accent: "emerald" },
+  { x: 38, y: 56, dx: -2.5, dy: 0, r: 0.5, accent: "mint", extra: true },
 
   // Right cluster — secondary reference points (mirror)
-  { x: 62, y: 44, dx: 2.5, dy: 0, r: 0.5, accent: "violet", extra: true },
-  { x: 68, y: 50, dx: 3.5, dy: 0, r: 0.55, accent: "cyan" },
-  { x: 62, y: 56, dx: 2.5, dy: 0, r: 0.5, accent: "violet", extra: true },
+  { x: 62, y: 44, dx: 2.5, dy: 0, r: 0.5, accent: "mint", extra: true },
+  { x: 68, y: 50, dx: 3.5, dy: 0, r: 0.55, accent: "emerald" },
+  { x: 62, y: 56, dx: 2.5, dy: 0, r: 0.5, accent: "mint", extra: true },
 
   // Axis ticks straddling the centre (small pearl/mist marks)
   { x: 46, y: 50, dx: 1, dy: 0, r: 0.35, accent: "pearl" },
@@ -87,8 +87,8 @@ const CONNECTORS: { x1: number; x2: number }[] = [
 
 const accentClass: Record<Accent, string> = {
   pearl: "signal-dot signal-dot--pearl",
-  cyan: "signal-dot signal-dot--cyan",
-  violet: "signal-dot signal-dot--violet",
+  emerald: "signal-dot signal-dot--emerald",
+  mint: "signal-dot signal-dot--mint",
 };
 
 interface GeometricSignalFieldProps {

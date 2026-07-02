@@ -12,7 +12,7 @@
  *    idle/background animation)
  *  - no filter / blur / backdrop-filter
  *  - no canvas / SVG-loop / Lottie
- *  - brand palette only (cyan / violet on bg)
+ *  - brand palette only (emerald / mint on bg)
  *  - reduced motion: ring is static, no rotation
  */
 
@@ -44,11 +44,11 @@
   /* Thin technical ring: a conic gradient clipped to a 2px annulus via mask. */
   background: conic-gradient(
     from 0deg,
-    color-mix(in srgb, var(--accent-cyan) 90%, transparent) 0deg 60deg,
+    color-mix(in srgb, var(--domi-accent) 90%, transparent) 0deg 60deg,
     transparent 60deg 120deg,
-    color-mix(in srgb, var(--accent-violet) 90%, transparent) 120deg 200deg,
+    color-mix(in srgb, var(--domi-accent-bright) 78%, transparent) 120deg 200deg,
     transparent 200deg 250deg,
-    color-mix(in srgb, var(--accent-cyan) 70%, transparent) 250deg 300deg,
+    color-mix(in srgb, var(--domi-accent) 70%, transparent) 250deg 300deg,
     transparent 300deg 360deg
   );
   -webkit-mask: radial-gradient(farthest-side, transparent calc(100% - 2px), #000 calc(100% - 2px));
@@ -70,7 +70,7 @@
   width: 5px;
   height: 5px;
   border-radius: 50%;
-  background: color-mix(in srgb, var(--accent-cyan) 85%, var(--fg));
+  background: color-mix(in srgb, var(--domi-accent-bright) 70%, var(--fg));
 }
 
 @keyframes brand-preloader-spin {
@@ -123,9 +123,9 @@
   background: linear-gradient(
     90deg,
     transparent 0%,
-    color-mix(in srgb, var(--accent-cyan) 80%, transparent) 30%,
-    color-mix(in srgb, var(--accent-violet) 80%, transparent) 50%,
-    color-mix(in srgb, var(--accent-cyan) 80%, transparent) 70%,
+    color-mix(in srgb, var(--domi-accent) 80%, transparent) 30%,
+    color-mix(in srgb, var(--domi-accent-bright) 80%, transparent) 50%,
+    color-mix(in srgb, var(--domi-accent) 80%, transparent) 70%,
     transparent 100%
   );
 }

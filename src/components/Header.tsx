@@ -27,7 +27,7 @@ export default function Header() {
 
     return (
         <header
-            className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${scrolled ? "bg-surface/92 border-b border-border shadow-[0_14px_34px_rgba(15,35,55,0.07)] dark:shadow-black/20 py-4" : "bg-transparent py-6"
+            className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${scrolled ? "bg-surface/92 border-b border-border shadow-[0_14px_34px_var(--cool-shadow)] py-4" : "bg-transparent py-6"
                 }`}
         >
             <div className="max-w-7xl mx-auto px-6 flex items-center justify-between">
@@ -46,7 +46,7 @@ export default function Header() {
                     <span className="font-display hidden text-[10px] font-black uppercase tracking-[0.22em] text-muted sm:inline">
                         Digital Product Studio
                     </span>
-                    <div className="mt-1 h-2 w-2 rounded-full bg-secondary-theme" />
+                    <div className="mt-1 h-2 w-2 rounded-full bg-primary-theme" />
                 </Link>
 
                 {/* Desktop Nav */}
@@ -100,7 +100,7 @@ export default function Header() {
                         onClick={toggleLanguage}
                         suppressHydrationWarning
                         aria-label="Switch language"
-                        className="flex items-center gap-2 px-3 py-1.5 rounded-full border border-border hover:border-primary-theme transition-colors text-xs font-bold text-primary-theme glass"
+                        className="flex min-h-11 items-center gap-2 rounded-full border border-border px-3 py-1.5 text-xs font-bold text-primary-theme transition-colors hover:border-primary-theme glass"
                     >
                         <Globe className="w-3 h-3" />
                         {language === "en" ? "AR" : "EN"}
@@ -130,7 +130,7 @@ export default function Header() {
                         onClick={toggleLanguage}
                         suppressHydrationWarning
                         aria-label="Switch language"
-                        className="p-2 rounded-full border border-border text-primary-theme glass"
+                        className="grid h-11 w-11 place-items-center rounded-full border border-border text-primary-theme glass"
                     >
                         <span className="text-xs font-bold">{language === "en" ? "AR" : "EN"}</span>
                     </button>

@@ -165,7 +165,7 @@ function SceneCard({
             suppressHydrationWarning
             onClick={onCta}
             className="min-h-11 rounded-xl px-7 py-3 text-sm font-black transition duration-300 hover:opacity-80 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary-theme focus-visible:ring-offset-2"
-            style={{ background: "var(--primary)", color: "var(--bg)" }}
+            style={{ background: "var(--primary)", color: "var(--primary-contrast)" }}
           >
             {ctaLabel}
           </button>
@@ -600,7 +600,7 @@ export default function BeneathInterfaceSection() {
                 suppressHydrationWarning
                 onClick={() => scrollToSection("#contact")}
                 className="min-h-11 rounded-xl px-7 py-3 text-sm font-black transition duration-300 hover:opacity-80 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary-theme focus-visible:ring-offset-2"
-                style={{ background: "var(--primary)", color: "var(--bg)" }}
+                style={{ background: "var(--primary)", color: "var(--primary-contrast)" }}
               >
                 {c.cta}
               </button>

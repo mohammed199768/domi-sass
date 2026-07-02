@@ -10,7 +10,7 @@ import { useNodePulse } from "./useNodePulse";
  *
  * A central root node branches via curved vector lines to four endpoint nodes,
  * one per transformation theme (training platform, wedding booking, healthcare
- * coordination, AI readiness). Same four accent colours as /work so the brand
+ * coordination, AI readiness). Accents derive from the DOMINASE theme so the brand
  * language stays consistent. Decorative, no text nodes inside the SVG.
  *
  * Node budget: 1 root + 1 root halo + 4 branches + 4 endpoint rings + 4 endpoint cores.
@@ -19,13 +19,12 @@ import { useNodePulse } from "./useNodePulse";
 const VB = 200;
 const C = VB / 2;
 
-// Four endpoints in the four corners of the viewBox, accent colours matching
-// the /work Transformation Tree node accents (deterministic).
+// Four endpoints in the four corners of the viewBox using restrained theme accents.
 const NODES = [
-  { id: "training", accent: "#2DD4BF", x: 44, y: 50 }, // top-left   — teal
-  { id: "wedding", accent: "#F472B6", x: 156, y: 50 }, // top-right  — pink
-  { id: "healthcare", accent: "#60A5FA", x: 44, y: 150 }, // bottom-left — blue
-  { id: "readiness", accent: "#A78BFA", x: 156, y: 150 }, // bottom-right — violet
+  { id: "training", accent: "var(--domi-accent)", x: 44, y: 50 },
+  { id: "wedding", accent: "var(--domi-accent-bright)", x: 156, y: 50 },
+  { id: "healthcare", accent: "var(--domi-accent)", x: 44, y: 150 },
+  { id: "readiness", accent: "var(--domi-accent-soft)", x: 156, y: 150 },
 ] as const;
 
 // Smooth cubic branch from root to endpoint, gently bowed like /work.

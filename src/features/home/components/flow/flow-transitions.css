@@ -3,7 +3,7 @@
  *
  * Cinematic scroll transitions layered on top of the existing sections.
  * All colors derive from the semantic theme tokens defined in globals.css
- * (--bg / --fg / --surface / --primary [cyan-teal] / --secondary [violet]).
+ * (--bg / --fg / --surface / --primary [emerald] / --secondary [mint]).
  * No hardcoded brand-foreign colors (no orange, no horror red).
  *
  * The system is transform/opacity/clip-path based and does NOT use
@@ -46,7 +46,7 @@
 
 /* ----------------------------------------------------------------------------
  * 1. OMINOUS GATE  (hero -> first section)
- * A digital "gate" of cyan/violet light opens over a dark obsidian/violet
+ * A digital emerald seam opens over a dark obsidian
  * fog as the first section folds in from the bottom-left.
  * ------------------------------------------------------------------------- */
 
@@ -68,7 +68,7 @@
   opacity: 1;
 }
 
-/* Dark obsidian/violet vignette + mist. Cinematic, never pure-horror. */
+/* Dark obsidian vignette + mist. Cinematic, never pure-horror. */
 .flow-ominous-overlay::before {
   content: "";
   position: absolute;
@@ -88,7 +88,7 @@
   mix-blend-mode: normal;
 }
 
-/* The digital "gate": a thin cyan/violet seam of light that splits open. */
+/* The digital "gate": a thin emerald/mint seam of light that splits open. */
 .flow-gate-line {
   position: absolute;
   left: 0;
@@ -100,13 +100,13 @@
     90deg,
     transparent 0%,
     color-mix(in srgb, var(--flow-accent) 80%, transparent) 22%,
-    color-mix(in srgb, var(--flow-accent-2) 85%, transparent) 50%,
+    color-mix(in srgb, var(--flow-accent-2) 72%, transparent) 50%,
     color-mix(in srgb, var(--flow-accent) 80%, transparent) 78%,
     transparent 100%
   );
   box-shadow:
     0 0 22px color-mix(in srgb, var(--flow-accent) 55%, transparent),
-    0 0 60px color-mix(in srgb, var(--flow-accent-2) 38%, transparent);
+    0 0 48px color-mix(in srgb, var(--flow-accent-2) 22%, transparent);
 }
 
 /* Light mode stays cinematic but uses mist/pearl instead of pure obsidian,
@@ -121,12 +121,12 @@
     ),
     radial-gradient(
       80% 60% at 18% 12%,
-      color-mix(in srgb, var(--flow-accent-2) 18%, transparent) 0%,
+      color-mix(in srgb, var(--flow-accent) 12%, transparent) 0%,
       transparent 60%
     );
 }
 
-.dark .flow-ominous-overlay::before {
+[data-theme="dark"] .flow-ominous-overlay::before {
   background:
     radial-gradient(
       120% 78% at 50% -8%,
@@ -136,7 +136,7 @@
     ),
     radial-gradient(
       80% 60% at 18% 12%,
-      color-mix(in srgb, var(--flow-accent-2) 30%, transparent) 0%,
+      color-mix(in srgb, var(--flow-accent) 20%, transparent) 0%,
       transparent 60%
     );
 }

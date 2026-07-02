@@ -19,9 +19,9 @@ type TestimonialItem = {
 };
 
 const cardAccents: Record<number, { initials: string; project: string; accentA: string; accentB: string }> = {
-    0: { initials: "CV", project: "Curevie", accentA: "#1FA879", accentB: "#18B6C0" },
-    1: { initials: "IN", project: "Inkspire", accentA: "#8B78EE", accentB: "#18B6C0" },
-    2: { initials: "EC", project: "Engineering Co.", accentA: "#18B6C0", accentB: "#9B7CF3" },
+    0: { initials: "CV", project: "Curevie", accentA: "var(--domi-accent)", accentB: "var(--domi-accent-bright)" },
+    1: { initials: "IN", project: "Inkspire", accentA: "var(--domi-accent-bright)", accentB: "var(--domi-accent)" },
+    2: { initials: "EC", project: "Engineering Co.", accentA: "var(--domi-accent)", accentB: "var(--domi-accent-soft)" },
 };
 
 const STACK_ROTATIONS = [-3, 2, -2];
@@ -97,19 +97,14 @@ function VisualCard({
                 ) : (
                     /* Premium DOMINASE placeholder */
                     <div className="flex h-full w-full flex-col items-center justify-center gap-5 px-8">
-                        {/* Abstract grid fragment */}
-                        <svg
-                            className="absolute inset-0 h-full w-full opacity-[0.055]"
+                        <div
+                            className="absolute inset-0 opacity-70"
+                            style={{
+                                background:
+                                    "radial-gradient(circle at 20% 18%, color-mix(in srgb, var(--domi-accent) 9%, transparent), transparent 34%), radial-gradient(circle at 82% 78%, color-mix(in srgb, var(--domi-accent-bright) 7%, transparent), transparent 32%)",
+                            }}
                             aria-hidden="true"
-                            preserveAspectRatio="xMidYMid slice"
-                        >
-                            <defs>
-                                <pattern id={`grid-${index}`} width="40" height="40" patternUnits="userSpaceOnUse">
-                                    <path d="M 40 0 L 0 0 0 40" fill="none" stroke="currentColor" strokeWidth="0.75" />
-                                </pattern>
-                            </defs>
-                            <rect width="100%" height="100%" fill={`url(#grid-${index})`} />
-                        </svg>
+                        />
 
                         {/* Diagonal accent line */}
                         <div

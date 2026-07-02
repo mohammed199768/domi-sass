@@ -92,13 +92,13 @@ export default function ContactPortalSection() {
             <div
                 ref={dotRef}
                 aria-hidden="true"
-                className="pointer-events-none absolute left-1/2 top-[48%] z-0 h-12 w-12 -translate-x-1/2 -translate-y-1/2 rounded-full bg-surface-hover dark:bg-[#080808]"
+                className="pointer-events-none absolute left-1/2 top-[48%] z-0 h-12 w-12 -translate-x-1/2 -translate-y-1/2 rounded-full bg-surface-hover"
             />
             {/* Static low-opacity signal accents (no blur, no animation loop). */}
             <div
                 ref={atmosphereRef}
                 aria-hidden="true"
-                className="pointer-events-none absolute inset-0 z-[1] bg-[radial-gradient(circle_at_16%_18%,color-mix(in_srgb,var(--primary)_9%,transparent),transparent_32%),radial-gradient(circle_at_84%_82%,color-mix(in_srgb,var(--secondary)_7%,transparent),transparent_30%)]"
+                className="pointer-events-none absolute inset-0 z-[1] bg-[radial-gradient(circle_at_16%_18%,color-mix(in_srgb,var(--domi-accent)_9%,transparent),transparent_32%),radial-gradient(circle_at_84%_82%,color-mix(in_srgb,var(--domi-accent-bright)_6%,transparent),transparent_30%)]"
             />
             <div className="relative z-10">
                 <ContactSection />

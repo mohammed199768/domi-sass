@@ -14,6 +14,19 @@ import { LanguageProvider } from "@/context/LanguageContext";
 
 const bootClassScript = `
 (() => {
+  const themeStorageKey = "dominase-theme";
+  const isHome = window.location.pathname === "/";
+
+  try {
+    const savedTheme = window.localStorage.getItem(themeStorageKey);
+    const theme = isHome || (savedTheme !== "light" && savedTheme !== "dark")
+      ? "dark"
+      : savedTheme;
+    document.documentElement.dataset.theme = theme;
+  } catch {
+    document.documentElement.dataset.theme = "dark";
+  }
+
   try {
     if (window.sessionStorage.getItem("dominase-boot-shown") !== "1") {
       document.documentElement.classList.add("domi-booting");
@@ -90,7 +103,14 @@ export default function RootLayout({
         className={`${enDisplay.variable} ${enBody.variable} ${arDisplay.variable} ${arBody.variable} antialiased`}
       >
         <script dangerouslySetInnerHTML={{ __html: bootClassScript }} />
-        <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
+        <ThemeProvider
+          attribute="data-theme"
+          defaultTheme="dark"
+          enableSystem={false}
+          themes={["dark", "light"]}
+          storageKey="dominase-theme"
+          disableTransitionOnChange
+        >
           <LanguageProvider>
             <BrandPreloader />
             <SmoothScroll>

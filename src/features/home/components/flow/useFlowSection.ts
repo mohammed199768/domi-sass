@@ -83,8 +83,8 @@ export function useFlowSection(transition: FlowTransition) {
         case "ominous-gate": {
           // The dramatic one. The incoming section emerges THROUGH the
           // DOMINASE gate: it arrives clean (no rotation/overflow) — opacity
-          // 0 -> 1, scale 0.94 -> 1, y 56px -> 0 — while the cyan/violet gate
-          // seam ignites and the obsidian/violet fog dissolves.
+          // 0 -> 1, scale 0.94 -> 1, y 56px -> 0 while the emerald gate
+          // seam ignites and the obsidian atmosphere dissolves.
           if (isDesktop) {
             gsap.set(inner, {
               y: 56,

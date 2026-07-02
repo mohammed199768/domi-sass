@@ -93,12 +93,12 @@ export default function BeneathInterfaceSvg({
           <stop offset="100%" stopColor="var(--secondary)" stopOpacity="0.85" />
         </linearGradient>
 
-        <linearGradient id="g-cyan-wash" x1="0%" y1="0%" x2="0%" y2="100%">
+        <linearGradient id="g-emerald-wash" x1="0%" y1="0%" x2="0%" y2="100%">
           <stop offset="0%"   stopColor="var(--primary)" stopOpacity="0.14" />
           <stop offset="100%" stopColor="var(--primary)" stopOpacity="0" />
         </linearGradient>
 
-        <linearGradient id="g-violet-wash" x1="0%" y1="0%" x2="0%" y2="100%">
+        <linearGradient id="g-mint-wash" x1="0%" y1="0%" x2="0%" y2="100%">
           <stop offset="0%"   stopColor="var(--secondary)" stopOpacity="0.12" />
           <stop offset="100%" stopColor="var(--secondary)" stopOpacity="0" />
         </linearGradient>
@@ -109,27 +109,6 @@ export default function BeneathInterfaceSvg({
           <stop offset="45%"  stopColor="var(--secondary)" stopOpacity="0.12" />
           <stop offset="100%" stopColor="var(--primary)"   stopOpacity="0" />
         </radialGradient>
-
-        <filter id="f-shadow" x="-8%" y="-6%" width="116%" height="120%">
-          <feDropShadow dx="0" dy="8" stdDeviation="12"
-            floodColor="var(--cool-shadow)" floodOpacity="0.48" />
-        </filter>
-
-        <filter id="f-glow" x="-50%" y="-50%" width="200%" height="200%">
-          <feGaussianBlur stdDeviation="3.5" result="blur" />
-          <feMerge>
-            <feMergeNode in="blur" />
-            <feMergeNode in="SourceGraphic" />
-          </feMerge>
-        </filter>
-
-        <filter id="f-glow-wide" x="-40%" y="-40%" width="180%" height="180%">
-          <feGaussianBlur stdDeviation="18" result="blur" />
-          <feMerge>
-            <feMergeNode in="blur" />
-            <feMergeNode in="SourceGraphic" />
-          </feMerge>
-        </filter>
       </defs>
 
 
@@ -139,8 +118,7 @@ export default function BeneathInterfaceSvg({
       <g ref={setSceneRef(0)} data-bi-scene="surface" style={sceneVisible(0)}>
 
         <rect x={PX} y={PY} width={PW} height={PH} rx={R}
-          fill="url(#g-panel)" stroke="var(--border)" strokeWidth="1.2"
-          filter="url(#f-shadow)" />
+          fill="url(#g-panel)" stroke="var(--border)" strokeWidth="1.2" />
         <rect x={PX + R} y={PY} width={PW - R * 2} height="3" rx="1.5"
           fill="url(#g-accent)" />
 
@@ -153,7 +131,7 @@ export default function BeneathInterfaceSvg({
           fill="var(--surface)" opacity="0.55" stroke="var(--border)" strokeWidth="0.8" />
 
         <rect x={PX + 24} y={PY + 56} width={192} height="20" rx="6"
-          fill="var(--primary)" opacity="0.72" filter="url(#f-glow)" />
+          fill="var(--primary)" opacity="0.72" />
         <rect x={PX + 24} y={PY + 88}  width={180} height="9" rx="3.5"
           fill="var(--fg)" opacity="0.20" />
         <rect x={PX + 24} y={PY + 104} width={148} height="9" rx="3.5"
@@ -162,12 +140,12 @@ export default function BeneathInterfaceSvg({
           fill="var(--fg)" opacity="0.09" />
 
         <rect x={PX + 24} y={PY + 146} width={116} height="32" rx="10"
-          fill="var(--primary)" opacity="0.88" filter="url(#f-glow)" />
+          fill="var(--primary)" opacity="0.88" />
         <rect x={PX + 150} y={PY + 148} width={94} height="28" rx="10"
           fill="none" stroke="var(--primary)" strokeWidth="1.3" opacity="0.45" />
 
         <rect x={PX + 264} y={PY + 50} width={96} height={PH - 78} rx="10"
-          fill="url(#g-cyan-wash)" stroke="var(--border)" strokeWidth="0.8" opacity="0.7" />
+          fill="url(#g-emerald-wash)" stroke="var(--border)" strokeWidth="0.8" opacity="0.7" />
         <rect x={PX + 276} y={PY + 68} width={72} height="10" rx="4"
           fill="var(--primary)" opacity="0.28" />
         <rect x={PX + 276} y={PY + 86} width={58} height="7" rx="3"
@@ -192,8 +170,7 @@ export default function BeneathInterfaceSvg({
       <g ref={setSceneRef(1)} data-bi-scene="presentation" style={sceneVisible(1)}>
 
         <rect x={PX} y={PY} width={PW} height={PH} rx={R}
-          fill="url(#g-panel)" stroke="var(--border)" strokeWidth="1.2"
-          filter="url(#f-shadow)" />
+          fill="url(#g-panel)" stroke="var(--border)" strokeWidth="1.2" />
         <rect x={PX + R} y={PY} width={PW - R * 2} height="3" rx="1.5"
           fill="url(#g-accent)" />
 
@@ -209,7 +186,7 @@ export default function BeneathInterfaceSvg({
           fill="var(--primary)" opacity="0.68" />
 
         <rect x={PX + 18} y={PY + 44} width={PW - 36} height="70" rx="10"
-          fill="url(#g-cyan-wash)" stroke="var(--border)" strokeWidth="0.7" opacity="0.8" />
+          fill="url(#g-emerald-wash)" stroke="var(--border)" strokeWidth="0.7" opacity="0.8" />
         <rect x={PX + 30} y={PY + 57} width={210} height="16" rx="5"
           fill="var(--primary)" opacity="0.70" />
         <rect x={PX + 30} y={PY + 79} width={168} height="12" rx="4"
@@ -252,8 +229,7 @@ export default function BeneathInterfaceSvg({
       <g ref={setSceneRef(2)} data-bi-scene="interaction" style={sceneVisible(2)}>
 
         <rect x={PX} y={PY} width={PW} height={PH} rx={R}
-          fill="url(#g-panel)" stroke="var(--border)" strokeWidth="1.2"
-          filter="url(#f-shadow)" />
+          fill="url(#g-panel)" stroke="var(--border)" strokeWidth="1.2" />
         <rect x={PX + R} y={PY} width={PW - R * 2} height="3" rx="1.5"
           fill="var(--secondary)" opacity="0.88" />
 
@@ -292,7 +268,7 @@ export default function BeneathInterfaceSvg({
                 opacity={active ? 0.88 : 0.45} />
               <text x={sx + 14} y={sy + 18} textAnchor="middle"
                 fontSize="8" fontFamily="var(--font-sans, monospace)" fontWeight="800"
-                fill={active ? "var(--bg)" : "var(--fg)"} opacity={active ? 0.95 : 0.5}>
+                fill={active ? "var(--primary-contrast)" : "var(--fg)"} opacity={active ? 0.95 : 0.5}>
                 {i + 1}
               </text>
               <rect x={sx + 8} y={sy + 30} width={stepW - 16} height="7" rx="2.5"
@@ -300,7 +276,7 @@ export default function BeneathInterfaceSvg({
               {active && (
                 <circle cx={sx + stepW / 2} cy={sy - 10} r="5"
                   fill="var(--secondary)" opacity="0.85"
-                  filter="url(#f-glow)" />
+                  />
               )}
               {i < 3 && (() => {
                 const ax = sx + stepW + 4;
@@ -332,7 +308,7 @@ export default function BeneathInterfaceSvg({
         ))}
 
         <rect x={PX + 22} y={PY + 196} width={120} height="30" rx="9"
-          fill="var(--secondary)" opacity="0.85" filter="url(#f-glow)" />
+          fill="var(--secondary)" opacity="0.85" />
         <rect x={PX + 152} y={PY + 198} width={90} height="26" rx="9"
           fill="none" stroke="var(--secondary)" strokeWidth="1.1" opacity="0.38" />
       </g>
@@ -344,8 +320,7 @@ export default function BeneathInterfaceSvg({
       <g ref={setSceneRef(3)} data-bi-scene="logic" style={sceneVisible(3)}>
 
         <rect x={PX} y={PY} width={PW} height={PH} rx={R}
-          fill="url(#g-panel)" stroke="var(--border)" strokeWidth="1.2"
-          filter="url(#f-shadow)" />
+          fill="url(#g-panel)" stroke="var(--border)" strokeWidth="1.2" />
         <rect x={PX + R} y={PY} width={PW - R * 2} height="3" rx="1.5"
           fill="var(--primary)" opacity="0.88" />
 
@@ -362,10 +337,9 @@ export default function BeneathInterfaceSvg({
         <circle cx={vcx} cy={PY + 72} r="20"
           fill="var(--surface-hover)"
           stroke="var(--primary)" strokeWidth="2"
-          opacity="0.95" filter="url(#f-shadow)" />
+          opacity="0.95" />
         <circle cx={vcx} cy={PY + 72} r="8"
-          fill="var(--primary)" opacity="0.85"
-          filter="url(#f-glow)" />
+          fill="var(--primary)" opacity="0.85" />
 
         {(() => {
           const branchY  = PY + 148;
@@ -411,7 +385,7 @@ export default function BeneathInterfaceSvg({
               <path d={`M${PX + PW - 38} ${vy} l6 7 l11 -12`}
                 stroke="var(--primary)" strokeWidth="2" fill="none"
                 strokeLinecap="round" strokeLinejoin="round"
-                filter="url(#f-glow)" />
+                />
             </g>
           );
         })}
@@ -424,8 +398,7 @@ export default function BeneathInterfaceSvg({
       <g ref={setSceneRef(4)} data-bi-scene="operations" style={sceneVisible(4)}>
 
         <rect x={PX} y={PY} width={PW} height={PH} rx={R}
-          fill="url(#g-panel)" stroke="var(--border)" strokeWidth="1.2"
-          filter="url(#f-shadow)" />
+          fill="url(#g-panel)" stroke="var(--border)" strokeWidth="1.2" />
         <rect x={PX + R} y={PY} width={PW - R * 2} height="3" rx="1.5"
           fill="var(--secondary)" opacity="0.88" />
 
@@ -481,7 +454,7 @@ export default function BeneathInterfaceSvg({
             <circle cx={PX + PW - 36} cy={PY + 110 + i * 26} r="5.5"
               fill={i < 3 ? "var(--secondary)" : "var(--border)"}
               opacity={i < 3 ? (0.9 - i * 0.12) : 0.4}
-              filter={i === 0 ? "url(#f-glow)" : undefined} />
+              />
           </g>
         ))}
 
@@ -500,8 +473,7 @@ export default function BeneathInterfaceSvg({
 
         <ellipse cx={vcx} cy={vcy - 10} rx={230} ry={170}
           fill="url(#g-assem-glow)"
-          filter="url(#f-glow-wide)"
-          opacity="0.65" />
+          opacity="0.48" />
 
         {(() => {
           const LW      = 280;
@@ -534,7 +506,7 @@ export default function BeneathInterfaceSvg({
                       fill={layer.color} opacity="0.70" />
                     <circle cx={lx} cy={ly + LH / 2} r="4.5"
                       fill={layer.dot} opacity="0.80"
-                      filter="url(#f-glow)" />
+                      />
                     <text x={lx + 14} y={ly + 20}
                       fontSize="8" fontFamily="var(--font-sans, monospace)" fontWeight="800"
                       fill={layer.color} opacity="0.88" letterSpacing="0.1em">
@@ -575,8 +547,7 @@ export default function BeneathInterfaceSvg({
                     <rect x={vcx - 88} y={markY} width={176} height="36" rx="10"
                       fill="var(--surface-muted)" opacity="0.95"
                       stroke="var(--primary)" strokeWidth="1"
-                      strokeOpacity="0.55"
-                      filter="url(#f-shadow)" />
+                      strokeOpacity="0.55" />
                     <line x1={vcx - 68} y1={markY} x2={vcx + 68} y2={markY}
                       stroke="url(#g-accent)" strokeWidth="1.5"
                       opacity="0.65" strokeLinecap="round" />
@@ -588,9 +559,9 @@ export default function BeneathInterfaceSvg({
                       DOMINASE
                     </text>
                     <circle cx={vcx - 76} cy={markY + 18} r="3"
-                      fill="var(--primary)" opacity="0.65" filter="url(#f-glow)" />
+                      fill="var(--primary)" opacity="0.65" />
                     <circle cx={vcx + 76} cy={markY + 18} r="3"
-                      fill="var(--secondary)" opacity="0.55" filter="url(#f-glow)" />
+                      fill="var(--secondary)" opacity="0.55" />
                   </g>
                 );
               })()}
