@@ -7,18 +7,31 @@ import { useLanguage } from "@/context/LanguageContext";
 import DiagnosisDomainCard from "./DiagnosisDomainCard";
 import DiagnosisThemeHint from "./DiagnosisThemeHint";
 
-const journeySteps = [
+/* Compact trust row under the hero — small inline facts, shown once. */
+const trustRow = [
+  { en: "8 minutes", ar: "٨ دقائق" },
+  { en: "13 questions", ar: "١٣ سؤالًا" },
+  { en: "Instant report", ar: "تقرير فوري" },
+  { en: "No sign-up", ar: "بدون تسجيل" },
+];
+
+/* "What the diagnosis reveals" — four compact gap cards. */
+const gaps = [
   {
-    en: { title: "Context", text: "A few details so the report speaks your language — never scored." },
-    ar: { title: "السياق", text: "تفاصيل قليلة تجعل التقرير أقرب لواقعك — لا تدخل في الدرجة." },
+    en: { title: "Clarity gap", text: "Does the customer grasp your offer quickly?" },
+    ar: { title: "فجوة الوضوح", text: "هل يفهم العميل عرضك بسرعة؟" },
   },
   {
-    en: { title: "Assessment", text: "13 focused questions. You rate where you are, and where you want to be." },
-    ar: { title: "التقييم", text: "١٣ سؤالا مركزا. تقيّم أين أنت الآن، وأين تريد أن تصل." },
+    en: { title: "Trust gap", text: "Do they see enough proof before reaching out?" },
+    ar: { title: "فجوة الثقة", text: "هل يرى دليلًا كافيًا قبل التواصل؟" },
   },
   {
-    en: { title: "Report", text: "A gap map, priorities, and practical recommendations — on your device." },
-    ar: { title: "التقرير", text: "خريطة فجوات، أولويات، وتوصيات عملية — على جهازك مباشرة." },
+    en: { title: "Conversion gap", text: "Do they know the next step to take?" },
+    ar: { title: "فجوة التحويل", text: "هل يعرف الخطوة التالية؟" },
+  },
+  {
+    en: { title: "Follow-up gap", text: "Are leads lost after the first interest?" },
+    ar: { title: "فجوة المتابعة", text: "هل تضيع الطلبات بعد أول اهتمام؟" },
   },
 ];
 
@@ -31,78 +44,124 @@ export default function DiagnosisLanding() {
       <Header />
       <DiagnosisThemeHint isArabic={isArabic} />
 
-      {/* Diagnosis shell top bar — theme toggle, clears the fixed navbar. */}
-      {/* ── Diagnostic Gateway hero ── */}
-      <section className="mx-auto w-full max-w-7xl px-5 pb-4 pt-32 sm:px-6 lg:px-8">
-        <div className="max-w-4xl">
-          <p className="font-display text-xs font-black uppercase tracking-[0.2em] text-primary-theme">
-            DOMINASE Growth Diagnosis
-          </p>
-          <h1 className="mt-5 text-4xl font-black leading-tight text-foreground sm:text-6xl">
-            {isArabic
-              ? "اكتشف أين تتسرب فرص النمو في مؤسستك"
-              : "Discover where growth opportunities leak out of your organization"}
-          </h1>
-          <p className="mt-6 max-w-2xl text-base leading-8 text-muted sm:text-lg">
-            A focused strategic self-assessment across clarity, trust, conversion, follow-up, and digital readiness.
-          </p>
-          <p className="mt-4 max-w-2xl text-sm leading-7 text-muted">
-            {isArabic
-              ? "هذا تشخيص استراتيجي مجاني نقدمه كهدية، وليس أداة ذكاء اصطناعي استعراضية. يعمل محليا على جهازك ولا يرسل أي بيانات تلقائيا."
-              : "A free strategic diagnostic gift — not an AI gimmick. It runs locally in your browser and sends no data automatically."}
-          </p>
+      {/* ── 1 · Hero ── */}
+      <section className="mx-auto flex w-full max-w-[900px] flex-col items-center px-5 pb-14 pt-28 text-center sm:px-6 sm:pt-32">
+        <p className="font-display text-[11px] font-black uppercase tracking-[0.22em] text-primary-theme sm:text-xs">
+          DOMINASE Growth Diagnosis
+        </p>
+
+        <h1 className="mt-6 text-[2rem] font-black leading-[1.2] text-foreground sm:text-5xl">
+          {isArabic ? (
+            <>
+              قبل أن تبني موقعًا جديدًا…
+              <br />
+              <span className="text-primary-theme">اعرف أين يتسرب العميل.</span>
+            </>
+          ) : (
+            <>
+              Before building a new website…
+              <br />
+              <span className="text-primary-theme">find where the customer leaks.</span>
+            </>
+          )}
+        </h1>
+
+        <p className="mt-6 max-w-xl text-base leading-8 text-muted sm:text-lg">
+          {isArabic
+            ? "تشخيص قصير يكشف أين تتعطل رحلة العميل: في الوضوح، الثقة، الحجز، المتابعة، أو جاهزية النظام الرقمي."
+            : "A short diagnosis that reveals where the journey breaks: clarity, trust, booking, follow-up, or digital readiness."}
+        </p>
+
+        {/* CTAs */}
+        <div className="mt-9 flex w-full flex-col items-center justify-center gap-3 sm:w-auto sm:flex-row">
+          <a
+            href="#sectors"
+            className="inline-flex min-h-12 w-full items-center justify-center rounded-2xl bg-primary-theme px-7 text-sm font-black text-[color:var(--primary-contrast)] transition-transform duration-300 hover:-translate-y-0.5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary-theme focus-visible:ring-offset-2 focus-visible:ring-offset-background active:translate-y-0 sm:w-auto"
+          >
+            {isArabic ? "ابدأ التشخيص" : "Start diagnosis"}
+          </a>
+          <a
+            href="#sectors"
+            className="inline-flex min-h-12 w-full items-center justify-center rounded-2xl border border-border px-7 text-sm font-black text-foreground transition-colors duration-300 hover:border-primary-theme/50 hover:text-primary-theme focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary-theme focus-visible:ring-offset-2 focus-visible:ring-offset-background sm:w-auto"
+          >
+            {isArabic ? "اختر قطاعك" : "Choose your sector"}
+          </a>
         </div>
 
-        {/* Journey strip */}
-        <div className="mt-12 grid gap-3 sm:grid-cols-3">
-          {journeySteps.map((step, index) => {
-            const copy = isArabic ? step.ar : step.en;
+        {/* Privacy line + compact trust row */}
+        <p className="mt-7 text-xs font-bold text-muted sm:text-sm">
+          {isArabic
+            ? "يعمل على جهازك. لا تسجيل دخول. لا نجمع إجاباتك."
+            : "Runs on your device. No login. We do not collect your answers."}
+        </p>
+        <ul className="mt-4 flex flex-wrap items-center justify-center gap-x-2 gap-y-2 text-[11px] font-black text-foreground/70 sm:text-xs">
+          {trustRow.map((fact, index) => (
+            <li key={fact.en} className="flex items-center gap-2">
+              {index > 0 && <span className="text-muted/50" aria-hidden="true">·</span>}
+              <span>{isArabic ? fact.ar : fact.en}</span>
+            </li>
+          ))}
+        </ul>
+      </section>
+
+      {/* ── 2 · What you get ── */}
+      <section className="mx-auto w-full max-w-5xl px-5 py-8 sm:px-6">
+        <h2 className="text-center text-2xl font-black text-foreground sm:text-3xl">
+          {isArabic ? "ماذا يكشف لك التشخيص؟" : "What the diagnosis reveals"}
+        </h2>
+
+        <div className="mt-8 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4">
+          {gaps.map((gap, index) => {
+            const copy = isArabic ? gap.ar : gap.en;
             return (
-              <div key={copy.title} className="premium-surface rounded-2xl p-4 sm:p-5">
-                <div className="flex items-center gap-3">
-                  <span
-                    className="grid h-7 w-7 place-items-center rounded-full border border-primary-theme/40 font-display text-xs font-black text-primary-theme"
-                    dir="ltr"
-                  >
-                    {index + 1}
-                  </span>
-                  <h2 className="text-sm font-black text-foreground">{copy.title}</h2>
-                </div>
-                <p className="mt-3 text-sm leading-7 text-muted">{copy.text}</p>
+              <div
+                key={copy.title}
+                className="rounded-[1.25rem] border border-border bg-surface p-5"
+              >
+                <span
+                  className="font-display text-xs font-black text-primary-theme"
+                  dir="ltr"
+                  aria-hidden="true"
+                >
+                  0{index + 1}
+                </span>
+                <h3 className="mt-3 text-base font-black text-foreground">{copy.title}</h3>
+                <p className="mt-2 text-sm leading-7 text-muted">{copy.text}</p>
               </div>
             );
           })}
         </div>
       </section>
 
-      {/* ── Domain selector ── */}
-      <section className="mx-auto w-full max-w-7xl px-5 pb-24 pt-12 sm:px-6 lg:px-8">
-        <div className="flex flex-wrap items-end justify-between gap-4">
-          <div>
-          <p className="font-display text-xs font-black uppercase tracking-[0.2em] text-muted">
-              {isArabic ? "اختر مجال مؤسستك" : "Choose your field"}
-            </p>
-            <h2 className="mt-3 text-2xl font-black text-foreground sm:text-3xl">
-              {isArabic ? "أربعة تشخيصات متخصصة" : "Four specialized diagnostics"}
-            </h2>
-          </div>
-          <p className="max-w-sm text-sm leading-7 text-muted">
+      {/* ── 3 · Sector selector ── */}
+      <section id="sectors" className="mx-auto w-full max-w-5xl scroll-mt-24 px-5 py-8 sm:px-6">
+        <div className="mx-auto max-w-2xl text-center">
+          <h2 className="text-2xl font-black text-foreground sm:text-3xl">
+            {isArabic ? "اختر القطاع الأقرب لعملك" : "Choose the sector closest to your business"}
+          </h2>
+          <p className="mt-3 text-sm leading-7 text-muted sm:text-base">
             {isArabic
-              ? "كل تشخيص مبني على أسئلة خاصة بمجالك، وليس قالبا عاما واحدا."
-              : "Each diagnosis is built on questions specific to your field — not one generic template."}
+              ? "كل مسار يستخدم نفس المنطق، لكن بأسئلة مصممة لطبيعة قرار العميل في قطاعك."
+              : "Each path uses the same logic, with questions shaped to how customers decide in your sector."}
           </p>
         </div>
 
-        <div className="mt-8 grid gap-4 md:grid-cols-2">
+        <div className="mt-8 grid grid-cols-1 gap-4 sm:grid-cols-2">
           {diagnosisEntries.map((entry) => (
             <DiagnosisDomainCard key={entry.slug} entry={entry} isArabic={isArabic} />
           ))}
         </div>
+      </section>
 
-        <p className="mt-10 max-w-3xl text-xs leading-6 text-muted">
+      {/* ── 4 · Trust note ── */}
+      <section className="mx-auto w-full max-w-2xl px-5 pb-24 pt-6 text-center sm:px-6">
+        <p className="text-sm leading-7 text-muted sm:text-base">
           {isArabic
-            ? "النتائج إرشادية وتعتمد على تقييمك الذاتي، وليست وعدا بنتائج محددة."
-            : "Results are advisory, based on your self-assessment, and never a promise of specific outcomes."}
+            ? "هذا التشخيص ليس حكمًا على عملك. هو خريطة أولية تساعدك ترى أين تبدأ."
+            : "This diagnosis is not a verdict on your business. It is an early map that helps you see where to start."}
+        </p>
+        <p className="mt-4 text-[11px] font-bold uppercase tracking-[0.14em] text-muted/80 sm:text-xs">
+          {isArabic ? "آمن · محلي · بدون تسجيل · قابل للإعادة" : "Private · Local · No sign-up · Repeatable"}
         </p>
       </section>
 
