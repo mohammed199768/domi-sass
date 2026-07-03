@@ -13,6 +13,14 @@ import FloatingActions from "@/components/FloatingActions";
 import BrandPreloader from "@/components/BrandPreloader";
 import DominaseCursor from "@/components/DominaseCursor";
 import { LanguageProvider } from "@/context/LanguageContext";
+import JsonLd from "@/components/JsonLd";
+import {
+  SITE_URL,
+  BRAND,
+  META_DEFAULTS,
+  SOCIAL_LINKS,
+  CONTACT,
+} from "@/config/seo";
 
 const bootClassScript = `
 (() => {
@@ -77,20 +85,31 @@ const arBody = Noto_Sans_Arabic({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://www.dominase.art"),
-  title: "DOMINASE — Cinematic Websites & Operational Digital Systems",
-  description: "Dominase builds cinematic websites, SaaS interfaces, and operational digital systems for businesses that need more than a page.",
+  metadataBase: new URL(SITE_URL),
+  title: {
+    default: META_DEFAULTS.title,
+    template: META_DEFAULTS.titleTemplate,
+  },
+  description: META_DEFAULTS.description,
+  alternates: {
+    canonical: "/",
+  },
+  robots: {
+    index: true,
+    follow: true,
+  },
   openGraph: {
-    title: "DOMINASE — Cinematic Websites & Operational Digital Systems",
-    description: "Dominase builds cinematic websites, SaaS interfaces, and operational digital systems for businesses that need more than a page.",
-    url: "https://www.dominase.art",
-    siteName: "DOMINASE",
+    title: META_DEFAULTS.title,
+    description: META_DEFAULTS.description,
+    url: SITE_URL,
+    siteName: BRAND.siteName,
     type: "website",
+    locale: BRAND.locale,
   },
   twitter: {
     card: "summary_large_image",
-    title: "DOMINASE — Cinematic Websites & Operational Digital Systems",
-    description: "Dominase builds cinematic websites, SaaS interfaces, and operational digital systems for businesses that need more than a page.",
+    title: META_DEFAULTS.title,
+    description: META_DEFAULTS.description,
   },
 };
 
@@ -104,6 +123,50 @@ export default function RootLayout({
       <body
         className={`${enDisplay.variable} ${enBody.variable} ${arDisplay.variable} ${arBody.variable} antialiased`}
       >
+        {/* ── Site-wide structured data (JSON-LD) ── */}
+        <JsonLd
+          data={[
+            {
+              "@context": "https://schema.org",
+              "@type": "ProfessionalService",
+              "@id": `${SITE_URL}/#organization`,
+              name: BRAND.brandName,
+              url: SITE_URL,
+              description: META_DEFAULTS.description,
+              founder: {
+                "@type": "Person",
+                name: BRAND.founderName,
+              },
+              contactPoint: {
+                "@type": "ContactPoint",
+                telephone: CONTACT.phone,
+                email: CONTACT.email,
+                contactType: "customer service",
+                availableLanguage: ["English", "Arabic"],
+              },
+              address: {
+                "@type": "PostalAddress",
+                addressLocality: "Amman",
+                addressCountry: "JO",
+              },
+              sameAs: [
+                SOCIAL_LINKS.github,
+                SOCIAL_LINKS.linkedin,
+                SOCIAL_LINKS.upwork,
+              ],
+            },
+            {
+              "@context": "https://schema.org",
+              "@type": "WebSite",
+              "@id": `${SITE_URL}/#website`,
+              name: BRAND.siteName,
+              url: SITE_URL,
+              publisher: { "@id": `${SITE_URL}/#organization` },
+              inLanguage: BRAND.locale,
+            },
+          ]}
+        />
+
         <script dangerouslySetInnerHTML={{ __html: bootClassScript }} />
         <ThemeProvider
           attribute="data-theme"

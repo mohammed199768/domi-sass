@@ -1,0 +1,49 @@
+# DOMINASE — Digital Product Studio
+
+> Site: https://www.dominase.art
+> Founded by: Mohammed Aldomi
+> Location: Amman, Jordan
+
+## What DOMINASE Is
+
+DOMINASE is a digital product studio that builds websites, digital systems, dashboards, booking flows, CRM and follow-up workflows, and product interfaces for businesses. The studio focuses on clarity, trust, conversion, and operational depth — not generic templates.
+
+## Services
+
+- Websites that explain the offer with strong hierarchy and storytelling
+- Product and dashboard interfaces for admins, teams, and customers
+- Booking, form, and workflow paths (requests, RSVPs, surveys, onboarding, follow-up)
+- Strategic business diagnosis (free self-assessment tool)
+- Bilingual (English / Arabic) digital experiences
+
+## Public Routes
+
+- / — Home page. Overview of DOMINASE, services, selected work, and testimonials.
+- /work — Selected digital product case studies and portfolio.
+- /diagnosis — Free strategic growth diagnosis tool for businesses.
+- /diagnosis/clinic — Clinic-specific diagnosis: website, booking, patient trust, follow-up.
+- /diagnosis/venue — Wedding venue diagnosis: availability, gallery, RSVP, follow-up.
+- /diagnosis/engineering — Engineering company diagnosis: portfolio, quotes, proposals.
+- /diagnosis/general-business — General service business growth diagnosis.
+- /why-change — Why standing still digitally costs clarity, trust, and conversion.
+- /why-us — Why DOMINASE builds custom systems, not generic templates.
+- /contact — Start a project conversation via WhatsApp, phone, email, or contact form.
+
+## Diagnosis Tool
+
+The DOMINASE Growth Diagnosis is a free, web-based strategic self-assessment. It evaluates businesses across clarity, trust, conversion, follow-up, and digital readiness. It is not medical, legal, or financial advice. It provides strategic guidance only.
+
+## Contact
+
+- Phone / WhatsApp: +962779667168
+- Email: mohammed.aldomi68@gmail.com
+- GitHub: https://github.com/mohammed199768
+- Upwork: https://www.upwork.com/freelancers/~012bcb31d6467e2e71
+- LinkedIn: https://linkedin.com/in/mohammed199768
+
+## Guardrails
+
+- DOMINASE does not guarantee specific business outcomes or rankings.
+- The diagnosis tool is a strategic self-assessment, not professional advice.
+- Testimonials on the site are from real project partners.
+- No fake reviews, stats, locations, or claims exist on this site.

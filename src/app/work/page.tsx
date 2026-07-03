@@ -1,43 +1,64 @@
 import type { Metadata } from "next";
 import TransformationTreeClient from "@/features/work/TransformationTreeClient";
+import JsonLd from "@/components/JsonLd";
+import { SITE_URL, BRAND } from "@/config/seo";
 
 export const metadata: Metadata = {
-  title: "Case Studies — DOMINASE",
-  description: "A collection of DOMINASE digital product case studies showing how scattered workflows became clearer platforms, dashboards, and digital systems.",
+  title: "Selected Work",
+  description:
+    "Digital product case studies by DOMINASE — websites, dashboards, booking platforms, and operational systems built around real business friction.",
+  alternates: {
+    canonical: "/work",
+  },
+  openGraph: {
+    title: "Selected Work — DOMINASE",
+    description:
+      "Digital product case studies by DOMINASE — websites, dashboards, booking platforms, and operational systems built around real business friction.",
+    url: `${SITE_URL}/work`,
+    siteName: BRAND.siteName,
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Selected Work — DOMINASE",
+    description:
+      "Digital product case studies by DOMINASE — websites, dashboards, booking platforms, and operational systems built around real business friction.",
+  },
 };
 
 export default function WorkIndexPage() {
   const jsonLd = {
     "@context": "https://schema.org",
     "@type": "CollectionPage",
-    "name": "Case Studies — DOMINASE",
-    "description": "A collection of DOMINASE digital product case studies showing how scattered workflows became clearer platforms, dashboards, and digital systems.",
-    "url": "https://www.dominase.art/work",
+    "name": "Selected Work — DOMINASE",
+    "description": "Digital product case studies by DOMINASE — websites, dashboards, booking platforms, and operational systems built around real business friction.",
+    "url": `${SITE_URL}/work`,
+    "isPartOf": { "@id": `${SITE_URL}/#website` },
     "mainEntity": {
       "@type": "ItemList",
       "itemListElement": [
         {
           "@type": "ListItem",
           "position": 1,
-          "url": "https://www.dominase.art/work/manal-alhihi",
+          "url": `${SITE_URL}/work/manal-alhihi`,
           "name": "Manal Alhihi Educational Platform"
         },
         {
           "@type": "ListItem",
           "position": 2,
-          "url": "https://www.dominase.art/work/qasr-alfarah",
+          "url": `${SITE_URL}/work/qasr-alfarah`,
           "name": "Qasr Al-Farah"
         },
         {
           "@type": "ListItem",
           "position": 3,
-          "url": "https://www.dominase.art/work/curevie",
+          "url": `${SITE_URL}/work/curevie`,
           "name": "Curevie"
         },
         {
           "@type": "ListItem",
           "position": 4,
-          "url": "https://www.dominase.art/work/horvath-survey",
+          "url": `${SITE_URL}/work/horvath-survey`,
           "name": "Horvath Survey"
         }
       ]
@@ -46,10 +67,7 @@ export default function WorkIndexPage() {
 
   return (
     <>
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
-      />
+      <JsonLd data={jsonLd} />
       <TransformationTreeClient />
     </>
   );
