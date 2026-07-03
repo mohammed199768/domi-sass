@@ -447,6 +447,51 @@ body.domi-booting :where(main, header, footer, .mobile-nav-shell) {
   }
 }
 
+/* ── Scroll Reel Testimonials ─────────────────────────────────────────────
+ * Scoped, feature-local reveal animations. Only run on testimonial change —
+ * never continuous. transform + opacity only. Reduced motion disables them. */
+@keyframes dominase-reel-text-in {
+  from {
+    opacity: 0;
+    transform: translateY(0.5em);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes dominase-reel-text-out {
+  from {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  to {
+    opacity: 0;
+    transform: translateY(-0.5em);
+  }
+}
+
+.dominase-reel-unit {
+  display: inline-block;
+  opacity: 0;
+  transform: translateY(0.5em);
+  animation: dominase-reel-text-in 0.42s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+.dominase-reel-exit {
+  animation: dominase-reel-text-out 0.22s cubic-bezier(0.65, 0, 0.35, 1) both;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .dominase-reel-unit,
+  .dominase-reel-exit {
+    animation: none !important;
+    opacity: 1 !important;
+    transform: none !important;
+  }
+}
+
 @media (min-width: 768px) and (max-width: 860px) {
   .hero-canvas [data-hero-wordmark] {
     font-size: clamp(4.25rem, 9.8vw, 5.4rem);
