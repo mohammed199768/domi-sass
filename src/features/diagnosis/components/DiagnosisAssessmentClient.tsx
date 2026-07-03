@@ -8,11 +8,12 @@ import type { DiagnosisAnswer, DiagnosisAnswerMap, DiagnosisAssessment, Diagnosi
 import { buildDiagnosisResult, getTopics, isDiagnosisAnswerComplete } from "../lib/scoring";
 import { clearDiagnosisState, loadDiagnosisState, saveDiagnosisState } from "../lib/storage";
 import { localized } from "../lib/localization";
-import DiagnosisContextForm from "./DiagnosisContextForm";
+import DiagnosisContextIntake from "./DiagnosisContextIntake";
 import DiagnosisQuestionFlow from "./DiagnosisQuestionFlow";
+import DiagnosisCompletion from "./DiagnosisCompletion";
 import DiagnosisResults from "./DiagnosisResults";
 
-type Stage = "intro" | "context" | "questions" | "results";
+type Stage = "context" | "questions" | "completion" | "results";
 
 export default function DiagnosisAssessmentClient({
   slug,
@@ -23,7 +24,7 @@ export default function DiagnosisAssessmentClient({
 }) {
   const { language } = useLanguage();
   const isArabic = language === "ar";
-  const [stage, setStage] = useState<Stage>("intro");
+  const [stage, setStage] = useState<Stage>("context");
   const [contextAnswers, setContextAnswers] = useState<DiagnosisContextAnswers>({});
   const [answers, setAnswers] = useState<DiagnosisAnswerMap>({});
   const topics = useMemo(() => getTopics(assessment), [assessment]);
@@ -35,7 +36,11 @@ export default function DiagnosisAssessmentClient({
     window.setTimeout(() => {
       setContextAnswers(saved.contextAnswers);
       setAnswers(saved.answers);
-      setStage(Object.values(saved.answers).filter(isDiagnosisAnswerComplete).length >= topics.length ? "results" : "questions");
+      setStage(
+        Object.values(saved.answers).filter(isDiagnosisAnswerComplete).length >= topics.length
+          ? "results"
+          : "questions"
+      );
     }, 0);
   }, [slug, topics.length]);
 
@@ -53,57 +58,51 @@ export default function DiagnosisAssessmentClient({
     clearDiagnosisState(slug);
     setContextAnswers({});
     setAnswers({});
-    setStage("intro");
+    setStage("context");
+    window.scrollTo({ top: 0 });
   };
 
   return (
-    <main className="min-h-screen overflow-x-clip bg-background text-foreground">
+    <main className="diagnosis-scope min-h-screen overflow-x-clip bg-background text-foreground">
       <Header />
-      <section className="mx-auto w-full max-w-6xl px-5 pb-4 pt-32 sm:px-6 lg:px-8">
-        <p className="font-display text-xs font-black uppercase text-primary-theme">DOMINASE Growth Diagnosis</p>
-        <h1 className="mt-4 max-w-4xl text-4xl font-black leading-tight text-foreground sm:text-6xl">
-          {localized(assessment.meta.title, assessment.meta.titleAr, isArabic)}
-        </h1>
-        <p className="mt-5 max-w-3xl text-base leading-8 text-muted">
-          {localized(assessment.meta.description, assessment.meta.descriptionAr, isArabic)}
-        </p>
-        <div className="mt-6 flex flex-wrap items-center gap-3 text-sm text-muted">
-          <span className="rounded-full border border-border px-3 py-1.5">
-            {assessment.dimensions.length} {isArabic ? "أبعاد" : "dimensions"}
-          </span>
-          <span className="rounded-full border border-border px-3 py-1.5">
-            {topics.length} {isArabic ? "سؤال" : "questions"}
-          </span>
-          <span className="rounded-full border border-border px-3 py-1.5">
-            {assessment.meta.estimatedMinutes || 8} {isArabic ? "دقائق تقريبا" : "min approx."}
-          </span>
-        </div>
-      </section>
 
-      {stage === "intro" ? (
-        <section className="mx-auto w-full max-w-4xl px-5 py-10 sm:px-6 lg:px-8">
-          <div className="rounded-[1.6rem] border border-border bg-surface p-5 shadow-[0_24px_70px_-52px_var(--cool-shadow)] sm:p-7">
-            <h2 className="text-2xl font-black text-foreground">
-              {isArabic ? "تشخيص عملي بدون تهويل" : "A practical diagnosis without hype"}
-            </h2>
-            <p className="mt-4 text-sm leading-8 text-muted">
-              {isArabic
-                ? "ستقيّم الوضع الحالي والمستوى المطلوب لكل محور. التقرير يوضح فجوات الأولوية، توصيات عملية، ومتى يمكن أن يساعد موقع أو نظام أو CRM."
-                : "You will rate the current state and target level for each topic. The report highlights priority gaps, practical recommendations, and where a website, system, or CRM may help."}
-            </p>
-            <button type="button" onClick={() => setStage("context")} className="btn-primary mt-6 min-h-12 px-6 text-sm">
-              {isArabic ? "ابدأ" : "Begin"}
-            </button>
+      {/* Compact assessment header — full version during intake, minimal
+          spacer during the question / completion / results stages so the
+          sticky shell never collides with the site navbar. */}
+      {stage === "context" ? (
+        <section className="mx-auto w-full max-w-5xl px-5 pb-6 pt-32 sm:px-6 lg:px-8">
+          <p className="font-display text-xs font-black uppercase tracking-[0.22em] text-primary-theme">
+            DOMINASE Growth Diagnosis
+          </p>
+          <h1 className="mt-4 max-w-3xl text-3xl font-black leading-tight text-foreground sm:text-5xl">
+            {localized(assessment.meta.title, assessment.meta.titleAr, isArabic)}
+          </h1>
+          <p className="mt-4 max-w-3xl text-base leading-8 text-muted">
+            {localized(assessment.meta.description, assessment.meta.descriptionAr, isArabic)}
+          </p>
+          <div className="mt-5 flex flex-wrap items-center gap-2 text-xs font-bold text-muted">
+            <span className="rounded-full border border-border px-3 py-1.5">
+              {assessment.dimensions.length} {isArabic ? "أبعاد" : "dimensions"} · {topics.length}{" "}
+              {isArabic ? "سؤالا" : "questions"}
+            </span>
+            <span className="rounded-full border border-border px-3 py-1.5">
+              ~{assessment.meta.estimatedMinutes || 8} {isArabic ? "دقائق" : "min"}
+            </span>
           </div>
         </section>
-      ) : null}
+      ) : (
+        <div className="pt-28" aria-hidden="true" />
+      )}
 
       {stage === "context" ? (
-        <DiagnosisContextForm
+        <DiagnosisContextIntake
           form={assessment.contextForm}
           values={contextAnswers}
           onChange={(fieldId, value) => setContextAnswers((current) => ({ ...current, [fieldId]: value }))}
-          onContinue={() => setStage("questions")}
+          onContinue={() => {
+            setStage("questions");
+            window.scrollTo({ top: 0 });
+          }}
           isArabic={isArabic}
         />
       ) : null}
@@ -119,7 +118,22 @@ export default function DiagnosisAssessmentClient({
             }))
           }
           onBackToContext={() => setStage("context")}
-          onComplete={() => setStage("results")}
+          onComplete={() => {
+            setStage("completion");
+            window.scrollTo({ top: 0 });
+          }}
+          onReset={reset}
+          isArabic={isArabic}
+        />
+      ) : null}
+
+      {stage === "completion" ? (
+        <DiagnosisCompletion
+          onViewReport={() => {
+            setStage("results");
+            window.scrollTo({ top: 0 });
+          }}
+          onReviewAnswers={() => setStage("questions")}
           isArabic={isArabic}
         />
       ) : null}
