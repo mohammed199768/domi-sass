@@ -59,7 +59,7 @@ const selectedWorks: SelectedWork[] = [
   },
   {
     key: "qaser-al-farah",
-    title: "Qaser Al Farah",
+    title: "Qasr Al-Farah",
     image: "/assest/optimized/images/qaser-lab.webp",
     href: "/work/qasr-alfarah",
     palette: {
@@ -228,8 +228,8 @@ function SelectedWorkScrollGallery() {
   const glowRefs = useRef<(HTMLDivElement | null)[]>([]);
 
   const activeWork = selectedWorks[activeIndex];
-  const sectionLabel = isArabic ? t.portfolio.title : "SELECTED WORK";
-  const ctaLabel = isArabic ? "عرض دراسة الحالة" : "View Case Study";
+  const sectionLabel = t.portfolio.title;
+  const ctaLabel = t.portfolio.projectCTA;
 
   useEffect(() => {
     registerMotionPlugins();
@@ -309,7 +309,7 @@ function SelectedWorkScrollGallery() {
             {sectionLabel}
           </p>
           <h2 id="selected-work-title" className="mt-3 text-3xl font-black text-foreground">
-            {isArabic ? t.portfolio.title : "Selected Work"}
+            {t.portfolio.title}
           </h2>
         </div>
         <div className="mx-auto grid max-w-lg gap-8 px-5 py-10">
@@ -403,7 +403,7 @@ function SelectedWorkScrollGallery() {
             {isArabic ? "مرر للاستكشاف" : "Scroll to explore"}
           </p>
           <h2 id="selected-work-title" className="sr-only">
-            {isArabic ? t.portfolio.title : "Selected Work"}
+            {t.portfolio.title}
           </h2>
         </div>
 

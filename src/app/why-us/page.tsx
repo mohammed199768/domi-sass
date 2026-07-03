@@ -4,7 +4,7 @@ import WhyUsClient from "@/features/why-us/WhyUsClient";
 export const metadata: Metadata = {
   title: "Why Us? — DOMINASE",
   description:
-    "Built like a system, not a template. The DOMINASE method: diagnose, architect, build, refine — cinematic, bilingual digital systems engineered around your customer's next step.",
+    "DOMINASE builds digital systems, websites, dashboards, and workspaces through a direct, founder-led process focused on credibility, speed, bilingual thinking, growth, and post-launch support.",
 };
 
 export default function WhyUsPage() {

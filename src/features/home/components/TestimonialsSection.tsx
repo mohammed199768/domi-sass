@@ -167,11 +167,9 @@ export default function TestimonialsSection() {
     const items: TestimonialItem[] = t.testimonials.items;
     const total = items.length;
 
-    const heading = isArabic ? "ما لاحظه العملاء بعد البناء." : "What clients noticed after the build.";
-    const description = isArabic
-        ? "آراء حقيقية من مشاريع كان فيها الوضوح، الثقة، والتنفيذ مهمين."
-        : "Real feedback from projects where clarity, trust, and execution mattered.";
-    const sectionLabel = isArabic ? "إشارات ثقة" : "Proof Signals";
+    const heading = t.testimonials.title;
+    const description = t.testimonials.subtitle;
+    const sectionLabel = t.testimonials.title;
 
     const goNext = useCallback(() => {
         setDirection(1);
@@ -290,7 +288,7 @@ export default function TestimonialsSection() {
 
                         {/* Quote */}
                         <div
-                            className={`relative w-full max-w-xl ${isArabic ? "min-h-[17rem] sm:min-h-[14rem] md:min-h-[12rem] lg:min-h-[18rem] xl:min-h-[15rem]" : "min-h-[10rem] md:min-h-[9rem]"}`}
+                            className={`relative w-full max-w-xl ${isArabic ? "min-h-[28rem] sm:min-h-[26rem] md:min-h-[24rem] lg:min-h-[30rem] xl:min-h-[26rem]" : "min-h-[26rem] sm:min-h-[24rem] md:min-h-[22rem] lg:min-h-[28rem] xl:min-h-[24rem]"}`}
                             aria-live="polite"
                             aria-atomic="true"
                         >
@@ -302,9 +300,9 @@ export default function TestimonialsSection() {
                                     initial={reducedMotion ? undefined : "enter"}
                                     animate={reducedMotion ? undefined : "center"}
                                     exit={reducedMotion ? undefined : "exit"}
-                                    className="absolute inset-0"
+                                    className="absolute inset-0 overflow-y-auto pr-1"
                                 >
-                                    <p className={isArabic ? "text-lg font-black leading-[1.85] text-foreground md:text-xl lg:text-[1.35rem] lg:leading-[1.75]" : "text-xl font-black leading-snug text-foreground md:text-2xl lg:text-[1.65rem] lg:leading-snug"}>
+                                    <p className={isArabic ? "text-base font-black leading-[1.85] text-foreground md:text-lg lg:text-xl lg:leading-[1.75]" : "text-base font-black leading-relaxed text-foreground md:text-lg lg:text-xl lg:leading-relaxed"}>
                                         &ldquo;{active.quote}&rdquo;
                                     </p>
                                 </motion.blockquote>
