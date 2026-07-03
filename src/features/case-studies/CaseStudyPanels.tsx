@@ -263,7 +263,7 @@ export function CaseStudyResultPanel({ content, mode }: { content: CaseStudyCont
           </div>
         )}
 
-        <div className={clsx("flex flex-wrap", fit ? "mt-6 gap-3" : "mt-12 gap-4")}><Link href="/#contact" className={clsx("rounded-full bg-background font-black text-foreground transition hover:opacity-85", fit ? "px-5 py-2.5 text-sm" : "px-6 py-3 text-sm")}>{content.cta}</Link><Link href="/#portfolio" className={clsx("rounded-full border border-background/25 font-black text-background transition hover:bg-background/10", fit ? "px-5 py-2.5 text-sm" : "px-6 py-3 text-sm")}>{content.backHome}</Link></div>
+        <div className={clsx("flex flex-wrap", fit ? "mt-6 gap-3" : "mt-12 gap-4")}><Link href="/contact" className={clsx("rounded-full bg-background font-black text-foreground transition hover:opacity-85", fit ? "px-5 py-2.5 text-sm" : "px-6 py-3 text-sm")}>{content.cta}</Link><Link href="/#portfolio" className={clsx("rounded-full border border-background/25 font-black text-background transition hover:bg-background/10", fit ? "px-5 py-2.5 text-sm" : "px-6 py-3 text-sm")}>{content.backHome}</Link></div>
       </div>
     </CaseStudyPanelShell>
   );

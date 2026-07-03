@@ -4,8 +4,8 @@ import { useState, useCallback, useEffect } from "react";
 import Image from "next/image";
 import { AnimatePresence, motion } from "framer-motion";
 import { useLanguage } from "@/context/LanguageContext";
+import Link from "next/link";
 import { useReducedMotion } from "@/lib/motion/useReducedMotion";
-import { scrollToSection } from "@/lib/motion/scrollToSection";
 
 type TestimonialItem = {
     quote: string;
@@ -385,14 +385,9 @@ export default function TestimonialsSection() {
 
                         {/* CTA */}
                         <div className={`mt-10 ${isRtl ? "" : ""}`}>
-                            <button
-                                type="button"
-                                suppressHydrationWarning
-                                onClick={() => scrollToSection("#contact")}
-                                className="btn-primary px-8 py-3"
-                            >
+                            <Link href="/contact" className="btn-primary px-8 py-3">
                                 {t.testimonials.cta}
-                            </button>
+                            </Link>
                         </div>
                     </div>
                 </div>

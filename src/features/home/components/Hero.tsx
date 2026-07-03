@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import { useLanguage } from "@/context/LanguageContext";
 import { scrollToSection } from "@/lib/motion/scrollToSection";
 import { useHeroAnimation } from "../hooks/useHeroAnimation";
@@ -54,14 +55,12 @@ export default function Hero() {
                         </p>
 
                         <div data-hero-cta className="flex flex-col justify-center gap-4 pt-2 sm:flex-row">
-                            <button
-                                type="button"
-                                suppressHydrationWarning
-                                onClick={() => scrollToSection("#contact")}
+                            <Link
+                                href="/contact"
                                 className="btn-primary min-h-12 px-8 py-3.5 text-sm"
                             >
                                 {t.hero.primaryCTA}
-                            </button>
+                            </Link>
                             <button
                                 type="button"
                                 suppressHydrationWarning

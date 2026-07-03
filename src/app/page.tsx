@@ -8,7 +8,6 @@ import {
   BeneathInterfaceSection,
   PortfolioSection,
   TestimonialsSection,
-  ContactPortalSection,
   FlowArt,
   FlowSection
 } from "@/features/home";
@@ -61,13 +60,10 @@ export default function Home() {
           <PortfolioSection />
         </FlowSection>
 
+        {/* Final movement: social proof closes the page; conversion now lives
+            on the dedicated /contact page (linked from every CTA). */}
         <FlowSection transition="panel-slide">
           <TestimonialsSection />
-        </FlowSection>
-
-        {/* Final conversion section: calm, stable. */}
-        <FlowSection transition="settle">
-          <ContactPortalSection />
         </FlowSection>
       </FlowArt>
 

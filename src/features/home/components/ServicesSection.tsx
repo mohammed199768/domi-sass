@@ -3,8 +3,8 @@
 import React from "react";
 import { motion } from "framer-motion";
 import { useLanguage } from "@/context/LanguageContext";
+import Link from "next/link";
 import { Briefcase, LayoutDashboard, MonitorPlay, Route } from "lucide-react";
-import { scrollToSection } from "@/lib/motion/scrollToSection";
 import { ServiceOrbitSvg } from "./visuals";
 
 const iconMap: Record<string, React.ReactNode> = {
@@ -33,13 +33,9 @@ export default function ServicesSection() {
                         </p>
 
                         <div className="mt-10">
-                            <button
-                                suppressHydrationWarning
-                                onClick={() => scrollToSection("#contact")}
-                                className="btn-primary px-8 py-3"
-                            >
+                            <Link href="/contact" className="btn-primary px-8 py-3">
                                 {t.services.cta}
-                            </button>
+                            </Link>
                         </div>
 
                         {/* Service orbit — supporting instrumentation visual, desktop only. */}

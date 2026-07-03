@@ -8,7 +8,7 @@ test("why-us English desktop trust story", async ({ page }) => {
   await expect(page.locator("[data-story-id]")).toHaveCount(7);
   await expect(page.locator("[data-process-step]")).toHaveCount(6);
   await expect(page.locator("footer a[href='/why-us']")).toContainText("Why Us?");
-  await expect(page.locator(".why-us-button--primary")).toHaveAttribute("href", "/#contact");
+  await expect(page.locator(".why-us-button--primary")).toHaveAttribute("href", "/contact");
   await expect(page.locator(".why-us-button--primary")).toContainText("Start building your website with us");
   await expect(page.locator(".why-us-cta__actions a[href='/work']")).toContainText("View case studies");
   // Reciprocal route back to the Why Change film.
@@ -22,7 +22,7 @@ test("why-us Arabic mobile remains readable", async ({ page }) => {
   await expect(page.getByRole("heading", { level: 1, name: "لماذا نحن؟" })).toBeVisible();
   await expect(page.locator("#why-us-process-title")).toContainText("كيف نعمل معك؟");
   await expect(page.locator("[data-process-step]").first()).toContainText("نفهم المشروع");
-  await expect(page.locator(".why-us-button--primary")).toHaveAttribute("href", "/#contact");
+  await expect(page.locator(".why-us-button--primary")).toHaveAttribute("href", "/contact");
   await expect(page.locator(".why-us-button--primary")).toContainText("ابدأ بناء موقعك معنا");
   await expect(page.locator(".why-us-cta__actions a[href='/why-change']")).toContainText("لماذا التغيير؟");
   await expectNoHorizontalOverflow(page);

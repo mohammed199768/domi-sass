@@ -205,7 +205,7 @@ body.domi-booting :where(main, header, footer, .mobile-nav-shell) {
   transition: opacity 260ms ease;
 }
 
-:where(#about, #services, #portfolio, #testimonials, #contact) {
+:where(#about, #services, #portfolio, #testimonials) {
   scroll-margin-top: 6rem;
 }
 

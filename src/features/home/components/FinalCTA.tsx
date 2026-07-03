@@ -1,6 +1,7 @@
 "use client";
 
 import React from "react";
+import Link from "next/link";
 import { motion } from "framer-motion";
 import { useLanguage } from "@/context/LanguageContext";
 import { scrollToSection } from "@/lib/motion/scrollToSection";
@@ -35,14 +36,12 @@ export default function FinalCTA() {
 
                     {/* CTAs — CSS scale instead of per-button Framer Motion wrappers */}
                     <div className="flex flex-col sm:flex-row gap-4 justify-center items-center pt-4">
-                        <button
-                            type="button"
-                            suppressHydrationWarning
-                            onClick={() => scrollToSection("#contact")}
+                        <Link
+                            href="/contact"
                             className="btn-primary px-8 py-4 font-black transition-transform duration-200 hover:scale-105 active:scale-95"
                         >
                             {t.finalCTA.primaryCTA}
-                        </button>
+                        </Link>
                         <button
                             type="button"
                             suppressHydrationWarning

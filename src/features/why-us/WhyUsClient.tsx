@@ -254,7 +254,7 @@ export default function WhyUsClient() {
   const rootRef = useRef<HTMLElement>(null);
 
   const ctaActions: WhyCtaAction[] = [
-    { label: t.ctaPrimary, href: "/#contact", intent: "primary" },
+    { label: t.ctaPrimary, href: "/contact", intent: "primary" },
     { label: t.ctaSecondary, href: "/why-change", intent: "secondary" },
   ];
 

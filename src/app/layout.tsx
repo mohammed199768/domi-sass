@@ -9,6 +9,7 @@ import "@/styles/globals.css";
 import { ThemeProvider } from "@/components/ThemeProvider";
 import SmoothScroll from "@/components/SmoothScroll";
 import MobileNav from "@/components/MobileNav";
+import FloatingActions from "@/components/FloatingActions";
 import BrandPreloader from "@/components/BrandPreloader";
 import DominaseCursor from "@/components/DominaseCursor";
 import { LanguageProvider } from "@/context/LanguageContext";
@@ -118,6 +119,7 @@ export default function RootLayout({
               {children}
               <MobileNav />
             </SmoothScroll>
+            <FloatingActions />
             <DominaseCursor />
           </LanguageProvider>
         </ThemeProvider>

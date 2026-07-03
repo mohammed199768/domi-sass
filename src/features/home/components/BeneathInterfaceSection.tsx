@@ -1,11 +1,12 @@
 "use client";
 
 import React, { useCallback, useEffect, useRef } from "react";
+import Link from "next/link";
+import { useRouter } from "next/navigation";
 import { useLanguage } from "@/context/LanguageContext";
 import { gsap, registerMotionPlugins, ScrollTrigger } from "@/lib/motion/gsapSetup";
 import { useReducedMotion } from "@/lib/motion/useReducedMotion";
 import { useMediaQuery } from "@/lib/motion/useMediaQuery";
-import { scrollToSection } from "@/lib/motion/scrollToSection";
 import BeneathInterfaceSvg, { type BeneathSvgRefs } from "./BeneathInterfaceSvg";
 
 /*
@@ -264,6 +265,7 @@ function SceneCard({
 // ── Main section component ─────────────────────────────────────────────────────
 
 export default function BeneathInterfaceSection() {
+  const router = useRouter();
   const { t, dir } = useLanguage();
   const c = t.beneathInterface;
   const prefersReducedMotion = useReducedMotion();
@@ -485,7 +487,7 @@ export default function BeneathInterfaceSection() {
               isTablet={isTablet}
               isRtl={isRtl}
               prefersReducedMotion={prefersReducedMotion}
-              onCta={() => scrollToSection("#contact")}
+              onCta={() => router.push("/contact")}
               ctaLabel={c.cta}
             />
           ))}
@@ -595,15 +597,13 @@ export default function BeneathInterfaceSection() {
 
             {/* CTA — fades in at scene 06 */}
             <div ref={ctaRef} style={{ opacity: 0 }}>
-              <button
-                type="button"
-                suppressHydrationWarning
-                onClick={() => scrollToSection("#contact")}
-                className="min-h-11 rounded-xl px-7 py-3 text-sm font-black transition duration-300 hover:opacity-80 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary-theme focus-visible:ring-offset-2"
+              <Link
+                href="/contact"
+                className="inline-block min-h-11 rounded-xl px-7 py-3 text-sm font-black transition duration-300 hover:opacity-80 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary-theme focus-visible:ring-offset-2"
                 style={{ background: "var(--primary)", color: "var(--primary-contrast)" }}
               >
                 {c.cta}
-              </button>
+              </Link>
             </div>
 
             {/* Progress rail */}
@@ -657,9 +657,7 @@ export default function BeneathInterfaceSection() {
             </li>
           ))}
         </ul>
-        <button type="button" suppressHydrationWarning onClick={() => scrollToSection("#contact")}>
-          {c.cta}
-        </button>
+        <Link href="/contact">{c.cta}</Link>
       </div>
     </section>
   );

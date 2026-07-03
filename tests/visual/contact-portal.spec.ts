@@ -1,11 +1,14 @@
 import { test, expect, type Page } from "@playwright/test";
 
 /**
- * HOME M15 — contact conversion portal functional tests.
+ * /contact — contact orbit + message form functional tests.
+ *
+ * The conversion form moved from the homepage portal (HOME M15) to the
+ * dedicated /contact page: six orbit actions around the DOMINASE hub, with a
+ * Message action that reveals the same Formspree form below the orbit.
  *
  * These never hit the real Formspree endpoint — the POST is intercepted. Tests
- * run with reduced motion so the portal reveal is instant and the form is
- * immediately interactive (no scroll choreography to wait on).
+ * run with reduced motion so the orbit is static and the reveal is instant.
  */
 
 async function openContact(page: Page, language: "en" | "ar" = "en") {
@@ -15,17 +18,24 @@ async function openContact(page: Page, language: "en" | "ar" = "en") {
   }, language);
   await page.emulateMedia({ colorScheme: "dark", reducedMotion: "reduce" });
   await page.setViewportSize({ width: 1280, height: 900 });
-  await page.goto("/", { waitUntil: "networkidle" });
-  await page.locator("#contact").scrollIntoViewIfNeeded();
+  await page.goto("/contact", { waitUntil: "networkidle" });
 }
 
-test("renders name, phone and company fields (no email/message)", async ({ page }) => {
+/** Clicks the orbit's Message action and waits for the revealed form section. */
+async function openMessageForm(page: Page) {
+  await page.locator("button[aria-controls=contact-message]").click();
+  await expect(page.locator("#contact-message")).toBeVisible();
+}
+
+test("orbit renders and Message reveals name, phone and company fields (no email/message)", async ({ page }) => {
   await openContact(page);
+  await expect(page.locator("#contact-message")).toHaveCount(0); // hidden until requested
+  await openMessageForm(page);
   await expect(page.locator("#contact-name")).toBeVisible();
   await expect(page.locator("#contact-phone")).toBeVisible();
   await expect(page.locator("#contact-company")).toBeVisible();
   // The focused conversion form intentionally drops the email + message fields.
-  await expect(page.locator("#contact form textarea")).toHaveCount(0);
+  await expect(page.locator("#contact-message form textarea")).toHaveCount(0);
 });
 
 test("required validation blocks submit and announces errors", async ({ page }) => {
@@ -36,7 +46,8 @@ test("required validation blocks submit and announces errors", async ({ page }) 
   });
 
   await openContact(page);
-  await page.locator("#contact button[type=submit]").click();
+  await openMessageForm(page);
+  await page.locator("#contact-message button[type=submit]").click();
 
   await expect(page.locator("#contact-name")).toHaveAttribute("aria-invalid", "true");
   await expect(page.locator("#contact-phone")).toHaveAttribute("aria-invalid", "true");
@@ -50,10 +61,11 @@ test("successful mocked submit shows the success state, reset returns the form",
   });
 
   await openContact(page);
+  await openMessageForm(page);
   await page.fill("#contact-name", "Test Client");
   await page.fill("#contact-phone", "+962790000000");
   await page.fill("#contact-company", "Acme Co");
-  await page.locator("#contact button[type=submit]").click();
+  await page.locator("#contact-message button[type=submit]").click();
 
   const success = page.locator("[data-contact-success]");
   await expect(success).toBeVisible();
@@ -71,23 +83,29 @@ test("Formspree error keeps the user on the page and shows an error", async ({ p
   });
 
   await openContact(page);
+  await openMessageForm(page);
   await page.fill("#contact-name", "Test Client");
   await page.fill("#contact-phone", "+962790000000");
-  await page.locator("#contact button[type=submit]").click();
+  await page.locator("#contact-message button[type=submit]").click();
 
-  await expect(page.locator("#contact [role=alert]")).toBeVisible();
+  await expect(page.locator("#contact-message [role=alert]")).toBeVisible();
   await expect(page.locator("#contact-name")).toBeVisible(); // still on the form
 });
 
-test("contact action circles have valid whatsapp / tel / mailto hrefs", async ({ page }) => {
+test("orbit actions have valid whatsapp / tel / mailto / profile hrefs", async ({ page }) => {
   await openContact(page);
-  const wa = page.locator("#contact a[href^='https://wa.me/']");
-  const tel = page.locator("#contact a[href^='tel:']");
-  const mail = page.locator("#contact a[href^='mailto:']");
+  const orbit = page.getByRole("group");
+  const wa = orbit.locator("a[href^='https://wa.me/']");
+  const tel = orbit.locator("a[href^='tel:']");
+  const mail = orbit.locator("a[href^='mailto:']");
+  const github = orbit.locator("a[href*='github.com']");
+  const upwork = orbit.locator("a[href*='upwork.com']");
 
   await expect(wa).toHaveCount(1);
   await expect(tel).toHaveCount(1);
   await expect(mail).toHaveCount(1);
+  await expect(github).toHaveCount(1);
+  await expect(upwork).toHaveCount(1);
   await expect(wa).toHaveAttribute("href", /^https:\/\/wa\.me\/\d{6,}$/);
   await expect(tel).toHaveAttribute("href", /^tel:\+\d{6,}$/);
   await expect(mail).toHaveAttribute("href", /^mailto:.+@.+\..+/);
@@ -101,13 +119,13 @@ test("Arabic labels render and there is no horizontal overflow on mobile", async
   });
   await page.emulateMedia({ colorScheme: "dark", reducedMotion: "reduce" });
   await page.setViewportSize({ width: 390, height: 844 });
-  await page.goto("/", { waitUntil: "networkidle" });
-  await page.locator("#contact").scrollIntoViewIfNeeded();
+  await page.goto("/contact", { waitUntil: "networkidle" });
 
-  await expect(page.locator("#contact label[for=contact-name]")).toHaveText("الاسم");
-  await expect(page.locator("#contact label[for=contact-phone]")).toHaveText("رقم الهاتف");
-  await expect(page.locator("#contact label[for=contact-company]")).toHaveText("اسم الشركة");
+  await page.locator("button[aria-controls=contact-message]").click();
+  await expect(page.locator("#contact-message label[for=contact-name]")).toHaveText("الاسم");
+  await expect(page.locator("#contact-message label[for=contact-phone]")).toHaveText("رقم الهاتف");
+  await expect(page.locator("#contact-message label[for=contact-company]")).toHaveText("اسم الشركة");
 
   const overflow = await page.evaluate(() => document.documentElement.scrollWidth > window.innerWidth);
-  expect(overflow, "homepage should not overflow horizontally on mobile").toBe(false);
+  expect(overflow, "/contact should not overflow horizontally on mobile").toBe(false);
 });
