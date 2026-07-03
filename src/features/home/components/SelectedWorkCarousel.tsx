@@ -27,7 +27,7 @@ const selectedWorks: SelectedWork[] = [
   {
     key: "curevie",
     title: "Curevie",
-    image: "/assest/optimized/images/curevie-lab.webp",
+    image: "/assest/our-work/curevie.webp",
     href: "/work/curevie",
     palette: {
       primary: "#1FA879",
@@ -38,7 +38,7 @@ const selectedWorks: SelectedWork[] = [
   {
     key: "horvath",
     title: "Horvath",
-    image: "/assest/optimized/images/horvath-lab.webp",
+    image: "/assest/our-work/horvath.webp",
     href: "/work/horvath-survey",
     palette: {
       primary: "#4EA8E8",
@@ -49,7 +49,7 @@ const selectedWorks: SelectedWork[] = [
   {
     key: "manal-alhihi",
     title: "Manal Alhihi",
-    image: "/assest/optimized/images/manal-alhihi-lab.webp",
+    image: "/assest/our-work/T.Manal.webp",
     href: "/work/manal-alhihi",
     palette: {
       primary: "#234A86",
@@ -60,7 +60,7 @@ const selectedWorks: SelectedWork[] = [
   {
     key: "qaser-al-farah",
     title: "Qasr Al-Farah",
-    image: "/assest/optimized/images/qaser-lab.webp",
+    image: "/assest/our-work/qaser-alfarah.webp",
     href: "/work/qasr-alfarah",
     palette: {
       primary: "#6F7FD8",
