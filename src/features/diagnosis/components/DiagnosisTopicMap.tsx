@@ -35,7 +35,7 @@ export default function DiagnosisTopicMap({
       className="rounded-2xl border border-border bg-surface p-4"
       aria-label={isArabic ? "خريطة المحاور" : "Topic map"}
     >
-      <p className="font-display text-[11px] font-black uppercase tracking-[0.2em] text-muted">
+      <p className="font-display text-[11px] font-black uppercase tracking-[0.2em] text-primary-theme">
         {isArabic ? "خريطة التشخيص" : "Diagnostic map"}
       </p>
       <ol className="mt-4 space-y-4">
@@ -47,7 +47,7 @@ export default function DiagnosisTopicMap({
                 <p className="text-xs font-bold leading-5 text-foreground/85">
                   {localized(group.dimension.title, group.dimension.titleAr, isArabic)}
                 </p>
-                <span className="shrink-0 text-[11px] font-bold text-muted" dir="ltr">
+                <span className="shrink-0 text-[11px] font-extrabold text-foreground/80" dir="ltr">
                   {answered}/{group.entries.length}
                 </span>
               </div>
@@ -70,8 +70,8 @@ export default function DiagnosisTopicMap({
                           : complete
                             ? "border-primary-theme/45 bg-primary-theme/10 text-primary-theme"
                             : enabled
-                              ? "border-border text-muted hover:border-primary-theme/40"
-                              : "cursor-not-allowed border-border text-muted opacity-40"
+                              ? "border-border text-foreground/80 hover:border-primary-theme/40"
+                              : "cursor-not-allowed border-border text-foreground/55 opacity-60"
                       }`}
                       dir="ltr"
                     >

@@ -565,10 +565,23 @@ body.domi-booting :where(main, header, footer, .mobile-nav-shell) {
   --diag-current: var(--primary);
   --diag-target: #4fc3e8;
   --diag-track: color-mix(in srgb, var(--fg) 9%, transparent);
+  --muted: #c3cec6;
+  --color-muted: var(--muted);
+  line-height: 1.65;
 }
 
 [data-theme="light"] .diagnosis-scope {
   --diag-target: #0b7ba5;
+  --muted: #2f3b34;
+  --color-muted: var(--muted);
+}
+
+[dir="rtl"] .diagnosis-scope {
+  letter-spacing: 0;
+}
+
+[dir="rtl"] .diagnosis-scope .font-display {
+  letter-spacing: 0;
 }
 
 /* Premium maturity rail — a restyled native range input (accessible, RTL-safe

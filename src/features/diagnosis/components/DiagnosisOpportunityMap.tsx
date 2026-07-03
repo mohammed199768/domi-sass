@@ -33,12 +33,12 @@ export default function DiagnosisOpportunityMap({
   return (
     <section className="rounded-[1.6rem] border border-border bg-surface p-5 sm:p-7">
       <h3 className="text-xl font-black text-foreground">{isArabic ? "خريطة الفرص" : "Opportunity map"}</h3>
-      <p className="mt-1 text-xs leading-6 text-muted">
+      <p className="mt-1 text-sm font-medium leading-7 text-muted">
         {isArabic ? "كل نقطة تمثل فجوة تشخيصية" : "Each point represents a diagnostic gap"}
       </p>
 
       {points.length === 0 ? (
-        <p className="mt-6 rounded-xl border border-border bg-surface-muted px-4 py-3 text-sm leading-7 text-muted">
+        <p className="mt-6 rounded-xl border border-border bg-surface-muted px-4 py-3 text-sm font-medium leading-7 text-muted">
           {isArabic
             ? "لا توجد فجوات مسجلة — المستوى المطلوب يساوي الحالي في كل المحاور."
             : "No gaps recorded — your target matches your current state across all topics."}
@@ -78,7 +78,7 @@ export default function DiagnosisOpportunityMap({
                 textAnchor="middle"
                 fontSize="12"
                 fontWeight="700"
-                fill="var(--muted)"
+                fill="var(--fg)"
               >
                 {isArabic ? "الإلحاح (حجم الفجوة)" : "Urgency (gap size)"}
               </text>
@@ -88,7 +88,7 @@ export default function DiagnosisOpportunityMap({
                 textAnchor="middle"
                 fontSize="12"
                 fontWeight="700"
-                fill="var(--muted)"
+                fill="var(--fg)"
                 transform={`rotate(-90 16 ${height / 2})`}
               >
                 {isArabic ? "الأهمية (الوزن)" : "Importance (weight)"}
@@ -133,7 +133,7 @@ export default function DiagnosisOpportunityMap({
           {/* Legend */}
           <ol className="mt-4 grid gap-x-6 gap-y-2 sm:grid-cols-2">
             {points.map((point, index) => (
-              <li key={point.topicId} className="flex items-baseline gap-2.5 text-xs leading-6 text-muted">
+              <li key={point.topicId} className="flex items-baseline gap-2.5 text-sm font-medium leading-7 text-foreground/85">
                 <span
                   className="font-display font-black"
                   style={{ color: index < 3 ? "var(--diag-target)" : "var(--diag-current)" }}

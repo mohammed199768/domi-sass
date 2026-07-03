@@ -42,11 +42,11 @@ export default function DiagnosisDomainCard({ entry, isArabic }: { entry: Entry;
       <span className="absolute start-0 top-7 h-10 w-[3px] rounded-e-full bg-primary-theme/70" aria-hidden="true" />
 
       <div className="flex items-start justify-between gap-4">
-        <p className="font-display text-[11px] font-black uppercase tracking-[0.2em] text-muted">
+        <p className="font-display text-[11px] font-black uppercase tracking-[0.2em] text-primary-theme">
           {isArabic ? entry.data.meta.domainAr || entry.domain : entry.domain}
         </p>
         <ArrowUpRight
-          className="h-5 w-5 shrink-0 text-muted transition-colors duration-300 group-hover:text-primary-theme rtl:-scale-x-100"
+          className="h-5 w-5 shrink-0 text-foreground/70 transition-colors duration-300 group-hover:text-primary-theme rtl:-scale-x-100"
           aria-hidden="true"
         />
       </div>
@@ -59,11 +59,11 @@ export default function DiagnosisDomainCard({ entry, isArabic }: { entry: Entry;
         {isArabic ? promise.ar : promise.en}
       </p>
 
-      <p className="mt-3 flex-1 text-sm leading-7 text-muted">
+      <p className="mt-3 flex-1 text-sm font-medium leading-7 text-foreground/80">
         {isArabic ? entry.descriptionAr : entry.description}
       </p>
 
-      <div className="mt-6 flex flex-wrap items-center gap-2 text-xs font-bold text-muted">
+      <div className="mt-6 flex flex-wrap items-center gap-2 text-xs font-extrabold text-foreground/80">
         <span className="rounded-full border border-border px-3 py-1.5">
           {dimensionCount} {isArabic ? "أبعاد" : "dimensions"} · {topicCount} {isArabic ? "سؤالا" : "questions"}
         </span>

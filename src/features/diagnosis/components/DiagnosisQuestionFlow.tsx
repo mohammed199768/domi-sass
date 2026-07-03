@@ -39,7 +39,7 @@ export default function DiagnosisQuestionFlow({
   const activeAnchor = answer?.currentTouched && typeof answer.current === "number" ? Math.round(answer.current) : null;
 
   return (
-    <section className="mx-auto w-full max-w-6xl px-5 pb-16 sm:px-6 lg:px-8">
+    <section className="mx-auto w-full max-w-6xl px-5 pb-10 sm:px-6 lg:px-8">
       {/* ── Sticky diagnostic shell ── */}
       <div className="sticky top-20 z-30">
         <div className="rounded-2xl border border-border bg-background shadow-[0_18px_50px_-40px_var(--cool-shadow)]">
@@ -64,8 +64,8 @@ export default function DiagnosisQuestionFlow({
       </div>
 
       {/* ── Two-column diagnostic layout ── */}
-      <div className="mt-6 grid items-start gap-6 lg:grid-cols-[270px_1fr]">
-        <aside className="hidden lg:sticky lg:top-40 lg:block">
+      <div className="mt-4 grid items-start gap-5 lg:grid-cols-[250px_minmax(0,1fr)]">
+        <aside className="hidden lg:sticky lg:top-36 lg:block">
           <DiagnosisTopicMap
             items={items}
             answers={answers}
@@ -77,24 +77,25 @@ export default function DiagnosisQuestionFlow({
 
         <div>
           {/* Question card */}
-          <article className="rounded-[1.6rem] border border-border bg-surface p-5 shadow-[0_28px_80px_-58px_var(--cool-shadow)] sm:p-7">
+          <article className="rounded-[1.6rem] border border-border bg-surface p-4 shadow-[0_28px_80px_-58px_var(--cool-shadow)] sm:p-6">
             <p className="font-display text-[11px] font-black uppercase tracking-[0.2em] text-primary-theme">
               {localized(item.dimension.title, item.dimension.titleAr, isArabic)}
             </p>
-            <h2 className="mt-3 text-2xl font-black leading-snug text-foreground sm:text-3xl">
+            <h2 className="mt-2 text-[1.4rem] font-black leading-snug text-foreground sm:text-3xl lg:text-[2.125rem]">
               {localized(item.topic.label, item.topic.labelAr, isArabic)}
             </h2>
-            <p className="mt-4 max-w-3xl text-base leading-8 text-foreground/85">
+            <p className="mt-2 max-w-3xl text-base font-medium leading-8 text-foreground sm:text-[17px]">
               {localized(item.topic.prompt, item.topic.promptAr, isArabic)}
             </p>
-            <p className="mt-3 text-xs font-bold text-muted">
+            <p className="mt-2 text-sm font-bold leading-6 text-muted">
               {isArabic ? "قيّم الوضع الحالي ثم المستوى المطلوب." : "Rate the current state, then the target level."}
             </p>
 
-            {/* Maturity anchors: stable 1→5 order, never reversed in RTL */}
+            {/* Maturity anchors: numeric 1→5 order from data; visually mirrored in
+                Arabic (dir=rtl) so anchor 1 sits on the right, 5 on the left. */}
             <div
-              className="no-scrollbar mt-6 grid auto-cols-[minmax(10.5rem,1fr)] grid-flow-col gap-2 overflow-x-auto pb-1 sm:auto-cols-auto sm:grid-flow-row sm:grid-cols-5 sm:overflow-visible"
-              dir="ltr"
+              className="no-scrollbar mt-4 grid auto-cols-[minmax(10rem,1fr)] grid-flow-col gap-2 overflow-x-auto pb-1 sm:auto-cols-auto sm:grid-flow-row sm:grid-cols-5 sm:overflow-visible"
+              dir={isArabic ? "rtl" : "ltr"}
             >
               {anchors.map((anchor, anchorIndex) => {
                 const level = anchorIndex + 1;
@@ -102,15 +103,15 @@ export default function DiagnosisQuestionFlow({
                 return (
                   <div
                     key={`${item.topic.id}-${level}`}
-                    className={`rounded-xl border p-3 text-xs leading-6 transition-colors duration-200 ${
+                    className={`rounded-xl border p-2.5 text-sm font-medium leading-6 transition-colors duration-200 ${
                       active
                         ? "border-primary-theme/60 bg-primary-theme/[0.07] text-foreground"
-                        : "border-border bg-surface-muted text-muted"
+                        : "border-border bg-surface-muted text-foreground/85"
                     }`}
                     dir={isArabic ? "rtl" : "ltr"}
                   >
                     <span
-                      className={`font-display text-sm font-black ${active ? "text-primary-theme" : "text-foreground/60"}`}
+                      className={`font-display text-sm font-black ${active ? "text-primary-theme" : "text-foreground"}`}
                       dir="ltr"
                     >
                       {level}
@@ -120,12 +121,14 @@ export default function DiagnosisQuestionFlow({
                 );
               })}
             </div>
-            <p className="mt-2 text-[11px] font-bold text-muted" dir="auto">
-              {isArabic ? "٥ تعني دائما الأقوى والأنضج." : "5 always means stronger and more mature."}
+            <p className="mt-2 text-xs font-bold leading-6 text-muted" dir={isArabic ? "rtl" : "ltr"}>
+              {isArabic
+                ? "١ في اليمين = أقل جاهزية، ٥ في اليسار = أعلى جاهزية"
+                : "1 = lowest maturity, 5 = highest maturity"}
             </p>
 
             {/* Current first, then Target — in both languages */}
-            <div className="mt-7 grid gap-4">
+            <div className="mt-5 grid gap-3">
               <DiagnosisMaturityRail
                 label={isArabic ? "الوضع الحالي" : "Current"}
                 hint={isArabic ? "أين تقف مؤسستك اليوم بصدق؟" : "Where does your organization honestly stand today?"}
@@ -154,7 +157,7 @@ export default function DiagnosisQuestionFlow({
           </article>
 
           {/* Navigation */}
-          <div className="mt-5 flex flex-wrap items-center justify-between gap-3">
+          <div className="mt-4 flex flex-wrap items-center justify-between gap-3">
             <button
               type="button"
               onClick={index === 0 ? onBackToContext : () => setIndex(index - 1)}
@@ -178,7 +181,7 @@ export default function DiagnosisQuestionFlow({
             </button>
           </div>
           {!canContinue ? (
-            <p className="mt-3 text-xs leading-6 text-muted">
+            <p className="mt-2 text-sm font-semibold leading-6 text-muted">
               {isArabic
                 ? "حدد الوضع الحالي والمستوى المطلوب معا للمتابعة."
                 : "Set both the current state and the target level to continue."}
@@ -188,7 +191,7 @@ export default function DiagnosisQuestionFlow({
           <button
             type="button"
             onClick={onReset}
-            className="mt-6 text-xs font-bold text-muted underline-offset-4 transition-colors hover:text-foreground hover:underline"
+            className="mt-4 text-xs font-bold text-muted underline-offset-4 transition-colors hover:text-foreground hover:underline"
           >
             {isArabic ? "إعادة التشخيص من البداية" : "Restart the diagnosis"}
           </button>

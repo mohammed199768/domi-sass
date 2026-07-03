@@ -25,7 +25,7 @@ export default function DiagnosisDimensionChart({
         <h3 className="text-xl font-black text-foreground">
           {isArabic ? "الأبعاد: الحالي مقابل المطلوب" : "Dimensions: current vs target"}
         </h3>
-        <p className="flex items-center gap-4 text-[11px] font-bold text-muted">
+        <p className="flex items-center gap-4 text-xs font-extrabold text-foreground/85">
           <span className="flex items-center gap-1.5">
             <span className="h-2 w-4 rounded-full" style={{ background: "var(--diag-current)" }} aria-hidden="true" />
             {isArabic ? "الحالي" : "Current"}
@@ -47,7 +47,7 @@ export default function DiagnosisDimensionChart({
                 <p className="text-sm font-bold text-foreground/90">
                   {localized(dimension.title, dimension.titleAr, isArabic)}
                 </p>
-                <p className="shrink-0 text-xs font-bold text-muted" dir="ltr">
+                <p className="shrink-0 text-xs font-extrabold text-foreground/80" dir="ltr">
                   {dimension.averageCurrent.toFixed(1)} → {dimension.averageTarget.toFixed(1)}
                   <span className="ms-2 text-primary-theme">
                     {isArabic ? "فجوة" : "gap"} {dimension.averageGap.toFixed(1)}

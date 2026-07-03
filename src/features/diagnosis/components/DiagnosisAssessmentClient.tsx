@@ -12,6 +12,8 @@ import DiagnosisContextIntake from "./DiagnosisContextIntake";
 import DiagnosisQuestionFlow from "./DiagnosisQuestionFlow";
 import DiagnosisCompletion from "./DiagnosisCompletion";
 import DiagnosisResults from "./DiagnosisResults";
+import DiagnosisThemeHint from "./DiagnosisThemeHint";
+import DiagnosisThemeToggle from "./DiagnosisThemeToggle";
 
 type Stage = "context" | "questions" | "completion" | "results";
 
@@ -65,12 +67,34 @@ export default function DiagnosisAssessmentClient({
   return (
     <main className="diagnosis-scope min-h-screen overflow-x-clip bg-background text-foreground">
       <Header />
+      <DiagnosisThemeHint isArabic={isArabic} />
 
-      {/* Compact assessment header — full version during intake, minimal
-          spacer during the question / completion / results stages so the
+      {/* Diagnosis shell top bar — clears the fixed navbar and hosts the
+          diagnosis-scoped theme toggle so light/dark is reachable on every
+          stage without overlapping the site header. */}
+      <div className="mx-auto flex w-full max-w-6xl flex-wrap items-center justify-between gap-3 px-5 pt-24 sm:px-6 lg:px-8">
+        <div>
+          <p className="text-sm font-extrabold leading-6 text-foreground">
+            {localized(assessment.meta.title, assessment.meta.titleAr, isArabic)}
+          </p>
+          <p className="text-xs font-semibold leading-5 text-muted">
+            {stage === "questions"
+              ? isArabic
+                ? `${topics.filter(({ topic }) => isDiagnosisAnswerComplete(answers[topic.id])).length} / ${topics.length} مكتمل`
+                : `${topics.filter(({ topic }) => isDiagnosisAnswerComplete(answers[topic.id])).length} / ${topics.length} complete`
+              : isArabic
+                ? "زر الثيم متاح طوال التشخيص"
+                : "Theme control stays available throughout"}
+          </p>
+        </div>
+        <DiagnosisThemeToggle isArabic={isArabic} />
+      </div>
+
+      {/* Compact assessment header — full version during intake; the question /
+          completion / results stages render straight below the top bar so the
           sticky shell never collides with the site navbar. */}
       {stage === "context" ? (
-        <section className="mx-auto w-full max-w-5xl px-5 pb-6 pt-32 sm:px-6 lg:px-8">
+        <section className="mx-auto w-full max-w-5xl px-5 pb-6 pt-4 sm:px-6 lg:px-8">
           <p className="font-display text-xs font-black uppercase tracking-[0.22em] text-primary-theme">
             DOMINASE Growth Diagnosis
           </p>
@@ -90,9 +114,7 @@ export default function DiagnosisAssessmentClient({
             </span>
           </div>
         </section>
-      ) : (
-        <div className="pt-28" aria-hidden="true" />
-      )}
+      ) : null}
 
       {stage === "context" ? (
         <DiagnosisContextIntake

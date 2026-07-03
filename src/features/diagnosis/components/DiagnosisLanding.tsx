@@ -5,6 +5,8 @@ import Footer from "@/components/Footer";
 import { diagnosisEntries } from "@/data/diagnosis/registry";
 import { useLanguage } from "@/context/LanguageContext";
 import DiagnosisDomainCard from "./DiagnosisDomainCard";
+import DiagnosisThemeHint from "./DiagnosisThemeHint";
+import DiagnosisThemeToggle from "./DiagnosisThemeToggle";
 
 const journeySteps = [
   {
@@ -28,9 +30,23 @@ export default function DiagnosisLanding() {
   return (
     <main className="diagnosis-scope min-h-screen overflow-x-clip bg-background text-foreground">
       <Header />
+      <DiagnosisThemeHint isArabic={isArabic} />
+
+      {/* Diagnosis shell top bar — theme toggle, clears the fixed navbar. */}
+      <div className="mx-auto flex w-full max-w-7xl flex-wrap items-center justify-between gap-3 px-5 pt-24 sm:px-6 lg:px-8">
+        <div>
+          <p className="text-sm font-extrabold leading-6 text-foreground">
+            {isArabic ? "تشخيص النمو" : "Growth Diagnosis"}
+          </p>
+          <p className="text-xs font-semibold leading-5 text-muted">
+            {isArabic ? "اختر الوضع الأنسب للقراءة" : "Choose the reading mode that suits you"}
+          </p>
+        </div>
+        <DiagnosisThemeToggle isArabic={isArabic} />
+      </div>
 
       {/* ── Diagnostic Gateway hero ── */}
-      <section className="mx-auto w-full max-w-7xl px-5 pb-4 pt-32 sm:px-6 lg:px-8">
+      <section className="mx-auto w-full max-w-7xl px-5 pb-4 pt-6 sm:px-6 lg:px-8">
         <div className="max-w-4xl">
           <p className="font-display text-xs font-black uppercase tracking-[0.22em] text-primary-theme">
             DOMINASE Growth Diagnosis

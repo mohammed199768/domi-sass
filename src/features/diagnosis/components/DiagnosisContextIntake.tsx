@@ -105,7 +105,7 @@ export default function DiagnosisContextIntake({
           </div>
 
           <h2 className="mt-6 text-2xl font-black text-foreground sm:text-3xl">{copy.title}</h2>
-          <p className="mt-2 text-sm leading-7 text-muted">{copy.hint}</p>
+          <p className="mt-2 text-base font-medium leading-8 text-foreground/80">{copy.hint}</p>
 
           <div className="mt-7 grid gap-5">
             {step.fields.map((field) => (
@@ -113,7 +113,7 @@ export default function DiagnosisContextIntake({
             ))}
           </div>
 
-          <p className="mt-7 rounded-xl border border-border bg-surface-muted px-4 py-3 text-xs leading-6 text-muted">
+          <p className="mt-7 rounded-xl border border-border bg-surface-muted px-4 py-3 text-sm font-medium leading-7 text-muted">
             {isArabic
               ? "هذه المعلومات لا تدخل في حساب الدرجة. نستخدمها فقط لجعل التقرير أقرب لواقع مؤسستك."
               : "These details do not affect your score. They only help personalize the report."}
@@ -154,8 +154,8 @@ export default function DiagnosisContextIntake({
                 const why = localized(field.whyNeeded, field.whyNeededAr, isArabic);
                 if (!why) return null;
                 return (
-                  <li key={field.id} className="text-xs leading-6 text-muted">
-                    <span className="block font-bold text-foreground/80">
+                  <li key={field.id} className="text-sm font-medium leading-7 text-muted">
+                    <span className="block font-extrabold text-foreground">
                       {localized(field.label, field.labelAr, isArabic)}
                     </span>
                     {why}
@@ -190,10 +190,10 @@ function IntakeField({
 
   return (
     <label className="block">
-      <span className={`text-sm font-bold ${optional ? "text-muted" : "text-foreground"}`}>
+      <span className={`text-sm font-extrabold ${optional ? "text-foreground/80" : "text-foreground"}`}>
         {label}
         {optional ? (
-          <span className="ms-2 text-xs font-normal text-muted">{isArabic ? "(اختياري)" : "(optional)"}</span>
+          <span className="ms-2 text-xs font-semibold text-muted">{isArabic ? "(اختياري)" : "(optional)"}</span>
         ) : null}
       </span>
       {field.type === "select" ? (
@@ -216,7 +216,7 @@ function IntakeField({
         <input value={value} onChange={(event) => onChange(field.id, event.target.value)} className={inputClass} />
       )}
       {localized(field.whyNeeded, field.whyNeededAr, isArabic) ? (
-        <span className="mt-1.5 block text-xs leading-5 text-muted lg:hidden">
+        <span className="mt-1.5 block text-sm font-medium leading-6 text-muted lg:hidden">
           {localized(field.whyNeeded, field.whyNeededAr, isArabic)}
         </span>
       ) : null}
