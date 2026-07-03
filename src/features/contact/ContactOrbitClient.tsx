@@ -1,0 +1,277 @@
+"use client";
+
+/**
+ * /contact — the DOMINASE contact orbit.
+ *
+ * A slow technical signal ring: six contact actions rotating around the
+ * DOMINASE hub. Pure CSS transform animation (see contact-orbit.module.css),
+ * no JS animation loop, no per-frame state. Each icon counter-rotates so it
+ * stays upright; hover/focus pauses the ring; reduced motion disables it.
+ *
+ * Contact destinations are the site's existing sources only:
+ *   - WhatsApp / phone / email → CONTACT_CHANNELS (src/constants/contact.ts)
+ *   - GitHub / Upwork          → GITHUB_URL / UPWORK_URL (same URLs as Footer)
+ *   - Message                  → reveals the Formspree form below (same
+ *     ContactForm + FORMSPREE_ENDPOINT as the homepage — no second endpoint).
+ */
+
+import { useEffect, useRef, useState } from "react";
+import { Github, Mail, Phone, Send } from "lucide-react";
+import Header from "@/components/Header";
+import Footer from "@/components/Footer";
+import ContactForm from "@/features/home/components/ContactForm";
+import { useLanguage } from "@/context/LanguageContext";
+import { CONTACT_CHANNELS, GITHUB_URL, UPWORK_URL } from "@/constants/contact";
+import { scrollToSection } from "@/lib/motion/scrollToSection";
+import styles from "./contact-orbit.module.css";
+
+/* ── Bilingual page copy (local to this feature, like /why-us) ────────────── */
+
+const COPY = {
+  en: {
+    eyebrow: "DOMINASE / Contact",
+    title: "One ring. Every way to reach us.",
+    subtitle:
+      "Pick the channel that fits how you work — a direct call, a quick WhatsApp, a formal email, or a written brief through the form.",
+    hubSubtitle: "Digital Product Studio",
+    orbitLabel: "Contact channels orbit",
+    items: {
+      whatsapp: "WhatsApp",
+      phone: "Call",
+      github: "GitHub",
+      upwork: "Upwork",
+      email: "Email",
+      message: "Message",
+    },
+    aria: {
+      whatsapp: "Open WhatsApp chat with DOMINASE",
+      phone: "Call DOMINASE by phone",
+      github: "Open the DOMINASE GitHub profile",
+      upwork: "Open the DOMINASE Upwork profile",
+      email: "Send an email to DOMINASE",
+      message: "Open the message form below",
+    },
+    message: {
+      title: "Start the conversation with DOMINASE",
+      subtitle:
+        "Share the project idea, the current problem, or the digital path you want to improve. We will reply with the next useful step.",
+      submit: "Send message",
+    },
+  },
+  ar: {
+    eyebrow: "DOMINASE / تواصل",
+    title: "دائرة واحدة. كل طرق الوصول إلينا.",
+    subtitle:
+      "اختر القناة التي تناسب طريقة عملك — مكالمة مباشرة، رسالة واتساب سريعة، بريد رسمي، أو ملخص مكتوب عبر النموذج.",
+    hubSubtitle: "استوديو منتجات رقمية",
+    orbitLabel: "مدار قنوات التواصل",
+    items: {
+      whatsapp: "واتساب",
+      phone: "اتصال",
+      github: "GitHub",
+      upwork: "Upwork",
+      email: "البريد",
+      message: "رسالة",
+    },
+    aria: {
+      whatsapp: "افتح محادثة واتساب مع DOMINASE",
+      phone: "اتصل بـ DOMINASE هاتفياً",
+      github: "افتح حساب DOMINASE على GitHub",
+      upwork: "افتح حساب DOMINASE على Upwork",
+      email: "أرسل بريداً إلكترونياً إلى DOMINASE",
+      message: "افتح نموذج الرسالة بالأسفل",
+    },
+    message: {
+      title: "ابدأ المحادثة مع DOMINASE",
+      subtitle:
+        "اكتب فكرة المشروع، المشكلة الحالية، أو المسار الرقمي الذي تريد تحسينه. سنرد عليك بالخطوة التالية المناسبة.",
+      submit: "أرسل الرسالة",
+    },
+  },
+} as const;
+
+/* ── Minimal monochrome WhatsApp mark (no icon library carries it) ────────── */
+
+function WhatsAppMark({ className }: { className?: string }) {
+  return (
+    <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" className={className}>
+      <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413z" />
+    </svg>
+  );
+}
+
+/* ── Orbit geometry (static math, computed once at module load) ───────────── */
+
+type OrbitItemId = "whatsapp" | "phone" | "github" | "upwork" | "email" | "message";
+
+const ORBIT_ORDER: OrbitItemId[] = ["whatsapp", "phone", "github", "upwork", "email", "message"];
+
+/** Physical top/left offsets on the ring; start at 12 o'clock, step 60°. */
+const ORBIT_POSITIONS = ORBIT_ORDER.map((id, index) => {
+  const angle = (Math.PI / 180) * (-90 + (360 / ORBIT_ORDER.length) * index);
+  return { id, cos: Math.cos(angle), sin: Math.sin(angle) };
+});
+
+export default function ContactOrbitClient() {
+  const { language } = useLanguage();
+  const copy = COPY[language];
+
+  const [messageOpen, setMessageOpen] = useState(false);
+  const messageHeadingRef = useRef<HTMLHeadingElement>(null);
+  const shouldScrollRef = useRef(false);
+
+  // After the message section mounts, scroll to it and move focus to its
+  // heading (keyboard users land where the action took them).
+  useEffect(() => {
+    if (!messageOpen || !shouldScrollRef.current) return;
+    shouldScrollRef.current = false;
+    scrollToSection("#contact-message", { updateHash: false });
+    messageHeadingRef.current?.focus({ preventScroll: true });
+  }, [messageOpen]);
+
+  const openMessage = () => {
+    shouldScrollRef.current = true;
+    if (messageOpen) {
+      // Already open — just scroll back to it.
+      scrollToSection("#contact-message", { updateHash: false });
+      shouldScrollRef.current = false;
+      return;
+    }
+    setMessageOpen(true);
+  };
+
+  const externalProps = { target: "_blank", rel: "noopener noreferrer" } as const;
+
+  const renderIcon = (id: OrbitItemId) => {
+    switch (id) {
+      case "whatsapp":
+        return <WhatsAppMark className="h-5 w-5 sm:h-6 sm:w-6" />;
+      case "phone":
+        return <Phone className="h-5 w-5 sm:h-6 sm:w-6" />;
+      case "github":
+        return <Github className="h-5 w-5 sm:h-6 sm:w-6" />;
+      case "upwork":
+        return (
+          <span className={`font-display ${styles.upMark}`} aria-hidden="true">
+            UP
+          </span>
+        );
+      case "email":
+        return <Mail className="h-5 w-5 sm:h-6 sm:w-6" />;
+      case "message":
+        return <Send className="h-5 w-5 sm:h-6 sm:w-6" />;
+    }
+  };
+
+  return (
+    <>
+      <Header />
+      <main className="min-h-screen bg-background text-foreground transition-colors duration-300">
+        {/* ── Orbit hero ─────────────────────────────────────────────────── */}
+        <section className="relative overflow-x-clip px-6 pb-16 pt-32 sm:pt-36 lg:pb-24">
+          <div className="mx-auto flex max-w-5xl flex-col items-center text-center">
+            <p className="mb-4 inline-flex items-center gap-2 text-xs font-bold uppercase tracking-[0.28em] text-primary-theme">
+              <span aria-hidden="true" className="h-1.5 w-1.5 rounded-full bg-secondary-theme" />
+              {copy.eyebrow}
+            </p>
+            <h1 className="mb-5 max-w-3xl text-4xl font-black leading-tight md:text-5xl">{copy.title}</h1>
+            <p className="mb-14 max-w-2xl text-lg leading-8 text-muted sm:mb-16">{copy.subtitle}</p>
+
+            {/* The signal ring */}
+            <div className={styles.orbitWrap} role="group" aria-label={copy.orbitLabel}>
+              <div className={styles.rotor}>
+                {ORBIT_POSITIONS.map(({ id, cos, sin }) => {
+                  const shellStyle = {
+                    top: `calc(50% + ${sin.toFixed(4)} * var(--orbit-r))`,
+                    left: `calc(50% + ${cos.toFixed(4)} * var(--orbit-r))`,
+                  };
+                  const label = copy.items[id];
+                  const ariaLabel = copy.aria[id];
+
+                  if (id === "message") {
+                    return (
+                      <div key={id} className={styles.itemShell} style={shellStyle}>
+                        <button
+                          type="button"
+                          suppressHydrationWarning
+                          onClick={openMessage}
+                          aria-label={ariaLabel}
+                          aria-expanded={messageOpen}
+                          aria-controls="contact-message"
+                          className={`${styles.itemAction} ${styles.counterSpin}`}
+                        >
+                          {renderIcon(id)}
+                          <span className={`font-display ${styles.itemLabel}`}>{label}</span>
+                        </button>
+                      </div>
+                    );
+                  }
+
+                  const href =
+                    id === "github" ? GITHUB_URL : id === "upwork" ? UPWORK_URL : CONTACT_CHANNELS[id].href;
+                  const isExternal =
+                    id === "github" || id === "upwork" || CONTACT_CHANNELS[id].external;
+
+                  return (
+                    <div key={id} className={styles.itemShell} style={shellStyle}>
+                      <a
+                        href={href}
+                        aria-label={ariaLabel}
+                        {...(isExternal ? externalProps : {})}
+                        className={`${styles.itemAction} ${styles.counterSpin}`}
+                      >
+                        {renderIcon(id)}
+                        <span className={`font-display ${styles.itemLabel}`}>{label}</span>
+                      </a>
+                    </div>
+                  );
+                })}
+              </div>
+
+              {/* Static center hub */}
+              <div className={styles.hub}>
+                <div className={styles.hubDisc}>
+                  <span className="font-display flex items-center gap-1.5 text-xl font-black tracking-wide text-primary-theme sm:text-2xl">
+                    DOMINASE
+                    <span aria-hidden="true" className="mt-1 h-1.5 w-1.5 rounded-full bg-secondary-theme" />
+                  </span>
+                  <span className="font-display hidden text-[9px] font-bold uppercase tracking-[0.2em] text-muted min-[380px]:block sm:text-[10px]">
+                    {copy.hubSubtitle}
+                  </span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* ── Message section (revealed by the orbit's Message action) ─────── */}
+        {messageOpen && (
+          <section
+            id="contact-message"
+            className="px-6 pb-32 min-[1025px]:pb-24"
+            style={{ scrollMarginTop: "6rem" }}
+          >
+            <div className="mx-auto max-w-2xl">
+              <div className="relative overflow-hidden rounded-2xl border border-border bg-surface p-6 shadow-sm sm:p-8">
+                <div className="pointer-events-none absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-primary-theme/35 to-transparent" />
+                <h2
+                  ref={messageHeadingRef}
+                  tabIndex={-1}
+                  className="mb-3 text-2xl font-black leading-snug text-foreground outline-none sm:text-3xl"
+                >
+                  {copy.message.title}
+                </h2>
+                <p className="mb-8 text-base leading-7 text-muted">{copy.message.subtitle}</p>
+                <ContactForm submitLabel={copy.message.submit} />
+              </div>
+            </div>
+          </section>
+        )}
+
+        {/* Bottom breathing room so MobileNav never covers the last control. */}
+        {!messageOpen && <div className="pb-32 min-[1025px]:pb-16" aria-hidden="true" />}
+      </main>
+      <Footer />
+    </>
+  );
+}

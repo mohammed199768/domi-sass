@@ -11,7 +11,12 @@ type FieldErrors = { name?: boolean; phone?: boolean };
 const inputClass =
   "w-full rounded-xl border border-border bg-surface-hover px-4 py-3.5 text-foreground outline-none transition-colors duration-200 placeholder:text-muted/60 focus:border-primary-theme focus:ring-2 focus:ring-primary-theme/25 aria-[invalid=true]:border-red-500/70 aria-[invalid=true]:ring-red-500/20";
 
-export default function ContactForm() {
+type ContactFormProps = {
+  /** Optional submit-button label override (e.g. the /contact page). Defaults to the homepage portal copy. */
+  submitLabel?: string;
+};
+
+export default function ContactForm({ submitLabel }: ContactFormProps = {}) {
   const { t } = useLanguage();
   const p = t.contact.portal;
 
@@ -188,7 +193,7 @@ export default function ContactForm() {
         disabled={state === "submitting"}
         className="btn-primary w-full rounded-xl px-6 py-4 disabled:cursor-not-allowed disabled:opacity-70"
       >
-        {state === "submitting" ? p.submitting : p.submit}
+        {state === "submitting" ? p.submitting : submitLabel ?? p.submit}
       </button>
     </form>
   );

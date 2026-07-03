@@ -56,6 +56,14 @@ export const CONTACT_CHANNELS: Record<ContactChannelId, ContactChannel> = {
 export const CONTACT_CHANNEL_ORDER: ContactChannelId[] = ["whatsapp", "phone", "email"];
 
 /**
+ * Profile links — the exact URLs already used by the site footer
+ * (src/components/Footer.tsx). Centralised here so /contact reuses the same
+ * destinations without inventing new links.
+ */
+export const GITHUB_URL = "https://github.com/mohammed199768";
+export const UPWORK_URL = "https://www.upwork.com/freelancers/~012bcb31d6467e2e71?mp_source=share";
+
+/**
  * Formspree endpoint. Prefer the public env var; fall back to the project's
  * existing endpoint so the form keeps working out of the box. Real deployments
  * should set NEXT_PUBLIC_FORMSPREE_ENDPOINT (see .env.example).

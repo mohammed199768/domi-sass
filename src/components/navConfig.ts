@@ -5,7 +5,7 @@ export const NAV_ITEMS = [
     { id: "why-us", labelKey: "whyUs", href: "/why-us", kind: "route" },
     { id: "case-studies", labelKey: "caseStudies", href: "/work", kind: "route" },
     { id: "testimonials", labelKey: "testimonials", href: "#testimonials", kind: "section" },
-    { id: "contact", labelKey: "contact", href: "#contact", kind: "section" },
+    { id: "contact", labelKey: "contact", href: "/contact", kind: "route" },
 ] as const;
 
 export type NavItem = (typeof NAV_ITEMS)[number];

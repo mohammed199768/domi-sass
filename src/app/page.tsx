@@ -17,21 +17,6 @@ import { scrollToSection } from "@/lib/motion/scrollToSection";
 
 export default function Home() {
   useEffect(() => {
-    const root = document.documentElement;
-    const forceDark = () => {
-      if (root.dataset.theme !== "dark") {
-        root.dataset.theme = "dark";
-      }
-    };
-
-    forceDark();
-    const observer = new MutationObserver(forceDark);
-    observer.observe(root, { attributes: true, attributeFilter: ["data-theme"] });
-
-    return () => observer.disconnect();
-  }, []);
-
-  useEffect(() => {
     const hash = window.location.hash;
     if (!hash) return;
 
