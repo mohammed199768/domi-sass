@@ -1,0 +1,1081 @@
+{
+  "meta": {
+    "id": "venue-growth-diagnosis",
+    "version": "1.0.0",
+    "title": "Venue Growth Diagnosis",
+    "titleAr": "تشخيص نمو القاعة",
+    "description": "A strategic self-assessment for visual trust, package clarity, availability inquiry, lead follow-up, and digital readiness.",
+    "descriptionAr": "تقييم ذاتي استراتيجي للثقة البصرية ووضوح الباقات واستفسار التوفر والمتابعة والجاهزية الرقمية.",
+    "disclaimer": "This is a strategic self-assessment for business readiness. It is not a guarantee of results and is not a substitute for professional legal, financial, medical, or operational advice. It does not guarantee bookings. Availability, seasonal offers, and testimonials must be truthful, permissioned, and free from fake scarcity.",
+    "disclaimerAr": "هذا تقييم ذاتي استراتيجي لجاهزية النشاط. لا يضمن النتائج ولا يغني عن الاستشارة المهنية القانونية أو المالية أو الطبية أو التشغيلية عند الحاجة. لا يضمن الحجوزات. يجب أن يكون التوفر والعروض الموسمية والشهادات صادقة ومصرحا بها وخالية من الندرة المصطنعة.",
+    "scale": {
+      "min": 1,
+      "max": 5,
+      "step": 0.5
+    },
+    "domain": "venue",
+    "domainAr": "قاعات ومواقع مناسبات",
+    "estimatedMinutes": 8,
+    "sourceNote": "Generated from 04_STRATEGY_MAPS/venue_strategy_map.md, question_blueprints.json, DOMINASE_EXTRACTION_MATRIX.json, DOMINASE_TAG_TAXONOMY.md, and DOMINASE_RECOMMENDATION_BANK.md. question_blueprints.json was used only as planning index.",
+    "ethicsNote": "Value-first, advisor-like self-assessment. No fabricated statistics, no guarantees, no manipulative urgency, no copied book text, and no recommendation to build systems the business will not realistically use."
+  },
+  "dimensions": [
+    {
+      "id": "D1",
+      "dimensionKey": "visual-trust-experience",
+      "title": "Visual Trust & Experience",
+      "titleAr": "الثقة البصرية والتجربة",
+      "description": "Whether couples can picture their event and trust the venue visually.",
+      "descriptionAr": "هل يستطيع الأزواج تخيل مناسبتهم والثقة بالقاعه بصريا.",
+      "orderIndex": 1,
+      "weight": 5,
+      "topics": [
+        {
+          "id": "venue_gallery_strength",
+          "topicKey": "gallery-strength",
+          "label": "Gallery strength",
+          "labelAr": "قوة المعرض",
+          "prompt": "Can a couple browse enough strong, real-event photos to clearly picture their own day at your venue?",
+          "promptAr": "هل يستطيع الزوجان تصفح صور حقيقية وقوية كافية لتخيل يومهما في قاعتك بوضوح؟",
+          "answerMode": "current-target",
+          "orderIndex": 1,
+          "weight": 5,
+          "tags": [
+            "gallery",
+            "visual-trust",
+            "portfolio",
+            "venue:gallery-strength"
+          ],
+          "levelAnchors": [
+            "1 - Few or weak photos",
+            "2 - Photos exist but feel generic",
+            "3 - Decent gallery with limited event variety",
+            "4 - Strong real-event gallery",
+            "5 - Curated galleries show atmosphere, details, and real celebrations"
+          ],
+          "levelAnchorsAr": [
+            "1 - صور قليلة أو ضعيفة",
+            "2 - الصور موجودة لكنها عامة",
+            "3 - معرض مقبول بتنوع محدود",
+            "4 - معرض قوي من مناسبات حقيقية",
+            "5 - معارض منسقة تظهر الأجواء والتفاصيل والاحتفالات الحقيقية"
+          ]
+        },
+        {
+          "id": "venue_experience_story",
+          "topicKey": "experience-story",
+          "label": "Guest experience conveyed",
+          "labelAr": "نقل تجربة الضيوف",
+          "prompt": "Does your site convey the flow, atmosphere, and guest experience, not just static room photos?",
+          "promptAr": "هل ينقل موقعك تسلسل اليوم والأجواء وتجربة الضيوف وليس فقط صورا ثابتة للمكان؟",
+          "answerMode": "current-target",
+          "orderIndex": 2,
+          "weight": 3,
+          "tags": [
+            "service-marketing",
+            "tangibility",
+            "storytelling",
+            "venue:guest-experience"
+          ],
+          "levelAnchors": [
+            "1 - Only static space photos",
+            "2 - Some descriptive text",
+            "3 - Some event moments are shown",
+            "4 - The event flow is fairly clear",
+            "5 - Stories, video, or galleries make the experience tangible"
+          ],
+          "levelAnchorsAr": [
+            "1 - صور ثابتة للمكان فقط",
+            "2 - بعض الوصف النصي",
+            "3 - تظهر بعض لحظات المناسبات",
+            "4 - تسلسل التجربة واضح إلى حد جيد",
+            "5 - القصص أو الفيديو أو المعارض تجعل التجربة ملموسة"
+          ]
+        },
+        {
+          "id": "venue_couple_testimonials",
+          "topicKey": "couple-testimonials",
+          "label": "Couple testimonials",
+          "labelAr": "شهادات الأزواج",
+          "prompt": "Can couples see real testimonials or stories from events similar to theirs?",
+          "promptAr": "هل يرى الزوجان شهادات أو قصصا حقيقية من مناسبات قريبة من مناسبتهم؟",
+          "answerMode": "current-target",
+          "orderIndex": 9,
+          "weight": 3,
+          "tags": [
+            "social-proof",
+            "testimonials",
+            "weak-proof",
+            "venue"
+          ],
+          "levelAnchors": [
+            "1 - No testimonials",
+            "2 - A few generic compliments",
+            "3 - Testimonials exist but are not linked to event types",
+            "4 - Relevant testimonials appear near packages or galleries",
+            "5 - Stories and testimonials reduce risk at key decision points"
+          ],
+          "levelAnchorsAr": [
+            "1 - لا توجد شهادات",
+            "2 - بعض المديح العام",
+            "3 - الشهادات موجودة لكنها غير مرتبطة بأنواع المناسبات",
+            "4 - شهادات مناسبة تظهر قرب الباقات أو المعارض",
+            "5 - القصص والشهادات تقلل المخاطرة في مواضع القرار"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "D2",
+      "dimensionKey": "package-price-clarity",
+      "title": "Package & Price Clarity",
+      "titleAr": "وضوح الباقات والسعر",
+      "description": "How clearly packages, ranges, capacity, and logistics are communicated.",
+      "descriptionAr": "مدى وضوح الباقات والنطاقات والسعة والتفاصيل العملية.",
+      "orderIndex": 2,
+      "weight": 4,
+      "topics": [
+        {
+          "id": "venue_package_clarity",
+          "topicKey": "package-clarity",
+          "label": "Package clarity",
+          "labelAr": "وضوح الباقات",
+          "prompt": "Are packages and inclusions clear enough that couples understand their options without messaging first?",
+          "promptAr": "هل الباقات وما تتضمنه واضحة بما يكفي ليفهم الزوجان خياراتهما دون مراسلتك أولا؟",
+          "answerMode": "current-target",
+          "orderIndex": 3,
+          "weight": 4,
+          "tags": [
+            "packaging",
+            "choice-overload",
+            "offer-clarity",
+            "venue:package-clarity"
+          ],
+          "levelAnchors": [
+            "1 - No packages shown",
+            "2 - Packages are vague",
+            "3 - Packages listed but confusing or too many",
+            "4 - A few clear packages with inclusions",
+            "5 - Clear tiers guide the right couple to the right option"
+          ],
+          "levelAnchorsAr": [
+            "1 - لا توجد باقات معروضة",
+            "2 - الباقات غامضة",
+            "3 - الباقات مذكورة لكنها مربكة أو كثيرة",
+            "4 - باقات قليلة واضحة مع المشمولات",
+            "5 - مستويات واضحة توجه الزوجين للخيار المناسب"
+          ]
+        },
+        {
+          "id": "venue_price_ranges",
+          "topicKey": "price-ranges",
+          "label": "Price range transparency",
+          "labelAr": "شفافية النطاق السعري",
+          "prompt": "Does your site give couples a realistic sense of package price ranges so the right couples inquire?",
+          "promptAr": "هل يمنح موقعك الزوجين تصورا واقعيا لنطاقات أسعار الباقات كي يتواصل المناسبون؟",
+          "answerMode": "current-target",
+          "orderIndex": 4,
+          "weight": 3,
+          "tags": [
+            "pricing-transparency",
+            "pricing-content",
+            "trust-barrier",
+            "venue"
+          ],
+          "levelAnchors": [
+            "1 - No price guidance",
+            "2 - Only contact us for price",
+            "3 - Very vague starting guidance",
+            "4 - Starting ranges or cost factors are clear",
+            "5 - Honest ranges qualify fit without fake pressure"
+          ],
+          "levelAnchorsAr": [
+            "1 - لا يوجد توجيه سعري",
+            "2 - فقط تواصل للسعر",
+            "3 - توجيه مبدئي غامض جدا",
+            "4 - نطاقات البداية أو عوامل التكلفة واضحة",
+            "5 - نطاقات صادقة تؤهل الملاءمة دون ضغط مصطنع"
+          ]
+        },
+        {
+          "id": "venue_location_capacity",
+          "topicKey": "location-capacity",
+          "label": "Location and capacity clarity",
+          "labelAr": "وضوح الموقع والسعة",
+          "prompt": "Are capacity, location, parking, and logistics clear before someone asks?",
+          "promptAr": "هل السعة والموقع والمواقف والتفاصيل اللوجستية واضحة قبل أن يسأل أحد؟",
+          "answerMode": "current-target",
+          "orderIndex": 10,
+          "weight": 3,
+          "tags": [
+            "local-positioning",
+            "contact-flow",
+            "venue"
+          ],
+          "levelAnchors": [
+            "1 - Capacity or location is unclear",
+            "2 - Only basic information is listed",
+            "3 - Capacity and location are listed with gaps",
+            "4 - Key logistics are clear",
+            "5 - Capacity, location, parking, and fit are easy to evaluate"
+          ],
+          "levelAnchorsAr": [
+            "1 - السعة أو الموقع غير واضح",
+            "2 - معلومات أساسية فقط",
+            "3 - السعة والموقع مذكوران مع فجوات",
+            "4 - التفاصيل اللوجستية المهمة واضحة",
+            "5 - السعة والموقع والمواقف والملاءمة سهلة التقييم"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "D3",
+      "dimensionKey": "availability-inquiry-flow",
+      "title": "Availability & Inquiry Flow",
+      "titleAr": "التوفر ومسار الاستفسار",
+      "description": "How easily date-locked couples can inquire and receive a real response.",
+      "descriptionAr": "مدى سهولة استفسار أصحاب التاريخ المحدد وحصولهم على رد حقيقي.",
+      "orderIndex": 3,
+      "weight": 5,
+      "topics": [
+        {
+          "id": "venue_availability_check",
+          "topicKey": "availability-check",
+          "label": "Availability and date-check flow",
+          "labelAr": "مسار التحقق من التاريخ",
+          "prompt": "Can a couple easily ask about their specific date and get a fast, organized response?",
+          "promptAr": "هل يستطيع الزوجان بسهولة السؤال عن تاريخهما المحدد والحصول على رد سريع ومنظم؟",
+          "answerMode": "current-target",
+          "orderIndex": 5,
+          "weight": 5,
+          "tags": [
+            "availability",
+            "booking-friction",
+            "contact-flow",
+            "venue:availability-inquiry"
+          ],
+          "levelAnchors": [
+            "1 - Must message and wait",
+            "2 - Date requests are handled manually",
+            "3 - A form exists but follow-up is inconsistent",
+            "4 - Date-check is clear with expected response",
+            "5 - Availability inquiry is structured, fast, and tracked"
+          ],
+          "levelAnchorsAr": [
+            "1 - يجب المراسلة والانتظار",
+            "2 - طلبات التاريخ تدار يدويا",
+            "3 - يوجد نموذج لكن المتابعة غير منتظمة",
+            "4 - التحقق من التاريخ واضح مع توقع وقت الرد",
+            "5 - استفسار التوفر منظم وسريع وقابل للتتبع"
+          ]
+        },
+        {
+          "id": "venue_seasonal_offers",
+          "topicKey": "seasonal-offers",
+          "label": "Seasonal and off-peak offers",
+          "labelAr": "العروض الموسمية وخارج الذروة",
+          "prompt": "Do you use honest seasonal or off-peak offers to fill dates that would otherwise stay empty?",
+          "promptAr": "هل تستخدم عروضا موسمية أو خارج الذروة بصدق لملء تواريخ قد تبقى فارغة؟",
+          "answerMode": "current-target",
+          "orderIndex": 11,
+          "weight": 2,
+          "tags": [
+            "framing",
+            "anchoring",
+            "venue:seasonal-offers"
+          ],
+          "levelAnchors": [
+            "1 - No seasonal strategy",
+            "2 - Occasional unplanned discounts",
+            "3 - Some seasonal offers but unclear logic",
+            "4 - Planned honest offers for real off-peak dates",
+            "5 - Seasonal offers are clear, truthful, and linked to follow-up"
+          ],
+          "levelAnchorsAr": [
+            "1 - لا توجد استراتيجية موسمية",
+            "2 - خصومات عارضة غير مخططة",
+            "3 - بعض العروض الموسمية لكن منطقها غير واضح",
+            "4 - عروض صادقة مخططة لتواريخ خارج الذروة فعلا",
+            "5 - عروض موسمية واضحة وصادقة ومرتبطة بالمتابعة"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "D4",
+      "dimensionKey": "lead-followup-channels",
+      "title": "Lead Follow-up & Channels",
+      "titleAr": "متابعة العملاء والقنوات",
+      "description": "Whether inquiries are captured, organized, and followed up across channels.",
+      "descriptionAr": "هل يتم التقاط الاستفسارات وتنظيمها ومتابعتها عبر القنوات.",
+      "orderIndex": 4,
+      "weight": 5,
+      "topics": [
+        {
+          "id": "venue_inquiry_followup",
+          "topicKey": "inquiry-followup",
+          "label": "Inquiry follow-up speed",
+          "labelAr": "سرعة متابعة الاستفسارات",
+          "prompt": "Do serious inquiries get a timely, consistent follow-up sequence until the couple decides?",
+          "promptAr": "هل تحصل الاستفسارات الجادة على متابعة سريعة ومنتظمة حتى يتخذ الزوجان قرارهما؟",
+          "answerMode": "current-target",
+          "orderIndex": 6,
+          "weight": 5,
+          "tags": [
+            "weak-follow-up",
+            "follow-up",
+            "cadence",
+            "venue"
+          ],
+          "levelAnchors": [
+            "1 - Replies are ad hoc or late",
+            "2 - First reply happens but follow-up is rare",
+            "3 - Some follow-up reminders exist",
+            "4 - Follow-up is timely and mostly consistent",
+            "5 - A respectful cadence keeps every serious inquiry warm"
+          ],
+          "levelAnchorsAr": [
+            "1 - الردود عشوائية أو متأخرة",
+            "2 - يوجد رد أول لكن المتابعة نادرة",
+            "3 - توجد بعض تذكيرات المتابعة",
+            "4 - المتابعة سريعة ومنتظمة غالبا",
+            "5 - إيقاع محترم يحافظ على كل استفسار جاد"
+          ]
+        },
+        {
+          "id": "venue_whatsapp_channels",
+          "topicKey": "whatsapp-channels",
+          "label": "WhatsApp and channel control",
+          "labelAr": "تنظيم واتساب والقنوات",
+          "prompt": "Are WhatsApp, Instagram, calls, and forms unified into one inquiry view?",
+          "promptAr": "هل واتساب وإنستغرام والاتصالات والنماذج موحدة في عرض واحد للاستفسارات؟",
+          "answerMode": "current-target",
+          "orderIndex": 7,
+          "weight": 4,
+          "tags": [
+            "whatsapp",
+            "messaging",
+            "crm",
+            "venue:whatsapp-overload"
+          ],
+          "levelAnchors": [
+            "1 - Channels are scattered",
+            "2 - Some messages are copied manually",
+            "3 - One or two channels are tracked",
+            "4 - Most channels feed a shared list",
+            "5 - All serious inquiries are captured in one pipeline"
+          ],
+          "levelAnchorsAr": [
+            "1 - القنوات مبعثرة",
+            "2 - يتم نقل بعض الرسائل يدويا",
+            "3 - تتبع قناة أو قناتان فقط",
+            "4 - معظم القنوات تغذي قائمة مشتركة",
+            "5 - كل الاستفسارات الجادة تدخل خط متابعة واحد"
+          ]
+        },
+        {
+          "id": "venue_lead_capture",
+          "topicKey": "lead-capture",
+          "label": "Capturing browsing couples",
+          "labelAr": "التقاط الأزواج المتصفحين",
+          "prompt": "Beyond DM or phone, is there a low-pressure way for browsing couples to get planning info and stay in touch?",
+          "promptAr": "خلاف الرسائل أو الهاتف، هل توجد طريقة منخفضة الضغط للمتصفحين للحصول على معلومات تخطيط والبقاء على تواصل؟",
+          "answerMode": "current-target",
+          "orderIndex": 12,
+          "weight": 3,
+          "tags": [
+            "capture",
+            "lead-magnet",
+            "reciprocity",
+            "venue"
+          ],
+          "levelAnchors": [
+            "1 - Only DM or phone",
+            "2 - Basic form with no value",
+            "3 - Some useful content but no capture",
+            "4 - Planning guide or update capture exists",
+            "5 - Browsers get useful planning value and enter respectful follow-up"
+          ],
+          "levelAnchorsAr": [
+            "1 - رسائل أو هاتف فقط",
+            "2 - نموذج أساسي دون قيمة",
+            "3 - محتوى مفيد دون التقاط",
+            "4 - يوجد دليل تخطيط أو التقاط تحديثات",
+            "5 - المتصفحون يحصلون على قيمة ويدخلون متابعة محترمة"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "D5",
+      "dimensionKey": "first-impression-message",
+      "title": "First Impression & Message",
+      "titleAr": "الانطباع الأول والرسالة",
+      "description": "Whether the venue style, fit, and next step are clear immediately.",
+      "descriptionAr": "هل أسلوب القاعة وملاءمتها والخطوة التالية واضحة فورا.",
+      "orderIndex": 5,
+      "weight": 3,
+      "topics": [
+        {
+          "id": "venue_first_impression",
+          "topicKey": "first-impression",
+          "label": "First impression",
+          "labelAr": "الانطباع الأول",
+          "prompt": "Does the first screen immediately communicate the venue's style, fit, and next step?",
+          "promptAr": "هل تنقل الشاشة الأولى فورا أسلوب القاعة وملاءمتها والخطوة التالية؟",
+          "answerMode": "current-target",
+          "orderIndex": 8,
+          "weight": 3,
+          "tags": [
+            "first-impression",
+            "hero-clarity",
+            "visual-trust",
+            "venue"
+          ],
+          "levelAnchors": [
+            "1 - Opening feels generic or weak",
+            "2 - Style is visible but next step is unclear",
+            "3 - Good first impression with some clutter",
+            "4 - Style and inquiry path are clear",
+            "5 - The first screen sells the feel and guides action"
+          ],
+          "levelAnchorsAr": [
+            "1 - الافتتاحية عامة أو ضعيفة",
+            "2 - الأسلوب ظاهر لكن الخطوة التالية غير واضحة",
+            "3 - انطباع جيد مع بعض الازدحام",
+            "4 - الأسلوب ومسار الاستفسار واضحان",
+            "5 - الشاشة الأولى تنقل الشعور وتوجه للتصرف"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "D6",
+      "dimensionKey": "digital-addons-readiness",
+      "title": "Digital Add-ons & Readiness",
+      "titleAr": "الإضافات الرقمية والجاهزية",
+      "description": "Whether inquiry systems are connected and can support useful guest add-ons.",
+      "descriptionAr": "هل أنظمة الاستفسار مترابطة وقادرة على دعم إضافات ضيوف مفيدة.",
+      "orderIndex": 6,
+      "weight": 3,
+      "topics": [
+        {
+          "id": "venue_digital_readiness",
+          "topicKey": "digital-readiness",
+          "label": "Connected systems and add-ons",
+          "labelAr": "الأنظمة المترابطة والإضافات الرقمية",
+          "prompt": "Do site, inquiries, and follow-up work as one tracked system, with room for useful digital add-ons like RSVP if relevant?",
+          "promptAr": "هل يعمل الموقع والاستفسارات والمتابعة كنظام واحد متتبع مع إمكانية إضافات رقمية مفيدة مثل RSVP عند مناسبتها؟",
+          "answerMode": "current-target",
+          "orderIndex": 13,
+          "weight": 3,
+          "tags": [
+            "digital-readiness",
+            "system",
+            "service-marketing",
+            "venue"
+          ],
+          "levelAnchors": [
+            "1 - Disconnected tools and no add-ons",
+            "2 - Some manual lists exist",
+            "3 - Partly connected tools",
+            "4 - Core inquiry journey is connected",
+            "5 - Connected pipeline can support useful guest-experience add-ons"
+          ],
+          "levelAnchorsAr": [
+            "1 - أدوات منفصلة ولا إضافات",
+            "2 - توجد بعض القوائم اليدوية",
+            "3 - أدوات مترابطة جزئيا",
+            "4 - رحلة الاستفسار الأساسية مترابطة",
+            "5 - خط متابعة مترابط يمكن أن يدعم إضافات مفيدة لتجربة الضيوف"
+          ]
+        }
+      ]
+    }
+  ],
+  "scoring": {
+    "model": "current-target-gap",
+    "gapFormula": "gap = max(target - current, 0)",
+    "priorityDimensionIds": [
+      "D1",
+      "D3",
+      "D4"
+    ],
+    "profiles": [
+      {
+        "id": "venue_visual_booking_friction",
+        "title": "Visual Appeal, Booking Friction",
+        "titleAr": "جاذبية بصرية، احتكاك في الحجز",
+        "summary": "The venue may look appealing, but date-check and inquiry handling make action harder than it should be.",
+        "summaryAr": "قد تبدو القاعة جذابة، لكن التحقق من التاريخ وإدارة الاستفسار يجعلان التصرف أصعب من اللازم.",
+        "conditions": [
+          {
+            "dimensionId": "D3",
+            "gapMin": 1.5
+          },
+          {
+            "dimensionId": "D4",
+            "gapMin": 1.5
+          }
+        ],
+        "relatedDimensions": [
+          "D3",
+          "D4"
+        ],
+        "riskNote": "Do not show false availability.",
+        "riskNoteAr": "لا تعرض توفرا غير حقيقي."
+      },
+      {
+        "id": "venue_under_shown",
+        "title": "Great Service, Under-shown",
+        "titleAr": "خدمة رائعة، غير مبرزة",
+        "summary": "The real guest experience may be stronger than the gallery and stories reveal.",
+        "summaryAr": "قد تكون تجربة الضيوف الفعلية أقوى مما يظهره المعرض والقصص.",
+        "conditions": [
+          {
+            "dimensionId": "D1",
+            "gapMin": 1.5
+          }
+        ],
+        "relatedDimensions": [
+          "D1",
+          "D5"
+        ],
+        "riskNote": "Use authentic and permissioned imagery.",
+        "riskNoteAr": "استخدم صورا حقيقية ومصرحا بها."
+      },
+      {
+        "id": "venue_interest_low_conversion",
+        "title": "High Interest, Low Conversion",
+        "titleAr": "اهتمام مرتفع، تحويل منخفض",
+        "summary": "Couples may browse or message, but unclear packages, pricing, or date flow reduce conversion.",
+        "summaryAr": "قد يتصفح الأزواج أو يراسلون، لكن غموض الباقات أو السعر أو مسار التاريخ يقلل التحويل.",
+        "conditions": [
+          {
+            "dimensionId": "D2",
+            "gapMin": 1.5
+          },
+          {
+            "dimensionId": "D3",
+            "gapMin": 1.5
+          }
+        ],
+        "relatedDimensions": [
+          "D2",
+          "D3"
+        ],
+        "riskNote": "Keep package claims truthful.",
+        "riskNoteAr": "حافظ على صدق ادعاءات الباقات."
+      },
+      {
+        "id": "venue_trust_ready_system_poor",
+        "title": "Trust-Ready, System-Poor",
+        "titleAr": "جاهزة للثقة، ضعيفة الأنظمة",
+        "summary": "Visuals and reputation may be strong, while inquiries remain scattered and untracked.",
+        "summaryAr": "قد تكون الصور والسمعة قوية بينما تبقى الاستفسارات مبعثرة وغير متتبعة.",
+        "conditions": [
+          {
+            "dimensionId": "D4",
+            "gapMin": 1.5
+          },
+          {
+            "dimensionId": "D6",
+            "gapMin": 1.5
+          }
+        ],
+        "relatedDimensions": [
+          "D4",
+          "D6"
+        ],
+        "riskNote": "Build only systems the sales team will maintain.",
+        "riskNoteAr": "ابن فقط الأنظمة التي سيحافظ عليها فريق المبيعات."
+      },
+      {
+        "id": "venue_peak_offpeak_gap",
+        "title": "Strong Peak, Empty Off-Peak",
+        "titleAr": "ذروة قوية، فراغ خارج الذروة",
+        "summary": "Peak demand may be healthy, but honest off-peak offer strategy is underused.",
+        "summaryAr": "قد يكون الطلب في الذروة جيدا، لكن استراتيجية العروض الصادقة خارج الذروة غير مستغلة.",
+        "conditions": [
+          {
+            "topicId": "venue_seasonal_offers",
+            "currentMax": 3,
+            "gapMin": 1
+          }
+        ],
+        "relatedDimensions": [
+          "D3"
+        ],
+        "riskNote": "No fake scarcity or fake deadlines.",
+        "riskNoteAr": "لا ندرة مصطنعة ولا مواعيد نهائية وهمية."
+      }
+    ]
+  },
+  "recommendations": [
+    {
+      "id": "venue-rec-gallery",
+      "title": "Build a curated real-event gallery",
+      "titleAr": "ابن معرضا منسقا من مناسبات حقيقية",
+      "category": "contentAndTrust",
+      "conditions": {
+        "tags": [
+          "gallery",
+          "visual-trust",
+          "portfolio",
+          "service-marketing",
+          "tangibility"
+        ],
+        "currentMax": 3,
+        "gapMin": 1.5
+      },
+      "priority": 5,
+      "why": "Couples shortlist visually before they read details.",
+      "whyAr": "الأزواج يختصرون الخيارات بصريا قبل قراءة التفاصيل.",
+      "how": "Group real events by style, size, and setup; add captions that explain what the couple is seeing.",
+      "howAr": "اجمع المناسبات الحقيقية حسب الأسلوب والحجم والتجهيز، وأضف عناوين تشرح ما يراه الزوجان.",
+      "evidenceTags": [
+        "gallery",
+        "visual-trust",
+        "portfolio"
+      ],
+      "websiteImplication": "Curated galleries and experience stories.",
+      "websiteImplicationAr": "معارض منسقة وقصص تجربة.",
+      "systemImplication": "Media library tagged by event type.",
+      "systemImplicationAr": "مكتبة وسائط موسومة حسب نوع المناسبة.",
+      "dominaseFit": "DOMINASE could shape this into a premium gallery-led venue site.",
+      "dominaseFitAr": "يمكن ل DOMINASE تحويل ذلك إلى موقع قاعة يقوده معرض فاخر.",
+      "riskNotes": "Use owned or permissioned images only.",
+      "riskNotesAr": "استخدم صورا مملوكة أو مصرحا بها فقط."
+    },
+    {
+      "id": "venue-rec-packages",
+      "title": "Clarify packages, inclusions, and ranges",
+      "titleAr": "وضّح الباقات والمشمولات والنطاقات",
+      "category": "websiteStructure",
+      "conditions": {
+        "tags": [
+          "packaging",
+          "pricing-transparency",
+          "choice-overload",
+          "offer-clarity",
+          "pricing-content"
+        ],
+        "currentMax": 3,
+        "gapMin": 1.5
+      },
+      "priority": 4,
+      "why": "Clear packages qualify serious couples and reduce repetitive questions.",
+      "whyAr": "الباقات الواضحة تؤهل الأزواج الجادين وتقلل الأسئلة المتكررة.",
+      "how": "Reduce options into clear tiers, list inclusions, and explain realistic ranges or cost drivers.",
+      "howAr": "اختصر الخيارات في مستويات واضحة، واذكر المشمولات، واشرح نطاقات أو عوامل تكلفة واقعية.",
+      "evidenceTags": [
+        "packaging",
+        "pricing-transparency",
+        "choice-overload"
+      ],
+      "websiteImplication": "Package section with tiers and inclusions.",
+      "websiteImplicationAr": "قسم باقات بمستويات ومشمولات.",
+      "systemImplication": "Guided inquiry based on selected package.",
+      "systemImplicationAr": "استفسار موجه حسب الباقة المختارة.",
+      "dominaseFit": "This may be a focused content and structure improvement, not a full rebuild.",
+      "dominaseFitAr": "قد يكون هذا تحسين محتوى وهيكل مركزا وليس إعادة بناء كاملة.",
+      "riskNotes": "No hidden or misleading inclusions.",
+      "riskNotesAr": "لا مشمولات مخفية أو مضللة."
+    },
+    {
+      "id": "venue-rec-date-check",
+      "title": "Create a structured date-check inquiry",
+      "titleAr": "أنشئ مسار تحقق من التاريخ",
+      "category": "conversionPath",
+      "conditions": {
+        "topicId": "venue_availability_check",
+        "currentMax": 3,
+        "gapMin": 1.5
+      },
+      "priority": 5,
+      "why": "Date-locked couples are often won by the venue that responds clearly and fast.",
+      "whyAr": "الأزواج المرتبطون بتاريخ غالبا يكسبهم المكان الذي يرد بوضوح وسرعة.",
+      "how": "Ask for event date, guest count, event type, package interest, and contact details, then set response expectations.",
+      "howAr": "اطلب تاريخ المناسبة وعدد الضيوف ونوع المناسبة والباقة وبيانات التواصل ثم وضح توقعات الرد.",
+      "evidenceTags": [
+        "availability",
+        "booking-friction",
+        "contact-flow"
+      ],
+      "websiteImplication": "Date-check CTA and inquiry form.",
+      "websiteImplicationAr": "زر تحقق من التاريخ ونموذج استفسار.",
+      "systemImplication": "Calendar or availability workflow feeding CRM.",
+      "systemImplicationAr": "تقويم أو سير توفر يغذي CRM.",
+      "dominaseFit": "A date-check flow is one of the strongest DOMINASE fits for venues.",
+      "dominaseFitAr": "مسار التحقق من التاريخ من أقوى ملاءمات DOMINASE للقاعات.",
+      "riskNotes": "Never imply unavailable dates are scarce if they are not.",
+      "riskNotesAr": "لا توح بندرة تواريخ غير نادرة فعلا."
+    },
+    {
+      "id": "venue-rec-followup",
+      "title": "Turn inquiry follow-up into a simple pipeline",
+      "titleAr": "حوّل متابعة الاستفسارات إلى خط بسيط",
+      "category": "salesFollowUp",
+      "conditions": {
+        "tags": [
+          "weak-follow-up",
+          "crm",
+          "follow-up",
+          "cadence",
+          "venue"
+        ],
+        "currentMax": 3,
+        "gapMin": 1.5
+      },
+      "priority": 5,
+      "why": "Slow or scattered follow-up loses couples who were already interested.",
+      "whyAr": "المتابعة البطيئة أو المبعثرة تفقد أزواجا كانوا مهتمين أصلا.",
+      "how": "Create stages for new inquiry, date confirmed, tour scheduled, proposal sent, and decision pending.",
+      "howAr": "أنشئ مراحل لاستفسار جديد، تاريخ مؤكد، جولة مجدولة، عرض مرسل، قرار معلق.",
+      "evidenceTags": [
+        "weak-follow-up",
+        "crm",
+        "pipeline"
+      ],
+      "websiteImplication": "Inquiry capture from all primary CTAs.",
+      "websiteImplicationAr": "التقاط استفسارات من كل الأزرار الأساسية.",
+      "systemImplication": "CRM pipeline with reminders and ownership.",
+      "systemImplicationAr": "خط CRM بتذكيرات ومسؤولية.",
+      "dominaseFit": "DOMINASE could build a unified inquiry pipeline and dashboard.",
+      "dominaseFitAr": "يمكن ل DOMINASE بناء خط استفسارات موحد ولوحة.",
+      "riskNotes": "Respect privacy and avoid spammy follow-up.",
+      "riskNotesAr": "احترم الخصوصية وتجنب المتابعة المزعجة."
+    },
+    {
+      "id": "venue-rec-testimonials",
+      "title": "Place couple stories near packages and galleries",
+      "titleAr": "ضع قصص الأزواج قرب الباقات والمعارض",
+      "category": "contentAndTrust",
+      "conditions": {
+        "topicId": "venue_couple_testimonials",
+        "currentMax": 3,
+        "gapMin": 1.5
+      },
+      "priority": 3,
+      "why": "Similar-event proof reduces risk at the exact moment couples compare options.",
+      "whyAr": "إثبات مناسبات مشابهة يقلل المخاطرة في لحظة مقارنة الخيارات.",
+      "how": "Collect short permissioned stories by event type and place them beside the relevant package or gallery.",
+      "howAr": "اجمع قصصا قصيرة بإذن أصحابها حسب نوع المناسبة وضعها قرب الباقة أو المعرض المناسب.",
+      "evidenceTags": [
+        "social-proof",
+        "testimonials",
+        "weak-proof"
+      ],
+      "websiteImplication": "Testimonial blocks beside relevant content.",
+      "websiteImplicationAr": "كتل شهادات قرب المحتوى المناسب.",
+      "systemImplication": "Review request after events.",
+      "systemImplicationAr": "طلب تقييم بعد المناسبات.",
+      "dominaseFit": "A trust-assets pass can be a quick project before larger systems.",
+      "dominaseFitAr": "تمرير أصول الثقة قد يكون مشروعا سريعا قبل الأنظمة الأكبر.",
+      "riskNotes": "Use permissioned stories and photos.",
+      "riskNotesAr": "استخدم قصصا وصورا مصرحا بها."
+    },
+    {
+      "id": "venue-rec-seasonal",
+      "title": "Use honest off-peak offers with follow-up",
+      "titleAr": "استخدم عروضا صادقة خارج الذروة مع متابعة",
+      "category": "quickWins",
+      "conditions": {
+        "topicId": "venue_seasonal_offers",
+        "currentMax": 3,
+        "gapMin": 1
+      },
+      "priority": 2,
+      "why": "Off-peak dates can be positioned honestly without fake urgency.",
+      "whyAr": "يمكن تموضع تواريخ خارج الذروة بصدق دون استعجال مصطنع.",
+      "how": "Name real off-peak periods, explain the value, and send the offer to warm leads who fit.",
+      "howAr": "حدد الفترات خارج الذروة فعلا، واشرح القيمة، وأرسل العرض للعملاء الدافئين المناسبين.",
+      "evidenceTags": [
+        "framing",
+        "anchoring",
+        "cadence"
+      ],
+      "websiteImplication": "Seasonal offer block for real dates.",
+      "websiteImplicationAr": "كتلة عرض موسمي لتواريخ حقيقية.",
+      "systemImplication": "Offer sequence for warm inquiries.",
+      "systemImplicationAr": "تسلسل عرض للاستفسارات الدافئة.",
+      "dominaseFit": "This is usually a small campaign plus CRM workflow.",
+      "dominaseFitAr": "غالبا هذا حملة صغيرة مع سير CRM.",
+      "riskNotes": "No fake scarcity or fake availability.",
+      "riskNotesAr": "لا ندرة أو توفر وهمي."
+    },
+    {
+      "id": "venue-rec-capture",
+      "title": "Capture browsing couples with planning value",
+      "titleAr": "التقط الأزواج المتصفحين بقيمة تخطيطية",
+      "category": "conversionPath",
+      "conditions": {
+        "topicId": "venue_lead_capture",
+        "currentMax": 3,
+        "gapMin": 1.5
+      },
+      "priority": 3,
+      "why": "Many couples browse months before they are ready to tour.",
+      "whyAr": "كثير من الأزواج يتصفحون قبل أشهر من جاهزيتهم للجولة.",
+      "how": "Offer a planning checklist, package guide, or date-prep email in exchange for simple contact details.",
+      "howAr": "قدم قائمة تخطيط أو دليل باقات أو بريد تحضير للتاريخ مقابل بيانات تواصل بسيطة.",
+      "evidenceTags": [
+        "capture",
+        "lead-magnet",
+        "reciprocity"
+      ],
+      "websiteImplication": "Transitional CTA for a planning guide.",
+      "websiteImplicationAr": "دعوة انتقالية لدليل تخطيط.",
+      "systemImplication": "Nurture list by event date and type.",
+      "systemImplicationAr": "قائمة رعاية حسب تاريخ ونوع المناسبة.",
+      "dominaseFit": "DOMINASE could connect this to a simple nurture flow.",
+      "dominaseFitAr": "يمكن ل DOMINASE ربط ذلك بمسار رعاية بسيط.",
+      "riskNotes": "Ask only for needed data.",
+      "riskNotesAr": "اطلب البيانات الضرورية فقط."
+    },
+    {
+      "id": "venue-rec-digital-addons",
+      "title": "Connect the inquiry system before adding RSVP extras",
+      "titleAr": "اربط نظام الاستفسار قبل إضافة RSVP",
+      "category": "dominaseNextStep",
+      "conditions": {
+        "tags": [
+          "digital-readiness",
+          "system",
+          "service-marketing",
+          "venue"
+        ],
+        "currentMax": 3,
+        "gapMin": 1.5
+      },
+      "priority": 3,
+      "why": "Digital guest add-ons help only after the core inquiry and follow-up system is stable.",
+      "whyAr": "الإضافات الرقمية للضيوف تفيد فقط بعد استقرار نظام الاستفسار والمتابعة الأساسي.",
+      "how": "First connect site, date-check, CRM, and follow-up; then consider RSVP or invitation add-ons if they fit the offer.",
+      "howAr": "اربط أولا الموقع والتحقق من التاريخ و CRM والمتابعة، ثم فكر في RSVP أو الدعوات إذا ناسبت العرض.",
+      "evidenceTags": [
+        "digital-readiness",
+        "system",
+        "service-marketing"
+      ],
+      "websiteImplication": "Site as hub for inquiry and optional add-ons.",
+      "websiteImplicationAr": "الموقع كمركز للاستفسار والإضافات الاختيارية.",
+      "systemImplication": "Connected stack with optional RSVP workflow.",
+      "systemImplicationAr": "منظومة مترابطة مع سير RSVP اختياري.",
+      "dominaseFit": "DOMINASE could phase this as inquiry pipeline first, guest add-ons second.",
+      "dominaseFitAr": "يمكن ل DOMINASE تنفيذها على مراحل: خط الاستفسار أولا، ثم إضافات الضيوف.",
+      "riskNotes": "Only offer add-ons the venue can fulfill.",
+      "riskNotesAr": "قدم فقط الإضافات التي تستطيع القاعة تنفيذها."
+    }
+  ],
+  "reportTemplates": {
+    "intro": {
+      "title": "Venue Growth Diagnosis Report",
+      "titleAr": "تقرير تشخيص نمو قاعات ومواقع مناسبات",
+      "fallback": "Your results show solid foundations with a few practical opportunities to improve clarity, trust, conversion, and follow-up.",
+      "fallbackAr": "تظهر نتيجتك أساسا جيدا مع فرص عملية لتحسين الوضوح والثقة ومسار التواصل والمتابعة."
+    },
+    "sections": [
+      {
+        "id": "strategicDiagnosis",
+        "category": "strategicDiagnosis",
+        "title": "Strategic diagnosis",
+        "titleAr": "التشخيص الاستراتيجي",
+        "purpose": "Summarize the highest-leverage business gaps without blame.",
+        "purposeAr": "تلخيص الفجوات الأعلى أثرا دون لوم."
+      },
+      {
+        "id": "customerProfile",
+        "category": "customerProfile",
+        "title": "Customer profile",
+        "titleAr": "ملف العميل",
+        "purpose": "Clarify which customer type the business should prioritize.",
+        "purposeAr": "توضيح نوع العميل الذي يستحق الأولوية."
+      },
+      {
+        "id": "websiteStructure",
+        "category": "websiteStructure",
+        "title": "Website structure",
+        "titleAr": "هيكل الموقع",
+        "purpose": "Turn clarity and trust gaps into practical website structure changes.",
+        "purposeAr": "تحويل فجوات الوضوح والثقة إلى تعديلات عملية في هيكل الموقع."
+      },
+      {
+        "id": "conversionPath",
+        "category": "conversionPath",
+        "title": "Conversion path",
+        "titleAr": "مسار التحويل",
+        "purpose": "Improve the path from interest to contact, booking, or quote request.",
+        "purposeAr": "تحسين المسار من الاهتمام إلى التواصل أو الحجز أو طلب العرض."
+      },
+      {
+        "id": "contentAndTrust",
+        "category": "contentAndTrust",
+        "title": "Content and trust",
+        "titleAr": "المحتوى والثقة",
+        "purpose": "Recommend proof, FAQ, pricing, and credibility assets.",
+        "purposeAr": "اقتراح أصول الإثبات والأسئلة والتسعير والمصداقية."
+      },
+      {
+        "id": "salesFollowUp",
+        "category": "salesFollowUp",
+        "title": "Sales follow-up",
+        "titleAr": "متابعة المبيعات",
+        "purpose": "Improve capture, tracking, WhatsApp, CRM, and follow-up rhythm.",
+        "purposeAr": "تحسين الالتقاط والتتبع وواتساب و CRM وإيقاع المتابعة."
+      },
+      {
+        "id": "quickWins",
+        "category": "quickWins",
+        "title": "Quick wins",
+        "titleAr": "مكاسب سريعة",
+        "purpose": "Name small fixes that can be done before a full build.",
+        "purposeAr": "تحديد إصلاحات صغيرة يمكن تنفيذها قبل أي بناء كبير."
+      },
+      {
+        "id": "dominaseNextStep",
+        "category": "dominaseNextStep",
+        "title": "DOMINASE next step",
+        "titleAr": "خطوة DOMINASE التالية",
+        "purpose": "Suggest one honest, proportionate DOMINASE build direction.",
+        "purposeAr": "اقتراح اتجاه بناء واحد من DOMINASE بصدق وتناسب."
+      }
+    ]
+  },
+  "contextForm": {
+    "title": "Venue context",
+    "titleAr": "سياق القاعة",
+    "description": "These fields personalize the report only and require frontend support later. They are not required for scoring.",
+    "descriptionAr": "هذه الحقول لتخصيص التقرير فقط وتتطلب دعما لاحقا في الواجهة. لا تعتمد عليها عملية التسجيل.",
+    "requiresFrontendSupport": true,
+    "fields": [
+      {
+        "id": "institutionName",
+        "label": "Venue name",
+        "labelAr": "اسم القاعة",
+        "type": "text",
+        "required": true,
+        "options": [],
+        "optionsAr": [],
+        "whyNeeded": "Personalize the report",
+        "whyNeededAr": "تخصيص التقرير",
+        "reportUse": "Header"
+      },
+      {
+        "id": "cityOrArea",
+        "label": "City / area",
+        "labelAr": "المدينة / المنطقة",
+        "type": "text",
+        "required": true,
+        "options": [],
+        "optionsAr": [],
+        "whyNeeded": "Add local context",
+        "whyNeededAr": "إضافة سياق محلي",
+        "reportUse": "Location notes"
+      },
+      {
+        "id": "venueCapacity",
+        "label": "Guest capacity",
+        "labelAr": "سعة الضيوف",
+        "type": "select",
+        "required": true,
+        "options": [
+          "Under 100",
+          "100-250",
+          "250-500",
+          "500+"
+        ],
+        "optionsAr": [
+          "أقل من 100",
+          "100-250",
+          "250-500",
+          "500+"
+        ],
+        "whyNeeded": "Fit and capacity clarity",
+        "whyNeededAr": "وضوح السعة والملاءمة",
+        "reportUse": "WebsiteStructure"
+      },
+      {
+        "id": "mainEventType",
+        "label": "Main event type",
+        "labelAr": "نوع المناسبة الرئيسي",
+        "type": "select",
+        "required": true,
+        "options": [
+          "Weddings",
+          "Engagements",
+          "Corporate",
+          "Mixed events"
+        ],
+        "optionsAr": [
+          "أعراس",
+          "خطوبة",
+          "شركات",
+          "مناسبات متنوعة"
+        ],
+        "whyNeeded": "Tailor customer profile",
+        "whyNeededAr": "تخصيص ملف العميل",
+        "reportUse": "CustomerProfile"
+      },
+      {
+        "id": "currentMainChannel",
+        "label": "Main inquiry channel",
+        "labelAr": "قناة الاستفسار الرئيسية",
+        "type": "select",
+        "required": true,
+        "options": [
+          "WhatsApp",
+          "Instagram",
+          "Phone",
+          "Website",
+          "Referrals"
+        ],
+        "optionsAr": [
+          "واتساب",
+          "إنستغرام",
+          "هاتف",
+          "الموقع",
+          "إحالات"
+        ],
+        "whyNeeded": "Reveal channel reliance",
+        "whyNeededAr": "كشف الاعتماد على القناة",
+        "reportUse": "SalesFollowUp"
+      },
+      {
+        "id": "bookingSeasonality",
+        "label": "Peak/off-peak pattern",
+        "labelAr": "نمط الذروة وخارج الذروة",
+        "type": "select",
+        "required": false,
+        "options": [
+          "Strong peak season",
+          "Even year-round",
+          "Many off-peak gaps",
+          "Not sure"
+        ],
+        "optionsAr": [
+          "ذروة قوية",
+          "متوازن طوال السنة",
+          "فراغات كثيرة خارج الذروة",
+          "غير متأكد"
+        ],
+        "whyNeeded": "Inform seasonal guidance",
+        "whyNeededAr": "إثراء إرشاد العروض الموسمية",
+        "reportUse": "QuickWins"
+      },
+      {
+        "id": "optionalNotes",
+        "label": "Anything else",
+        "labelAr": "ملاحظات إضافية",
+        "type": "textarea",
+        "required": false,
+        "options": [],
+        "optionsAr": [],
+        "whyNeeded": "Capture nuance",
+        "whyNeededAr": "التقاط التفاصيل",
+        "reportUse": "Context"
+      }
+    ]
+  }
+}

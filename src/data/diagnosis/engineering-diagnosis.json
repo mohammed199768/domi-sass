@@ -1,0 +1,1078 @@
+{
+  "meta": {
+    "id": "engineering-growth-diagnosis",
+    "version": "1.0.0",
+    "title": "Engineering Company Growth Diagnosis",
+    "titleAr": "تشخيص نمو الشركة الهندسية",
+    "description": "A strategic self-assessment for project focus, portfolio proof, credentials, quote flow, proposal follow-up, and digital readiness.",
+    "descriptionAr": "تقييم ذاتي استراتيجي لتركيز المشاريع وإثبات الأعمال والاعتمادات ومسار العرض ومتابعة المقترحات والجاهزية الرقمية.",
+    "disclaimer": "This is a strategic self-assessment for business readiness. It is not a guarantee of results and is not a substitute for professional legal, financial, medical, or operational advice. It does not guarantee project volume, procurement success, licensing status, or financial outcomes. Credentials, project claims, and portfolio examples must be genuine, current, and permissioned.",
+    "disclaimerAr": "هذا تقييم ذاتي استراتيجي لجاهزية النشاط. لا يضمن النتائج ولا يغني عن الاستشارة المهنية القانونية أو المالية أو الطبية أو التشغيلية عند الحاجة. لا يضمن حجم المشاريع أو نجاح المشتريات أو حالة الترخيص أو النتائج المالية. يجب أن تكون الاعتمادات وادعاءات المشاريع وأمثلة المعرض حقيقية وحديثة ومصرحا بها.",
+    "scale": {
+      "min": 1,
+      "max": 5,
+      "step": 0.5
+    },
+    "domain": "engineering",
+    "domainAr": "شركات هندسية",
+    "estimatedMinutes": 8,
+    "sourceNote": "Generated from 04_STRATEGY_MAPS/engineering_strategy_map.md, question_blueprints.json, DOMINASE_EXTRACTION_MATRIX.json, DOMINASE_TAG_TAXONOMY.md, and DOMINASE_RECOMMENDATION_BANK.md. question_blueprints.json was used only as planning index.",
+    "ethicsNote": "Value-first, advisor-like self-assessment. No fabricated statistics, no guarantees, no manipulative urgency, no copied book text, and no recommendation to build systems the business will not realistically use."
+  },
+  "dimensions": [
+    {
+      "id": "D1",
+      "dimensionKey": "positioning-project-focus",
+      "title": "Positioning & Project Focus",
+      "titleAr": "التموضع وتركيز المشاريع",
+      "description": "How clearly the firm communicates project types, ideal clients, and local relevance.",
+      "descriptionAr": "مدى وضوح أنواع المشاريع والعملاء الأنسب والملاءمة المحلية.",
+      "orderIndex": 1,
+      "weight": 4,
+      "topics": [
+        {
+          "id": "eng_project_focus",
+          "topicKey": "project-focus",
+          "label": "Project-type focus",
+          "labelAr": "تركيز نوع المشروع",
+          "prompt": "Can a potential client quickly tell which project types you specialize in and whether you fit their project?",
+          "promptAr": "هل يستطيع العميل المحتمل بسرعة معرفة أنواع المشاريع التي تتخصص فيها وهل تناسب مشروعه؟",
+          "answerMode": "current-target",
+          "orderIndex": 1,
+          "weight": 4,
+          "tags": [
+            "positioning",
+            "niche",
+            "targeting",
+            "engineering:project-focus"
+          ],
+          "levelAnchors": [
+            "1 - We do everything",
+            "2 - Some focus but not visible",
+            "3 - Focus is implied in past work",
+            "4 - Project types are clearly named",
+            "5 - Project focus, ideal client, and fit are obvious"
+          ],
+          "levelAnchorsAr": [
+            "1 - ننفذ كل شيء",
+            "2 - يوجد بعض التركيز لكنه غير ظاهر",
+            "3 - التركيز مفهوم ضمنا من الأعمال السابقة",
+            "4 - أنواع المشاريع مذكورة بوضوح",
+            "5 - نوع المشروع والعميل المثالي والملاءمة واضحة"
+          ]
+        },
+        {
+          "id": "eng_target_client",
+          "topicKey": "target-client",
+          "label": "Target client clarity",
+          "labelAr": "وضوح العميل المستهدف",
+          "prompt": "Is it clear which client or project profile is the best fit for your firm?",
+          "promptAr": "هل من الواضح أي نوع عميل أو مشروع هو الأنسب لشركتك؟",
+          "answerMode": "current-target",
+          "orderIndex": 10,
+          "weight": 3,
+          "tags": [
+            "segmentation",
+            "targeting",
+            "positioning",
+            "engineering"
+          ],
+          "levelAnchors": [
+            "1 - Targets everyone",
+            "2 - Ideal client is only internal knowledge",
+            "3 - Some client types are named",
+            "4 - Best-fit client types are clear",
+            "5 - Best-fit, acceptable, and poor-fit projects are easy to understand"
+          ],
+          "levelAnchorsAr": [
+            "1 - يستهدف الجميع",
+            "2 - العميل المثالي معروف داخليا فقط",
+            "3 - بعض أنواع العملاء مذكورة",
+            "4 - أنواع العملاء الأنسب واضحة",
+            "5 - المشروع الأنسب والمقبول وغير المناسب سهل الفهم"
+          ]
+        },
+        {
+          "id": "eng_local_positioning",
+          "topicKey": "local-positioning",
+          "label": "Local market positioning",
+          "labelAr": "التموضع في السوق المحلي",
+          "prompt": "Does your site signal familiarity with the local market, standards, or regulations where that matters?",
+          "promptAr": "هل يظهر موقعك إلماما بالسوق المحلي أو المعايير أو الأنظمة حيث يهم ذلك؟",
+          "answerMode": "current-target",
+          "orderIndex": 11,
+          "weight": 2,
+          "tags": [
+            "local-positioning",
+            "unity",
+            "engineering"
+          ],
+          "levelAnchors": [
+            "1 - No local signals",
+            "2 - Location is mentioned only",
+            "3 - Some local projects are shown",
+            "4 - Local experience is clear",
+            "5 - Local proof, standards, and relevant areas are shown accurately"
+          ],
+          "levelAnchorsAr": [
+            "1 - لا توجد إشارات محلية",
+            "2 - الموقع مذكور فقط",
+            "3 - تظهر بعض المشاريع المحلية",
+            "4 - الخبرة المحلية واضحة",
+            "5 - الإثبات المحلي والمعايير والمناطق ذات الصلة ظاهرة بدقة"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "D2",
+      "dimensionKey": "proof-portfolio",
+      "title": "Proof & Portfolio",
+      "titleAr": "الإثبات ومعرض الأعمال",
+      "description": "How strongly the firm proves capability with relevant completed work.",
+      "descriptionAr": "مدى قوة إثبات القدرة عبر أعمال منجزة ذات صلة.",
+      "orderIndex": 2,
+      "weight": 5,
+      "topics": [
+        {
+          "id": "eng_portfolio_proof",
+          "topicKey": "portfolio-proof",
+          "label": "Portfolio and before-after proof",
+          "labelAr": "معرض الأعمال وإثبات قبل/بعد",
+          "prompt": "Can a client see enough relevant completed projects, ideally with before-after or outcomes, to trust your capability?",
+          "promptAr": "هل يرى العميل مشاريع منجزة كافية وذات صلة، ويفضل مع قبل/بعد أو نتائج، ليثق بقدرتك؟",
+          "answerMode": "current-target",
+          "orderIndex": 2,
+          "weight": 5,
+          "tags": [
+            "portfolio",
+            "case-studies",
+            "visual-trust",
+            "engineering:portfolio-proof"
+          ],
+          "levelAnchors": [
+            "1 - No real portfolio",
+            "2 - A few weakly shown projects",
+            "3 - Some projects but little context",
+            "4 - Relevant portfolio with useful details",
+            "5 - Strong portfolio with before-after, scope, and outcomes where permitted"
+          ],
+          "levelAnchorsAr": [
+            "1 - لا يوجد معرض حقيقي",
+            "2 - بعض المشاريع معروضة بضعف",
+            "3 - مشاريع موجودة لكن بلا سياق كاف",
+            "4 - معرض مناسب مع تفاصيل مفيدة",
+            "5 - معرض قوي مع قبل/بعد والنطاق والنتائج عند السماح"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "D3",
+      "dimensionKey": "expertise-credentials",
+      "title": "Expertise & Credentials",
+      "titleAr": "الخبرة والاعتمادات",
+      "description": "Visibility of expertise, licensing, and clear value for technical and non-technical buyers.",
+      "descriptionAr": "ظهور الخبرة والتراخيص والقيمة الواضحة للعميل التقني وغير التقني.",
+      "orderIndex": 3,
+      "weight": 5,
+      "topics": [
+        {
+          "id": "eng_expertise_content",
+          "topicKey": "expertise-content",
+          "label": "Demonstrated expertise",
+          "labelAr": "الخبرة المبرهنة",
+          "prompt": "Does your site demonstrate technical expertise through insight, methodology, or explanations instead of only claiming experience?",
+          "promptAr": "هل يبرهن موقعك الخبرة التقنية عبر بصيرة أو منهجية أو شروحات بدلا من مجرد ادعاء الخبرة؟",
+          "answerMode": "current-target",
+          "orderIndex": 3,
+          "weight": 4,
+          "tags": [
+            "authority",
+            "thought-leadership",
+            "credibility",
+            "engineering"
+          ],
+          "levelAnchors": [
+            "1 - Only claims of expertise",
+            "2 - Some technical terms without explanation",
+            "3 - Project descriptions show partial expertise",
+            "4 - Methodology and insights are visible",
+            "5 - Expertise is proven through process, content, and cases"
+          ],
+          "levelAnchorsAr": [
+            "1 - ادعاءات خبرة فقط",
+            "2 - مصطلحات تقنية دون شرح",
+            "3 - أوصاف المشاريع تظهر خبرة جزئية",
+            "4 - المنهجية والرؤى ظاهرة",
+            "5 - الخبرة مثبتة عبر العملية والمحتوى والحالات"
+          ]
+        },
+        {
+          "id": "eng_licensing_visibility",
+          "topicKey": "licensing-visibility",
+          "label": "Licensing and credentials visibility",
+          "labelAr": "ظهور التراخيص والاعتمادات",
+          "prompt": "Are licenses, certifications, and qualifications clearly visible for clients who need to verify them?",
+          "promptAr": "هل التراخيص والشهادات والمؤهلات ظاهرة بوضوح للعملاء الذين يحتاجون للتحقق منها؟",
+          "answerMode": "current-target",
+          "orderIndex": 4,
+          "weight": 4,
+          "tags": [
+            "authority",
+            "trust-signal",
+            "credibility",
+            "engineering:licensing-trust"
+          ],
+          "levelAnchors": [
+            "1 - Not shown",
+            "2 - Mentioned vaguely",
+            "3 - Mentioned in text but not easy to verify",
+            "4 - Credentials section is visible",
+            "5 - Genuine current credentials are clear and easy to verify"
+          ],
+          "levelAnchorsAr": [
+            "1 - غير معروضة",
+            "2 - مذكورة بشكل مبهم",
+            "3 - مذكورة في النص لكن يصعب التحقق منها",
+            "4 - يوجد قسم واضح للاعتمادات",
+            "5 - اعتمادات حقيقية وحديثة واضحة وسهلة التحقق"
+          ]
+        },
+        {
+          "id": "eng_message_clarity",
+          "topicKey": "message-clarity",
+          "label": "Message clarity for decision-makers",
+          "labelAr": "وضوح الرسالة لمتخذ القرار",
+          "prompt": "Can a non-technical decision-maker understand your value and next step without wading through jargon?",
+          "promptAr": "هل يستطيع متخذ قرار غير تقني فهم قيمتك والخطوة التالية دون الغرق في المصطلحات؟",
+          "answerMode": "current-target",
+          "orderIndex": 12,
+          "weight": 3,
+          "tags": [
+            "cognitive-ease",
+            "clarity",
+            "cta-clarity",
+            "engineering"
+          ],
+          "levelAnchors": [
+            "1 - Jargon-heavy and unclear",
+            "2 - Understandable only to technical readers",
+            "3 - Mostly understandable but dense",
+            "4 - Clear for mixed decision teams",
+            "5 - Clear value, proof, and next step for technical and non-technical readers"
+          ],
+          "levelAnchorsAr": [
+            "1 - كثير المصطلحات وغير واضح",
+            "2 - مفهوم للقراء التقنيين فقط",
+            "3 - مفهوم غالبا لكنه كثيف",
+            "4 - واضح لفرق قرار مختلطة",
+            "5 - قيمة وإثبات وخطوة واضحة للتقني وغير التقني"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "D4",
+      "dimensionKey": "process-quote-flow",
+      "title": "Process & Quote Flow",
+      "titleAr": "العملية ومسار عرض السعر",
+      "description": "Clarity of delivery process, intake, and cost-factor communication.",
+      "descriptionAr": "وضوح عملية التنفيذ والاستقبال وعوامل التكلفة.",
+      "orderIndex": 4,
+      "weight": 5,
+      "topics": [
+        {
+          "id": "eng_process_explanation",
+          "topicKey": "process-explanation",
+          "label": "Process explanation",
+          "labelAr": "شرح العملية",
+          "prompt": "Does your site explain the steps from first contact to project delivery so clients know what to expect?",
+          "promptAr": "هل يشرح موقعك الخطوات من أول تواصل إلى تسليم المشروع كي يعرف العملاء ما يتوقعونه؟",
+          "answerMode": "current-target",
+          "orderIndex": 5,
+          "weight": 4,
+          "tags": [
+            "service-marketing",
+            "tangibility",
+            "engineering:process-explanation"
+          ],
+          "levelAnchors": [
+            "1 - No process shown",
+            "2 - A vague overview",
+            "3 - Steps are listed but not tied to client concerns",
+            "4 - Clear step-by-step process",
+            "5 - Process, responsibilities, and decision points are clear"
+          ],
+          "levelAnchorsAr": [
+            "1 - لا توجد عملية معروضة",
+            "2 - نظرة عامة مبهمة",
+            "3 - الخطوات مذكورة لكنها غير مربوطة بمخاوف العميل",
+            "4 - عملية واضحة خطوة بخطوة",
+            "5 - العملية والمسؤوليات ونقاط القرار واضحة"
+          ]
+        },
+        {
+          "id": "eng_quote_flow",
+          "topicKey": "quote-flow",
+          "label": "Request-quote flow",
+          "labelAr": "مسار طلب العرض",
+          "prompt": "Can a serious client request a quote or consultation through a structured path that captures the right project details?",
+          "promptAr": "هل يستطيع العميل الجاد طلب عرض أو استشارة عبر مسار منظم يلتقط تفاصيل المشروع المناسبة؟",
+          "answerMode": "current-target",
+          "orderIndex": 6,
+          "weight": 5,
+          "tags": [
+            "booking-friction",
+            "contact-flow",
+            "discovery",
+            "engineering:request-quote"
+          ],
+          "levelAnchors": [
+            "1 - Only phone, email, or open message",
+            "2 - A generic form with missing project details",
+            "3 - Quote requests are captured but require back-and-forth",
+            "4 - Structured intake captures key details",
+            "5 - Request-quote flow qualifies, routes, and tracks the opportunity"
+          ],
+          "levelAnchorsAr": [
+            "1 - هاتف أو بريد أو رسالة مفتوحة فقط",
+            "2 - نموذج عام ينقصه تفاصيل المشروع",
+            "3 - طلبات العروض تلتقط لكنها تحتاج مراسلات كثيرة",
+            "4 - استقبال منظم يلتقط التفاصيل الأساسية",
+            "5 - مسار طلب العرض يؤهل ويوجه ويتتبع الفرصة"
+          ]
+        },
+        {
+          "id": "eng_cost_factors",
+          "topicKey": "cost-factors",
+          "label": "Cost factor clarity",
+          "labelAr": "وضوح عوامل التكلفة",
+          "prompt": "Do you explain what drives project cost without making unrealistic promises or bait pricing?",
+          "promptAr": "هل تشرح ما الذي يحرك تكلفة المشروع دون وعود غير واقعية أو تسعير جاذب ومضلل؟",
+          "answerMode": "current-target",
+          "orderIndex": 7,
+          "weight": 3,
+          "tags": [
+            "pricing-transparency",
+            "pricing-content",
+            "trust-barrier",
+            "engineering"
+          ],
+          "levelAnchors": [
+            "1 - No cost guidance",
+            "2 - Only says request a quote",
+            "3 - Some vague cost factors",
+            "4 - Key cost factors explained realistically",
+            "5 - Cost guidance filters fit and builds trust without bait"
+          ],
+          "levelAnchorsAr": [
+            "1 - لا يوجد توجيه للتكلفة",
+            "2 - فقط اطلب عرض سعر",
+            "3 - بعض عوامل تكلفة مبهمة",
+            "4 - عوامل التكلفة المهمة مشروحة بواقعية",
+            "5 - توجيه التكلفة يؤهل الملاءمة ويبني الثقة دون تضليل"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "D5",
+      "dimensionKey": "lead-proposal-followup",
+      "title": "Lead & Proposal Follow-up",
+      "titleAr": "متابعة العملاء والعروض",
+      "description": "How consistently inquiries and proposals are tracked and followed up.",
+      "descriptionAr": "مدى انتظام تتبع الاستفسارات والعروض ومتابعتها.",
+      "orderIndex": 5,
+      "weight": 5,
+      "topics": [
+        {
+          "id": "eng_proposal_followup",
+          "topicKey": "proposal-followup",
+          "label": "Proposal follow-up",
+          "labelAr": "متابعة العروض",
+          "prompt": "After sending a proposal, is there a consistent follow-up rhythm until the client decides?",
+          "promptAr": "بعد إرسال العرض، هل يوجد إيقاع متابعة منتظم حتى يتخذ العميل قراره؟",
+          "answerMode": "current-target",
+          "orderIndex": 8,
+          "weight": 5,
+          "tags": [
+            "weak-follow-up",
+            "follow-up",
+            "cadence",
+            "engineering:lead-follow-up"
+          ],
+          "levelAnchors": [
+            "1 - No systematic follow-up",
+            "2 - Follow-up happens only when remembered",
+            "3 - Some manual reminders",
+            "4 - A consistent follow-up cadence exists",
+            "5 - Every proposal has owner, stage, next action, and respectful cadence"
+          ],
+          "levelAnchorsAr": [
+            "1 - لا توجد متابعة منتظمة",
+            "2 - المتابعة تحدث عند التذكر فقط",
+            "3 - بعض التذكيرات اليدوية",
+            "4 - يوجد إيقاع متابعة منتظم",
+            "5 - لكل عرض مسؤول ومرحلة وخطوة تالية وإيقاع محترم"
+          ]
+        },
+        {
+          "id": "eng_lead_tracking",
+          "topicKey": "lead-tracking",
+          "label": "Lead and proposal tracking",
+          "labelAr": "تتبع العملاء والعروض",
+          "prompt": "Are inquiries and proposals tracked by stage, source, owner, and next action?",
+          "promptAr": "هل يتم تتبع الاستفسارات والعروض حسب المرحلة والمصدر والمسؤول والخطوة التالية؟",
+          "answerMode": "current-target",
+          "orderIndex": 9,
+          "weight": 4,
+          "tags": [
+            "crm",
+            "pipeline",
+            "tracking",
+            "engineering"
+          ],
+          "levelAnchors": [
+            "1 - Status lives in inboxes or memory",
+            "2 - A spreadsheet exists but is incomplete",
+            "3 - Stages exist but ownership is loose",
+            "4 - Pipeline tracks most leads and proposals",
+            "5 - Pipeline shows source, owner, stage, next action, and open follow-ups"
+          ],
+          "levelAnchorsAr": [
+            "1 - الحالة في البريد أو الذاكرة",
+            "2 - يوجد جدول لكنه غير مكتمل",
+            "3 - توجد مراحل لكن المسؤولية رخوة",
+            "4 - خط متابعة يتتبع أغلب العملاء والعروض",
+            "5 - الخط يظهر المصدر والمسؤول والمرحلة والخطوة والمتابعات"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "D6",
+      "dimensionKey": "digital-readiness",
+      "title": "Digital Readiness",
+      "titleAr": "الجاهزية الرقمية",
+      "description": "Whether the sales workflow is connected from inquiry to proposal follow-up.",
+      "descriptionAr": "هل سير المبيعات مترابط من الاستفسار إلى متابعة العرض.",
+      "orderIndex": 6,
+      "weight": 3,
+      "topics": [
+        {
+          "id": "eng_digital_readiness",
+          "topicKey": "digital-readiness",
+          "label": "Connected digital system",
+          "labelAr": "النظام الرقمي المترابط",
+          "prompt": "Do website, quote intake, proposals, and follow-up work as one tracked system?",
+          "promptAr": "هل يعمل الموقع واستقبال طلبات العروض والعروض والمتابعة كنظام واحد قابل للتتبع؟",
+          "answerMode": "current-target",
+          "orderIndex": 13,
+          "weight": 3,
+          "tags": [
+            "digital-readiness",
+            "system",
+            "automation",
+            "engineering"
+          ],
+          "levelAnchors": [
+            "1 - Disconnected manual steps",
+            "2 - Some tracking after contact",
+            "3 - Partly connected intake and follow-up",
+            "4 - Most steps are connected",
+            "5 - One connected system from inquiry to proposal follow-up"
+          ],
+          "levelAnchorsAr": [
+            "1 - خطوات يدوية منفصلة",
+            "2 - بعض التتبع بعد التواصل",
+            "3 - استقبال ومتابعة مترابطان جزئيا",
+            "4 - معظم الخطوات مترابطة",
+            "5 - نظام واحد مترابط من الاستفسار إلى متابعة العرض"
+          ]
+        }
+      ]
+    }
+  ],
+  "scoring": {
+    "model": "current-target-gap",
+    "gapFormula": "gap = max(target - current, 0)",
+    "priorityDimensionIds": [
+      "D2",
+      "D3",
+      "D4",
+      "D5"
+    ],
+    "profiles": [
+      {
+        "id": "eng_expert_undershown",
+        "title": "Expert Team, Under-shown Proof",
+        "titleAr": "فريق خبير، إثبات غير مبرز",
+        "summary": "The firm may have strong capability, but the website does not prove it clearly enough.",
+        "summaryAr": "قد تمتلك الشركة قدرة قوية لكن الموقع لا يثبت ذلك بما يكفي.",
+        "conditions": [
+          {
+            "dimensionId": "D2",
+            "gapMin": 1.5
+          },
+          {
+            "dimensionId": "D3",
+            "gapMin": 1.5
+          }
+        ],
+        "relatedDimensions": [
+          "D2",
+          "D3"
+        ],
+        "riskNote": "Use real projects and genuine credentials only.",
+        "riskNoteAr": "استخدم مشاريع حقيقية واعتمادات أصلية فقط."
+      },
+      {
+        "id": "eng_broad_unfocused",
+        "title": "Broad Skills, Unfocused Positioning",
+        "titleAr": "مهارات واسعة، تموضع غير مركز",
+        "summary": "The firm may be capable across many services but appears too general to premium buyers.",
+        "summaryAr": "قد تكون الشركة قادرة عبر خدمات كثيرة لكنها تبدو عامة جدا للمشترين الأعلى قيمة.",
+        "conditions": [
+          {
+            "dimensionId": "D1",
+            "gapMin": 1.5
+          }
+        ],
+        "relatedDimensions": [
+          "D1"
+        ],
+        "riskNote": "Do not narrow in a way that hides viable services.",
+        "riskNoteAr": "لا تضيق التخصص بطريقة تخفي خدمات مجدية."
+      },
+      {
+        "id": "eng_quote_friction",
+        "title": "Strong Work, Quote-Flow Friction",
+        "titleAr": "عمل قوي، احتكاك في مسار العرض",
+        "summary": "The company may win once engaged, but requesting a quote is unclear or too manual.",
+        "summaryAr": "قد تكسب الشركة بعد التواصل، لكن طلب العرض غير واضح أو يدوي جدا.",
+        "conditions": [
+          {
+            "dimensionId": "D4",
+            "gapMin": 1.5
+          }
+        ],
+        "relatedDimensions": [
+          "D4"
+        ],
+        "riskNote": "Capture only useful project data.",
+        "riskNoteAr": "التقط بيانات المشروع المفيدة فقط."
+      },
+      {
+        "id": "eng_proposals_leaking",
+        "title": "Good Pipeline, Leaking Proposals",
+        "titleAr": "خط فرص جيد، عروض تتسرب",
+        "summary": "The firm may send proposals but not follow up with enough structure.",
+        "summaryAr": "قد ترسل الشركة عروضا لكنها لا تتابعها بتنظيم كاف.",
+        "conditions": [
+          {
+            "dimensionId": "D5",
+            "gapMin": 1.5
+          }
+        ],
+        "relatedDimensions": [
+          "D5"
+        ],
+        "riskNote": "Follow-up should be professional, not pushy.",
+        "riskNoteAr": "يجب أن تكون المتابعة مهنية لا ضاغطة."
+      },
+      {
+        "id": "eng_capable_system_poor",
+        "title": "Capable Firm, System-Poor",
+        "titleAr": "شركة قادرة، أنظمة ضعيفة",
+        "summary": "Sales activity may rely on inboxes, spreadsheets, and memory instead of a connected pipeline.",
+        "summaryAr": "قد تعتمد أنشطة البيع على البريد والجداول والذاكرة بدلا من خط مترابط.",
+        "conditions": [
+          {
+            "dimensionId": "D5",
+            "gapMin": 1.5
+          },
+          {
+            "dimensionId": "D6",
+            "gapMin": 1.5
+          }
+        ],
+        "relatedDimensions": [
+          "D5",
+          "D6"
+        ],
+        "riskNote": "Build only what the team will maintain.",
+        "riskNoteAr": "ابن فقط ما سيحافظ عليه الفريق."
+      }
+    ]
+  },
+  "recommendations": [
+    {
+      "id": "eng-rec-positioning",
+      "title": "Focus project-type positioning",
+      "titleAr": "ركّز تموضع نوع المشروع",
+      "category": "strategicDiagnosis",
+      "conditions": {
+        "tags": [
+          "positioning",
+          "niche",
+          "targeting",
+          "segmentation",
+          "engineering"
+        ],
+        "currentMax": 3,
+        "gapMin": 1.5
+      },
+      "priority": 4,
+      "why": "Higher-value buyers need to know quickly whether the firm is relevant to their project.",
+      "whyAr": "المشترون الأعلى قيمة يحتاجون أن يعرفوا بسرعة هل الشركة مناسبة لمشروعهم.",
+      "how": "Name primary project types, ideal client profiles, and the problems you are best built to solve.",
+      "howAr": "سم أنواع المشاريع الأساسية وملفات العملاء الأنسب والمشكلات التي تجيد حلها.",
+      "evidenceTags": [
+        "positioning",
+        "niche",
+        "targeting"
+      ],
+      "websiteImplication": "Project-type pages and who-we-serve section.",
+      "websiteImplicationAr": "صفحات أنواع المشاريع وقسم لمن نخدم.",
+      "systemImplication": "Inquiry routing by project type.",
+      "systemImplicationAr": "توجيه الاستفسارات حسب نوع المشروع.",
+      "dominaseFit": "DOMINASE could translate this into focused positioning and site architecture.",
+      "dominaseFitAr": "يمكن ل DOMINASE تحويل ذلك إلى تموضع وهيكل موقع مركز.",
+      "riskNotes": "Do not claim capabilities the firm does not have.",
+      "riskNotesAr": "لا تدع قدرات لا تمتلكها الشركة."
+    },
+    {
+      "id": "eng-rec-portfolio",
+      "title": "Build a proof-led portfolio with context",
+      "titleAr": "ابن معرض أعمال يقوده الإثبات والسياق",
+      "category": "contentAndTrust",
+      "conditions": {
+        "topicId": "eng_portfolio_proof",
+        "currentMax": 3,
+        "gapMin": 1.5
+      },
+      "priority": 5,
+      "why": "Engineering buyers trust demonstrated relevant work more than broad claims.",
+      "whyAr": "مشترو الهندسة يثقون بالعمل ذي الصلة المثبت أكثر من الادعاءات العامة.",
+      "how": "Show project type, scope, challenge, approach, outcome where permitted, and before-after visuals where useful.",
+      "howAr": "اعرض نوع المشروع والنطاق والتحدي والمنهجية والنتيجة عند السماح وصور قبل/بعد عند الفائدة.",
+      "evidenceTags": [
+        "portfolio",
+        "case-studies",
+        "visual-trust"
+      ],
+      "websiteImplication": "Portfolio and case study templates.",
+      "websiteImplicationAr": "قوالب معرض ودراسات حالة.",
+      "systemImplication": "Project media library tagged by type.",
+      "systemImplicationAr": "مكتبة وسائط مشاريع موسومة حسب النوع.",
+      "dominaseFit": "A portfolio rebuild is a strong DOMINASE fit when D2 is a major gap.",
+      "dominaseFitAr": "إعادة بناء المعرض ملائمة جدا ل DOMINASE عندما تكون D2 فجوة كبيرة.",
+      "riskNotes": "Use real, permissioned projects and outcomes.",
+      "riskNotesAr": "استخدم مشاريع ونتائج حقيقية ومصرحا بها."
+    },
+    {
+      "id": "eng-rec-credentials",
+      "title": "Make credentials and method verifiable",
+      "titleAr": "اجعل الاعتمادات والمنهجية قابلة للتحقق",
+      "category": "contentAndTrust",
+      "conditions": {
+        "tags": [
+          "authority",
+          "credibility",
+          "thought-leadership",
+          "trust-signal",
+          "engineering"
+        ],
+        "currentMax": 3,
+        "gapMin": 1.5
+      },
+      "priority": 4,
+      "why": "Credentials and demonstrated expertise help procurement and serious clients reduce risk.",
+      "whyAr": "الاعتمادات والخبرة المبرهنة تساعد المشتريات والعملاء الجادين على تقليل المخاطرة.",
+      "how": "Add a credentials section, methodology page, and technical insight content tied to real services.",
+      "howAr": "أضف قسم اعتمادات وصفحة منهجية ومحتوى بصيرة تقنية مرتبطا بالخدمات الحقيقية.",
+      "evidenceTags": [
+        "authority",
+        "credibility",
+        "thought-leadership"
+      ],
+      "websiteImplication": "Credentials and methodology pages.",
+      "websiteImplicationAr": "صفحات الاعتمادات والمنهجية.",
+      "systemImplication": "Credentials reused in proposal templates.",
+      "systemImplicationAr": "إعادة استخدام الاعتمادات في قوالب العروض.",
+      "dominaseFit": "DOMINASE could create a credibility layer for the firm website and proposal flow.",
+      "dominaseFitAr": "يمكن ل DOMINASE بناء طبقة مصداقية للموقع ومسار العروض.",
+      "riskNotes": "No fake licensing or certifications.",
+      "riskNotesAr": "لا تراخيص أو شهادات وهمية."
+    },
+    {
+      "id": "eng-rec-process",
+      "title": "Explain the delivery process before the quote",
+      "titleAr": "اشرح عملية التنفيذ قبل العرض",
+      "category": "websiteStructure",
+      "conditions": {
+        "tags": [
+          "service-marketing",
+          "cognitive-ease",
+          "clarity",
+          "tangibility",
+          "cta-clarity"
+        ],
+        "currentMax": 3,
+        "gapMin": 1.5
+      },
+      "priority": 4,
+      "why": "A clear process makes complex services feel safer and easier to buy.",
+      "whyAr": "العملية الواضحة تجعل الخدمات المعقدة أكثر أمانا وأسهل شراء.",
+      "how": "Lay out steps from first contact to delivery, clarify responsibilities, and remove jargon for non-technical decision-makers.",
+      "howAr": "اعرض الخطوات من أول تواصل إلى التسليم، ووضح المسؤوليات، واحذف المصطلحات الزائدة لغير التقنيين.",
+      "evidenceTags": [
+        "service-marketing",
+        "cognitive-ease",
+        "clarity"
+      ],
+      "websiteImplication": "Process page and clearer service hierarchy.",
+      "websiteImplicationAr": "صفحة عملية وتسلسل خدمات أوضح.",
+      "systemImplication": "Process checklist used in onboarding.",
+      "systemImplicationAr": "قائمة عملية تستخدم في الاستقبال.",
+      "dominaseFit": "This can be a focused website structure and content pass.",
+      "dominaseFitAr": "يمكن أن يكون هذا تحسين هيكل ومحتوى مركزا.",
+      "riskNotes": "Do not promise unrealistic timelines.",
+      "riskNotesAr": "لا تعد بجداول زمنية غير واقعية."
+    },
+    {
+      "id": "eng-rec-quote-flow",
+      "title": "Add a structured request-quote flow",
+      "titleAr": "أضف مسار طلب عرض منظم",
+      "category": "conversionPath",
+      "conditions": {
+        "topicId": "eng_quote_flow",
+        "currentMax": 3,
+        "gapMin": 1.5
+      },
+      "priority": 5,
+      "why": "Quote friction loses serious buyers before the firm can understand the opportunity.",
+      "whyAr": "احتكاك طلب العرض يفقد المشترين الجادين قبل أن تفهم الشركة الفرصة.",
+      "how": "Capture project type, location, scope, timeline, budget range where appropriate, files, and preferred contact method.",
+      "howAr": "التقط نوع المشروع والموقع والنطاق والجدول ونطاق الميزانية عند مناسبته والملفات وطريقة التواصل.",
+      "evidenceTags": [
+        "booking-friction",
+        "contact-flow",
+        "discovery"
+      ],
+      "websiteImplication": "Request-quote CTA and intake form.",
+      "websiteImplicationAr": "زر طلب عرض ونموذج استقبال.",
+      "systemImplication": "Intake feeds CRM and assigns owner.",
+      "systemImplicationAr": "الاستقبال يغذي CRM ويحدد المسؤول.",
+      "dominaseFit": "A quote-flow system is a high-leverage DOMINASE build for engineering firms.",
+      "dominaseFitAr": "نظام طلب العروض بناء عالي الأثر من DOMINASE للشركات الهندسية.",
+      "riskNotes": "Ask only for necessary project information.",
+      "riskNotesAr": "اطلب معلومات المشروع الضرورية فقط."
+    },
+    {
+      "id": "eng-rec-cost-content",
+      "title": "Explain cost factors without bait pricing",
+      "titleAr": "اشرح عوامل التكلفة دون تسعير مضلل",
+      "category": "quickWins",
+      "conditions": {
+        "topicId": "eng_cost_factors",
+        "currentMax": 3,
+        "gapMin": 1.5
+      },
+      "priority": 3,
+      "why": "Cost-factor clarity filters poor-fit inquiries and reduces price-only conversations.",
+      "whyAr": "وضوح عوامل التكلفة يصفي الاستفسارات غير المناسبة ويقلل محادثات السعر فقط.",
+      "how": "Publish a guide to what affects cost, what changes scope, and what information is needed for a useful estimate.",
+      "howAr": "انشر دليلا لما يؤثر في التكلفة وما يغير النطاق وما المعلومات المطلوبة لتقدير مفيد.",
+      "evidenceTags": [
+        "pricing-transparency",
+        "pricing-content"
+      ],
+      "websiteImplication": "Cost-factors content page.",
+      "websiteImplicationAr": "صفحة محتوى عوامل التكلفة.",
+      "systemImplication": "Estimate capture informed by cost drivers.",
+      "systemImplicationAr": "التقاط تقدير مبني على عوامل التكلفة.",
+      "dominaseFit": "This is usually a practical content improvement before a larger build.",
+      "dominaseFitAr": "غالبا هذا تحسين محتوى عملي قبل بناء أكبر.",
+      "riskNotes": "No unrealistic low anchors.",
+      "riskNotesAr": "لا أسعار منخفضة غير واقعية كطعم."
+    },
+    {
+      "id": "eng-rec-proposal-pipeline",
+      "title": "Track proposals with owner, stage, and next action",
+      "titleAr": "تتبع العروض بمسؤول ومرحلة وخطوة تالية",
+      "category": "salesFollowUp",
+      "conditions": {
+        "tags": [
+          "weak-follow-up",
+          "pipeline",
+          "crm",
+          "follow-up",
+          "cadence"
+        ],
+        "currentMax": 3,
+        "gapMin": 1.5
+      },
+      "priority": 5,
+      "why": "Higher-value deals often stall because proposals are sent but not advanced.",
+      "whyAr": "الصفقات الأعلى قيمة غالبا تتعثر لأن العروض ترسل ولا يتم دفعها للخطوة التالية.",
+      "how": "Create stages, assign owners, set follow-up dates, and log client objections or missing information.",
+      "howAr": "أنشئ مراحل وحدد مسؤولين ومواعيد متابعة وسجل اعتراضات العميل أو المعلومات الناقصة.",
+      "evidenceTags": [
+        "weak-follow-up",
+        "pipeline",
+        "crm"
+      ],
+      "websiteImplication": "Inquiry and proposal CTAs feed a pipeline.",
+      "websiteImplicationAr": "أزرار الاستفسار والعرض تغذي خط متابعة.",
+      "systemImplication": "CRM pipeline for proposals and follow-up.",
+      "systemImplicationAr": "خط CRM للعروض والمتابعة.",
+      "dominaseFit": "DOMINASE could build a proposal pipeline and dashboard if this gap is significant.",
+      "dominaseFitAr": "يمكن ل DOMINASE بناء خط عروض ولوحة إذا كانت الفجوة كبيرة.",
+      "riskNotes": "Keep cadence respectful and professional.",
+      "riskNotesAr": "حافظ على إيقاع محترم ومهني."
+    },
+    {
+      "id": "eng-rec-connected-system",
+      "title": "Connect intake, proposal, follow-up, and dashboard",
+      "titleAr": "اربط الاستقبال والعرض والمتابعة واللوحة",
+      "category": "dominaseNextStep",
+      "conditions": {
+        "tags": [
+          "digital-readiness",
+          "system",
+          "automation",
+          "engineering"
+        ],
+        "currentMax": 3,
+        "gapMin": 1.5
+      },
+      "priority": 4,
+      "why": "A connected workflow prevents opportunities from being hidden inside emails and spreadsheets.",
+      "whyAr": "سير العمل المترابط يمنع اختفاء الفرص داخل البريد والجداول.",
+      "how": "Start with request-quote intake, pipeline stages, proposal status, and a simple dashboard of open opportunities.",
+      "howAr": "ابدأ باستقبال طلب العرض ومراحل الخط وحالة العروض ولوحة بسيطة للفرص المفتوحة.",
+      "evidenceTags": [
+        "digital-readiness",
+        "system",
+        "automation"
+      ],
+      "websiteImplication": "Website becomes the front door to the sales workflow.",
+      "websiteImplicationAr": "الموقع يصبح بوابة سير المبيعات.",
+      "systemImplication": "Connected CRM and operations dashboard.",
+      "systemImplicationAr": "CRM ولوحة عمليات مترابطان.",
+      "dominaseFit": "DOMINASE could phase this into a connected business development workspace.",
+      "dominaseFitAr": "يمكن ل DOMINASE تنفيذ ذلك كمساحة تطوير أعمال مترابطة على مراحل.",
+      "riskNotes": "Only track meaningful, maintainable data.",
+      "riskNotesAr": "تتبع فقط البيانات المهمة والقابلة للصيانة."
+    }
+  ],
+  "reportTemplates": {
+    "intro": {
+      "title": "Engineering Growth Diagnosis Report",
+      "titleAr": "تقرير تشخيص نمو شركات هندسية",
+      "fallback": "Your results show solid foundations with a few practical opportunities to improve clarity, trust, conversion, and follow-up.",
+      "fallbackAr": "تظهر نتيجتك أساسا جيدا مع فرص عملية لتحسين الوضوح والثقة ومسار التواصل والمتابعة."
+    },
+    "sections": [
+      {
+        "id": "strategicDiagnosis",
+        "category": "strategicDiagnosis",
+        "title": "Strategic diagnosis",
+        "titleAr": "التشخيص الاستراتيجي",
+        "purpose": "Summarize the highest-leverage business gaps without blame.",
+        "purposeAr": "تلخيص الفجوات الأعلى أثرا دون لوم."
+      },
+      {
+        "id": "customerProfile",
+        "category": "customerProfile",
+        "title": "Customer profile",
+        "titleAr": "ملف العميل",
+        "purpose": "Clarify which customer type the business should prioritize.",
+        "purposeAr": "توضيح نوع العميل الذي يستحق الأولوية."
+      },
+      {
+        "id": "websiteStructure",
+        "category": "websiteStructure",
+        "title": "Website structure",
+        "titleAr": "هيكل الموقع",
+        "purpose": "Turn clarity and trust gaps into practical website structure changes.",
+        "purposeAr": "تحويل فجوات الوضوح والثقة إلى تعديلات عملية في هيكل الموقع."
+      },
+      {
+        "id": "conversionPath",
+        "category": "conversionPath",
+        "title": "Conversion path",
+        "titleAr": "مسار التحويل",
+        "purpose": "Improve the path from interest to contact, booking, or quote request.",
+        "purposeAr": "تحسين المسار من الاهتمام إلى التواصل أو الحجز أو طلب العرض."
+      },
+      {
+        "id": "contentAndTrust",
+        "category": "contentAndTrust",
+        "title": "Content and trust",
+        "titleAr": "المحتوى والثقة",
+        "purpose": "Recommend proof, FAQ, pricing, and credibility assets.",
+        "purposeAr": "اقتراح أصول الإثبات والأسئلة والتسعير والمصداقية."
+      },
+      {
+        "id": "salesFollowUp",
+        "category": "salesFollowUp",
+        "title": "Sales follow-up",
+        "titleAr": "متابعة المبيعات",
+        "purpose": "Improve capture, tracking, WhatsApp, CRM, and follow-up rhythm.",
+        "purposeAr": "تحسين الالتقاط والتتبع وواتساب و CRM وإيقاع المتابعة."
+      },
+      {
+        "id": "quickWins",
+        "category": "quickWins",
+        "title": "Quick wins",
+        "titleAr": "مكاسب سريعة",
+        "purpose": "Name small fixes that can be done before a full build.",
+        "purposeAr": "تحديد إصلاحات صغيرة يمكن تنفيذها قبل أي بناء كبير."
+      },
+      {
+        "id": "dominaseNextStep",
+        "category": "dominaseNextStep",
+        "title": "DOMINASE next step",
+        "titleAr": "خطوة DOMINASE التالية",
+        "purpose": "Suggest one honest, proportionate DOMINASE build direction.",
+        "purposeAr": "اقتراح اتجاه بناء واحد من DOMINASE بصدق وتناسب."
+      }
+    ]
+  },
+  "contextForm": {
+    "title": "Engineering company context",
+    "titleAr": "سياق الشركة الهندسية",
+    "description": "These fields personalize the report only and require frontend support later. They are not required for scoring.",
+    "descriptionAr": "هذه الحقول لتخصيص التقرير فقط وتتطلب دعما لاحقا في الواجهة. لا تعتمد عليها عملية التسجيل.",
+    "requiresFrontendSupport": true,
+    "fields": [
+      {
+        "id": "institutionName",
+        "label": "Company name",
+        "labelAr": "اسم الشركة",
+        "type": "text",
+        "required": true,
+        "options": [],
+        "optionsAr": [],
+        "whyNeeded": "Personalize the report",
+        "whyNeededAr": "تخصيص التقرير",
+        "reportUse": "Header"
+      },
+      {
+        "id": "cityOrArea",
+        "label": "City / area",
+        "labelAr": "المدينة / المنطقة",
+        "type": "text",
+        "required": true,
+        "options": [],
+        "optionsAr": [],
+        "whyNeeded": "Local market context",
+        "whyNeededAr": "سياق السوق المحلي",
+        "reportUse": "StrategicDiagnosis"
+      },
+      {
+        "id": "mainProjectType",
+        "label": "Main project type",
+        "labelAr": "نوع المشروع الرئيسي",
+        "type": "select",
+        "required": true,
+        "options": [
+          "Design",
+          "Construction",
+          "MEP",
+          "Consulting",
+          "Contracting",
+          "Fabrication",
+          "Mixed"
+        ],
+        "optionsAr": [
+          "تصميم",
+          "إنشاء",
+          "كهروميكانيك",
+          "استشارات",
+          "مقاولات",
+          "تصنيع",
+          "مختلط"
+        ],
+        "whyNeeded": "Center project focus",
+        "whyNeededAr": "تركيز تشخيص نوع المشروع",
+        "reportUse": "StrategicDiagnosis"
+      },
+      {
+        "id": "serviceArea",
+        "label": "Service area / region",
+        "labelAr": "منطقة الخدمة",
+        "type": "text",
+        "required": true,
+        "options": [],
+        "optionsAr": [],
+        "whyNeeded": "Local positioning",
+        "whyNeededAr": "التموضع المحلي",
+        "reportUse": "StrategicDiagnosis"
+      },
+      {
+        "id": "quoteMethod",
+        "label": "How quotes are handled now",
+        "labelAr": "كيف تدار العروض الآن؟",
+        "type": "select",
+        "required": true,
+        "options": [
+          "Phone/email",
+          "WhatsApp",
+          "Website form",
+          "CRM pipeline",
+          "Referral only"
+        ],
+        "optionsAr": [
+          "هاتف/بريد",
+          "واتساب",
+          "نموذج موقع",
+          "خط CRM",
+          "إحالات فقط"
+        ],
+        "whyNeeded": "Baseline quote-flow friction",
+        "whyNeededAr": "خط أساس لاحتكاك طلب العرض",
+        "reportUse": "ConversionPath"
+      },
+      {
+        "id": "projectBudgetRange",
+        "label": "Typical budget range",
+        "labelAr": "نطاق الميزانية المعتاد",
+        "type": "select",
+        "required": false,
+        "options": [
+          "Small",
+          "Mid-size",
+          "Large",
+          "Varies widely",
+          "Prefer not to say"
+        ],
+        "optionsAr": [
+          "صغير",
+          "متوسط",
+          "كبير",
+          "يتفاوت كثيرا",
+          "أفضل عدم الإجابة"
+        ],
+        "whyNeeded": "Inform cost-factor content",
+        "whyNeededAr": "إثراء محتوى عوامل التكلفة",
+        "reportUse": "ContentAndTrust"
+      },
+      {
+        "id": "optionalNotes",
+        "label": "Anything else",
+        "labelAr": "ملاحظات إضافية",
+        "type": "textarea",
+        "required": false,
+        "options": [],
+        "optionsAr": [],
+        "whyNeeded": "Capture nuance",
+        "whyNeededAr": "التقاط التفاصيل",
+        "reportUse": "Context"
+      }
+    ]
+  }
+}

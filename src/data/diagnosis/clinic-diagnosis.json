@@ -1,0 +1,1087 @@
+{
+  "meta": {
+    "id": "clinic-growth-diagnosis",
+    "version": "1.0.0",
+    "title": "Clinic Growth Diagnosis",
+    "titleAr": "تشخيص نمو العيادة",
+    "description": "A strategic self-assessment for clinic clarity, patient trust, booking flow, follow-up, and digital readiness.",
+    "descriptionAr": "تقييم ذاتي استراتيجي لوضوح العيادة وثقة المريض ومسار الحجز والمتابعة والجاهزية الرقمية.",
+    "disclaimer": "This is a strategic self-assessment for business readiness. It is not a guarantee of results and is not a substitute for professional legal, financial, medical, or operational advice. It does not provide medical advice, patient diagnosis, treatment guidance, or a promise of more patients. Any CRM, review, or follow-up recommendation must respect patient privacy and consent.",
+    "disclaimerAr": "هذا تقييم ذاتي استراتيجي لجاهزية النشاط. لا يضمن النتائج ولا يغني عن الاستشارة المهنية القانونية أو المالية أو الطبية أو التشغيلية عند الحاجة. لا يقدم نصيحة طبية أو تشخيصا للمرضى أو إرشادا علاجيا أو وعدا بزيادة المرضى. أي توصية CRM أو تقييمات أو متابعة يجب أن تحترم خصوصية المرضى وموافقتهم.",
+    "scale": {
+      "min": 1,
+      "max": 5,
+      "step": 0.5
+    },
+    "domain": "clinic",
+    "domainAr": "عيادات",
+    "estimatedMinutes": 8,
+    "sourceNote": "Generated from 04_STRATEGY_MAPS/clinic_strategy_map.md, question_blueprints.json, DOMINASE_EXTRACTION_MATRIX.json, DOMINASE_TAG_TAXONOMY.md, and DOMINASE_RECOMMENDATION_BANK.md. question_blueprints.json was used only as planning index.",
+    "ethicsNote": "Value-first, advisor-like self-assessment. No fabricated statistics, no guarantees, no manipulative urgency, no copied book text, and no recommendation to build systems the business will not realistically use."
+  },
+  "dimensions": [
+    {
+      "id": "D1",
+      "dimensionKey": "specialty-service-clarity",
+      "title": "Specialty & Service Clarity",
+      "titleAr": "وضوح التخصص والخدمة",
+      "description": "How quickly patients understand whether the clinic is relevant to their concern.",
+      "descriptionAr": "مدى سرعة فهم المريض أن العيادة مناسبة لحالته.",
+      "orderIndex": 1,
+      "weight": 5,
+      "topics": [
+        {
+          "id": "clinic_specialty_clarity",
+          "topicKey": "specialty-clarity",
+          "label": "Specialty clarity",
+          "labelAr": "وضوح التخصص",
+          "prompt": "Can a first-time visitor tell within seconds which specialties you focus on and whether you treat their specific concern?",
+          "promptAr": "هل يستطيع زائر لأول مرة أن يعرف خلال ثوان ما التخصصات التي تركز عليها العيادة وهل تناسب حالته؟",
+          "answerMode": "current-target",
+          "orderIndex": 1,
+          "weight": 5,
+          "tags": [
+            "offer-clarity",
+            "positioning",
+            "clarity",
+            "clinic:specialty-clarity"
+          ],
+          "levelAnchors": [
+            "1 - Visitors cannot tell the clinic focus",
+            "2 - Services are listed but feel scattered",
+            "3 - Specialties are listed but not prioritized",
+            "4 - Main specialty and who it serves are clear",
+            "5 - Specialty, service fit, and next step are instantly clear"
+          ],
+          "levelAnchorsAr": [
+            "1 - لا يعرف الزائر تركيز العيادة",
+            "2 - الخدمات مذكورة لكنها مبعثرة",
+            "3 - التخصصات موجودة لكنها غير مرتبة بالأولوية",
+            "4 - التخصص الأساسي ومن يخدمه واضحان",
+            "5 - التخصص وملاءمة الخدمة والخطوة التالية واضحة فورا"
+          ]
+        },
+        {
+          "id": "clinic_message_usability",
+          "topicKey": "message-usability",
+          "label": "Message clarity and usability",
+          "labelAr": "وضوح الرسالة وسهولة الاستخدام",
+          "prompt": "Can a first-time visitor understand the clinic message and find the next step without stopping to think?",
+          "promptAr": "هل يستطيع زائر لأول مرة فهم رسالة العيادة ومعرفة الخطوة التالية دون توقف للتفكير؟",
+          "answerMode": "current-target",
+          "orderIndex": 12,
+          "weight": 4,
+          "tags": [
+            "usability",
+            "cognitive-ease",
+            "cta-clarity",
+            "clinic"
+          ],
+          "levelAnchors": [
+            "1 - Cluttered and unclear",
+            "2 - Understandable only with effort",
+            "3 - Core message is clear but next step competes",
+            "4 - Message and next step are mostly obvious",
+            "5 - Clear message, calm hierarchy, and obvious next step"
+          ],
+          "levelAnchorsAr": [
+            "1 - مزدحم وغير واضح",
+            "2 - مفهوم بجهد",
+            "3 - الرسالة الأساسية واضحة لكن الخطوة التالية تنافسها عناصر أخرى",
+            "4 - الرسالة والخطوة التالية واضحتان غالبا",
+            "5 - رسالة واضحة وتسلسل هادئ وخطوة تالية بديهية"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "D2",
+      "dimensionKey": "credibility-patient-trust",
+      "title": "Credibility & Patient Trust",
+      "titleAr": "المصداقية وثقة المريض",
+      "description": "Visibility of credentials, proof, and reassurance.",
+      "descriptionAr": "ظهور الشهادات والإثبات والطمأنينة.",
+      "orderIndex": 2,
+      "weight": 5,
+      "topics": [
+        {
+          "id": "clinic_doctor_credibility",
+          "topicKey": "doctor-credibility",
+          "label": "Doctor credibility visibility",
+          "labelAr": "ظهور مصداقية الطبيب",
+          "prompt": "Are doctors' credentials, experience, and accreditations visible early without the patient having to ask?",
+          "promptAr": "هل تظهر شهادات الأطباء وخبراتهم واعتماداتهم مبكرا دون أن يضطر المريض للسؤال؟",
+          "answerMode": "current-target",
+          "orderIndex": 2,
+          "weight": 5,
+          "tags": [
+            "authority",
+            "credibility",
+            "trust-signal",
+            "clinic:doctor-credibility"
+          ],
+          "levelAnchors": [
+            "1 - Credentials are not shown",
+            "2 - Credentials are mentioned vaguely",
+            "3 - Credentials exist on an inner page only",
+            "4 - Doctor profiles are clear but not prominent",
+            "5 - Credentials, experience, and doctor profiles are visible early"
+          ],
+          "levelAnchorsAr": [
+            "1 - الشهادات غير معروضة",
+            "2 - الشهادات مذكورة بشكل عام",
+            "3 - الشهادات موجودة في صفحة داخلية فقط",
+            "4 - ملفات الأطباء واضحة لكنها ليست بارزة",
+            "5 - الشهادات والخبرة وملفات الأطباء ظاهرة مبكرا"
+          ]
+        },
+        {
+          "id": "clinic_patient_proof",
+          "topicKey": "patient-proof",
+          "label": "Patient proof and reviews",
+          "labelAr": "إثبات وتجارب المرضى",
+          "prompt": "Can a potential patient see genuine reviews or privacy-safe outcomes from patients with similar concerns?",
+          "promptAr": "هل يستطيع المريض المحتمل رؤية تقييمات حقيقية أو نتائج معروضة بشكل يحترم الخصوصية لحالات قريبة من حالته؟",
+          "answerMode": "current-target",
+          "orderIndex": 3,
+          "weight": 4,
+          "tags": [
+            "social-proof",
+            "weak-proof",
+            "testimonials",
+            "clinic"
+          ],
+          "levelAnchors": [
+            "1 - No reviews or proof shown",
+            "2 - A few generic reviews",
+            "3 - Reviews exist but are hard to connect to services",
+            "4 - Relevant reviews appear near key services",
+            "5 - Privacy-safe, relevant proof is placed where decisions happen"
+          ],
+          "levelAnchorsAr": [
+            "1 - لا توجد تقييمات أو إثباتات",
+            "2 - بعض التقييمات العامة",
+            "3 - التقييمات موجودة لكن ربطها بالخدمات ضعيف",
+            "4 - تقييمات مناسبة تظهر قرب الخدمات المهمة",
+            "5 - إثبات مناسب ويحترم الخصوصية يظهر في مواضع القرار"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "D3",
+      "dimensionKey": "booking-contact-flow",
+      "title": "Booking & Contact Flow",
+      "titleAr": "مسار الحجز والتواصل",
+      "description": "Ease and structure of appointment booking, mobile contact, and WhatsApp.",
+      "descriptionAr": "سهولة وتنظيم الحجز والتواصل عبر الهاتف وواتساب.",
+      "orderIndex": 3,
+      "weight": 5,
+      "topics": [
+        {
+          "id": "clinic_booking_ease",
+          "topicKey": "booking-ease",
+          "label": "Appointment booking ease",
+          "labelAr": "سهولة حجز الموعد",
+          "prompt": "Can a patient book or request an appointment in a few clear steps without messaging and waiting for a reply?",
+          "promptAr": "هل يستطيع المريض حجز أو طلب موعد بخطوات قليلة وواضحة دون مراسلة وانتظار رد؟",
+          "answerMode": "current-target",
+          "orderIndex": 4,
+          "weight": 5,
+          "tags": [
+            "booking-friction",
+            "contact-flow",
+            "availability",
+            "clinic:appointment-booking"
+          ],
+          "levelAnchors": [
+            "1 - Only phone or open WhatsApp",
+            "2 - Messaging is required and replies vary",
+            "3 - A form exists but is slow or manual",
+            "4 - A clear request flow exists with confirmation",
+            "5 - Booking or appointment request is simple, trackable, and reassuring"
+          ],
+          "levelAnchorsAr": [
+            "1 - الحجز عبر الهاتف أو واتساب فقط",
+            "2 - المراسلة مطلوبة والردود متفاوتة",
+            "3 - يوجد نموذج لكنه بطيء أو يدوي",
+            "4 - يوجد مسار طلب واضح مع تأكيد",
+            "5 - الحجز أو طلب الموعد بسيط وقابل للتتبع ومطمئن"
+          ]
+        },
+        {
+          "id": "clinic_mobile_experience",
+          "topicKey": "mobile-experience",
+          "label": "Mobile booking experience",
+          "labelAr": "تجربة الحجز على الهاتف",
+          "prompt": "Is booking or contacting the clinic easy on a phone, where most patients first reach you?",
+          "promptAr": "هل الحجز أو التواصل مع العيادة سهل على الهاتف حيث يصل معظم المرضى أولا؟",
+          "answerMode": "current-target",
+          "orderIndex": 5,
+          "weight": 4,
+          "tags": [
+            "mobile",
+            "responsive",
+            "friction",
+            "clinic"
+          ],
+          "levelAnchors": [
+            "1 - Hard or broken on mobile",
+            "2 - Works but requires effort",
+            "3 - Usable with a few clunky steps",
+            "4 - Smooth on most phones",
+            "5 - Fast, thumb-friendly, and clear on mobile"
+          ],
+          "levelAnchorsAr": [
+            "1 - صعب أو معطل على الهاتف",
+            "2 - يعمل لكنه متعب",
+            "3 - قابل للاستخدام مع بعض الاحتكاك",
+            "4 - سلس على أغلب الهواتف",
+            "5 - سريع وواضح ومناسب لاستخدام الهاتف"
+          ]
+        },
+        {
+          "id": "clinic_whatsapp_structure",
+          "topicKey": "whatsapp-structure",
+          "label": "WhatsApp structure",
+          "labelAr": "تنظيم واتساب",
+          "prompt": "Are WhatsApp inquiries structured, captured, and followed up, or handled as scattered chats?",
+          "promptAr": "هل استفسارات واتساب منظمة وملتقطة وتتم متابعتها أم تدار كمحادثات مبعثرة؟",
+          "answerMode": "current-target",
+          "orderIndex": 6,
+          "weight": 3,
+          "tags": [
+            "whatsapp",
+            "follow-up",
+            "messaging",
+            "clinic"
+          ],
+          "levelAnchors": [
+            "1 - Chats are scattered and easy to miss",
+            "2 - Replies depend on who is available",
+            "3 - Basic templates exist but no tracking",
+            "4 - Templates and ownership are mostly clear",
+            "5 - WhatsApp is structured, logged, and connected to follow-up"
+          ],
+          "levelAnchorsAr": [
+            "1 - المحادثات مبعثرة وسهل فقدانها",
+            "2 - الرد يعتمد على الشخص المتاح",
+            "3 - توجد قوالب بسيطة دون تتبع",
+            "4 - القوالب والمسؤولية واضحتان غالبا",
+            "5 - واتساب منظم وموثق ومرتبط بالمتابعة"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "D4",
+      "dimensionKey": "answers-cost-clarity",
+      "title": "Answers & Cost Clarity",
+      "titleAr": "الإجابات ووضوح التكلفة",
+      "description": "How well the clinic answers payment, insurance, preparation, and expectation questions.",
+      "descriptionAr": "مدى وضوح إجابات الدفع والتأمين والتحضير والتوقعات.",
+      "orderIndex": 4,
+      "weight": 4,
+      "topics": [
+        {
+          "id": "clinic_cost_insurance_clarity",
+          "topicKey": "cost-insurance-clarity",
+          "label": "Cost and insurance clarity",
+          "labelAr": "وضوح التكلفة والتأمين",
+          "prompt": "Do patients get realistic guidance on payment, insurance, or cost ranges before they contact you?",
+          "promptAr": "هل يحصل المرضى على توجيه واقعي حول الدفع أو التأمين أو نطاقات التكلفة قبل التواصل؟",
+          "answerMode": "current-target",
+          "orderIndex": 7,
+          "weight": 4,
+          "tags": [
+            "pricing-transparency",
+            "faq-gap",
+            "trust-barrier",
+            "clinic:insurance-payment"
+          ],
+          "levelAnchors": [
+            "1 - No payment or insurance guidance",
+            "2 - Only says to contact the clinic",
+            "3 - Some answers exist but are incomplete",
+            "4 - Common cost and insurance questions are answered",
+            "5 - Payment, insurance, and next-step expectations are clear and realistic"
+          ],
+          "levelAnchorsAr": [
+            "1 - لا يوجد توضيح للدفع أو التأمين",
+            "2 - الموقع يطلب التواصل فقط",
+            "3 - توجد بعض الإجابات لكنها ناقصة",
+            "4 - أهم أسئلة التكلفة والتأمين مجابة",
+            "5 - الدفع والتأمين والتوقعات التالية واضحة وواقعية"
+          ]
+        },
+        {
+          "id": "clinic_faq_preparation",
+          "topicKey": "faq-preparation",
+          "label": "Patient FAQ preparation",
+          "labelAr": "أسئلة المريض والتحضير",
+          "prompt": "Are common questions about preparation, process, safety boundaries, and what to expect answered clearly?",
+          "promptAr": "هل تتم الإجابة بوضوح عن أسئلة التحضير والخطوات والحدود الآمنة وما يمكن توقعه؟",
+          "answerMode": "current-target",
+          "orderIndex": 8,
+          "weight": 3,
+          "tags": [
+            "faq-gap",
+            "buyer-questions",
+            "wysiati",
+            "clinic"
+          ],
+          "levelAnchors": [
+            "1 - No FAQ or preparation guidance",
+            "2 - Only very basic answers",
+            "3 - FAQ exists but misses real concerns",
+            "4 - Most common questions are answered",
+            "5 - FAQ reduces anxiety while avoiding medical advice"
+          ],
+          "levelAnchorsAr": [
+            "1 - لا توجد أسئلة شائعة أو توجيه للتحضير",
+            "2 - إجابات أساسية جدا فقط",
+            "3 - توجد أسئلة لكنها لا تغطي المخاوف الحقيقية",
+            "4 - أغلب الأسئلة الشائعة مجابة",
+            "5 - الأسئلة تخفف القلق دون تقديم نصيحة طبية"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "D5",
+      "dimensionKey": "followup-recall",
+      "title": "Follow-up & Recall",
+      "titleAr": "المتابعة والتذكير",
+      "description": "Whether patient interest and appropriate recalls are followed up respectfully.",
+      "descriptionAr": "هل تتم متابعة اهتمام المرضى والتذكيرات المناسبة باحترام.",
+      "orderIndex": 5,
+      "weight": 4,
+      "topics": [
+        {
+          "id": "clinic_patient_followup",
+          "topicKey": "patient-followup",
+          "label": "Patient follow-up and recall",
+          "labelAr": "متابعة المرضى والتذكير",
+          "prompt": "Is there a respectful system for follow-up, reminders, or recall when appropriate?",
+          "promptAr": "هل يوجد نظام محترم للمتابعة أو التذكير أو إعادة الحجز عند الحاجة؟",
+          "answerMode": "current-target",
+          "orderIndex": 9,
+          "weight": 4,
+          "tags": [
+            "weak-follow-up",
+            "follow-up",
+            "retention",
+            "clinic:patient-follow-up"
+          ],
+          "levelAnchors": [
+            "1 - Follow-up depends on memory",
+            "2 - Some manual reminders happen",
+            "3 - Basic reminders exist for some patients",
+            "4 - Follow-up is planned and consent-aware",
+            "5 - Recall and follow-up are systematic, useful, and privacy-conscious"
+          ],
+          "levelAnchorsAr": [
+            "1 - المتابعة تعتمد على الذاكرة",
+            "2 - توجد تذكيرات يدوية أحيانا",
+            "3 - توجد تذكيرات أساسية لبعض المرضى",
+            "4 - المتابعة مخططة وتراعي الموافقة",
+            "5 - التذكير والمتابعة منتظمان ومفيدان ويراعيان الخصوصية"
+          ]
+        },
+        {
+          "id": "clinic_lead_capture",
+          "topicKey": "lead-capture",
+          "label": "Capturing not-ready patients",
+          "labelAr": "التقاط المرضى غير الجاهزين",
+          "prompt": "Is there a low-pressure way for unsure visitors to ask, save information, or return later?",
+          "promptAr": "هل توجد طريقة منخفضة الضغط لمن لم يقرر بعد كي يسأل أو يحفظ المعلومات أو يعود لاحقا؟",
+          "answerMode": "current-target",
+          "orderIndex": 10,
+          "weight": 3,
+          "tags": [
+            "capture",
+            "lead-magnet",
+            "reciprocity",
+            "clinic"
+          ],
+          "levelAnchors": [
+            "1 - Only call or book now",
+            "2 - A contact form exists but gives little value",
+            "3 - Some helpful content but no capture",
+            "4 - Useful guide or inquiry capture exists",
+            "5 - Not-ready visitors can get value and be followed up respectfully"
+          ],
+          "levelAnchorsAr": [
+            "1 - فقط اتصل أو احجز الآن",
+            "2 - يوجد نموذج تواصل دون قيمة واضحة",
+            "3 - يوجد محتوى مفيد دون التقاط",
+            "4 - يوجد دليل أو مسار استفسار مفيد",
+            "5 - الزائر غير الجاهز يحصل على قيمة وتتم متابعته باحترام"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "D6",
+      "dimensionKey": "digital-journey-readiness",
+      "title": "Digital Journey Readiness",
+      "titleAr": "جاهزية الرحلة الرقمية",
+      "description": "Whether location, booking, WhatsApp, and follow-up work as one journey.",
+      "descriptionAr": "هل يعمل الموقع والحجز وواتساب والمتابعة كرحلة واحدة.",
+      "orderIndex": 6,
+      "weight": 3,
+      "topics": [
+        {
+          "id": "clinic_location_access",
+          "topicKey": "location-access",
+          "label": "Location and access clarity",
+          "labelAr": "وضوح الموقع والوصول",
+          "prompt": "Are location, hours, parking, and access details clear enough for a local patient to act without asking?",
+          "promptAr": "هل الموقع وساعات العمل والمواقف وتفاصيل الوصول واضحة بما يكفي ليتصرف المريض المحلي دون سؤال؟",
+          "answerMode": "current-target",
+          "orderIndex": 11,
+          "weight": 3,
+          "tags": [
+            "local-positioning",
+            "contact-flow",
+            "clinic"
+          ],
+          "levelAnchors": [
+            "1 - Location or hours are hard to find",
+            "2 - Only basic address is shown",
+            "3 - Address and hours exist but access details are thin",
+            "4 - Location, hours, and directions are clear",
+            "5 - Access details remove practical hesitation before the visit"
+          ],
+          "levelAnchorsAr": [
+            "1 - الموقع أو ساعات العمل صعبة الإيجاد",
+            "2 - العنوان الأساسي فقط ظاهر",
+            "3 - العنوان والساعات موجودان لكن تفاصيل الوصول ضعيفة",
+            "4 - الموقع والساعات والاتجاهات واضحة",
+            "5 - تفاصيل الوصول تزيل التردد العملي قبل الزيارة"
+          ]
+        },
+        {
+          "id": "clinic_digital_journey",
+          "topicKey": "digital-journey",
+          "label": "Connected digital patient journey",
+          "labelAr": "رحلة المريض الرقمية المترابطة",
+          "prompt": "Do your website, booking, WhatsApp, and follow-up work as one tracked journey?",
+          "promptAr": "هل يعمل الموقع والحجز وواتساب والمتابعة كرحلة واحدة قابلة للتتبع؟",
+          "answerMode": "current-target",
+          "orderIndex": 13,
+          "weight": 4,
+          "tags": [
+            "digital-readiness",
+            "system",
+            "crm",
+            "tracking",
+            "clinic:patient-journey"
+          ],
+          "levelAnchors": [
+            "1 - Disconnected tools and nothing tracked",
+            "2 - Some manual tracking after contact",
+            "3 - Partly connected but gaps remain",
+            "4 - Most steps are connected and visible",
+            "5 - One coherent journey from inquiry to follow-up"
+          ],
+          "levelAnchorsAr": [
+            "1 - أدوات منفصلة ولا شيء يتم تتبعه",
+            "2 - تتبع يدوي جزئي بعد التواصل",
+            "3 - ترابط جزئي مع وجود فجوات",
+            "4 - معظم الخطوات مترابطة ومرئية",
+            "5 - رحلة واحدة متماسكة من الاستفسار إلى المتابعة"
+          ]
+        }
+      ]
+    }
+  ],
+  "scoring": {
+    "model": "current-target-gap",
+    "gapFormula": "gap = max(target - current, 0)",
+    "priorityDimensionIds": [
+      "D1",
+      "D2",
+      "D3"
+    ],
+    "profiles": [
+      {
+        "id": "clinic_reputable_hidden",
+        "title": "Strong Reputation, Hidden Online",
+        "titleAr": "سمعة قوية، حضور رقمي غير كاف",
+        "summary": "The clinic may be trusted offline, but specialty, credentials, and proof are not visible enough online.",
+        "summaryAr": "قد تكون العيادة موثوقة فعليا، لكن التخصص والشهادات والإثبات لا تظهر رقميا بما يكفي.",
+        "conditions": [
+          {
+            "dimensionId": "D1",
+            "gapMin": 1.5
+          },
+          {
+            "dimensionId": "D2",
+            "gapMin": 1.5
+          }
+        ],
+        "relatedDimensions": [
+          "D1",
+          "D2"
+        ],
+        "riskNote": "Use only real credentials and privacy-safe proof.",
+        "riskNoteAr": "استخدم شهادات حقيقية وإثباتا يحترم الخصوصية فقط."
+      },
+      {
+        "id": "clinic_clear_weak_followup",
+        "title": "Clear Service, Weak Follow-up",
+        "titleAr": "خدمة واضحة، متابعة ضعيفة",
+        "summary": "The offer may be understandable, but non-bookers and returning patients can slip away.",
+        "summaryAr": "قد يكون العرض مفهوما، لكن غير الحاجزين والمرضى العائدين قد يتسربون.",
+        "conditions": [
+          {
+            "dimensionId": "D5",
+            "gapMin": 1.5
+          }
+        ],
+        "relatedDimensions": [
+          "D5"
+        ],
+        "riskNote": "Follow-up must be consent-aware and useful.",
+        "riskNoteAr": "يجب أن تراعي المتابعة الموافقة وأن تكون مفيدة."
+      },
+      {
+        "id": "clinic_interest_low_booking",
+        "title": "High Interest, Low Conversion",
+        "titleAr": "اهتمام مرتفع، حجز منخفض",
+        "summary": "Patients may show interest but the booking path adds too much waiting or uncertainty.",
+        "summaryAr": "قد يظهر المرضى اهتماما لكن مسار الحجز يضيف انتظارا أو غموضا.",
+        "conditions": [
+          {
+            "dimensionId": "D3",
+            "gapMin": 1.5
+          }
+        ],
+        "relatedDimensions": [
+          "D3",
+          "D4"
+        ],
+        "riskNote": "Do not imply guaranteed appointment growth.",
+        "riskNoteAr": "لا توح بأي ضمان لزيادة المواعيد."
+      },
+      {
+        "id": "clinic_trust_ready_system_poor",
+        "title": "Trust-Ready, System-Poor",
+        "titleAr": "جاهزة للثقة، ضعيفة الأنظمة",
+        "summary": "Trust assets exist, but booking, WhatsApp, and follow-up are not connected.",
+        "summaryAr": "توجد أصول ثقة، لكن الحجز وواتساب والمتابعة غير مترابطة.",
+        "conditions": [
+          {
+            "dimensionId": "D6",
+            "gapMin": 1.5
+          },
+          {
+            "tag": "crm",
+            "gapMin": 1.5
+          }
+        ],
+        "relatedDimensions": [
+          "D6",
+          "D5"
+        ],
+        "riskNote": "Build only systems the clinic team will actually use.",
+        "riskNoteAr": "ابن فقط الأنظمة التي سيستخدمها فريق العيادة فعلا."
+      },
+      {
+        "id": "clinic_busy_overloaded",
+        "title": "Busy Practice, WhatsApp-Overloaded",
+        "titleAr": "عيادة مشغولة، واتساب مثقل",
+        "summary": "Demand may be healthy, but unstructured chats create missed or delayed replies.",
+        "summaryAr": "قد يكون الطلب جيدا، لكن المحادثات غير المنظمة تسبب ردودا مفقودة أو متأخرة.",
+        "conditions": [
+          {
+            "topicId": "clinic_whatsapp_structure",
+            "currentMax": 3,
+            "gapMin": 1
+          }
+        ],
+        "relatedDimensions": [
+          "D3",
+          "D5"
+        ],
+        "riskNote": "Handle patient data privately and with consent.",
+        "riskNoteAr": "تعامل مع بيانات المرضى بخصوصية وموافقة."
+      }
+    ]
+  },
+  "recommendations": [
+    {
+      "id": "clinic-rec-specialty-page",
+      "title": "Clarify the specialty and service structure",
+      "titleAr": "وضّح التخصص وهيكل الخدمات",
+      "category": "websiteStructure",
+      "conditions": {
+        "tags": [
+          "offer-clarity",
+          "positioning",
+          "clinic:specialty-clarity",
+          "clarity",
+          "usability"
+        ],
+        "currentMax": 3,
+        "gapMin": 1.5
+      },
+      "priority": 5,
+      "why": "Patients first decide whether the clinic is relevant to their concern.",
+      "whyAr": "أول قرار للمريض هو هل العيادة مناسبة لحالته أم لا.",
+      "how": "Rewrite the hero around the main specialty, create clear service pages, and place one appointment path beside the key services.",
+      "howAr": "أعد صياغة الواجهة حول التخصص الأساسي، وأنشئ صفحات خدمات واضحة، وضع مسار موعد واحدا قرب الخدمات المهمة.",
+      "evidenceTags": [
+        "offer-clarity",
+        "positioning",
+        "clinic:specialty-clarity"
+      ],
+      "websiteImplication": "Specialty hero and focused service pages.",
+      "websiteImplicationAr": "واجهة تخصص وصفحات خدمات مركزة.",
+      "systemImplication": "Route inquiries by service interest.",
+      "systemImplicationAr": "توجيه الاستفسارات حسب الخدمة.",
+      "dominaseFit": "DOMINASE could translate this into a calm, premium clinic website structure.",
+      "dominaseFitAr": "يمكن ل DOMINASE تحويل ذلك إلى هيكل موقع عيادة هادئ واحترافي.",
+      "riskNotes": "No scope-of-practice exaggeration.",
+      "riskNotesAr": "دون مبالغة في نطاق الممارسة."
+    },
+    {
+      "id": "clinic-rec-credentials-proof",
+      "title": "Surface doctor credibility and patient-safe proof",
+      "titleAr": "أبرز مصداقية الطبيب والإثبات الآمن",
+      "category": "contentAndTrust",
+      "conditions": {
+        "tags": [
+          "authority",
+          "credibility",
+          "social-proof",
+          "trust-signal",
+          "weak-proof"
+        ],
+        "currentMax": 3,
+        "gapMin": 1.5
+      },
+      "priority": 5,
+      "why": "Healthcare decisions carry anxiety; visible credible proof reduces uncertainty.",
+      "whyAr": "قرارات الرعاية الصحية تحمل قلقا، والإثبات الموثوق المرئي يقلل الغموض.",
+      "how": "Add doctor profiles, current credentials, review blocks, and privacy-safe proof near related services.",
+      "howAr": "أضف ملفات الأطباء والشهادات الحالية وكتل التقييمات والإثبات الآمن قرب الخدمات ذات الصلة.",
+      "evidenceTags": [
+        "authority",
+        "credibility",
+        "social-proof"
+      ],
+      "websiteImplication": "Credentials strip, doctor pages, and review sections.",
+      "websiteImplicationAr": "شريط شهادات وصفحات أطباء وأقسام تقييمات.",
+      "systemImplication": "Review requests and proof library with consent.",
+      "systemImplicationAr": "طلبات تقييم ومكتبة إثبات بموافقة.",
+      "dominaseFit": "A focused trust-assets build would be suitable if this gap is significant.",
+      "dominaseFitAr": "إذا كانت الفجوة كبيرة، فبناء أصول ثقة مركزة مناسب.",
+      "riskNotes": "No fabricated reviews or medical claims.",
+      "riskNotesAr": "لا تقييمات مفبركة ولا ادعاءات طبية."
+    },
+    {
+      "id": "clinic-rec-booking-flow",
+      "title": "Replace open-ended messages with a clear appointment request flow",
+      "titleAr": "استبدل الرسائل المفتوحة بمسار طلب موعد واضح",
+      "category": "conversionPath",
+      "conditions": {
+        "tags": [
+          "booking-friction",
+          "contact-flow",
+          "mobile",
+          "availability",
+          "responsive"
+        ],
+        "currentMax": 3,
+        "gapMin": 1.5
+      },
+      "priority": 5,
+      "why": "Interested patients often drop when booking requires waiting, guessing, or repeating details.",
+      "whyAr": "يتسرب المرضى المهتمون عندما يتطلب الحجز انتظارا أو تخمينا أو تكرار التفاصيل.",
+      "how": "Create a short mobile-first appointment request flow with service, preferred time, contact details, and confirmation.",
+      "howAr": "أنشئ مسار طلب موعد قصيرا ومناسبا للهاتف يتضمن الخدمة والوقت المفضل وبيانات التواصل والتأكيد.",
+      "evidenceTags": [
+        "booking-friction",
+        "contact-flow",
+        "mobile"
+      ],
+      "websiteImplication": "Clear booking CTA and request form.",
+      "websiteImplicationAr": "زر حجز واضح ونموذج طلب موعد.",
+      "systemImplication": "Calendar, reminders, and CRM handoff if appropriate.",
+      "systemImplicationAr": "تقويم وتذكيرات وتسليم إلى CRM عند الحاجة.",
+      "dominaseFit": "DOMINASE could build a focused appointment system rather than a broad rebuild.",
+      "dominaseFitAr": "يمكن ل DOMINASE بناء نظام مواعيد مركز بدل إعادة بناء واسعة.",
+      "riskNotes": "Keep a human option available.",
+      "riskNotesAr": "أبق خيار التواصل البشري متاحا."
+    },
+    {
+      "id": "clinic-rec-whatsapp-crm",
+      "title": "Structure WhatsApp without losing the human tone",
+      "titleAr": "نظّم واتساب دون فقدان الطابع الإنساني",
+      "category": "salesFollowUp",
+      "conditions": {
+        "tags": [
+          "whatsapp",
+          "follow-up",
+          "crm",
+          "messaging",
+          "clinic"
+        ],
+        "currentMax": 3,
+        "gapMin": 1.5
+      },
+      "priority": 4,
+      "why": "WhatsApp can stay useful, but only if inquiries are captured and not left as loose chats.",
+      "whyAr": "يمكن أن يبقى واتساب مفيدا إذا تم التقاط الاستفسارات بدلا من تركها كمحادثات سائبة.",
+      "how": "Create intake templates, assign ownership, log inquiries, and define next steps for unanswered or pending cases.",
+      "howAr": "أنشئ قوالب استقبال وحدد المسؤولية وسجل الاستفسارات وحدد الخطوات التالية للحالات المعلقة.",
+      "evidenceTags": [
+        "whatsapp",
+        "follow-up",
+        "crm"
+      ],
+      "websiteImplication": "WhatsApp CTA connects to structured capture.",
+      "websiteImplicationAr": "زر واتساب يرتبط بالتقاط منظم.",
+      "systemImplication": "CRM board for inquiries and follow-up.",
+      "systemImplicationAr": "لوحة CRM للاستفسارات والمتابعة.",
+      "dominaseFit": "A light CRM layer could relieve reception without overcomplicating work.",
+      "dominaseFitAr": "طبقة CRM خفيفة قد تخفف ضغط الاستقبال دون تعقيد.",
+      "riskNotes": "Respect privacy and messaging consent.",
+      "riskNotesAr": "احترم الخصوصية وموافقة المراسلة."
+    },
+    {
+      "id": "clinic-rec-faq-insurance",
+      "title": "Answer cost, insurance, and preparation questions safely",
+      "titleAr": "أجب عن أسئلة التكلفة والتأمين والتحضير بأمان",
+      "category": "quickWins",
+      "conditions": {
+        "tags": [
+          "pricing-transparency",
+          "faq-gap",
+          "buyer-questions",
+          "trust-barrier",
+          "wysiati"
+        ],
+        "currentMax": 3,
+        "gapMin": 1.5
+      },
+      "priority": 4,
+      "why": "Unanswered practical questions create avoidable hesitation and repeated messages.",
+      "whyAr": "الأسئلة العملية غير المجابة تصنع ترددا ورسائل متكررة يمكن تجنبها.",
+      "how": "Create a plain FAQ for payment, insurance, visit preparation, and what to expect, with medical boundaries clear.",
+      "howAr": "أنشئ أسئلة شائعة بسيطة للدفع والتأمين والتحضير وما يمكن توقعه مع توضيح الحدود الطبية.",
+      "evidenceTags": [
+        "pricing-transparency",
+        "faq-gap",
+        "buyer-questions"
+      ],
+      "websiteImplication": "FAQ and insurance/payment section.",
+      "websiteImplicationAr": "قسم أسئلة وتأمين ودفع.",
+      "systemImplication": "Question backlog from reception and WhatsApp.",
+      "systemImplicationAr": "سجل أسئلة من الاستقبال وواتساب.",
+      "dominaseFit": "DOMINASE could package this into a patient-journey content layer.",
+      "dominaseFitAr": "يمكن ل DOMINASE تحويلها إلى طبقة محتوى لرحلة المريض.",
+      "riskNotes": "No medical advice or bait pricing.",
+      "riskNotesAr": "لا نصيحة طبية ولا تسعير مضلل."
+    },
+    {
+      "id": "clinic-rec-recall",
+      "title": "Create a respectful recall and follow-up rhythm",
+      "titleAr": "أنشئ إيقاع تذكير ومتابعة محترم",
+      "category": "salesFollowUp",
+      "conditions": {
+        "tags": [
+          "weak-follow-up",
+          "retention",
+          "crm",
+          "follow-up"
+        ],
+        "currentMax": 3,
+        "gapMin": 1.5
+      },
+      "priority": 4,
+      "why": "Appropriate follow-up helps patients continue needed care without relying on staff memory.",
+      "whyAr": "المتابعة المناسبة تساعد المرضى على استمرار الرعاية اللازمة دون الاعتماد على ذاكرة الفريق.",
+      "how": "Define follow-up types, timing, consent rules, message templates, and ownership.",
+      "howAr": "حدد أنواع المتابعة وتوقيتها وقواعد الموافقة والقوالب والمسؤولية.",
+      "evidenceTags": [
+        "weak-follow-up",
+        "retention",
+        "crm"
+      ],
+      "websiteImplication": "Capture preference during booking.",
+      "websiteImplicationAr": "التقاط تفضيل التواصل أثناء الحجز.",
+      "systemImplication": "Recall cadence and patient-safe CRM.",
+      "systemImplicationAr": "إيقاع تذكير و CRM آمن للمرضى.",
+      "dominaseFit": "A recall/follow-up CRM is a strong fit only if the team will maintain it.",
+      "dominaseFitAr": "CRM للتذكير والمتابعة مناسب فقط إذا كان الفريق سيحافظ عليه.",
+      "riskNotes": "Privacy-sensitive data handling is essential.",
+      "riskNotesAr": "التعامل الحساس مع البيانات ضروري."
+    },
+    {
+      "id": "clinic-rec-location",
+      "title": "Make local access details impossible to miss",
+      "titleAr": "اجعل تفاصيل الوصول المحلية واضحة جدا",
+      "category": "quickWins",
+      "conditions": {
+        "topicId": "clinic_location_access",
+        "currentMax": 3,
+        "gapMin": 1.5
+      },
+      "priority": 2,
+      "why": "Small access questions can delay or prevent a visit.",
+      "whyAr": "أسئلة الوصول الصغيرة قد تؤخر الزيارة أو تمنعها.",
+      "how": "Add hours, map link, parking or landmark guidance, and one-tap directions.",
+      "howAr": "أضف ساعات العمل ورابط الخريطة وتوجيهات المواقف أو المعالم واتجاهات بنقرة واحدة.",
+      "evidenceTags": [
+        "local-positioning",
+        "contact-flow"
+      ],
+      "websiteImplication": "Location and hours block on key pages.",
+      "websiteImplicationAr": "كتلة الموقع وساعات العمل في الصفحات المهمة.",
+      "systemImplication": "Location details in confirmations.",
+      "systemImplicationAr": "تفاصيل الموقع في رسائل التأكيد.",
+      "dominaseFit": "This is usually a quick content fix before any major build.",
+      "dominaseFitAr": "غالبا هذا إصلاح محتوى سريع قبل أي بناء كبير.",
+      "riskNotes": "Keep details accurate.",
+      "riskNotesAr": "حافظ على دقة التفاصيل."
+    },
+    {
+      "id": "clinic-rec-digital-journey",
+      "title": "Connect the patient journey before adding more tools",
+      "titleAr": "اربط رحلة المريض قبل إضافة أدوات أكثر",
+      "category": "dominaseNextStep",
+      "conditions": {
+        "tags": [
+          "digital-readiness",
+          "system",
+          "tracking",
+          "crm"
+        ],
+        "currentMax": 3,
+        "gapMin": 1.5
+      },
+      "priority": 4,
+      "why": "Disconnected tools make it hard to see where patient intent is leaking.",
+      "whyAr": "الأدوات المنفصلة تصعب معرفة أين يتسرب اهتمام المريض.",
+      "how": "Map site, booking, WhatsApp, reminders, and reporting, then connect the highest-leverage handoffs first.",
+      "howAr": "ارسم خريطة الموقع والحجز وواتساب والتذكيرات والتقارير ثم اربط أهم نقاط التسليم أولا.",
+      "evidenceTags": [
+        "digital-readiness",
+        "system",
+        "tracking"
+      ],
+      "websiteImplication": "Website acts as the patient journey hub.",
+      "websiteImplicationAr": "الموقع يعمل كمركز رحلة المريض.",
+      "systemImplication": "Connected booking, CRM, and simple dashboard.",
+      "systemImplicationAr": "حجز و CRM ولوحة بسيطة مترابطة.",
+      "dominaseFit": "DOMINASE could translate this into a phased connected patient journey.",
+      "dominaseFitAr": "يمكن ل DOMINASE تحويل ذلك إلى رحلة مريض مترابطة على مراحل.",
+      "riskNotes": "Only build what the clinic can realistically operate.",
+      "riskNotesAr": "ابن فقط ما تستطيع العيادة تشغيله واقعيا."
+    }
+  ],
+  "reportTemplates": {
+    "intro": {
+      "title": "Clinic Growth Diagnosis Report",
+      "titleAr": "تقرير تشخيص نمو عيادات",
+      "fallback": "Your results show solid foundations with a few practical opportunities to improve clarity, trust, conversion, and follow-up.",
+      "fallbackAr": "تظهر نتيجتك أساسا جيدا مع فرص عملية لتحسين الوضوح والثقة ومسار التواصل والمتابعة."
+    },
+    "sections": [
+      {
+        "id": "strategicDiagnosis",
+        "category": "strategicDiagnosis",
+        "title": "Strategic diagnosis",
+        "titleAr": "التشخيص الاستراتيجي",
+        "purpose": "Summarize the highest-leverage business gaps without blame.",
+        "purposeAr": "تلخيص الفجوات الأعلى أثرا دون لوم."
+      },
+      {
+        "id": "customerProfile",
+        "category": "customerProfile",
+        "title": "Customer profile",
+        "titleAr": "ملف العميل",
+        "purpose": "Clarify which customer type the business should prioritize.",
+        "purposeAr": "توضيح نوع العميل الذي يستحق الأولوية."
+      },
+      {
+        "id": "websiteStructure",
+        "category": "websiteStructure",
+        "title": "Website structure",
+        "titleAr": "هيكل الموقع",
+        "purpose": "Turn clarity and trust gaps into practical website structure changes.",
+        "purposeAr": "تحويل فجوات الوضوح والثقة إلى تعديلات عملية في هيكل الموقع."
+      },
+      {
+        "id": "conversionPath",
+        "category": "conversionPath",
+        "title": "Conversion path",
+        "titleAr": "مسار التحويل",
+        "purpose": "Improve the path from interest to contact, booking, or quote request.",
+        "purposeAr": "تحسين المسار من الاهتمام إلى التواصل أو الحجز أو طلب العرض."
+      },
+      {
+        "id": "contentAndTrust",
+        "category": "contentAndTrust",
+        "title": "Content and trust",
+        "titleAr": "المحتوى والثقة",
+        "purpose": "Recommend proof, FAQ, pricing, and credibility assets.",
+        "purposeAr": "اقتراح أصول الإثبات والأسئلة والتسعير والمصداقية."
+      },
+      {
+        "id": "salesFollowUp",
+        "category": "salesFollowUp",
+        "title": "Sales follow-up",
+        "titleAr": "متابعة المبيعات",
+        "purpose": "Improve capture, tracking, WhatsApp, CRM, and follow-up rhythm.",
+        "purposeAr": "تحسين الالتقاط والتتبع وواتساب و CRM وإيقاع المتابعة."
+      },
+      {
+        "id": "quickWins",
+        "category": "quickWins",
+        "title": "Quick wins",
+        "titleAr": "مكاسب سريعة",
+        "purpose": "Name small fixes that can be done before a full build.",
+        "purposeAr": "تحديد إصلاحات صغيرة يمكن تنفيذها قبل أي بناء كبير."
+      },
+      {
+        "id": "dominaseNextStep",
+        "category": "dominaseNextStep",
+        "title": "DOMINASE next step",
+        "titleAr": "خطوة DOMINASE التالية",
+        "purpose": "Suggest one honest, proportionate DOMINASE build direction.",
+        "purposeAr": "اقتراح اتجاه بناء واحد من DOMINASE بصدق وتناسب."
+      }
+    ]
+  },
+  "contextForm": {
+    "title": "Clinic context",
+    "titleAr": "سياق العيادة",
+    "description": "These fields personalize the report only and require frontend support later. They are not required for scoring.",
+    "descriptionAr": "هذه الحقول لتخصيص التقرير فقط وتتطلب دعما لاحقا في الواجهة. لا تعتمد عليها عملية التسجيل.",
+    "requiresFrontendSupport": true,
+    "fields": [
+      {
+        "id": "institutionName",
+        "label": "Clinic name",
+        "labelAr": "اسم العيادة",
+        "type": "text",
+        "required": true,
+        "options": [],
+        "optionsAr": [],
+        "whyNeeded": "Personalize the report",
+        "whyNeededAr": "تخصيص التقرير",
+        "reportUse": "Header"
+      },
+      {
+        "id": "cityOrArea",
+        "label": "City / area",
+        "labelAr": "المدينة / المنطقة",
+        "type": "text",
+        "required": true,
+        "options": [],
+        "optionsAr": [],
+        "whyNeeded": "Add local context",
+        "whyNeededAr": "إضافة سياق محلي",
+        "reportUse": "Location notes"
+      },
+      {
+        "id": "specialty",
+        "label": "Main specialty",
+        "labelAr": "التخصص الرئيسي",
+        "type": "text",
+        "required": true,
+        "options": [],
+        "optionsAr": [],
+        "whyNeeded": "Anchor specialty recommendations",
+        "whyNeededAr": "ربط توصيات التخصص",
+        "reportUse": "StrategicDiagnosis"
+      },
+      {
+        "id": "insuranceAccepted",
+        "label": "Insurance accepted?",
+        "labelAr": "هل تقبلون التأمين؟",
+        "type": "select",
+        "required": false,
+        "options": [
+          "Yes",
+          "No",
+          "Some providers",
+          "Not sure"
+        ],
+        "optionsAr": [
+          "نعم",
+          "لا",
+          "بعض الجهات",
+          "غير متأكد"
+        ],
+        "whyNeeded": "Inform payment clarity",
+        "whyNeededAr": "إثراء وضوح الدفع",
+        "reportUse": "ContentAndTrust"
+      },
+      {
+        "id": "appointmentMethod",
+        "label": "How patients book now",
+        "labelAr": "كيف يحجز المرضى الآن؟",
+        "type": "select",
+        "required": true,
+        "options": [
+          "Phone",
+          "WhatsApp",
+          "Website form",
+          "Booking system",
+          "Walk-in"
+        ],
+        "optionsAr": [
+          "هاتف",
+          "واتساب",
+          "نموذج موقع",
+          "نظام حجز",
+          "حضور مباشر"
+        ],
+        "whyNeeded": "Baseline booking friction",
+        "whyNeededAr": "خط أساس لاحتكاك الحجز",
+        "reportUse": "ConversionPath"
+      },
+      {
+        "id": "currentMainChannel",
+        "label": "Main patient channel",
+        "labelAr": "قناة وصول المرضى الرئيسية",
+        "type": "select",
+        "required": true,
+        "options": [
+          "Website",
+          "Google",
+          "Instagram",
+          "WhatsApp",
+          "Referrals"
+        ],
+        "optionsAr": [
+          "الموقع",
+          "جوجل",
+          "إنستغرام",
+          "واتساب",
+          "إحالات"
+        ],
+        "whyNeeded": "Reveal channel reliance",
+        "whyNeededAr": "كشف الاعتماد على القناة",
+        "reportUse": "SalesFollowUp"
+      },
+      {
+        "id": "optionalNotes",
+        "label": "Anything else",
+        "labelAr": "ملاحظات إضافية",
+        "type": "textarea",
+        "required": false,
+        "options": [],
+        "optionsAr": [],
+        "whyNeeded": "Capture nuance",
+        "whyNeededAr": "التقاط التفاصيل",
+        "reportUse": "Context"
+      }
+    ]
+  }
+}

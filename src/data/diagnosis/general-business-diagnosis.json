@@ -1,0 +1,1085 @@
+{
+  "meta": {
+    "id": "general-business-growth-diagnosis",
+    "version": "1.0.0",
+    "title": "General Business Growth Diagnosis",
+    "titleAr": "تشخيص نمو النشاط التجاري",
+    "description": "A strategic self-assessment for offer clarity, trust, conversion path, follow-up, content, and digital readiness.",
+    "descriptionAr": "تقييم ذاتي استراتيجي لوضوح العرض والثقة ومسار التحويل والمتابعة والمحتوى والجاهزية الرقمية.",
+    "disclaimer": "This is a strategic self-assessment for business readiness. It is not a guarantee of results and is not a substitute for professional legal, financial, medical, or operational advice. This is broad guidance and depends on business type, market, offer, team capacity, and customer context. Not every recommendation is necessary for every business.",
+    "disclaimerAr": "هذا تقييم ذاتي استراتيجي لجاهزية النشاط. لا يضمن النتائج ولا يغني عن الاستشارة المهنية القانونية أو المالية أو الطبية أو التشغيلية عند الحاجة. هذه إرشادات عامة وتتأثر بنوع النشاط والسوق والعرض وقدرة الفريق وسياق العملاء. ليست كل توصية ضرورية لكل نشاط.",
+    "scale": {
+      "min": 1,
+      "max": 5,
+      "step": 0.5
+    },
+    "domain": "general-business",
+    "domainAr": "أعمال عامة",
+    "estimatedMinutes": 8,
+    "sourceNote": "Generated from 04_STRATEGY_MAPS/general_business_strategy_map.md, question_blueprints.json, DOMINASE_EXTRACTION_MATRIX.json, DOMINASE_TAG_TAXONOMY.md, and DOMINASE_RECOMMENDATION_BANK.md. question_blueprints.json was used only as planning index.",
+    "ethicsNote": "Value-first, advisor-like self-assessment. No fabricated statistics, no guarantees, no manipulative urgency, no copied book text, and no recommendation to build systems the business will not realistically use."
+  },
+  "dimensions": [
+    {
+      "id": "D1",
+      "dimensionKey": "offer-message-clarity",
+      "title": "Offer & Message Clarity",
+      "titleAr": "وضوح العرض والرسالة",
+      "description": "How quickly the business communicates what it offers and who it serves.",
+      "descriptionAr": "مدى سرعة توصيل ما يقدمه النشاط ولمن.",
+      "orderIndex": 1,
+      "weight": 5,
+      "topics": [
+        {
+          "id": "gen_offer_clarity",
+          "topicKey": "offer-clarity",
+          "label": "Offer clarity",
+          "labelAr": "وضوح العرض",
+          "prompt": "Can a first-time visitor understand your main offer and its benefit within a few seconds without asking you?",
+          "promptAr": "هل يستطيع زائر لأول مرة فهم عرضك الرئيسي وفائدته خلال ثوان دون أن يسألك؟",
+          "answerMode": "current-target",
+          "orderIndex": 1,
+          "weight": 5,
+          "tags": [
+            "offer-clarity",
+            "clarity",
+            "grunt-test",
+            "general:offer-clarity"
+          ],
+          "levelAnchors": [
+            "1 - Unclear what is offered",
+            "2 - Offer is understandable only after effort",
+            "3 - Offer is clear but benefit is weak",
+            "4 - Offer and benefit are clear",
+            "5 - Offer, benefit, audience, and next step are instantly clear"
+          ],
+          "levelAnchorsAr": [
+            "1 - غير واضح ماذا تقدم",
+            "2 - العرض مفهوم بعد جهد",
+            "3 - العرض واضح لكن الفائدة ضعيفة",
+            "4 - العرض والفائدة واضحان",
+            "5 - العرض والفائدة والجمهور والخطوة التالية واضحة فورا"
+          ]
+        },
+        {
+          "id": "gen_target_customer",
+          "topicKey": "target-customer",
+          "label": "Target customer clarity",
+          "labelAr": "وضوح العميل المستهدف",
+          "prompt": "Is it clear who your ideal customer is so the right people recognize themselves?",
+          "promptAr": "هل من الواضح من هو عميلك المثالي كي يتعرف الأشخاص المناسبون على أنفسهم؟",
+          "answerMode": "current-target",
+          "orderIndex": 2,
+          "weight": 4,
+          "tags": [
+            "segmentation",
+            "targeting",
+            "focus",
+            "general"
+          ],
+          "levelAnchors": [
+            "1 - Targets everyone",
+            "2 - Target is broad and generic",
+            "3 - Some customer types are named",
+            "4 - Ideal customer is clear in key messages",
+            "5 - Messaging makes right-fit customers feel directly addressed"
+          ],
+          "levelAnchorsAr": [
+            "1 - يستهدف الجميع",
+            "2 - المستهدف واسع وعام",
+            "3 - بعض أنواع العملاء مذكورة",
+            "4 - العميل المثالي واضح في الرسائل المهمة",
+            "5 - الرسائل تجعل العميل المناسب يشعر أنها تخاطبه مباشرة"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "D2",
+      "dimensionKey": "trust-proof",
+      "title": "Trust & Proof",
+      "titleAr": "الثقة والإثبات",
+      "description": "How well the business reduces buyer risk with proof and differentiation.",
+      "descriptionAr": "مدى تقليل مخاطرة المشتري عبر الإثبات والتميز.",
+      "orderIndex": 2,
+      "weight": 5,
+      "topics": [
+        {
+          "id": "gen_trust_proof",
+          "topicKey": "trust-proof",
+          "label": "Trust and proof visibility",
+          "labelAr": "ظهور الثقة والإثبات",
+          "prompt": "Can a potential customer see genuine reviews, results, work samples, or credentials within a minute?",
+          "promptAr": "هل يرى العميل المحتمل تقييمات أو نتائج أو عينات عمل أو شهادات حقيقية خلال دقيقة؟",
+          "answerMode": "current-target",
+          "orderIndex": 3,
+          "weight": 5,
+          "tags": [
+            "social-proof",
+            "trust",
+            "weak-proof",
+            "general"
+          ],
+          "levelAnchors": [
+            "1 - No visible proof",
+            "2 - A few generic reviews",
+            "3 - Some proof but not near decision points",
+            "4 - Relevant proof appears on key pages",
+            "5 - Strong, specific proof supports each main offer"
+          ],
+          "levelAnchorsAr": [
+            "1 - لا يوجد إثبات مرئي",
+            "2 - بعض التقييمات العامة",
+            "3 - إثبات موجود لكنه بعيد عن مواضع القرار",
+            "4 - إثبات مناسب يظهر في الصفحات المهمة",
+            "5 - إثبات قوي ومحدد يدعم كل عرض رئيسي"
+          ]
+        },
+        {
+          "id": "gen_differentiation",
+          "topicKey": "differentiation",
+          "label": "Differentiation and why you",
+          "labelAr": "التميز ولماذا أنت",
+          "prompt": "Can a customer tell why they should choose you over an obvious alternative, with concrete reasons?",
+          "promptAr": "هل يعرف العميل لماذا يختارك بدلا من بديل واضح، بأسباب ملموسة؟",
+          "answerMode": "current-target",
+          "orderIndex": 4,
+          "weight": 4,
+          "tags": [
+            "differentiation",
+            "positioning",
+            "value-proposition",
+            "general"
+          ],
+          "levelAnchors": [
+            "1 - No clear reason to choose you",
+            "2 - Generic claims only",
+            "3 - Some differences but little proof",
+            "4 - Concrete differentiators are stated",
+            "5 - Differentiators are clear, credible, and supported by proof"
+          ],
+          "levelAnchorsAr": [
+            "1 - لا يوجد سبب واضح لاختيارك",
+            "2 - ادعاءات عامة فقط",
+            "3 - بعض الفروق دون إثبات كاف",
+            "4 - عوامل تميز ملموسة مذكورة",
+            "5 - التميز واضح وموثوق ومدعوم بإثبات"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "D3",
+      "dimensionKey": "conversion-path-usability",
+      "title": "Conversion Path & Usability",
+      "titleAr": "مسار التحويل وسهولة الاستخدام",
+      "description": "How easily a visitor can understand, act, and contact on mobile.",
+      "descriptionAr": "مدى سهولة فهم الزائر والتصرف والتواصل عبر الهاتف.",
+      "orderIndex": 3,
+      "weight": 5,
+      "topics": [
+        {
+          "id": "gen_conversion_path",
+          "topicKey": "conversion-path",
+          "label": "Clear conversion path",
+          "labelAr": "مسار تحويل واضح",
+          "prompt": "Is there one obvious next step on every key page that guides a visitor toward contacting or buying?",
+          "promptAr": "هل توجد خطوة تالية واضحة في كل صفحة مهمة توجه الزائر إلى التواصل أو الشراء؟",
+          "answerMode": "current-target",
+          "orderIndex": 5,
+          "weight": 5,
+          "tags": [
+            "conversion-path",
+            "cta",
+            "next-step",
+            "general"
+          ],
+          "levelAnchors": [
+            "1 - No clear next step",
+            "2 - CTA exists but is inconsistent",
+            "3 - Main path is visible with friction",
+            "4 - Primary path is clear on key pages",
+            "5 - Every key page has one obvious, low-friction next step"
+          ],
+          "levelAnchorsAr": [
+            "1 - لا توجد خطوة تالية واضحة",
+            "2 - يوجد زر لكنه غير متسق",
+            "3 - المسار الرئيسي ظاهر مع بعض الاحتكاك",
+            "4 - المسار الأساسي واضح في الصفحات المهمة",
+            "5 - كل صفحة مهمة فيها خطوة واحدة واضحة وسهلة"
+          ]
+        },
+        {
+          "id": "gen_mobile_usability",
+          "topicKey": "mobile-usability",
+          "label": "Mobile usability",
+          "labelAr": "سهولة الاستخدام على الهاتف",
+          "prompt": "Is your website easy and fast to use on a phone where many customers first find you?",
+          "promptAr": "هل موقعك سهل وسريع على الهاتف حيث يجدك كثير من العملاء أولا؟",
+          "answerMode": "current-target",
+          "orderIndex": 6,
+          "weight": 4,
+          "tags": [
+            "mobile",
+            "responsive",
+            "usability",
+            "general"
+          ],
+          "levelAnchors": [
+            "1 - Hard or slow on mobile",
+            "2 - Works but feels clunky",
+            "3 - Usable with some friction",
+            "4 - Smooth on common phones",
+            "5 - Fast, readable, and easy to act on by phone"
+          ],
+          "levelAnchorsAr": [
+            "1 - صعب أو بطيء على الهاتف",
+            "2 - يعمل لكنه متعب",
+            "3 - قابل للاستخدام مع بعض الاحتكاك",
+            "4 - سلس على الهواتف الشائعة",
+            "5 - سريع ومقروء وسهل التصرف من الهاتف"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "D4",
+      "dimensionKey": "followup-crm",
+      "title": "Follow-up & CRM",
+      "titleAr": "المتابعة و CRM",
+      "description": "How well leads are captured, followed up, and tracked.",
+      "descriptionAr": "مدى التقاط العملاء ومتابعتهم وتتبعهم.",
+      "orderIndex": 4,
+      "weight": 5,
+      "topics": [
+        {
+          "id": "gen_lead_capture",
+          "topicKey": "lead-capture",
+          "label": "Lead capture",
+          "labelAr": "التقاط العملاء",
+          "prompt": "Is there a useful low-pressure way to capture visitors who are interested but not ready to buy?",
+          "promptAr": "هل توجد طريقة مفيدة ومنخفضة الضغط لالتقاط الزوار المهتمين غير الجاهزين للشراء؟",
+          "answerMode": "current-target",
+          "orderIndex": 7,
+          "weight": 4,
+          "tags": [
+            "capture",
+            "lead-magnet",
+            "reciprocity",
+            "general"
+          ],
+          "levelAnchors": [
+            "1 - Only hard contact or buy now",
+            "2 - Basic form with no clear value",
+            "3 - Some useful content but no capture",
+            "4 - A useful capture offer exists",
+            "5 - Not-ready visitors get value and enter a respectful follow-up path"
+          ],
+          "levelAnchorsAr": [
+            "1 - فقط تواصل أو اشتر الآن",
+            "2 - نموذج أساسي دون قيمة واضحة",
+            "3 - محتوى مفيد دون التقاط",
+            "4 - يوجد عرض التقاط مفيد",
+            "5 - الزائر غير الجاهز يحصل على قيمة ويدخل متابعة محترمة"
+          ]
+        },
+        {
+          "id": "gen_followup_discipline",
+          "topicKey": "followup-discipline",
+          "label": "Follow-up discipline",
+          "labelAr": "انضباط المتابعة",
+          "prompt": "Do new leads receive timely, useful follow-up instead of depending on memory?",
+          "promptAr": "هل يحصل العملاء الجدد على متابعة مفيدة وفي وقت مناسب بدلا من الاعتماد على الذاكرة؟",
+          "answerMode": "current-target",
+          "orderIndex": 8,
+          "weight": 5,
+          "tags": [
+            "weak-follow-up",
+            "follow-up",
+            "cadence",
+            "general:sales-process"
+          ],
+          "levelAnchors": [
+            "1 - Follow-up depends on memory",
+            "2 - First reply happens but no rhythm",
+            "3 - Some reminders are manual",
+            "4 - Follow-up cadence is mostly consistent",
+            "5 - Every lead has a clear owner, next step, and respectful cadence"
+          ],
+          "levelAnchorsAr": [
+            "1 - المتابعة تعتمد على الذاكرة",
+            "2 - يوجد رد أول دون إيقاع",
+            "3 - بعض التذكيرات يدوية",
+            "4 - إيقاع المتابعة منتظم غالبا",
+            "5 - لكل عميل مسؤول وخطوة تالية وإيقاع محترم"
+          ]
+        },
+        {
+          "id": "gen_whatsapp_structure",
+          "topicKey": "whatsapp-structure",
+          "label": "WhatsApp structure",
+          "labelAr": "تنظيم واتساب",
+          "prompt": "Are WhatsApp conversations structured and tracked, or do lead statuses live inside chats?",
+          "promptAr": "هل محادثات واتساب منظمة ومتتبعة أم أن حالة العملاء تبقى داخل المحادثات؟",
+          "answerMode": "current-target",
+          "orderIndex": 9,
+          "weight": 3,
+          "tags": [
+            "whatsapp",
+            "messaging",
+            "follow-up",
+            "general"
+          ],
+          "levelAnchors": [
+            "1 - Chats are chaotic and untracked",
+            "2 - Some templates but no tracking",
+            "3 - Manual notes track some leads",
+            "4 - WhatsApp is mostly templated and logged",
+            "5 - WhatsApp feeds a lead system with templates and next actions"
+          ],
+          "levelAnchorsAr": [
+            "1 - المحادثات فوضوية وغير متتبعة",
+            "2 - بعض القوالب دون تتبع",
+            "3 - ملاحظات يدوية لبعض العملاء",
+            "4 - واتساب غالبا بقوالب وموثق",
+            "5 - واتساب يغذي نظام عملاء بقوالب وخطوات تالية"
+          ]
+        },
+        {
+          "id": "gen_lead_tracking",
+          "topicKey": "lead-tracking",
+          "label": "Lead tracking",
+          "labelAr": "تتبع العملاء",
+          "prompt": "Do you track every inquiry from first contact to decision, or does status live in chats and memory?",
+          "promptAr": "هل تتتبع كل استفسار من أول تواصل حتى القرار أم أن الحالة تبقى في المحادثات والذاكرة؟",
+          "answerMode": "current-target",
+          "orderIndex": 12,
+          "weight": 4,
+          "tags": [
+            "crm",
+            "pipeline",
+            "tracking",
+            "general"
+          ],
+          "levelAnchors": [
+            "1 - No tracking",
+            "2 - Manual notes only",
+            "3 - Spreadsheet or board but incomplete",
+            "4 - Most leads are tracked by stage",
+            "5 - Simple pipeline tracks source, owner, stage, and next action"
+          ],
+          "levelAnchorsAr": [
+            "1 - لا يوجد تتبع",
+            "2 - ملاحظات يدوية فقط",
+            "3 - جدول أو لوحة لكنها غير مكتملة",
+            "4 - أغلب العملاء متتبعون حسب المرحلة",
+            "5 - خط بسيط يتتبع المصدر والمسؤول والمرحلة والخطوة"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "D5",
+      "dimensionKey": "content-faq",
+      "title": "Content & FAQ",
+      "titleAr": "المحتوى والأسئلة الشائعة",
+      "description": "How well buyer questions, objections, and pricing context are addressed.",
+      "descriptionAr": "مدى معالجة أسئلة المشترين واعتراضاتهم وسياق التسعير.",
+      "orderIndex": 5,
+      "weight": 3,
+      "topics": [
+        {
+          "id": "gen_content_faq",
+          "topicKey": "content-faq",
+          "label": "Content and FAQ coverage",
+          "labelAr": "تغطية المحتوى والأسئلة",
+          "prompt": "Do your site and content answer the questions buyers ask before contacting, including common objections?",
+          "promptAr": "هل يجيب موقعك ومحتواك عن أسئلة المشترين قبل التواصل، بما فيها الاعتراضات الشائعة؟",
+          "answerMode": "current-target",
+          "orderIndex": 10,
+          "weight": 3,
+          "tags": [
+            "content-strategy",
+            "faq-gap",
+            "buyer-questions",
+            "general"
+          ],
+          "levelAnchors": [
+            "1 - No FAQ or helpful content",
+            "2 - Basic FAQ only",
+            "3 - Some questions answered but important objections missing",
+            "4 - Most real buyer questions are answered",
+            "5 - Content answers real questions, objections, and next-step concerns"
+          ],
+          "levelAnchorsAr": [
+            "1 - لا توجد أسئلة أو محتوى مفيد",
+            "2 - أسئلة أساسية فقط",
+            "3 - بعض الأسئلة مجابة لكن اعتراضات مهمة ناقصة",
+            "4 - أغلب أسئلة المشترين الحقيقية مجابة",
+            "5 - المحتوى يجيب الأسئلة والاعتراضات ومخاوف الخطوة التالية"
+          ]
+        },
+        {
+          "id": "gen_pricing_clarity",
+          "topicKey": "pricing-clarity",
+          "label": "Pricing clarity where relevant",
+          "labelAr": "وضوح التسعير حيث يناسب",
+          "prompt": "Where relevant, does your site give a realistic sense of pricing or cost drivers before customers contact you?",
+          "promptAr": "حيث يناسب، هل يمنح موقعك تصورا واقعيا للتسعير أو عوامل التكلفة قبل تواصل العملاء؟",
+          "answerMode": "current-target",
+          "orderIndex": 11,
+          "weight": 2,
+          "tags": [
+            "pricing-transparency",
+            "pricing-content",
+            "trust-barrier",
+            "general"
+          ],
+          "levelAnchors": [
+            "1 - No pricing or cost guidance",
+            "2 - Only contact us for pricing",
+            "3 - Very vague guidance",
+            "4 - Pricing or cost factors are clear where appropriate",
+            "5 - Cost guidance is honest, useful, and context-aware"
+          ],
+          "levelAnchorsAr": [
+            "1 - لا يوجد توجيه للتسعير أو التكلفة",
+            "2 - فقط تواصل لمعرفة السعر",
+            "3 - توجيه غامض جدا",
+            "4 - التسعير أو عوامل التكلفة واضحة حيث يناسب",
+            "5 - توجيه التكلفة صادق ومفيد ومراع للسياق"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "D6",
+      "dimensionKey": "digital-readiness",
+      "title": "Digital Readiness",
+      "titleAr": "الجاهزية الرقمية",
+      "description": "Whether the business has a connected digital system rather than scattered tools.",
+      "descriptionAr": "هل لدى النشاط نظام رقمي مترابط بدلا من أدوات مبعثرة.",
+      "orderIndex": 6,
+      "weight": 3,
+      "topics": [
+        {
+          "id": "gen_digital_readiness",
+          "topicKey": "digital-readiness",
+          "label": "Connected digital system",
+          "labelAr": "النظام الرقمي المترابط",
+          "prompt": "Do website, capture, follow-up, and tracking work as one connected system?",
+          "promptAr": "هل يعمل الموقع والالتقاط والمتابعة والتتبع كنظام واحد مترابط؟",
+          "answerMode": "current-target",
+          "orderIndex": 13,
+          "weight": 3,
+          "tags": [
+            "digital-readiness",
+            "system",
+            "automation",
+            "general:digital-readiness"
+          ],
+          "levelAnchors": [
+            "1 - Disconnected manual tools",
+            "2 - Some tools connected manually",
+            "3 - Partly connected with gaps",
+            "4 - Core flow is connected",
+            "5 - One connected system captures, follows up, and shows what is happening"
+          ],
+          "levelAnchorsAr": [
+            "1 - أدوات يدوية منفصلة",
+            "2 - بعض الأدوات مربوطة يدويا",
+            "3 - ترابط جزئي مع فجوات",
+            "4 - المسار الأساسي مترابط",
+            "5 - نظام واحد يلتقط ويتابع ويظهر ما يحدث"
+          ]
+        }
+      ]
+    }
+  ],
+  "scoring": {
+    "model": "current-target-gap",
+    "gapFormula": "gap = max(target - current, 0)",
+    "priorityDimensionIds": [
+      "D1",
+      "D2",
+      "D3",
+      "D4"
+    ],
+    "profiles": [
+      {
+        "id": "gen_clear_weak_followup",
+        "title": "Clear Offer, Weak Follow-up",
+        "titleAr": "عرض واضح، متابعة ضعيفة",
+        "summary": "The business may explain its offer well but lets interested leads cool off.",
+        "summaryAr": "قد يشرح النشاط عرضه جيدا لكنه يترك العملاء المهتمين يبردون.",
+        "conditions": [
+          {
+            "dimensionId": "D4",
+            "gapMin": 1.5
+          }
+        ],
+        "relatedDimensions": [
+          "D4"
+        ],
+        "riskNote": "Follow-up should be useful and respectful.",
+        "riskNoteAr": "يجب أن تكون المتابعة مفيدة ومحترمة."
+      },
+      {
+        "id": "gen_interest_low_conversion",
+        "title": "High Interest, Low Conversion",
+        "titleAr": "اهتمام مرتفع، تحويل منخفض",
+        "summary": "People may understand the business, but the action path is not obvious enough.",
+        "summaryAr": "قد يفهم الناس النشاط لكن مسار التصرف ليس واضحا بما يكفي.",
+        "conditions": [
+          {
+            "dimensionId": "D3",
+            "gapMin": 1.5
+          }
+        ],
+        "relatedDimensions": [
+          "D3"
+        ],
+        "riskNote": "Do not make CTAs pushy or misleading.",
+        "riskNoteAr": "لا تجعل الدعوات للتصرف ضاغطة أو مضللة."
+      },
+      {
+        "id": "gen_trust_ready_system_poor",
+        "title": "Trust-Ready, System-Poor",
+        "titleAr": "جاهز للثقة، ضعيف الأنظمة",
+        "summary": "Trust proof may exist, but leads are not captured or tracked reliably.",
+        "summaryAr": "قد يوجد إثبات ثقة، لكن العملاء لا يلتقطون أو يتتبعون بثبات.",
+        "conditions": [
+          {
+            "dimensionId": "D4",
+            "gapMin": 1.5
+          },
+          {
+            "dimensionId": "D6",
+            "gapMin": 1.5
+          }
+        ],
+        "relatedDimensions": [
+          "D4",
+          "D6"
+        ],
+        "riskNote": "Only build systems the team can operate.",
+        "riskNoteAr": "ابن فقط الأنظمة التي يستطيع الفريق تشغيلها."
+      },
+      {
+        "id": "gen_unclear_offer",
+        "title": "Strong Service, Unclear Offer",
+        "titleAr": "خدمة قوية، عرض غير واضح",
+        "summary": "The business may deliver well, but the message does not make the offer easy to grasp.",
+        "summaryAr": "قد ينفذ النشاط جيدا، لكن الرسالة لا تجعل العرض سهل الفهم.",
+        "conditions": [
+          {
+            "dimensionId": "D1",
+            "gapMin": 1.5
+          }
+        ],
+        "relatedDimensions": [
+          "D1"
+        ],
+        "riskNote": "Avoid overpromising while clarifying value.",
+        "riskNoteAr": "تجنب المبالغة أثناء توضيح القيمة."
+      },
+      {
+        "id": "gen_busy_overloaded",
+        "title": "Busy but Overloaded Channels",
+        "titleAr": "مشغول لكن قنواته مثقلة",
+        "summary": "Many inquiries may arrive through WhatsApp or social, but statuses and next steps are scattered.",
+        "summaryAr": "قد تصل استفسارات كثيرة عبر واتساب أو السوشيال، لكن الحالات والخطوات التالية مبعثرة.",
+        "conditions": [
+          {
+            "topicId": "gen_whatsapp_structure",
+            "currentMax": 3,
+            "gapMin": 1.5
+          },
+          {
+            "topicId": "gen_lead_tracking",
+            "currentMax": 3,
+            "gapMin": 1.5
+          }
+        ],
+        "relatedDimensions": [
+          "D4"
+        ],
+        "riskNote": "Respect consent and personal data.",
+        "riskNoteAr": "احترم الموافقة والبيانات الشخصية."
+      }
+    ]
+  },
+  "recommendations": [
+    {
+      "id": "gen-rec-offer",
+      "title": "Clarify the main offer and one-liner",
+      "titleAr": "وضّح العرض الرئيسي والجملة التعريفية",
+      "category": "websiteStructure",
+      "conditions": {
+        "tags": [
+          "offer-clarity",
+          "grunt-test",
+          "targeting",
+          "clarity",
+          "segmentation"
+        ],
+        "currentMax": 3,
+        "gapMin": 1.5
+      },
+      "priority": 5,
+      "why": "Confusion blocks interest before trust or persuasion can begin.",
+      "whyAr": "الغموض يمنع الاهتمام قبل أن تبدأ الثقة أو الإقناع.",
+      "how": "Write a clear problem-solution-result line, name the ideal customer, and place one primary next step near it.",
+      "howAr": "اكتب جملة مشكلة-حل-نتيجة، وسم العميل المثالي، وضع خطوة تالية واحدة بجانبها.",
+      "evidenceTags": [
+        "offer-clarity",
+        "grunt-test",
+        "targeting"
+      ],
+      "websiteImplication": "Focused hero and who-we-serve section.",
+      "websiteImplicationAr": "واجهة مركزة وقسم لمن نخدم.",
+      "systemImplication": "One-liner reused in WhatsApp, social, and sales scripts.",
+      "systemImplicationAr": "جملة موحدة تستخدم في واتساب والسوشيال وسكربتات البيع.",
+      "dominaseFit": "DOMINASE could turn this into clearer website messaging before any larger build.",
+      "dominaseFitAr": "يمكن ل DOMINASE تحويل ذلك إلى رسائل موقع أوضح قبل أي بناء أكبر.",
+      "riskNotes": "Keep the promise truthful.",
+      "riskNotesAr": "حافظ على صدق الوعد."
+    },
+    {
+      "id": "gen-rec-proof",
+      "title": "Build proof blocks around the real buyer risk",
+      "titleAr": "ابن كتل إثبات حول مخاطرة المشتري الحقيقية",
+      "category": "contentAndTrust",
+      "conditions": {
+        "tags": [
+          "social-proof",
+          "trust",
+          "differentiation",
+          "weak-proof",
+          "general"
+        ],
+        "currentMax": 3,
+        "gapMin": 1.5
+      },
+      "priority": 5,
+      "why": "Customers need reasons to trust you beyond broad claims.",
+      "whyAr": "العملاء يحتاجون أسبابا للثقة بك تتجاوز الادعاءات العامة.",
+      "how": "Add reviews, work samples, outcomes where appropriate, credentials, and concrete differentiators near key offers.",
+      "howAr": "أضف تقييمات وعينات عمل ونتائج حيث يناسب وشهادات وعوامل تميز ملموسة قرب العروض المهمة.",
+      "evidenceTags": [
+        "social-proof",
+        "trust",
+        "differentiation"
+      ],
+      "websiteImplication": "Proof sections and why-us content.",
+      "websiteImplicationAr": "أقسام إثبات ومحتوى لماذا نحن.",
+      "systemImplication": "Review capture and proof library.",
+      "systemImplicationAr": "التقاط تقييمات ومكتبة إثبات.",
+      "dominaseFit": "A trust-assets pass is useful when D2 is the main gap.",
+      "dominaseFitAr": "تحسين أصول الثقة مفيد عندما تكون D2 الفجوة الرئيسية.",
+      "riskNotes": "Use real proof only.",
+      "riskNotesAr": "استخدم إثباتا حقيقيا فقط."
+    },
+    {
+      "id": "gen-rec-conversion",
+      "title": "Make one primary action obvious on every key page",
+      "titleAr": "اجعل إجراء واحدا أساسيا واضحا في كل صفحة مهمة",
+      "category": "conversionPath",
+      "conditions": {
+        "tags": [
+          "conversion-path",
+          "cta",
+          "mobile",
+          "next-step",
+          "general"
+        ],
+        "currentMax": 3,
+        "gapMin": 1.5
+      },
+      "priority": 5,
+      "why": "Interested visitors leave when the next step is hidden, inconsistent, or hard on mobile.",
+      "whyAr": "يغادر الزوار المهتمون عندما تكون الخطوة التالية مخفية أو غير متسقة أو صعبة على الهاتف.",
+      "how": "Choose one primary CTA, repeat it consistently, reduce form friction, and test the path on mobile.",
+      "howAr": "اختر دعوة إجراء واحدة، وكررها باتساق، وقلل احتكاك النماذج، واختبر المسار على الهاتف.",
+      "evidenceTags": [
+        "conversion-path",
+        "cta",
+        "mobile"
+      ],
+      "websiteImplication": "Site-wide CTA and mobile-friendly contact path.",
+      "websiteImplicationAr": "زر موحد ومسار تواصل مناسب للهاتف.",
+      "systemImplication": "CTA clicks or forms feed lead capture.",
+      "systemImplicationAr": "النقرات أو النماذج تغذي التقاط العملاء.",
+      "dominaseFit": "DOMINASE could improve the conversion path without necessarily rebuilding everything.",
+      "dominaseFitAr": "يمكن ل DOMINASE تحسين مسار التحويل دون إعادة بناء كل شيء بالضرورة.",
+      "riskNotes": "Avoid misleading urgency.",
+      "riskNotesAr": "تجنب الاستعجال المضلل."
+    },
+    {
+      "id": "gen-rec-capture",
+      "title": "Add a useful low-pressure capture option",
+      "titleAr": "أضف خيار التقاط مفيدا ومنخفض الضغط",
+      "category": "conversionPath",
+      "conditions": {
+        "topicId": "gen_lead_capture",
+        "currentMax": 3,
+        "gapMin": 1.5
+      },
+      "priority": 4,
+      "why": "Not every interested visitor is ready to buy today.",
+      "whyAr": "ليس كل زائر مهتم جاهزا للشراء اليوم.",
+      "how": "Offer a guide, checklist, estimate request, or helpful resource that earns permission to follow up.",
+      "howAr": "قدم دليلا أو قائمة أو طلب تقدير أو موردا مفيدا يكسب إذن المتابعة.",
+      "evidenceTags": [
+        "capture",
+        "lead-magnet",
+        "reciprocity"
+      ],
+      "websiteImplication": "Transitional CTA and lead capture form.",
+      "websiteImplicationAr": "دعوة انتقالية ونموذج التقاط.",
+      "systemImplication": "Lead capture triggers nurture in CRM.",
+      "systemImplicationAr": "التقاط العميل يطلق رعاية في CRM.",
+      "dominaseFit": "This pairs naturally with a simple CRM or nurture flow.",
+      "dominaseFitAr": "هذا يتكامل طبيعيا مع CRM أو مسار رعاية بسيط.",
+      "riskNotes": "Request only needed data.",
+      "riskNotesAr": "اطلب البيانات المطلوبة فقط."
+    },
+    {
+      "id": "gen-rec-followup",
+      "title": "Create a simple follow-up cadence",
+      "titleAr": "أنشئ إيقاع متابعة بسيطا",
+      "category": "salesFollowUp",
+      "conditions": {
+        "tags": [
+          "weak-follow-up",
+          "follow-up",
+          "cadence",
+          "whatsapp",
+          "messaging"
+        ],
+        "currentMax": 3,
+        "gapMin": 1.5
+      },
+      "priority": 5,
+      "why": "Leads usually go cold because there is no owner, next step, or rhythm.",
+      "whyAr": "غالبا يبرد العملاء لأنه لا يوجد مسؤول أو خطوة تالية أو إيقاع.",
+      "how": "Define first response, second touch, value message, decision check, and close-or-nurture steps.",
+      "howAr": "حدد الرد الأول واللمسة الثانية ورسالة القيمة وفحص القرار وخطوة الإغلاق أو الرعاية.",
+      "evidenceTags": [
+        "weak-follow-up",
+        "follow-up",
+        "cadence"
+      ],
+      "websiteImplication": "Capture points hand off to follow-up.",
+      "websiteImplicationAr": "نقاط الالتقاط تسلم للمتابعة.",
+      "systemImplication": "CRM cadence with reminders and ownership.",
+      "systemImplicationAr": "إيقاع CRM بتذكيرات ومسؤولية.",
+      "dominaseFit": "DOMINASE could translate this into a light CRM follow-up flow.",
+      "dominaseFitAr": "يمكن ل DOMINASE تحويل ذلك إلى مسار متابعة CRM خفيف.",
+      "riskNotes": "Useful cadence, not spam.",
+      "riskNotesAr": "إيقاع مفيد لا إزعاج."
+    },
+    {
+      "id": "gen-rec-lead-board",
+      "title": "Track every inquiry in a simple lead board",
+      "titleAr": "تتبع كل استفسار في لوحة عملاء بسيطة",
+      "category": "salesFollowUp",
+      "conditions": {
+        "topicId": "gen_lead_tracking",
+        "currentMax": 3,
+        "gapMin": 1.5
+      },
+      "priority": 4,
+      "why": "Untracked leads are the easiest leads to lose.",
+      "whyAr": "العملاء غير المتتبعين هم الأسهل فقدانا.",
+      "how": "Create stages, source, owner, next action, and last contact date for every inquiry.",
+      "howAr": "أنشئ مراحل ومصدر ومسؤول وخطوة تالية وتاريخ آخر تواصل لكل استفسار.",
+      "evidenceTags": [
+        "crm",
+        "pipeline",
+        "tracking"
+      ],
+      "websiteImplication": "Forms and CTAs feed the board.",
+      "websiteImplicationAr": "النماذج والأزرار تغذي اللوحة.",
+      "systemImplication": "Simple CRM pipeline.",
+      "systemImplicationAr": "خط CRM بسيط.",
+      "dominaseFit": "A lead board is often the most practical first system.",
+      "dominaseFitAr": "لوحة العملاء غالبا أول نظام عملي.",
+      "riskNotes": "Protect customer data.",
+      "riskNotesAr": "احم بيانات العملاء."
+    },
+    {
+      "id": "gen-rec-faq-pricing",
+      "title": "Answer common questions and pricing context",
+      "titleAr": "أجب عن الأسئلة الشائعة وسياق التسعير",
+      "category": "quickWins",
+      "conditions": {
+        "tags": [
+          "content-strategy",
+          "faq-gap",
+          "pricing-transparency",
+          "buyer-questions",
+          "general"
+        ],
+        "currentMax": 3,
+        "gapMin": 1.5
+      },
+      "priority": 3,
+      "why": "Answered questions build trust and reduce poor-fit inquiries.",
+      "whyAr": "الأسئلة المجابة تبني الثقة وتقلل الاستفسارات غير المناسبة.",
+      "how": "List top buyer questions, objections, process details, and pricing or cost factors where appropriate.",
+      "howAr": "اكتب أهم أسئلة المشترين واعتراضاتهم وتفاصيل العملية والتسعير أو عوامل التكلفة حيث يناسب.",
+      "evidenceTags": [
+        "content-strategy",
+        "faq-gap",
+        "pricing-transparency"
+      ],
+      "websiteImplication": "FAQ and cost-context content.",
+      "websiteImplicationAr": "محتوى أسئلة وسياق تكلفة.",
+      "systemImplication": "Question backlog from chats and sales calls.",
+      "systemImplicationAr": "سجل أسئلة من المحادثات ومكالمات البيع.",
+      "dominaseFit": "This is a quick content win for many businesses.",
+      "dominaseFitAr": "هذا مكسب محتوى سريع لكثير من الأنشطة.",
+      "riskNotes": "Do not force public pricing where inappropriate.",
+      "riskNotesAr": "لا تفرض تسعيرا علنيا حيث لا يناسب."
+    },
+    {
+      "id": "gen-rec-connected-system",
+      "title": "Connect the website, capture, CRM, and reporting",
+      "titleAr": "اربط الموقع والالتقاط و CRM والتقارير",
+      "category": "dominaseNextStep",
+      "conditions": {
+        "tags": [
+          "digital-readiness",
+          "system",
+          "automation"
+        ],
+        "currentMax": 3,
+        "gapMin": 1.5
+      },
+      "priority": 4,
+      "why": "A connected system helps the business see and recover the interest it is already earning.",
+      "whyAr": "النظام المترابط يساعد النشاط على رؤية واسترداد الاهتمام الذي يكسبه أصلا.",
+      "how": "Connect the site to capture, follow-up, lead stages, and a simple dashboard before adding advanced automation.",
+      "howAr": "اربط الموقع بالالتقاط والمتابعة ومراحل العملاء ولوحة بسيطة قبل إضافة أتمتة متقدمة.",
+      "evidenceTags": [
+        "digital-readiness",
+        "system",
+        "automation"
+      ],
+      "websiteImplication": "Website becomes the hub of the journey.",
+      "websiteImplicationAr": "الموقع يصبح مركز الرحلة.",
+      "systemImplication": "Connected CRM and dashboard.",
+      "systemImplicationAr": "CRM ولوحة مترابطان.",
+      "dominaseFit": "DOMINASE could phase this into a connected business system.",
+      "dominaseFitAr": "يمكن ل DOMINASE تنفيذ ذلك كنظام عمل مترابط على مراحل.",
+      "riskNotes": "Build only what the business will use.",
+      "riskNotesAr": "ابن فقط ما سيستخدمه النشاط."
+    }
+  ],
+  "reportTemplates": {
+    "intro": {
+      "title": "General Business Growth Diagnosis Report",
+      "titleAr": "تقرير تشخيص نمو أعمال عامة",
+      "fallback": "Your results show solid foundations with a few practical opportunities to improve clarity, trust, conversion, and follow-up.",
+      "fallbackAr": "تظهر نتيجتك أساسا جيدا مع فرص عملية لتحسين الوضوح والثقة ومسار التواصل والمتابعة."
+    },
+    "sections": [
+      {
+        "id": "strategicDiagnosis",
+        "category": "strategicDiagnosis",
+        "title": "Strategic diagnosis",
+        "titleAr": "التشخيص الاستراتيجي",
+        "purpose": "Summarize the highest-leverage business gaps without blame.",
+        "purposeAr": "تلخيص الفجوات الأعلى أثرا دون لوم."
+      },
+      {
+        "id": "customerProfile",
+        "category": "customerProfile",
+        "title": "Customer profile",
+        "titleAr": "ملف العميل",
+        "purpose": "Clarify which customer type the business should prioritize.",
+        "purposeAr": "توضيح نوع العميل الذي يستحق الأولوية."
+      },
+      {
+        "id": "websiteStructure",
+        "category": "websiteStructure",
+        "title": "Website structure",
+        "titleAr": "هيكل الموقع",
+        "purpose": "Turn clarity and trust gaps into practical website structure changes.",
+        "purposeAr": "تحويل فجوات الوضوح والثقة إلى تعديلات عملية في هيكل الموقع."
+      },
+      {
+        "id": "conversionPath",
+        "category": "conversionPath",
+        "title": "Conversion path",
+        "titleAr": "مسار التحويل",
+        "purpose": "Improve the path from interest to contact, booking, or quote request.",
+        "purposeAr": "تحسين المسار من الاهتمام إلى التواصل أو الحجز أو طلب العرض."
+      },
+      {
+        "id": "contentAndTrust",
+        "category": "contentAndTrust",
+        "title": "Content and trust",
+        "titleAr": "المحتوى والثقة",
+        "purpose": "Recommend proof, FAQ, pricing, and credibility assets.",
+        "purposeAr": "اقتراح أصول الإثبات والأسئلة والتسعير والمصداقية."
+      },
+      {
+        "id": "salesFollowUp",
+        "category": "salesFollowUp",
+        "title": "Sales follow-up",
+        "titleAr": "متابعة المبيعات",
+        "purpose": "Improve capture, tracking, WhatsApp, CRM, and follow-up rhythm.",
+        "purposeAr": "تحسين الالتقاط والتتبع وواتساب و CRM وإيقاع المتابعة."
+      },
+      {
+        "id": "quickWins",
+        "category": "quickWins",
+        "title": "Quick wins",
+        "titleAr": "مكاسب سريعة",
+        "purpose": "Name small fixes that can be done before a full build.",
+        "purposeAr": "تحديد إصلاحات صغيرة يمكن تنفيذها قبل أي بناء كبير."
+      },
+      {
+        "id": "dominaseNextStep",
+        "category": "dominaseNextStep",
+        "title": "DOMINASE next step",
+        "titleAr": "خطوة DOMINASE التالية",
+        "purpose": "Suggest one honest, proportionate DOMINASE build direction.",
+        "purposeAr": "اقتراح اتجاه بناء واحد من DOMINASE بصدق وتناسب."
+      }
+    ]
+  },
+  "contextForm": {
+    "title": "Business context",
+    "titleAr": "سياق النشاط",
+    "description": "These fields personalize the report only and require frontend support later. They are not required for scoring.",
+    "descriptionAr": "هذه الحقول لتخصيص التقرير فقط وتتطلب دعما لاحقا في الواجهة. لا تعتمد عليها عملية التسجيل.",
+    "requiresFrontendSupport": true,
+    "fields": [
+      {
+        "id": "institutionName",
+        "label": "Business name",
+        "labelAr": "اسم النشاط",
+        "type": "text",
+        "required": true,
+        "options": [],
+        "optionsAr": [],
+        "whyNeeded": "Personalize the report",
+        "whyNeededAr": "تخصيص التقرير",
+        "reportUse": "Header"
+      },
+      {
+        "id": "cityOrArea",
+        "label": "City / area",
+        "labelAr": "المدينة / المنطقة",
+        "type": "text",
+        "required": true,
+        "options": [],
+        "optionsAr": [],
+        "whyNeeded": "Add local context",
+        "whyNeededAr": "إضافة سياق محلي",
+        "reportUse": "Location notes"
+      },
+      {
+        "id": "businessType",
+        "label": "Business type",
+        "labelAr": "نوع النشاط",
+        "type": "text",
+        "required": true,
+        "options": [],
+        "optionsAr": [],
+        "whyNeeded": "Adapt recommendations",
+        "whyNeededAr": "تكييف التوصيات",
+        "reportUse": "StrategicDiagnosis"
+      },
+      {
+        "id": "serviceCategory",
+        "label": "Service category",
+        "labelAr": "فئة الخدمة",
+        "type": "select",
+        "required": true,
+        "options": [
+          "Local service",
+          "Professional service",
+          "Retail-service hybrid",
+          "Online service",
+          "Other"
+        ],
+        "optionsAr": [
+          "خدمة محلية",
+          "خدمة مهنية",
+          "مزيج بيع وخدمة",
+          "خدمة رقمية",
+          "أخرى"
+        ],
+        "whyNeeded": "Group recommendations",
+        "whyNeededAr": "تجميع التوصيات",
+        "reportUse": "StrategicDiagnosis"
+      },
+      {
+        "id": "currentMainChannel",
+        "label": "Main lead channel",
+        "labelAr": "قناة العملاء الرئيسية",
+        "type": "select",
+        "required": true,
+        "options": [
+          "Website",
+          "Instagram",
+          "WhatsApp",
+          "Phone",
+          "Referrals",
+          "Ads"
+        ],
+        "optionsAr": [
+          "الموقع",
+          "إنستغرام",
+          "واتساب",
+          "هاتف",
+          "إحالات",
+          "إعلانات"
+        ],
+        "whyNeeded": "Reveal channel reliance",
+        "whyNeededAr": "كشف الاعتماد على القناة",
+        "reportUse": "SalesFollowUp"
+      },
+      {
+        "id": "currentWebsiteStatus",
+        "label": "Current website status",
+        "labelAr": "حالة الموقع الحالية",
+        "type": "select",
+        "required": true,
+        "options": [
+          "No website",
+          "Basic site",
+          "Active but outdated",
+          "Strong website",
+          "Not sure"
+        ],
+        "optionsAr": [
+          "لا يوجد موقع",
+          "موقع بسيط",
+          "موجود لكنه قديم",
+          "موقع قوي",
+          "غير متأكد"
+        ],
+        "whyNeeded": "Baseline digital readiness",
+        "whyNeededAr": "خط أساس للجاهزية الرقمية",
+        "reportUse": "DigitalReadiness"
+      },
+      {
+        "id": "optionalNotes",
+        "label": "Anything else",
+        "labelAr": "ملاحظات إضافية",
+        "type": "textarea",
+        "required": false,
+        "options": [],
+        "optionsAr": [],
+        "whyNeeded": "Capture nuance",
+        "whyNeededAr": "التقاط التفاصيل",
+        "reportUse": "Context"
+      }
+    ]
+  }
+}

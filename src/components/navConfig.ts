@@ -4,6 +4,7 @@ export const NAV_ITEMS = [
     { id: "why-change", labelKey: "whyChange", href: "/why-change", kind: "route" },
     { id: "why-us", labelKey: "whyUs", href: "/why-us", kind: "route" },
     { id: "case-studies", labelKey: "caseStudies", href: "/work", kind: "route" },
+    { id: "diagnosis", labelKey: "diagnosis", href: "/diagnosis", kind: "route" },
     { id: "testimonials", labelKey: "testimonials", href: "#testimonials", kind: "section" },
     { id: "contact", labelKey: "contact", href: "/contact", kind: "route" },
 ] as const;
