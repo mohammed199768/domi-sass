@@ -4,8 +4,8 @@
  * HeroShaderBackground — premium WebGL signal field for the DOMINASE Hero.
  *
  * Visual: calm plasma/signal lines flowing over an obsidian base, coloured
- * from the live DOMINASE theme tokens (read from CSS custom properties and
- * passed as uniforms). No grid, no particles, no neon clutter. Line energy
+ * from the Hero's fixed dark CSS custom properties and passed as uniforms.
+ * No grid, no particles, no neon clutter. Line energy
  * is attenuated in the centre of the viewport so the wordmark/copy stay
  * readable.
  *
@@ -70,7 +70,7 @@ void main() {
   /* Readability mask: attenuate line energy behind the Hero copy. */
   float centerMask = smoothstep(0.16, 0.6, length((uv - vec2(0.5, 0.52)) * vec2(1.0, 1.35)));
 
-  /* Obsidian base — vertical blend of the two theme background tokens. */
+  /* Obsidian base — vertical blend of the two fixed Hero background tokens. */
   vec3 col = mix(uBgA, uBgB, uv.y);
   col *= 0.72 + 0.28 * verticalFade;
 
@@ -125,17 +125,17 @@ function parseCssColor(raw: string, fallback: Vec3): Vec3 {
   return fallback;
 }
 
-/** Read the live DOMINASE theme tokens; fall back to dark-theme values. */
-function readThemeColors() {
-  const styles = getComputedStyle(document.documentElement);
+/** Read the Hero's fixed dark tokens; fall back to the same fixed values. */
+function readHeroColors(scope: Element) {
+  const styles = getComputedStyle(scope);
   const token = (name: string, fallback: Vec3) =>
     parseCssColor(styles.getPropertyValue(name), fallback);
 
   return {
-    bgA: token("--domi-bg", [0, 0, 0]),
-    bgB: token("--domi-surface", [0.027, 0.035, 0.027]),
-    accent: token("--domi-accent", [0.133, 0.753, 0.478]),
-    accentSoft: token("--domi-accent-bright", [0.388, 1.0, 0.78]),
+    bgA: token("--hero-bg", [0, 0, 0]),
+    bgB: token("--hero-surface", [0.027, 0.035, 0.027]),
+    accent: token("--hero-emerald", [0.133, 0.753, 0.478]),
+    accentSoft: token("--hero-emerald-bright", [0.388, 1.0, 0.78]),
   };
 }
 
@@ -171,9 +171,8 @@ export default function HeroShaderBackground() {
     const canvas = canvasRef.current;
     if (!canvas) return;
 
-    /* Reduced motion: never initialise WebGL. The Hero's static CSS
-       gradient (var(--hero-gradient) + .hero-aura) is the fallback.
-       Re-evaluated on preference change via effect re-run. */
+    /* Reduced motion: never initialise WebGL. The Hero's fixed static CSS
+       gradient (var(--hero-gradient) + .hero-aura) is the fallback. */
     const motionQuery = window.matchMedia("(prefers-reduced-motion: reduce)");
     let disposed = false;
     let teardownGL: (() => void) | null = null;
@@ -232,8 +231,8 @@ export default function HeroShaderBackground() {
       gl.enableVertexAttribArray(aPosition);
       gl.vertexAttribPointer(aPosition, 2, gl.FLOAT, false, 0, 0);
 
-      /* Theme colours from the live DOMINASE tokens (homepage forced dark). */
-      const colors = readThemeColors();
+      /* Colours come from the Hero wrapper, never from global theme tokens. */
+      const colors = readHeroColors(canvas.parentElement ?? canvas);
       gl.uniform3fv(u.bgA, colors.bgA);
       gl.uniform3fv(u.bgB, colors.bgB);
       gl.uniform3fv(u.accent, colors.accent);

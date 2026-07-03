@@ -28,8 +28,13 @@ const NAV_LINKS = [
 ] as const;
 
 export default function MobileNav() {
-    const { t, language } = useLanguage();
     const pathname = usePathname();
+
+    return <MobileNavInner key={pathname} pathname={pathname} />;
+}
+
+function MobileNavInner({ pathname }: { pathname: string }) {
+    const { t, language } = useLanguage();
     const [open, setOpen] = useState(false);
     const triggerRef = useRef<HTMLButtonElement>(null);
 
@@ -39,11 +44,6 @@ export default function MobileNav() {
         "why-change": t.nav.whyChange,
         "why-us": t.nav.whyUs,
     };
-
-    // Close whenever the route changes (link taps navigate via next/link).
-    useEffect(() => {
-        setOpen(false);
-    }, [pathname]);
 
     // Escape closes the panel and returns focus to the trigger.
     useEffect(() => {
