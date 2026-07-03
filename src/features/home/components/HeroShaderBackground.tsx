@@ -163,6 +163,10 @@ const FRAME_INTERVAL = 1000 / TARGET_FPS;
 const DPR_CAP = 1.5;
 const DPR_CAP_SMALL = 1.25;
 const SMALL_SCREEN_PX = 768;
+type TeardownOptions = {
+  deleteResources?: boolean;
+  loseContext?: boolean;
+};
 
 export default function HeroShaderBackground() {
   const canvasRef = useRef<HTMLCanvasElement>(null);
@@ -175,11 +179,12 @@ export default function HeroShaderBackground() {
        gradient (var(--hero-gradient) + .hero-aura) is the fallback. */
     const motionQuery = window.matchMedia("(prefers-reduced-motion: reduce)");
     let disposed = false;
-    let teardownGL: (() => void) | null = null;
+    let teardownGL: ((options?: TeardownOptions) => void) | null = null;
 
     const start = () => {
       if (disposed || teardownGL || motionQuery.matches) return;
 
+      canvas.style.visibility = "hidden";
       const gl = canvas.getContext("webgl", {
         alpha: false,
         antialias: false,
@@ -271,6 +276,10 @@ export default function HeroShaderBackground() {
         if (now - lastFrame < FRAME_INTERVAL) return; // ~30fps cap
         lastFrame = now - ((now - lastFrame) % FRAME_INTERVAL);
 
+        draw(now);
+      };
+
+      const draw = (now: number) => {
         gl.uniform2f(u.resolution, canvas.width, canvas.height);
         gl.uniform1f(u.time, (now - startTime) / 1000);
         gl.drawArrays(gl.TRIANGLE_STRIP, 0, 4);
@@ -300,21 +309,45 @@ export default function HeroShaderBackground() {
       const onVisibilityChange = () => syncRunning();
       document.addEventListener("visibilitychange", onVisibilityChange);
 
+      /* REGRESSION GUARD: when the browser evicts this WebGL context (Chrome
+         caps live contexts; client-side navigations/HMR can exceed it), a dead
+         `alpha:false` canvas composites as an OPAQUE WHITE surface — which
+         painted the fixed-dark Hero as a washed-out "light mode". The canvas
+         must be hidden the moment the context is lost so the Hero's static
+         dark CSS gradient fallback shows instead. */
       const onContextLost = (e: Event) => {
         e.preventDefault();
         contextLost = true;
+        canvas.style.visibility = "hidden";
         syncRunning();
       };
       const onContextRestored = () => {
         contextLost = false;
-        syncRunning();
+        canvas.style.visibility = "hidden";
+        /* GL programs/buffers are invalid after a restore — rebuild from
+           scratch instead of resuming the old render loop. */
+        teardownGL?.({ deleteResources: false, loseContext: false });
+        start();
       };
       canvas.addEventListener("webglcontextlost", onContextLost);
       canvas.addEventListener("webglcontextrestored", onContextRestored);
 
+      /* Context can be lost before the listener attaches (eviction during
+         route transitions). Never leave a dead canvas visible. */
+      if (gl.isContextLost()) {
+        contextLost = true;
+        canvas.style.visibility = "hidden";
+      }
+
+      if (!contextLost) {
+        draw(startTime);
+        canvas.style.visibility = "";
+      }
+
       syncRunning();
 
-      teardownGL = () => {
+      teardownGL = (options = {}) => {
+        const { deleteResources = true, loseContext = true } = options;
         running = false;
         cancelAnimationFrame(rafId);
         intersectionObserver.disconnect();
@@ -322,11 +355,13 @@ export default function HeroShaderBackground() {
         document.removeEventListener("visibilitychange", onVisibilityChange);
         canvas.removeEventListener("webglcontextlost", onContextLost);
         canvas.removeEventListener("webglcontextrestored", onContextRestored);
-        if (!gl.isContextLost()) {
+        if (deleteResources && !gl.isContextLost()) {
           gl.deleteBuffer(buffer);
           gl.deleteProgram(program);
           gl.deleteShader(vs);
           gl.deleteShader(fs);
+        }
+        if (loseContext && !gl.isContextLost()) {
           gl.getExtension("WEBGL_lose_context")?.loseContext();
         }
         teardownGL = null;

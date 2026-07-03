@@ -11,6 +11,11 @@ export default function Hero() {
     const { componentRef, wordmarkRef } = useHeroAnimation();
 
     return (
+        /* REGRESSION GUARD: data-hero-theme="fixed-dark" makes this Hero
+           theme-invariant — all colors resolve from the fixed --hero-* tokens
+           in globals.css, never from global [data-theme] variables. Do not
+           remove this attribute or add theme-dependent classes (text-foreground,
+           bg-background, .btn-*, etc.) inside the Hero. */
         <section
             ref={componentRef}
             id="home"
