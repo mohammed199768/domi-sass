@@ -1,12 +1,19 @@
 "use client";
 
 import Link from "next/link";
-import { MessageCircle, RotateCcw, Mail } from "lucide-react";
+import { useEffect, useRef, useState } from "react";
+import { MessageCircle, RotateCcw, Mail, Download, Loader2, Printer } from "lucide-react";
 import type { DiagnosisContextAnswers, DiagnosisResult } from "../lib/types";
 import { localized } from "../lib/localization";
+import { buildPdfFilename, exportDiagnosisReportPdf, generateQrDataUrl } from "../lib/pdfExport";
 import DiagnosisDimensionChart from "./DiagnosisDimensionChart";
 import DiagnosisOpportunityMap from "./DiagnosisOpportunityMap";
 import DiagnosisRecommendationAccordion from "./DiagnosisRecommendationAccordion";
+import DiagnosisPdfReport from "./pdf/DiagnosisPdfReport";
+
+type PdfStatus = "idle" | "generating" | "error";
+
+const QR_TARGET = "https://www.dominase.art";
 
 export default function DiagnosisResults({
   result,
@@ -19,6 +26,45 @@ export default function DiagnosisResults({
   onReset: () => void;
   isArabic: boolean;
 }) {
+  const reportRef = useRef<HTMLDivElement>(null);
+  const [pdfStatus, setPdfStatus] = useState<PdfStatus>("idle");
+  const [qrDataUrl, setQrDataUrl] = useState<string | null>(null);
+  const [generatedDate] = useState(() => new Date());
+
+  // Build the offline QR once, in the browser, with no network request.
+  useEffect(() => {
+    let active = true;
+    generateQrDataUrl(QR_TARGET).then((url) => {
+      if (active) setQrDataUrl(url);
+    });
+    return () => {
+      active = false;
+    };
+  }, []);
+
+  const handleDownloadPdf = async () => {
+    if (pdfStatus === "generating") return;
+    const element = reportRef.current;
+    if (!element) {
+      setPdfStatus("error");
+      return;
+    }
+    setPdfStatus("generating");
+    try {
+      await exportDiagnosisReportPdf({
+        element,
+        filename: buildPdfFilename({
+          domain: result.assessment.meta.domain,
+          institution: contextAnswers.institutionName,
+          date: generatedDate,
+        }),
+      });
+      setPdfStatus("idle");
+    } catch {
+      setPdfStatus("error");
+    }
+  };
+
   const institution = contextAnswers.institutionName;
   const summaryParts = [
     contextAnswers.cityOrArea,
@@ -33,6 +79,45 @@ export default function DiagnosisResults({
 
   return (
     <section className="mx-auto w-full max-w-6xl px-5 pb-20 pt-6 sm:px-6 lg:px-8">
+      {/* ── 0. Top actions: download the polished PDF report ── */}
+      <div className="mb-5 flex flex-wrap items-center justify-between gap-3 rounded-2xl border border-border bg-surface-muted px-4 py-3 sm:px-5">
+        <div>
+          <p className="text-sm font-black text-foreground">
+            {isArabic ? "تقريرك جاهز" : "Your report is ready"}
+          </p>
+          <p className="mt-0.5 text-xs leading-6 text-muted">
+            {isArabic
+              ? "يُنشأ الملف داخل متصفحك من إجاباتك، دون إرسال أي بيانات."
+              : "The file is built in your browser from your answers, with no data sent."}
+          </p>
+        </div>
+        <div className="flex flex-wrap items-center gap-2">
+          <PdfButton status={pdfStatus} onClick={handleDownloadPdf} isArabic={isArabic} />
+          {pdfStatus === "error" ? <PrintFallbackButton isArabic={isArabic} /> : null}
+        </div>
+      </div>
+      {pdfStatus === "error" ? (
+        <p className="mb-5 rounded-xl border border-red-500/30 bg-red-500/5 px-4 py-2.5 text-xs font-medium leading-6 text-red-500" role="alert">
+          {isArabic
+            ? "تعذر إنشاء PDF. جرّب الطباعة أو أعد المحاولة."
+            : "Could not create the PDF. Try printing or retry."}
+        </p>
+      ) : null}
+
+      {/* Offscreen printable report — captured by html2canvas during export.
+          Kept in the DOM (not display:none) and positioned far offscreen so it
+          never affects the visible layout but stays capturable. */}
+      <div aria-hidden="true" style={{ position: "fixed", left: -10000, top: 0, pointerEvents: "none", zIndex: -1 }}>
+        <DiagnosisPdfReport
+          ref={reportRef}
+          result={result}
+          contextAnswers={contextAnswers}
+          isArabic={isArabic}
+          qrDataUrl={qrDataUrl}
+          generatedDate={generatedDate}
+        />
+      </div>
+
       {/* ── 1. Executive summary + score card ── */}
       <div className="grid gap-4 lg:grid-cols-[1fr_300px]">
         <div className="rounded-[1.6rem] border border-border bg-surface p-5 shadow-[0_28px_80px_-58px_var(--cool-shadow)] sm:p-8">
@@ -111,6 +196,7 @@ export default function DiagnosisResults({
             <Mail className="h-4 w-4" aria-hidden="true" />
             {isArabic ? "صفحة التواصل" : "Contact page"}
           </Link>
+          <PdfButton status={pdfStatus} onClick={handleDownloadPdf} isArabic={isArabic} variant="secondary" />
           <button type="button" onClick={onReset} className="btn-secondary min-h-12 gap-2 px-5 text-sm">
             <RotateCcw className="h-4 w-4" aria-hidden="true" />
             {isArabic ? "إعادة التشخيص" : "Restart diagnosis"}
@@ -244,6 +330,62 @@ function TopGaps({ result, isArabic }: { result: DiagnosisResult; isArabic: bool
         ))}
       </ol>
     </section>
+  );
+}
+
+function PdfButton({
+  status,
+  onClick,
+  isArabic,
+  variant = "primary",
+}: {
+  status: PdfStatus;
+  onClick: () => void;
+  isArabic: boolean;
+  variant?: "primary" | "secondary";
+}) {
+  const generating = status === "generating";
+  const base = variant === "primary" ? "btn-primary" : "btn-secondary";
+  const label = generating
+    ? isArabic
+      ? "جاري تجهيز التقرير..."
+      : "Preparing report..."
+    : status === "error"
+      ? isArabic
+        ? "إعادة المحاولة"
+        : "Retry PDF"
+      : isArabic
+        ? "تحميل التقرير PDF"
+        : "Download PDF Report";
+
+  return (
+    <button
+      type="button"
+      onClick={onClick}
+      disabled={generating}
+      aria-busy={generating}
+      className={`${base} min-h-12 gap-2 px-5 text-sm disabled:cursor-not-allowed disabled:opacity-70`}
+    >
+      {generating ? (
+        <Loader2 className="h-4 w-4 animate-spin" aria-hidden="true" />
+      ) : (
+        <Download className="h-4 w-4" aria-hidden="true" />
+      )}
+      {label}
+    </button>
+  );
+}
+
+function PrintFallbackButton({ isArabic }: { isArabic: boolean }) {
+  return (
+    <button
+      type="button"
+      onClick={() => window.print()}
+      className="btn-secondary min-h-12 gap-2 px-5 text-sm"
+    >
+      <Printer className="h-4 w-4" aria-hidden="true" />
+      {isArabic ? "طباعة التقرير" : "Print report"}
+    </button>
   );
 }
 
