@@ -4,9 +4,8 @@ import React, { useState, useEffect } from "react";
 import Link from "next/link";
 import { useLanguage } from "@/context/LanguageContext";
 import { Globe } from "lucide-react";
-import { scrollToSection } from "@/lib/motion/scrollToSection";
 import { usePathname } from "next/navigation";
-import { getNavItemHref, getNavItemLabel, isNavItemActive, NAV_ITEMS } from "./navConfig";
+import { getNavItemLabel, isNavItemActive, NAV_ITEMS } from "./navConfig";
 
 export default function Header() {
     const { t, language, toggleLanguage } = useLanguage();
@@ -22,8 +21,6 @@ export default function Header() {
     }, []);
 
     const pathname = usePathname();
-    const isHome = pathname === "/";
-
     return (
         <header
             className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${scrolled ? "bg-surface/92 border-b border-border shadow-[0_14px_34px_var(--cool-shadow)] py-4" : "bg-transparent py-6"
@@ -32,13 +29,7 @@ export default function Header() {
             <div className="max-w-7xl mx-auto px-6 flex items-center justify-between">
                 {/* Logo */}
                 <Link
-                    href={isHome ? "#home" : "/"}
-                    onClick={(event) => {
-                        if (isHome) {
-                            event.preventDefault();
-                            scrollToSection("#home");
-                        }
-                    }}
+                    href="/"
                     className="flex items-center gap-3 text-primary-theme"
                 >
                     <span className="font-display text-2xl font-black tracking-wide">DOMINASE</span>
@@ -52,42 +43,17 @@ export default function Header() {
                 <nav className="hidden min-[1025px]:flex items-center gap-6 glass px-6 py-3 rounded-full">
                     {NAV_ITEMS.map((item) => {
                         const label = getNavItemLabel(t.nav, item);
-                        const href = getNavItemHref(item, isHome);
                         const isActive = isNavItemActive(item, pathname);
 
-                        if (item.kind === "route") {
-                            return (
-                                <Link
-                                    key={item.id}
-                                    href={href}
-                                    className={`font-medium transition-colors text-sm ${isActive ? "text-primary-theme font-bold" : "text-muted hover:text-primary-theme"}`}
-                                >
-                                    {label}
-                                </Link>
-                            );
-                        }
-
-                        if (!isHome) {
-                            return (
-                                <Link
-                                    key={item.id}
-                                    href={href}
-                                    className="text-muted hover:text-primary-theme font-medium transition-colors text-sm"
-                                >
-                                    {label}
-                                </Link>
-                            );
-                        }
-
                         return (
-                            <button
+                            <Link
                                 key={item.id}
-                                suppressHydrationWarning
-                                onClick={() => scrollToSection(item.href)}
-                                className="text-muted hover:text-primary-theme font-medium transition-colors text-sm"
+                                href={item.href}
+                                aria-current={isActive ? "page" : undefined}
+                                className={`font-medium transition-colors text-sm ${isActive ? "text-primary-theme font-bold" : "text-muted hover:text-primary-theme"}`}
                             >
                                 {label}
-                            </button>
+                            </Link>
                         );
                     })}
                 </nav>

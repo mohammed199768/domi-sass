@@ -36,8 +36,8 @@ export default function DiagnosisThemeHint({ isArabic }: { isArabic: boolean }) 
         <span className="mt-2 h-2 w-2 shrink-0 rounded-full bg-primary-theme" aria-hidden="true" />
         <p className="flex-1">
           {isArabic
-            ? "يمكنك تبديل وضع العرض من زر الثيم أعلى صفحة التشخيص."
-            : "You can switch light/dark mode from the theme button at the top of the diagnosis page."}
+            ? "يمكنك تبديل وضع العرض من زر الثيم العائم قرب زر واتساب."
+            : "You can switch light/dark mode from the floating theme button near WhatsApp."}
         </p>
         <button
           type="button"

@@ -22,6 +22,8 @@ import { useLanguage } from "@/context/LanguageContext";
 
 const NAV_LINKS = [
     { id: "home", href: "/" },
+    { id: "work", href: "/work" },
+    { id: "diagnosis", href: "/diagnosis" },
     { id: "contact", href: "/contact" },
     { id: "why-change", href: "/why-change" },
     { id: "why-us", href: "/why-us" },
@@ -40,6 +42,8 @@ function MobileNavInner({ pathname }: { pathname: string }) {
 
     const labels: Record<(typeof NAV_LINKS)[number]["id"], string> = {
         home: t.nav.home,
+        work: t.nav.portfolio,
+        diagnosis: t.nav.diagnosis,
         contact: t.nav.contact,
         "why-change": t.nav.whyChange,
         "why-us": t.nav.whyUs,
