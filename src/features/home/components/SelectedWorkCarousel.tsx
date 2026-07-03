@@ -63,9 +63,9 @@ const selectedWorks: SelectedWork[] = [
     image: "/assest/optimized/images/qaser-lab.webp",
     href: "/work/qasr-alfarah",
     palette: {
-      primary: "#B58A3A",
-      secondary: "#F3E3BD",
-      rail: "rgba(181, 138, 58, 0.16)",
+      primary: "#6F7FD8",
+      secondary: "#DDE2FF",
+      rail: "rgba(111, 127, 216, 0.14)",
     },
   },
 ];
@@ -320,7 +320,7 @@ function SelectedWorkScrollGallery() {
             return (
               <article
                 key={work.key}
-                className="relative min-h-[86svh] overflow-hidden rounded-[1.6rem] border bg-background p-4"
+                className="premium-surface relative min-h-[86svh] overflow-hidden rounded-[1.6rem] p-4"
                 style={{ borderColor: "color-mix(in srgb, var(--primary) 14%, var(--border))" }}
               >
                 <SidePresence work={work} visible />
@@ -337,14 +337,14 @@ function SelectedWorkScrollGallery() {
                     </p>
                     <Link
                       href={work.href}
-                      className="inline-flex min-h-11 items-center gap-2 rounded-full border bg-surface px-4 py-2 text-xs font-black text-foreground transition hover:border-primary-theme hover:text-primary-theme focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary-theme"
+                      className="premium-surface premium-interactive inline-flex min-h-11 items-center gap-2 rounded-full px-4 py-2 text-xs font-black text-foreground hover:border-primary-theme hover:text-primary-theme focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary-theme"
                     >
                       {ctaLabel}
                       <ArrowUpRight className="h-3.5 w-3.5" />
                     </Link>
                   </div>
                   <Link href={work.href} className="group block focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary-theme">
-                    <div className="relative mx-auto aspect-[16/10] w-full overflow-hidden rounded-[1.35rem] border bg-surface shadow-[0_22px_58px_-42px_var(--cool-shadow)]">
+                    <div className="premium-surface relative mx-auto aspect-[16/10] w-full overflow-hidden rounded-[1.35rem]">
                       <Image
                         src={work.image}
                         alt={`${work.title} project preview`}
@@ -420,7 +420,7 @@ function SelectedWorkScrollGallery() {
               style={{ pointerEvents: activeIndex === index ? "auto" : "none" }}
             >
               <div
-                className="relative aspect-[16/9] overflow-hidden rounded-[1.75rem] border bg-surface shadow-[0_26px_86px_-60px_var(--cool-shadow)] transition-shadow duration-300 group-hover:shadow-[0_32px_96px_-58px_var(--cool-shadow)]"
+                className="premium-surface relative aspect-[16/9] overflow-hidden rounded-[1.75rem] transition-[border-color,transform] duration-300 group-hover:-translate-y-1"
                 style={{
                   borderColor: "color-mix(in srgb, var(--primary) 14%, var(--border))",
                 }}
@@ -447,7 +447,7 @@ function SelectedWorkScrollGallery() {
           </p>
           <Link
             href={activeWork.href}
-            className="mt-3 inline-flex min-h-11 items-center gap-2 rounded-full border bg-surface/90 px-4 py-2 text-xs font-black text-foreground transition hover:border-primary-theme hover:text-primary-theme focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary-theme"
+            className="premium-surface premium-interactive mt-3 inline-flex min-h-11 items-center gap-2 rounded-full px-4 py-2 text-xs font-black text-foreground hover:border-primary-theme hover:text-primary-theme focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary-theme"
           >
             {ctaLabel}
             <ArrowUpRight className="h-3.5 w-3.5" />

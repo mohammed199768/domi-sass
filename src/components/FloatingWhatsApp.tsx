@@ -24,7 +24,7 @@ export default function FloatingWhatsApp() {
             rel="noopener noreferrer"
             aria-label={label}
             title={label}
-            className="fixed right-5 z-30 grid h-12 w-12 place-items-center rounded-full border border-[color-mix(in_srgb,var(--domi-accent)_35%,var(--domi-border-strong))] bg-surface text-primary-theme shadow-[0_18px_50px_-24px_var(--domi-accent-shadow)] transition-[transform,border-color,color] duration-200 hover:-translate-y-0.5 hover:border-primary-theme hover:text-secondary-theme focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary-theme active:translate-y-0"
+            className="premium-surface fixed right-5 z-30 grid h-12 w-12 place-items-center rounded-full border-[color-mix(in_srgb,var(--domi-accent)_35%,var(--domi-border-strong))] text-primary-theme transition-[transform,border-color,color] duration-200 hover:-translate-y-0.5 hover:border-primary-theme hover:text-secondary-theme focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary-theme active:translate-y-0 active:scale-[0.98]"
             style={{ bottom: "calc(env(safe-area-inset-bottom, 0px) + 1.25rem)" }}
         >
             <WhatsAppMark className="h-5 w-5" />

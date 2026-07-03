@@ -42,7 +42,7 @@ export default function DiagnosisQuestionFlow({
     <section className="mx-auto w-full max-w-6xl px-5 pb-10 sm:px-6 lg:px-8">
       {/* ── Sticky diagnostic shell ── */}
       <div className="sticky top-20 z-30">
-        <div className="rounded-2xl border border-border bg-background shadow-[0_18px_50px_-40px_var(--cool-shadow)]">
+        <div className="premium-surface rounded-2xl">
           <div className="flex flex-wrap items-center justify-between gap-x-4 gap-y-1 px-4 pt-3 sm:px-5">
             <p className="text-xs font-black text-foreground">
               {localized(assessment.meta.title, assessment.meta.titleAr, isArabic)}
@@ -77,7 +77,7 @@ export default function DiagnosisQuestionFlow({
 
         <div>
           {/* Question card */}
-          <article className="rounded-[1.6rem] border border-border bg-surface p-4 shadow-[0_28px_80px_-58px_var(--cool-shadow)] sm:p-6">
+          <article className="premium-surface rounded-[1.6rem] p-4 sm:p-6">
             <p className="font-display text-[11px] font-black uppercase tracking-[0.2em] text-primary-theme">
               {localized(item.dimension.title, item.dimension.titleAr, isArabic)}
             </p>
@@ -103,7 +103,7 @@ export default function DiagnosisQuestionFlow({
                 return (
                   <div
                     key={`${item.topic.id}-${level}`}
-                    className={`rounded-xl border p-2.5 text-sm font-medium leading-6 transition-colors duration-200 ${
+                    className={`rounded-2xl border p-2.5 text-sm font-medium leading-6 transition-colors duration-200 ${
                       active
                         ? "border-primary-theme/60 bg-primary-theme/[0.07] text-foreground"
                         : "border-border bg-surface-muted text-foreground/85"

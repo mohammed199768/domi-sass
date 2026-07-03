@@ -76,7 +76,7 @@ export default function DiagnosisAssessmentClient({
           sticky shell never collides with the site navbar. */}
       {stage === "context" ? (
         <section className="mx-auto w-full max-w-5xl px-5 pb-6 pt-32 sm:px-6 lg:px-8">
-          <p className="font-display text-xs font-black uppercase tracking-[0.22em] text-primary-theme">
+          <p className="font-display text-xs font-black uppercase tracking-[0.2em] text-primary-theme">
             DOMINASE Growth Diagnosis
           </p>
           <h1 className="mt-4 max-w-3xl text-3xl font-black leading-tight text-foreground sm:text-5xl">
@@ -86,11 +86,11 @@ export default function DiagnosisAssessmentClient({
             {localized(assessment.meta.description, assessment.meta.descriptionAr, isArabic)}
           </p>
           <div className="mt-5 flex flex-wrap items-center gap-2 text-xs font-bold text-muted">
-            <span className="rounded-full border border-border px-3 py-1.5">
+            <span className="premium-surface rounded-full px-3 py-1.5">
               {assessment.dimensions.length} {isArabic ? "أبعاد" : "dimensions"} · {topics.length}{" "}
               {isArabic ? "سؤالا" : "questions"}
             </span>
-            <span className="rounded-full border border-border px-3 py-1.5">
+            <span className="premium-surface rounded-full px-3 py-1.5">
               ~{assessment.meta.estimatedMinutes || 8} {isArabic ? "دقائق" : "min"}
             </span>
           </div>

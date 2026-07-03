@@ -35,7 +35,7 @@ export default function DiagnosisLanding() {
       {/* ── Diagnostic Gateway hero ── */}
       <section className="mx-auto w-full max-w-7xl px-5 pb-4 pt-32 sm:px-6 lg:px-8">
         <div className="max-w-4xl">
-          <p className="font-display text-xs font-black uppercase tracking-[0.22em] text-primary-theme">
+          <p className="font-display text-xs font-black uppercase tracking-[0.2em] text-primary-theme">
             DOMINASE Growth Diagnosis
           </p>
           <h1 className="mt-5 text-4xl font-black leading-tight text-foreground sm:text-6xl">
@@ -58,7 +58,7 @@ export default function DiagnosisLanding() {
           {journeySteps.map((step, index) => {
             const copy = isArabic ? step.ar : step.en;
             return (
-              <div key={copy.title} className="rounded-2xl border border-border bg-surface p-4 sm:p-5">
+              <div key={copy.title} className="premium-surface rounded-2xl p-4 sm:p-5">
                 <div className="flex items-center gap-3">
                   <span
                     className="grid h-7 w-7 place-items-center rounded-full border border-primary-theme/40 font-display text-xs font-black text-primary-theme"
@@ -79,7 +79,7 @@ export default function DiagnosisLanding() {
       <section className="mx-auto w-full max-w-7xl px-5 pb-24 pt-12 sm:px-6 lg:px-8">
         <div className="flex flex-wrap items-end justify-between gap-4">
           <div>
-            <p className="font-display text-xs font-black uppercase tracking-[0.22em] text-muted">
+          <p className="font-display text-xs font-black uppercase tracking-[0.2em] text-muted">
               {isArabic ? "اختر مجال مؤسستك" : "Choose your field"}
             </p>
             <h2 className="mt-3 text-2xl font-black text-foreground sm:text-3xl">

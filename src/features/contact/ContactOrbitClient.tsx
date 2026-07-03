@@ -159,14 +159,14 @@ export default function ContactOrbitClient() {
       <Header />
       <main className="min-h-screen bg-background text-foreground transition-colors duration-300">
         {/* ── Orbit hero ─────────────────────────────────────────────────── */}
-        <section className="relative overflow-x-clip px-6 pb-16 pt-32 sm:pt-36 lg:pb-24">
+        <section className="relative overflow-x-clip px-5 pb-16 pt-32 sm:px-6 sm:pt-36 lg:pb-24">
           <div className="mx-auto flex max-w-5xl flex-col items-center text-center">
-            <p className="mb-4 inline-flex items-center gap-2 text-xs font-bold uppercase tracking-[0.28em] text-primary-theme">
+            <p className="mb-4 inline-flex items-center gap-2 text-xs font-bold uppercase tracking-[0.22em] text-primary-theme">
               <span aria-hidden="true" className="h-1.5 w-1.5 rounded-full bg-secondary-theme" />
               {copy.eyebrow}
             </p>
             <h1 className="mb-5 max-w-3xl text-4xl font-black leading-tight md:text-5xl">{copy.title}</h1>
-            <p className="mb-14 max-w-2xl text-lg leading-8 text-muted sm:mb-16">{copy.subtitle}</p>
+            <p className="mb-14 max-w-2xl text-base leading-8 text-muted sm:mb-16 sm:text-lg">{copy.subtitle}</p>
 
             {/* The signal ring */}
             <div className={styles.orbitWrap} role="group" aria-label={copy.orbitLabel}>
@@ -243,7 +243,7 @@ export default function ContactOrbitClient() {
             style={{ scrollMarginTop: "6rem" }}
           >
             <div className="mx-auto max-w-2xl">
-              <div className="relative overflow-hidden rounded-2xl border border-border bg-surface p-6 shadow-sm sm:p-8">
+              <div className="premium-surface relative overflow-hidden rounded-3xl p-6 sm:p-8">
                 <div className="pointer-events-none absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-primary-theme/35 to-transparent" />
                 <h2
                   ref={messageHeadingRef}

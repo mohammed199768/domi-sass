@@ -9,7 +9,7 @@ type SubmitState = "idle" | "submitting" | "success" | "error";
 type FieldErrors = { name?: boolean; phone?: boolean };
 
 const inputClass =
-  "w-full rounded-xl border border-border bg-surface-hover px-4 py-3.5 text-foreground outline-none transition-colors duration-200 placeholder:text-muted/60 focus:border-primary-theme focus:ring-2 focus:ring-primary-theme/25 aria-[invalid=true]:border-red-500/70 aria-[invalid=true]:ring-red-500/20";
+  "w-full min-h-12 rounded-2xl border border-border bg-surface-hover px-4 py-3.5 text-base text-foreground outline-none transition-[border-color,background-color,box-shadow] duration-200 placeholder:text-muted/60 focus:border-primary-theme focus:bg-surface focus:ring-2 focus:ring-primary-theme/25 aria-[invalid=true]:border-red-500/70 aria-[invalid=true]:ring-2 aria-[invalid=true]:ring-red-500/20";
 
 type ContactFormProps = {
   /** Optional submit-button label override (e.g. the /contact page). Defaults to the homepage portal copy. */
@@ -101,7 +101,7 @@ export default function ContactForm({ submitLabel }: ContactFormProps = {}) {
           type="button"
           suppressHydrationWarning
           onClick={resetForm}
-          className="rounded-xl border border-border bg-surface-hover px-6 py-3 text-sm font-bold text-foreground transition-colors duration-200 hover:border-secondary-theme/60 hover:text-secondary-theme focus-visible:border-secondary-theme focus-visible:ring-2 focus-visible:ring-secondary-theme/40 focus-visible:outline-none"
+          className="premium-surface premium-interactive rounded-full px-6 py-3 text-sm font-bold text-foreground hover:border-secondary-theme/60 hover:text-secondary-theme focus-visible:border-secondary-theme focus-visible:ring-2 focus-visible:ring-secondary-theme/40 focus-visible:outline-none"
         >
           {p.success.button}
         </button>
@@ -121,7 +121,7 @@ export default function ContactForm({ submitLabel }: ContactFormProps = {}) {
       </div>
 
       <div>
-        <label htmlFor="contact-name" className="mb-2 block text-sm font-bold text-muted">
+        <label htmlFor="contact-name" className="mb-2 block text-sm font-bold text-foreground/82">
           {p.fields.name.label}
         </label>
         <input
@@ -144,7 +144,7 @@ export default function ContactForm({ submitLabel }: ContactFormProps = {}) {
       </div>
 
       <div>
-        <label htmlFor="contact-phone" className="mb-2 block text-sm font-bold text-muted">
+        <label htmlFor="contact-phone" className="mb-2 block text-sm font-bold text-foreground/82">
           {p.fields.phone.label}
         </label>
         <input
@@ -167,7 +167,7 @@ export default function ContactForm({ submitLabel }: ContactFormProps = {}) {
       </div>
 
       <div>
-        <label htmlFor="contact-company" className="mb-2 block text-sm font-bold text-muted">
+        <label htmlFor="contact-company" className="mb-2 block text-sm font-bold text-foreground/82">
           {p.fields.company.label}
         </label>
         <input
@@ -191,7 +191,7 @@ export default function ContactForm({ submitLabel }: ContactFormProps = {}) {
         type="submit"
         suppressHydrationWarning
         disabled={state === "submitting"}
-        className="btn-primary w-full rounded-xl px-6 py-4 disabled:cursor-not-allowed disabled:opacity-70"
+        className="btn-primary min-h-13 w-full rounded-2xl px-6 py-4 text-base disabled:cursor-not-allowed disabled:opacity-70"
       >
         {state === "submitting" ? p.submitting : submitLabel ?? p.submit}
       </button>

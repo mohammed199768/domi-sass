@@ -290,7 +290,7 @@ export default function FloatingSiteChat() {
         aria-label={copy.title}
         aria-hidden={!open}
         inert={!open}
-        className={`fixed left-4 z-[45] flex w-[min(24rem,calc(100vw-2rem))] flex-col overflow-hidden rounded-3xl border border-border bg-surface shadow-[0_34px_90px_-36px_var(--cool-shadow)] transition-[opacity,transform] duration-300 ease-out ${
+        className={`premium-surface fixed left-4 z-[45] flex w-[min(24rem,calc(100vw-2rem))] flex-col overflow-hidden rounded-3xl transition-[opacity,transform] duration-300 ease-out ${
           open ? "translate-y-0 opacity-100" : "pointer-events-none translate-y-6 opacity-0"
         }`}
         style={{
@@ -383,7 +383,7 @@ export default function FloatingSiteChat() {
         aria-label={open ? copy.close : copy.open}
         aria-expanded={open}
         title={copy.title}
-        className="fixed left-5 z-30 grid h-12 w-12 place-items-center rounded-full border border-border bg-surface text-primary-theme shadow-[0_18px_50px_-24px_var(--cool-shadow)] transition-[transform,border-color,color] duration-200 hover:-translate-y-0.5 hover:border-primary-theme hover:text-secondary-theme focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary-theme active:translate-y-0"
+        className="premium-surface fixed left-5 z-30 grid h-12 w-12 place-items-center rounded-full text-primary-theme transition-[transform,border-color,color] duration-200 hover:-translate-y-0.5 hover:border-primary-theme hover:text-secondary-theme focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary-theme active:translate-y-0 active:scale-[0.98]"
         style={{ bottom: "calc(env(safe-area-inset-bottom, 0px) + 1.25rem)" }}
       >
         <MessageSquare className="h-5 w-5" />

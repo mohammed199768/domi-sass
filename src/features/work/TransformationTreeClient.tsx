@@ -5,6 +5,7 @@ import Link from "next/link";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import Header from "@/components/Header";
+import Footer from "@/components/Footer";
 import { useLanguage } from "@/context/LanguageContext";
 import { caseStudies } from "@/constants/caseStudies";
 import type { CaseStudyLocale } from "@/features/case-studies/contracts";
@@ -21,7 +22,7 @@ const TREE_NODES = [
     {
         slug: "manal-alhihi",
         // top-left
-        accent: "#2DD4BF", // teal
+        accent: "#2BBF89",
         branchId: "branch-manal",
         // SVG end node in the 100×100 viewBox
         nodeX: 18, nodeY: 22,
@@ -35,7 +36,7 @@ const TREE_NODES = [
     {
         slug: "qasr-alfarah",
         // top-right
-        accent: "#F472B6", // pink
+        accent: "#65D7E6",
         branchId: "branch-qasr",
         nodeX: 82, nodeY: 22,
         gridArea: "qasr",
@@ -47,7 +48,7 @@ const TREE_NODES = [
     {
         slug: "curevie",
         // bottom-left
-        accent: "#60A5FA", // blue
+        accent: "#6F7FD8",
         branchId: "branch-curevie",
         nodeX: 18, nodeY: 78,
         gridArea: "curevie",
@@ -59,7 +60,7 @@ const TREE_NODES = [
     {
         slug: "horvath-survey",
         // bottom-right
-        accent: "#A78BFA", // violet
+        accent: "#9A8CFF",
         branchId: "branch-horvath",
         nodeX: 82, nodeY: 78,
         gridArea: "horvath",
@@ -187,7 +188,7 @@ export default function TransformationTreeClient() {
                         className="pointer-events-none absolute inset-0 flex items-center justify-center"
                         aria-hidden="true"
                     >
-                        <div className="h-[520px] w-[520px] rounded-full opacity-[0.07] dark:opacity-[0.12] bg-primary-theme blur-[120px]" />
+                        <div className="h-[520px] w-[520px] rounded-full border border-primary-theme/12 opacity-60" />
                     </div>
 
                     {/*
@@ -297,16 +298,10 @@ export default function TransformationTreeClient() {
                                     >
                                         <Link
                                             href={`/work/${node.slug}`}
-                                            className="glass-card block rounded-2xl overflow-hidden hover:scale-[1.02] transition-all duration-300 focus:outline-none focus-visible:ring-2 focus-visible:ring-primary-theme"
+                                            className="premium-surface block overflow-hidden rounded-2xl transition-[transform,border-color] duration-300 hover:-translate-y-1 focus:outline-none focus-visible:ring-2 focus-visible:ring-primary-theme"
                                             dir={isAr ? "rtl" : "ltr"}
                                             style={{
                                                 boxShadow: `0 0 0 1px ${node.accent}22`,
-                                            }}
-                                            onMouseEnter={(e) => {
-                                                (e.currentTarget as HTMLElement).style.boxShadow = `0 0 24px 4px ${node.accent}33, 0 0 0 1px ${node.accent}55`;
-                                            }}
-                                            onMouseLeave={(e) => {
-                                                (e.currentTarget as HTMLElement).style.boxShadow = `0 0 0 1px ${node.accent}22`;
                                             }}
                                         >
                                             {/* Accent top bar */}
@@ -406,7 +401,7 @@ export default function TransformationTreeClient() {
                                         {/* Card */}
                                         <Link
                                             href={`/work/${node.slug}`}
-                                            className="glass-card flex-1 block rounded-2xl overflow-hidden hover:scale-[1.01] transition-all duration-300 focus:outline-none focus-visible:ring-2 focus-visible:ring-primary-theme"
+                                        className="premium-surface block flex-1 overflow-hidden rounded-2xl transition-[transform,border-color] duration-300 hover:-translate-y-1 focus:outline-none focus-visible:ring-2 focus-visible:ring-primary-theme"
                                             dir={isAr ? "rtl" : "ltr"}
                                             style={{ boxShadow: `0 0 0 1px ${node.accent}22` }}
                                         >
@@ -447,6 +442,7 @@ export default function TransformationTreeClient() {
                     </div>
                 </section>
             </div>
+            <Footer />
         </main>
     );
 }

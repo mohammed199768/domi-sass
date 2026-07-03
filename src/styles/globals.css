@@ -32,23 +32,25 @@
 
 :root,
 [data-theme="dark"] {
-  --domi-bg: #000000;
-  --domi-bg-soft: #030403;
-  --domi-surface: #070907;
-  --domi-surface-elevated: #0c100d;
+  --domi-bg: #020403;
+  --domi-bg-soft: #050807;
+  --domi-surface: #090d0c;
+  --domi-surface-elevated: #101614;
 
-  --domi-text: #f4f7f2;
-  --domi-text-muted: #9ea79f;
-  --domi-text-faint: #5f6861;
+  --domi-text: #f3f7f4;
+  --domi-text-muted: #b4beb8;
+  --domi-text-faint: #77847d;
 
-  --domi-border: rgba(244, 247, 242, 0.1);
-  --domi-border-strong: rgba(244, 247, 242, 0.18);
+  --domi-border: rgba(243, 247, 244, 0.12);
+  --domi-border-strong: rgba(243, 247, 244, 0.2);
 
-  --domi-accent: #22c07a;
-  --domi-accent-bright: #63ffc7;
-  --domi-accent-soft: #d4eee3;
-  --domi-accent-deep: #132f1c;
-  --domi-accent-shadow: #061306;
+  --domi-accent: #2bbf89;
+  --domi-accent-bright: #74e6c9;
+  --domi-accent-soft: #d9f1e9;
+  --domi-accent-deep: #102f26;
+  --domi-accent-shadow: rgba(8, 24, 20, 0.78);
+  --domi-cyan: #65d7e6;
+  --domi-violet: #9a8cff;
 
   --bg: var(--domi-bg);
   --fg: var(--domi-text);
@@ -67,23 +69,25 @@
 }
 
 [data-theme="light"] {
-  --domi-bg: #f3f6f1;
-  --domi-bg-soft: #e8efe9;
+  --domi-bg: #f5f7f4;
+  --domi-bg-soft: #edf2ef;
   --domi-surface: #ffffff;
-  --domi-surface-elevated: #f8faf7;
+  --domi-surface-elevated: #fafcfb;
 
-  --domi-text: #07110b;
-  --domi-text-muted: #46534b;
-  --domi-text-faint: #7b877f;
+  --domi-text: #07110e;
+  --domi-text-muted: #3f4d47;
+  --domi-text-faint: #718078;
 
   --domi-border: rgba(7, 17, 11, 0.12);
   --domi-border-strong: rgba(7, 17, 11, 0.2);
 
-  --domi-accent: #0f8f5a;
-  --domi-accent-bright: #18b978;
+  --domi-accent: #0d8f65;
+  --domi-accent-bright: #19b98b;
   --domi-accent-soft: #ddf5ea;
-  --domi-accent-deep: #063e28;
+  --domi-accent-deep: #063b2c;
   --domi-accent-shadow: rgba(15, 143, 90, 0.14);
+  --domi-cyan: #0b8394;
+  --domi-violet: #6f63c8;
 
   --bg: var(--domi-bg);
   --fg: var(--domi-text);
@@ -110,6 +114,7 @@
   body {
     @apply bg-background text-foreground antialiased transition-colors duration-300 ease-in-out;
     font-family: var(--font-en-body), system-ui, sans-serif;
+    text-rendering: geometricPrecision;
   }
 
   /* ── Global horizontal-overflow guard ─────────────────────────────────────
@@ -128,7 +133,7 @@
   h1, h2, h3, h4, h5, h6 {
     @apply font-bold text-foreground;
     font-family: var(--font-en-display), system-ui, sans-serif;
-    letter-spacing: -0.01em;
+    letter-spacing: 0;
   }
 
   /* Arabic: switch both body and headings to the Arabic families. */
@@ -148,6 +153,16 @@
   /* Buttons / nav / labels inherit the correct body family per direction. */
   button, input, textarea, select {
     font-family: inherit;
+  }
+
+  ::selection {
+    color: var(--primary-contrast);
+    background: color-mix(in srgb, var(--primary) 72%, transparent);
+  }
+
+  :where(a, button, input, textarea, select):focus-visible {
+    outline: 2px solid var(--primary);
+    outline-offset: 3px;
   }
 
   [dir="rtl"] h1 {
@@ -208,8 +223,8 @@ body.domi-booting :where(main, header, footer, .mobile-nav-shell) {
 /* Glassmorphism utilities */
 .glass {
   @apply border border-border transition-all duration-300;
-  background-color: color-mix(in srgb, var(--surface) 88%, transparent);
-  box-shadow: 0 16px 42px -34px var(--cool-shadow);
+  background-color: color-mix(in srgb, var(--surface) 92%, transparent);
+  box-shadow: 0 14px 36px -30px var(--cool-shadow);
 }
 
 .glass-card {
@@ -225,7 +240,8 @@ body.domi-booting :where(main, header, footer, .mobile-nav-shell) {
   border-color: color-mix(in srgb, var(--primary) 32%, var(--border));
   box-shadow:
     inset 0 1px 0 color-mix(in srgb, #ffffff 34%, transparent),
-    0 28px 74px -44px color-mix(in srgb, var(--primary) 26%, var(--cool-shadow));
+    0 24px 60px -42px color-mix(in srgb, var(--primary) 22%, var(--cool-shadow));
+  transform: translateY(-2px);
 }
 
 /* Spatial UI card — a premium product surface that floats in the page. */
@@ -241,6 +257,48 @@ body.domi-booting :where(main, header, footer, .mobile-nav-shell) {
   box-shadow:
     inset 0 1px 0 color-mix(in srgb, #ffffff 30%, transparent),
     0 30px 80px -52px var(--cool-shadow);
+}
+
+.premium-surface {
+  border: 1px solid color-mix(in srgb, var(--primary) 12%, var(--border));
+  background:
+    linear-gradient(145deg, color-mix(in srgb, var(--surface) 96%, transparent), color-mix(in srgb, var(--surface-hover) 72%, transparent));
+  box-shadow:
+    inset 0 1px 0 color-mix(in srgb, #ffffff 18%, transparent),
+    0 24px 64px -48px var(--cool-shadow);
+}
+
+[data-theme="dark"] .premium-surface {
+  box-shadow:
+    inset 0 1px 0 color-mix(in srgb, #ffffff 7%, transparent),
+    0 24px 70px -52px var(--cool-shadow);
+}
+
+.premium-interactive {
+  transition:
+    transform 220ms ease,
+    border-color 220ms ease,
+    background-color 220ms ease,
+    color 220ms ease,
+    box-shadow 220ms ease,
+    opacity 220ms ease;
+}
+
+.premium-interactive:hover {
+  transform: translateY(-1px);
+}
+
+.premium-interactive:active {
+  transform: translateY(0) scale(0.99);
+}
+
+.premium-link {
+  color: var(--muted);
+  transition: color 200ms ease, opacity 200ms ease;
+}
+
+.premium-link:hover {
+  color: var(--primary);
 }
 
 [data-theme="dark"] .spatial-card {
@@ -425,16 +483,16 @@ body.domi-booting :where(main, header, footer, .mobile-nav-shell) {
     var(--primary) 52%,
     color-mix(in srgb, var(--primary) 70%, var(--secondary)) 100%
   );
-  box-shadow: 0 16px 34px -16px color-mix(in srgb, var(--primary) 58%, transparent);
+  box-shadow: 0 14px 30px -18px color-mix(in srgb, var(--primary) 58%, transparent);
 }
 
 .btn-primary:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 22px 46px -16px color-mix(in srgb, var(--primary) 70%, transparent);
+  transform: translateY(-1px);
+  box-shadow: 0 18px 40px -20px color-mix(in srgb, var(--primary) 66%, transparent);
 }
 
 .btn-primary:active {
-  transform: translateY(0);
+  transform: translateY(0) scale(0.99);
 }
 
 .btn-secondary {
@@ -447,6 +505,11 @@ body.domi-booting :where(main, header, footer, .mobile-nav-shell) {
 .btn-secondary:hover {
   border-color: color-mix(in srgb, var(--secondary) 55%, var(--border));
   background-color: color-mix(in srgb, var(--surface) 78%, transparent);
+  transform: translateY(-1px);
+}
+
+.btn-secondary:active {
+  transform: translateY(0) scale(0.99);
 }
 
 .hero-cta-primary {

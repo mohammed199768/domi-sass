@@ -83,7 +83,7 @@ export default function DiagnosisContextIntake({
     <section className="mx-auto w-full max-w-5xl px-5 pb-20 pt-6 sm:px-6 lg:px-8">
       <div className="grid gap-6 lg:grid-cols-[1fr_280px]">
         {/* Main panel */}
-        <div className="rounded-[1.6rem] border border-border bg-surface p-5 shadow-[0_28px_80px_-58px_var(--cool-shadow)] sm:p-8">
+        <div className="premium-surface rounded-[1.6rem] p-5 sm:p-8">
           {/* Step indicator */}
           <div className="flex items-center justify-between gap-4">
             <p className="font-display text-xs font-black uppercase tracking-[0.2em] text-primary-theme">
@@ -145,7 +145,7 @@ export default function DiagnosisContextIntake({
 
         {/* Why-this-matters side panel (desktop) */}
         <aside className="hidden lg:block">
-          <div className="sticky top-28 rounded-2xl border border-border bg-surface-muted p-5">
+          <div className="premium-surface sticky top-28 rounded-2xl p-5">
             <p className="font-display text-[11px] font-black uppercase tracking-[0.2em] text-muted">
               {isArabic ? "لماذا نسأل؟" : "Why we ask"}
             </p>
@@ -185,7 +185,7 @@ function IntakeField({
   const options = isArabic && field.optionsAr?.length ? field.optionsAr : field.options || [];
   const optional = !field.required;
   const inputClass =
-    "mt-2 min-h-12 w-full rounded-xl border border-border bg-background px-4 py-3 text-base text-foreground outline-none transition focus:border-primary-theme focus:ring-2 focus:ring-primary-theme/25" +
+    "mt-2 min-h-12 w-full rounded-2xl border border-border bg-background px-4 py-3 text-base text-foreground outline-none transition focus:border-primary-theme focus:ring-2 focus:ring-primary-theme/25" +
     (optional ? " border-dashed" : "");
 
   return (

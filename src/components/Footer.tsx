@@ -9,9 +9,9 @@ export default function Footer() {
     const { t, language } = useLanguage();
 
     return (
-        <footer className="bg-surface-muted text-foreground py-12 px-6 border-t border-border transition-colors duration-300">
-            <div className="max-w-7xl mx-auto">
-                <div className="flex flex-col md:flex-row justify-between items-center gap-8 border-b border-border pb-8 mb-8">
+        <footer className="border-t border-border bg-surface-muted px-5 py-12 text-foreground transition-colors duration-300 sm:px-6 lg:py-16">
+            <div className="mx-auto max-w-7xl">
+                <div className="mb-8 flex flex-col items-center justify-between gap-8 border-b border-border pb-8 md:flex-row">
                     {/* Logo/Brand */}
                     <div className="flex flex-col items-center gap-1 text-primary-theme md:items-start">
                         <div className="font-display flex items-center gap-2 text-3xl font-black tracking-wide">
@@ -24,13 +24,13 @@ export default function Footer() {
                     </div>
 
                     {/* Socials */}
-                    <div className="flex gap-4">
+                    <div className="flex gap-3">
                         <a
                             href="https://github.com/mohammed199768"
                             target="_blank"
                             rel="noopener noreferrer"
                             aria-label="GitHub"
-                            className="w-10 h-10 rounded-full bg-surface border border-border flex items-center justify-center text-muted hover:border-primary-theme hover:bg-primary-theme hover:text-background transition-colors"
+                            className="premium-surface premium-interactive flex h-11 w-11 items-center justify-center rounded-full text-muted hover:border-primary-theme hover:text-primary-theme focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary-theme"
                         >
                             <Github className="w-5 h-5" />
                         </a>
@@ -39,7 +39,7 @@ export default function Footer() {
                             target="_blank"
                             rel="noopener noreferrer"
                             aria-label="Upwork"
-                            className="w-10 h-10 rounded-full bg-surface border border-border flex items-center justify-center text-muted hover:border-primary-theme hover:bg-primary-theme hover:text-background transition-colors"
+                            className="premium-surface premium-interactive flex h-11 w-11 items-center justify-center rounded-full text-muted hover:border-primary-theme hover:text-primary-theme focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary-theme"
                         >
                             <Briefcase className="w-5 h-5" />
                         </a>
@@ -48,27 +48,27 @@ export default function Footer() {
                             target="_blank"
                             rel="noopener noreferrer"
                             aria-label="LinkedIn"
-                            className="w-10 h-10 rounded-full bg-surface border border-border flex items-center justify-center text-muted hover:border-primary-theme hover:bg-primary-theme hover:text-background transition-colors"
+                            className="premium-surface premium-interactive flex h-11 w-11 items-center justify-center rounded-full text-muted hover:border-primary-theme hover:text-primary-theme focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary-theme"
                         >
                             <Linkedin className="w-5 h-5" />
                         </a>
                     </div>
                 </div>
 
-                <div className="flex flex-col md:flex-row justify-between items-center gap-6">
-                    <div className="text-sm text-muted">
+                <div className="flex flex-col items-center justify-between gap-6 md:flex-row">
+                    <div className="text-center text-sm leading-6 text-muted md:text-start">
                         {t.footer.rights}
                     </div>
 
-                    <div className="flex flex-wrap gap-6 text-sm">
-                        <Link href="/why-us" className="text-muted hover:text-secondary-theme transition-colors">
+                    <div className="flex flex-wrap justify-center gap-x-6 gap-y-3 text-sm">
+                        <Link href="/why-us" className="premium-link font-semibold focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary-theme">
                             {language === "ar" ? "لماذا نحن؟" : "Why Us?"}
                         </Link>
-                        <Link href="/why-change" className="text-muted hover:text-secondary-theme transition-colors">
+                        <Link href="/why-change" className="premium-link font-semibold focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary-theme">
                             {language === "ar" ? "لماذا التغيير؟" : "Why Change?"}
                         </Link>
                         {t.footer.links.map((link, index) => (
-                            <a key={index} href="#" className="text-muted hover:text-secondary-theme transition-colors">
+                            <a key={index} href="#" className="premium-link font-semibold focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary-theme">
                                 {link}
                             </a>
                         ))}

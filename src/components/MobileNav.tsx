@@ -88,14 +88,14 @@ function MobileNavInner({ pathname }: { pathname: string }) {
                 aria-label={menuLabel}
                 aria-hidden={!open}
                 inert={!open}
-                className={`fixed inset-x-4 z-50 mx-auto max-w-sm rounded-[1.9rem] border border-border bg-surface p-2.5 shadow-[0_28px_80px_-32px_var(--cool-shadow)] transition-[opacity,transform] duration-300 ease-out ${
+                className={`premium-surface fixed inset-x-4 z-50 mx-auto max-w-sm rounded-[1.75rem] p-2.5 transition-[opacity,transform] duration-300 ease-out ${
                     open
                         ? "translate-y-0 scale-100 opacity-100"
                         : "pointer-events-none translate-y-5 scale-[0.97] opacity-0"
                 }`}
                 style={{ bottom: "calc(env(safe-area-inset-bottom, 0px) + 5.5rem)" }}
             >
-                <div className="rounded-[1.45rem] border border-border bg-surface-hover p-1.5">
+                <div className="rounded-[1.25rem] border border-border bg-surface-hover p-1.5">
                     <ul className="flex flex-col">
                         {NAV_LINKS.map((item) => {
                             const active = isActive(item.href);
@@ -105,9 +105,9 @@ function MobileNavInner({ pathname }: { pathname: string }) {
                                         href={item.href}
                                         tabIndex={open ? 0 : -1}
                                         aria-current={active ? "page" : undefined}
-                                        className={`flex min-h-13 items-center justify-between gap-4 rounded-[1.1rem] px-5 py-3.5 text-base font-bold transition-colors duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary-theme ${
+                                        className={`flex min-h-13 items-center justify-between gap-4 rounded-2xl px-5 py-3.5 text-base font-bold transition-[background-color,color,transform] duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary-theme active:scale-[0.99] ${
                                             active
-                                                ? "bg-surface text-primary-theme"
+                                                ? "bg-[color-mix(in_srgb,var(--primary)_12%,var(--surface))] text-primary-theme"
                                                 : "text-foreground hover:bg-surface hover:text-primary-theme"
                                         }`}
                                     >
@@ -135,7 +135,7 @@ function MobileNavInner({ pathname }: { pathname: string }) {
                 aria-expanded={open}
                 aria-controls="mobile-nav-panel"
                 onClick={() => setOpen((v) => !v)}
-                className="fixed inset-x-0 z-50 mx-auto flex h-12 w-fit items-center gap-3 rounded-full border border-border bg-surface px-6 font-display text-xs font-black uppercase tracking-[0.22em] text-foreground shadow-[0_18px_50px_-24px_var(--cool-shadow)] transition-[transform,border-color,color] duration-200 hover:border-primary-theme hover:text-primary-theme focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary-theme active:scale-95"
+                className="premium-surface fixed inset-x-0 z-50 mx-auto flex h-12 w-fit items-center gap-3 rounded-full px-6 font-display text-xs font-black uppercase tracking-[0.2em] text-foreground transition-[transform,border-color,color] duration-200 hover:border-primary-theme hover:text-primary-theme focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary-theme active:scale-[0.98]"
                 style={{ bottom: "calc(env(safe-area-inset-bottom, 0px) + 1.25rem)" }}
             >
                 {/* Minimal two-line mark that folds into an X (transform only). */}
