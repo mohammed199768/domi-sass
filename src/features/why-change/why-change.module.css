@@ -130,19 +130,135 @@
     linear-gradient(160deg, color-mix(in srgb, var(--domi-surface) 88%, transparent), color-mix(in srgb, var(--domi-accent) 3%, transparent));
 }
 
-.page :global(.wc-hero-signal) {
-  inset: 12% 6% auto;
-  width: 88%;
+/* ── Hero gap chart — conceptual diagnostic (no fake data) ────────────────── */
+.page :global(.wc-gap-chart) {
+  position: absolute;
+  inset: 5% 4% 15%;
+  width: 92%;
+  height: 80%;
+  pointer-events: none;
 }
 
-.page :global(.wc-hero__scanline) {
-  position: absolute;
-  inset-inline: -2%;
-  top: 64%;
-  height: 1px;
-  background: linear-gradient(90deg, transparent, color-mix(in srgb, var(--domi-accent) 62%, transparent), transparent);
-  opacity: 0.5;
-  pointer-events: none;
+.page :global(.wc-gap-chart text) {
+  font-family: inherit;
+}
+
+.page :global(.wc-gap-axis) {
+  stroke: color-mix(in srgb, var(--domi-text) 30%, transparent);
+  stroke-width: 1;
+  vector-effect: non-scaling-stroke;
+}
+
+.page :global(.wc-gap-axis-label),
+.page :global(.wc-gap-legend) {
+  fill: var(--domi-text-muted);
+  font-size: 9px;
+  font-weight: 700;
+}
+
+.page :global(.wc-gap-signal) {
+  fill: var(--domi-text-faint);
+  font-size: 7.5px;
+  font-weight: 700;
+}
+
+.page :global(.wc-gap-marker) {
+  fill: var(--domi-accent);
+  font-size: 8.5px;
+  font-weight: 800;
+}
+
+.page :global(.wc-gap-area-label) {
+  fill: color-mix(in srgb, var(--domi-accent) 78%, var(--domi-text));
+  font-size: 9px;
+  font-weight: 800;
+}
+
+.page :global(.wc-gap-swatch--rise) {
+  stroke: var(--domi-accent);
+  stroke-width: 2;
+}
+
+.page :global(.wc-gap-swatch--flat) {
+  stroke: color-mix(in srgb, var(--domi-text) 42%, transparent);
+  stroke-width: 2;
+}
+
+.page :global(.wc-gap-rise) {
+  fill: none;
+  stroke: var(--domi-accent);
+  stroke-width: 1.8;
+  vector-effect: non-scaling-stroke;
+  stroke-dasharray: 1;
+  stroke-dashoffset: 1;
+  transition: stroke-dashoffset 1.2s cubic-bezier(0.4, 0, 0.2, 1) 0.25s;
+}
+
+.page :global(.wc-gap-flat) {
+  fill: none;
+  stroke: color-mix(in srgb, var(--domi-text) 42%, transparent);
+  stroke-width: 1.4;
+  vector-effect: non-scaling-stroke;
+  stroke-dasharray: 1;
+  stroke-dashoffset: 1;
+  transition: stroke-dashoffset 1s ease 0.15s;
+}
+
+.page :global(.wc-gap-hatchline) {
+  stroke: color-mix(in srgb, var(--domi-accent) 34%, transparent);
+  stroke-width: 1;
+}
+
+.page :global(.wc-gap-area) {
+  opacity: 0;
+  transition: opacity 0.9s ease 0.9s;
+}
+
+.page :global(.wc-gap-dot) {
+  fill: var(--domi-accent-bright);
+  stroke: var(--domi-surface);
+  stroke-width: 1.6;
+  transform: scale(0);
+  transform-box: fill-box;
+  transform-origin: center;
+  transition: transform 0.45s cubic-bezier(0.32, 0.72, 0, 1);
+}
+
+.page :global(.wc-gap-bracket) {
+  stroke: color-mix(in srgb, var(--domi-accent) 55%, transparent);
+  stroke-width: 1;
+  vector-effect: non-scaling-stroke;
+}
+
+/* Draw once when the hero visual reveals */
+.page :global(.wc-hero__visual[data-in="true"] .wc-gap-rise),
+.page :global(.wc-hero__visual[data-in="true"] .wc-gap-flat) {
+  stroke-dashoffset: 0;
+}
+
+.page :global(.wc-hero__visual[data-in="true"] .wc-gap-area) {
+  opacity: 1;
+}
+
+.page :global(.wc-hero__visual[data-in="true"] .wc-gap-dot) {
+  transform: scale(1);
+}
+
+/* No JS / reduced motion: the chart renders complete and static. */
+.page:not([data-motion="armed"]) :global(.wc-gap-rise),
+.page:not([data-motion="armed"]) :global(.wc-gap-flat) {
+  stroke-dashoffset: 0;
+  transition: none;
+}
+
+.page:not([data-motion="armed"]) :global(.wc-gap-area) {
+  opacity: 1;
+  transition: none;
+}
+
+.page:not([data-motion="armed"]) :global(.wc-gap-dot) {
+  transform: scale(1);
+  transition: none;
 }
 
 .page :global(.wc-hero__meta) {

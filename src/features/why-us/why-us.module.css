@@ -132,19 +132,120 @@
     linear-gradient(200deg, color-mix(in srgb, var(--domi-surface) 88%, transparent), color-mix(in srgb, var(--domi-accent) 3%, transparent));
 }
 
-.page :global(.wm-hero-signal) {
-  inset: 16% 6% auto;
-  width: 88%;
+/* ── Hero growth-engine diagram — input → engine → outcome ────────────────── */
+.page :global(.wm-engine) {
+  position: absolute;
+  inset: 5% 4% 15%;
+  width: 92%;
+  height: 80%;
+  pointer-events: none;
 }
 
-.page :global(.wm-hero__axis) {
-  position: absolute;
-  inset-block: 8%;
-  inset-inline-start: 14%;
-  width: 1px;
-  background: linear-gradient(180deg, transparent, color-mix(in srgb, var(--domi-accent) 45%, transparent), transparent);
-  opacity: 0.6;
-  pointer-events: none;
+.page :global(.wm-engine text) {
+  font-family: inherit;
+}
+
+.page :global(.wm-engine__heading) {
+  fill: var(--domi-text-muted);
+  font-size: 9px;
+  font-weight: 800;
+  text-transform: uppercase;
+}
+
+.page :global(.wm-engine__label) {
+  fill: var(--domi-text-faint);
+  font-size: 8px;
+  font-weight: 700;
+}
+
+.page :global(.wm-engine__core) {
+  fill: var(--domi-text);
+  font-size: 11px;
+  font-weight: 900;
+  letter-spacing: 0.08em;
+}
+
+.page :global(.wm-engine__coresub) {
+  fill: var(--domi-accent);
+  font-size: 6.5px;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+}
+
+.page :global(.wm-engine__stages) {
+  fill: var(--domi-text-muted);
+  font-size: 8px;
+  font-weight: 700;
+}
+
+.page :global(.wm-engine__ring) {
+  fill: none;
+  stroke: color-mix(in srgb, var(--domi-accent) 45%, var(--domi-border-strong));
+  stroke-width: 1.2;
+  vector-effect: non-scaling-stroke;
+}
+
+.page :global(.wm-engine__ring--inner) {
+  stroke: color-mix(in srgb, var(--domi-text) 26%, transparent);
+  stroke-dasharray: 3 4;
+}
+
+.page :global(.wm-engine__flow) {
+  fill: none;
+  stroke: color-mix(in srgb, var(--domi-accent) 55%, transparent);
+  stroke-width: 1.3;
+  vector-effect: non-scaling-stroke;
+  stroke-dasharray: 1;
+  stroke-dashoffset: 1;
+  transition: stroke-dashoffset 0.9s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.page :global(.wm-engine__port) {
+  fill: var(--domi-surface);
+  stroke: var(--domi-accent);
+  stroke-width: 1.4;
+  transform: scale(0);
+  transform-box: fill-box;
+  transform-origin: center;
+  transition: transform 0.45s cubic-bezier(0.32, 0.72, 0, 1);
+}
+
+.page :global(.wm-engine__port--out) {
+  fill: var(--domi-accent-bright);
+  stroke: var(--domi-surface);
+}
+
+.page :global(.wm-engine__module) {
+  fill: var(--domi-accent-bright);
+  stroke: var(--domi-surface);
+  stroke-width: 1.4;
+  transform: scale(0);
+  transform-box: fill-box;
+  transform-origin: center;
+  transition: transform 0.45s cubic-bezier(0.32, 0.72, 0, 1);
+}
+
+/* Draw once when the hero visual reveals */
+.page :global(.wm-hero__visual[data-in="true"] .wm-engine__flow) {
+  stroke-dashoffset: 0;
+}
+
+.page :global(.wm-hero__visual[data-in="true"] .wm-engine__port),
+.page :global(.wm-hero__visual[data-in="true"] .wm-engine__module) {
+  transform: scale(1);
+}
+
+/* No JS / reduced motion: the diagram renders complete and static. */
+.page:not([data-motion="armed"]) :global(.wm-engine__flow) {
+  stroke-dashoffset: 0;
+  transition: none;
+}
+
+.page:not([data-motion="armed"]) :global(.wm-engine__port),
+.page:not([data-motion="armed"]) :global(.wm-engine__module) {
+  transform: scale(1);
+  transition: none;
 }
 
 .page :global(.wm-hero__meta) {
@@ -204,6 +305,27 @@
 .page :global(.wm-rail__tick) {
   stroke: color-mix(in srgb, var(--domi-text) 32%, transparent);
   stroke-width: 1;
+}
+
+/* Start-of-journey ring around node 01. */
+.page :global(.wm-rail__start) {
+  fill: none;
+  stroke: color-mix(in srgb, var(--domi-accent) 60%, transparent);
+  stroke-width: 1;
+  vector-effect: non-scaling-stroke;
+}
+
+/*
+ * RTL journey direction fix: under [dir="rtl"] the stage cards grid flows
+ * right→left, so stage 01 correctly sits on the RIGHT. The rail SVG, however,
+ * has fixed LTR geometry — unmirrored, its start node lands on the left,
+ * above stage 04, which made the Arabic journey read as starting at 04.
+ * Mirroring the rail (geometry only — it contains no text) puts the start
+ * node, draw direction, and markers back over stage 01 in Arabic, while the
+ * English layout is untouched. Mobile stacks 01→04 in DOM order either way.
+ */
+:global([dir="rtl"]) .page :global(.wm-rail) {
+  transform: scaleX(-1);
 }
 
 .page :global(.wm-method__rail[data-in="true"] .wm-rail__path) { stroke-dashoffset: 0; }

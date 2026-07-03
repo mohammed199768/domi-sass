@@ -35,6 +35,15 @@ const COPY = {
       "The market moves, attention scatters, and customer expectations rise every day. A website that stays the same does not hold its position; it falls behind quietly, and the loss compounds before anyone notices it.",
     heroMetaA: "WHY / CHANGE",
     heroMetaB: "SIGNAL / 01",
+    chart: {
+      title: "Conceptual diagnostic chart: customer expectations rise over time while a static website stays flat, and the gap between them is lost opportunity.",
+      axis: "Time / Market movement",
+      expectations: "Customer expectations",
+      staticSite: "Static website",
+      gap: "Lost opportunity",
+      marker: "Gap widens",
+      signals: ["Attention shifts", "Trust becomes visual", "Speed becomes expected"],
+    },
     pressureEyebrow: "Four forces reshaping the market",
     pressureTitle: "The pressure map",
     pressure: [
@@ -92,6 +101,15 @@ const COPY = {
       "السوق يتحرك، والانتباه يتشتت، وتوقعات العملاء ترتفع كل يوم. الموقع الذي يبقى كما هو لا يحافظ على مكانه؛ بل يتأخر بهدوء، والخسارة تتراكم فيه قبل أن يلاحظها أحد.",
     heroMetaA: "لماذا / التغيير",
     heroMetaB: "إشارة / 01",
+    chart: {
+      title: "مخطط تشخيصي مفاهيمي: توقعات العملاء ترتفع مع الزمن بينما يبقى الموقع الثابت كما هو، والفجوة بينهما فرص مهدورة.",
+      axis: "الزمن / حركة السوق",
+      expectations: "توقعات العملاء",
+      staticSite: "موقع ثابت",
+      gap: "فرص مهدورة",
+      marker: "الفجوة تتسع",
+      signals: ["الانتباه يتحول", "الثقة تصبح بصرية", "السرعة تصبح متوقعة"],
+    },
     pressureEyebrow: "أربع قوى تُعيد تشكيل السوق",
     pressureTitle: "خريطة الضغط",
     pressure: [
@@ -143,6 +161,102 @@ const COPY = {
     ctaAria: "روابط الخطوة التالية",
   },
 } as const;
+
+/* ── Gap chart: the strategic diagnostic behind the hero claim ────────────────
+ * Conceptual, not analytical: no numbers, no percentages, no fake data.
+ * One rising emerald line (customer expectations), one flat muted line
+ * (a static website), and the hatched region between them — the quiet,
+ * compounding loss. The chart keeps LTR geometry in both languages (time
+ * axes read left-to-right universally); only the labels are localized. */
+
+type GapChartCopy = {
+  title: string;
+  axis: string;
+  expectations: string;
+  staticSite: string;
+  gap: string;
+  marker: string;
+  signals: readonly string[];
+};
+
+function GapChart({ c }: { c: GapChartCopy }) {
+  // Signal dots sitting on the expectations curve, with their micro-labels.
+  const signalDots = [
+    { x: 116, y: 148 },
+    { x: 202, y: 120 },
+    { x: 284, y: 87 },
+  ];
+
+  return (
+    <svg
+      className="wc-gap-chart"
+      viewBox="0 0 380 240"
+      role="img"
+      focusable="false"
+      preserveAspectRatio="xMidYMid meet"
+      style={{ direction: "ltr" }}
+    >
+      <title>{c.title}</title>
+      <defs>
+        {/* Diagonal hatch — reads as "unmeasured loss", not as filled data. */}
+        <pattern id="wc-gap-hatch" width="7" height="7" patternUnits="userSpaceOnUse" patternTransform="rotate(45)">
+          <line x1="0" y1="0" x2="0" y2="7" className="wc-gap-hatchline" />
+        </pattern>
+      </defs>
+
+      {/* Axes */}
+      <line className="wc-gap-axis" x1="34" y1="200" x2="352" y2="200" />
+      <line className="wc-gap-axis" x1="34" y1="200" x2="34" y2="34" />
+      {[114, 193, 272].map((x) => (
+        <line key={x} className="wc-gap-axis" x1={x} y1="200" x2={x} y2="204" />
+      ))}
+      <text className="wc-gap-axis-label" x="193" y="222" textAnchor="middle">
+        {c.axis}
+      </text>
+
+      {/* Legend */}
+      <line className="wc-gap-swatch wc-gap-swatch--rise" x1="34" y1="20" x2="54" y2="20" />
+      <text className="wc-gap-legend" x="60" y="23">{c.expectations}</text>
+      <line className="wc-gap-swatch wc-gap-swatch--flat" x1="34" y1="36" x2="54" y2="36" />
+      <text className="wc-gap-legend" x="60" y="39">{c.staticSite}</text>
+
+      {/* The widening gap — hatched, conceptual */}
+      <path
+        className="wc-gap-area"
+        d="M34 164 C 120 154, 210 110, 344 56 L344 158 L34 166 Z"
+        fill="url(#wc-gap-hatch)"
+      />
+      <text className="wc-gap-area-label" x="252" y="136" textAnchor="middle">
+        {c.gap}
+      </text>
+
+      {/* Static website — flat, muted */}
+      <path className="wc-gap-flat" d="M34 164 L344 158" pathLength={1} />
+
+      {/* Customer expectations — rising, emerald */}
+      <path className="wc-gap-rise" d="M34 164 C 120 154, 210 110, 344 56" pathLength={1} />
+
+      {/* Signal points along the rising line */}
+      {signalDots.map((dot, i) => (
+        <g key={dot.x}>
+          <circle className="wc-gap-dot" cx={dot.x} cy={dot.y} r="3" style={{ transitionDelay: `${700 + i * 140}ms` }} />
+          <text className="wc-gap-signal" x={dot.x} y={dot.y - 10} textAnchor="middle">
+            {c.signals[i]}
+          </text>
+        </g>
+      ))}
+
+      {/* Diagnostic marker at the widest point */}
+      <circle className="wc-gap-dot wc-gap-dot--end" cx="344" cy="56" r="3.6" style={{ transitionDelay: "1150ms" }} />
+      <line className="wc-gap-bracket" x1="352" y1="56" x2="352" y2="158" />
+      <line className="wc-gap-bracket" x1="348" y1="56" x2="356" y2="56" />
+      <line className="wc-gap-bracket" x1="348" y1="158" x2="356" y2="158" />
+      <text className="wc-gap-marker" x="352" y="44" textAnchor="end">
+        {c.marker}
+      </text>
+    </svg>
+  );
+}
 
 /* ── Leak signal: a liquid line that breaks into loss marks ───────────────── */
 
@@ -253,11 +367,10 @@ export default function WhyChangeClient() {
           </div>
         </div>
 
-        <div className="wc-hero__visual" data-reveal style={{ transitionDelay: "220ms" }} aria-hidden="true">
+        <div className="wc-hero__visual" data-reveal style={{ transitionDelay: "220ms" }}>
           <div className="wc-hero__frame">
-            <SectionSignalField variant="diagnostic" className="wc-hero-signal" />
-            <span className="wc-hero__scanline" />
-            <div className="wc-hero__meta">
+            <GapChart c={t.chart} />
+            <div className="wc-hero__meta" aria-hidden="true">
               <span>{t.heroMetaA}</span>
               <span>{t.heroMetaB}</span>
             </div>

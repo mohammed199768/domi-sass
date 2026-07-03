@@ -35,6 +35,16 @@ const COPY = {
       "Many websites look beautiful, but fail to bring in customers. The problem? They were designed as artboards, not business systems. At DOMINASE, we do not stop at decoration. We diagnose the challenges your business faces, then build a digital system designed specifically to turn your visitors into real customers.",
     heroMetaA: "WHY / US",
     heroMetaB: "METHOD / 04-STAGE",
+    engine: {
+      title: "Growth engine architecture: business inputs flow through the DOMINASE engine — diagnosis, trust architecture, build system — and come out as trust, action, and growth.",
+      input: "Business input",
+      output: "Growth output",
+      inputs: ["Idea", "Problem", "Intent"],
+      outputs: ["Trust", "Action", "Growth"],
+      core: "DOMINASE",
+      coreSub: "Engine",
+      stages: "Diagnosis · Trust architecture · Build system",
+    },
     methodEyebrow: "The DOMINASE method",
     methodTitle: "Your journey from idea to execution.",
     method: [
@@ -128,6 +138,16 @@ const COPY = {
       "العديد من المواقع تبدو جميلة، لكنها تفشل في جلب العملاء. المشكلة؟ أنها صُممت كلوحات فنية، لا كأنظمة عمل. في DOMINASE، نحن لا نكتفي بالزينة، بل نشخص التحديات التي يواجهها عملك، ثم نبني نظاماً رقمياً مصمماً خصيصاً ليحول زوارك إلى عملاء حقيقيين.",
     heroMetaA: "لماذا / نحن",
     heroMetaB: "منهجية / 4 مراحل",
+    engine: {
+      title: "هندسة محرك النمو: مدخلات العمل تمر عبر محرك DOMINASE — التشخيص، هندسة الثقة، بناء النظام — وتخرج ثقةً وإجراءً ونمواً.",
+      input: "مدخلات العمل",
+      output: "مخرجات النمو",
+      inputs: ["الفكرة", "المشكلة", "الهدف"],
+      outputs: ["الثقة", "الإجراء", "النمو"],
+      core: "DOMINASE",
+      coreSub: "المحرك",
+      stages: "التشخيص · هندسة الثقة · بناء النظام",
+    },
     methodEyebrow: "منهجية DOMINASE",
     methodTitle: "رحلتك من الفكرة إلى التنفيذ.",
     method: [
@@ -216,6 +236,96 @@ const COPY = {
   },
 } as const;
 
+/* ── Growth engine: the architecture behind the hero claim ────────────────────
+ * Input → engine → outcome. Not a template, a system: three business inputs
+ * feed the DOMINASE engine core (diagnosis, trust architecture, build system)
+ * and emerge as trust, action, and growth. Conceptual only — no numbers, no
+ * fake dashboard data. Geometry stays LTR in both languages (system/flow
+ * diagrams read left-to-right universally); labels are localized. */
+
+type EngineCopy = {
+  title: string;
+  input: string;
+  output: string;
+  inputs: readonly string[];
+  outputs: readonly string[];
+  core: string;
+  coreSub: string;
+  stages: string;
+};
+
+const ENGINE_PORTS = [70, 112, 154];
+
+function GrowthEngineSvg({ c }: { c: EngineCopy }) {
+  const inFlows = [
+    "M46 70 C 92 70, 112 96, 144 100",
+    "M46 112 C 92 112, 108 112, 141 112",
+    "M46 154 C 92 154, 112 128, 144 124",
+  ];
+  const outFlows = [
+    "M236 100 C 268 96, 288 70, 334 70",
+    "M239 112 C 272 112, 292 112, 334 112",
+    "M236 124 C 268 128, 288 154, 334 154",
+  ];
+
+  return (
+    <svg
+      className="wm-engine"
+      viewBox="0 0 380 240"
+      role="img"
+      focusable="false"
+      preserveAspectRatio="xMidYMid meet"
+      style={{ direction: "ltr" }}
+    >
+      <title>{c.title}</title>
+
+      {/* Group headings */}
+      <text className="wm-engine__heading" x="42" y="42" textAnchor="middle">{c.input}</text>
+      <text className="wm-engine__heading" x="338" y="42" textAnchor="middle">{c.output}</text>
+
+      {/* Flow paths */}
+      {inFlows.map((d, i) => (
+        <path key={d} className="wm-engine__flow" d={d} pathLength={1} style={{ transitionDelay: `${200 + i * 120}ms` }} />
+      ))}
+      {outFlows.map((d, i) => (
+        <path key={d} className="wm-engine__flow" d={d} pathLength={1} style={{ transitionDelay: `${800 + i * 120}ms` }} />
+      ))}
+
+      {/* Input / output ports with localized labels */}
+      {ENGINE_PORTS.map((y, i) => (
+        <g key={`in-${y}`}>
+          <circle className="wm-engine__port" cx="42" cy={y} r="4" style={{ transitionDelay: `${150 + i * 110}ms` }} />
+          <text className="wm-engine__label" x="42" y={y + 16} textAnchor="middle">{c.inputs[i]}</text>
+        </g>
+      ))}
+      {ENGINE_PORTS.map((y, i) => (
+        <g key={`out-${y}`}>
+          <circle className="wm-engine__port wm-engine__port--out" cx="338" cy={y} r="4" style={{ transitionDelay: `${1050 + i * 110}ms` }} />
+          <text className="wm-engine__label" x="338" y={y + 16} textAnchor="middle">{c.outputs[i]}</text>
+        </g>
+      ))}
+
+      {/* Engine core */}
+      <circle className="wm-engine__ring" cx="190" cy="112" r="48" />
+      <circle className="wm-engine__ring wm-engine__ring--inner" cx="190" cy="112" r="34" />
+      {/* Module points on the ring: the working parts of the engine */}
+      {[
+        { x: 190, y: 64 },
+        { x: 238, y: 112 },
+        { x: 190, y: 160 },
+        { x: 142, y: 112 },
+      ].map((p, i) => (
+        <circle key={`${p.x}-${p.y}`} className="wm-engine__module" cx={p.x} cy={p.y} r="3" style={{ transitionDelay: `${600 + i * 90}ms` }} />
+      ))}
+      <text className="wm-engine__core" x="190" y="110" textAnchor="middle">{c.core}</text>
+      <text className="wm-engine__coresub" x="190" y="124" textAnchor="middle">{c.coreSub}</text>
+
+      {/* The engine's working stages */}
+      <text className="wm-engine__stages" x="190" y="196" textAnchor="middle">{c.stages}</text>
+    </svg>
+  );
+}
+
 /* ── Process rail: liquid path connecting the four stages (desktop) ───────── */
 
 const RAIL_NODES = [40, 306, 573, 840];
@@ -228,6 +338,9 @@ function MethodRail() {
         d="M40 66 C 130 66, 200 40, 306 44 S 470 74, 573 66 S 760 36, 840 44"
         pathLength={1}
       />
+      {/* Start ring: makes stage 01 the unmistakable origin of the journey
+          (in RTL the whole rail is mirrored, so this sits on the right). */}
+      <circle className="wm-rail__start" cx={40} cy={66} r={10} />
       {RAIL_NODES.map((x, i) => (
         <circle
           key={x}
@@ -312,11 +425,10 @@ export default function WhyUsClient() {
             />
           </div>
         </div>
-        <div className="wm-hero__visual" data-reveal style={{ transitionDelay: "220ms" }} aria-hidden="true">
+        <div className="wm-hero__visual" data-reveal style={{ transitionDelay: "220ms" }}>
           <div className="wm-hero__frame">
-            <SectionSignalField variant="method" className="wm-hero-signal" />
-            <span className="wm-hero__axis" />
-            <div className="wm-hero__meta">
+            <GrowthEngineSvg c={t.engine} />
+            <div className="wm-hero__meta" aria-hidden="true">
               <span>{t.heroMetaA}</span>
               <span>{t.heroMetaB}</span>
             </div>
