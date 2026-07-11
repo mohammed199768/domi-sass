@@ -63,7 +63,7 @@ export default function TestimonialsSection() {
     return (
         <section
             id="testimonials"
-            className="relative overflow-hidden bg-background py-20 transition-colors duration-300 md:py-28"
+            className="home-testimonials relative overflow-hidden bg-background py-20 transition-colors duration-300 md:py-28"
             aria-labelledby="proof-signals-title"
         >
             {/* Top hairline */}

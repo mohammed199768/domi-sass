@@ -2,520 +2,120 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { useEffect, useRef, useState } from "react";
-import { ArrowUpRight } from "lucide-react";
+import { useCallback, useEffect, useMemo, useRef, useState } from "react";
+import { motion } from "framer-motion";
+import { ArrowUpRight, ChevronLeft, ChevronRight } from "lucide-react";
+import { useRouter } from "next/navigation";
 import { useLanguage } from "@/context/LanguageContext";
-import { gsap, registerMotionPlugins, ScrollTrigger } from "@/lib/motion/gsapSetup";
-import { useMediaQuery } from "@/lib/motion/useMediaQuery";
 import { useReducedMotion } from "@/lib/motion/useReducedMotion";
 
-type Role = "center" | "left" | "right" | "back";
+type Work = { key: string; title: string; image: string; href: string };
 
-type SelectedWork = {
-  key: string;
-  title: string;
-  image: string;
-  href: string;
-  palette: {
-    primary: string;
-    secondary: string;
-    rail: string;
-  };
-};
-
-const selectedWorks: SelectedWork[] = [
-  {
-    key: "curevie",
-    title: "Curevie",
-    image: "/assest/our-work/curevie.webp",
-    href: "/work/curevie",
-    palette: {
-      primary: "#1FA879",
-      secondary: "#A8D8C4",
-      rail: "rgba(31, 168, 121, 0.18)",
-    },
-  },
-  {
-    key: "horvath",
-    title: "Horvath",
-    image: "/assest/our-work/horvath.webp",
-    href: "/work/horvath-survey",
-    palette: {
-      primary: "#4EA8E8",
-      secondary: "#D8F0FF",
-      rail: "rgba(78, 168, 232, 0.16)",
-    },
-  },
-  {
-    key: "manal-alhihi",
-    title: "Manal Alhihi",
-    image: "/assest/our-work/T.Manal.webp",
-    href: "/work/manal-alhihi",
-    palette: {
-      primary: "#234A86",
-      secondary: "#DDE7F7",
-      rail: "rgba(35, 74, 134, 0.2)",
-    },
-  },
-  {
-    key: "qaser-al-farah",
-    title: "Qasr Al-Farah",
-    image: "/assest/our-work/qaser-alfarah.webp",
-    href: "/work/qasr-alfarah",
-    palette: {
-      primary: "#6F7FD8",
-      secondary: "#DDE2FF",
-      rail: "rgba(111, 127, 216, 0.14)",
-    },
-  },
+// Homepage-only preview media. Detail-page artwork remains in its existing data source.
+const works: Work[] = [
+  { key: "curevie", title: "Curevie", image: "/assest/our-work/curevie.webp", href: "/work/curevie" },
+  { key: "horvath", title: "Horvath", image: "/assest/our-work/horvath.webp", href: "/work/horvath-survey" },
+  { key: "manal-alhihi", title: "Manal Alhihi", image: "/assest/our-work/T.Manal.webp", href: "/work/manal-alhihi" },
+  { key: "qaser-al-farah", title: "Qasr Al-Farah", image: "/assest/our-work/qaser-alfarah.webp", href: "/work/qasr-alfarah" },
 ];
 
-const transitionDuration = 0.74;
-const stageStep = 1.32;
-
-function padIndex(index: number) {
-  return String(index + 1).padStart(2, "0");
+function signedOffset(index: number, active: number, count: number) {
+  let offset = index - active;
+  if (offset > count / 2) offset -= count;
+  if (offset < -count / 2) offset += count;
+  return offset;
 }
 
-function getRole(index: number, activeIndex: number): Role {
-  if (index === activeIndex) return "center";
-  if (index === (activeIndex + selectedWorks.length - 1) % selectedWorks.length) return "left";
-  if (index === (activeIndex + 1) % selectedWorks.length) return "right";
-  return "back";
-}
+function pad(value: number) { return String(value).padStart(2, "0"); }
 
-function getRoleVars(role: Role, isDesktop: boolean): gsap.TweenVars {
-  const desktop: Record<Role, gsap.TweenVars> = {
-    center: { left: "50%", top: "52%", scale: 1.02, autoAlpha: 1, zIndex: 30 },
-    left: { left: "22%", top: "56%", scale: 0.5, autoAlpha: 0.66, zIndex: 12 },
-    right: { left: "78%", top: "56%", scale: 0.5, autoAlpha: 0.66, zIndex: 12 },
-    back: { left: "50%", top: "39%", scale: 0.36, autoAlpha: 0.32, zIndex: 5 },
-  };
-
-  const tablet: Record<Role, gsap.TweenVars> = {
-    center: { left: "50%", top: "53%", scale: 1, autoAlpha: 1, zIndex: 30 },
-    left: { left: "17%", top: "57%", scale: 0.42, autoAlpha: 0.58, zIndex: 12 },
-    right: { left: "83%", top: "57%", scale: 0.42, autoAlpha: 0.58, zIndex: 12 },
-    back: { left: "50%", top: "40%", scale: 0.32, autoAlpha: 0.28, zIndex: 5 },
-  };
-
-  return {
-    ...(isDesktop ? desktop[role] : tablet[role]),
-    xPercent: -50,
-    yPercent: -50,
-    y: role === "center" ? 0 : role === "back" ? -10 : 8,
-    rotate: 0,
-    transformOrigin: "50% 50%",
-  };
-}
-
-function WorkRevealGate() {
-  const gateRef = useRef<HTMLElement>(null);
-  const lineRef = useRef<SVGPathElement>(null);
-  const topPanelRef = useRef<HTMLDivElement>(null);
-  const bottomPanelRef = useRef<HTMLDivElement>(null);
-  const reducedMotion = useReducedMotion();
-  const isTabletUp = useMediaQuery("(min-width: 768px)");
-
-  useEffect(() => {
-    registerMotionPlugins();
-
-    const gate = gateRef.current;
-    const line = lineRef.current;
-    const topPanel = topPanelRef.current;
-    const bottomPanel = bottomPanelRef.current;
-    if (!gate || !line || !topPanel || !bottomPanel) return;
-
-    if (reducedMotion || !isTabletUp) {
-      gsap.set(line, { strokeDashoffset: 0, opacity: 1 });
-      gsap.set([topPanel, bottomPanel], { clearProps: "all" });
-      return;
-    }
-
-    const length = line.getTotalLength();
-    gsap.set(line, { strokeDasharray: length, strokeDashoffset: length, opacity: 0.92 });
-    gsap.set([topPanel, bottomPanel], { yPercent: 0, opacity: 1 });
-
-    const ctx = gsap.context(() => {
-      gsap.timeline({
-        scrollTrigger: {
-          trigger: gate,
-          start: "top bottom",
-          end: "bottom top",
-          scrub: 0.8,
-          invalidateOnRefresh: true,
-        },
-      })
-        .to(line, { strokeDashoffset: 0, duration: 0.42, ease: "none" }, 0)
-        .to(topPanel, { yPercent: -9, opacity: 0.3, duration: 0.52, ease: "power2.out" }, 0.34)
-        .to(bottomPanel, { yPercent: 9, opacity: 0.3, duration: 0.52, ease: "power2.out" }, 0.34);
-    }, gate);
-
-    ScrollTrigger.refresh();
-    return () => ctx.revert();
-  }, [isTabletUp, reducedMotion]);
-
-  return (
-    <section
-      ref={gateRef}
-      className="relative isolate min-h-[78svh] overflow-hidden bg-background transition-colors duration-300 md:min-h-[118vh]"
-      aria-hidden="true"
-    >
-      <div className="sticky top-0 flex min-h-screen items-center justify-center overflow-hidden">
-        <div
-          ref={topPanelRef}
-          className="absolute inset-x-0 top-0 h-1/2 border-b"
-          style={{
-            borderColor: "color-mix(in srgb, var(--primary) 16%, var(--border))",
-            background:
-              "linear-gradient(to bottom, color-mix(in srgb, var(--surface-muted) 44%, transparent), color-mix(in srgb, var(--bg) 96%, transparent))",
-          }}
-        />
-        <div
-          ref={bottomPanelRef}
-          className="absolute inset-x-0 bottom-0 h-1/2 border-t"
-          style={{
-            borderColor: "color-mix(in srgb, var(--secondary) 14%, var(--border))",
-            background:
-              "linear-gradient(to top, color-mix(in srgb, var(--surface-muted) 44%, transparent), color-mix(in srgb, var(--bg) 96%, transparent))",
-          }}
-        />
-        <svg
-          className="relative z-10 h-24 w-[min(86vw,940px)]"
-          viewBox="0 0 940 96"
-          fill="none"
-          role="presentation"
-        >
-          <defs>
-            <linearGradient id="workGateStroke" x1="8" y1="48" x2="932" y2="48" gradientUnits="userSpaceOnUse">
-              <stop stopColor="var(--primary)" stopOpacity="0.05" />
-              <stop offset="0.48" stopColor="var(--primary)" />
-              <stop offset="1" stopColor="var(--secondary)" stopOpacity="0.18" />
-            </linearGradient>
-          </defs>
-          <path
-            ref={lineRef}
-            d="M8 48H324L366 29H574L616 48H932"
-            stroke="url(#workGateStroke)"
-            strokeWidth="2"
-            strokeLinecap="round"
-          />
-          <path
-            d="M398 48H542"
-            stroke="var(--secondary)"
-            strokeWidth="1"
-            strokeLinecap="round"
-            opacity="0.3"
-          />
-        </svg>
-      </div>
-    </section>
-  );
-}
-
-function SelectedWorkScrollGallery() {
-  const { language, t, dir } = useLanguage();
-  const isArabic = language === "ar";
-  const isRtl = dir === "rtl";
-  const reducedMotion = useReducedMotion();
-  const isDesktop = useMediaQuery("(min-width: 1024px)");
-  const isTabletUp = useMediaQuery("(min-width: 768px)");
-  const [activeIndex, setActiveIndex] = useState(0);
-  const activeIndexRef = useRef(0);
-
-  const sectionRef = useRef<HTMLElement>(null);
-  const itemRefs = useRef<(HTMLAnchorElement | null)[]>([]);
-  const glowRefs = useRef<(HTMLDivElement | null)[]>([]);
-
-  const activeWork = selectedWorks[activeIndex];
-  const sectionLabel = t.portfolio.title;
-  const ctaLabel = t.portfolio.projectCTA;
-
-  useEffect(() => {
-    registerMotionPlugins();
-
-    const section = sectionRef.current;
-    if (!section) return;
-
-    const items = itemRefs.current.filter(Boolean) as HTMLAnchorElement[];
-    const glows = glowRefs.current.filter(Boolean) as HTMLDivElement[];
-
-    if (reducedMotion || !isTabletUp) {
-      gsap.set([...items, ...glows], { clearProps: "all" });
-      return;
-    }
-
-    items.forEach((item, index) => {
-      gsap.set(item, getRoleVars(getRole(index, 0), isDesktop));
-    });
-    glows.forEach((glow, index) => {
-      gsap.set(glow, { autoAlpha: index === 0 ? 1 : 0 });
-    });
-
-    const ctx = gsap.context(() => {
-      const tl = gsap.timeline({
-        scrollTrigger: {
-          trigger: section,
-          start: "top top",
-          end: "bottom bottom",
-          scrub: 1,
-          invalidateOnRefresh: true,
-          onUpdate: (self) => {
-            const nextIndex = Math.min(
-              selectedWorks.length - 1,
-              Math.max(0, Math.round(self.progress * (selectedWorks.length - 1)))
-            );
-            if (nextIndex !== activeIndexRef.current) {
-              activeIndexRef.current = nextIndex;
-              setActiveIndex(nextIndex);
-            }
-          },
-        },
-      });
-
-      for (let active = 0; active < selectedWorks.length - 1; active += 1) {
-        const nextActive = active + 1;
-        const at = active * stageStep + 0.42;
-
-        items.forEach((item, index) => {
-          tl.to(item, {
-            ...getRoleVars(getRole(index, nextActive), isDesktop),
-            duration: transitionDuration,
-            ease: "power2.inOut",
-          }, at);
-        });
-
-        tl.to(glows[active], { autoAlpha: 0, duration: transitionDuration * 0.85, ease: "power2.inOut" }, at);
-        tl.to(glows[nextActive], { autoAlpha: 1, duration: transitionDuration * 0.85, ease: "power2.inOut" }, at + 0.08);
-      }
-
-      tl.to({}, { duration: 0.7 });
-    }, section);
-
-    ScrollTrigger.refresh();
-    return () => ctx.revert();
-  }, [isDesktop, isTabletUp, reducedMotion]);
-
-  if (reducedMotion || !isTabletUp) {
-    return (
-      <section
-        id="portfolio"
-        ref={sectionRef}
-        className="relative isolate overflow-hidden bg-background transition-colors duration-300"
-        aria-labelledby="selected-work-title"
-      >
-        <div className="mx-auto max-w-7xl px-5 pt-20">
-          <p className="text-xs font-black uppercase tracking-[0.3em] text-primary-theme">
-            {sectionLabel}
-          </p>
-          <h2 id="selected-work-title" className="mt-3 text-3xl font-black text-foreground">
-            {t.portfolio.title}
-          </h2>
-        </div>
-        <div className="mx-auto grid max-w-lg gap-8 px-5 py-10">
-          {selectedWorks.map((work, index) => {
-            const previous = selectedWorks[(index + selectedWorks.length - 1) % selectedWorks.length];
-            const next = selectedWorks[(index + 1) % selectedWorks.length];
-
-            return (
-              <article
-                key={work.key}
-                className="premium-surface relative min-h-[86svh] overflow-hidden rounded-[1.6rem] p-4"
-                style={{ borderColor: "color-mix(in srgb, var(--primary) 14%, var(--border))" }}
-              >
-                <SidePresence work={work} visible />
-                <div className="pointer-events-none absolute left-[-18%] top-[34%] z-0 aspect-[16/10] w-[54%] -translate-y-1/2 overflow-hidden rounded-2xl border bg-surface-muted opacity-35">
-                  <Image src={previous.image} alt="" fill sizes="48vw" className="object-contain p-2" aria-hidden />
-                </div>
-                <div className="pointer-events-none absolute right-[-18%] top-[62%] z-0 aspect-[16/10] w-[54%] -translate-y-1/2 overflow-hidden rounded-2xl border bg-surface-muted opacity-35">
-                  <Image src={next.image} alt="" fill sizes="48vw" className="object-contain p-2" aria-hidden />
-                </div>
-                <div className="relative z-10 flex h-full min-h-[calc(86svh-2rem)] flex-col justify-center gap-5">
-                  <div className={`flex items-center justify-between gap-4 ${isRtl ? "flex-row-reverse text-end" : ""}`}>
-                    <p className="text-xs font-black uppercase tracking-[0.24em] text-muted">
-                      {padIndex(index)} / {padIndex(selectedWorks.length - 1)}
-                    </p>
-                    <Link
-                      href={work.href}
-                      className="premium-surface premium-interactive inline-flex min-h-11 items-center gap-2 rounded-full px-4 py-2 text-xs font-black text-foreground hover:border-primary-theme hover:text-primary-theme focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary-theme"
-                    >
-                      {ctaLabel}
-                      <ArrowUpRight className="h-3.5 w-3.5" />
-                    </Link>
-                  </div>
-                  <Link href={work.href} className="group block focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary-theme">
-                    <div className="premium-surface relative mx-auto aspect-[16/10] w-full overflow-hidden rounded-[1.35rem]">
-                      <Image
-                        src={work.image}
-                        alt={`${work.title} project preview`}
-                        fill
-                        sizes="92vw"
-                        className="object-contain p-2 transition duration-500 group-hover:scale-[1.015]"
-                      />
-                    </div>
-                  </Link>
-                  <p className={`text-lg font-black text-foreground ${isRtl ? "text-end" : ""}`}>
-                    {work.title}
-                  </p>
-                </div>
-              </article>
-            );
-          })}
-        </div>
-      </section>
-    );
-  }
-
-  return (
-    <section
-      id="portfolio"
-      ref={sectionRef}
-      className="relative isolate bg-background transition-colors duration-300"
-      style={{ minHeight: `${selectedWorks.length * 118}vh` }}
-      aria-labelledby="selected-work-title"
-    >
-      <div className="sticky top-0 min-h-screen overflow-hidden" style={{ contain: "layout paint" }}>
-        <div
-          className="pointer-events-none absolute inset-0"
-          style={{
-            background:
-              "radial-gradient(circle at 50% 46%, color-mix(in srgb, var(--surface-muted) 38%, transparent), transparent 58%)",
-          }}
-          aria-hidden="true"
-        />
-
-        {selectedWorks.map((work, index) => (
-          <div
-            key={`${work.key}-presence`}
-            ref={(element) => { glowRefs.current[index] = element; }}
-            className="pointer-events-none absolute inset-0"
-            aria-hidden="true"
-          >
-            <SidePresence work={work} visible />
-          </div>
-        ))}
-
-        <div className={`absolute left-8 top-24 z-40 ${isRtl ? "left-auto right-8 text-end" : ""}`}>
-          <p className="text-xs font-black uppercase tracking-[0.32em] text-primary-theme">
-            {sectionLabel}
-          </p>
-          <p className="mt-2 text-[11px] font-bold uppercase tracking-[0.22em] text-muted">
-            {isArabic ? "مرر للاستكشاف" : "Scroll to explore"}
-          </p>
-          <h2 id="selected-work-title" className="sr-only">
-            {t.portfolio.title}
-          </h2>
-        </div>
-
-        <div className="absolute inset-0 z-20">
-          {selectedWorks.map((work, index) => (
-            <Link
-              key={work.key}
-              ref={(element) => { itemRefs.current[index] = element; }}
-              href={work.href}
-              tabIndex={activeIndex === index ? 0 : -1}
-              aria-hidden={activeIndex !== index}
-              aria-label={`${ctaLabel}: ${work.title}`}
-              className="group absolute block w-[clamp(420px,68vw,760px)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary-theme focus-visible:ring-offset-4 focus-visible:ring-offset-background lg:w-[clamp(520px,62vw,980px)]"
-              style={{ pointerEvents: activeIndex === index ? "auto" : "none" }}
-            >
-              <div
-                className="premium-surface relative aspect-[16/9] overflow-hidden rounded-[1.75rem] transition-[border-color,transform] duration-300 group-hover:-translate-y-1"
-                style={{
-                  borderColor: "color-mix(in srgb, var(--primary) 14%, var(--border))",
-                }}
-              >
-                <Image
-                  src={work.image}
-                  alt={`${work.title} project preview`}
-                  fill
-                  sizes="(max-width: 1024px) 68vw, 62vw"
-                  priority={index === 0}
-                  className="object-contain p-4 lg:p-5"
-                />
-              </div>
-            </Link>
-          ))}
-        </div>
-
-        <div className={`absolute bottom-10 left-8 z-40 w-[min(28rem,calc(100vw-4rem))] ${isRtl ? "left-auto right-8 text-end" : ""}`}>
-          <p className="text-xs font-black uppercase tracking-[0.24em] text-muted">
-            {padIndex(activeIndex)} / {padIndex(selectedWorks.length - 1)}
-          </p>
-          <p className="mt-2 text-2xl font-black text-foreground">
-            {activeWork.title}
-          </p>
-          <Link
-            href={activeWork.href}
-            className="premium-surface premium-interactive mt-3 inline-flex min-h-11 items-center gap-2 rounded-full px-4 py-2 text-xs font-black text-foreground hover:border-primary-theme hover:text-primary-theme focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary-theme"
-          >
-            {ctaLabel}
-            <ArrowUpRight className="h-3.5 w-3.5" />
-          </Link>
-        </div>
-
-        <div className={`absolute bottom-12 right-8 z-40 flex h-28 items-end gap-2 ${isRtl ? "left-8 right-auto" : ""}`} aria-hidden="true">
-          {selectedWorks.map((work, index) => (
-            <span
-              key={`${work.key}-progress`}
-              className="block w-1 origin-bottom rounded-full transition-all duration-300"
-              style={{
-                height: activeIndex === index ? "4rem" : "2rem",
-                opacity: activeIndex === index ? 1 : 0.35,
-                background: activeIndex === index ? work.palette.primary : "var(--border)",
-              }}
-            />
-          ))}
-        </div>
-      </div>
-    </section>
-  );
-}
-
-function SidePresence({ work, visible }: { work: SelectedWork; visible?: boolean }) {
-  return (
-    <>
-      <div
-        className="absolute inset-y-[8%] left-0 w-[28vw]"
-        style={{
-          opacity: visible ? 0.62 : 0,
-          background: `radial-gradient(76% 58% at 0% 50%, ${work.palette.rail}, transparent 76%)`,
-        }}
-        aria-hidden="true"
-      />
-      <div
-        className="absolute inset-y-[10%] right-0 w-[28vw]"
-        style={{
-          opacity: visible ? 0.52 : 0,
-          background: `radial-gradient(76% 58% at 100% 50%, color-mix(in srgb, ${work.palette.secondary} 18%, transparent), transparent 76%)`,
-        }}
-        aria-hidden="true"
-      />
-      <div
-        className="absolute left-0 top-[14%] h-[72%] w-px"
-        style={{
-          opacity: visible ? 0.72 : 0,
-          background: `linear-gradient(to bottom, transparent, ${work.palette.primary}, transparent)`,
-        }}
-        aria-hidden="true"
-      />
-      <div
-        className="absolute right-0 top-[18%] h-[64%] w-px"
-        style={{
-          opacity: visible ? 0.52 : 0,
-          background: `linear-gradient(to bottom, transparent, ${work.palette.secondary}, transparent)`,
-        }}
-        aria-hidden="true"
-      />
-    </>
-  );
-}
-
+/** DOMINASE content in the Sultan Shadi homepage coverflow interaction model. */
 export default function SelectedWorkCarousel() {
+  const { language, t, dir } = useLanguage();
+  const router = useRouter();
+  const reducedMotion = useReducedMotion();
+  const [active, setActive] = useState(0);
+  const [paused, setPaused] = useState(false);
+  const touchPauseTimer = useRef<number | null>(null);
+  const count = works.length;
+  const activeWork = works[active % count];
+  const isRtl = dir === "rtl";
+
+  const go = useCallback((direction: number) => {
+    setActive((current) => (current + direction + count) % count);
+  }, [count]);
+
+  const pauseForTouch = useCallback(() => {
+    setPaused(true);
+    if (touchPauseTimer.current) window.clearTimeout(touchPauseTimer.current);
+    touchPauseTimer.current = window.setTimeout(() => {
+      touchPauseTimer.current = null;
+      setPaused(false);
+    }, 1800);
+  }, []);
+
+  useEffect(() => () => { if (touchPauseTimer.current) window.clearTimeout(touchPauseTimer.current); }, []);
+
+  useEffect(() => {
+    if (paused || reducedMotion || count <= 1) return;
+    const timer = window.setInterval(() => go(1), 4200);
+    return () => window.clearInterval(timer);
+  }, [count, go, paused, reducedMotion]);
+
+  useEffect(() => {
+    const onKeyDown = (event: KeyboardEvent) => {
+      if (event.key === "ArrowLeft") go(isRtl ? 1 : -1);
+      if (event.key === "ArrowRight") go(isRtl ? -1 : 1);
+    };
+    window.addEventListener("keydown", onKeyDown);
+    return () => window.removeEventListener("keydown", onKeyDown);
+  }, [go, isRtl]);
+
+  const labels = useMemo(() => ({
+    previous: language === "ar" ? "المشروع السابق" : "Previous project",
+    next: language === "ar" ? "المشروع التالي" : "Next project",
+    explore: language === "ar" ? "اسحب للاستكشاف" : "Swipe to explore",
+  }), [language]);
+
   return (
-    <>
-      <WorkRevealGate />
-      <SelectedWorkScrollGallery />
-    </>
+    <section id="portfolio" className="home-work-gallery relative isolate overflow-hidden bg-background py-[clamp(4.5rem,9vw,7rem)] transition-colors duration-300" aria-labelledby="selected-work-title" onMouseEnter={() => setPaused(true)} onMouseLeave={() => setPaused(false)}>
+      <div className={`mx-auto mb-8 flex max-w-7xl items-end justify-between gap-6 px-5 sm:px-8 lg:px-10 ${isRtl ? "flex-row-reverse text-end" : ""}`}>
+        <div>
+          <p className="text-xs font-black uppercase tracking-[0.3em] text-primary-theme">{t.portfolio.title}</p>
+          <h2 id="selected-work-title" className="mt-3 max-w-xl text-[clamp(1.85rem,4vw,3.25rem)] font-black leading-tight text-foreground">{t.portfolio.title}</h2>
+        </div>
+        <p className="hidden max-w-xs text-sm leading-6 text-muted sm:block">{language === "ar" ? "استكشف مشاريعنا المختارة." : "Explore a selection of our work."}</p>
+      </div>
+
+      <div className="relative mx-auto flex h-[62svh] min-h-[420px] max-h-[640px] w-full items-center justify-center" style={{ perspective: "1800px" }}>
+        {works.map((work, index) => {
+          const offset = signedOffset(index, active, count);
+          const absoluteOffset = Math.abs(offset);
+          const centered = offset === 0;
+          const visible = absoluteOffset <= 2;
+          const side = Math.sign(offset);
+          return (
+            <motion.article key={work.key} className="home-work-card absolute h-full w-[84vw] max-w-[1040px] md:w-[70vw]" style={{ transform: `translateX(${offset * 42}%) translateZ(${-absoluteOffset * 240}px) rotateY(${-side * 26}deg) scale(${centered ? 1 : 0.9})`, opacity: visible ? (centered ? 1 : 0.55) : 0, zIndex: 50 - absoluteOffset, pointerEvents: visible ? "auto" : "none", transition: "transform 0.8s cubic-bezier(0.16,1,0.3,1), opacity 0.8s cubic-bezier(0.16,1,0.3,1)" }} aria-hidden={!centered}>
+              <Link href={work.href} tabIndex={centered ? 0 : -1} aria-label={centered ? `${t.portfolio.projectCTA}: ${work.title}` : undefined} onClick={(event) => { if (!centered) { event.preventDefault(); setActive(index); } }} className="group relative block h-full w-full overflow-hidden rounded-2xl border border-border bg-surface text-start focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary-theme">
+                <Image src={work.image} alt={`${work.title} project preview`} fill priority={centered && index === 0} sizes="(max-width: 768px) 84vw, 70vw" className="pointer-events-none select-none object-contain p-2 transition-transform duration-[1200ms] ease-out group-hover:scale-105 md:p-4" />
+                <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-[color-mix(in_srgb,var(--bg)_92%,transparent)] via-[color-mix(in_srgb,var(--bg)_20%,transparent)] to-transparent" />
+                <div className={`pointer-events-none absolute inset-x-0 bottom-0 flex items-end justify-between gap-4 p-6 transition-opacity duration-500 md:p-9 ${isRtl ? "flex-row-reverse text-end" : ""}`} style={{ opacity: centered ? 1 : 0 }}>
+                  <div><p className="text-[0.62rem] font-black uppercase tracking-[0.28em] text-primary-theme">{t.portfolio.title}</p><h3 className="mt-2 text-2xl font-black text-foreground md:text-4xl">{work.title}</h3></div>
+                  <span className="flex h-12 w-12 flex-none items-center justify-center rounded-full bg-primary-theme text-[var(--primary-contrast)] transition-transform duration-500 group-hover:scale-110"><ArrowUpRight className="h-5 w-5" aria-hidden /></span>
+                </div>
+              </Link>
+            </motion.article>
+          );
+        })}
+
+        <motion.div className="absolute inset-0 z-[60] md:hidden" drag="x" dragConstraints={{ left: 0, right: 0 }} dragElastic={0.2} onPointerDown={pauseForTouch} onTap={() => router.push(activeWork.href)} onDragEnd={(_, info) => { if (info.offset.x < -60) go(isRtl ? -1 : 1); else if (info.offset.x > 60) go(isRtl ? 1 : -1); }} role="button" tabIndex={-1} aria-label={`${labels.explore}: ${activeWork.title}`} style={{ touchAction: "pan-y" }} />
+        <button type="button" onClick={() => go(isRtl ? 1 : -1)} aria-label={labels.previous} className="absolute left-2 z-[70] flex h-12 w-12 items-center justify-center rounded-full border border-border bg-[color-mix(in_srgb,var(--surface)_82%,transparent)] text-foreground transition-colors hover:border-primary-theme hover:text-primary-theme md:left-6"><ChevronLeft className={`h-5 w-5 ${isRtl ? "rotate-180" : ""}`} aria-hidden /></button>
+        <button type="button" onClick={() => go(isRtl ? -1 : 1)} aria-label={labels.next} className="absolute right-2 z-[70] flex h-12 w-12 items-center justify-center rounded-full border border-border bg-[color-mix(in_srgb,var(--surface)_82%,transparent)] text-foreground transition-colors hover:border-primary-theme hover:text-primary-theme md:right-6"><ChevronRight className={`h-5 w-5 ${isRtl ? "rotate-180" : ""}`} aria-hidden /></button>
+      </div>
+
+      <div className="mt-8 flex flex-col items-center gap-5">
+        <div className="flex flex-wrap items-center justify-center gap-1.5">{works.map((work, index) => <button key={work.key} type="button" onClick={() => setActive(index)} aria-label={`${language === "ar" ? "الانتقال إلى" : "Go to"} ${work.title}`} aria-current={index === active ? "true" : undefined} className={`h-1.5 rounded-full transition-all duration-500 ${index === active ? "w-8 bg-primary-theme" : "w-1.5 bg-border hover:bg-muted"}`} />)}</div>
+        <div className="flex items-center gap-6 text-[0.65rem] font-black uppercase tracking-[0.25em] text-muted"><span><span className="text-foreground">{pad(active + 1)}</span> / {pad(count)}</span><Link href={activeWork.href} className="inline-flex items-center gap-2 text-primary-theme hover:text-secondary-theme">{t.portfolio.projectCTA} <ArrowUpRight className="h-3.5 w-3.5" aria-hidden /></Link></div>
+      </div>
+    </section>
   );
 }

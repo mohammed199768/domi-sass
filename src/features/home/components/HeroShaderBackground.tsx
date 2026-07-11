@@ -3,8 +3,8 @@
 /**
  * HeroShaderBackground — premium WebGL signal field for the DOMINASE Hero.
  *
- * Visual: calm plasma/signal lines flowing over an obsidian base, coloured
- * from the Hero's fixed dark CSS custom properties and passed as uniforms.
+ * Visual: calm plasma/signal lines flowing over the active Hero surface,
+ * coloured from its CSS custom properties and passed as uniforms.
  * No grid, no particles, no neon clutter. Line energy
  * is attenuated in the centre of the viewport so the wordmark/copy stay
  * readable.
@@ -24,6 +24,7 @@
  */
 
 import { useEffect, useRef } from "react";
+import { useTheme } from "next-themes";
 
 const VERTEX_SRC = `
 attribute vec2 aPosition;
@@ -37,8 +38,6 @@ precision highp float;
 
 uniform vec2  uResolution;
 uniform float uTime;
-uniform vec3  uBgA;        /* obsidian base (top)    */
-uniform vec3  uBgB;        /* obsidian surface (bottom) */
 uniform vec3  uAccent;     /* emerald                */
 uniform vec3  uAccentSoft; /* mint (bright accent)   */
 uniform float uIntensity;  /* overall signal energy  */
@@ -71,10 +70,8 @@ void main() {
   float centerMask = smoothstep(0.16, 0.6, length((uv - vec2(0.5, 0.52)) * vec2(1.0, 1.35)));
 
   /* Obsidian base — vertical blend of the two fixed Hero background tokens. */
-  vec3 col = mix(uBgA, uBgB, uv.y);
-  col *= 0.72 + 0.28 * verticalFade;
-
   vec3 lines = vec3(0.0);
+  float lineStrength = 0.0;
   for (int l = 0; l < LINE_COUNT; l++) {
     float i = float(l);
     float offsetTime = uTime * SPEED * 1.33;
@@ -91,10 +88,11 @@ void main() {
                + smoothstep(halfWidth * 0.15 + 0.01, halfWidth * 0.15, d) * 0.8;
 
     lines += line * mix(uAccent, uAccentSoft, rand * 0.55) * rand;
+    lineStrength += line * rand;
   }
 
-  col += lines * uIntensity * (0.3 + 0.7 * centerMask);
-  gl_FragColor = vec4(col, 1.0);
+  float signalAlpha = clamp(lineStrength * uIntensity * (0.3 + 0.7 * centerMask), 0.0, 0.72);
+  gl_FragColor = vec4(lines, signalAlpha);
 }
 `;
 
@@ -125,15 +123,13 @@ function parseCssColor(raw: string, fallback: Vec3): Vec3 {
   return fallback;
 }
 
-/** Read the Hero's fixed dark tokens; fall back to the same fixed values. */
+/** Read the active Hero token scope and retain safe dark-mode fallbacks. */
 function readHeroColors(scope: Element) {
   const styles = getComputedStyle(scope);
   const token = (name: string, fallback: Vec3) =>
     parseCssColor(styles.getPropertyValue(name), fallback);
 
   return {
-    bgA: token("--hero-bg", [0, 0, 0]),
-    bgB: token("--hero-surface", [0.027, 0.035, 0.027]),
     accent: token("--hero-emerald", [0.133, 0.753, 0.478]),
     accentSoft: token("--hero-emerald-bright", [0.388, 1.0, 0.78]),
   };
@@ -170,12 +166,20 @@ type TeardownOptions = {
 
 export default function HeroShaderBackground() {
   const canvasRef = useRef<HTMLCanvasElement>(null);
+  const syncThemeRef = useRef<((theme: string | undefined) => void) | null>(null);
+  const { resolvedTheme } = useTheme();
+  const resolvedThemeRef = useRef(resolvedTheme);
+  resolvedThemeRef.current = resolvedTheme;
+
+  useEffect(() => {
+    syncThemeRef.current?.(resolvedTheme);
+  }, [resolvedTheme]);
 
   useEffect(() => {
     const canvas = canvasRef.current;
     if (!canvas) return;
 
-    /* Reduced motion: never initialise WebGL. The Hero's fixed static CSS
+    /* Reduced motion: never initialise WebGL. The Hero's themed static CSS
        gradient (var(--hero-gradient) + .hero-aura) is the fallback. */
     const motionQuery = window.matchMedia("(prefers-reduced-motion: reduce)");
     let disposed = false;
@@ -186,7 +190,7 @@ export default function HeroShaderBackground() {
 
       canvas.style.visibility = "hidden";
       const gl = canvas.getContext("webgl", {
-        alpha: false,
+        alpha: true,
         antialias: false,
         depth: false,
         stencil: false,
@@ -225,26 +229,29 @@ export default function HeroShaderBackground() {
       const u = {
         resolution: gl.getUniformLocation(program, "uResolution"),
         time: gl.getUniformLocation(program, "uTime"),
-        bgA: gl.getUniformLocation(program, "uBgA"),
-        bgB: gl.getUniformLocation(program, "uBgB"),
         accent: gl.getUniformLocation(program, "uAccent"),
         accentSoft: gl.getUniformLocation(program, "uAccentSoft"),
         intensity: gl.getUniformLocation(program, "uIntensity"),
       };
 
       gl.useProgram(program);
+      gl.enable(gl.BLEND);
+      gl.blendFunc(gl.SRC_ALPHA, gl.ONE_MINUS_SRC_ALPHA);
+      gl.clearColor(0, 0, 0, 0);
       gl.enableVertexAttribArray(aPosition);
       gl.vertexAttribPointer(aPosition, 2, gl.FLOAT, false, 0, 0);
 
-      /* Colours come from the Hero wrapper, never from global theme tokens. */
-      const colors = readHeroColors(canvas.parentElement ?? canvas);
-      gl.uniform3fv(u.bgA, colors.bgA);
-      gl.uniform3fv(u.bgB, colors.bgB);
-      gl.uniform3fv(u.accent, colors.accent);
-      gl.uniform3fv(u.accentSoft, colors.accentSoft);
-
-      const isSmall = window.innerWidth < SMALL_SCREEN_PX;
-      gl.uniform1f(u.intensity, isSmall ? 0.3 : 0.38);
+      /* Keep one context/program and refresh only uniform values on a theme
+         switch. The values are scoped to the Hero, not global defaults. */
+      const applyThemeTokens = (theme: string | undefined) => {
+        const colors = readHeroColors(canvas.parentElement ?? canvas);
+        gl.uniform3fv(u.accent, colors.accent);
+        gl.uniform3fv(u.accentSoft, colors.accentSoft);
+        const isLight = theme === "light";
+        const isSmall = window.innerWidth < SMALL_SCREEN_PX;
+        gl.uniform1f(u.intensity, isLight ? (isSmall ? 0.13 : 0.17) : (isSmall ? 0.29 : 0.37));
+      };
+      applyThemeTokens(resolvedThemeRef.current);
 
       /* ── Sizing: follow the Hero container, capped DPR ── */
       const resize = () => {
@@ -280,9 +287,16 @@ export default function HeroShaderBackground() {
       };
 
       const draw = (now: number) => {
+        gl.clear(gl.COLOR_BUFFER_BIT);
         gl.uniform2f(u.resolution, canvas.width, canvas.height);
         gl.uniform1f(u.time, (now - startTime) / 1000);
         gl.drawArrays(gl.TRIANGLE_STRIP, 0, 4);
+      };
+
+      syncThemeRef.current = (theme) => {
+        if (contextLost || gl.isContextLost()) return;
+        applyThemeTokens(theme);
+        draw(performance.now());
       };
 
       const syncRunning = () => {
@@ -312,9 +326,8 @@ export default function HeroShaderBackground() {
       /* REGRESSION GUARD: when the browser evicts this WebGL context (Chrome
          caps live contexts; client-side navigations/HMR can exceed it), a dead
          `alpha:false` canvas composites as an OPAQUE WHITE surface — which
-         painted the fixed-dark Hero as a washed-out "light mode". The canvas
-         must be hidden the moment the context is lost so the Hero's static
-         dark CSS gradient fallback shows instead. */
+         painted the Hero as a washed-out surface. The canvas must be hidden
+         the moment the context is lost so the themed CSS fallback shows. */
       const onContextLost = (e: Event) => {
         e.preventDefault();
         contextLost = true;
@@ -352,6 +365,7 @@ export default function HeroShaderBackground() {
         cancelAnimationFrame(rafId);
         intersectionObserver.disconnect();
         resizeObserver.disconnect();
+        syncThemeRef.current = null;
         document.removeEventListener("visibilitychange", onVisibilityChange);
         canvas.removeEventListener("webglcontextlost", onContextLost);
         canvas.removeEventListener("webglcontextrestored", onContextRestored);

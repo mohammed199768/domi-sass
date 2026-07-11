@@ -1,10 +1,7 @@
 "use client";
 
 /**
- * FloatingThemeToggle - the site's persistent internal-page theme control.
- *
- * It is never rendered on `/`, so the homepage fixed-dark behavior remains
- * untouched. It uses the existing next-themes `dominase-theme` state only.
+ * FloatingThemeToggle - the site's persistent theme control, including home.
  */
 
 import { useEffect, useState } from "react";
@@ -26,8 +23,8 @@ export default function FloatingThemeToggle() {
         return () => clearTimeout(timer);
     }, []);
 
-    const allowed = THEME_TOGGLE_ROUTES.some((route) => pathname.startsWith(route));
-    if (pathname === "/" || !allowed || !mounted) {
+    const allowed = pathname === "/" || THEME_TOGGLE_ROUTES.some((route) => pathname.startsWith(route));
+    if (!allowed || !mounted) {
         return null;
     }
 

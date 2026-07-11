@@ -1,16 +1,9 @@
 "use client";
 
 /**
- * FloatingActions — the site's persistent floating control cluster.
- *
- * Layout (physical coordinates, stable in LTR and RTL):
- *   bottom-right : WhatsApp (all pages) + FloatingThemeToggle stacked above it
- *                  (internal theme-enabled pages only — never on `/`)
- *   bottom-left  : DOMINASE Guide chat trigger (all pages)
- *   bottom-center: MobileNav trigger (rendered separately) stays clear of both.
- *
- * z-order: floating buttons (z-30) < mobile-nav scrim (z-40) < chat panel
- * (z-45) < mobile-nav panel/trigger + header (z-50).
+ * FloatingActions is the site's persistent floating control cluster.
+ * WhatsApp and the theme control share the lower-right stack; the DOMINASE
+ * Guide remains lower-left and the mobile navigation trigger stays centered.
  */
 
 import FloatingWhatsApp from "./FloatingWhatsApp";

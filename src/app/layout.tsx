@@ -25,13 +25,9 @@ import {
 const bootClassScript = `
 (() => {
   const themeStorageKey = "dominase-theme";
-  const isHome = window.location.pathname === "/";
-
   try {
     const savedTheme = window.localStorage.getItem(themeStorageKey);
-    const theme = isHome || (savedTheme !== "light" && savedTheme !== "dark")
-      ? "dark"
-      : savedTheme;
+    const theme = savedTheme === "light" || savedTheme === "dark" ? savedTheme : "dark";
     document.documentElement.dataset.theme = theme;
   } catch {
     document.documentElement.dataset.theme = "dark";

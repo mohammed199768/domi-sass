@@ -9,7 +9,8 @@ import {
   PortfolioSection,
   TestimonialsSection,
   FlowArt,
-  FlowSection
+  FlowSection,
+  HomeCinematicScrollStage
 } from "@/features/home";
 import Footer from "@/components/Footer";
 import { scrollToSection } from "@/lib/motion/scrollToSection";
@@ -40,6 +41,14 @@ export default function Home() {
        * it as the user scrolls.
        */}
       <Hero />
+
+      {/*
+       * Cinematic Scroll Reel — pinned 4-scene sequence (Diagnose, Design,
+       * Build, Convert) driving its own GSAP scrub internally. Kept outside
+       * FlowArt so no external transform/clip conflicts with its pinning.
+       * Falls back to a static stacked version on mobile / reduced motion.
+       */}
+      <HomeCinematicScrollStage />
 
       {/* All post-hero sections in the Flow Art entrance system */}
       <FlowArt>

@@ -52,7 +52,7 @@ export default function AboutSection() {
         };
 
     return (
-        <section id="about" className="relative py-20 transition-colors duration-300 sm:py-24">
+        <section id="about" className="home-about-section relative py-20 transition-colors duration-300 sm:py-24">
             <div className="mx-auto max-w-7xl px-5 sm:px-6">
                 <motion.div
                     initial={prefersReducedMotion ? false : { opacity: 0, y: 20 }}

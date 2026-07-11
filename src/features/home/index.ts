@@ -12,3 +12,4 @@ export { default as FinalCTA } from './components/FinalCTA';
 export { default as FlowArt } from './components/flow/FlowArt';
 export { default as FlowSection } from './components/flow/FlowSection';
 export { default as BeneathInterfaceSection } from './components/BeneathInterfaceSection';
+export { default as HomeCinematicScrollStage } from './components/HomeCinematicScrollStage';

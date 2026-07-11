@@ -69,25 +69,25 @@
 }
 
 [data-theme="light"] {
-  --domi-bg: #f5f7f4;
-  --domi-bg-soft: #edf2ef;
-  --domi-surface: #ffffff;
-  --domi-surface-elevated: #fafcfb;
+  --domi-bg: #f2f5f3;
+  --domi-bg-soft: #e9efec;
+  --domi-surface: #fbfdfc;
+  --domi-surface-elevated: #ffffff;
 
-  --domi-text: #07110e;
-  --domi-text-muted: #3f4d47;
-  --domi-text-faint: #718078;
+  --domi-text: #071610;
+  --domi-text-muted: #405149;
+  --domi-text-faint: #6d7d75;
 
-  --domi-border: rgba(7, 17, 11, 0.12);
-  --domi-border-strong: rgba(7, 17, 11, 0.2);
+  --domi-border: rgba(7, 32, 22, 0.12);
+  --domi-border-strong: rgba(7, 32, 22, 0.2);
 
-  --domi-accent: #0d8f65;
-  --domi-accent-bright: #19b98b;
-  --domi-accent-soft: #ddf5ea;
-  --domi-accent-deep: #063b2c;
-  --domi-accent-shadow: rgba(15, 143, 90, 0.14);
-  --domi-cyan: #0b8394;
-  --domi-violet: #6f63c8;
+  --domi-accent: #0b8f63;
+  --domi-accent-bright: #20b681;
+  --domi-accent-soft: #dcefe7;
+  --domi-accent-deep: #073d2e;
+  --domi-accent-shadow: rgba(12, 42, 30, 0.11);
+  --domi-cyan: #147d8c;
+  --domi-violet: #6961b6;
 
   --bg: var(--domi-bg);
   --fg: var(--domi-text);
@@ -98,8 +98,8 @@
   --primary: var(--domi-accent);
   --secondary: var(--domi-accent-bright);
   --muted: var(--domi-text-muted);
-  --primary-contrast: var(--domi-text);
-  --cool-shadow: rgba(7, 17, 11, 0.1);
+  --primary-contrast: #ffffff;
+  --cool-shadow: rgba(12, 42, 30, 0.11);
 
   --atmo-glow-1: color-mix(in srgb, var(--domi-accent-bright) 12%, transparent);
   --atmo-glow-2: color-mix(in srgb, var(--domi-accent) 7%, transparent);
@@ -320,15 +320,9 @@ body.domi-booting :where(main, header, footer, .mobile-nav-shell) {
     radial-gradient(54% 54% at 88% 90%, var(--atmo-glow-2), transparent 58%);
 }
 
-/* ── Hero fixed-dark lock ──────────────────────────────────────────────────
- * REGRESSION GUARD: the homepage Hero is intentionally THEME-INVARIANT.
- * Every color below is a literal value scoped to [data-hero-theme="fixed-dark"].
- * Do NOT reference global theme tokens (--bg/--fg/--surface/--border/--muted,
- * --domi-*, --primary/--secondary) inside the Hero — that reconnects it to
- * [data-theme] and reintroduces the light-mode Hero regression.
- * The selector is attribute-only on purpose: the lock must survive class-name
- * changes, JS state, and `data-theme="light"` being forced on <html>. */
-[data-hero-theme="fixed-dark"] {
+/* Hero token scope: both themes are intentionally defined here so the Hero
+   always has a complete composition while its surrounding page can adapt. */
+[data-theme="dark"] [data-hero-theme="adaptive"] {
   --hero-bg: #000000;
   --hero-bg-soft: #030403;
   --hero-bg-deep: #000000;
@@ -348,6 +342,7 @@ body.domi-booting :where(main, header, footer, .mobile-nav-shell) {
   --hero-cyan: #52d7ff;
   --hero-shadow: rgba(0, 0, 0, 0.55);
   --hero-primary-contrast: #000000;
+  --hero-shader-intensity: 0.38;
   --hero-gradient:
     radial-gradient(circle at 18% 12%, rgba(99, 255, 199, 0.14), transparent 32rem),
     radial-gradient(88% 68% at 78% 10%, rgba(34, 192, 122, 0.09), transparent 52%),
@@ -357,7 +352,41 @@ body.domi-booting :where(main, header, footer, .mobile-nav-shell) {
   color-scheme: dark;
   isolation: isolate;
   color: var(--hero-foreground, #f4f7f2);
-  background-color: #000000; /* opaque floor even if gradients fail to parse */
+  background-color: #000000;
+  background-image: var(--hero-gradient);
+}
+
+[data-theme="light"] [data-hero-theme="adaptive"] {
+  --hero-bg: #f2f6f3;
+  --hero-bg-soft: #eaf1ed;
+  --hero-bg-deep: #e3ece7;
+  --hero-surface: #fbfdfc;
+  --hero-surface-elevated: #ffffff;
+  --hero-surface-strong: #e6efea;
+  --hero-foreground: #061710;
+  --hero-muted: #40534a;
+  --hero-muted-soft: #687a71;
+  --hero-soft: #687a71;
+  --hero-border: rgba(6, 35, 24, 0.13);
+  --hero-border-strong: rgba(6, 35, 24, 0.22);
+  --hero-emerald: #0c9165;
+  --hero-emerald-bright: #24b985;
+  --hero-emerald-strong: #087353;
+  --hero-violet: #6961b8;
+  --hero-cyan: #167f8d;
+  --hero-shadow: rgba(15, 57, 40, 0.12);
+  --hero-primary-contrast: #ffffff;
+  --hero-shader-intensity: 0.2;
+  --hero-gradient:
+    radial-gradient(circle at 16% 12%, color-mix(in srgb, var(--hero-emerald) 12%, transparent), transparent 30rem),
+    radial-gradient(78% 62% at 82% 18%, color-mix(in srgb, var(--hero-cyan) 8%, transparent), transparent 58%),
+    linear-gradient(180deg, var(--hero-bg) 0%, var(--hero-bg-soft) 52%, var(--hero-bg-deep) 100%);
+  --hero-atmo-glow-1: color-mix(in srgb, var(--hero-emerald) 10%, transparent);
+  --hero-atmo-glow-2: color-mix(in srgb, var(--hero-cyan) 7%, transparent);
+  color-scheme: light;
+  isolation: isolate;
+  color: var(--hero-foreground);
+  background-color: var(--hero-bg);
   background-image: var(--hero-gradient);
 }
 
@@ -369,16 +398,21 @@ body.domi-booting :where(main, header, footer, .mobile-nav-shell) {
 
 .hero-eyebrow {
   color: var(--hero-emerald-bright);
-  background-color: rgba(7, 9, 7, 0.86);
+  background-color: color-mix(in srgb, var(--hero-surface) 86%, transparent);
   border: 1px solid var(--hero-border);
-  box-shadow: 0 18px 42px -28px rgba(99, 255, 199, 0.32);
+  box-shadow: 0 18px 42px -28px var(--hero-shadow);
+}
+
+[data-theme="light"] [data-hero-theme="adaptive"] .hero-eyebrow {
+  color: var(--hero-emerald-strong);
+  background-color: color-mix(in srgb, var(--hero-emerald) 11%, var(--hero-surface));
 }
 
 /* ── Tablet (768px – 1024px) Hero typography tuning ────────────────────────
  * Moved from hero-gate.css when the gate transition was retired — these are
  * layout/readability rules for the Hero itself, not gate behavior. */
 .hero-canvas [data-hero-wordmark],
-[data-hero-theme="fixed-dark"] [data-hero-wordmark] {
+[data-hero-theme="adaptive"] [data-hero-wordmark] {
   direction: ltr;
   max-width: 100%;
   color: var(--hero-foreground, #f4f7f2);
@@ -388,12 +422,12 @@ body.domi-booting :where(main, header, footer, .mobile-nav-shell) {
 }
 
 .hero-canvas [data-hero-headline],
-[data-hero-theme="fixed-dark"] [data-hero-headline] {
+[data-hero-theme="adaptive"] [data-hero-headline] {
   color: var(--hero-foreground, #f4f7f2);
 }
 
 .hero-canvas [data-hero-subheadline],
-[data-hero-theme="fixed-dark"] [data-hero-subheadline] {
+[data-hero-theme="adaptive"] [data-hero-subheadline] {
   color: color-mix(in srgb, var(--hero-foreground, #f4f7f2) 80%, transparent);
 }
 
@@ -514,6 +548,90 @@ body.domi-booting :where(main, header, footer, .mobile-nav-shell) {
   );
 }
 
+/* Homepage light-mode tonal fields. These keep the long page coherent without
+   altering its composition, media, scroll stages, or case-study artwork. */
+.home-cinematic-stage {
+  --cine-bg: var(--bg);
+  --cine-surface: var(--surface);
+  --cine-foreground: var(--fg);
+  --cine-muted: var(--muted);
+  --cine-muted-soft: var(--domi-text-faint);
+  --cine-border: var(--border);
+  --cine-border-strong: var(--domi-border-strong);
+  background:
+    radial-gradient(circle at 18% 24%, color-mix(in srgb, var(--primary) 7%, transparent), transparent 36%),
+    radial-gradient(circle at 84% 68%, color-mix(in srgb, var(--secondary) 5%, transparent), transparent 40%),
+    linear-gradient(180deg, var(--bg), color-mix(in srgb, var(--surface-muted) 76%, var(--bg)));
+}
+
+[data-theme="dark"] .home-cinematic-stage {
+  --cine-bg: #020403;
+  --cine-surface: #070907;
+  --cine-foreground: #f4f7f2;
+  --cine-muted: #b9c2ba;
+  --cine-muted-soft: #9ea79f;
+  --cine-border: rgba(244, 247, 242, 0.14);
+  --cine-border-strong: rgba(244, 247, 242, 0.24);
+  background: var(--cine-bg);
+}
+
+.cine-media-vignette {
+  background: radial-gradient(120% 90% at 50% 40%, transparent 58%, color-mix(in srgb, var(--fg) 22%, transparent) 100%);
+}
+
+[data-theme="light"] .cine-media-vignette {
+  background: radial-gradient(120% 90% at 50% 40%, transparent 60%, color-mix(in srgb, var(--primary) 12%, transparent) 100%);
+}
+
+.home-about-section,
+.home-work-gallery,
+.home-testimonials {
+  background:
+    radial-gradient(circle at 12% 12%, color-mix(in srgb, var(--primary) 5%, transparent), transparent 30rem),
+    linear-gradient(180deg, var(--bg), var(--surface-muted));
+}
+
+.home-about-section .spatial-card {
+  border-color: color-mix(in srgb, var(--primary) 18%, var(--border));
+}
+
+.home-beneath-stage {
+  background:
+    radial-gradient(circle at 84% 24%, color-mix(in srgb, var(--secondary) 7%, transparent), transparent 34%),
+    linear-gradient(180deg, var(--surface-muted), var(--bg));
+}
+
+.home-beneath-viewport {
+  border: 1px solid color-mix(in srgb, var(--primary) 16%, var(--border));
+  border-radius: 1.25rem;
+  background: color-mix(in srgb, var(--surface) 84%, transparent);
+  box-shadow: 0 28px 60px -50px var(--cool-shadow);
+}
+
+.home-work-card > a {
+  box-shadow: 0 28px 64px -44px var(--cool-shadow);
+}
+
+[data-theme="light"] .home-work-card > a {
+  border-color: color-mix(in srgb, var(--primary) 16%, var(--border));
+  background-color: var(--surface);
+}
+
+.home-testimonials {
+  background:
+    radial-gradient(circle at 78% 22%, color-mix(in srgb, var(--primary) 6%, transparent), transparent 28rem),
+    linear-gradient(180deg, var(--surface-muted), var(--bg));
+}
+
+[data-theme="light"] .hero-base-fade {
+  background: linear-gradient(
+    to bottom,
+    transparent 0%,
+    color-mix(in srgb, var(--hero-bg-deep) 70%, transparent) 58%,
+    var(--bg) 100%
+  );
+}
+
 
 /* ---- Unified CTA language (emerald/mint brand gradient) ----
    Scoped to @layer components so per-call-site utilities (radius, weight)
@@ -570,7 +688,7 @@ body.domi-booting :where(main, header, footer, .mobile-nav-shell) {
     var(--hero-emerald) 52%,
     color-mix(in srgb, var(--hero-emerald) 70%, var(--hero-emerald-bright)) 100%
   );
-  box-shadow: 0 16px 34px -16px rgba(34, 192, 122, 0.58);
+  box-shadow: 0 16px 34px -16px color-mix(in srgb, var(--hero-emerald) 56%, transparent);
   transition:
     transform 300ms ease,
     box-shadow 300ms ease;
@@ -578,7 +696,7 @@ body.domi-booting :where(main, header, footer, .mobile-nav-shell) {
 
 .hero-cta-primary:hover {
   transform: translateY(-2px);
-  box-shadow: 0 22px 46px -16px rgba(34, 192, 122, 0.7);
+  box-shadow: 0 22px 46px -16px color-mix(in srgb, var(--hero-emerald) 68%, transparent);
 }
 
 .hero-cta-primary:active {
@@ -597,7 +715,7 @@ body.domi-booting :where(main, header, footer, .mobile-nav-shell) {
   border-radius: 9999px;
   font-weight: 700;
   color: var(--hero-foreground);
-  background-color: rgba(7, 9, 7, 0.55);
+  background-color: color-mix(in srgb, var(--hero-surface) 76%, transparent);
   border: 1px solid color-mix(in srgb, var(--hero-emerald) 22%, var(--hero-border));
   transition:
     transform 300ms ease,
@@ -607,7 +725,7 @@ body.domi-booting :where(main, header, footer, .mobile-nav-shell) {
 
 .hero-cta-secondary:hover {
   border-color: color-mix(in srgb, var(--hero-emerald-bright) 55%, var(--hero-border));
-  background-color: rgba(12, 16, 13, 0.78);
+  background-color: color-mix(in srgb, var(--hero-surface-elevated) 92%, transparent);
   transform: translateY(-2px);
 }
 

@@ -11,15 +11,10 @@ export default function Hero() {
     const { componentRef, wordmarkRef } = useHeroAnimation();
 
     return (
-        /* REGRESSION GUARD: data-hero-theme="fixed-dark" makes this Hero
-           theme-invariant — all colors resolve from the fixed --hero-* tokens
-           in globals.css, never from global [data-theme] variables. Do not
-           remove this attribute or add theme-dependent classes (text-foreground,
-           bg-background, .btn-*, etc.) inside the Hero. */
         <section
             ref={componentRef}
             id="home"
-            data-hero-theme="fixed-dark"
+            data-hero-theme="adaptive"
             className="hero-canvas relative flex min-h-dvh items-center justify-center overflow-hidden px-6 pb-24 pt-36 lg:pb-28 lg:pt-28"
         >
             {/* WebGL signal field — contained inside the Hero, behind all content.
@@ -28,7 +23,7 @@ export default function Hero() {
             <HeroShaderBackground />
 
             <div className="hero-aura pointer-events-none absolute inset-0" aria-hidden="true" />
-            <div className="hero-base-fade pointer-events-none absolute inset-x-0 bottom-0 h-40" aria-hidden="true" />
+            <div className="hero-base-fade pointer-events-none absolute inset-x-0 bottom-0 h-24" aria-hidden="true" />
 
             <div className="relative z-10 mx-auto w-full max-w-7xl">
                 <div className="mx-auto flex max-w-5xl flex-col items-center text-center">

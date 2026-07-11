@@ -5,6 +5,7 @@ export type VisualState = {
   theme: "light" | "dark";
   viewport: { width: number; height: number };
   reducedMotion?: "no-preference" | "reduce";
+  strictConsole?: boolean;
 };
 
 export const viewports = {
@@ -22,18 +23,25 @@ export const viewports = {
 } as const;
 
 export async function openStablePage(page: Page, route: string, state: VisualState) {
-  page.on("console", (message) => {
-    if (message.type() === "error") {
-      throw new Error(`Browser console error on ${route}: ${message.text()}`);
-    }
-  });
-  page.on("pageerror", (error) => {
-    throw new Error(`Uncaught page error on ${route}: ${error.message}`);
-  });
+  if (state.strictConsole !== false) {
+    page.on("console", (message) => {
+      if (message.type() === "error") {
+        throw new Error(`Browser console error on ${route}: ${message.text()}`);
+      }
+    });
+    page.on("pageerror", (error) => {
+      throw new Error(`Uncaught page error on ${route}: ${error.message}`);
+    });
+  }
 
   await page.addInitScript(({ language, theme }) => {
-    window.localStorage.setItem("domi-language", language);
-    window.localStorage.setItem("theme", theme);
+    // Seed a fresh test context once. A reload must exercise saved-theme
+    // restoration instead of overwriting the theme selected by the test.
+    if (!window.sessionStorage.getItem("domi-visual-state-seeded")) {
+      window.localStorage.setItem("domi-language", language);
+      window.localStorage.setItem("dominase-theme", theme);
+      window.sessionStorage.setItem("domi-visual-state-seeded", "1");
+    }
   }, { language: state.language, theme: state.theme });
 
   await page.setViewportSize(state.viewport);
@@ -52,7 +60,7 @@ export async function openStablePage(page: Page, route: string, state: VisualSta
     await expect(page.locator(`body > div[dir="${direction}"]`)).toBeVisible();
   }
 
-  await expect(page.locator("html")).toHaveClass(new RegExp(`(^|\\s)${state.theme}(\\s|$)`));
+  await expect(page.locator("html")).toHaveAttribute("data-theme", state.theme);
   await page.evaluate(() => document.fonts.ready);
   await page.waitForTimeout(route === "/" ? 1_400 : 650);
   await page.evaluate(() => window.scrollTo({ top: 0, left: 0, behavior: "instant" }));

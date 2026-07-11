@@ -1,6 +1,6 @@
 import { useEffect, useRef } from "react";
 import { useLanguage } from "@/context/LanguageContext";
-import { gsap, registerMotionPlugins } from "@/lib/motion/gsapSetup";
+import { gsap, registerMotionPlugins, ScrollTrigger } from "@/lib/motion/gsapSetup";
 import { useReducedMotion } from "@/lib/motion/useReducedMotion";
 
 export function useHeroAnimation() {
@@ -60,8 +60,47 @@ export function useHeroAnimation() {
                 .to(heroHeadline, { opacity: 1, y: 0, duration: 0.46 }, "-=0.2")
                 .to(heroSubheadline, { opacity: 1, y: 0, duration: 0.46 }, "-=0.18")
                 .to(heroCtas, { opacity: 1, y: 0, duration: 0.44 }, "-=0.14");
+
+            /* Cinematic opening-scene exit: as the visitor scrolls past the
+               hero, supporting layers lift away while the DOMINASE wordmark
+               stays dominant - it only drifts and gains a touch of scale,
+               like a title card holding the frame. Transform + opacity only;
+               HeroShaderBackground is untouched. Desktop-only: mobile keeps
+               the hero simple and the CTA visible. */
+            const mm = gsap.matchMedia();
+            mm.add("(min-width: 768px)", () => {
+                const heroAura = root.querySelector<HTMLElement>(".hero-aura");
+
+                const exitTl = gsap.timeline({
+                    defaults: { ease: "none" },
+                    scrollTrigger: {
+                        trigger: root,
+                        start: "top top",
+                        end: "bottom top",
+                        scrub: 0.6,
+                        invalidateOnRefresh: true,
+                    },
+                });
+
+                exitTl
+                    .to(
+                        [heroEyebrow, heroHeadline, heroSubheadline, heroCtas],
+                        { autoAlpha: 0, y: -30, stagger: 0.05, duration: 0.55 },
+                        0
+                    )
+                    .to(
+                        heroWordmark,
+                        { scale: 1.06, yPercent: -12, duration: 1 },
+                        0
+                    );
+
+                if (heroAura) {
+                    exitTl.to(heroAura, { autoAlpha: 0.35, duration: 1 }, 0);
+                }
+            });
         }, root);
 
+        ScrollTrigger.refresh();
         return () => ctx.revert();
     }, [dir, prefersReducedMotion]);
 
