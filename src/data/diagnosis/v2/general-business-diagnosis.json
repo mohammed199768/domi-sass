@@ -1,0 +1,3795 @@
+{
+  "meta": {
+    "id": "general-business-growth-diagnosis",
+    "version": "2.0.0-multi-domain-local",
+    "title": "General Business Growth Diagnosis",
+    "titleAr": "تشخيص نمو النشاط التجاري",
+    "description": "A strategic self-assessment for offer clarity, trust, conversion path, follow-up, content, and digital readiness.",
+    "descriptionAr": "تقييم ذاتي استراتيجي لوضوح العرض والثقة ومسار التحويل والمتابعة والمحتوى والجاهزية الرقمية.",
+    "disclaimer": "This is a strategic self-assessment for business readiness. It is not a guarantee of results and is not a substitute for professional legal, financial, medical, or operational advice. This is broad guidance and depends on business type, market, offer, team capacity, and customer context. Not every recommendation is necessary for every business.",
+    "disclaimerAr": "هذا تقييم ذاتي استراتيجي لجاهزية النشاط. لا يضمن النتائج ولا يغني عن الاستشارة المهنية القانونية أو المالية أو الطبية أو التشغيلية عند الحاجة. هذه إرشادات عامة وتتأثر بنوع النشاط والسوق والعرض وقدرة الفريق وسياق العملاء. ليست كل توصية ضرورية لكل نشاط.",
+    "scale": {
+      "min": 1,
+      "max": 5,
+      "step": 0.5
+    },
+    "domain": "general-business",
+    "domainAr": "أعمال عامة",
+    "estimatedMinutes": 8,
+    "sourceNote": "Generated from 04_STRATEGY_MAPS/general_business_strategy_map.md, question_blueprints.json, DOMINASE_EXTRACTION_MATRIX.json, DOMINASE_TAG_TAXONOMY.md, and DOMINASE_RECOMMENDATION_BANK.md. question_blueprints.json was used only as planning index.",
+    "ethicsNote": "Value-first, advisor-like self-assessment. No fabricated statistics, no guarantees, no manipulative urgency, no copied book text, and no recommendation to build systems the business will not realistically use."
+  },
+  "dimensions": [
+    {
+      "id": "D1",
+      "dimensionKey": "offer-message-clarity",
+      "title": "Offer & Message Clarity",
+      "titleAr": "وضوح العرض والرسالة",
+      "description": "How quickly the business communicates what it offers and who it serves.",
+      "descriptionAr": "مدى سرعة توصيل ما يقدمه النشاط ولمن.",
+      "orderIndex": 1,
+      "weight": 5,
+      "topics": [
+        {
+          "id": "gen_offer_clarity",
+          "topicKey": "offer-clarity",
+          "label": "Offer clarity",
+          "labelAr": "وضوح العرض",
+          "prompt": "Can a first-time visitor understand your main offer and its benefit within a few seconds without asking you?",
+          "promptAr": "هل يستطيع زائر لأول مرة فهم عرضك الرئيسي وفائدته خلال ثوان دون أن يسألك؟",
+          "answerMode": "current-target",
+          "orderIndex": 1,
+          "weight": 5,
+          "tags": [
+            "offer-clarity",
+            "clarity",
+            "grunt-test",
+            "general:offer-clarity"
+          ],
+          "levelAnchors": [
+            "1 - Unclear what is offered",
+            "2 - Offer is understandable only after effort",
+            "3 - Offer is clear but benefit is weak",
+            "4 - Offer and benefit are clear",
+            "5 - Offer, benefit, audience, and next step are instantly clear"
+          ],
+          "levelAnchorsAr": [
+            "1 - غير واضح ماذا تقدم",
+            "2 - العرض مفهوم بعد جهد",
+            "3 - العرض واضح لكن الفائدة ضعيفة",
+            "4 - العرض والفائدة واضحان",
+            "5 - العرض والفائدة والجمهور والخطوة التالية واضحة فورا"
+          ]
+        },
+        {
+          "id": "gen_target_customer",
+          "topicKey": "target-customer",
+          "label": "Target customer clarity",
+          "labelAr": "وضوح العميل المستهدف",
+          "prompt": "Is it clear who your ideal customer is so the right people recognize themselves?",
+          "promptAr": "هل من الواضح من هو عميلك المثالي كي يتعرف الأشخاص المناسبون على أنفسهم؟",
+          "answerMode": "current-target",
+          "orderIndex": 2,
+          "weight": 4,
+          "tags": [
+            "segmentation",
+            "targeting",
+            "focus",
+            "general"
+          ],
+          "levelAnchors": [
+            "1 - Targets everyone",
+            "2 - Target is broad and generic",
+            "3 - Some customer types are named",
+            "4 - Ideal customer is clear in key messages",
+            "5 - Messaging makes right-fit customers feel directly addressed"
+          ],
+          "levelAnchorsAr": [
+            "1 - يستهدف الجميع",
+            "2 - المستهدف واسع وعام",
+            "3 - بعض أنواع العملاء مذكورة",
+            "4 - العميل المثالي واضح في الرسائل المهمة",
+            "5 - الرسائل تجعل العميل المناسب يشعر أنها تخاطبه مباشرة"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "D2",
+      "dimensionKey": "trust-proof",
+      "title": "Trust & Proof",
+      "titleAr": "الثقة والإثبات",
+      "description": "How well the business reduces buyer risk with proof and differentiation.",
+      "descriptionAr": "مدى تقليل مخاطرة المشتري عبر الإثبات والتميز.",
+      "orderIndex": 2,
+      "weight": 5,
+      "topics": [
+        {
+          "id": "gen_trust_proof",
+          "topicKey": "trust-proof",
+          "label": "Trust and proof visibility",
+          "labelAr": "ظهور الثقة والإثبات",
+          "prompt": "Can a potential customer see genuine reviews, results, work samples, or credentials within a minute?",
+          "promptAr": "هل يرى العميل المحتمل تقييمات أو نتائج أو عينات عمل أو شهادات حقيقية خلال دقيقة؟",
+          "answerMode": "current-target",
+          "orderIndex": 3,
+          "weight": 5,
+          "tags": [
+            "social-proof",
+            "trust",
+            "weak-proof",
+            "general"
+          ],
+          "levelAnchors": [
+            "1 - No visible proof",
+            "2 - A few generic reviews",
+            "3 - Some proof but not near decision points",
+            "4 - Relevant proof appears on key pages",
+            "5 - Strong, specific proof supports each main offer"
+          ],
+          "levelAnchorsAr": [
+            "1 - لا يوجد إثبات مرئي",
+            "2 - بعض التقييمات العامة",
+            "3 - إثبات موجود لكنه بعيد عن مواضع القرار",
+            "4 - إثبات مناسب يظهر في الصفحات المهمة",
+            "5 - إثبات قوي ومحدد يدعم كل عرض رئيسي"
+          ]
+        },
+        {
+          "id": "gen_differentiation",
+          "topicKey": "differentiation",
+          "label": "Differentiation and why you",
+          "labelAr": "التميز ولماذا أنت",
+          "prompt": "Can a customer tell why they should choose you over an obvious alternative, with concrete reasons?",
+          "promptAr": "هل يعرف العميل لماذا يختارك بدلا من بديل واضح، بأسباب ملموسة؟",
+          "answerMode": "current-target",
+          "orderIndex": 4,
+          "weight": 4,
+          "tags": [
+            "differentiation",
+            "positioning",
+            "value-proposition",
+            "general"
+          ],
+          "levelAnchors": [
+            "1 - No clear reason to choose you",
+            "2 - Generic claims only",
+            "3 - Some differences but little proof",
+            "4 - Concrete differentiators are stated",
+            "5 - Differentiators are clear, credible, and supported by proof"
+          ],
+          "levelAnchorsAr": [
+            "1 - لا يوجد سبب واضح لاختيارك",
+            "2 - ادعاءات عامة فقط",
+            "3 - بعض الفروق دون إثبات كاف",
+            "4 - عوامل تميز ملموسة مذكورة",
+            "5 - التميز واضح وموثوق ومدعوم بإثبات"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "D3",
+      "dimensionKey": "conversion-path-usability",
+      "title": "Conversion Path & Usability",
+      "titleAr": "مسار التحويل وسهولة الاستخدام",
+      "description": "How easily a visitor can understand, act, and contact on mobile.",
+      "descriptionAr": "مدى سهولة فهم الزائر والتصرف والتواصل عبر الهاتف.",
+      "orderIndex": 3,
+      "weight": 5,
+      "topics": [
+        {
+          "id": "gen_conversion_path",
+          "topicKey": "conversion-path",
+          "label": "Clear conversion path",
+          "labelAr": "مسار تحويل واضح",
+          "prompt": "Is there one obvious next step on every key page that guides a visitor toward contacting or buying?",
+          "promptAr": "هل توجد خطوة تالية واضحة في كل صفحة مهمة توجه الزائر إلى التواصل أو الشراء؟",
+          "answerMode": "current-target",
+          "orderIndex": 5,
+          "weight": 5,
+          "tags": [
+            "conversion-path",
+            "cta",
+            "next-step",
+            "general"
+          ],
+          "levelAnchors": [
+            "1 - No clear next step",
+            "2 - CTA exists but is inconsistent",
+            "3 - Main path is visible with friction",
+            "4 - Primary path is clear on key pages",
+            "5 - Every key page has one obvious, low-friction next step"
+          ],
+          "levelAnchorsAr": [
+            "1 - لا توجد خطوة تالية واضحة",
+            "2 - يوجد زر لكنه غير متسق",
+            "3 - المسار الرئيسي ظاهر مع بعض الاحتكاك",
+            "4 - المسار الأساسي واضح في الصفحات المهمة",
+            "5 - كل صفحة مهمة فيها خطوة واحدة واضحة وسهلة"
+          ]
+        },
+        {
+          "id": "gen_mobile_usability",
+          "topicKey": "mobile-usability",
+          "label": "Mobile usability",
+          "labelAr": "سهولة الاستخدام على الهاتف",
+          "prompt": "Is your website easy and fast to use on a phone where many customers first find you?",
+          "promptAr": "هل موقعك سهل وسريع على الهاتف حيث يجدك كثير من العملاء أولا؟",
+          "answerMode": "current-target",
+          "orderIndex": 6,
+          "weight": 4,
+          "tags": [
+            "mobile",
+            "responsive",
+            "usability",
+            "general"
+          ],
+          "levelAnchors": [
+            "1 - Hard or slow on mobile",
+            "2 - Works but feels clunky",
+            "3 - Usable with some friction",
+            "4 - Smooth on common phones",
+            "5 - Fast, readable, and easy to act on by phone"
+          ],
+          "levelAnchorsAr": [
+            "1 - صعب أو بطيء على الهاتف",
+            "2 - يعمل لكنه متعب",
+            "3 - قابل للاستخدام مع بعض الاحتكاك",
+            "4 - سلس على الهواتف الشائعة",
+            "5 - سريع ومقروء وسهل التصرف من الهاتف"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "D4",
+      "dimensionKey": "followup-crm",
+      "title": "Follow-up & CRM",
+      "titleAr": "المتابعة و CRM",
+      "description": "How well leads are captured, followed up, and tracked.",
+      "descriptionAr": "مدى التقاط العملاء ومتابعتهم وتتبعهم.",
+      "orderIndex": 4,
+      "weight": 5,
+      "topics": [
+        {
+          "id": "gen_lead_capture",
+          "topicKey": "lead-capture",
+          "label": "Lead capture",
+          "labelAr": "التقاط العملاء",
+          "prompt": "Is there a useful low-pressure way to capture visitors who are interested but not ready to buy?",
+          "promptAr": "هل توجد طريقة مفيدة ومنخفضة الضغط لالتقاط الزوار المهتمين غير الجاهزين للشراء؟",
+          "answerMode": "current-target",
+          "orderIndex": 7,
+          "weight": 4,
+          "tags": [
+            "capture",
+            "lead-magnet",
+            "reciprocity",
+            "general"
+          ],
+          "levelAnchors": [
+            "1 - Only hard contact or buy now",
+            "2 - Basic form with no clear value",
+            "3 - Some useful content but no capture",
+            "4 - A useful capture offer exists",
+            "5 - Not-ready visitors get value and enter a respectful follow-up path"
+          ],
+          "levelAnchorsAr": [
+            "1 - فقط تواصل أو اشتر الآن",
+            "2 - نموذج أساسي دون قيمة واضحة",
+            "3 - محتوى مفيد دون التقاط",
+            "4 - يوجد عرض التقاط مفيد",
+            "5 - الزائر غير الجاهز يحصل على قيمة ويدخل متابعة محترمة"
+          ]
+        },
+        {
+          "id": "gen_followup_discipline",
+          "topicKey": "followup-discipline",
+          "label": "Follow-up discipline",
+          "labelAr": "انضباط المتابعة",
+          "prompt": "Do new leads receive timely, useful follow-up instead of depending on memory?",
+          "promptAr": "هل يحصل العملاء الجدد على متابعة مفيدة وفي وقت مناسب بدلا من الاعتماد على الذاكرة؟",
+          "answerMode": "current-target",
+          "orderIndex": 8,
+          "weight": 5,
+          "tags": [
+            "weak-follow-up",
+            "follow-up",
+            "cadence",
+            "general:sales-process"
+          ],
+          "levelAnchors": [
+            "1 - Follow-up depends on memory",
+            "2 - First reply happens but no rhythm",
+            "3 - Some reminders are manual",
+            "4 - Follow-up cadence is mostly consistent",
+            "5 - Every lead has a clear owner, next step, and respectful cadence"
+          ],
+          "levelAnchorsAr": [
+            "1 - المتابعة تعتمد على الذاكرة",
+            "2 - يوجد رد أول دون إيقاع",
+            "3 - بعض التذكيرات يدوية",
+            "4 - إيقاع المتابعة منتظم غالبا",
+            "5 - لكل عميل مسؤول وخطوة تالية وإيقاع محترم"
+          ]
+        },
+        {
+          "id": "gen_whatsapp_structure",
+          "topicKey": "whatsapp-structure",
+          "label": "WhatsApp structure",
+          "labelAr": "تنظيم واتساب",
+          "prompt": "Are WhatsApp conversations structured and tracked, or do lead statuses live inside chats?",
+          "promptAr": "هل محادثات واتساب منظمة ومتتبعة أم أن حالة العملاء تبقى داخل المحادثات؟",
+          "answerMode": "current-target",
+          "orderIndex": 9,
+          "weight": 3,
+          "tags": [
+            "whatsapp",
+            "messaging",
+            "follow-up",
+            "general"
+          ],
+          "levelAnchors": [
+            "1 - Chats are chaotic and untracked",
+            "2 - Some templates but no tracking",
+            "3 - Manual notes track some leads",
+            "4 - WhatsApp is mostly templated and logged",
+            "5 - WhatsApp feeds a lead system with templates and next actions"
+          ],
+          "levelAnchorsAr": [
+            "1 - المحادثات فوضوية وغير متتبعة",
+            "2 - بعض القوالب دون تتبع",
+            "3 - ملاحظات يدوية لبعض العملاء",
+            "4 - واتساب غالبا بقوالب وموثق",
+            "5 - واتساب يغذي نظام عملاء بقوالب وخطوات تالية"
+          ]
+        },
+        {
+          "id": "gen_lead_tracking",
+          "topicKey": "lead-tracking",
+          "label": "Lead tracking",
+          "labelAr": "تتبع العملاء",
+          "prompt": "Do you track every inquiry from first contact to decision, or does status live in chats and memory?",
+          "promptAr": "هل تتتبع كل استفسار من أول تواصل حتى القرار أم أن الحالة تبقى في المحادثات والذاكرة؟",
+          "answerMode": "current-target",
+          "orderIndex": 12,
+          "weight": 4,
+          "tags": [
+            "crm",
+            "pipeline",
+            "tracking",
+            "general"
+          ],
+          "levelAnchors": [
+            "1 - No tracking",
+            "2 - Manual notes only",
+            "3 - Spreadsheet or board but incomplete",
+            "4 - Most leads are tracked by stage",
+            "5 - Simple pipeline tracks source, owner, stage, and next action"
+          ],
+          "levelAnchorsAr": [
+            "1 - لا يوجد تتبع",
+            "2 - ملاحظات يدوية فقط",
+            "3 - جدول أو لوحة لكنها غير مكتملة",
+            "4 - أغلب العملاء متتبعون حسب المرحلة",
+            "5 - خط بسيط يتتبع المصدر والمسؤول والمرحلة والخطوة"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "D5",
+      "dimensionKey": "content-faq",
+      "title": "Content & FAQ",
+      "titleAr": "المحتوى والأسئلة الشائعة",
+      "description": "How well buyer questions, objections, and pricing context are addressed.",
+      "descriptionAr": "مدى معالجة أسئلة المشترين واعتراضاتهم وسياق التسعير.",
+      "orderIndex": 5,
+      "weight": 3,
+      "topics": [
+        {
+          "id": "gen_content_faq",
+          "topicKey": "content-faq",
+          "label": "Content and FAQ coverage",
+          "labelAr": "تغطية المحتوى والأسئلة",
+          "prompt": "Do your site and content answer the questions buyers ask before contacting, including common objections?",
+          "promptAr": "هل يجيب موقعك ومحتواك عن أسئلة المشترين قبل التواصل، بما فيها الاعتراضات الشائعة؟",
+          "answerMode": "current-target",
+          "orderIndex": 10,
+          "weight": 3,
+          "tags": [
+            "content-strategy",
+            "faq-gap",
+            "buyer-questions",
+            "general"
+          ],
+          "levelAnchors": [
+            "1 - No FAQ or helpful content",
+            "2 - Basic FAQ only",
+            "3 - Some questions answered but important objections missing",
+            "4 - Most real buyer questions are answered",
+            "5 - Content answers real questions, objections, and next-step concerns"
+          ],
+          "levelAnchorsAr": [
+            "1 - لا توجد أسئلة أو محتوى مفيد",
+            "2 - أسئلة أساسية فقط",
+            "3 - بعض الأسئلة مجابة لكن اعتراضات مهمة ناقصة",
+            "4 - أغلب أسئلة المشترين الحقيقية مجابة",
+            "5 - المحتوى يجيب الأسئلة والاعتراضات ومخاوف الخطوة التالية"
+          ]
+        },
+        {
+          "id": "gen_pricing_clarity",
+          "topicKey": "pricing-clarity",
+          "label": "Pricing clarity where relevant",
+          "labelAr": "وضوح التسعير حيث يناسب",
+          "prompt": "Where relevant, does your site give a realistic sense of pricing or cost drivers before customers contact you?",
+          "promptAr": "حيث يناسب، هل يمنح موقعك تصورا واقعيا للتسعير أو عوامل التكلفة قبل تواصل العملاء؟",
+          "answerMode": "current-target",
+          "orderIndex": 11,
+          "weight": 2,
+          "tags": [
+            "pricing-transparency",
+            "pricing-content",
+            "trust-barrier",
+            "general"
+          ],
+          "levelAnchors": [
+            "1 - No pricing or cost guidance",
+            "2 - Only contact us for pricing",
+            "3 - Very vague guidance",
+            "4 - Pricing or cost factors are clear where appropriate",
+            "5 - Cost guidance is honest, useful, and context-aware"
+          ],
+          "levelAnchorsAr": [
+            "1 - لا يوجد توجيه للتسعير أو التكلفة",
+            "2 - فقط تواصل لمعرفة السعر",
+            "3 - توجيه غامض جدا",
+            "4 - التسعير أو عوامل التكلفة واضحة حيث يناسب",
+            "5 - توجيه التكلفة صادق ومفيد ومراع للسياق"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "D6",
+      "dimensionKey": "digital-readiness",
+      "title": "Digital Readiness",
+      "titleAr": "الجاهزية الرقمية",
+      "description": "Whether the business has a connected digital system rather than scattered tools.",
+      "descriptionAr": "هل لدى النشاط نظام رقمي مترابط بدلا من أدوات مبعثرة.",
+      "orderIndex": 6,
+      "weight": 3,
+      "topics": [
+        {
+          "id": "gen_digital_readiness",
+          "topicKey": "digital-readiness",
+          "label": "Connected digital system",
+          "labelAr": "النظام الرقمي المترابط",
+          "prompt": "Do website, capture, follow-up, and tracking work as one connected system?",
+          "promptAr": "هل يعمل الموقع والالتقاط والمتابعة والتتبع كنظام واحد مترابط؟",
+          "answerMode": "current-target",
+          "orderIndex": 13,
+          "weight": 3,
+          "tags": [
+            "digital-readiness",
+            "system",
+            "automation",
+            "general:digital-readiness"
+          ],
+          "levelAnchors": [
+            "1 - Disconnected manual tools",
+            "2 - Some tools connected manually",
+            "3 - Partly connected with gaps",
+            "4 - Core flow is connected",
+            "5 - One connected system captures, follows up, and shows what is happening"
+          ],
+          "levelAnchorsAr": [
+            "1 - أدوات يدوية منفصلة",
+            "2 - بعض الأدوات مربوطة يدويا",
+            "3 - ترابط جزئي مع فجوات",
+            "4 - المسار الأساسي مترابط",
+            "5 - نظام واحد يلتقط ويتابع ويظهر ما يحدث"
+          ]
+        }
+      ]
+    }
+  ],
+  "scoring": {
+    "model": "current-target-gap",
+    "gapFormula": "gap = max(target - current, 0)",
+    "priorityDimensionIds": [
+      "D1",
+      "D2",
+      "D3",
+      "D4"
+    ],
+    "profiles": [
+      {
+        "id": "general-business-positive-maintenance",
+        "title": "Strong Foundation — Controlled Optimization",
+        "titleAr": "أساس قوي — تحسين منضبط",
+        "summary": "Core areas are working well. Protect what is proven and improve only where evidence shows leverage.",
+        "summaryAr": "تعمل المجالات الأساسية جيداً. حافظ على ما ثبت نجاحه وحسّن فقط حيث يظهر الدليل فرصة واضحة.",
+        "conditions": {
+          "dimensionMin": {
+            "D1": 4.5,
+            "D2": 4.5,
+            "D3": 4.5,
+            "D4": 4.5,
+            "D5": 4.5,
+            "D6": 4.5
+          }
+        },
+        "relatedDimensions": [
+          "D1",
+          "D2",
+          "D3",
+          "D4",
+          "D5",
+          "D6"
+        ],
+        "riskNote": "Avoid unnecessary rebuilds or automation.",
+        "riskNoteAr": "تجنب إعادة البناء أو الأتمتة غير الضرورية.",
+        "profilePriority": 50
+      },
+      {
+        "id": "general-business-profile-01",
+        "title": "Offer Clarity",
+        "titleAr": "نمط النشاط التجاري: أولوية 1",
+        "summary": "The closest pattern combines offer clarity; sequence the governing constraint before expanding the system.",
+        "summaryAr": "يشير هذا النمط إلى عائق واضح في النشاط التجاري؛ ابدأ به قبل توسيع الأدوات أو النظام.",
+        "conditions": [
+          {
+            "dimensionId": "D1",
+            "gapMin": 1
+          },
+          {
+            "dimensionId": "D3",
+            "currentMin": 3
+          }
+        ],
+        "relatedDimensions": [
+          "D1",
+          "D3"
+        ],
+        "riskNote": "Keep the business response proportional to observed evidence and operating capacity.",
+        "riskNoteAr": "اجعل استجابة النشاط التجاري متناسبة مع الأدلة والقدرة التشغيلية.",
+        "profilePriority": 20
+      },
+      {
+        "id": "general-business-profile-02",
+        "title": "Ideal-Customer Focus",
+        "titleAr": "نمط النشاط التجاري: أولوية 2",
+        "summary": "The closest pattern combines ideal-customer focus; sequence the governing constraint before expanding the system.",
+        "summaryAr": "يشير هذا النمط إلى عائق واضح في النشاط التجاري؛ ابدأ به قبل توسيع الأدوات أو النظام.",
+        "conditions": [
+          {
+            "dimensionId": "D2",
+            "gapMin": 1
+          },
+          {
+            "dimensionId": "D4",
+            "currentMin": 3
+          }
+        ],
+        "relatedDimensions": [
+          "D2",
+          "D4"
+        ],
+        "riskNote": "Keep the business response proportional to observed evidence and operating capacity.",
+        "riskNoteAr": "اجعل استجابة النشاط التجاري متناسبة مع الأدلة والقدرة التشغيلية.",
+        "profilePriority": 19
+      },
+      {
+        "id": "general-business-profile-03",
+        "title": "Demand And Conversion",
+        "titleAr": "نمط النشاط التجاري: أولوية 3",
+        "summary": "The closest pattern combines demand and conversion; sequence the governing constraint before expanding the system.",
+        "summaryAr": "يشير هذا النمط إلى عائق واضح في النشاط التجاري؛ ابدأ به قبل توسيع الأدوات أو النظام.",
+        "conditions": [
+          {
+            "dimensionId": "D3",
+            "gapMin": 1
+          },
+          {
+            "dimensionId": "D5",
+            "currentMin": 3
+          }
+        ],
+        "relatedDimensions": [
+          "D3",
+          "D5"
+        ],
+        "riskNote": "Keep the business response proportional to observed evidence and operating capacity.",
+        "riskNoteAr": "اجعل استجابة النشاط التجاري متناسبة مع الأدلة والقدرة التشغيلية.",
+        "profilePriority": 18
+      },
+      {
+        "id": "general-business-profile-04",
+        "title": "Sales Follow-Up",
+        "titleAr": "نمط النشاط التجاري: أولوية 4",
+        "summary": "The closest pattern combines sales follow-up; sequence the governing constraint before expanding the system.",
+        "summaryAr": "يشير هذا النمط إلى عائق واضح في النشاط التجاري؛ ابدأ به قبل توسيع الأدوات أو النظام.",
+        "conditions": [
+          {
+            "dimensionId": "D4",
+            "gapMin": 1
+          },
+          {
+            "dimensionId": "D6",
+            "currentMin": 3
+          }
+        ],
+        "relatedDimensions": [
+          "D4",
+          "D6"
+        ],
+        "riskNote": "Keep the business response proportional to observed evidence and operating capacity.",
+        "riskNoteAr": "اجعل استجابة النشاط التجاري متناسبة مع الأدلة والقدرة التشغيلية.",
+        "profilePriority": 17
+      },
+      {
+        "id": "general-business-profile-05",
+        "title": "Website Proof",
+        "titleAr": "نمط النشاط التجاري: أولوية 5",
+        "summary": "The closest pattern combines website proof; sequence the governing constraint before expanding the system.",
+        "summaryAr": "يشير هذا النمط إلى عائق واضح في النشاط التجاري؛ ابدأ به قبل توسيع الأدوات أو النظام.",
+        "conditions": [
+          {
+            "dimensionId": "D5",
+            "gapMin": 1
+          },
+          {
+            "dimensionId": "D1",
+            "currentMin": 3
+          }
+        ],
+        "relatedDimensions": [
+          "D5",
+          "D1"
+        ],
+        "riskNote": "Keep the business response proportional to observed evidence and operating capacity.",
+        "riskNoteAr": "اجعل استجابة النشاط التجاري متناسبة مع الأدلة والقدرة التشغيلية.",
+        "profilePriority": 16
+      },
+      {
+        "id": "general-business-profile-06",
+        "title": "Proof And CTA Clarity",
+        "titleAr": "نمط النشاط التجاري: أولوية 6",
+        "summary": "The closest pattern combines proof and CTA clarity; sequence the governing constraint before expanding the system.",
+        "summaryAr": "يشير هذا النمط إلى عائق واضح في النشاط التجاري؛ ابدأ به قبل توسيع الأدوات أو النظام.",
+        "conditions": [
+          {
+            "dimensionId": "D6",
+            "gapMin": 1
+          },
+          {
+            "dimensionId": "D2",
+            "currentMin": 3
+          }
+        ],
+        "relatedDimensions": [
+          "D6",
+          "D2"
+        ],
+        "riskNote": "Keep the business response proportional to observed evidence and operating capacity.",
+        "riskNoteAr": "اجعل استجابة النشاط التجاري متناسبة مع الأدلة والقدرة التشغيلية.",
+        "profilePriority": 15
+      },
+      {
+        "id": "general-business-profile-07",
+        "title": "Owner-Dependent Sales",
+        "titleAr": "نمط النشاط التجاري: أولوية 7",
+        "summary": "The closest pattern combines owner-dependent sales; sequence the governing constraint before expanding the system.",
+        "summaryAr": "يشير هذا النمط إلى عائق واضح في النشاط التجاري؛ ابدأ به قبل توسيع الأدوات أو النظام.",
+        "conditions": [
+          {
+            "dimensionId": "D1",
+            "gapMin": 1
+          },
+          {
+            "dimensionId": "D3",
+            "currentMin": 3
+          }
+        ],
+        "relatedDimensions": [
+          "D1",
+          "D3"
+        ],
+        "riskNote": "Keep the business response proportional to observed evidence and operating capacity.",
+        "riskNoteAr": "اجعل استجابة النشاط التجاري متناسبة مع الأدلة والقدرة التشغيلية.",
+        "profilePriority": 14
+      },
+      {
+        "id": "general-business-profile-08",
+        "title": "Fragmented Channels And Data",
+        "titleAr": "نمط النشاط التجاري: أولوية 8",
+        "summary": "The closest pattern combines fragmented channels and data; sequence the governing constraint before expanding the system.",
+        "summaryAr": "يشير هذا النمط إلى عائق واضح في النشاط التجاري؛ ابدأ به قبل توسيع الأدوات أو النظام.",
+        "conditions": [
+          {
+            "dimensionId": "D2",
+            "gapMin": 1
+          },
+          {
+            "dimensionId": "D4",
+            "currentMin": 3
+          }
+        ],
+        "relatedDimensions": [
+          "D2",
+          "D4"
+        ],
+        "riskNote": "Keep the business response proportional to observed evidence and operating capacity.",
+        "riskNoteAr": "اجعل استجابة النشاط التجاري متناسبة مع الأدلة والقدرة التشغيلية.",
+        "profilePriority": 13
+      },
+      {
+        "id": "general-business-profile-09",
+        "title": "Early-Stage Focus",
+        "titleAr": "نمط النشاط التجاري: أولوية 9",
+        "summary": "The closest pattern combines early-stage focus; sequence the governing constraint before expanding the system.",
+        "summaryAr": "يشير هذا النمط إلى عائق واضح في النشاط التجاري؛ ابدأ به قبل توسيع الأدوات أو النظام.",
+        "conditions": [
+          {
+            "dimensionId": "D3",
+            "currentMax": 2,
+            "gapMax": 0.5
+          },
+          {
+            "dimensionId": "D5",
+            "currentMax": 2,
+            "gapMax": 0.5
+          }
+        ],
+        "relatedDimensions": [
+          "D3",
+          "D5"
+        ],
+        "riskNote": "Keep the business response proportional to observed evidence and operating capacity.",
+        "riskNoteAr": "اجعل استجابة النشاط التجاري متناسبة مع الأدلة والقدرة التشغيلية.",
+        "profilePriority": 12
+      },
+      {
+        "id": "general-business-profile-10",
+        "title": "Operations And Market Presentation",
+        "titleAr": "نمط النشاط التجاري: أولوية 10",
+        "summary": "The closest pattern combines operations and market presentation; sequence the governing constraint before expanding the system.",
+        "summaryAr": "يشير هذا النمط إلى عائق واضح في النشاط التجاري؛ ابدأ به قبل توسيع الأدوات أو النظام.",
+        "conditions": [
+          {
+            "dimensionId": "D4",
+            "gapMin": 1
+          },
+          {
+            "dimensionId": "D6",
+            "currentMin": 3
+          }
+        ],
+        "relatedDimensions": [
+          "D4",
+          "D6"
+        ],
+        "riskNote": "Keep the business response proportional to observed evidence and operating capacity.",
+        "riskNoteAr": "اجعل استجابة النشاط التجاري متناسبة مع الأدلة والقدرة التشغيلية.",
+        "profilePriority": 11
+      },
+      {
+        "id": "general-business-profile-11",
+        "title": "Lead Ownership",
+        "titleAr": "نمط النشاط التجاري: أولوية 11",
+        "summary": "The closest pattern combines lead ownership; sequence the governing constraint before expanding the system.",
+        "summaryAr": "يشير هذا النمط إلى عائق واضح في النشاط التجاري؛ ابدأ به قبل توسيع الأدوات أو النظام.",
+        "conditions": [
+          {
+            "dimensionId": "D5",
+            "currentMax": 2,
+            "gapMax": 0.5
+          },
+          {
+            "dimensionId": "D1",
+            "currentMax": 2,
+            "gapMax": 0.5
+          }
+        ],
+        "relatedDimensions": [
+          "D5",
+          "D1"
+        ],
+        "riskNote": "Keep the business response proportional to observed evidence and operating capacity.",
+        "riskNoteAr": "اجعل استجابة النشاط التجاري متناسبة مع الأدلة والقدرة التشغيلية.",
+        "profilePriority": 10
+      },
+      {
+        "id": "general-business-profile-12",
+        "title": "Measurement And Optimization",
+        "titleAr": "نمط النشاط التجاري: أولوية 12",
+        "summary": "The closest pattern combines measurement and optimization; sequence the governing constraint before expanding the system.",
+        "summaryAr": "يشير هذا النمط إلى عائق واضح في النشاط التجاري؛ ابدأ به قبل توسيع الأدوات أو النظام.",
+        "conditions": [
+          {
+            "dimensionId": "D6",
+            "currentMin": 4,
+            "gapMax": 1
+          },
+          {
+            "dimensionId": "D2",
+            "currentMin": 4,
+            "gapMax": 1
+          }
+        ],
+        "relatedDimensions": [
+          "D6",
+          "D2"
+        ],
+        "riskNote": "Keep the business response proportional to observed evidence and operating capacity.",
+        "riskNoteAr": "اجعل استجابة النشاط التجاري متناسبة مع الأدلة والقدرة التشغيلية.",
+        "profilePriority": 9
+      },
+      {
+        "id": "general-business-profile-13",
+        "title": "Ambition And Capacity",
+        "titleAr": "نمط النشاط التجاري: أولوية 13",
+        "summary": "The closest pattern combines ambition and capacity; sequence the governing constraint before expanding the system.",
+        "summaryAr": "يشير هذا النمط إلى عائق واضح في النشاط التجاري؛ ابدأ به قبل توسيع الأدوات أو النظام.",
+        "conditions": [
+          {
+            "dimensionId": "D1",
+            "gapMin": 1
+          },
+          {
+            "dimensionId": "D3",
+            "currentMin": 3
+          }
+        ],
+        "relatedDimensions": [
+          "D1",
+          "D3"
+        ],
+        "riskNote": "Keep the business response proportional to observed evidence and operating capacity.",
+        "riskNoteAr": "اجعل استجابة النشاط التجاري متناسبة مع الأدلة والقدرة التشغيلية.",
+        "profilePriority": 8
+      },
+      {
+        "id": "general-business-balanced-evidence-map",
+        "title": "Balanced Evidence Map",
+        "titleAr": "خريطة أدلة متوازنة",
+        "summary": "No single constraint dominates; use the ranked evidence to choose one proportionate next move.",
+        "summaryAr": "لا يهيمن عائق واحد؛ استخدم الأدلة المرتبة لاختيار خطوة تالية متناسبة.",
+        "conditions": {
+          "dimensionId": "D1",
+          "currentMin": 1
+        },
+        "relatedDimensions": [
+          "D1",
+          "D2",
+          "D3",
+          "D4",
+          "D5",
+          "D6"
+        ],
+        "riskNote": "Do not turn a mixed result into a full-system prescription.",
+        "riskNoteAr": "لا تحوّل النتيجة المختلطة إلى وصفة لنظام كامل.",
+        "profilePriority": -10
+      }
+    ]
+  },
+  "recommendations": [
+    {
+      "id": "general-business-repair-gen_offer_clarity",
+      "category": "strategicDiagnosis",
+      "conditions": {
+        "topicId": "gen_offer_clarity",
+        "currentMax": 2.5,
+        "targetMin": 3,
+        "gapMin": 1
+      },
+      "mode": "repair",
+      "priority": 5,
+      "dedupeGroup": "general-business-gen_offer_clarity",
+      "impact": 5,
+      "effort": 3,
+      "urgency": 5,
+      "evidenceTags": [
+        "offer-clarity",
+        "clarity",
+        "grunt-test",
+        "general:offer-clarity"
+      ],
+      "title": "Repair offer clarity at the source",
+      "titleAr": "عالج أساس وضوح العرض",
+      "why": "Offer clarity directly shapes whether the right prospect understands, trusts, and advances with the business.",
+      "whyAr": "يؤثر وضوح العرض مباشرة في فهم العميل المناسب وثقته وانتقاله إلى الخطوة التالية مع النشاط التجاري.",
+      "how": [
+        "Fix the missing foundation for the business before adding more tools or channels.",
+        "Assign one business owner and a review date.",
+        "Validate the change with real business inquiries and record what happened."
+      ],
+      "howAr": [
+        "عالج الأساس الناقص في النشاط التجاري قبل إضافة أدوات أو قنوات جديدة.",
+        "عيّن مسؤولاً واحداً في النشاط التجاري وموعداً للمراجعة.",
+        "اختبر التغيير مع استفسارات حقيقية تخص النشاط التجاري وسجّل النتيجة."
+      ],
+      "websiteImplication": "Make offer clarity explicit at the page and decision point where it matters.",
+      "websiteImplicationAr": "أظهر وضوح العرض بوضوح في الصفحة ونقطة القرار المناسبة.",
+      "systemImplication": "Use the smallest business tracking method that proves ownership before considering automation.",
+      "systemImplicationAr": "استخدم أبسط وسيلة متابعة في النشاط التجاري تثبت المسؤولية قبل التفكير في الأتمتة.",
+      "dominaseFit": "DOMINASE can run a focused clarity and flow correction before any larger build.",
+      "dominaseFitAr": "يمكن لـ DOMINASE تنفيذ تصحيح مركز للوضوح والمسار قبل أي بناء أكبر.",
+      "riskNotes": "Do not publish business evidence, capacity, availability, prices, or outcomes that cannot be verified.",
+      "riskNotesAr": "لا تنشر أدلة أو طاقة استيعابية أو توفراً أو أسعاراً أو نتائج تخص النشاط التجاري ما لم يمكن إثباتها."
+    },
+    {
+      "id": "general-business-improve-gen_offer_clarity",
+      "category": "strategicDiagnosis",
+      "conditions": {
+        "topicId": "gen_offer_clarity",
+        "currentMin": 2.5,
+        "currentMax": 4.5,
+        "targetMin": 3.5,
+        "gapMin": 1
+      },
+      "mode": "improve",
+      "priority": 3,
+      "dedupeGroup": "general-business-gen_offer_clarity",
+      "impact": 3,
+      "effort": 2,
+      "urgency": 3,
+      "evidenceTags": [
+        "offer-clarity",
+        "clarity",
+        "grunt-test",
+        "general:offer-clarity"
+      ],
+      "title": "Strengthen offer clarity with one controlled change",
+      "titleAr": "طوّر وضوح العرض بخطوة منضبطة",
+      "why": "Offer clarity directly shapes whether the right prospect understands, trusts, and advances with the business.",
+      "whyAr": "يؤثر وضوح العرض مباشرة في فهم العميل المناسب وثقته وانتقاله إلى الخطوة التالية مع النشاط التجاري.",
+      "how": [
+        "Test one focused improvement for the business before adding more tools or channels.",
+        "Assign one business owner and a review date.",
+        "Validate the change with real business inquiries and record what happened."
+      ],
+      "howAr": [
+        "اختبر تحسيناً واحداً ومحدداً في النشاط التجاري قبل إضافة أدوات أو قنوات جديدة.",
+        "عيّن مسؤولاً واحداً في النشاط التجاري وموعداً للمراجعة.",
+        "اختبر التغيير مع استفسارات حقيقية تخص النشاط التجاري وسجّل النتيجة."
+      ],
+      "websiteImplication": "Make offer clarity explicit at the page and decision point where it matters.",
+      "websiteImplicationAr": "أظهر وضوح العرض بوضوح في الصفحة ونقطة القرار المناسبة.",
+      "systemImplication": "Use the smallest business tracking method that proves ownership before considering automation.",
+      "systemImplicationAr": "استخدم أبسط وسيلة متابعة في النشاط التجاري تثبت المسؤولية قبل التفكير في الأتمتة.",
+      "dominaseFit": "DOMINASE can prototype and measure this improvement without forcing a rebuild.",
+      "dominaseFitAr": "يمكن لـ DOMINASE اختبار هذا التحسين وقياسه دون فرض إعادة بناء.",
+      "riskNotes": "Do not publish business evidence, capacity, availability, prices, or outcomes that cannot be verified.",
+      "riskNotesAr": "لا تنشر أدلة أو طاقة استيعابية أو توفراً أو أسعاراً أو نتائج تخص النشاط التجاري ما لم يمكن إثباتها."
+    },
+    {
+      "id": "general-business-repair-gen_target_customer",
+      "category": "customerProfile",
+      "conditions": {
+        "topicId": "gen_target_customer",
+        "currentMax": 2.5,
+        "targetMin": 3,
+        "gapMin": 1
+      },
+      "mode": "repair",
+      "priority": 5,
+      "dedupeGroup": "general-business-gen_target_customer",
+      "impact": 5,
+      "effort": 3,
+      "urgency": 5,
+      "evidenceTags": [
+        "segmentation",
+        "targeting",
+        "focus",
+        "general"
+      ],
+      "title": "Repair target customer clarity at the source",
+      "titleAr": "عالج أساس وضوح العميل المستهدف",
+      "why": "Target customer clarity directly shapes whether the right prospect understands, trusts, and advances with the business.",
+      "whyAr": "يؤثر وضوح العميل المستهدف مباشرة في فهم العميل المناسب وثقته وانتقاله إلى الخطوة التالية مع النشاط التجاري.",
+      "how": [
+        "Fix the missing foundation for the business before adding more tools or channels.",
+        "Assign one business owner and a review date.",
+        "Validate the change with real business inquiries and record what happened."
+      ],
+      "howAr": [
+        "عالج الأساس الناقص في النشاط التجاري قبل إضافة أدوات أو قنوات جديدة.",
+        "عيّن مسؤولاً واحداً في النشاط التجاري وموعداً للمراجعة.",
+        "اختبر التغيير مع استفسارات حقيقية تخص النشاط التجاري وسجّل النتيجة."
+      ],
+      "websiteImplication": "Make target customer clarity explicit at the page and decision point where it matters.",
+      "websiteImplicationAr": "أظهر وضوح العميل المستهدف بوضوح في الصفحة ونقطة القرار المناسبة.",
+      "systemImplication": "Use the smallest business tracking method that proves ownership before considering automation.",
+      "systemImplicationAr": "استخدم أبسط وسيلة متابعة في النشاط التجاري تثبت المسؤولية قبل التفكير في الأتمتة.",
+      "dominaseFit": "DOMINASE can run a focused clarity and flow correction before any larger build.",
+      "dominaseFitAr": "يمكن لـ DOMINASE تنفيذ تصحيح مركز للوضوح والمسار قبل أي بناء أكبر.",
+      "riskNotes": "Do not publish business evidence, capacity, availability, prices, or outcomes that cannot be verified.",
+      "riskNotesAr": "لا تنشر أدلة أو طاقة استيعابية أو توفراً أو أسعاراً أو نتائج تخص النشاط التجاري ما لم يمكن إثباتها."
+    },
+    {
+      "id": "general-business-improve-gen_target_customer",
+      "category": "customerProfile",
+      "conditions": {
+        "topicId": "gen_target_customer",
+        "currentMin": 2.5,
+        "currentMax": 4.5,
+        "targetMin": 3.5,
+        "gapMin": 1
+      },
+      "mode": "improve",
+      "priority": 3,
+      "dedupeGroup": "general-business-gen_target_customer",
+      "impact": 3,
+      "effort": 2,
+      "urgency": 3,
+      "evidenceTags": [
+        "segmentation",
+        "targeting",
+        "focus",
+        "general"
+      ],
+      "title": "Strengthen target customer clarity with one controlled change",
+      "titleAr": "طوّر وضوح العميل المستهدف بخطوة منضبطة",
+      "why": "Target customer clarity directly shapes whether the right prospect understands, trusts, and advances with the business.",
+      "whyAr": "يؤثر وضوح العميل المستهدف مباشرة في فهم العميل المناسب وثقته وانتقاله إلى الخطوة التالية مع النشاط التجاري.",
+      "how": [
+        "Test one focused improvement for the business before adding more tools or channels.",
+        "Assign one business owner and a review date.",
+        "Validate the change with real business inquiries and record what happened."
+      ],
+      "howAr": [
+        "اختبر تحسيناً واحداً ومحدداً في النشاط التجاري قبل إضافة أدوات أو قنوات جديدة.",
+        "عيّن مسؤولاً واحداً في النشاط التجاري وموعداً للمراجعة.",
+        "اختبر التغيير مع استفسارات حقيقية تخص النشاط التجاري وسجّل النتيجة."
+      ],
+      "websiteImplication": "Make target customer clarity explicit at the page and decision point where it matters.",
+      "websiteImplicationAr": "أظهر وضوح العميل المستهدف بوضوح في الصفحة ونقطة القرار المناسبة.",
+      "systemImplication": "Use the smallest business tracking method that proves ownership before considering automation.",
+      "systemImplicationAr": "استخدم أبسط وسيلة متابعة في النشاط التجاري تثبت المسؤولية قبل التفكير في الأتمتة.",
+      "dominaseFit": "DOMINASE can prototype and measure this improvement without forcing a rebuild.",
+      "dominaseFitAr": "يمكن لـ DOMINASE اختبار هذا التحسين وقياسه دون فرض إعادة بناء.",
+      "riskNotes": "Do not publish business evidence, capacity, availability, prices, or outcomes that cannot be verified.",
+      "riskNotesAr": "لا تنشر أدلة أو طاقة استيعابية أو توفراً أو أسعاراً أو نتائج تخص النشاط التجاري ما لم يمكن إثباتها."
+    },
+    {
+      "id": "general-business-repair-gen_trust_proof",
+      "category": "contentAndTrust",
+      "conditions": {
+        "topicId": "gen_trust_proof",
+        "currentMax": 2.5,
+        "targetMin": 3,
+        "gapMin": 1
+      },
+      "mode": "repair",
+      "priority": 5,
+      "dedupeGroup": "general-business-gen_trust_proof",
+      "impact": 5,
+      "effort": 3,
+      "urgency": 5,
+      "evidenceTags": [
+        "social-proof",
+        "trust",
+        "weak-proof",
+        "general"
+      ],
+      "title": "Repair trust and proof visibility at the source",
+      "titleAr": "عالج أساس ظهور الثقة والإثبات",
+      "why": "Trust and proof visibility directly shapes whether the right prospect understands, trusts, and advances with the business.",
+      "whyAr": "يؤثر ظهور الثقة والإثبات مباشرة في فهم العميل المناسب وثقته وانتقاله إلى الخطوة التالية مع النشاط التجاري.",
+      "how": [
+        "Fix the missing foundation for the business before adding more tools or channels.",
+        "Assign one business owner and a review date.",
+        "Validate the change with real business inquiries and record what happened."
+      ],
+      "howAr": [
+        "عالج الأساس الناقص في النشاط التجاري قبل إضافة أدوات أو قنوات جديدة.",
+        "عيّن مسؤولاً واحداً في النشاط التجاري وموعداً للمراجعة.",
+        "اختبر التغيير مع استفسارات حقيقية تخص النشاط التجاري وسجّل النتيجة."
+      ],
+      "websiteImplication": "Make trust and proof visibility explicit at the page and decision point where it matters.",
+      "websiteImplicationAr": "أظهر ظهور الثقة والإثبات بوضوح في الصفحة ونقطة القرار المناسبة.",
+      "systemImplication": "Use the smallest business tracking method that proves ownership before considering automation.",
+      "systemImplicationAr": "استخدم أبسط وسيلة متابعة في النشاط التجاري تثبت المسؤولية قبل التفكير في الأتمتة.",
+      "dominaseFit": "DOMINASE can run a focused clarity and flow correction before any larger build.",
+      "dominaseFitAr": "يمكن لـ DOMINASE تنفيذ تصحيح مركز للوضوح والمسار قبل أي بناء أكبر.",
+      "riskNotes": "Do not publish business evidence, capacity, availability, prices, or outcomes that cannot be verified.",
+      "riskNotesAr": "لا تنشر أدلة أو طاقة استيعابية أو توفراً أو أسعاراً أو نتائج تخص النشاط التجاري ما لم يمكن إثباتها."
+    },
+    {
+      "id": "general-business-improve-gen_trust_proof",
+      "category": "contentAndTrust",
+      "conditions": {
+        "topicId": "gen_trust_proof",
+        "currentMin": 2.5,
+        "currentMax": 4.5,
+        "targetMin": 3.5,
+        "gapMin": 1
+      },
+      "mode": "improve",
+      "priority": 3,
+      "dedupeGroup": "general-business-gen_trust_proof",
+      "impact": 3,
+      "effort": 2,
+      "urgency": 3,
+      "evidenceTags": [
+        "social-proof",
+        "trust",
+        "weak-proof",
+        "general"
+      ],
+      "title": "Strengthen trust and proof visibility with one controlled change",
+      "titleAr": "طوّر ظهور الثقة والإثبات بخطوة منضبطة",
+      "why": "Trust and proof visibility directly shapes whether the right prospect understands, trusts, and advances with the business.",
+      "whyAr": "يؤثر ظهور الثقة والإثبات مباشرة في فهم العميل المناسب وثقته وانتقاله إلى الخطوة التالية مع النشاط التجاري.",
+      "how": [
+        "Test one focused improvement for the business before adding more tools or channels.",
+        "Assign one business owner and a review date.",
+        "Validate the change with real business inquiries and record what happened."
+      ],
+      "howAr": [
+        "اختبر تحسيناً واحداً ومحدداً في النشاط التجاري قبل إضافة أدوات أو قنوات جديدة.",
+        "عيّن مسؤولاً واحداً في النشاط التجاري وموعداً للمراجعة.",
+        "اختبر التغيير مع استفسارات حقيقية تخص النشاط التجاري وسجّل النتيجة."
+      ],
+      "websiteImplication": "Make trust and proof visibility explicit at the page and decision point where it matters.",
+      "websiteImplicationAr": "أظهر ظهور الثقة والإثبات بوضوح في الصفحة ونقطة القرار المناسبة.",
+      "systemImplication": "Use the smallest business tracking method that proves ownership before considering automation.",
+      "systemImplicationAr": "استخدم أبسط وسيلة متابعة في النشاط التجاري تثبت المسؤولية قبل التفكير في الأتمتة.",
+      "dominaseFit": "DOMINASE can prototype and measure this improvement without forcing a rebuild.",
+      "dominaseFitAr": "يمكن لـ DOMINASE اختبار هذا التحسين وقياسه دون فرض إعادة بناء.",
+      "riskNotes": "Do not publish business evidence, capacity, availability, prices, or outcomes that cannot be verified.",
+      "riskNotesAr": "لا تنشر أدلة أو طاقة استيعابية أو توفراً أو أسعاراً أو نتائج تخص النشاط التجاري ما لم يمكن إثباتها."
+    },
+    {
+      "id": "general-business-repair-gen_differentiation",
+      "category": "strategicDiagnosis",
+      "conditions": {
+        "topicId": "gen_differentiation",
+        "currentMax": 2.5,
+        "targetMin": 3,
+        "gapMin": 1
+      },
+      "mode": "repair",
+      "priority": 5,
+      "dedupeGroup": "general-business-gen_differentiation",
+      "impact": 5,
+      "effort": 3,
+      "urgency": 5,
+      "evidenceTags": [
+        "differentiation",
+        "positioning",
+        "value-proposition",
+        "general"
+      ],
+      "title": "Repair differentiation and why you at the source",
+      "titleAr": "عالج أساس التميز ولماذا أنت",
+      "why": "Differentiation and why you directly shapes whether the right prospect understands, trusts, and advances with the business.",
+      "whyAr": "يؤثر التميز ولماذا أنت مباشرة في فهم العميل المناسب وثقته وانتقاله إلى الخطوة التالية مع النشاط التجاري.",
+      "how": [
+        "Fix the missing foundation for the business before adding more tools or channels.",
+        "Assign one business owner and a review date.",
+        "Validate the change with real business inquiries and record what happened."
+      ],
+      "howAr": [
+        "عالج الأساس الناقص في النشاط التجاري قبل إضافة أدوات أو قنوات جديدة.",
+        "عيّن مسؤولاً واحداً في النشاط التجاري وموعداً للمراجعة.",
+        "اختبر التغيير مع استفسارات حقيقية تخص النشاط التجاري وسجّل النتيجة."
+      ],
+      "websiteImplication": "Make differentiation and why you explicit at the page and decision point where it matters.",
+      "websiteImplicationAr": "أظهر التميز ولماذا أنت بوضوح في الصفحة ونقطة القرار المناسبة.",
+      "systemImplication": "Use the smallest business tracking method that proves ownership before considering automation.",
+      "systemImplicationAr": "استخدم أبسط وسيلة متابعة في النشاط التجاري تثبت المسؤولية قبل التفكير في الأتمتة.",
+      "dominaseFit": "DOMINASE can run a focused clarity and flow correction before any larger build.",
+      "dominaseFitAr": "يمكن لـ DOMINASE تنفيذ تصحيح مركز للوضوح والمسار قبل أي بناء أكبر.",
+      "riskNotes": "Do not publish business evidence, capacity, availability, prices, or outcomes that cannot be verified.",
+      "riskNotesAr": "لا تنشر أدلة أو طاقة استيعابية أو توفراً أو أسعاراً أو نتائج تخص النشاط التجاري ما لم يمكن إثباتها."
+    },
+    {
+      "id": "general-business-improve-gen_differentiation",
+      "category": "strategicDiagnosis",
+      "conditions": {
+        "topicId": "gen_differentiation",
+        "currentMin": 2.5,
+        "currentMax": 4.5,
+        "targetMin": 3.5,
+        "gapMin": 1
+      },
+      "mode": "improve",
+      "priority": 3,
+      "dedupeGroup": "general-business-gen_differentiation",
+      "impact": 3,
+      "effort": 2,
+      "urgency": 3,
+      "evidenceTags": [
+        "differentiation",
+        "positioning",
+        "value-proposition",
+        "general"
+      ],
+      "title": "Strengthen differentiation and why you with one controlled change",
+      "titleAr": "طوّر التميز ولماذا أنت بخطوة منضبطة",
+      "why": "Differentiation and why you directly shapes whether the right prospect understands, trusts, and advances with the business.",
+      "whyAr": "يؤثر التميز ولماذا أنت مباشرة في فهم العميل المناسب وثقته وانتقاله إلى الخطوة التالية مع النشاط التجاري.",
+      "how": [
+        "Test one focused improvement for the business before adding more tools or channels.",
+        "Assign one business owner and a review date.",
+        "Validate the change with real business inquiries and record what happened."
+      ],
+      "howAr": [
+        "اختبر تحسيناً واحداً ومحدداً في النشاط التجاري قبل إضافة أدوات أو قنوات جديدة.",
+        "عيّن مسؤولاً واحداً في النشاط التجاري وموعداً للمراجعة.",
+        "اختبر التغيير مع استفسارات حقيقية تخص النشاط التجاري وسجّل النتيجة."
+      ],
+      "websiteImplication": "Make differentiation and why you explicit at the page and decision point where it matters.",
+      "websiteImplicationAr": "أظهر التميز ولماذا أنت بوضوح في الصفحة ونقطة القرار المناسبة.",
+      "systemImplication": "Use the smallest business tracking method that proves ownership before considering automation.",
+      "systemImplicationAr": "استخدم أبسط وسيلة متابعة في النشاط التجاري تثبت المسؤولية قبل التفكير في الأتمتة.",
+      "dominaseFit": "DOMINASE can prototype and measure this improvement without forcing a rebuild.",
+      "dominaseFitAr": "يمكن لـ DOMINASE اختبار هذا التحسين وقياسه دون فرض إعادة بناء.",
+      "riskNotes": "Do not publish business evidence, capacity, availability, prices, or outcomes that cannot be verified.",
+      "riskNotesAr": "لا تنشر أدلة أو طاقة استيعابية أو توفراً أو أسعاراً أو نتائج تخص النشاط التجاري ما لم يمكن إثباتها."
+    },
+    {
+      "id": "general-business-repair-gen_conversion_path",
+      "category": "conversionPath",
+      "conditions": {
+        "topicId": "gen_conversion_path",
+        "currentMax": 2.5,
+        "targetMin": 3,
+        "gapMin": 1
+      },
+      "mode": "repair",
+      "priority": 5,
+      "dedupeGroup": "general-business-gen_conversion_path",
+      "impact": 5,
+      "effort": 3,
+      "urgency": 5,
+      "evidenceTags": [
+        "conversion-path",
+        "cta",
+        "next-step",
+        "general"
+      ],
+      "title": "Repair clear conversion path at the source",
+      "titleAr": "عالج أساس مسار تحويل واضح",
+      "why": "Clear conversion path directly shapes whether the right prospect understands, trusts, and advances with the business.",
+      "whyAr": "يؤثر مسار تحويل واضح مباشرة في فهم العميل المناسب وثقته وانتقاله إلى الخطوة التالية مع النشاط التجاري.",
+      "how": [
+        "Fix the missing foundation for the business before adding more tools or channels.",
+        "Assign one business owner and a review date.",
+        "Validate the change with real business inquiries and record what happened."
+      ],
+      "howAr": [
+        "عالج الأساس الناقص في النشاط التجاري قبل إضافة أدوات أو قنوات جديدة.",
+        "عيّن مسؤولاً واحداً في النشاط التجاري وموعداً للمراجعة.",
+        "اختبر التغيير مع استفسارات حقيقية تخص النشاط التجاري وسجّل النتيجة."
+      ],
+      "websiteImplication": "Make clear conversion path explicit at the page and decision point where it matters.",
+      "websiteImplicationAr": "أظهر مسار تحويل واضح بوضوح في الصفحة ونقطة القرار المناسبة.",
+      "systemImplication": "Use the smallest business tracking method that proves ownership before considering automation.",
+      "systemImplicationAr": "استخدم أبسط وسيلة متابعة في النشاط التجاري تثبت المسؤولية قبل التفكير في الأتمتة.",
+      "dominaseFit": "DOMINASE can run a focused clarity and flow correction before any larger build.",
+      "dominaseFitAr": "يمكن لـ DOMINASE تنفيذ تصحيح مركز للوضوح والمسار قبل أي بناء أكبر.",
+      "riskNotes": "Do not publish business evidence, capacity, availability, prices, or outcomes that cannot be verified.",
+      "riskNotesAr": "لا تنشر أدلة أو طاقة استيعابية أو توفراً أو أسعاراً أو نتائج تخص النشاط التجاري ما لم يمكن إثباتها."
+    },
+    {
+      "id": "general-business-improve-gen_conversion_path",
+      "category": "conversionPath",
+      "conditions": {
+        "topicId": "gen_conversion_path",
+        "currentMin": 2.5,
+        "currentMax": 4.5,
+        "targetMin": 3.5,
+        "gapMin": 1
+      },
+      "mode": "improve",
+      "priority": 3,
+      "dedupeGroup": "general-business-gen_conversion_path",
+      "impact": 3,
+      "effort": 2,
+      "urgency": 3,
+      "evidenceTags": [
+        "conversion-path",
+        "cta",
+        "next-step",
+        "general"
+      ],
+      "title": "Strengthen clear conversion path with one controlled change",
+      "titleAr": "طوّر مسار تحويل واضح بخطوة منضبطة",
+      "why": "Clear conversion path directly shapes whether the right prospect understands, trusts, and advances with the business.",
+      "whyAr": "يؤثر مسار تحويل واضح مباشرة في فهم العميل المناسب وثقته وانتقاله إلى الخطوة التالية مع النشاط التجاري.",
+      "how": [
+        "Test one focused improvement for the business before adding more tools or channels.",
+        "Assign one business owner and a review date.",
+        "Validate the change with real business inquiries and record what happened."
+      ],
+      "howAr": [
+        "اختبر تحسيناً واحداً ومحدداً في النشاط التجاري قبل إضافة أدوات أو قنوات جديدة.",
+        "عيّن مسؤولاً واحداً في النشاط التجاري وموعداً للمراجعة.",
+        "اختبر التغيير مع استفسارات حقيقية تخص النشاط التجاري وسجّل النتيجة."
+      ],
+      "websiteImplication": "Make clear conversion path explicit at the page and decision point where it matters.",
+      "websiteImplicationAr": "أظهر مسار تحويل واضح بوضوح في الصفحة ونقطة القرار المناسبة.",
+      "systemImplication": "Use the smallest business tracking method that proves ownership before considering automation.",
+      "systemImplicationAr": "استخدم أبسط وسيلة متابعة في النشاط التجاري تثبت المسؤولية قبل التفكير في الأتمتة.",
+      "dominaseFit": "DOMINASE can prototype and measure this improvement without forcing a rebuild.",
+      "dominaseFitAr": "يمكن لـ DOMINASE اختبار هذا التحسين وقياسه دون فرض إعادة بناء.",
+      "riskNotes": "Do not publish business evidence, capacity, availability, prices, or outcomes that cannot be verified.",
+      "riskNotesAr": "لا تنشر أدلة أو طاقة استيعابية أو توفراً أو أسعاراً أو نتائج تخص النشاط التجاري ما لم يمكن إثباتها."
+    },
+    {
+      "id": "general-business-repair-gen_mobile_usability",
+      "category": "websiteStructure",
+      "conditions": {
+        "topicId": "gen_mobile_usability",
+        "currentMax": 2.5,
+        "targetMin": 3,
+        "gapMin": 1
+      },
+      "mode": "repair",
+      "priority": 5,
+      "dedupeGroup": "general-business-gen_mobile_usability",
+      "impact": 5,
+      "effort": 3,
+      "urgency": 5,
+      "evidenceTags": [
+        "mobile",
+        "responsive",
+        "usability",
+        "general"
+      ],
+      "title": "Repair mobile usability at the source",
+      "titleAr": "عالج أساس سهولة الاستخدام على الهاتف",
+      "why": "Mobile usability directly shapes whether the right prospect understands, trusts, and advances with the business.",
+      "whyAr": "يؤثر سهولة الاستخدام على الهاتف مباشرة في فهم العميل المناسب وثقته وانتقاله إلى الخطوة التالية مع النشاط التجاري.",
+      "how": [
+        "Fix the missing foundation for the business before adding more tools or channels.",
+        "Assign one business owner and a review date.",
+        "Validate the change with real business inquiries and record what happened."
+      ],
+      "howAr": [
+        "عالج الأساس الناقص في النشاط التجاري قبل إضافة أدوات أو قنوات جديدة.",
+        "عيّن مسؤولاً واحداً في النشاط التجاري وموعداً للمراجعة.",
+        "اختبر التغيير مع استفسارات حقيقية تخص النشاط التجاري وسجّل النتيجة."
+      ],
+      "websiteImplication": "Make mobile usability explicit at the page and decision point where it matters.",
+      "websiteImplicationAr": "أظهر سهولة الاستخدام على الهاتف بوضوح في الصفحة ونقطة القرار المناسبة.",
+      "systemImplication": "Use the smallest business tracking method that proves ownership before considering automation.",
+      "systemImplicationAr": "استخدم أبسط وسيلة متابعة في النشاط التجاري تثبت المسؤولية قبل التفكير في الأتمتة.",
+      "dominaseFit": "DOMINASE can run a focused clarity and flow correction before any larger build.",
+      "dominaseFitAr": "يمكن لـ DOMINASE تنفيذ تصحيح مركز للوضوح والمسار قبل أي بناء أكبر.",
+      "riskNotes": "Do not publish business evidence, capacity, availability, prices, or outcomes that cannot be verified.",
+      "riskNotesAr": "لا تنشر أدلة أو طاقة استيعابية أو توفراً أو أسعاراً أو نتائج تخص النشاط التجاري ما لم يمكن إثباتها."
+    },
+    {
+      "id": "general-business-improve-gen_mobile_usability",
+      "category": "websiteStructure",
+      "conditions": {
+        "topicId": "gen_mobile_usability",
+        "currentMin": 2.5,
+        "currentMax": 4.5,
+        "targetMin": 3.5,
+        "gapMin": 1
+      },
+      "mode": "improve",
+      "priority": 3,
+      "dedupeGroup": "general-business-gen_mobile_usability",
+      "impact": 3,
+      "effort": 2,
+      "urgency": 3,
+      "evidenceTags": [
+        "mobile",
+        "responsive",
+        "usability",
+        "general"
+      ],
+      "title": "Strengthen mobile usability with one controlled change",
+      "titleAr": "طوّر سهولة الاستخدام على الهاتف بخطوة منضبطة",
+      "why": "Mobile usability directly shapes whether the right prospect understands, trusts, and advances with the business.",
+      "whyAr": "يؤثر سهولة الاستخدام على الهاتف مباشرة في فهم العميل المناسب وثقته وانتقاله إلى الخطوة التالية مع النشاط التجاري.",
+      "how": [
+        "Test one focused improvement for the business before adding more tools or channels.",
+        "Assign one business owner and a review date.",
+        "Validate the change with real business inquiries and record what happened."
+      ],
+      "howAr": [
+        "اختبر تحسيناً واحداً ومحدداً في النشاط التجاري قبل إضافة أدوات أو قنوات جديدة.",
+        "عيّن مسؤولاً واحداً في النشاط التجاري وموعداً للمراجعة.",
+        "اختبر التغيير مع استفسارات حقيقية تخص النشاط التجاري وسجّل النتيجة."
+      ],
+      "websiteImplication": "Make mobile usability explicit at the page and decision point where it matters.",
+      "websiteImplicationAr": "أظهر سهولة الاستخدام على الهاتف بوضوح في الصفحة ونقطة القرار المناسبة.",
+      "systemImplication": "Use the smallest business tracking method that proves ownership before considering automation.",
+      "systemImplicationAr": "استخدم أبسط وسيلة متابعة في النشاط التجاري تثبت المسؤولية قبل التفكير في الأتمتة.",
+      "dominaseFit": "DOMINASE can prototype and measure this improvement without forcing a rebuild.",
+      "dominaseFitAr": "يمكن لـ DOMINASE اختبار هذا التحسين وقياسه دون فرض إعادة بناء.",
+      "riskNotes": "Do not publish business evidence, capacity, availability, prices, or outcomes that cannot be verified.",
+      "riskNotesAr": "لا تنشر أدلة أو طاقة استيعابية أو توفراً أو أسعاراً أو نتائج تخص النشاط التجاري ما لم يمكن إثباتها."
+    },
+    {
+      "id": "general-business-repair-gen_lead_capture",
+      "category": "conversionPath",
+      "conditions": {
+        "topicId": "gen_lead_capture",
+        "currentMax": 2.5,
+        "targetMin": 3,
+        "gapMin": 1
+      },
+      "mode": "repair",
+      "priority": 5,
+      "dedupeGroup": "general-business-gen_lead_capture",
+      "impact": 5,
+      "effort": 3,
+      "urgency": 5,
+      "evidenceTags": [
+        "capture",
+        "lead-magnet",
+        "reciprocity",
+        "general"
+      ],
+      "title": "Repair lead capture at the source",
+      "titleAr": "عالج أساس التقاط العملاء",
+      "why": "Lead capture directly shapes whether the right prospect understands, trusts, and advances with the business.",
+      "whyAr": "يؤثر التقاط العملاء مباشرة في فهم العميل المناسب وثقته وانتقاله إلى الخطوة التالية مع النشاط التجاري.",
+      "how": [
+        "Fix the missing foundation for the business before adding more tools or channels.",
+        "Assign one business owner and a review date.",
+        "Validate the change with real business inquiries and record what happened."
+      ],
+      "howAr": [
+        "عالج الأساس الناقص في النشاط التجاري قبل إضافة أدوات أو قنوات جديدة.",
+        "عيّن مسؤولاً واحداً في النشاط التجاري وموعداً للمراجعة.",
+        "اختبر التغيير مع استفسارات حقيقية تخص النشاط التجاري وسجّل النتيجة."
+      ],
+      "websiteImplication": "Make lead capture explicit at the page and decision point where it matters.",
+      "websiteImplicationAr": "أظهر التقاط العملاء بوضوح في الصفحة ونقطة القرار المناسبة.",
+      "systemImplication": "Use the smallest business tracking method that proves ownership before considering automation.",
+      "systemImplicationAr": "استخدم أبسط وسيلة متابعة في النشاط التجاري تثبت المسؤولية قبل التفكير في الأتمتة.",
+      "dominaseFit": "DOMINASE can run a focused clarity and flow correction before any larger build.",
+      "dominaseFitAr": "يمكن لـ DOMINASE تنفيذ تصحيح مركز للوضوح والمسار قبل أي بناء أكبر.",
+      "riskNotes": "Do not publish business evidence, capacity, availability, prices, or outcomes that cannot be verified.",
+      "riskNotesAr": "لا تنشر أدلة أو طاقة استيعابية أو توفراً أو أسعاراً أو نتائج تخص النشاط التجاري ما لم يمكن إثباتها."
+    },
+    {
+      "id": "general-business-improve-gen_lead_capture",
+      "category": "conversionPath",
+      "conditions": {
+        "topicId": "gen_lead_capture",
+        "currentMin": 2.5,
+        "currentMax": 4.5,
+        "targetMin": 3.5,
+        "gapMin": 1
+      },
+      "mode": "improve",
+      "priority": 3,
+      "dedupeGroup": "general-business-gen_lead_capture",
+      "impact": 3,
+      "effort": 2,
+      "urgency": 3,
+      "evidenceTags": [
+        "capture",
+        "lead-magnet",
+        "reciprocity",
+        "general"
+      ],
+      "title": "Strengthen lead capture with one controlled change",
+      "titleAr": "طوّر التقاط العملاء بخطوة منضبطة",
+      "why": "Lead capture directly shapes whether the right prospect understands, trusts, and advances with the business.",
+      "whyAr": "يؤثر التقاط العملاء مباشرة في فهم العميل المناسب وثقته وانتقاله إلى الخطوة التالية مع النشاط التجاري.",
+      "how": [
+        "Test one focused improvement for the business before adding more tools or channels.",
+        "Assign one business owner and a review date.",
+        "Validate the change with real business inquiries and record what happened."
+      ],
+      "howAr": [
+        "اختبر تحسيناً واحداً ومحدداً في النشاط التجاري قبل إضافة أدوات أو قنوات جديدة.",
+        "عيّن مسؤولاً واحداً في النشاط التجاري وموعداً للمراجعة.",
+        "اختبر التغيير مع استفسارات حقيقية تخص النشاط التجاري وسجّل النتيجة."
+      ],
+      "websiteImplication": "Make lead capture explicit at the page and decision point where it matters.",
+      "websiteImplicationAr": "أظهر التقاط العملاء بوضوح في الصفحة ونقطة القرار المناسبة.",
+      "systemImplication": "Use the smallest business tracking method that proves ownership before considering automation.",
+      "systemImplicationAr": "استخدم أبسط وسيلة متابعة في النشاط التجاري تثبت المسؤولية قبل التفكير في الأتمتة.",
+      "dominaseFit": "DOMINASE can prototype and measure this improvement without forcing a rebuild.",
+      "dominaseFitAr": "يمكن لـ DOMINASE اختبار هذا التحسين وقياسه دون فرض إعادة بناء.",
+      "riskNotes": "Do not publish business evidence, capacity, availability, prices, or outcomes that cannot be verified.",
+      "riskNotesAr": "لا تنشر أدلة أو طاقة استيعابية أو توفراً أو أسعاراً أو نتائج تخص النشاط التجاري ما لم يمكن إثباتها."
+    },
+    {
+      "id": "general-business-repair-gen_followup_discipline",
+      "category": "salesFollowUp",
+      "conditions": {
+        "topicId": "gen_followup_discipline",
+        "currentMax": 2.5,
+        "targetMin": 3,
+        "gapMin": 1
+      },
+      "mode": "repair",
+      "priority": 5,
+      "dedupeGroup": "general-business-gen_followup_discipline",
+      "impact": 5,
+      "effort": 3,
+      "urgency": 5,
+      "evidenceTags": [
+        "weak-follow-up",
+        "follow-up",
+        "cadence",
+        "general:sales-process"
+      ],
+      "title": "Repair follow-up discipline at the source",
+      "titleAr": "عالج أساس انضباط المتابعة",
+      "why": "Follow-up discipline directly shapes whether the right prospect understands, trusts, and advances with the business.",
+      "whyAr": "يؤثر انضباط المتابعة مباشرة في فهم العميل المناسب وثقته وانتقاله إلى الخطوة التالية مع النشاط التجاري.",
+      "how": [
+        "Fix the missing foundation for the business before adding more tools or channels.",
+        "Assign one business owner and a review date.",
+        "Validate the change with real business inquiries and record what happened."
+      ],
+      "howAr": [
+        "عالج الأساس الناقص في النشاط التجاري قبل إضافة أدوات أو قنوات جديدة.",
+        "عيّن مسؤولاً واحداً في النشاط التجاري وموعداً للمراجعة.",
+        "اختبر التغيير مع استفسارات حقيقية تخص النشاط التجاري وسجّل النتيجة."
+      ],
+      "websiteImplication": "Make follow-up discipline explicit at the page and decision point where it matters.",
+      "websiteImplicationAr": "أظهر انضباط المتابعة بوضوح في الصفحة ونقطة القرار المناسبة.",
+      "systemImplication": "Use the smallest business tracking method that proves ownership before considering automation.",
+      "systemImplicationAr": "استخدم أبسط وسيلة متابعة في النشاط التجاري تثبت المسؤولية قبل التفكير في الأتمتة.",
+      "dominaseFit": "DOMINASE can run a focused clarity and flow correction before any larger build.",
+      "dominaseFitAr": "يمكن لـ DOMINASE تنفيذ تصحيح مركز للوضوح والمسار قبل أي بناء أكبر.",
+      "riskNotes": "Do not publish business evidence, capacity, availability, prices, or outcomes that cannot be verified.",
+      "riskNotesAr": "لا تنشر أدلة أو طاقة استيعابية أو توفراً أو أسعاراً أو نتائج تخص النشاط التجاري ما لم يمكن إثباتها."
+    },
+    {
+      "id": "general-business-improve-gen_followup_discipline",
+      "category": "salesFollowUp",
+      "conditions": {
+        "topicId": "gen_followup_discipline",
+        "currentMin": 2.5,
+        "currentMax": 4.5,
+        "targetMin": 3.5,
+        "gapMin": 2
+      },
+      "mode": "improve",
+      "priority": 3,
+      "dedupeGroup": "general-business-gen_followup_discipline",
+      "impact": 3,
+      "effort": 2,
+      "urgency": 3,
+      "evidenceTags": [
+        "weak-follow-up",
+        "follow-up",
+        "cadence",
+        "general:sales-process"
+      ],
+      "title": "Strengthen follow-up discipline with one controlled change",
+      "titleAr": "طوّر انضباط المتابعة بخطوة منضبطة",
+      "why": "Follow-up discipline directly shapes whether the right prospect understands, trusts, and advances with the business.",
+      "whyAr": "يؤثر انضباط المتابعة مباشرة في فهم العميل المناسب وثقته وانتقاله إلى الخطوة التالية مع النشاط التجاري.",
+      "how": [
+        "Test one focused improvement for the business before adding more tools or channels.",
+        "Assign one business owner and a review date.",
+        "Validate the change with real business inquiries and record what happened."
+      ],
+      "howAr": [
+        "اختبر تحسيناً واحداً ومحدداً في النشاط التجاري قبل إضافة أدوات أو قنوات جديدة.",
+        "عيّن مسؤولاً واحداً في النشاط التجاري وموعداً للمراجعة.",
+        "اختبر التغيير مع استفسارات حقيقية تخص النشاط التجاري وسجّل النتيجة."
+      ],
+      "websiteImplication": "Make follow-up discipline explicit at the page and decision point where it matters.",
+      "websiteImplicationAr": "أظهر انضباط المتابعة بوضوح في الصفحة ونقطة القرار المناسبة.",
+      "systemImplication": "Use the smallest business tracking method that proves ownership before considering automation.",
+      "systemImplicationAr": "استخدم أبسط وسيلة متابعة في النشاط التجاري تثبت المسؤولية قبل التفكير في الأتمتة.",
+      "dominaseFit": "DOMINASE can prototype and measure this improvement without forcing a rebuild.",
+      "dominaseFitAr": "يمكن لـ DOMINASE اختبار هذا التحسين وقياسه دون فرض إعادة بناء.",
+      "riskNotes": "Do not publish business evidence, capacity, availability, prices, or outcomes that cannot be verified.",
+      "riskNotesAr": "لا تنشر أدلة أو طاقة استيعابية أو توفراً أو أسعاراً أو نتائج تخص النشاط التجاري ما لم يمكن إثباتها."
+    },
+    {
+      "id": "general-business-repair-gen_whatsapp_structure",
+      "category": "quickWins",
+      "conditions": {
+        "topicId": "gen_whatsapp_structure",
+        "currentMax": 2.5,
+        "targetMin": 3,
+        "gapMin": 1
+      },
+      "mode": "repair",
+      "priority": 5,
+      "dedupeGroup": "general-business-gen_whatsapp_structure",
+      "impact": 5,
+      "effort": 3,
+      "urgency": 5,
+      "evidenceTags": [
+        "whatsapp",
+        "messaging",
+        "follow-up",
+        "general"
+      ],
+      "title": "Repair whatsapp structure at the source",
+      "titleAr": "عالج أساس تنظيم واتساب",
+      "why": "WhatsApp structure directly shapes whether the right prospect understands, trusts, and advances with the business.",
+      "whyAr": "يؤثر تنظيم واتساب مباشرة في فهم العميل المناسب وثقته وانتقاله إلى الخطوة التالية مع النشاط التجاري.",
+      "how": [
+        "Fix the missing foundation for the business before adding more tools or channels.",
+        "Assign one business owner and a review date.",
+        "Validate the change with real business inquiries and record what happened."
+      ],
+      "howAr": [
+        "عالج الأساس الناقص في النشاط التجاري قبل إضافة أدوات أو قنوات جديدة.",
+        "عيّن مسؤولاً واحداً في النشاط التجاري وموعداً للمراجعة.",
+        "اختبر التغيير مع استفسارات حقيقية تخص النشاط التجاري وسجّل النتيجة."
+      ],
+      "websiteImplication": "Make whatsapp structure explicit at the page and decision point where it matters.",
+      "websiteImplicationAr": "أظهر تنظيم واتساب بوضوح في الصفحة ونقطة القرار المناسبة.",
+      "systemImplication": "Use the smallest business tracking method that proves ownership before considering automation.",
+      "systemImplicationAr": "استخدم أبسط وسيلة متابعة في النشاط التجاري تثبت المسؤولية قبل التفكير في الأتمتة.",
+      "dominaseFit": "DOMINASE can run a focused clarity and flow correction before any larger build.",
+      "dominaseFitAr": "يمكن لـ DOMINASE تنفيذ تصحيح مركز للوضوح والمسار قبل أي بناء أكبر.",
+      "riskNotes": "Do not publish business evidence, capacity, availability, prices, or outcomes that cannot be verified.",
+      "riskNotesAr": "لا تنشر أدلة أو طاقة استيعابية أو توفراً أو أسعاراً أو نتائج تخص النشاط التجاري ما لم يمكن إثباتها."
+    },
+    {
+      "id": "general-business-improve-gen_whatsapp_structure",
+      "category": "quickWins",
+      "conditions": {
+        "topicId": "gen_whatsapp_structure",
+        "currentMin": 2.5,
+        "currentMax": 4.5,
+        "targetMin": 3.5,
+        "gapMin": 2
+      },
+      "mode": "improve",
+      "priority": 3,
+      "dedupeGroup": "general-business-gen_whatsapp_structure",
+      "impact": 3,
+      "effort": 2,
+      "urgency": 3,
+      "evidenceTags": [
+        "whatsapp",
+        "messaging",
+        "follow-up",
+        "general"
+      ],
+      "title": "Strengthen whatsapp structure with one controlled change",
+      "titleAr": "طوّر تنظيم واتساب بخطوة منضبطة",
+      "why": "WhatsApp structure directly shapes whether the right prospect understands, trusts, and advances with the business.",
+      "whyAr": "يؤثر تنظيم واتساب مباشرة في فهم العميل المناسب وثقته وانتقاله إلى الخطوة التالية مع النشاط التجاري.",
+      "how": [
+        "Test one focused improvement for the business before adding more tools or channels.",
+        "Assign one business owner and a review date.",
+        "Validate the change with real business inquiries and record what happened."
+      ],
+      "howAr": [
+        "اختبر تحسيناً واحداً ومحدداً في النشاط التجاري قبل إضافة أدوات أو قنوات جديدة.",
+        "عيّن مسؤولاً واحداً في النشاط التجاري وموعداً للمراجعة.",
+        "اختبر التغيير مع استفسارات حقيقية تخص النشاط التجاري وسجّل النتيجة."
+      ],
+      "websiteImplication": "Make whatsapp structure explicit at the page and decision point where it matters.",
+      "websiteImplicationAr": "أظهر تنظيم واتساب بوضوح في الصفحة ونقطة القرار المناسبة.",
+      "systemImplication": "Use the smallest business tracking method that proves ownership before considering automation.",
+      "systemImplicationAr": "استخدم أبسط وسيلة متابعة في النشاط التجاري تثبت المسؤولية قبل التفكير في الأتمتة.",
+      "dominaseFit": "DOMINASE can prototype and measure this improvement without forcing a rebuild.",
+      "dominaseFitAr": "يمكن لـ DOMINASE اختبار هذا التحسين وقياسه دون فرض إعادة بناء.",
+      "riskNotes": "Do not publish business evidence, capacity, availability, prices, or outcomes that cannot be verified.",
+      "riskNotesAr": "لا تنشر أدلة أو طاقة استيعابية أو توفراً أو أسعاراً أو نتائج تخص النشاط التجاري ما لم يمكن إثباتها."
+    },
+    {
+      "id": "general-business-repair-gen_lead_tracking",
+      "category": "salesFollowUp",
+      "conditions": {
+        "topicId": "gen_lead_tracking",
+        "currentMax": 2.5,
+        "targetMin": 3,
+        "gapMin": 1
+      },
+      "mode": "repair",
+      "priority": 5,
+      "dedupeGroup": "general-business-gen_lead_tracking",
+      "impact": 5,
+      "effort": 3,
+      "urgency": 5,
+      "evidenceTags": [
+        "crm",
+        "pipeline",
+        "tracking",
+        "general"
+      ],
+      "title": "Repair lead tracking at the source",
+      "titleAr": "عالج أساس تتبع العملاء",
+      "why": "Lead tracking directly shapes whether the right prospect understands, trusts, and advances with the business.",
+      "whyAr": "يؤثر تتبع العملاء مباشرة في فهم العميل المناسب وثقته وانتقاله إلى الخطوة التالية مع النشاط التجاري.",
+      "how": [
+        "Fix the missing foundation for the business before adding more tools or channels.",
+        "Assign one business owner and a review date.",
+        "Validate the change with real business inquiries and record what happened."
+      ],
+      "howAr": [
+        "عالج الأساس الناقص في النشاط التجاري قبل إضافة أدوات أو قنوات جديدة.",
+        "عيّن مسؤولاً واحداً في النشاط التجاري وموعداً للمراجعة.",
+        "اختبر التغيير مع استفسارات حقيقية تخص النشاط التجاري وسجّل النتيجة."
+      ],
+      "websiteImplication": "Make lead tracking explicit at the page and decision point where it matters.",
+      "websiteImplicationAr": "أظهر تتبع العملاء بوضوح في الصفحة ونقطة القرار المناسبة.",
+      "systemImplication": "Use the smallest business tracking method that proves ownership before considering automation.",
+      "systemImplicationAr": "استخدم أبسط وسيلة متابعة في النشاط التجاري تثبت المسؤولية قبل التفكير في الأتمتة.",
+      "dominaseFit": "DOMINASE can run a focused clarity and flow correction before any larger build.",
+      "dominaseFitAr": "يمكن لـ DOMINASE تنفيذ تصحيح مركز للوضوح والمسار قبل أي بناء أكبر.",
+      "riskNotes": "Do not publish business evidence, capacity, availability, prices, or outcomes that cannot be verified.",
+      "riskNotesAr": "لا تنشر أدلة أو طاقة استيعابية أو توفراً أو أسعاراً أو نتائج تخص النشاط التجاري ما لم يمكن إثباتها."
+    },
+    {
+      "id": "general-business-improve-gen_lead_tracking",
+      "category": "salesFollowUp",
+      "conditions": {
+        "topicId": "gen_lead_tracking",
+        "currentMin": 2.5,
+        "currentMax": 4.5,
+        "targetMin": 3.5,
+        "gapMin": 2
+      },
+      "mode": "improve",
+      "priority": 3,
+      "dedupeGroup": "general-business-gen_lead_tracking",
+      "impact": 3,
+      "effort": 2,
+      "urgency": 3,
+      "evidenceTags": [
+        "crm",
+        "pipeline",
+        "tracking",
+        "general"
+      ],
+      "title": "Strengthen lead tracking with one controlled change",
+      "titleAr": "طوّر تتبع العملاء بخطوة منضبطة",
+      "why": "Lead tracking directly shapes whether the right prospect understands, trusts, and advances with the business.",
+      "whyAr": "يؤثر تتبع العملاء مباشرة في فهم العميل المناسب وثقته وانتقاله إلى الخطوة التالية مع النشاط التجاري.",
+      "how": [
+        "Test one focused improvement for the business before adding more tools or channels.",
+        "Assign one business owner and a review date.",
+        "Validate the change with real business inquiries and record what happened."
+      ],
+      "howAr": [
+        "اختبر تحسيناً واحداً ومحدداً في النشاط التجاري قبل إضافة أدوات أو قنوات جديدة.",
+        "عيّن مسؤولاً واحداً في النشاط التجاري وموعداً للمراجعة.",
+        "اختبر التغيير مع استفسارات حقيقية تخص النشاط التجاري وسجّل النتيجة."
+      ],
+      "websiteImplication": "Make lead tracking explicit at the page and decision point where it matters.",
+      "websiteImplicationAr": "أظهر تتبع العملاء بوضوح في الصفحة ونقطة القرار المناسبة.",
+      "systemImplication": "Use the smallest business tracking method that proves ownership before considering automation.",
+      "systemImplicationAr": "استخدم أبسط وسيلة متابعة في النشاط التجاري تثبت المسؤولية قبل التفكير في الأتمتة.",
+      "dominaseFit": "DOMINASE can prototype and measure this improvement without forcing a rebuild.",
+      "dominaseFitAr": "يمكن لـ DOMINASE اختبار هذا التحسين وقياسه دون فرض إعادة بناء.",
+      "riskNotes": "Do not publish business evidence, capacity, availability, prices, or outcomes that cannot be verified.",
+      "riskNotesAr": "لا تنشر أدلة أو طاقة استيعابية أو توفراً أو أسعاراً أو نتائج تخص النشاط التجاري ما لم يمكن إثباتها."
+    },
+    {
+      "id": "general-business-repair-gen_content_faq",
+      "category": "contentAndTrust",
+      "conditions": {
+        "topicId": "gen_content_faq",
+        "currentMax": 2.5,
+        "targetMin": 3,
+        "gapMin": 1
+      },
+      "mode": "repair",
+      "priority": 5,
+      "dedupeGroup": "general-business-gen_content_faq",
+      "impact": 5,
+      "effort": 3,
+      "urgency": 5,
+      "evidenceTags": [
+        "content-strategy",
+        "faq-gap",
+        "buyer-questions",
+        "general"
+      ],
+      "title": "Repair content and faq coverage at the source",
+      "titleAr": "عالج أساس تغطية المحتوى والأسئلة",
+      "why": "Content and FAQ coverage directly shapes whether the right prospect understands, trusts, and advances with the business.",
+      "whyAr": "يؤثر تغطية المحتوى والأسئلة مباشرة في فهم العميل المناسب وثقته وانتقاله إلى الخطوة التالية مع النشاط التجاري.",
+      "how": [
+        "Fix the missing foundation for the business before adding more tools or channels.",
+        "Assign one business owner and a review date.",
+        "Validate the change with real business inquiries and record what happened."
+      ],
+      "howAr": [
+        "عالج الأساس الناقص في النشاط التجاري قبل إضافة أدوات أو قنوات جديدة.",
+        "عيّن مسؤولاً واحداً في النشاط التجاري وموعداً للمراجعة.",
+        "اختبر التغيير مع استفسارات حقيقية تخص النشاط التجاري وسجّل النتيجة."
+      ],
+      "websiteImplication": "Make content and faq coverage explicit at the page and decision point where it matters.",
+      "websiteImplicationAr": "أظهر تغطية المحتوى والأسئلة بوضوح في الصفحة ونقطة القرار المناسبة.",
+      "systemImplication": "Use the smallest business tracking method that proves ownership before considering automation.",
+      "systemImplicationAr": "استخدم أبسط وسيلة متابعة في النشاط التجاري تثبت المسؤولية قبل التفكير في الأتمتة.",
+      "dominaseFit": "DOMINASE can run a focused clarity and flow correction before any larger build.",
+      "dominaseFitAr": "يمكن لـ DOMINASE تنفيذ تصحيح مركز للوضوح والمسار قبل أي بناء أكبر.",
+      "riskNotes": "Do not publish business evidence, capacity, availability, prices, or outcomes that cannot be verified.",
+      "riskNotesAr": "لا تنشر أدلة أو طاقة استيعابية أو توفراً أو أسعاراً أو نتائج تخص النشاط التجاري ما لم يمكن إثباتها."
+    },
+    {
+      "id": "general-business-improve-gen_content_faq",
+      "category": "contentAndTrust",
+      "conditions": {
+        "topicId": "gen_content_faq",
+        "currentMin": 2.5,
+        "currentMax": 4.5,
+        "targetMin": 3.5,
+        "gapMin": 2
+      },
+      "mode": "improve",
+      "priority": 3,
+      "dedupeGroup": "general-business-gen_content_faq",
+      "impact": 3,
+      "effort": 2,
+      "urgency": 3,
+      "evidenceTags": [
+        "content-strategy",
+        "faq-gap",
+        "buyer-questions",
+        "general"
+      ],
+      "title": "Strengthen content and faq coverage with one controlled change",
+      "titleAr": "طوّر تغطية المحتوى والأسئلة بخطوة منضبطة",
+      "why": "Content and FAQ coverage directly shapes whether the right prospect understands, trusts, and advances with the business.",
+      "whyAr": "يؤثر تغطية المحتوى والأسئلة مباشرة في فهم العميل المناسب وثقته وانتقاله إلى الخطوة التالية مع النشاط التجاري.",
+      "how": [
+        "Test one focused improvement for the business before adding more tools or channels.",
+        "Assign one business owner and a review date.",
+        "Validate the change with real business inquiries and record what happened."
+      ],
+      "howAr": [
+        "اختبر تحسيناً واحداً ومحدداً في النشاط التجاري قبل إضافة أدوات أو قنوات جديدة.",
+        "عيّن مسؤولاً واحداً في النشاط التجاري وموعداً للمراجعة.",
+        "اختبر التغيير مع استفسارات حقيقية تخص النشاط التجاري وسجّل النتيجة."
+      ],
+      "websiteImplication": "Make content and faq coverage explicit at the page and decision point where it matters.",
+      "websiteImplicationAr": "أظهر تغطية المحتوى والأسئلة بوضوح في الصفحة ونقطة القرار المناسبة.",
+      "systemImplication": "Use the smallest business tracking method that proves ownership before considering automation.",
+      "systemImplicationAr": "استخدم أبسط وسيلة متابعة في النشاط التجاري تثبت المسؤولية قبل التفكير في الأتمتة.",
+      "dominaseFit": "DOMINASE can prototype and measure this improvement without forcing a rebuild.",
+      "dominaseFitAr": "يمكن لـ DOMINASE اختبار هذا التحسين وقياسه دون فرض إعادة بناء.",
+      "riskNotes": "Do not publish business evidence, capacity, availability, prices, or outcomes that cannot be verified.",
+      "riskNotesAr": "لا تنشر أدلة أو طاقة استيعابية أو توفراً أو أسعاراً أو نتائج تخص النشاط التجاري ما لم يمكن إثباتها."
+    },
+    {
+      "id": "general-business-repair-gen_pricing_clarity",
+      "category": "customerProfile",
+      "conditions": {
+        "topicId": "gen_pricing_clarity",
+        "currentMax": 2.5,
+        "targetMin": 3,
+        "gapMin": 1
+      },
+      "mode": "repair",
+      "priority": 5,
+      "dedupeGroup": "general-business-gen_pricing_clarity",
+      "impact": 5,
+      "effort": 3,
+      "urgency": 5,
+      "evidenceTags": [
+        "pricing-transparency",
+        "pricing-content",
+        "trust-barrier",
+        "general"
+      ],
+      "title": "Repair pricing clarity where relevant at the source",
+      "titleAr": "عالج أساس وضوح التسعير حيث يناسب",
+      "why": "Pricing clarity where relevant directly shapes whether the right prospect understands, trusts, and advances with the business.",
+      "whyAr": "يؤثر وضوح التسعير حيث يناسب مباشرة في فهم العميل المناسب وثقته وانتقاله إلى الخطوة التالية مع النشاط التجاري.",
+      "how": [
+        "Fix the missing foundation for the business before adding more tools or channels.",
+        "Assign one business owner and a review date.",
+        "Validate the change with real business inquiries and record what happened."
+      ],
+      "howAr": [
+        "عالج الأساس الناقص في النشاط التجاري قبل إضافة أدوات أو قنوات جديدة.",
+        "عيّن مسؤولاً واحداً في النشاط التجاري وموعداً للمراجعة.",
+        "اختبر التغيير مع استفسارات حقيقية تخص النشاط التجاري وسجّل النتيجة."
+      ],
+      "websiteImplication": "Make pricing clarity where relevant explicit at the page and decision point where it matters.",
+      "websiteImplicationAr": "أظهر وضوح التسعير حيث يناسب بوضوح في الصفحة ونقطة القرار المناسبة.",
+      "systemImplication": "Use the smallest business tracking method that proves ownership before considering automation.",
+      "systemImplicationAr": "استخدم أبسط وسيلة متابعة في النشاط التجاري تثبت المسؤولية قبل التفكير في الأتمتة.",
+      "dominaseFit": "DOMINASE can run a focused clarity and flow correction before any larger build.",
+      "dominaseFitAr": "يمكن لـ DOMINASE تنفيذ تصحيح مركز للوضوح والمسار قبل أي بناء أكبر.",
+      "riskNotes": "Do not publish business evidence, capacity, availability, prices, or outcomes that cannot be verified.",
+      "riskNotesAr": "لا تنشر أدلة أو طاقة استيعابية أو توفراً أو أسعاراً أو نتائج تخص النشاط التجاري ما لم يمكن إثباتها."
+    },
+    {
+      "id": "general-business-improve-gen_pricing_clarity",
+      "category": "customerProfile",
+      "conditions": {
+        "topicId": "gen_pricing_clarity",
+        "currentMin": 2.5,
+        "currentMax": 4.5,
+        "targetMin": 3.5,
+        "gapMin": 2
+      },
+      "mode": "improve",
+      "priority": 3,
+      "dedupeGroup": "general-business-gen_pricing_clarity",
+      "impact": 3,
+      "effort": 2,
+      "urgency": 3,
+      "evidenceTags": [
+        "pricing-transparency",
+        "pricing-content",
+        "trust-barrier",
+        "general"
+      ],
+      "title": "Strengthen pricing clarity where relevant with one controlled change",
+      "titleAr": "طوّر وضوح التسعير حيث يناسب بخطوة منضبطة",
+      "why": "Pricing clarity where relevant directly shapes whether the right prospect understands, trusts, and advances with the business.",
+      "whyAr": "يؤثر وضوح التسعير حيث يناسب مباشرة في فهم العميل المناسب وثقته وانتقاله إلى الخطوة التالية مع النشاط التجاري.",
+      "how": [
+        "Test one focused improvement for the business before adding more tools or channels.",
+        "Assign one business owner and a review date.",
+        "Validate the change with real business inquiries and record what happened."
+      ],
+      "howAr": [
+        "اختبر تحسيناً واحداً ومحدداً في النشاط التجاري قبل إضافة أدوات أو قنوات جديدة.",
+        "عيّن مسؤولاً واحداً في النشاط التجاري وموعداً للمراجعة.",
+        "اختبر التغيير مع استفسارات حقيقية تخص النشاط التجاري وسجّل النتيجة."
+      ],
+      "websiteImplication": "Make pricing clarity where relevant explicit at the page and decision point where it matters.",
+      "websiteImplicationAr": "أظهر وضوح التسعير حيث يناسب بوضوح في الصفحة ونقطة القرار المناسبة.",
+      "systemImplication": "Use the smallest business tracking method that proves ownership before considering automation.",
+      "systemImplicationAr": "استخدم أبسط وسيلة متابعة في النشاط التجاري تثبت المسؤولية قبل التفكير في الأتمتة.",
+      "dominaseFit": "DOMINASE can prototype and measure this improvement without forcing a rebuild.",
+      "dominaseFitAr": "يمكن لـ DOMINASE اختبار هذا التحسين وقياسه دون فرض إعادة بناء.",
+      "riskNotes": "Do not publish business evidence, capacity, availability, prices, or outcomes that cannot be verified.",
+      "riskNotesAr": "لا تنشر أدلة أو طاقة استيعابية أو توفراً أو أسعاراً أو نتائج تخص النشاط التجاري ما لم يمكن إثباتها."
+    },
+    {
+      "id": "general-business-repair-gen_digital_readiness",
+      "category": "dominaseNextStep",
+      "conditions": {
+        "topicId": "gen_digital_readiness",
+        "currentMax": 2.5,
+        "targetMin": 3,
+        "gapMin": 1
+      },
+      "mode": "repair",
+      "priority": 5,
+      "dedupeGroup": "general-business-gen_digital_readiness",
+      "impact": 5,
+      "effort": 3,
+      "urgency": 5,
+      "evidenceTags": [
+        "digital-readiness",
+        "system",
+        "automation",
+        "general:digital-readiness"
+      ],
+      "title": "Repair connected digital system at the source",
+      "titleAr": "عالج أساس النظام الرقمي المترابط",
+      "why": "Connected digital system directly shapes whether the right prospect understands, trusts, and advances with the business.",
+      "whyAr": "يؤثر النظام الرقمي المترابط مباشرة في فهم العميل المناسب وثقته وانتقاله إلى الخطوة التالية مع النشاط التجاري.",
+      "how": [
+        "Fix the missing foundation for the business before adding more tools or channels.",
+        "Assign one business owner and a review date.",
+        "Validate the change with real business inquiries and record what happened."
+      ],
+      "howAr": [
+        "عالج الأساس الناقص في النشاط التجاري قبل إضافة أدوات أو قنوات جديدة.",
+        "عيّن مسؤولاً واحداً في النشاط التجاري وموعداً للمراجعة.",
+        "اختبر التغيير مع استفسارات حقيقية تخص النشاط التجاري وسجّل النتيجة."
+      ],
+      "websiteImplication": "Make connected digital system explicit at the page and decision point where it matters.",
+      "websiteImplicationAr": "أظهر النظام الرقمي المترابط بوضوح في الصفحة ونقطة القرار المناسبة.",
+      "systemImplication": "Use the smallest business tracking method that proves ownership before considering automation.",
+      "systemImplicationAr": "استخدم أبسط وسيلة متابعة في النشاط التجاري تثبت المسؤولية قبل التفكير في الأتمتة.",
+      "dominaseFit": "DOMINASE can run a focused clarity and flow correction before any larger build.",
+      "dominaseFitAr": "يمكن لـ DOMINASE تنفيذ تصحيح مركز للوضوح والمسار قبل أي بناء أكبر.",
+      "riskNotes": "Do not publish business evidence, capacity, availability, prices, or outcomes that cannot be verified.",
+      "riskNotesAr": "لا تنشر أدلة أو طاقة استيعابية أو توفراً أو أسعاراً أو نتائج تخص النشاط التجاري ما لم يمكن إثباتها."
+    },
+    {
+      "id": "general-business-improve-gen_digital_readiness",
+      "category": "dominaseNextStep",
+      "conditions": {
+        "topicId": "gen_digital_readiness",
+        "currentMin": 2.5,
+        "currentMax": 4.5,
+        "targetMin": 3.5,
+        "gapMin": 2
+      },
+      "mode": "improve",
+      "priority": 3,
+      "dedupeGroup": "general-business-gen_digital_readiness",
+      "impact": 3,
+      "effort": 2,
+      "urgency": 3,
+      "evidenceTags": [
+        "digital-readiness",
+        "system",
+        "automation",
+        "general:digital-readiness"
+      ],
+      "title": "Strengthen connected digital system with one controlled change",
+      "titleAr": "طوّر النظام الرقمي المترابط بخطوة منضبطة",
+      "why": "Connected digital system directly shapes whether the right prospect understands, trusts, and advances with the business.",
+      "whyAr": "يؤثر النظام الرقمي المترابط مباشرة في فهم العميل المناسب وثقته وانتقاله إلى الخطوة التالية مع النشاط التجاري.",
+      "how": [
+        "Test one focused improvement for the business before adding more tools or channels.",
+        "Assign one business owner and a review date.",
+        "Validate the change with real business inquiries and record what happened."
+      ],
+      "howAr": [
+        "اختبر تحسيناً واحداً ومحدداً في النشاط التجاري قبل إضافة أدوات أو قنوات جديدة.",
+        "عيّن مسؤولاً واحداً في النشاط التجاري وموعداً للمراجعة.",
+        "اختبر التغيير مع استفسارات حقيقية تخص النشاط التجاري وسجّل النتيجة."
+      ],
+      "websiteImplication": "Make connected digital system explicit at the page and decision point where it matters.",
+      "websiteImplicationAr": "أظهر النظام الرقمي المترابط بوضوح في الصفحة ونقطة القرار المناسبة.",
+      "systemImplication": "Use the smallest business tracking method that proves ownership before considering automation.",
+      "systemImplicationAr": "استخدم أبسط وسيلة متابعة في النشاط التجاري تثبت المسؤولية قبل التفكير في الأتمتة.",
+      "dominaseFit": "DOMINASE can prototype and measure this improvement without forcing a rebuild.",
+      "dominaseFitAr": "يمكن لـ DOMINASE اختبار هذا التحسين وقياسه دون فرض إعادة بناء.",
+      "riskNotes": "Do not publish business evidence, capacity, availability, prices, or outcomes that cannot be verified.",
+      "riskNotesAr": "لا تنشر أدلة أو طاقة استيعابية أو توفراً أو أسعاراً أو نتائج تخص النشاط التجاري ما لم يمكن إثباتها."
+    },
+    {
+      "id": "general-business-maintain-gen_offer_clarity",
+      "category": "strategicDiagnosis",
+      "conditions": {
+        "topicId": "gen_offer_clarity",
+        "currentMin": 4.5,
+        "gapMax": 0.5
+      },
+      "notConditions": [
+        {
+          "topicId": "gen_offer_clarity",
+          "gapMin": 2
+        },
+        {
+          "topicId": "gen_target_customer",
+          "gapMin": 2
+        },
+        {
+          "topicId": "gen_trust_proof",
+          "gapMin": 2
+        },
+        {
+          "topicId": "gen_differentiation",
+          "gapMin": 2
+        },
+        {
+          "topicId": "gen_conversion_path",
+          "gapMin": 2
+        },
+        {
+          "topicId": "gen_mobile_usability",
+          "gapMin": 2
+        },
+        {
+          "topicId": "gen_lead_capture",
+          "gapMin": 2
+        },
+        {
+          "topicId": "gen_followup_discipline",
+          "gapMin": 2
+        },
+        {
+          "topicId": "gen_whatsapp_structure",
+          "gapMin": 2
+        },
+        {
+          "topicId": "gen_lead_tracking",
+          "gapMin": 2
+        },
+        {
+          "topicId": "gen_content_faq",
+          "gapMin": 2
+        },
+        {
+          "topicId": "gen_pricing_clarity",
+          "gapMin": 2
+        },
+        {
+          "topicId": "gen_digital_readiness",
+          "gapMin": 2
+        }
+      ],
+      "mode": "maintain",
+      "priority": 2,
+      "dedupeGroup": "general-business-gen_offer_clarity",
+      "impact": 3,
+      "effort": 1,
+      "urgency": 2,
+      "evidenceTags": [
+        "offer-clarity",
+        "clarity",
+        "grunt-test",
+        "general:offer-clarity"
+      ],
+      "title": "Protect the proven offer clarity standard",
+      "titleAr": "حافظ على مستوى وضوح العرض",
+      "why": "Offer clarity directly shapes whether the right prospect understands, trusts, and advances with the business.",
+      "whyAr": "يؤثر وضوح العرض مباشرة في فهم العميل المناسب وثقته وانتقاله إلى الخطوة التالية مع النشاط التجاري.",
+      "how": [
+        "Document and monitor the working standard for the business before adding more tools or channels.",
+        "Assign one business owner and a review date.",
+        "Validate the change with real business inquiries and record what happened."
+      ],
+      "howAr": [
+        "وثّق المعيار الناجح وراقبه في النشاط التجاري قبل إضافة أدوات أو قنوات جديدة.",
+        "عيّن مسؤولاً واحداً في النشاط التجاري وموعداً للمراجعة.",
+        "اختبر التغيير مع استفسارات حقيقية تخص النشاط التجاري وسجّل النتيجة."
+      ],
+      "websiteImplication": "Make offer clarity explicit at the page and decision point where it matters.",
+      "websiteImplicationAr": "أظهر وضوح العرض بوضوح في الصفحة ونقطة القرار المناسبة.",
+      "systemImplication": "Keep business measurement lightweight; no new system is justified without drift.",
+      "systemImplicationAr": "حافظ على قياس بسيط في النشاط التجاري؛ لا حاجة لنظام جديد دون تراجع واضح.",
+      "dominaseFit": "DOMINASE can review the existing standard and identify the next evidence-based optimization.",
+      "dominaseFitAr": "يمكن لـ DOMINASE مراجعة المعيار الحالي وتحديد التحسين التالي المبني على الدليل.",
+      "riskNotes": "Do not publish business evidence, capacity, availability, prices, or outcomes that cannot be verified.",
+      "riskNotesAr": "لا تنشر أدلة أو طاقة استيعابية أو توفراً أو أسعاراً أو نتائج تخص النشاط التجاري ما لم يمكن إثباتها."
+    },
+    {
+      "id": "general-business-maintain-gen_differentiation",
+      "category": "strategicDiagnosis",
+      "conditions": {
+        "topicId": "gen_differentiation",
+        "currentMin": 4.5,
+        "gapMax": 0.5
+      },
+      "notConditions": [
+        {
+          "topicId": "gen_offer_clarity",
+          "gapMin": 2
+        },
+        {
+          "topicId": "gen_target_customer",
+          "gapMin": 2
+        },
+        {
+          "topicId": "gen_trust_proof",
+          "gapMin": 2
+        },
+        {
+          "topicId": "gen_differentiation",
+          "gapMin": 2
+        },
+        {
+          "topicId": "gen_conversion_path",
+          "gapMin": 2
+        },
+        {
+          "topicId": "gen_mobile_usability",
+          "gapMin": 2
+        },
+        {
+          "topicId": "gen_lead_capture",
+          "gapMin": 2
+        },
+        {
+          "topicId": "gen_followup_discipline",
+          "gapMin": 2
+        },
+        {
+          "topicId": "gen_whatsapp_structure",
+          "gapMin": 2
+        },
+        {
+          "topicId": "gen_lead_tracking",
+          "gapMin": 2
+        },
+        {
+          "topicId": "gen_content_faq",
+          "gapMin": 2
+        },
+        {
+          "topicId": "gen_pricing_clarity",
+          "gapMin": 2
+        },
+        {
+          "topicId": "gen_digital_readiness",
+          "gapMin": 2
+        }
+      ],
+      "mode": "maintain",
+      "priority": 2,
+      "dedupeGroup": "general-business-gen_differentiation",
+      "impact": 3,
+      "effort": 1,
+      "urgency": 2,
+      "evidenceTags": [
+        "differentiation",
+        "positioning",
+        "value-proposition",
+        "general"
+      ],
+      "title": "Protect the proven differentiation and why you standard",
+      "titleAr": "حافظ على مستوى التميز ولماذا أنت",
+      "why": "Differentiation and why you directly shapes whether the right prospect understands, trusts, and advances with the business.",
+      "whyAr": "يؤثر التميز ولماذا أنت مباشرة في فهم العميل المناسب وثقته وانتقاله إلى الخطوة التالية مع النشاط التجاري.",
+      "how": [
+        "Document and monitor the working standard for the business before adding more tools or channels.",
+        "Assign one business owner and a review date.",
+        "Validate the change with real business inquiries and record what happened."
+      ],
+      "howAr": [
+        "وثّق المعيار الناجح وراقبه في النشاط التجاري قبل إضافة أدوات أو قنوات جديدة.",
+        "عيّن مسؤولاً واحداً في النشاط التجاري وموعداً للمراجعة.",
+        "اختبر التغيير مع استفسارات حقيقية تخص النشاط التجاري وسجّل النتيجة."
+      ],
+      "websiteImplication": "Make differentiation and why you explicit at the page and decision point where it matters.",
+      "websiteImplicationAr": "أظهر التميز ولماذا أنت بوضوح في الصفحة ونقطة القرار المناسبة.",
+      "systemImplication": "Keep business measurement lightweight; no new system is justified without drift.",
+      "systemImplicationAr": "حافظ على قياس بسيط في النشاط التجاري؛ لا حاجة لنظام جديد دون تراجع واضح.",
+      "dominaseFit": "DOMINASE can review the existing standard and identify the next evidence-based optimization.",
+      "dominaseFitAr": "يمكن لـ DOMINASE مراجعة المعيار الحالي وتحديد التحسين التالي المبني على الدليل.",
+      "riskNotes": "Do not publish business evidence, capacity, availability, prices, or outcomes that cannot be verified.",
+      "riskNotesAr": "لا تنشر أدلة أو طاقة استيعابية أو توفراً أو أسعاراً أو نتائج تخص النشاط التجاري ما لم يمكن إثباتها."
+    },
+    {
+      "id": "general-business-maintain-gen_followup_discipline",
+      "category": "salesFollowUp",
+      "conditions": {
+        "topicId": "gen_followup_discipline",
+        "currentMin": 4.5,
+        "gapMax": 0.5
+      },
+      "notConditions": [
+        {
+          "topicId": "gen_offer_clarity",
+          "gapMin": 2
+        },
+        {
+          "topicId": "gen_target_customer",
+          "gapMin": 2
+        },
+        {
+          "topicId": "gen_trust_proof",
+          "gapMin": 2
+        },
+        {
+          "topicId": "gen_differentiation",
+          "gapMin": 2
+        },
+        {
+          "topicId": "gen_conversion_path",
+          "gapMin": 2
+        },
+        {
+          "topicId": "gen_mobile_usability",
+          "gapMin": 2
+        },
+        {
+          "topicId": "gen_lead_capture",
+          "gapMin": 2
+        },
+        {
+          "topicId": "gen_followup_discipline",
+          "gapMin": 2
+        },
+        {
+          "topicId": "gen_whatsapp_structure",
+          "gapMin": 2
+        },
+        {
+          "topicId": "gen_lead_tracking",
+          "gapMin": 2
+        },
+        {
+          "topicId": "gen_content_faq",
+          "gapMin": 2
+        },
+        {
+          "topicId": "gen_pricing_clarity",
+          "gapMin": 2
+        },
+        {
+          "topicId": "gen_digital_readiness",
+          "gapMin": 2
+        }
+      ],
+      "mode": "maintain",
+      "priority": 2,
+      "dedupeGroup": "general-business-gen_followup_discipline",
+      "impact": 3,
+      "effort": 1,
+      "urgency": 2,
+      "evidenceTags": [
+        "weak-follow-up",
+        "follow-up",
+        "cadence",
+        "general:sales-process"
+      ],
+      "title": "Protect the proven follow-up discipline standard",
+      "titleAr": "حافظ على مستوى انضباط المتابعة",
+      "why": "Follow-up discipline directly shapes whether the right prospect understands, trusts, and advances with the business.",
+      "whyAr": "يؤثر انضباط المتابعة مباشرة في فهم العميل المناسب وثقته وانتقاله إلى الخطوة التالية مع النشاط التجاري.",
+      "how": [
+        "Document and monitor the working standard for the business before adding more tools or channels.",
+        "Assign one business owner and a review date.",
+        "Validate the change with real business inquiries and record what happened."
+      ],
+      "howAr": [
+        "وثّق المعيار الناجح وراقبه في النشاط التجاري قبل إضافة أدوات أو قنوات جديدة.",
+        "عيّن مسؤولاً واحداً في النشاط التجاري وموعداً للمراجعة.",
+        "اختبر التغيير مع استفسارات حقيقية تخص النشاط التجاري وسجّل النتيجة."
+      ],
+      "websiteImplication": "Make follow-up discipline explicit at the page and decision point where it matters.",
+      "websiteImplicationAr": "أظهر انضباط المتابعة بوضوح في الصفحة ونقطة القرار المناسبة.",
+      "systemImplication": "Keep business measurement lightweight; no new system is justified without drift.",
+      "systemImplicationAr": "حافظ على قياس بسيط في النشاط التجاري؛ لا حاجة لنظام جديد دون تراجع واضح.",
+      "dominaseFit": "DOMINASE can review the existing standard and identify the next evidence-based optimization.",
+      "dominaseFitAr": "يمكن لـ DOMINASE مراجعة المعيار الحالي وتحديد التحسين التالي المبني على الدليل.",
+      "riskNotes": "Do not publish business evidence, capacity, availability, prices, or outcomes that cannot be verified.",
+      "riskNotesAr": "لا تنشر أدلة أو طاقة استيعابية أو توفراً أو أسعاراً أو نتائج تخص النشاط التجاري ما لم يمكن إثباتها."
+    },
+    {
+      "id": "general-business-maintain-gen_content_faq",
+      "category": "contentAndTrust",
+      "conditions": {
+        "topicId": "gen_content_faq",
+        "currentMin": 4.5,
+        "gapMax": 0.5
+      },
+      "notConditions": [
+        {
+          "topicId": "gen_offer_clarity",
+          "gapMin": 2
+        },
+        {
+          "topicId": "gen_target_customer",
+          "gapMin": 2
+        },
+        {
+          "topicId": "gen_trust_proof",
+          "gapMin": 2
+        },
+        {
+          "topicId": "gen_differentiation",
+          "gapMin": 2
+        },
+        {
+          "topicId": "gen_conversion_path",
+          "gapMin": 2
+        },
+        {
+          "topicId": "gen_mobile_usability",
+          "gapMin": 2
+        },
+        {
+          "topicId": "gen_lead_capture",
+          "gapMin": 2
+        },
+        {
+          "topicId": "gen_followup_discipline",
+          "gapMin": 2
+        },
+        {
+          "topicId": "gen_whatsapp_structure",
+          "gapMin": 2
+        },
+        {
+          "topicId": "gen_lead_tracking",
+          "gapMin": 2
+        },
+        {
+          "topicId": "gen_content_faq",
+          "gapMin": 2
+        },
+        {
+          "topicId": "gen_pricing_clarity",
+          "gapMin": 2
+        },
+        {
+          "topicId": "gen_digital_readiness",
+          "gapMin": 2
+        }
+      ],
+      "mode": "maintain",
+      "priority": 2,
+      "dedupeGroup": "general-business-gen_content_faq",
+      "impact": 3,
+      "effort": 1,
+      "urgency": 2,
+      "evidenceTags": [
+        "content-strategy",
+        "faq-gap",
+        "buyer-questions",
+        "general"
+      ],
+      "title": "Protect the proven content and faq coverage standard",
+      "titleAr": "حافظ على مستوى تغطية المحتوى والأسئلة",
+      "why": "Content and FAQ coverage directly shapes whether the right prospect understands, trusts, and advances with the business.",
+      "whyAr": "يؤثر تغطية المحتوى والأسئلة مباشرة في فهم العميل المناسب وثقته وانتقاله إلى الخطوة التالية مع النشاط التجاري.",
+      "how": [
+        "Document and monitor the working standard for the business before adding more tools or channels.",
+        "Assign one business owner and a review date.",
+        "Validate the change with real business inquiries and record what happened."
+      ],
+      "howAr": [
+        "وثّق المعيار الناجح وراقبه في النشاط التجاري قبل إضافة أدوات أو قنوات جديدة.",
+        "عيّن مسؤولاً واحداً في النشاط التجاري وموعداً للمراجعة.",
+        "اختبر التغيير مع استفسارات حقيقية تخص النشاط التجاري وسجّل النتيجة."
+      ],
+      "websiteImplication": "Make content and faq coverage explicit at the page and decision point where it matters.",
+      "websiteImplicationAr": "أظهر تغطية المحتوى والأسئلة بوضوح في الصفحة ونقطة القرار المناسبة.",
+      "systemImplication": "Keep business measurement lightweight; no new system is justified without drift.",
+      "systemImplicationAr": "حافظ على قياس بسيط في النشاط التجاري؛ لا حاجة لنظام جديد دون تراجع واضح.",
+      "dominaseFit": "DOMINASE can review the existing standard and identify the next evidence-based optimization.",
+      "dominaseFitAr": "يمكن لـ DOMINASE مراجعة المعيار الحالي وتحديد التحسين التالي المبني على الدليل.",
+      "riskNotes": "Do not publish business evidence, capacity, availability, prices, or outcomes that cannot be verified.",
+      "riskNotesAr": "لا تنشر أدلة أو طاقة استيعابية أو توفراً أو أسعاراً أو نتائج تخص النشاط التجاري ما لم يمكن إثباتها."
+    },
+    {
+      "id": "general-business-steady-low-1",
+      "title": "Strengthen offer clarity with one controlled change",
+      "titleAr": "طوّر وضوح العرض بخطوة منضبطة",
+      "category": "strategicDiagnosis",
+      "conditions": {
+        "topicId": "gen_offer_clarity",
+        "currentMax": 1.5,
+        "gapMax": 0.5
+      },
+      "mode": "strategic",
+      "priority": 4,
+      "dedupeGroup": "general-business-steady-0",
+      "impact": 4,
+      "effort": 2,
+      "urgency": 3,
+      "evidenceTags": [
+        "offer-clarity",
+        "clarity",
+        "grunt-test",
+        "general:offer-clarity"
+      ],
+      "why": "Offer clarity directly shapes whether the right prospect understands, trusts, and advances with the business.",
+      "whyAr": "يؤثر وضوح العرض مباشرة في فهم العميل المناسب وثقته وانتقاله إلى الخطوة التالية مع النشاط التجاري.",
+      "how": [
+        "Test one focused improvement for the business before adding more tools or channels.",
+        "Assign one business owner and a review date.",
+        "Validate the change with real business inquiries and record what happened."
+      ],
+      "howAr": [
+        "اختبر تحسيناً واحداً ومحدداً في النشاط التجاري قبل إضافة أدوات أو قنوات جديدة.",
+        "عيّن مسؤولاً واحداً في النشاط التجاري وموعداً للمراجعة.",
+        "اختبر التغيير مع استفسارات حقيقية تخص النشاط التجاري وسجّل النتيجة."
+      ],
+      "websiteImplication": "Make offer clarity explicit at the page and decision point where it matters.",
+      "websiteImplicationAr": "أظهر وضوح العرض بوضوح في الصفحة ونقطة القرار المناسبة.",
+      "systemImplication": "Use the smallest business tracking method that proves ownership before considering automation.",
+      "systemImplicationAr": "استخدم أبسط وسيلة متابعة في النشاط التجاري تثبت المسؤولية قبل التفكير في الأتمتة.",
+      "dominaseFit": "DOMINASE can prototype and measure this improvement without forcing a rebuild.",
+      "dominaseFitAr": "يمكن لـ DOMINASE اختبار هذا التحسين وقياسه دون فرض إعادة بناء.",
+      "riskNotes": "Do not publish business evidence, capacity, availability, prices, or outcomes that cannot be verified.",
+      "riskNotesAr": "لا تنشر أدلة أو طاقة استيعابية أو توفراً أو أسعاراً أو نتائج تخص النشاط التجاري ما لم يمكن إثباتها."
+    },
+    {
+      "id": "general-business-steady-low-2",
+      "title": "Strengthen target customer clarity with one controlled change",
+      "titleAr": "طوّر وضوح العميل المستهدف بخطوة منضبطة",
+      "category": "customerProfile",
+      "conditions": {
+        "topicId": "gen_target_customer",
+        "currentMax": 1.5,
+        "gapMax": 0.5
+      },
+      "mode": "strategic",
+      "priority": 4,
+      "dedupeGroup": "general-business-steady-1",
+      "impact": 4,
+      "effort": 2,
+      "urgency": 3,
+      "evidenceTags": [
+        "segmentation",
+        "targeting",
+        "focus",
+        "general"
+      ],
+      "why": "Target customer clarity directly shapes whether the right prospect understands, trusts, and advances with the business.",
+      "whyAr": "يؤثر وضوح العميل المستهدف مباشرة في فهم العميل المناسب وثقته وانتقاله إلى الخطوة التالية مع النشاط التجاري.",
+      "how": [
+        "Test one focused improvement for the business before adding more tools or channels.",
+        "Assign one business owner and a review date.",
+        "Validate the change with real business inquiries and record what happened."
+      ],
+      "howAr": [
+        "اختبر تحسيناً واحداً ومحدداً في النشاط التجاري قبل إضافة أدوات أو قنوات جديدة.",
+        "عيّن مسؤولاً واحداً في النشاط التجاري وموعداً للمراجعة.",
+        "اختبر التغيير مع استفسارات حقيقية تخص النشاط التجاري وسجّل النتيجة."
+      ],
+      "websiteImplication": "Make target customer clarity explicit at the page and decision point where it matters.",
+      "websiteImplicationAr": "أظهر وضوح العميل المستهدف بوضوح في الصفحة ونقطة القرار المناسبة.",
+      "systemImplication": "Use the smallest business tracking method that proves ownership before considering automation.",
+      "systemImplicationAr": "استخدم أبسط وسيلة متابعة في النشاط التجاري تثبت المسؤولية قبل التفكير في الأتمتة.",
+      "dominaseFit": "DOMINASE can prototype and measure this improvement without forcing a rebuild.",
+      "dominaseFitAr": "يمكن لـ DOMINASE اختبار هذا التحسين وقياسه دون فرض إعادة بناء.",
+      "riskNotes": "Do not publish business evidence, capacity, availability, prices, or outcomes that cannot be verified.",
+      "riskNotesAr": "لا تنشر أدلة أو طاقة استيعابية أو توفراً أو أسعاراً أو نتائج تخص النشاط التجاري ما لم يمكن إثباتها."
+    },
+    {
+      "id": "general-business-steady-low-3",
+      "title": "Strengthen trust and proof visibility with one controlled change",
+      "titleAr": "طوّر ظهور الثقة والإثبات بخطوة منضبطة",
+      "category": "websiteStructure",
+      "conditions": {
+        "topicId": "gen_trust_proof",
+        "currentMax": 1.5,
+        "gapMax": 0.5
+      },
+      "mode": "strategic",
+      "priority": 4,
+      "dedupeGroup": "general-business-steady-2",
+      "impact": 4,
+      "effort": 2,
+      "urgency": 3,
+      "evidenceTags": [
+        "social-proof",
+        "trust",
+        "weak-proof",
+        "general"
+      ],
+      "why": "Trust and proof visibility directly shapes whether the right prospect understands, trusts, and advances with the business.",
+      "whyAr": "يؤثر ظهور الثقة والإثبات مباشرة في فهم العميل المناسب وثقته وانتقاله إلى الخطوة التالية مع النشاط التجاري.",
+      "how": [
+        "Test one focused improvement for the business before adding more tools or channels.",
+        "Assign one business owner and a review date.",
+        "Validate the change with real business inquiries and record what happened."
+      ],
+      "howAr": [
+        "اختبر تحسيناً واحداً ومحدداً في النشاط التجاري قبل إضافة أدوات أو قنوات جديدة.",
+        "عيّن مسؤولاً واحداً في النشاط التجاري وموعداً للمراجعة.",
+        "اختبر التغيير مع استفسارات حقيقية تخص النشاط التجاري وسجّل النتيجة."
+      ],
+      "websiteImplication": "Make trust and proof visibility explicit at the page and decision point where it matters.",
+      "websiteImplicationAr": "أظهر ظهور الثقة والإثبات بوضوح في الصفحة ونقطة القرار المناسبة.",
+      "systemImplication": "Use the smallest business tracking method that proves ownership before considering automation.",
+      "systemImplicationAr": "استخدم أبسط وسيلة متابعة في النشاط التجاري تثبت المسؤولية قبل التفكير في الأتمتة.",
+      "dominaseFit": "DOMINASE can prototype and measure this improvement without forcing a rebuild.",
+      "dominaseFitAr": "يمكن لـ DOMINASE اختبار هذا التحسين وقياسه دون فرض إعادة بناء.",
+      "riskNotes": "Do not publish business evidence, capacity, availability, prices, or outcomes that cannot be verified.",
+      "riskNotesAr": "لا تنشر أدلة أو طاقة استيعابية أو توفراً أو أسعاراً أو نتائج تخص النشاط التجاري ما لم يمكن إثباتها."
+    },
+    {
+      "id": "general-business-steady-mid-1",
+      "title": "Strengthen differentiation and why you with one controlled change",
+      "titleAr": "طوّر التميز ولماذا أنت بخطوة منضبطة",
+      "category": "websiteStructure",
+      "conditions": {
+        "topicId": "gen_differentiation",
+        "currentMin": 2.5,
+        "currentMax": 4.4,
+        "gapMax": 0.5
+      },
+      "notConditions": [
+        {
+          "topicId": "gen_offer_clarity",
+          "gapMin": 2
+        },
+        {
+          "topicId": "gen_target_customer",
+          "gapMin": 2
+        },
+        {
+          "topicId": "gen_trust_proof",
+          "gapMin": 2
+        },
+        {
+          "topicId": "gen_differentiation",
+          "gapMin": 2
+        },
+        {
+          "topicId": "gen_conversion_path",
+          "gapMin": 2
+        },
+        {
+          "topicId": "gen_mobile_usability",
+          "gapMin": 2
+        },
+        {
+          "topicId": "gen_lead_capture",
+          "gapMin": 2
+        },
+        {
+          "topicId": "gen_followup_discipline",
+          "gapMin": 2
+        },
+        {
+          "topicId": "gen_whatsapp_structure",
+          "gapMin": 2
+        },
+        {
+          "topicId": "gen_lead_tracking",
+          "gapMin": 2
+        },
+        {
+          "topicId": "gen_content_faq",
+          "gapMin": 2
+        },
+        {
+          "topicId": "gen_pricing_clarity",
+          "gapMin": 2
+        },
+        {
+          "topicId": "gen_digital_readiness",
+          "gapMin": 2
+        }
+      ],
+      "mode": "improve",
+      "priority": 2,
+      "dedupeGroup": "general-business-steady-mid-0",
+      "impact": 3,
+      "effort": 2,
+      "urgency": 2,
+      "evidenceTags": [
+        "differentiation",
+        "positioning",
+        "value-proposition",
+        "general"
+      ],
+      "why": "Differentiation and why you directly shapes whether the right prospect understands, trusts, and advances with the business.",
+      "whyAr": "يؤثر التميز ولماذا أنت مباشرة في فهم العميل المناسب وثقته وانتقاله إلى الخطوة التالية مع النشاط التجاري.",
+      "how": [
+        "Test one focused improvement for the business before adding more tools or channels.",
+        "Assign one business owner and a review date.",
+        "Validate the change with real business inquiries and record what happened."
+      ],
+      "howAr": [
+        "اختبر تحسيناً واحداً ومحدداً في النشاط التجاري قبل إضافة أدوات أو قنوات جديدة.",
+        "عيّن مسؤولاً واحداً في النشاط التجاري وموعداً للمراجعة.",
+        "اختبر التغيير مع استفسارات حقيقية تخص النشاط التجاري وسجّل النتيجة."
+      ],
+      "websiteImplication": "Make differentiation and why you explicit at the page and decision point where it matters.",
+      "websiteImplicationAr": "أظهر التميز ولماذا أنت بوضوح في الصفحة ونقطة القرار المناسبة.",
+      "systemImplication": "Use the smallest business tracking method that proves ownership before considering automation.",
+      "systemImplicationAr": "استخدم أبسط وسيلة متابعة في النشاط التجاري تثبت المسؤولية قبل التفكير في الأتمتة.",
+      "dominaseFit": "DOMINASE can prototype and measure this improvement without forcing a rebuild.",
+      "dominaseFitAr": "يمكن لـ DOMINASE اختبار هذا التحسين وقياسه دون فرض إعادة بناء.",
+      "riskNotes": "Do not publish business evidence, capacity, availability, prices, or outcomes that cannot be verified.",
+      "riskNotesAr": "لا تنشر أدلة أو طاقة استيعابية أو توفراً أو أسعاراً أو نتائج تخص النشاط التجاري ما لم يمكن إثباتها."
+    },
+    {
+      "id": "general-business-steady-mid-2",
+      "title": "Strengthen clear conversion path with one controlled change",
+      "titleAr": "طوّر مسار تحويل واضح بخطوة منضبطة",
+      "category": "conversionPath",
+      "conditions": {
+        "topicId": "gen_conversion_path",
+        "currentMin": 2.5,
+        "currentMax": 4.4,
+        "gapMax": 0.5
+      },
+      "notConditions": [
+        {
+          "topicId": "gen_offer_clarity",
+          "gapMin": 2
+        },
+        {
+          "topicId": "gen_target_customer",
+          "gapMin": 2
+        },
+        {
+          "topicId": "gen_trust_proof",
+          "gapMin": 2
+        },
+        {
+          "topicId": "gen_differentiation",
+          "gapMin": 2
+        },
+        {
+          "topicId": "gen_conversion_path",
+          "gapMin": 2
+        },
+        {
+          "topicId": "gen_mobile_usability",
+          "gapMin": 2
+        },
+        {
+          "topicId": "gen_lead_capture",
+          "gapMin": 2
+        },
+        {
+          "topicId": "gen_followup_discipline",
+          "gapMin": 2
+        },
+        {
+          "topicId": "gen_whatsapp_structure",
+          "gapMin": 2
+        },
+        {
+          "topicId": "gen_lead_tracking",
+          "gapMin": 2
+        },
+        {
+          "topicId": "gen_content_faq",
+          "gapMin": 2
+        },
+        {
+          "topicId": "gen_pricing_clarity",
+          "gapMin": 2
+        },
+        {
+          "topicId": "gen_digital_readiness",
+          "gapMin": 2
+        }
+      ],
+      "mode": "improve",
+      "priority": 2,
+      "dedupeGroup": "general-business-steady-mid-1",
+      "impact": 3,
+      "effort": 2,
+      "urgency": 2,
+      "evidenceTags": [
+        "conversion-path",
+        "cta",
+        "next-step",
+        "general"
+      ],
+      "why": "Clear conversion path directly shapes whether the right prospect understands, trusts, and advances with the business.",
+      "whyAr": "يؤثر مسار تحويل واضح مباشرة في فهم العميل المناسب وثقته وانتقاله إلى الخطوة التالية مع النشاط التجاري.",
+      "how": [
+        "Test one focused improvement for the business before adding more tools or channels.",
+        "Assign one business owner and a review date.",
+        "Validate the change with real business inquiries and record what happened."
+      ],
+      "howAr": [
+        "اختبر تحسيناً واحداً ومحدداً في النشاط التجاري قبل إضافة أدوات أو قنوات جديدة.",
+        "عيّن مسؤولاً واحداً في النشاط التجاري وموعداً للمراجعة.",
+        "اختبر التغيير مع استفسارات حقيقية تخص النشاط التجاري وسجّل النتيجة."
+      ],
+      "websiteImplication": "Make clear conversion path explicit at the page and decision point where it matters.",
+      "websiteImplicationAr": "أظهر مسار تحويل واضح بوضوح في الصفحة ونقطة القرار المناسبة.",
+      "systemImplication": "Use the smallest business tracking method that proves ownership before considering automation.",
+      "systemImplicationAr": "استخدم أبسط وسيلة متابعة في النشاط التجاري تثبت المسؤولية قبل التفكير في الأتمتة.",
+      "dominaseFit": "DOMINASE can prototype and measure this improvement without forcing a rebuild.",
+      "dominaseFitAr": "يمكن لـ DOMINASE اختبار هذا التحسين وقياسه دون فرض إعادة بناء.",
+      "riskNotes": "Do not publish business evidence, capacity, availability, prices, or outcomes that cannot be verified.",
+      "riskNotesAr": "لا تنشر أدلة أو طاقة استيعابية أو توفراً أو أسعاراً أو نتائج تخص النشاط التجاري ما لم يمكن إثباتها."
+    },
+    {
+      "id": "general-business-steady-mid-3",
+      "title": "Strengthen mobile usability with one controlled change",
+      "titleAr": "طوّر سهولة الاستخدام على الهاتف بخطوة منضبطة",
+      "category": "contentAndTrust",
+      "conditions": {
+        "topicId": "gen_mobile_usability",
+        "currentMin": 2.5,
+        "currentMax": 4.4,
+        "gapMax": 0.5
+      },
+      "notConditions": [
+        {
+          "topicId": "gen_offer_clarity",
+          "gapMin": 2
+        },
+        {
+          "topicId": "gen_target_customer",
+          "gapMin": 2
+        },
+        {
+          "topicId": "gen_trust_proof",
+          "gapMin": 2
+        },
+        {
+          "topicId": "gen_differentiation",
+          "gapMin": 2
+        },
+        {
+          "topicId": "gen_conversion_path",
+          "gapMin": 2
+        },
+        {
+          "topicId": "gen_mobile_usability",
+          "gapMin": 2
+        },
+        {
+          "topicId": "gen_lead_capture",
+          "gapMin": 2
+        },
+        {
+          "topicId": "gen_followup_discipline",
+          "gapMin": 2
+        },
+        {
+          "topicId": "gen_whatsapp_structure",
+          "gapMin": 2
+        },
+        {
+          "topicId": "gen_lead_tracking",
+          "gapMin": 2
+        },
+        {
+          "topicId": "gen_content_faq",
+          "gapMin": 2
+        },
+        {
+          "topicId": "gen_pricing_clarity",
+          "gapMin": 2
+        },
+        {
+          "topicId": "gen_digital_readiness",
+          "gapMin": 2
+        }
+      ],
+      "mode": "improve",
+      "priority": 2,
+      "dedupeGroup": "general-business-steady-mid-2",
+      "impact": 3,
+      "effort": 2,
+      "urgency": 2,
+      "evidenceTags": [
+        "mobile",
+        "responsive",
+        "usability",
+        "general"
+      ],
+      "why": "Mobile usability directly shapes whether the right prospect understands, trusts, and advances with the business.",
+      "whyAr": "يؤثر سهولة الاستخدام على الهاتف مباشرة في فهم العميل المناسب وثقته وانتقاله إلى الخطوة التالية مع النشاط التجاري.",
+      "how": [
+        "Test one focused improvement for the business before adding more tools or channels.",
+        "Assign one business owner and a review date.",
+        "Validate the change with real business inquiries and record what happened."
+      ],
+      "howAr": [
+        "اختبر تحسيناً واحداً ومحدداً في النشاط التجاري قبل إضافة أدوات أو قنوات جديدة.",
+        "عيّن مسؤولاً واحداً في النشاط التجاري وموعداً للمراجعة.",
+        "اختبر التغيير مع استفسارات حقيقية تخص النشاط التجاري وسجّل النتيجة."
+      ],
+      "websiteImplication": "Make mobile usability explicit at the page and decision point where it matters.",
+      "websiteImplicationAr": "أظهر سهولة الاستخدام على الهاتف بوضوح في الصفحة ونقطة القرار المناسبة.",
+      "systemImplication": "Use the smallest business tracking method that proves ownership before considering automation.",
+      "systemImplicationAr": "استخدم أبسط وسيلة متابعة في النشاط التجاري تثبت المسؤولية قبل التفكير في الأتمتة.",
+      "dominaseFit": "DOMINASE can prototype and measure this improvement without forcing a rebuild.",
+      "dominaseFitAr": "يمكن لـ DOMINASE اختبار هذا التحسين وقياسه دون فرض إعادة بناء.",
+      "riskNotes": "Do not publish business evidence, capacity, availability, prices, or outcomes that cannot be verified.",
+      "riskNotesAr": "لا تنشر أدلة أو طاقة استيعابية أو توفراً أو أسعاراً أو نتائج تخص النشاط التجاري ما لم يمكن إثباتها."
+    },
+    {
+      "id": "general-business-steady-mid-4",
+      "title": "Strengthen lead capture with one controlled change",
+      "titleAr": "طوّر التقاط العملاء بخطوة منضبطة",
+      "category": "salesFollowUp",
+      "conditions": {
+        "topicId": "gen_lead_capture",
+        "currentMin": 2.5,
+        "currentMax": 4.4,
+        "gapMax": 0.5
+      },
+      "notConditions": [
+        {
+          "topicId": "gen_offer_clarity",
+          "gapMin": 2
+        },
+        {
+          "topicId": "gen_target_customer",
+          "gapMin": 2
+        },
+        {
+          "topicId": "gen_trust_proof",
+          "gapMin": 2
+        },
+        {
+          "topicId": "gen_differentiation",
+          "gapMin": 2
+        },
+        {
+          "topicId": "gen_conversion_path",
+          "gapMin": 2
+        },
+        {
+          "topicId": "gen_mobile_usability",
+          "gapMin": 2
+        },
+        {
+          "topicId": "gen_lead_capture",
+          "gapMin": 2
+        },
+        {
+          "topicId": "gen_followup_discipline",
+          "gapMin": 2
+        },
+        {
+          "topicId": "gen_whatsapp_structure",
+          "gapMin": 2
+        },
+        {
+          "topicId": "gen_lead_tracking",
+          "gapMin": 2
+        },
+        {
+          "topicId": "gen_content_faq",
+          "gapMin": 2
+        },
+        {
+          "topicId": "gen_pricing_clarity",
+          "gapMin": 2
+        },
+        {
+          "topicId": "gen_digital_readiness",
+          "gapMin": 2
+        }
+      ],
+      "mode": "improve",
+      "priority": 2,
+      "dedupeGroup": "general-business-steady-mid-3",
+      "impact": 3,
+      "effort": 2,
+      "urgency": 2,
+      "evidenceTags": [
+        "capture",
+        "lead-magnet",
+        "reciprocity",
+        "general"
+      ],
+      "why": "Lead capture directly shapes whether the right prospect understands, trusts, and advances with the business.",
+      "whyAr": "يؤثر التقاط العملاء مباشرة في فهم العميل المناسب وثقته وانتقاله إلى الخطوة التالية مع النشاط التجاري.",
+      "how": [
+        "Test one focused improvement for the business before adding more tools or channels.",
+        "Assign one business owner and a review date.",
+        "Validate the change with real business inquiries and record what happened."
+      ],
+      "howAr": [
+        "اختبر تحسيناً واحداً ومحدداً في النشاط التجاري قبل إضافة أدوات أو قنوات جديدة.",
+        "عيّن مسؤولاً واحداً في النشاط التجاري وموعداً للمراجعة.",
+        "اختبر التغيير مع استفسارات حقيقية تخص النشاط التجاري وسجّل النتيجة."
+      ],
+      "websiteImplication": "Make lead capture explicit at the page and decision point where it matters.",
+      "websiteImplicationAr": "أظهر التقاط العملاء بوضوح في الصفحة ونقطة القرار المناسبة.",
+      "systemImplication": "Use the smallest business tracking method that proves ownership before considering automation.",
+      "systemImplicationAr": "استخدم أبسط وسيلة متابعة في النشاط التجاري تثبت المسؤولية قبل التفكير في الأتمتة.",
+      "dominaseFit": "DOMINASE can prototype and measure this improvement without forcing a rebuild.",
+      "dominaseFitAr": "يمكن لـ DOMINASE اختبار هذا التحسين وقياسه دون فرض إعادة بناء.",
+      "riskNotes": "Do not publish business evidence, capacity, availability, prices, or outcomes that cannot be verified.",
+      "riskNotesAr": "لا تنشر أدلة أو طاقة استيعابية أو توفراً أو أسعاراً أو نتائج تخص النشاط التجاري ما لم يمكن إثباتها."
+    },
+    {
+      "id": "general-business-steady-mid-5",
+      "title": "Strengthen follow-up discipline with one controlled change",
+      "titleAr": "طوّر انضباط المتابعة بخطوة منضبطة",
+      "category": "quickWins",
+      "conditions": {
+        "topicId": "gen_followup_discipline",
+        "currentMin": 2.5,
+        "currentMax": 4.4,
+        "gapMin": 0.5,
+        "gapMax": 0.5
+      },
+      "notConditions": [
+        {
+          "topicId": "gen_offer_clarity",
+          "gapMin": 2
+        },
+        {
+          "topicId": "gen_target_customer",
+          "gapMin": 2
+        },
+        {
+          "topicId": "gen_trust_proof",
+          "gapMin": 2
+        },
+        {
+          "topicId": "gen_differentiation",
+          "gapMin": 2
+        },
+        {
+          "topicId": "gen_conversion_path",
+          "gapMin": 2
+        },
+        {
+          "topicId": "gen_mobile_usability",
+          "gapMin": 2
+        },
+        {
+          "topicId": "gen_lead_capture",
+          "gapMin": 2
+        },
+        {
+          "topicId": "gen_followup_discipline",
+          "gapMin": 2
+        },
+        {
+          "topicId": "gen_whatsapp_structure",
+          "gapMin": 2
+        },
+        {
+          "topicId": "gen_lead_tracking",
+          "gapMin": 2
+        },
+        {
+          "topicId": "gen_content_faq",
+          "gapMin": 2
+        },
+        {
+          "topicId": "gen_pricing_clarity",
+          "gapMin": 2
+        },
+        {
+          "topicId": "gen_digital_readiness",
+          "gapMin": 2
+        }
+      ],
+      "mode": "improve",
+      "priority": 2,
+      "dedupeGroup": "general-business-steady-mid-4",
+      "impact": 3,
+      "effort": 2,
+      "urgency": 2,
+      "evidenceTags": [
+        "weak-follow-up",
+        "follow-up",
+        "cadence",
+        "general:sales-process"
+      ],
+      "why": "Follow-up discipline directly shapes whether the right prospect understands, trusts, and advances with the business.",
+      "whyAr": "يؤثر انضباط المتابعة مباشرة في فهم العميل المناسب وثقته وانتقاله إلى الخطوة التالية مع النشاط التجاري.",
+      "how": [
+        "Test one focused improvement for the business before adding more tools or channels.",
+        "Assign one business owner and a review date.",
+        "Validate the change with real business inquiries and record what happened."
+      ],
+      "howAr": [
+        "اختبر تحسيناً واحداً ومحدداً في النشاط التجاري قبل إضافة أدوات أو قنوات جديدة.",
+        "عيّن مسؤولاً واحداً في النشاط التجاري وموعداً للمراجعة.",
+        "اختبر التغيير مع استفسارات حقيقية تخص النشاط التجاري وسجّل النتيجة."
+      ],
+      "websiteImplication": "Make follow-up discipline explicit at the page and decision point where it matters.",
+      "websiteImplicationAr": "أظهر انضباط المتابعة بوضوح في الصفحة ونقطة القرار المناسبة.",
+      "systemImplication": "Use the smallest business tracking method that proves ownership before considering automation.",
+      "systemImplicationAr": "استخدم أبسط وسيلة متابعة في النشاط التجاري تثبت المسؤولية قبل التفكير في الأتمتة.",
+      "dominaseFit": "DOMINASE can prototype and measure this improvement without forcing a rebuild.",
+      "dominaseFitAr": "يمكن لـ DOMINASE اختبار هذا التحسين وقياسه دون فرض إعادة بناء.",
+      "riskNotes": "Do not publish business evidence, capacity, availability, prices, or outcomes that cannot be verified.",
+      "riskNotesAr": "لا تنشر أدلة أو طاقة استيعابية أو توفراً أو أسعاراً أو نتائج تخص النشاط التجاري ما لم يمكن إثباتها."
+    },
+    {
+      "id": "general-business-steady-mid-6",
+      "title": "Strengthen whatsapp structure with one controlled change",
+      "titleAr": "طوّر تنظيم واتساب بخطوة منضبطة",
+      "category": "dominaseNextStep",
+      "conditions": {
+        "topicId": "gen_whatsapp_structure",
+        "currentMin": 2.5,
+        "currentMax": 4.4,
+        "gapMin": 0.5,
+        "gapMax": 0.5
+      },
+      "notConditions": [
+        {
+          "topicId": "gen_offer_clarity",
+          "gapMin": 2
+        },
+        {
+          "topicId": "gen_target_customer",
+          "gapMin": 2
+        },
+        {
+          "topicId": "gen_trust_proof",
+          "gapMin": 2
+        },
+        {
+          "topicId": "gen_differentiation",
+          "gapMin": 2
+        },
+        {
+          "topicId": "gen_conversion_path",
+          "gapMin": 2
+        },
+        {
+          "topicId": "gen_mobile_usability",
+          "gapMin": 2
+        },
+        {
+          "topicId": "gen_lead_capture",
+          "gapMin": 2
+        },
+        {
+          "topicId": "gen_followup_discipline",
+          "gapMin": 2
+        },
+        {
+          "topicId": "gen_whatsapp_structure",
+          "gapMin": 2
+        },
+        {
+          "topicId": "gen_lead_tracking",
+          "gapMin": 2
+        },
+        {
+          "topicId": "gen_content_faq",
+          "gapMin": 2
+        },
+        {
+          "topicId": "gen_pricing_clarity",
+          "gapMin": 2
+        },
+        {
+          "topicId": "gen_digital_readiness",
+          "gapMin": 2
+        }
+      ],
+      "mode": "improve",
+      "priority": 2,
+      "dedupeGroup": "general-business-steady-mid-5",
+      "impact": 3,
+      "effort": 2,
+      "urgency": 2,
+      "evidenceTags": [
+        "whatsapp",
+        "messaging",
+        "follow-up",
+        "general"
+      ],
+      "why": "WhatsApp structure directly shapes whether the right prospect understands, trusts, and advances with the business.",
+      "whyAr": "يؤثر تنظيم واتساب مباشرة في فهم العميل المناسب وثقته وانتقاله إلى الخطوة التالية مع النشاط التجاري.",
+      "how": [
+        "Test one focused improvement for the business before adding more tools or channels.",
+        "Assign one business owner and a review date.",
+        "Validate the change with real business inquiries and record what happened."
+      ],
+      "howAr": [
+        "اختبر تحسيناً واحداً ومحدداً في النشاط التجاري قبل إضافة أدوات أو قنوات جديدة.",
+        "عيّن مسؤولاً واحداً في النشاط التجاري وموعداً للمراجعة.",
+        "اختبر التغيير مع استفسارات حقيقية تخص النشاط التجاري وسجّل النتيجة."
+      ],
+      "websiteImplication": "Make whatsapp structure explicit at the page and decision point where it matters.",
+      "websiteImplicationAr": "أظهر تنظيم واتساب بوضوح في الصفحة ونقطة القرار المناسبة.",
+      "systemImplication": "Use the smallest business tracking method that proves ownership before considering automation.",
+      "systemImplicationAr": "استخدم أبسط وسيلة متابعة في النشاط التجاري تثبت المسؤولية قبل التفكير في الأتمتة.",
+      "dominaseFit": "DOMINASE can prototype and measure this improvement without forcing a rebuild.",
+      "dominaseFitAr": "يمكن لـ DOMINASE اختبار هذا التحسين وقياسه دون فرض إعادة بناء.",
+      "riskNotes": "Do not publish business evidence, capacity, availability, prices, or outcomes that cannot be verified.",
+      "riskNotesAr": "لا تنشر أدلة أو طاقة استيعابية أو توفراً أو أسعاراً أو نتائج تخص النشاط التجاري ما لم يمكن إثباتها."
+    },
+    {
+      "id": "general-business-strategic-1",
+      "title": "Strengthen lead tracking with one controlled change",
+      "titleAr": "طوّر تتبع العملاء بخطوة منضبطة",
+      "category": "salesFollowUp",
+      "conditions": {
+        "tags": [
+          "offer-clarity",
+          "segmentation",
+          "social-proof",
+          "differentiation"
+        ],
+        "targetMin": 4,
+        "gapMin": 2
+      },
+      "mode": "strategic",
+      "priority": 4,
+      "dedupeGroup": "general-business-strategic-0",
+      "impact": 4,
+      "effort": 3,
+      "urgency": 4,
+      "evidenceTags": [
+        "offer-clarity",
+        "clarity",
+        "grunt-test",
+        "general:offer-clarity",
+        "segmentation",
+        "targeting",
+        "focus",
+        "general",
+        "social-proof",
+        "trust",
+        "weak-proof",
+        "general",
+        "differentiation",
+        "positioning",
+        "value-proposition",
+        "general"
+      ],
+      "why": "Lead tracking directly shapes whether the right prospect understands, trusts, and advances with the business.",
+      "whyAr": "يؤثر تتبع العملاء مباشرة في فهم العميل المناسب وثقته وانتقاله إلى الخطوة التالية مع النشاط التجاري.",
+      "how": [
+        "Test one focused improvement for the business before adding more tools or channels.",
+        "Assign one business owner and a review date.",
+        "Validate the change with real business inquiries and record what happened."
+      ],
+      "howAr": [
+        "اختبر تحسيناً واحداً ومحدداً في النشاط التجاري قبل إضافة أدوات أو قنوات جديدة.",
+        "عيّن مسؤولاً واحداً في النشاط التجاري وموعداً للمراجعة.",
+        "اختبر التغيير مع استفسارات حقيقية تخص النشاط التجاري وسجّل النتيجة."
+      ],
+      "websiteImplication": "Make lead tracking explicit at the page and decision point where it matters.",
+      "websiteImplicationAr": "أظهر تتبع العملاء بوضوح في الصفحة ونقطة القرار المناسبة.",
+      "systemImplication": "Use the smallest business tracking method that proves ownership before considering automation.",
+      "systemImplicationAr": "استخدم أبسط وسيلة متابعة في النشاط التجاري تثبت المسؤولية قبل التفكير في الأتمتة.",
+      "dominaseFit": "DOMINASE can prototype and measure this improvement without forcing a rebuild.",
+      "dominaseFitAr": "يمكن لـ DOMINASE اختبار هذا التحسين وقياسه دون فرض إعادة بناء.",
+      "riskNotes": "Do not publish business evidence, capacity, availability, prices, or outcomes that cannot be verified.",
+      "riskNotesAr": "لا تنشر أدلة أو طاقة استيعابية أو توفراً أو أسعاراً أو نتائج تخص النشاط التجاري ما لم يمكن إثباتها."
+    },
+    {
+      "id": "general-business-strategic-2",
+      "title": "Strengthen content and faq coverage with one controlled change",
+      "titleAr": "طوّر تغطية المحتوى والأسئلة بخطوة منضبطة",
+      "category": "quickWins",
+      "conditions": {
+        "tags": [
+          "conversion-path",
+          "mobile",
+          "capture"
+        ],
+        "targetMin": 4,
+        "gapMin": 2
+      },
+      "mode": "strategic",
+      "priority": 4,
+      "dedupeGroup": "general-business-strategic-1",
+      "impact": 4,
+      "effort": 3,
+      "urgency": 4,
+      "evidenceTags": [
+        "conversion-path",
+        "cta",
+        "next-step",
+        "general",
+        "mobile",
+        "responsive",
+        "usability",
+        "general",
+        "capture",
+        "lead-magnet",
+        "reciprocity",
+        "general"
+      ],
+      "why": "Content and FAQ coverage directly shapes whether the right prospect understands, trusts, and advances with the business.",
+      "whyAr": "يؤثر تغطية المحتوى والأسئلة مباشرة في فهم العميل المناسب وثقته وانتقاله إلى الخطوة التالية مع النشاط التجاري.",
+      "how": [
+        "Test one focused improvement for the business before adding more tools or channels.",
+        "Assign one business owner and a review date.",
+        "Validate the change with real business inquiries and record what happened."
+      ],
+      "howAr": [
+        "اختبر تحسيناً واحداً ومحدداً في النشاط التجاري قبل إضافة أدوات أو قنوات جديدة.",
+        "عيّن مسؤولاً واحداً في النشاط التجاري وموعداً للمراجعة.",
+        "اختبر التغيير مع استفسارات حقيقية تخص النشاط التجاري وسجّل النتيجة."
+      ],
+      "websiteImplication": "Make content and faq coverage explicit at the page and decision point where it matters.",
+      "websiteImplicationAr": "أظهر تغطية المحتوى والأسئلة بوضوح في الصفحة ونقطة القرار المناسبة.",
+      "systemImplication": "Use the smallest business tracking method that proves ownership before considering automation.",
+      "systemImplicationAr": "استخدم أبسط وسيلة متابعة في النشاط التجاري تثبت المسؤولية قبل التفكير في الأتمتة.",
+      "dominaseFit": "DOMINASE can prototype and measure this improvement without forcing a rebuild.",
+      "dominaseFitAr": "يمكن لـ DOMINASE اختبار هذا التحسين وقياسه دون فرض إعادة بناء.",
+      "riskNotes": "Do not publish business evidence, capacity, availability, prices, or outcomes that cannot be verified.",
+      "riskNotesAr": "لا تنشر أدلة أو طاقة استيعابية أو توفراً أو أسعاراً أو نتائج تخص النشاط التجاري ما لم يمكن إثباتها."
+    },
+    {
+      "id": "general-business-strategic-3",
+      "title": "Strengthen pricing clarity where relevant with one controlled change",
+      "titleAr": "طوّر وضوح التسعير حيث يناسب بخطوة منضبطة",
+      "category": "dominaseNextStep",
+      "conditions": {
+        "tags": [
+          "weak-follow-up",
+          "whatsapp",
+          "crm"
+        ],
+        "targetMin": 4,
+        "gapMin": 2
+      },
+      "mode": "strategic",
+      "priority": 4,
+      "dedupeGroup": "general-business-strategic-2",
+      "impact": 4,
+      "effort": 3,
+      "urgency": 4,
+      "evidenceTags": [
+        "weak-follow-up",
+        "follow-up",
+        "cadence",
+        "general:sales-process",
+        "whatsapp",
+        "messaging",
+        "follow-up",
+        "general",
+        "crm",
+        "pipeline",
+        "tracking",
+        "general"
+      ],
+      "why": "Pricing clarity where relevant directly shapes whether the right prospect understands, trusts, and advances with the business.",
+      "whyAr": "يؤثر وضوح التسعير حيث يناسب مباشرة في فهم العميل المناسب وثقته وانتقاله إلى الخطوة التالية مع النشاط التجاري.",
+      "how": [
+        "Test one focused improvement for the business before adding more tools or channels.",
+        "Assign one business owner and a review date.",
+        "Validate the change with real business inquiries and record what happened."
+      ],
+      "howAr": [
+        "اختبر تحسيناً واحداً ومحدداً في النشاط التجاري قبل إضافة أدوات أو قنوات جديدة.",
+        "عيّن مسؤولاً واحداً في النشاط التجاري وموعداً للمراجعة.",
+        "اختبر التغيير مع استفسارات حقيقية تخص النشاط التجاري وسجّل النتيجة."
+      ],
+      "websiteImplication": "Make pricing clarity where relevant explicit at the page and decision point where it matters.",
+      "websiteImplicationAr": "أظهر وضوح التسعير حيث يناسب بوضوح في الصفحة ونقطة القرار المناسبة.",
+      "systemImplication": "Use the smallest business tracking method that proves ownership before considering automation.",
+      "systemImplicationAr": "استخدم أبسط وسيلة متابعة في النشاط التجاري تثبت المسؤولية قبل التفكير في الأتمتة.",
+      "dominaseFit": "DOMINASE can prototype and measure this improvement without forcing a rebuild.",
+      "dominaseFitAr": "يمكن لـ DOMINASE اختبار هذا التحسين وقياسه دون فرض إعادة بناء.",
+      "riskNotes": "Do not publish business evidence, capacity, availability, prices, or outcomes that cannot be verified.",
+      "riskNotesAr": "لا تنشر أدلة أو طاقة استيعابية أو توفراً أو أسعاراً أو نتائج تخص النشاط التجاري ما لم يمكن إثباتها."
+    },
+    {
+      "id": "general-business-strategic-4",
+      "title": "Strengthen connected digital system with one controlled change",
+      "titleAr": "طوّر النظام الرقمي المترابط بخطوة منضبطة",
+      "category": "strategicDiagnosis",
+      "conditions": {
+        "tags": [
+          "content-strategy",
+          "pricing-transparency",
+          "digital-readiness"
+        ],
+        "targetMin": 4,
+        "gapMin": 2
+      },
+      "mode": "strategic",
+      "priority": 4,
+      "dedupeGroup": "general-business-strategic-3",
+      "impact": 4,
+      "effort": 3,
+      "urgency": 4,
+      "evidenceTags": [
+        "content-strategy",
+        "faq-gap",
+        "buyer-questions",
+        "general",
+        "pricing-transparency",
+        "pricing-content",
+        "trust-barrier",
+        "general",
+        "digital-readiness",
+        "system",
+        "automation",
+        "general:digital-readiness"
+      ],
+      "why": "Connected digital system directly shapes whether the right prospect understands, trusts, and advances with the business.",
+      "whyAr": "يؤثر النظام الرقمي المترابط مباشرة في فهم العميل المناسب وثقته وانتقاله إلى الخطوة التالية مع النشاط التجاري.",
+      "how": [
+        "Test one focused improvement for the business before adding more tools or channels.",
+        "Assign one business owner and a review date.",
+        "Validate the change with real business inquiries and record what happened."
+      ],
+      "howAr": [
+        "اختبر تحسيناً واحداً ومحدداً في النشاط التجاري قبل إضافة أدوات أو قنوات جديدة.",
+        "عيّن مسؤولاً واحداً في النشاط التجاري وموعداً للمراجعة.",
+        "اختبر التغيير مع استفسارات حقيقية تخص النشاط التجاري وسجّل النتيجة."
+      ],
+      "websiteImplication": "Make connected digital system explicit at the page and decision point where it matters.",
+      "websiteImplicationAr": "أظهر النظام الرقمي المترابط بوضوح في الصفحة ونقطة القرار المناسبة.",
+      "systemImplication": "Use the smallest business tracking method that proves ownership before considering automation.",
+      "systemImplicationAr": "استخدم أبسط وسيلة متابعة في النشاط التجاري تثبت المسؤولية قبل التفكير في الأتمتة.",
+      "dominaseFit": "DOMINASE can prototype and measure this improvement without forcing a rebuild.",
+      "dominaseFitAr": "يمكن لـ DOMINASE اختبار هذا التحسين وقياسه دون فرض إعادة بناء.",
+      "riskNotes": "Do not publish business evidence, capacity, availability, prices, or outcomes that cannot be verified.",
+      "riskNotesAr": "لا تنشر أدلة أو طاقة استيعابية أو توفراً أو أسعاراً أو نتائج تخص النشاط التجاري ما لم يمكن إثباتها."
+    },
+    {
+      "id": "general-business-controlled-path-1",
+      "title": "Strengthen clear conversion path with one controlled change",
+      "titleAr": "طوّر مسار تحويل واضح بخطوة منضبطة",
+      "category": "customerProfile",
+      "conditions": {
+        "topicId": "gen_conversion_path",
+        "currentMin": 2,
+        "targetMin": 4,
+        "gapMin": 2
+      },
+      "mode": "improve",
+      "priority": 3,
+      "dedupeGroup": "general-business-controlled-0",
+      "impact": 3,
+      "effort": 3,
+      "urgency": 3,
+      "evidenceTags": [
+        "conversion-path",
+        "cta",
+        "next-step",
+        "general"
+      ],
+      "why": "Clear conversion path directly shapes whether the right prospect understands, trusts, and advances with the business.",
+      "whyAr": "يؤثر مسار تحويل واضح مباشرة في فهم العميل المناسب وثقته وانتقاله إلى الخطوة التالية مع النشاط التجاري.",
+      "how": [
+        "Test one focused improvement for the business before adding more tools or channels.",
+        "Assign one business owner and a review date.",
+        "Validate the change with real business inquiries and record what happened."
+      ],
+      "howAr": [
+        "اختبر تحسيناً واحداً ومحدداً في النشاط التجاري قبل إضافة أدوات أو قنوات جديدة.",
+        "عيّن مسؤولاً واحداً في النشاط التجاري وموعداً للمراجعة.",
+        "اختبر التغيير مع استفسارات حقيقية تخص النشاط التجاري وسجّل النتيجة."
+      ],
+      "websiteImplication": "Make clear conversion path explicit at the page and decision point where it matters.",
+      "websiteImplicationAr": "أظهر مسار تحويل واضح بوضوح في الصفحة ونقطة القرار المناسبة.",
+      "systemImplication": "Use the smallest business tracking method that proves ownership before considering automation.",
+      "systemImplicationAr": "استخدم أبسط وسيلة متابعة في النشاط التجاري تثبت المسؤولية قبل التفكير في الأتمتة.",
+      "dominaseFit": "DOMINASE can prototype and measure this improvement without forcing a rebuild.",
+      "dominaseFitAr": "يمكن لـ DOMINASE اختبار هذا التحسين وقياسه دون فرض إعادة بناء.",
+      "riskNotes": "Do not publish business evidence, capacity, availability, prices, or outcomes that cannot be verified.",
+      "riskNotesAr": "لا تنشر أدلة أو طاقة استيعابية أو توفراً أو أسعاراً أو نتائج تخص النشاط التجاري ما لم يمكن إثباتها."
+    },
+    {
+      "id": "general-business-controlled-path-2",
+      "title": "Strengthen mobile usability with one controlled change",
+      "titleAr": "طوّر سهولة الاستخدام على الهاتف بخطوة منضبطة",
+      "category": "websiteStructure",
+      "conditions": {
+        "topicId": "gen_mobile_usability",
+        "currentMin": 2,
+        "targetMin": 4,
+        "gapMin": 2
+      },
+      "mode": "improve",
+      "priority": 3,
+      "dedupeGroup": "general-business-controlled-1",
+      "impact": 3,
+      "effort": 3,
+      "urgency": 3,
+      "evidenceTags": [
+        "mobile",
+        "responsive",
+        "usability",
+        "general"
+      ],
+      "why": "Mobile usability directly shapes whether the right prospect understands, trusts, and advances with the business.",
+      "whyAr": "يؤثر سهولة الاستخدام على الهاتف مباشرة في فهم العميل المناسب وثقته وانتقاله إلى الخطوة التالية مع النشاط التجاري.",
+      "how": [
+        "Test one focused improvement for the business before adding more tools or channels.",
+        "Assign one business owner and a review date.",
+        "Validate the change with real business inquiries and record what happened."
+      ],
+      "howAr": [
+        "اختبر تحسيناً واحداً ومحدداً في النشاط التجاري قبل إضافة أدوات أو قنوات جديدة.",
+        "عيّن مسؤولاً واحداً في النشاط التجاري وموعداً للمراجعة.",
+        "اختبر التغيير مع استفسارات حقيقية تخص النشاط التجاري وسجّل النتيجة."
+      ],
+      "websiteImplication": "Make mobile usability explicit at the page and decision point where it matters.",
+      "websiteImplicationAr": "أظهر سهولة الاستخدام على الهاتف بوضوح في الصفحة ونقطة القرار المناسبة.",
+      "systemImplication": "Use the smallest business tracking method that proves ownership before considering automation.",
+      "systemImplicationAr": "استخدم أبسط وسيلة متابعة في النشاط التجاري تثبت المسؤولية قبل التفكير في الأتمتة.",
+      "dominaseFit": "DOMINASE can prototype and measure this improvement without forcing a rebuild.",
+      "dominaseFitAr": "يمكن لـ DOMINASE اختبار هذا التحسين وقياسه دون فرض إعادة بناء.",
+      "riskNotes": "Do not publish business evidence, capacity, availability, prices, or outcomes that cannot be verified.",
+      "riskNotesAr": "لا تنشر أدلة أو طاقة استيعابية أو توفراً أو أسعاراً أو نتائج تخص النشاط التجاري ما لم يمكن إثباتها."
+    },
+    {
+      "id": "general-business-controlled-path-3",
+      "title": "Strengthen lead capture with one controlled change",
+      "titleAr": "طوّر التقاط العملاء بخطوة منضبطة",
+      "category": "conversionPath",
+      "conditions": {
+        "topicId": "gen_lead_capture",
+        "currentMin": 2,
+        "targetMin": 4,
+        "gapMin": 2
+      },
+      "mode": "improve",
+      "priority": 3,
+      "dedupeGroup": "general-business-controlled-2",
+      "impact": 3,
+      "effort": 3,
+      "urgency": 3,
+      "evidenceTags": [
+        "capture",
+        "lead-magnet",
+        "reciprocity",
+        "general"
+      ],
+      "why": "Lead capture directly shapes whether the right prospect understands, trusts, and advances with the business.",
+      "whyAr": "يؤثر التقاط العملاء مباشرة في فهم العميل المناسب وثقته وانتقاله إلى الخطوة التالية مع النشاط التجاري.",
+      "how": [
+        "Test one focused improvement for the business before adding more tools or channels.",
+        "Assign one business owner and a review date.",
+        "Validate the change with real business inquiries and record what happened."
+      ],
+      "howAr": [
+        "اختبر تحسيناً واحداً ومحدداً في النشاط التجاري قبل إضافة أدوات أو قنوات جديدة.",
+        "عيّن مسؤولاً واحداً في النشاط التجاري وموعداً للمراجعة.",
+        "اختبر التغيير مع استفسارات حقيقية تخص النشاط التجاري وسجّل النتيجة."
+      ],
+      "websiteImplication": "Make lead capture explicit at the page and decision point where it matters.",
+      "websiteImplicationAr": "أظهر التقاط العملاء بوضوح في الصفحة ونقطة القرار المناسبة.",
+      "systemImplication": "Use the smallest business tracking method that proves ownership before considering automation.",
+      "systemImplicationAr": "استخدم أبسط وسيلة متابعة في النشاط التجاري تثبت المسؤولية قبل التفكير في الأتمتة.",
+      "dominaseFit": "DOMINASE can prototype and measure this improvement without forcing a rebuild.",
+      "dominaseFitAr": "يمكن لـ DOMINASE اختبار هذا التحسين وقياسه دون فرض إعادة بناء.",
+      "riskNotes": "Do not publish business evidence, capacity, availability, prices, or outcomes that cannot be verified.",
+      "riskNotesAr": "لا تنشر أدلة أو طاقة استيعابية أو توفراً أو أسعاراً أو نتائج تخص النشاط التجاري ما لم يمكن إثباتها."
+    },
+    {
+      "id": "general-business-controlled-path-4",
+      "title": "Strengthen follow-up discipline with one controlled change",
+      "titleAr": "طوّر انضباط المتابعة بخطوة منضبطة",
+      "category": "contentAndTrust",
+      "conditions": {
+        "topicId": "gen_followup_discipline",
+        "currentMin": 2,
+        "targetMin": 4,
+        "gapMin": 2
+      },
+      "mode": "improve",
+      "priority": 3,
+      "dedupeGroup": "general-business-controlled-3",
+      "impact": 3,
+      "effort": 3,
+      "urgency": 3,
+      "evidenceTags": [
+        "weak-follow-up",
+        "follow-up",
+        "cadence",
+        "general:sales-process"
+      ],
+      "why": "Follow-up discipline directly shapes whether the right prospect understands, trusts, and advances with the business.",
+      "whyAr": "يؤثر انضباط المتابعة مباشرة في فهم العميل المناسب وثقته وانتقاله إلى الخطوة التالية مع النشاط التجاري.",
+      "how": [
+        "Test one focused improvement for the business before adding more tools or channels.",
+        "Assign one business owner and a review date.",
+        "Validate the change with real business inquiries and record what happened."
+      ],
+      "howAr": [
+        "اختبر تحسيناً واحداً ومحدداً في النشاط التجاري قبل إضافة أدوات أو قنوات جديدة.",
+        "عيّن مسؤولاً واحداً في النشاط التجاري وموعداً للمراجعة.",
+        "اختبر التغيير مع استفسارات حقيقية تخص النشاط التجاري وسجّل النتيجة."
+      ],
+      "websiteImplication": "Make follow-up discipline explicit at the page and decision point where it matters.",
+      "websiteImplicationAr": "أظهر انضباط المتابعة بوضوح في الصفحة ونقطة القرار المناسبة.",
+      "systemImplication": "Use the smallest business tracking method that proves ownership before considering automation.",
+      "systemImplicationAr": "استخدم أبسط وسيلة متابعة في النشاط التجاري تثبت المسؤولية قبل التفكير في الأتمتة.",
+      "dominaseFit": "DOMINASE can prototype and measure this improvement without forcing a rebuild.",
+      "dominaseFitAr": "يمكن لـ DOMINASE اختبار هذا التحسين وقياسه دون فرض إعادة بناء.",
+      "riskNotes": "Do not publish business evidence, capacity, availability, prices, or outcomes that cannot be verified.",
+      "riskNotesAr": "لا تنشر أدلة أو طاقة استيعابية أو توفراً أو أسعاراً أو نتائج تخص النشاط التجاري ما لم يمكن إثباتها."
+    },
+    {
+      "id": "general-business-controlled-path-5",
+      "title": "Strengthen whatsapp structure with one controlled change",
+      "titleAr": "طوّر تنظيم واتساب بخطوة منضبطة",
+      "category": "salesFollowUp",
+      "conditions": {
+        "topicId": "gen_whatsapp_structure",
+        "currentMin": 2,
+        "targetMin": 4,
+        "gapMin": 2
+      },
+      "mode": "improve",
+      "priority": 3,
+      "dedupeGroup": "general-business-controlled-4",
+      "impact": 3,
+      "effort": 3,
+      "urgency": 3,
+      "evidenceTags": [
+        "whatsapp",
+        "messaging",
+        "follow-up",
+        "general"
+      ],
+      "why": "WhatsApp structure directly shapes whether the right prospect understands, trusts, and advances with the business.",
+      "whyAr": "يؤثر تنظيم واتساب مباشرة في فهم العميل المناسب وثقته وانتقاله إلى الخطوة التالية مع النشاط التجاري.",
+      "how": [
+        "Test one focused improvement for the business before adding more tools or channels.",
+        "Assign one business owner and a review date.",
+        "Validate the change with real business inquiries and record what happened."
+      ],
+      "howAr": [
+        "اختبر تحسيناً واحداً ومحدداً في النشاط التجاري قبل إضافة أدوات أو قنوات جديدة.",
+        "عيّن مسؤولاً واحداً في النشاط التجاري وموعداً للمراجعة.",
+        "اختبر التغيير مع استفسارات حقيقية تخص النشاط التجاري وسجّل النتيجة."
+      ],
+      "websiteImplication": "Make whatsapp structure explicit at the page and decision point where it matters.",
+      "websiteImplicationAr": "أظهر تنظيم واتساب بوضوح في الصفحة ونقطة القرار المناسبة.",
+      "systemImplication": "Use the smallest business tracking method that proves ownership before considering automation.",
+      "systemImplicationAr": "استخدم أبسط وسيلة متابعة في النشاط التجاري تثبت المسؤولية قبل التفكير في الأتمتة.",
+      "dominaseFit": "DOMINASE can prototype and measure this improvement without forcing a rebuild.",
+      "dominaseFitAr": "يمكن لـ DOMINASE اختبار هذا التحسين وقياسه دون فرض إعادة بناء.",
+      "riskNotes": "Do not publish business evidence, capacity, availability, prices, or outcomes that cannot be verified.",
+      "riskNotesAr": "لا تنشر أدلة أو طاقة استيعابية أو توفراً أو أسعاراً أو نتائج تخص النشاط التجاري ما لم يمكن إثباتها."
+    }
+  ],
+  "reportTemplates": {
+    "intro": {
+      "title": "General Business Growth Diagnosis Report",
+      "titleAr": "تقرير تشخيص نمو أعمال عامة",
+      "fallback": "Your results show solid foundations with a few practical opportunities to improve clarity, trust, conversion, and follow-up.",
+      "fallbackAr": "تظهر نتيجتك أساسا جيدا مع فرص عملية لتحسين الوضوح والثقة ومسار التواصل والمتابعة."
+    },
+    "sections": [
+      {
+        "id": "strategicDiagnosis",
+        "category": "strategicDiagnosis",
+        "title": "Strategic diagnosis",
+        "titleAr": "التشخيص الاستراتيجي",
+        "purpose": "Summarize the highest-leverage business gaps without blame.",
+        "purposeAr": "تلخيص الفجوات الأعلى أثرا دون لوم."
+      },
+      {
+        "id": "customerProfile",
+        "category": "customerProfile",
+        "title": "Customer profile",
+        "titleAr": "ملف العميل",
+        "purpose": "Clarify which customer type the business should prioritize.",
+        "purposeAr": "توضيح نوع العميل الذي يستحق الأولوية."
+      },
+      {
+        "id": "websiteStructure",
+        "category": "websiteStructure",
+        "title": "Website structure",
+        "titleAr": "هيكل الموقع",
+        "purpose": "Turn clarity and trust gaps into practical website structure changes.",
+        "purposeAr": "تحويل فجوات الوضوح والثقة إلى تعديلات عملية في هيكل الموقع."
+      },
+      {
+        "id": "conversionPath",
+        "category": "conversionPath",
+        "title": "Conversion path",
+        "titleAr": "مسار التحويل",
+        "purpose": "Improve the path from interest to contact, booking, or quote request.",
+        "purposeAr": "تحسين المسار من الاهتمام إلى التواصل أو الحجز أو طلب العرض."
+      },
+      {
+        "id": "contentAndTrust",
+        "category": "contentAndTrust",
+        "title": "Content and trust",
+        "titleAr": "المحتوى والثقة",
+        "purpose": "Recommend proof, FAQ, pricing, and credibility assets.",
+        "purposeAr": "اقتراح أصول الإثبات والأسئلة والتسعير والمصداقية."
+      },
+      {
+        "id": "salesFollowUp",
+        "category": "salesFollowUp",
+        "title": "Sales follow-up",
+        "titleAr": "متابعة المبيعات",
+        "purpose": "Improve capture, tracking, WhatsApp, CRM, and follow-up rhythm.",
+        "purposeAr": "تحسين الالتقاط والتتبع وواتساب و CRM وإيقاع المتابعة."
+      },
+      {
+        "id": "quickWins",
+        "category": "quickWins",
+        "title": "Quick wins",
+        "titleAr": "مكاسب سريعة",
+        "purpose": "Name small fixes that can be done before a full build.",
+        "purposeAr": "تحديد إصلاحات صغيرة يمكن تنفيذها قبل أي بناء كبير."
+      },
+      {
+        "id": "dominaseNextStep",
+        "category": "dominaseNextStep",
+        "title": "DOMINASE next step",
+        "titleAr": "خطوة DOMINASE التالية",
+        "purpose": "Suggest one honest, proportionate DOMINASE build direction.",
+        "purposeAr": "اقتراح اتجاه بناء واحد من DOMINASE بصدق وتناسب."
+      }
+    ]
+  },
+  "contextForm": {
+    "title": "Business context",
+    "titleAr": "سياق النشاط",
+    "description": "These fields personalize the report only and require frontend support later. They are not required for scoring.",
+    "descriptionAr": "هذه الحقول لتخصيص التقرير فقط وتتطلب دعما لاحقا في الواجهة. لا تعتمد عليها عملية التسجيل.",
+    "requiresFrontendSupport": true,
+    "fields": [
+      {
+        "id": "institutionName",
+        "label": "Business name",
+        "labelAr": "اسم النشاط",
+        "type": "text",
+        "required": true,
+        "options": [],
+        "optionsAr": [],
+        "whyNeeded": "Personalize the report",
+        "whyNeededAr": "تخصيص التقرير",
+        "reportUse": "Header"
+      },
+      {
+        "id": "cityOrArea",
+        "label": "City / area",
+        "labelAr": "المدينة / المنطقة",
+        "type": "text",
+        "required": true,
+        "options": [],
+        "optionsAr": [],
+        "whyNeeded": "Add local context",
+        "whyNeededAr": "إضافة سياق محلي",
+        "reportUse": "Location notes"
+      },
+      {
+        "id": "businessType",
+        "label": "Business type",
+        "labelAr": "نوع النشاط",
+        "type": "text",
+        "required": true,
+        "options": [],
+        "optionsAr": [],
+        "whyNeeded": "Adapt recommendations",
+        "whyNeededAr": "تكييف التوصيات",
+        "reportUse": "StrategicDiagnosis"
+      },
+      {
+        "id": "serviceCategory",
+        "label": "Service category",
+        "labelAr": "فئة الخدمة",
+        "type": "select",
+        "required": true,
+        "options": [
+          "Local service",
+          "Professional service",
+          "Retail-service hybrid",
+          "Online service",
+          "Other"
+        ],
+        "optionsAr": [
+          "خدمة محلية",
+          "خدمة مهنية",
+          "مزيج بيع وخدمة",
+          "خدمة رقمية",
+          "أخرى"
+        ],
+        "whyNeeded": "Group recommendations",
+        "whyNeededAr": "تجميع التوصيات",
+        "reportUse": "StrategicDiagnosis"
+      },
+      {
+        "id": "currentMainChannel",
+        "label": "Main lead channel",
+        "labelAr": "قناة العملاء الرئيسية",
+        "type": "select",
+        "required": true,
+        "options": [
+          "Website",
+          "Instagram",
+          "WhatsApp",
+          "Phone",
+          "Referrals",
+          "Ads"
+        ],
+        "optionsAr": [
+          "الموقع",
+          "إنستغرام",
+          "واتساب",
+          "هاتف",
+          "إحالات",
+          "إعلانات"
+        ],
+        "whyNeeded": "Reveal channel reliance",
+        "whyNeededAr": "كشف الاعتماد على القناة",
+        "reportUse": "SalesFollowUp"
+      },
+      {
+        "id": "currentWebsiteStatus",
+        "label": "Current website status",
+        "labelAr": "حالة الموقع الحالية",
+        "type": "select",
+        "required": true,
+        "options": [
+          "No website",
+          "Basic site",
+          "Active but outdated",
+          "Strong website",
+          "Not sure"
+        ],
+        "optionsAr": [
+          "لا يوجد موقع",
+          "موقع بسيط",
+          "موجود لكنه قديم",
+          "موقع قوي",
+          "غير متأكد"
+        ],
+        "whyNeeded": "Baseline digital readiness",
+        "whyNeededAr": "خط أساس للجاهزية الرقمية",
+        "reportUse": "DigitalReadiness"
+      },
+      {
+        "id": "optionalNotes",
+        "label": "Anything else",
+        "labelAr": "ملاحظات إضافية",
+        "type": "textarea",
+        "required": false,
+        "options": [],
+        "optionsAr": [],
+        "whyNeeded": "Capture nuance",
+        "whyNeededAr": "التقاط التفاصيل",
+        "reportUse": "Context"
+      }
+    ]
+  }
+}

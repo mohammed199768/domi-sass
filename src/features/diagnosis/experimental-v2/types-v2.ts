@@ -1,0 +1,20 @@
+export type ReportCategoryV2 =
+  | "strategicDiagnosis" | "customerProfile" | "websiteStructure" | "conversionPath"
+  | "contentAndTrust" | "salesFollowUp" | "quickWins" | "dominaseNextStep";
+export type RecommendationMode = "repair" | "improve" | "maintain" | "strategic";
+export interface DiagnosisConditionV2 { topicId?: string; dimensionId?: string; tags?: string[]; tag?:string; currentMin?: number; currentMax?: number; targetMin?: number; targetMax?: number; gapMin?: number; gapMax?: number; dimensionMin?:Record<string,number>; dimensionMax?:Record<string,number>; topicMin?:Record<string,number>; topicMax?:Record<string,number>; tagMin?:Record<string,number>; tagMax?:Record<string,number>; }
+export interface ContextConditionV2 { fieldId: string; equals?: string; oneOf?: string[]; notEquals?: string; }
+export interface TopicV2 { id:string; topicKey:string; weight:number; tags:string[]; }
+export interface DimensionV2 { id:string; dimensionKey:string; weight:number; topics:TopicV2[]; }
+export interface TopicScoreV2 { topicId:string; topicKey:string; dimensionId:string; dimensionKey:string; current:number; target:number; gap:number; weightedGap:number; priorityScore:number; weight:number; tags:string[]; }
+export interface DimensionScoreV2 { dimensionId:string; dimensionKey:string; averageCurrent:number; averageTarget:number; averageGap:number; priorityScore:number; weight:number; }
+export interface ScoreSetV2 { topics:TopicScoreV2[]; dimensions:DimensionScoreV2[]; averageCurrent:number; averageTarget:number; averageGap:number; }
+export interface MatchEvidenceV2 { matched:boolean; matchedTopicIds:string[]; matchedDimensionIds:string[]; matchedConditionIndexes:number[]; blockedConditionIndexes:number[]; strongestGap:number; averageMatchedGap:number; evidenceCount:number; reasonCodes:string[]; }
+export interface RecommendationV2 { id:string; title:string; category:ReportCategoryV2; conditions:DiagnosisConditionV2; priority:number; mode?:RecommendationMode; dedupeGroup?:string; impact?:1|2|3|4|5; effort?:1|2|3|4|5; urgency?:1|2|3|4|5; anyConditions?:DiagnosisConditionV2[]; allConditions?:DiagnosisConditionV2[]; notConditions?:DiagnosisConditionV2[]; profileIds?:string[]; exclusiveWith?:string[]; contextAll?:ContextConditionV2[]; contextAny?:ContextConditionV2[]; [key:string]:unknown; }
+export interface ProfileV2 { id:string; title:string; conditions?:DiagnosisConditionV2|DiagnosisConditionV2[]; anyConditions?:DiagnosisConditionV2[]; allConditions?:DiagnosisConditionV2[]; notConditions?:DiagnosisConditionV2[]; profilePriority?:number; fallback?:boolean; [key:string]:unknown; }
+export interface RecommendationPolicyV2 { maxTotal?:number; maxPerCategory?:number; maxRepair?:number; maxImprove?:number; maxMaintain?:number; minimumRankScore?:number; }
+export interface RankedRecommendationV2 { recommendation:RecommendationV2; rankScore:number; scoreBreakdown:{priority:number;severity:number;specificity:number;evidence:number;impact:number;urgency:number;effortPenalty:number;profileAffinity:number;modeAdjustment:number;broadnessPenalty:number}; evidence:MatchEvidenceV2; originalIndex:number; }
+export interface SuppressedRecommendationV2 { recommendationId:string; reason:"dedupe"|"exclusive-conflict"|"mode-conflict"|"category-limit"|"global-limit"|"low-rank"|"profile-mismatch"; keptRecommendationId?:string; }
+export interface ProfileMatchResultV2 { selectedProfile:ProfileV2; candidates:Array<{profileId:string;score:number;evidence:MatchEvidenceV2;selected:boolean;originalIndex:number}>; fallbackUsed:boolean; }
+export interface SectionStateV2 { category:ReportCategoryV2; source:"authored"|"derived"|"fallback"|"hidden"; recommendationIds:string[]; relevant:boolean; reason:string; }
+export interface SelectionResultV2 { selected:RankedRecommendationV2[]; suppressed:SuppressedRecommendationV2[]; categoryCounts:Record<string,number>; modeCounts:Record<string,number>; visibleCategories:ReportCategoryV2[]; emptyRelevantCategories:ReportCategoryV2[]; sections:SectionStateV2[]; }

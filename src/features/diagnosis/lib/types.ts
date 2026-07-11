@@ -228,6 +228,18 @@ export interface DiagnosisResult {
   recommendations: MatchedDiagnosisRecommendation[];
   recommendationsByCategory: RecommendationGroups;
   sections: Record<ReportCategory, DiagnosisReportSection>;
+  engineVersion?: "v1" | "v2";
+  debugMeta?: DiagnosisV2DebugMeta;
+}
+
+export interface DiagnosisV2DebugMeta {
+  engineVersion: "v2";
+  profileCandidates: unknown[];
+  selectedRecommendationIds: string[];
+  suppressedRecommendations: unknown[];
+  visibleCategories: ReportCategory[];
+  decisionHash: string;
+  rankBreakdown: unknown[];
 }
 
 export interface PersistedDiagnosisState {

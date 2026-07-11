@@ -1,0 +1,3 @@
+import assert from "node:assert/strict";
+import { buildDiagnosisResultV2 } from "../buildDiagnosisResultV2.js";
+const dimensions=[{id:"d",dimensionKey:"d",weight:1,topics:[{id:"t",topicKey:"t",weight:1,tags:[]}]}];const result=buildDiagnosisResultV2({dimensions,profiles:[{id:"mature",title:"m",conditions:{topicId:"t",currentMin:4.5}}],recommendations:[{id:"maintain",title:"m",category:"quickWins",priority:2,conditions:{topicId:"t",currentMin:4.5,gapMax:.5},mode:"maintain"}],answers:{t:{current:5,target:5}},fallbackProfile:{id:"fallback",title:"f"}});assert.equal(result.profile.selectedProfile.id,"mature");assert.equal(result.selection.selected.length,1);

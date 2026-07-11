@@ -5,7 +5,9 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { useLanguage } from "@/context/LanguageContext";
 import type { DiagnosisAnswer, DiagnosisAnswerMap, DiagnosisAssessment, DiagnosisContextAnswers } from "../lib/types";
-import { buildDiagnosisResult, getTopics, isDiagnosisAnswerComplete } from "../lib/scoring";
+import { getTopics, isDiagnosisAnswerComplete } from "../lib/scoring";
+import { buildDiagnosisResultForVersion } from "../runtime/engineRouter";
+import type { DiagnosisEngineVersion } from "../runtime/types";
 import { clearDiagnosisState, loadDiagnosisState, saveDiagnosisState } from "../lib/storage";
 import { localized } from "../lib/localization";
 import DiagnosisContextIntake from "./DiagnosisContextIntake";
@@ -19,9 +21,13 @@ type Stage = "context" | "questions" | "completion" | "results";
 export default function DiagnosisAssessmentClient({
   slug,
   assessment,
+  engineVersion,
+  qaEnabled,
 }: {
   slug: string;
   assessment: DiagnosisAssessment;
+  engineVersion: DiagnosisEngineVersion;
+  qaEnabled?: boolean;
 }) {
   const { language } = useLanguage();
   const isArabic = language === "ar";
@@ -53,7 +59,7 @@ export default function DiagnosisAssessmentClient({
     saveDiagnosisState(slug, contextAnswers, answers);
   }, [slug, contextAnswers, answers]);
 
-  const result = useMemo(() => buildDiagnosisResult(assessment, answers), [assessment, answers]);
+  const result = useMemo(() => buildDiagnosisResultForVersion(assessment, answers, contextAnswers, engineVersion), [assessment, answers, contextAnswers, engineVersion]);
 
   const reset = () => {
     clearDiagnosisState(slug);
@@ -67,6 +73,11 @@ export default function DiagnosisAssessmentClient({
     <main className="diagnosis-scope min-h-screen overflow-x-clip bg-background text-foreground">
       <Header />
       <DiagnosisThemeHint isArabic={isArabic} />
+      {process.env.NODE_ENV !== "production" ? (
+        <div className="fixed bottom-3 right-3 z-50 rounded-full border border-border bg-surface px-3 py-1.5 text-[11px] font-black uppercase tracking-wide text-primary-theme shadow-lg">
+          Diagnosis Engine: {engineVersion.toUpperCase()}
+        </div>
+      ) : null}
 
       {/* Diagnosis shell top bar — clears the fixed navbar and hosts the
           diagnosis-scoped theme toggle so light/dark is reachable on every
@@ -144,7 +155,10 @@ export default function DiagnosisAssessmentClient({
       ) : null}
 
       {stage === "results" && isComplete ? (
-        <DiagnosisResults result={result} contextAnswers={contextAnswers} onReset={reset} isArabic={isArabic} />
+        <>
+          <DiagnosisResults result={result} contextAnswers={contextAnswers} onReset={reset} isArabic={isArabic} />
+          {process.env.NODE_ENV !== "production" && qaEnabled && result.debugMeta ? <DiagnosisDebugPanel result={result} /> : null}
+        </>
       ) : null}
 
       {stage === "results" && !isComplete ? (
@@ -157,6 +171,16 @@ export default function DiagnosisAssessmentClient({
 
       <Footer />
     </main>
+  );
+}
+
+function DiagnosisDebugPanel({ result }: { result: ReturnType<typeof buildDiagnosisResultForVersion> }) {
+  if (!result.debugMeta) return null;
+  return (
+    <details className="mx-auto mb-16 w-full max-w-6xl rounded-2xl border border-border bg-surface p-5 text-xs">
+      <summary className="cursor-pointer font-black">V2 decision debug · {result.debugMeta.decisionHash}</summary>
+      <pre className="mt-4 max-h-[32rem] overflow-auto whitespace-pre-wrap text-[11px] leading-5">{JSON.stringify({ profile: result.profile.id, ...result.debugMeta }, null, 2)}</pre>
+    </details>
   );
 }
 

@@ -1,0 +1,3785 @@
+{
+  "meta": {
+    "id": "engineering-growth-diagnosis",
+    "version": "2.0.0-multi-domain-local",
+    "title": "Engineering Company Growth Diagnosis",
+    "titleAr": "تشخيص نمو الشركة الهندسية",
+    "description": "A strategic self-assessment for project focus, portfolio proof, credentials, quote flow, proposal follow-up, and digital readiness.",
+    "descriptionAr": "تقييم ذاتي استراتيجي لتركيز المشاريع وإثبات الأعمال والاعتمادات ومسار العرض ومتابعة المقترحات والجاهزية الرقمية.",
+    "disclaimer": "This is a strategic self-assessment for business readiness. It is not a guarantee of results and is not a substitute for professional legal, financial, medical, or operational advice. It does not guarantee project volume, procurement success, licensing status, or financial outcomes. Credentials, project claims, and portfolio examples must be genuine, current, and permissioned.",
+    "disclaimerAr": "هذا تقييم ذاتي استراتيجي لجاهزية النشاط. لا يضمن النتائج ولا يغني عن الاستشارة المهنية القانونية أو المالية أو الطبية أو التشغيلية عند الحاجة. لا يضمن حجم المشاريع أو نجاح المشتريات أو حالة الترخيص أو النتائج المالية. يجب أن تكون الاعتمادات وادعاءات المشاريع وأمثلة المعرض حقيقية وحديثة ومصرحا بها.",
+    "scale": {
+      "min": 1,
+      "max": 5,
+      "step": 0.5
+    },
+    "domain": "engineering",
+    "domainAr": "شركات هندسية",
+    "estimatedMinutes": 8,
+    "sourceNote": "Generated from 04_STRATEGY_MAPS/engineering_strategy_map.md, question_blueprints.json, DOMINASE_EXTRACTION_MATRIX.json, DOMINASE_TAG_TAXONOMY.md, and DOMINASE_RECOMMENDATION_BANK.md. question_blueprints.json was used only as planning index.",
+    "ethicsNote": "Value-first, advisor-like self-assessment. No fabricated statistics, no guarantees, no manipulative urgency, no copied book text, and no recommendation to build systems the business will not realistically use."
+  },
+  "dimensions": [
+    {
+      "id": "D1",
+      "dimensionKey": "positioning-project-focus",
+      "title": "Positioning & Project Focus",
+      "titleAr": "التموضع وتركيز المشاريع",
+      "description": "How clearly the firm communicates project types, ideal clients, and local relevance.",
+      "descriptionAr": "مدى وضوح أنواع المشاريع والعملاء الأنسب والملاءمة المحلية.",
+      "orderIndex": 1,
+      "weight": 4,
+      "topics": [
+        {
+          "id": "eng_project_focus",
+          "topicKey": "project-focus",
+          "label": "Project-type focus",
+          "labelAr": "تركيز نوع المشروع",
+          "prompt": "Can a potential client quickly tell which project types you specialize in and whether you fit their project?",
+          "promptAr": "هل يستطيع العميل المحتمل بسرعة معرفة أنواع المشاريع التي تتخصص فيها وهل تناسب مشروعه؟",
+          "answerMode": "current-target",
+          "orderIndex": 1,
+          "weight": 4,
+          "tags": [
+            "positioning",
+            "niche",
+            "targeting",
+            "engineering:project-focus"
+          ],
+          "levelAnchors": [
+            "1 - We do everything",
+            "2 - Some focus but not visible",
+            "3 - Focus is implied in past work",
+            "4 - Project types are clearly named",
+            "5 - Project focus, ideal client, and fit are obvious"
+          ],
+          "levelAnchorsAr": [
+            "1 - ننفذ كل شيء",
+            "2 - يوجد بعض التركيز لكنه غير ظاهر",
+            "3 - التركيز مفهوم ضمنا من الأعمال السابقة",
+            "4 - أنواع المشاريع مذكورة بوضوح",
+            "5 - نوع المشروع والعميل المثالي والملاءمة واضحة"
+          ]
+        },
+        {
+          "id": "eng_target_client",
+          "topicKey": "target-client",
+          "label": "Target client clarity",
+          "labelAr": "وضوح العميل المستهدف",
+          "prompt": "Is it clear which client or project profile is the best fit for your firm?",
+          "promptAr": "هل من الواضح أي نوع عميل أو مشروع هو الأنسب لشركتك؟",
+          "answerMode": "current-target",
+          "orderIndex": 10,
+          "weight": 3,
+          "tags": [
+            "segmentation",
+            "targeting",
+            "positioning",
+            "engineering"
+          ],
+          "levelAnchors": [
+            "1 - Targets everyone",
+            "2 - Ideal client is only internal knowledge",
+            "3 - Some client types are named",
+            "4 - Best-fit client types are clear",
+            "5 - Best-fit, acceptable, and poor-fit projects are easy to understand"
+          ],
+          "levelAnchorsAr": [
+            "1 - يستهدف الجميع",
+            "2 - العميل المثالي معروف داخليا فقط",
+            "3 - بعض أنواع العملاء مذكورة",
+            "4 - أنواع العملاء الأنسب واضحة",
+            "5 - المشروع الأنسب والمقبول وغير المناسب سهل الفهم"
+          ]
+        },
+        {
+          "id": "eng_local_positioning",
+          "topicKey": "local-positioning",
+          "label": "Local market positioning",
+          "labelAr": "التموضع في السوق المحلي",
+          "prompt": "Does your site signal familiarity with the local market, standards, or regulations where that matters?",
+          "promptAr": "هل يظهر موقعك إلماما بالسوق المحلي أو المعايير أو الأنظمة حيث يهم ذلك؟",
+          "answerMode": "current-target",
+          "orderIndex": 11,
+          "weight": 2,
+          "tags": [
+            "local-positioning",
+            "unity",
+            "engineering"
+          ],
+          "levelAnchors": [
+            "1 - No local signals",
+            "2 - Location is mentioned only",
+            "3 - Some local projects are shown",
+            "4 - Local experience is clear",
+            "5 - Local proof, standards, and relevant areas are shown accurately"
+          ],
+          "levelAnchorsAr": [
+            "1 - لا توجد إشارات محلية",
+            "2 - الموقع مذكور فقط",
+            "3 - تظهر بعض المشاريع المحلية",
+            "4 - الخبرة المحلية واضحة",
+            "5 - الإثبات المحلي والمعايير والمناطق ذات الصلة ظاهرة بدقة"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "D2",
+      "dimensionKey": "proof-portfolio",
+      "title": "Proof & Portfolio",
+      "titleAr": "الإثبات ومعرض الأعمال",
+      "description": "How strongly the firm proves capability with relevant completed work.",
+      "descriptionAr": "مدى قوة إثبات القدرة عبر أعمال منجزة ذات صلة.",
+      "orderIndex": 2,
+      "weight": 5,
+      "topics": [
+        {
+          "id": "eng_portfolio_proof",
+          "topicKey": "portfolio-proof",
+          "label": "Portfolio and before-after proof",
+          "labelAr": "معرض الأعمال وإثبات قبل/بعد",
+          "prompt": "Can a client see enough relevant completed projects, ideally with before-after or outcomes, to trust your capability?",
+          "promptAr": "هل يرى العميل مشاريع منجزة كافية وذات صلة، ويفضل مع قبل/بعد أو نتائج، ليثق بقدرتك؟",
+          "answerMode": "current-target",
+          "orderIndex": 2,
+          "weight": 5,
+          "tags": [
+            "portfolio",
+            "case-studies",
+            "visual-trust",
+            "engineering:portfolio-proof"
+          ],
+          "levelAnchors": [
+            "1 - No real portfolio",
+            "2 - A few weakly shown projects",
+            "3 - Some projects but little context",
+            "4 - Relevant portfolio with useful details",
+            "5 - Strong portfolio with before-after, scope, and outcomes where permitted"
+          ],
+          "levelAnchorsAr": [
+            "1 - لا يوجد معرض حقيقي",
+            "2 - بعض المشاريع معروضة بضعف",
+            "3 - مشاريع موجودة لكن بلا سياق كاف",
+            "4 - معرض مناسب مع تفاصيل مفيدة",
+            "5 - معرض قوي مع قبل/بعد والنطاق والنتائج عند السماح"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "D3",
+      "dimensionKey": "expertise-credentials",
+      "title": "Expertise & Credentials",
+      "titleAr": "الخبرة والاعتمادات",
+      "description": "Visibility of expertise, licensing, and clear value for technical and non-technical buyers.",
+      "descriptionAr": "ظهور الخبرة والتراخيص والقيمة الواضحة للعميل التقني وغير التقني.",
+      "orderIndex": 3,
+      "weight": 5,
+      "topics": [
+        {
+          "id": "eng_expertise_content",
+          "topicKey": "expertise-content",
+          "label": "Demonstrated expertise",
+          "labelAr": "الخبرة المبرهنة",
+          "prompt": "Does your site demonstrate technical expertise through insight, methodology, or explanations instead of only claiming experience?",
+          "promptAr": "هل يبرهن موقعك الخبرة التقنية عبر بصيرة أو منهجية أو شروحات بدلا من مجرد ادعاء الخبرة؟",
+          "answerMode": "current-target",
+          "orderIndex": 3,
+          "weight": 4,
+          "tags": [
+            "authority",
+            "thought-leadership",
+            "credibility",
+            "engineering"
+          ],
+          "levelAnchors": [
+            "1 - Only claims of expertise",
+            "2 - Some technical terms without explanation",
+            "3 - Project descriptions show partial expertise",
+            "4 - Methodology and insights are visible",
+            "5 - Expertise is proven through process, content, and cases"
+          ],
+          "levelAnchorsAr": [
+            "1 - ادعاءات خبرة فقط",
+            "2 - مصطلحات تقنية دون شرح",
+            "3 - أوصاف المشاريع تظهر خبرة جزئية",
+            "4 - المنهجية والرؤى ظاهرة",
+            "5 - الخبرة مثبتة عبر العملية والمحتوى والحالات"
+          ]
+        },
+        {
+          "id": "eng_licensing_visibility",
+          "topicKey": "licensing-visibility",
+          "label": "Licensing and credentials visibility",
+          "labelAr": "ظهور التراخيص والاعتمادات",
+          "prompt": "Are licenses, certifications, and qualifications clearly visible for clients who need to verify them?",
+          "promptAr": "هل التراخيص والشهادات والمؤهلات ظاهرة بوضوح للعملاء الذين يحتاجون للتحقق منها؟",
+          "answerMode": "current-target",
+          "orderIndex": 4,
+          "weight": 4,
+          "tags": [
+            "authority",
+            "trust-signal",
+            "credibility",
+            "engineering:licensing-trust"
+          ],
+          "levelAnchors": [
+            "1 - Not shown",
+            "2 - Mentioned vaguely",
+            "3 - Mentioned in text but not easy to verify",
+            "4 - Credentials section is visible",
+            "5 - Genuine current credentials are clear and easy to verify"
+          ],
+          "levelAnchorsAr": [
+            "1 - غير معروضة",
+            "2 - مذكورة بشكل مبهم",
+            "3 - مذكورة في النص لكن يصعب التحقق منها",
+            "4 - يوجد قسم واضح للاعتمادات",
+            "5 - اعتمادات حقيقية وحديثة واضحة وسهلة التحقق"
+          ]
+        },
+        {
+          "id": "eng_message_clarity",
+          "topicKey": "message-clarity",
+          "label": "Message clarity for decision-makers",
+          "labelAr": "وضوح الرسالة لمتخذ القرار",
+          "prompt": "Can a non-technical decision-maker understand your value and next step without wading through jargon?",
+          "promptAr": "هل يستطيع متخذ قرار غير تقني فهم قيمتك والخطوة التالية دون الغرق في المصطلحات؟",
+          "answerMode": "current-target",
+          "orderIndex": 12,
+          "weight": 3,
+          "tags": [
+            "cognitive-ease",
+            "clarity",
+            "cta-clarity",
+            "engineering"
+          ],
+          "levelAnchors": [
+            "1 - Jargon-heavy and unclear",
+            "2 - Understandable only to technical readers",
+            "3 - Mostly understandable but dense",
+            "4 - Clear for mixed decision teams",
+            "5 - Clear value, proof, and next step for technical and non-technical readers"
+          ],
+          "levelAnchorsAr": [
+            "1 - كثير المصطلحات وغير واضح",
+            "2 - مفهوم للقراء التقنيين فقط",
+            "3 - مفهوم غالبا لكنه كثيف",
+            "4 - واضح لفرق قرار مختلطة",
+            "5 - قيمة وإثبات وخطوة واضحة للتقني وغير التقني"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "D4",
+      "dimensionKey": "process-quote-flow",
+      "title": "Process & Quote Flow",
+      "titleAr": "العملية ومسار عرض السعر",
+      "description": "Clarity of delivery process, intake, and cost-factor communication.",
+      "descriptionAr": "وضوح عملية التنفيذ والاستقبال وعوامل التكلفة.",
+      "orderIndex": 4,
+      "weight": 5,
+      "topics": [
+        {
+          "id": "eng_process_explanation",
+          "topicKey": "process-explanation",
+          "label": "Process explanation",
+          "labelAr": "شرح العملية",
+          "prompt": "Does your site explain the steps from first contact to project delivery so clients know what to expect?",
+          "promptAr": "هل يشرح موقعك الخطوات من أول تواصل إلى تسليم المشروع كي يعرف العملاء ما يتوقعونه؟",
+          "answerMode": "current-target",
+          "orderIndex": 5,
+          "weight": 4,
+          "tags": [
+            "service-marketing",
+            "tangibility",
+            "engineering:process-explanation"
+          ],
+          "levelAnchors": [
+            "1 - No process shown",
+            "2 - A vague overview",
+            "3 - Steps are listed but not tied to client concerns",
+            "4 - Clear step-by-step process",
+            "5 - Process, responsibilities, and decision points are clear"
+          ],
+          "levelAnchorsAr": [
+            "1 - لا توجد عملية معروضة",
+            "2 - نظرة عامة مبهمة",
+            "3 - الخطوات مذكورة لكنها غير مربوطة بمخاوف العميل",
+            "4 - عملية واضحة خطوة بخطوة",
+            "5 - العملية والمسؤوليات ونقاط القرار واضحة"
+          ]
+        },
+        {
+          "id": "eng_quote_flow",
+          "topicKey": "quote-flow",
+          "label": "Request-quote flow",
+          "labelAr": "مسار طلب العرض",
+          "prompt": "Can a serious client request a quote or consultation through a structured path that captures the right project details?",
+          "promptAr": "هل يستطيع العميل الجاد طلب عرض أو استشارة عبر مسار منظم يلتقط تفاصيل المشروع المناسبة؟",
+          "answerMode": "current-target",
+          "orderIndex": 6,
+          "weight": 5,
+          "tags": [
+            "booking-friction",
+            "contact-flow",
+            "discovery",
+            "engineering:request-quote"
+          ],
+          "levelAnchors": [
+            "1 - Only phone, email, or open message",
+            "2 - A generic form with missing project details",
+            "3 - Quote requests are captured but require back-and-forth",
+            "4 - Structured intake captures key details",
+            "5 - Request-quote flow qualifies, routes, and tracks the opportunity"
+          ],
+          "levelAnchorsAr": [
+            "1 - هاتف أو بريد أو رسالة مفتوحة فقط",
+            "2 - نموذج عام ينقصه تفاصيل المشروع",
+            "3 - طلبات العروض تلتقط لكنها تحتاج مراسلات كثيرة",
+            "4 - استقبال منظم يلتقط التفاصيل الأساسية",
+            "5 - مسار طلب العرض يؤهل ويوجه ويتتبع الفرصة"
+          ]
+        },
+        {
+          "id": "eng_cost_factors",
+          "topicKey": "cost-factors",
+          "label": "Cost factor clarity",
+          "labelAr": "وضوح عوامل التكلفة",
+          "prompt": "Do you explain what drives project cost without making unrealistic promises or bait pricing?",
+          "promptAr": "هل تشرح ما الذي يحرك تكلفة المشروع دون وعود غير واقعية أو تسعير جاذب ومضلل؟",
+          "answerMode": "current-target",
+          "orderIndex": 7,
+          "weight": 3,
+          "tags": [
+            "pricing-transparency",
+            "pricing-content",
+            "trust-barrier",
+            "engineering"
+          ],
+          "levelAnchors": [
+            "1 - No cost guidance",
+            "2 - Only says request a quote",
+            "3 - Some vague cost factors",
+            "4 - Key cost factors explained realistically",
+            "5 - Cost guidance filters fit and builds trust without bait"
+          ],
+          "levelAnchorsAr": [
+            "1 - لا يوجد توجيه للتكلفة",
+            "2 - فقط اطلب عرض سعر",
+            "3 - بعض عوامل تكلفة مبهمة",
+            "4 - عوامل التكلفة المهمة مشروحة بواقعية",
+            "5 - توجيه التكلفة يؤهل الملاءمة ويبني الثقة دون تضليل"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "D5",
+      "dimensionKey": "lead-proposal-followup",
+      "title": "Lead & Proposal Follow-up",
+      "titleAr": "متابعة العملاء والعروض",
+      "description": "How consistently inquiries and proposals are tracked and followed up.",
+      "descriptionAr": "مدى انتظام تتبع الاستفسارات والعروض ومتابعتها.",
+      "orderIndex": 5,
+      "weight": 5,
+      "topics": [
+        {
+          "id": "eng_proposal_followup",
+          "topicKey": "proposal-followup",
+          "label": "Proposal follow-up",
+          "labelAr": "متابعة العروض",
+          "prompt": "After sending a proposal, is there a consistent follow-up rhythm until the client decides?",
+          "promptAr": "بعد إرسال العرض، هل يوجد إيقاع متابعة منتظم حتى يتخذ العميل قراره؟",
+          "answerMode": "current-target",
+          "orderIndex": 8,
+          "weight": 5,
+          "tags": [
+            "weak-follow-up",
+            "follow-up",
+            "cadence",
+            "engineering:lead-follow-up"
+          ],
+          "levelAnchors": [
+            "1 - No systematic follow-up",
+            "2 - Follow-up happens only when remembered",
+            "3 - Some manual reminders",
+            "4 - A consistent follow-up cadence exists",
+            "5 - Every proposal has owner, stage, next action, and respectful cadence"
+          ],
+          "levelAnchorsAr": [
+            "1 - لا توجد متابعة منتظمة",
+            "2 - المتابعة تحدث عند التذكر فقط",
+            "3 - بعض التذكيرات اليدوية",
+            "4 - يوجد إيقاع متابعة منتظم",
+            "5 - لكل عرض مسؤول ومرحلة وخطوة تالية وإيقاع محترم"
+          ]
+        },
+        {
+          "id": "eng_lead_tracking",
+          "topicKey": "lead-tracking",
+          "label": "Lead and proposal tracking",
+          "labelAr": "تتبع العملاء والعروض",
+          "prompt": "Are inquiries and proposals tracked by stage, source, owner, and next action?",
+          "promptAr": "هل يتم تتبع الاستفسارات والعروض حسب المرحلة والمصدر والمسؤول والخطوة التالية؟",
+          "answerMode": "current-target",
+          "orderIndex": 9,
+          "weight": 4,
+          "tags": [
+            "crm",
+            "pipeline",
+            "tracking",
+            "engineering"
+          ],
+          "levelAnchors": [
+            "1 - Status lives in inboxes or memory",
+            "2 - A spreadsheet exists but is incomplete",
+            "3 - Stages exist but ownership is loose",
+            "4 - Pipeline tracks most leads and proposals",
+            "5 - Pipeline shows source, owner, stage, next action, and open follow-ups"
+          ],
+          "levelAnchorsAr": [
+            "1 - الحالة في البريد أو الذاكرة",
+            "2 - يوجد جدول لكنه غير مكتمل",
+            "3 - توجد مراحل لكن المسؤولية رخوة",
+            "4 - خط متابعة يتتبع أغلب العملاء والعروض",
+            "5 - الخط يظهر المصدر والمسؤول والمرحلة والخطوة والمتابعات"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "D6",
+      "dimensionKey": "digital-readiness",
+      "title": "Digital Readiness",
+      "titleAr": "الجاهزية الرقمية",
+      "description": "Whether the sales workflow is connected from inquiry to proposal follow-up.",
+      "descriptionAr": "هل سير المبيعات مترابط من الاستفسار إلى متابعة العرض.",
+      "orderIndex": 6,
+      "weight": 3,
+      "topics": [
+        {
+          "id": "eng_digital_readiness",
+          "topicKey": "digital-readiness",
+          "label": "Connected digital system",
+          "labelAr": "النظام الرقمي المترابط",
+          "prompt": "Do website, quote intake, proposals, and follow-up work as one tracked system?",
+          "promptAr": "هل يعمل الموقع واستقبال طلبات العروض والعروض والمتابعة كنظام واحد قابل للتتبع؟",
+          "answerMode": "current-target",
+          "orderIndex": 13,
+          "weight": 3,
+          "tags": [
+            "digital-readiness",
+            "system",
+            "automation",
+            "engineering"
+          ],
+          "levelAnchors": [
+            "1 - Disconnected manual steps",
+            "2 - Some tracking after contact",
+            "3 - Partly connected intake and follow-up",
+            "4 - Most steps are connected",
+            "5 - One connected system from inquiry to proposal follow-up"
+          ],
+          "levelAnchorsAr": [
+            "1 - خطوات يدوية منفصلة",
+            "2 - بعض التتبع بعد التواصل",
+            "3 - استقبال ومتابعة مترابطان جزئيا",
+            "4 - معظم الخطوات مترابطة",
+            "5 - نظام واحد مترابط من الاستفسار إلى متابعة العرض"
+          ]
+        }
+      ]
+    }
+  ],
+  "scoring": {
+    "model": "current-target-gap",
+    "gapFormula": "gap = max(target - current, 0)",
+    "priorityDimensionIds": [
+      "D2",
+      "D3",
+      "D4",
+      "D5"
+    ],
+    "profiles": [
+      {
+        "id": "engineering-positive-maintenance",
+        "title": "Strong Foundation — Controlled Optimization",
+        "titleAr": "أساس قوي — تحسين منضبط",
+        "summary": "Core areas are working well. Protect what is proven and improve only where evidence shows leverage.",
+        "summaryAr": "تعمل المجالات الأساسية جيداً. حافظ على ما ثبت نجاحه وحسّن فقط حيث يظهر الدليل فرصة واضحة.",
+        "conditions": {
+          "dimensionMin": {
+            "D1": 4.5,
+            "D2": 4.5,
+            "D3": 4.5,
+            "D4": 4.5,
+            "D5": 4.5,
+            "D6": 4.5
+          }
+        },
+        "relatedDimensions": [
+          "D1",
+          "D2",
+          "D3",
+          "D4",
+          "D5",
+          "D6"
+        ],
+        "riskNote": "Avoid unnecessary rebuilds or automation.",
+        "riskNoteAr": "تجنب إعادة البناء أو الأتمتة غير الضرورية.",
+        "profilePriority": 50
+      },
+      {
+        "id": "engineering-profile-01",
+        "title": "Technical Delivery And Digital Proof",
+        "titleAr": "نمط الشركة الهندسية: أولوية 1",
+        "summary": "The closest pattern combines technical delivery and digital proof; sequence the governing constraint before expanding the system.",
+        "summaryAr": "يشير هذا النمط إلى عائق واضح في الشركة الهندسية؛ ابدأ به قبل توسيع الأدوات أو النظام.",
+        "conditions": [
+          {
+            "dimensionId": "D1",
+            "gapMin": 1
+          },
+          {
+            "dimensionId": "D3",
+            "currentMin": 3
+          }
+        ],
+        "relatedDimensions": [
+          "D1",
+          "D3"
+        ],
+        "riskNote": "Keep the engineering firm response proportional to observed evidence and operating capacity.",
+        "riskNoteAr": "اجعل استجابة الشركة الهندسية متناسبة مع الأدلة والقدرة التشغيلية.",
+        "profilePriority": 20
+      },
+      {
+        "id": "engineering-profile-02",
+        "title": "Sector And Ideal-Client Focus",
+        "titleAr": "نمط الشركة الهندسية: أولوية 2",
+        "summary": "The closest pattern combines sector and ideal-client focus; sequence the governing constraint before expanding the system.",
+        "summaryAr": "يشير هذا النمط إلى عائق واضح في الشركة الهندسية؛ ابدأ به قبل توسيع الأدوات أو النظام.",
+        "conditions": [
+          {
+            "dimensionId": "D2",
+            "gapMin": 1
+          },
+          {
+            "dimensionId": "D4",
+            "currentMin": 3
+          }
+        ],
+        "relatedDimensions": [
+          "D2",
+          "D4"
+        ],
+        "riskNote": "Keep the engineering firm response proportional to observed evidence and operating capacity.",
+        "riskNoteAr": "اجعل استجابة الشركة الهندسية متناسبة مع الأدلة والقدرة التشغيلية.",
+        "profilePriority": 19
+      },
+      {
+        "id": "engineering-profile-03",
+        "title": "Case-Study Evidence",
+        "titleAr": "نمط الشركة الهندسية: أولوية 3",
+        "summary": "The closest pattern combines case-study evidence; sequence the governing constraint before expanding the system.",
+        "summaryAr": "يشير هذا النمط إلى عائق واضح في الشركة الهندسية؛ ابدأ به قبل توسيع الأدوات أو النظام.",
+        "conditions": [
+          {
+            "dimensionId": "D3",
+            "gapMin": 1
+          },
+          {
+            "dimensionId": "D5",
+            "currentMin": 3
+          }
+        ],
+        "relatedDimensions": [
+          "D3",
+          "D5"
+        ],
+        "riskNote": "Keep the engineering firm response proportional to observed evidence and operating capacity.",
+        "riskNoteAr": "اجعل استجابة الشركة الهندسية متناسبة مع الأدلة والقدرة التشغيلية.",
+        "profilePriority": 18
+      },
+      {
+        "id": "engineering-profile-04",
+        "title": "Inquiry And Quotation Speed",
+        "titleAr": "نمط الشركة الهندسية: أولوية 4",
+        "summary": "The closest pattern combines inquiry and quotation speed; sequence the governing constraint before expanding the system.",
+        "summaryAr": "يشير هذا النمط إلى عائق واضح في الشركة الهندسية؛ ابدأ به قبل توسيع الأدوات أو النظام.",
+        "conditions": [
+          {
+            "dimensionId": "D4",
+            "gapMin": 1
+          },
+          {
+            "dimensionId": "D6",
+            "currentMin": 3
+          }
+        ],
+        "relatedDimensions": [
+          "D4",
+          "D6"
+        ],
+        "riskNote": "Keep the engineering firm response proportional to observed evidence and operating capacity.",
+        "riskNoteAr": "اجعل استجابة الشركة الهندسية متناسبة مع الأدلة والقدرة التشغيلية.",
+        "profilePriority": 17
+      },
+      {
+        "id": "engineering-profile-05",
+        "title": "Project Qualification",
+        "titleAr": "نمط الشركة الهندسية: أولوية 5",
+        "summary": "The closest pattern combines project qualification; sequence the governing constraint before expanding the system.",
+        "summaryAr": "يشير هذا النمط إلى عائق واضح في الشركة الهندسية؛ ابدأ به قبل توسيع الأدوات أو النظام.",
+        "conditions": [
+          {
+            "dimensionId": "D5",
+            "gapMin": 1
+          },
+          {
+            "dimensionId": "D1",
+            "currentMin": 3
+          }
+        ],
+        "relatedDimensions": [
+          "D5",
+          "D1"
+        ],
+        "riskNote": "Keep the engineering firm response proportional to observed evidence and operating capacity.",
+        "riskNoteAr": "اجعل استجابة الشركة الهندسية متناسبة مع الأدلة والقدرة التشغيلية.",
+        "profilePriority": 16
+      },
+      {
+        "id": "engineering-profile-06",
+        "title": "Commercial Follow-Up Ownership",
+        "titleAr": "نمط الشركة الهندسية: أولوية 6",
+        "summary": "The closest pattern combines commercial follow-up ownership; sequence the governing constraint before expanding the system.",
+        "summaryAr": "يشير هذا النمط إلى عائق واضح في الشركة الهندسية؛ ابدأ به قبل توسيع الأدوات أو النظام.",
+        "conditions": [
+          {
+            "dimensionId": "D6",
+            "gapMin": 1
+          },
+          {
+            "dimensionId": "D2",
+            "currentMin": 3
+          }
+        ],
+        "relatedDimensions": [
+          "D6",
+          "D2"
+        ],
+        "riskNote": "Keep the engineering firm response proportional to observed evidence and operating capacity.",
+        "riskNoteAr": "اجعل استجابة الشركة الهندسية متناسبة مع الأدلة والقدرة التشغيلية.",
+        "profilePriority": 15
+      },
+      {
+        "id": "engineering-profile-07",
+        "title": "Credentials And Website Hierarchy",
+        "titleAr": "نمط الشركة الهندسية: أولوية 7",
+        "summary": "The closest pattern combines credentials and website hierarchy; sequence the governing constraint before expanding the system.",
+        "summaryAr": "يشير هذا النمط إلى عائق واضح في الشركة الهندسية؛ ابدأ به قبل توسيع الأدوات أو النظام.",
+        "conditions": [
+          {
+            "dimensionId": "D1",
+            "gapMin": 1
+          },
+          {
+            "dimensionId": "D3",
+            "currentMin": 3
+          }
+        ],
+        "relatedDimensions": [
+          "D1",
+          "D3"
+        ],
+        "riskNote": "Keep the engineering firm response proportional to observed evidence and operating capacity.",
+        "riskNoteAr": "اجعل استجابة الشركة الهندسية متناسبة مع الأدلة والقدرة التشغيلية.",
+        "profilePriority": 14
+      },
+      {
+        "id": "engineering-profile-08",
+        "title": "Proposal Workflow Connection",
+        "titleAr": "نمط الشركة الهندسية: أولوية 8",
+        "summary": "The closest pattern combines proposal workflow connection; sequence the governing constraint before expanding the system.",
+        "summaryAr": "يشير هذا النمط إلى عائق واضح في الشركة الهندسية؛ ابدأ به قبل توسيع الأدوات أو النظام.",
+        "conditions": [
+          {
+            "dimensionId": "D2",
+            "gapMin": 1
+          },
+          {
+            "dimensionId": "D4",
+            "currentMin": 3
+          }
+        ],
+        "relatedDimensions": [
+          "D2",
+          "D4"
+        ],
+        "riskNote": "Keep the engineering firm response proportional to observed evidence and operating capacity.",
+        "riskNoteAr": "اجعل استجابة الشركة الهندسية متناسبة مع الأدلة والقدرة التشغيلية.",
+        "profilePriority": 13
+      },
+      {
+        "id": "engineering-profile-09",
+        "title": "Service Specialization",
+        "titleAr": "نمط الشركة الهندسية: أولوية 9",
+        "summary": "The closest pattern combines service specialization; sequence the governing constraint before expanding the system.",
+        "summaryAr": "يشير هذا النمط إلى عائق واضح في الشركة الهندسية؛ ابدأ به قبل توسيع الأدوات أو النظام.",
+        "conditions": [
+          {
+            "dimensionId": "D3",
+            "currentMax": 2,
+            "gapMax": 0.5
+          },
+          {
+            "dimensionId": "D5",
+            "currentMax": 2,
+            "gapMax": 0.5
+          }
+        ],
+        "relatedDimensions": [
+          "D3",
+          "D5"
+        ],
+        "riskNote": "Keep the engineering firm response proportional to observed evidence and operating capacity.",
+        "riskNoteAr": "اجعل استجابة الشركة الهندسية متناسبة مع الأدلة والقدرة التشغيلية.",
+        "profilePriority": 12
+      },
+      {
+        "id": "engineering-profile-10",
+        "title": "Tender Readiness",
+        "titleAr": "نمط الشركة الهندسية: أولوية 10",
+        "summary": "The closest pattern combines tender readiness; sequence the governing constraint before expanding the system.",
+        "summaryAr": "يشير هذا النمط إلى عائق واضح في الشركة الهندسية؛ ابدأ به قبل توسيع الأدوات أو النظام.",
+        "conditions": [
+          {
+            "dimensionId": "D4",
+            "gapMin": 1
+          },
+          {
+            "dimensionId": "D6",
+            "currentMin": 3
+          }
+        ],
+        "relatedDimensions": [
+          "D4",
+          "D6"
+        ],
+        "riskNote": "Keep the engineering firm response proportional to observed evidence and operating capacity.",
+        "riskNoteAr": "اجعل استجابة الشركة الهندسية متناسبة مع الأدلة والقدرة التشغيلية.",
+        "profilePriority": 11
+      },
+      {
+        "id": "engineering-profile-11",
+        "title": "Early-Stage Fundamentals",
+        "titleAr": "نمط الشركة الهندسية: أولوية 11",
+        "summary": "The closest pattern combines early-stage fundamentals; sequence the governing constraint before expanding the system.",
+        "summaryAr": "يشير هذا النمط إلى عائق واضح في الشركة الهندسية؛ ابدأ به قبل توسيع الأدوات أو النظام.",
+        "conditions": [
+          {
+            "dimensionId": "D5",
+            "currentMax": 2,
+            "gapMax": 0.5
+          },
+          {
+            "dimensionId": "D1",
+            "currentMax": 2,
+            "gapMax": 0.5
+          }
+        ],
+        "relatedDimensions": [
+          "D5",
+          "D1"
+        ],
+        "riskNote": "Keep the engineering firm response proportional to observed evidence and operating capacity.",
+        "riskNoteAr": "اجعل استجابة الشركة الهندسية متناسبة مع الأدلة والقدرة التشغيلية.",
+        "profilePriority": 10
+      },
+      {
+        "id": "engineering-profile-12",
+        "title": "Measurement And Optimization",
+        "titleAr": "نمط الشركة الهندسية: أولوية 12",
+        "summary": "The closest pattern combines measurement and optimization; sequence the governing constraint before expanding the system.",
+        "summaryAr": "يشير هذا النمط إلى عائق واضح في الشركة الهندسية؛ ابدأ به قبل توسيع الأدوات أو النظام.",
+        "conditions": [
+          {
+            "dimensionId": "D6",
+            "currentMin": 4,
+            "gapMax": 1
+          },
+          {
+            "dimensionId": "D2",
+            "currentMin": 4,
+            "gapMax": 1
+          }
+        ],
+        "relatedDimensions": [
+          "D6",
+          "D2"
+        ],
+        "riskNote": "Keep the engineering firm response proportional to observed evidence and operating capacity.",
+        "riskNoteAr": "اجعل استجابة الشركة الهندسية متناسبة مع الأدلة والقدرة التشغيلية.",
+        "profilePriority": 9
+      },
+      {
+        "id": "engineering-profile-13",
+        "title": "Post-Inquiry Ownership",
+        "titleAr": "نمط الشركة الهندسية: أولوية 13",
+        "summary": "The closest pattern combines post-inquiry ownership; sequence the governing constraint before expanding the system.",
+        "summaryAr": "يشير هذا النمط إلى عائق واضح في الشركة الهندسية؛ ابدأ به قبل توسيع الأدوات أو النظام.",
+        "conditions": [
+          {
+            "dimensionId": "D1",
+            "gapMin": 1
+          },
+          {
+            "dimensionId": "D3",
+            "currentMin": 3
+          }
+        ],
+        "relatedDimensions": [
+          "D1",
+          "D3"
+        ],
+        "riskNote": "Keep the engineering firm response proportional to observed evidence and operating capacity.",
+        "riskNoteAr": "اجعل استجابة الشركة الهندسية متناسبة مع الأدلة والقدرة التشغيلية.",
+        "profilePriority": 8
+      },
+      {
+        "id": "engineering-balanced-evidence-map",
+        "title": "Balanced Evidence Map",
+        "titleAr": "خريطة أدلة متوازنة",
+        "summary": "No single constraint dominates; use the ranked evidence to choose one proportionate next move.",
+        "summaryAr": "لا يهيمن عائق واحد؛ استخدم الأدلة المرتبة لاختيار خطوة تالية متناسبة.",
+        "conditions": {
+          "dimensionId": "D1",
+          "currentMin": 1
+        },
+        "relatedDimensions": [
+          "D1",
+          "D2",
+          "D3",
+          "D4",
+          "D5",
+          "D6"
+        ],
+        "riskNote": "Do not turn a mixed result into a full-system prescription.",
+        "riskNoteAr": "لا تحوّل النتيجة المختلطة إلى وصفة لنظام كامل.",
+        "profilePriority": -10
+      }
+    ]
+  },
+  "recommendations": [
+    {
+      "id": "engineering-repair-eng_project_focus",
+      "category": "strategicDiagnosis",
+      "conditions": {
+        "topicId": "eng_project_focus",
+        "currentMax": 2.5,
+        "targetMin": 3,
+        "gapMin": 1
+      },
+      "mode": "repair",
+      "priority": 5,
+      "dedupeGroup": "engineering-eng_project_focus",
+      "impact": 5,
+      "effort": 3,
+      "urgency": 5,
+      "evidenceTags": [
+        "positioning",
+        "niche",
+        "targeting",
+        "engineering:project-focus"
+      ],
+      "title": "Repair project-type focus at the source",
+      "titleAr": "عالج أساس تركيز نوع المشروع",
+      "why": "Project-type focus directly shapes whether the right prospect understands, trusts, and advances with the engineering firm.",
+      "whyAr": "يؤثر تركيز نوع المشروع مباشرة في فهم العميل المناسب وثقته وانتقاله إلى الخطوة التالية مع الشركة الهندسية.",
+      "how": [
+        "Fix the missing foundation for the engineering firm before adding more tools or channels.",
+        "Assign one engineering firm owner and a review date.",
+        "Validate the change with real engineering firm inquiries and record what happened."
+      ],
+      "howAr": [
+        "عالج الأساس الناقص في الشركة الهندسية قبل إضافة أدوات أو قنوات جديدة.",
+        "عيّن مسؤولاً واحداً في الشركة الهندسية وموعداً للمراجعة.",
+        "اختبر التغيير مع استفسارات حقيقية تخص الشركة الهندسية وسجّل النتيجة."
+      ],
+      "websiteImplication": "Make project-type focus explicit at the page and decision point where it matters.",
+      "websiteImplicationAr": "أظهر تركيز نوع المشروع بوضوح في الصفحة ونقطة القرار المناسبة.",
+      "systemImplication": "Use the smallest engineering firm tracking method that proves ownership before considering automation.",
+      "systemImplicationAr": "استخدم أبسط وسيلة متابعة في الشركة الهندسية تثبت المسؤولية قبل التفكير في الأتمتة.",
+      "dominaseFit": "DOMINASE can run a focused clarity and flow correction before any larger build.",
+      "dominaseFitAr": "يمكن لـ DOMINASE تنفيذ تصحيح مركز للوضوح والمسار قبل أي بناء أكبر.",
+      "riskNotes": "Do not publish engineering firm evidence, capacity, availability, prices, or outcomes that cannot be verified.",
+      "riskNotesAr": "لا تنشر أدلة أو طاقة استيعابية أو توفراً أو أسعاراً أو نتائج تخص الشركة الهندسية ما لم يمكن إثباتها."
+    },
+    {
+      "id": "engineering-improve-eng_project_focus",
+      "category": "strategicDiagnosis",
+      "conditions": {
+        "topicId": "eng_project_focus",
+        "currentMin": 2.5,
+        "currentMax": 4.5,
+        "targetMin": 3.5,
+        "gapMin": 1
+      },
+      "mode": "improve",
+      "priority": 3,
+      "dedupeGroup": "engineering-eng_project_focus",
+      "impact": 3,
+      "effort": 2,
+      "urgency": 3,
+      "evidenceTags": [
+        "positioning",
+        "niche",
+        "targeting",
+        "engineering:project-focus"
+      ],
+      "title": "Strengthen project-type focus with one controlled change",
+      "titleAr": "طوّر تركيز نوع المشروع بخطوة منضبطة",
+      "why": "Project-type focus directly shapes whether the right prospect understands, trusts, and advances with the engineering firm.",
+      "whyAr": "يؤثر تركيز نوع المشروع مباشرة في فهم العميل المناسب وثقته وانتقاله إلى الخطوة التالية مع الشركة الهندسية.",
+      "how": [
+        "Test one focused improvement for the engineering firm before adding more tools or channels.",
+        "Assign one engineering firm owner and a review date.",
+        "Validate the change with real engineering firm inquiries and record what happened."
+      ],
+      "howAr": [
+        "اختبر تحسيناً واحداً ومحدداً في الشركة الهندسية قبل إضافة أدوات أو قنوات جديدة.",
+        "عيّن مسؤولاً واحداً في الشركة الهندسية وموعداً للمراجعة.",
+        "اختبر التغيير مع استفسارات حقيقية تخص الشركة الهندسية وسجّل النتيجة."
+      ],
+      "websiteImplication": "Make project-type focus explicit at the page and decision point where it matters.",
+      "websiteImplicationAr": "أظهر تركيز نوع المشروع بوضوح في الصفحة ونقطة القرار المناسبة.",
+      "systemImplication": "Use the smallest engineering firm tracking method that proves ownership before considering automation.",
+      "systemImplicationAr": "استخدم أبسط وسيلة متابعة في الشركة الهندسية تثبت المسؤولية قبل التفكير في الأتمتة.",
+      "dominaseFit": "DOMINASE can prototype and measure this improvement without forcing a rebuild.",
+      "dominaseFitAr": "يمكن لـ DOMINASE اختبار هذا التحسين وقياسه دون فرض إعادة بناء.",
+      "riskNotes": "Do not publish engineering firm evidence, capacity, availability, prices, or outcomes that cannot be verified.",
+      "riskNotesAr": "لا تنشر أدلة أو طاقة استيعابية أو توفراً أو أسعاراً أو نتائج تخص الشركة الهندسية ما لم يمكن إثباتها."
+    },
+    {
+      "id": "engineering-repair-eng_target_client",
+      "category": "customerProfile",
+      "conditions": {
+        "topicId": "eng_target_client",
+        "currentMax": 2.5,
+        "targetMin": 3,
+        "gapMin": 1
+      },
+      "mode": "repair",
+      "priority": 5,
+      "dedupeGroup": "engineering-eng_target_client",
+      "impact": 5,
+      "effort": 3,
+      "urgency": 5,
+      "evidenceTags": [
+        "segmentation",
+        "targeting",
+        "positioning",
+        "engineering"
+      ],
+      "title": "Repair target client clarity at the source",
+      "titleAr": "عالج أساس وضوح العميل المستهدف",
+      "why": "Target client clarity directly shapes whether the right prospect understands, trusts, and advances with the engineering firm.",
+      "whyAr": "يؤثر وضوح العميل المستهدف مباشرة في فهم العميل المناسب وثقته وانتقاله إلى الخطوة التالية مع الشركة الهندسية.",
+      "how": [
+        "Fix the missing foundation for the engineering firm before adding more tools or channels.",
+        "Assign one engineering firm owner and a review date.",
+        "Validate the change with real engineering firm inquiries and record what happened."
+      ],
+      "howAr": [
+        "عالج الأساس الناقص في الشركة الهندسية قبل إضافة أدوات أو قنوات جديدة.",
+        "عيّن مسؤولاً واحداً في الشركة الهندسية وموعداً للمراجعة.",
+        "اختبر التغيير مع استفسارات حقيقية تخص الشركة الهندسية وسجّل النتيجة."
+      ],
+      "websiteImplication": "Make target client clarity explicit at the page and decision point where it matters.",
+      "websiteImplicationAr": "أظهر وضوح العميل المستهدف بوضوح في الصفحة ونقطة القرار المناسبة.",
+      "systemImplication": "Use the smallest engineering firm tracking method that proves ownership before considering automation.",
+      "systemImplicationAr": "استخدم أبسط وسيلة متابعة في الشركة الهندسية تثبت المسؤولية قبل التفكير في الأتمتة.",
+      "dominaseFit": "DOMINASE can run a focused clarity and flow correction before any larger build.",
+      "dominaseFitAr": "يمكن لـ DOMINASE تنفيذ تصحيح مركز للوضوح والمسار قبل أي بناء أكبر.",
+      "riskNotes": "Do not publish engineering firm evidence, capacity, availability, prices, or outcomes that cannot be verified.",
+      "riskNotesAr": "لا تنشر أدلة أو طاقة استيعابية أو توفراً أو أسعاراً أو نتائج تخص الشركة الهندسية ما لم يمكن إثباتها."
+    },
+    {
+      "id": "engineering-improve-eng_target_client",
+      "category": "customerProfile",
+      "conditions": {
+        "topicId": "eng_target_client",
+        "currentMin": 2.5,
+        "currentMax": 4.5,
+        "targetMin": 3.5,
+        "gapMin": 1
+      },
+      "mode": "improve",
+      "priority": 3,
+      "dedupeGroup": "engineering-eng_target_client",
+      "impact": 3,
+      "effort": 2,
+      "urgency": 3,
+      "evidenceTags": [
+        "segmentation",
+        "targeting",
+        "positioning",
+        "engineering"
+      ],
+      "title": "Strengthen target client clarity with one controlled change",
+      "titleAr": "طوّر وضوح العميل المستهدف بخطوة منضبطة",
+      "why": "Target client clarity directly shapes whether the right prospect understands, trusts, and advances with the engineering firm.",
+      "whyAr": "يؤثر وضوح العميل المستهدف مباشرة في فهم العميل المناسب وثقته وانتقاله إلى الخطوة التالية مع الشركة الهندسية.",
+      "how": [
+        "Test one focused improvement for the engineering firm before adding more tools or channels.",
+        "Assign one engineering firm owner and a review date.",
+        "Validate the change with real engineering firm inquiries and record what happened."
+      ],
+      "howAr": [
+        "اختبر تحسيناً واحداً ومحدداً في الشركة الهندسية قبل إضافة أدوات أو قنوات جديدة.",
+        "عيّن مسؤولاً واحداً في الشركة الهندسية وموعداً للمراجعة.",
+        "اختبر التغيير مع استفسارات حقيقية تخص الشركة الهندسية وسجّل النتيجة."
+      ],
+      "websiteImplication": "Make target client clarity explicit at the page and decision point where it matters.",
+      "websiteImplicationAr": "أظهر وضوح العميل المستهدف بوضوح في الصفحة ونقطة القرار المناسبة.",
+      "systemImplication": "Use the smallest engineering firm tracking method that proves ownership before considering automation.",
+      "systemImplicationAr": "استخدم أبسط وسيلة متابعة في الشركة الهندسية تثبت المسؤولية قبل التفكير في الأتمتة.",
+      "dominaseFit": "DOMINASE can prototype and measure this improvement without forcing a rebuild.",
+      "dominaseFitAr": "يمكن لـ DOMINASE اختبار هذا التحسين وقياسه دون فرض إعادة بناء.",
+      "riskNotes": "Do not publish engineering firm evidence, capacity, availability, prices, or outcomes that cannot be verified.",
+      "riskNotesAr": "لا تنشر أدلة أو طاقة استيعابية أو توفراً أو أسعاراً أو نتائج تخص الشركة الهندسية ما لم يمكن إثباتها."
+    },
+    {
+      "id": "engineering-repair-eng_local_positioning",
+      "category": "contentAndTrust",
+      "conditions": {
+        "topicId": "eng_local_positioning",
+        "currentMax": 2.5,
+        "targetMin": 3,
+        "gapMin": 1
+      },
+      "mode": "repair",
+      "priority": 5,
+      "dedupeGroup": "engineering-eng_local_positioning",
+      "impact": 5,
+      "effort": 3,
+      "urgency": 5,
+      "evidenceTags": [
+        "local-positioning",
+        "unity",
+        "engineering"
+      ],
+      "title": "Repair local market positioning at the source",
+      "titleAr": "عالج أساس التموضع في السوق المحلي",
+      "why": "Local market positioning directly shapes whether the right prospect understands, trusts, and advances with the engineering firm.",
+      "whyAr": "يؤثر التموضع في السوق المحلي مباشرة في فهم العميل المناسب وثقته وانتقاله إلى الخطوة التالية مع الشركة الهندسية.",
+      "how": [
+        "Fix the missing foundation for the engineering firm before adding more tools or channels.",
+        "Assign one engineering firm owner and a review date.",
+        "Validate the change with real engineering firm inquiries and record what happened."
+      ],
+      "howAr": [
+        "عالج الأساس الناقص في الشركة الهندسية قبل إضافة أدوات أو قنوات جديدة.",
+        "عيّن مسؤولاً واحداً في الشركة الهندسية وموعداً للمراجعة.",
+        "اختبر التغيير مع استفسارات حقيقية تخص الشركة الهندسية وسجّل النتيجة."
+      ],
+      "websiteImplication": "Make local market positioning explicit at the page and decision point where it matters.",
+      "websiteImplicationAr": "أظهر التموضع في السوق المحلي بوضوح في الصفحة ونقطة القرار المناسبة.",
+      "systemImplication": "Use the smallest engineering firm tracking method that proves ownership before considering automation.",
+      "systemImplicationAr": "استخدم أبسط وسيلة متابعة في الشركة الهندسية تثبت المسؤولية قبل التفكير في الأتمتة.",
+      "dominaseFit": "DOMINASE can run a focused clarity and flow correction before any larger build.",
+      "dominaseFitAr": "يمكن لـ DOMINASE تنفيذ تصحيح مركز للوضوح والمسار قبل أي بناء أكبر.",
+      "riskNotes": "Do not publish engineering firm evidence, capacity, availability, prices, or outcomes that cannot be verified.",
+      "riskNotesAr": "لا تنشر أدلة أو طاقة استيعابية أو توفراً أو أسعاراً أو نتائج تخص الشركة الهندسية ما لم يمكن إثباتها."
+    },
+    {
+      "id": "engineering-improve-eng_local_positioning",
+      "category": "contentAndTrust",
+      "conditions": {
+        "topicId": "eng_local_positioning",
+        "currentMin": 2.5,
+        "currentMax": 4.5,
+        "targetMin": 3.5,
+        "gapMin": 1
+      },
+      "mode": "improve",
+      "priority": 3,
+      "dedupeGroup": "engineering-eng_local_positioning",
+      "impact": 3,
+      "effort": 2,
+      "urgency": 3,
+      "evidenceTags": [
+        "local-positioning",
+        "unity",
+        "engineering"
+      ],
+      "title": "Strengthen local market positioning with one controlled change",
+      "titleAr": "طوّر التموضع في السوق المحلي بخطوة منضبطة",
+      "why": "Local market positioning directly shapes whether the right prospect understands, trusts, and advances with the engineering firm.",
+      "whyAr": "يؤثر التموضع في السوق المحلي مباشرة في فهم العميل المناسب وثقته وانتقاله إلى الخطوة التالية مع الشركة الهندسية.",
+      "how": [
+        "Test one focused improvement for the engineering firm before adding more tools or channels.",
+        "Assign one engineering firm owner and a review date.",
+        "Validate the change with real engineering firm inquiries and record what happened."
+      ],
+      "howAr": [
+        "اختبر تحسيناً واحداً ومحدداً في الشركة الهندسية قبل إضافة أدوات أو قنوات جديدة.",
+        "عيّن مسؤولاً واحداً في الشركة الهندسية وموعداً للمراجعة.",
+        "اختبر التغيير مع استفسارات حقيقية تخص الشركة الهندسية وسجّل النتيجة."
+      ],
+      "websiteImplication": "Make local market positioning explicit at the page and decision point where it matters.",
+      "websiteImplicationAr": "أظهر التموضع في السوق المحلي بوضوح في الصفحة ونقطة القرار المناسبة.",
+      "systemImplication": "Use the smallest engineering firm tracking method that proves ownership before considering automation.",
+      "systemImplicationAr": "استخدم أبسط وسيلة متابعة في الشركة الهندسية تثبت المسؤولية قبل التفكير في الأتمتة.",
+      "dominaseFit": "DOMINASE can prototype and measure this improvement without forcing a rebuild.",
+      "dominaseFitAr": "يمكن لـ DOMINASE اختبار هذا التحسين وقياسه دون فرض إعادة بناء.",
+      "riskNotes": "Do not publish engineering firm evidence, capacity, availability, prices, or outcomes that cannot be verified.",
+      "riskNotesAr": "لا تنشر أدلة أو طاقة استيعابية أو توفراً أو أسعاراً أو نتائج تخص الشركة الهندسية ما لم يمكن إثباتها."
+    },
+    {
+      "id": "engineering-repair-eng_portfolio_proof",
+      "category": "contentAndTrust",
+      "conditions": {
+        "topicId": "eng_portfolio_proof",
+        "currentMax": 2.5,
+        "targetMin": 3,
+        "gapMin": 1
+      },
+      "mode": "repair",
+      "priority": 5,
+      "dedupeGroup": "engineering-eng_portfolio_proof",
+      "impact": 5,
+      "effort": 3,
+      "urgency": 5,
+      "evidenceTags": [
+        "portfolio",
+        "case-studies",
+        "visual-trust",
+        "engineering:portfolio-proof"
+      ],
+      "title": "Repair portfolio and before-after proof at the source",
+      "titleAr": "عالج أساس معرض الأعمال وإثبات قبل/بعد",
+      "why": "Portfolio and before-after proof directly shapes whether the right prospect understands, trusts, and advances with the engineering firm.",
+      "whyAr": "يؤثر معرض الأعمال وإثبات قبل/بعد مباشرة في فهم العميل المناسب وثقته وانتقاله إلى الخطوة التالية مع الشركة الهندسية.",
+      "how": [
+        "Fix the missing foundation for the engineering firm before adding more tools or channels.",
+        "Assign one engineering firm owner and a review date.",
+        "Validate the change with real engineering firm inquiries and record what happened."
+      ],
+      "howAr": [
+        "عالج الأساس الناقص في الشركة الهندسية قبل إضافة أدوات أو قنوات جديدة.",
+        "عيّن مسؤولاً واحداً في الشركة الهندسية وموعداً للمراجعة.",
+        "اختبر التغيير مع استفسارات حقيقية تخص الشركة الهندسية وسجّل النتيجة."
+      ],
+      "websiteImplication": "Make portfolio and before-after proof explicit at the page and decision point where it matters.",
+      "websiteImplicationAr": "أظهر معرض الأعمال وإثبات قبل/بعد بوضوح في الصفحة ونقطة القرار المناسبة.",
+      "systemImplication": "Use the smallest engineering firm tracking method that proves ownership before considering automation.",
+      "systemImplicationAr": "استخدم أبسط وسيلة متابعة في الشركة الهندسية تثبت المسؤولية قبل التفكير في الأتمتة.",
+      "dominaseFit": "DOMINASE can run a focused clarity and flow correction before any larger build.",
+      "dominaseFitAr": "يمكن لـ DOMINASE تنفيذ تصحيح مركز للوضوح والمسار قبل أي بناء أكبر.",
+      "riskNotes": "Do not publish engineering firm evidence, capacity, availability, prices, or outcomes that cannot be verified.",
+      "riskNotesAr": "لا تنشر أدلة أو طاقة استيعابية أو توفراً أو أسعاراً أو نتائج تخص الشركة الهندسية ما لم يمكن إثباتها."
+    },
+    {
+      "id": "engineering-improve-eng_portfolio_proof",
+      "category": "contentAndTrust",
+      "conditions": {
+        "topicId": "eng_portfolio_proof",
+        "currentMin": 2.5,
+        "currentMax": 4.5,
+        "targetMin": 3.5,
+        "gapMin": 1
+      },
+      "mode": "improve",
+      "priority": 3,
+      "dedupeGroup": "engineering-eng_portfolio_proof",
+      "impact": 3,
+      "effort": 2,
+      "urgency": 3,
+      "evidenceTags": [
+        "portfolio",
+        "case-studies",
+        "visual-trust",
+        "engineering:portfolio-proof"
+      ],
+      "title": "Strengthen portfolio and before-after proof with one controlled change",
+      "titleAr": "طوّر معرض الأعمال وإثبات قبل/بعد بخطوة منضبطة",
+      "why": "Portfolio and before-after proof directly shapes whether the right prospect understands, trusts, and advances with the engineering firm.",
+      "whyAr": "يؤثر معرض الأعمال وإثبات قبل/بعد مباشرة في فهم العميل المناسب وثقته وانتقاله إلى الخطوة التالية مع الشركة الهندسية.",
+      "how": [
+        "Test one focused improvement for the engineering firm before adding more tools or channels.",
+        "Assign one engineering firm owner and a review date.",
+        "Validate the change with real engineering firm inquiries and record what happened."
+      ],
+      "howAr": [
+        "اختبر تحسيناً واحداً ومحدداً في الشركة الهندسية قبل إضافة أدوات أو قنوات جديدة.",
+        "عيّن مسؤولاً واحداً في الشركة الهندسية وموعداً للمراجعة.",
+        "اختبر التغيير مع استفسارات حقيقية تخص الشركة الهندسية وسجّل النتيجة."
+      ],
+      "websiteImplication": "Make portfolio and before-after proof explicit at the page and decision point where it matters.",
+      "websiteImplicationAr": "أظهر معرض الأعمال وإثبات قبل/بعد بوضوح في الصفحة ونقطة القرار المناسبة.",
+      "systemImplication": "Use the smallest engineering firm tracking method that proves ownership before considering automation.",
+      "systemImplicationAr": "استخدم أبسط وسيلة متابعة في الشركة الهندسية تثبت المسؤولية قبل التفكير في الأتمتة.",
+      "dominaseFit": "DOMINASE can prototype and measure this improvement without forcing a rebuild.",
+      "dominaseFitAr": "يمكن لـ DOMINASE اختبار هذا التحسين وقياسه دون فرض إعادة بناء.",
+      "riskNotes": "Do not publish engineering firm evidence, capacity, availability, prices, or outcomes that cannot be verified.",
+      "riskNotesAr": "لا تنشر أدلة أو طاقة استيعابية أو توفراً أو أسعاراً أو نتائج تخص الشركة الهندسية ما لم يمكن إثباتها."
+    },
+    {
+      "id": "engineering-repair-eng_expertise_content",
+      "category": "contentAndTrust",
+      "conditions": {
+        "topicId": "eng_expertise_content",
+        "currentMax": 2.5,
+        "targetMin": 3,
+        "gapMin": 1
+      },
+      "mode": "repair",
+      "priority": 5,
+      "dedupeGroup": "engineering-eng_expertise_content",
+      "impact": 5,
+      "effort": 3,
+      "urgency": 5,
+      "evidenceTags": [
+        "authority",
+        "thought-leadership",
+        "credibility",
+        "engineering"
+      ],
+      "title": "Repair demonstrated expertise at the source",
+      "titleAr": "عالج أساس الخبرة المبرهنة",
+      "why": "Demonstrated expertise directly shapes whether the right prospect understands, trusts, and advances with the engineering firm.",
+      "whyAr": "يؤثر الخبرة المبرهنة مباشرة في فهم العميل المناسب وثقته وانتقاله إلى الخطوة التالية مع الشركة الهندسية.",
+      "how": [
+        "Fix the missing foundation for the engineering firm before adding more tools or channels.",
+        "Assign one engineering firm owner and a review date.",
+        "Validate the change with real engineering firm inquiries and record what happened."
+      ],
+      "howAr": [
+        "عالج الأساس الناقص في الشركة الهندسية قبل إضافة أدوات أو قنوات جديدة.",
+        "عيّن مسؤولاً واحداً في الشركة الهندسية وموعداً للمراجعة.",
+        "اختبر التغيير مع استفسارات حقيقية تخص الشركة الهندسية وسجّل النتيجة."
+      ],
+      "websiteImplication": "Make demonstrated expertise explicit at the page and decision point where it matters.",
+      "websiteImplicationAr": "أظهر الخبرة المبرهنة بوضوح في الصفحة ونقطة القرار المناسبة.",
+      "systemImplication": "Use the smallest engineering firm tracking method that proves ownership before considering automation.",
+      "systemImplicationAr": "استخدم أبسط وسيلة متابعة في الشركة الهندسية تثبت المسؤولية قبل التفكير في الأتمتة.",
+      "dominaseFit": "DOMINASE can run a focused clarity and flow correction before any larger build.",
+      "dominaseFitAr": "يمكن لـ DOMINASE تنفيذ تصحيح مركز للوضوح والمسار قبل أي بناء أكبر.",
+      "riskNotes": "Do not publish engineering firm evidence, capacity, availability, prices, or outcomes that cannot be verified.",
+      "riskNotesAr": "لا تنشر أدلة أو طاقة استيعابية أو توفراً أو أسعاراً أو نتائج تخص الشركة الهندسية ما لم يمكن إثباتها."
+    },
+    {
+      "id": "engineering-improve-eng_expertise_content",
+      "category": "contentAndTrust",
+      "conditions": {
+        "topicId": "eng_expertise_content",
+        "currentMin": 2.5,
+        "currentMax": 4.5,
+        "targetMin": 3.5,
+        "gapMin": 1
+      },
+      "mode": "improve",
+      "priority": 3,
+      "dedupeGroup": "engineering-eng_expertise_content",
+      "impact": 3,
+      "effort": 2,
+      "urgency": 3,
+      "evidenceTags": [
+        "authority",
+        "thought-leadership",
+        "credibility",
+        "engineering"
+      ],
+      "title": "Strengthen demonstrated expertise with one controlled change",
+      "titleAr": "طوّر الخبرة المبرهنة بخطوة منضبطة",
+      "why": "Demonstrated expertise directly shapes whether the right prospect understands, trusts, and advances with the engineering firm.",
+      "whyAr": "يؤثر الخبرة المبرهنة مباشرة في فهم العميل المناسب وثقته وانتقاله إلى الخطوة التالية مع الشركة الهندسية.",
+      "how": [
+        "Test one focused improvement for the engineering firm before adding more tools or channels.",
+        "Assign one engineering firm owner and a review date.",
+        "Validate the change with real engineering firm inquiries and record what happened."
+      ],
+      "howAr": [
+        "اختبر تحسيناً واحداً ومحدداً في الشركة الهندسية قبل إضافة أدوات أو قنوات جديدة.",
+        "عيّن مسؤولاً واحداً في الشركة الهندسية وموعداً للمراجعة.",
+        "اختبر التغيير مع استفسارات حقيقية تخص الشركة الهندسية وسجّل النتيجة."
+      ],
+      "websiteImplication": "Make demonstrated expertise explicit at the page and decision point where it matters.",
+      "websiteImplicationAr": "أظهر الخبرة المبرهنة بوضوح في الصفحة ونقطة القرار المناسبة.",
+      "systemImplication": "Use the smallest engineering firm tracking method that proves ownership before considering automation.",
+      "systemImplicationAr": "استخدم أبسط وسيلة متابعة في الشركة الهندسية تثبت المسؤولية قبل التفكير في الأتمتة.",
+      "dominaseFit": "DOMINASE can prototype and measure this improvement without forcing a rebuild.",
+      "dominaseFitAr": "يمكن لـ DOMINASE اختبار هذا التحسين وقياسه دون فرض إعادة بناء.",
+      "riskNotes": "Do not publish engineering firm evidence, capacity, availability, prices, or outcomes that cannot be verified.",
+      "riskNotesAr": "لا تنشر أدلة أو طاقة استيعابية أو توفراً أو أسعاراً أو نتائج تخص الشركة الهندسية ما لم يمكن إثباتها."
+    },
+    {
+      "id": "engineering-repair-eng_licensing_visibility",
+      "category": "websiteStructure",
+      "conditions": {
+        "topicId": "eng_licensing_visibility",
+        "currentMax": 2.5,
+        "targetMin": 3,
+        "gapMin": 1
+      },
+      "mode": "repair",
+      "priority": 5,
+      "dedupeGroup": "engineering-eng_licensing_visibility",
+      "impact": 5,
+      "effort": 3,
+      "urgency": 5,
+      "evidenceTags": [
+        "authority",
+        "trust-signal",
+        "credibility",
+        "engineering:licensing-trust"
+      ],
+      "title": "Repair licensing and credentials visibility at the source",
+      "titleAr": "عالج أساس ظهور التراخيص والاعتمادات",
+      "why": "Licensing and credentials visibility directly shapes whether the right prospect understands, trusts, and advances with the engineering firm.",
+      "whyAr": "يؤثر ظهور التراخيص والاعتمادات مباشرة في فهم العميل المناسب وثقته وانتقاله إلى الخطوة التالية مع الشركة الهندسية.",
+      "how": [
+        "Fix the missing foundation for the engineering firm before adding more tools or channels.",
+        "Assign one engineering firm owner and a review date.",
+        "Validate the change with real engineering firm inquiries and record what happened."
+      ],
+      "howAr": [
+        "عالج الأساس الناقص في الشركة الهندسية قبل إضافة أدوات أو قنوات جديدة.",
+        "عيّن مسؤولاً واحداً في الشركة الهندسية وموعداً للمراجعة.",
+        "اختبر التغيير مع استفسارات حقيقية تخص الشركة الهندسية وسجّل النتيجة."
+      ],
+      "websiteImplication": "Make licensing and credentials visibility explicit at the page and decision point where it matters.",
+      "websiteImplicationAr": "أظهر ظهور التراخيص والاعتمادات بوضوح في الصفحة ونقطة القرار المناسبة.",
+      "systemImplication": "Use the smallest engineering firm tracking method that proves ownership before considering automation.",
+      "systemImplicationAr": "استخدم أبسط وسيلة متابعة في الشركة الهندسية تثبت المسؤولية قبل التفكير في الأتمتة.",
+      "dominaseFit": "DOMINASE can run a focused clarity and flow correction before any larger build.",
+      "dominaseFitAr": "يمكن لـ DOMINASE تنفيذ تصحيح مركز للوضوح والمسار قبل أي بناء أكبر.",
+      "riskNotes": "Do not publish engineering firm evidence, capacity, availability, prices, or outcomes that cannot be verified.",
+      "riskNotesAr": "لا تنشر أدلة أو طاقة استيعابية أو توفراً أو أسعاراً أو نتائج تخص الشركة الهندسية ما لم يمكن إثباتها."
+    },
+    {
+      "id": "engineering-improve-eng_licensing_visibility",
+      "category": "websiteStructure",
+      "conditions": {
+        "topicId": "eng_licensing_visibility",
+        "currentMin": 2.5,
+        "currentMax": 4.5,
+        "targetMin": 3.5,
+        "gapMin": 1
+      },
+      "mode": "improve",
+      "priority": 3,
+      "dedupeGroup": "engineering-eng_licensing_visibility",
+      "impact": 3,
+      "effort": 2,
+      "urgency": 3,
+      "evidenceTags": [
+        "authority",
+        "trust-signal",
+        "credibility",
+        "engineering:licensing-trust"
+      ],
+      "title": "Strengthen licensing and credentials visibility with one controlled change",
+      "titleAr": "طوّر ظهور التراخيص والاعتمادات بخطوة منضبطة",
+      "why": "Licensing and credentials visibility directly shapes whether the right prospect understands, trusts, and advances with the engineering firm.",
+      "whyAr": "يؤثر ظهور التراخيص والاعتمادات مباشرة في فهم العميل المناسب وثقته وانتقاله إلى الخطوة التالية مع الشركة الهندسية.",
+      "how": [
+        "Test one focused improvement for the engineering firm before adding more tools or channels.",
+        "Assign one engineering firm owner and a review date.",
+        "Validate the change with real engineering firm inquiries and record what happened."
+      ],
+      "howAr": [
+        "اختبر تحسيناً واحداً ومحدداً في الشركة الهندسية قبل إضافة أدوات أو قنوات جديدة.",
+        "عيّن مسؤولاً واحداً في الشركة الهندسية وموعداً للمراجعة.",
+        "اختبر التغيير مع استفسارات حقيقية تخص الشركة الهندسية وسجّل النتيجة."
+      ],
+      "websiteImplication": "Make licensing and credentials visibility explicit at the page and decision point where it matters.",
+      "websiteImplicationAr": "أظهر ظهور التراخيص والاعتمادات بوضوح في الصفحة ونقطة القرار المناسبة.",
+      "systemImplication": "Use the smallest engineering firm tracking method that proves ownership before considering automation.",
+      "systemImplicationAr": "استخدم أبسط وسيلة متابعة في الشركة الهندسية تثبت المسؤولية قبل التفكير في الأتمتة.",
+      "dominaseFit": "DOMINASE can prototype and measure this improvement without forcing a rebuild.",
+      "dominaseFitAr": "يمكن لـ DOMINASE اختبار هذا التحسين وقياسه دون فرض إعادة بناء.",
+      "riskNotes": "Do not publish engineering firm evidence, capacity, availability, prices, or outcomes that cannot be verified.",
+      "riskNotesAr": "لا تنشر أدلة أو طاقة استيعابية أو توفراً أو أسعاراً أو نتائج تخص الشركة الهندسية ما لم يمكن إثباتها."
+    },
+    {
+      "id": "engineering-repair-eng_message_clarity",
+      "category": "websiteStructure",
+      "conditions": {
+        "topicId": "eng_message_clarity",
+        "currentMax": 2.5,
+        "targetMin": 3,
+        "gapMin": 1
+      },
+      "mode": "repair",
+      "priority": 5,
+      "dedupeGroup": "engineering-eng_message_clarity",
+      "impact": 5,
+      "effort": 3,
+      "urgency": 5,
+      "evidenceTags": [
+        "cognitive-ease",
+        "clarity",
+        "cta-clarity",
+        "engineering"
+      ],
+      "title": "Repair message clarity for decision-makers at the source",
+      "titleAr": "عالج أساس وضوح الرسالة لمتخذ القرار",
+      "why": "Message clarity for decision-makers directly shapes whether the right prospect understands, trusts, and advances with the engineering firm.",
+      "whyAr": "يؤثر وضوح الرسالة لمتخذ القرار مباشرة في فهم العميل المناسب وثقته وانتقاله إلى الخطوة التالية مع الشركة الهندسية.",
+      "how": [
+        "Fix the missing foundation for the engineering firm before adding more tools or channels.",
+        "Assign one engineering firm owner and a review date.",
+        "Validate the change with real engineering firm inquiries and record what happened."
+      ],
+      "howAr": [
+        "عالج الأساس الناقص في الشركة الهندسية قبل إضافة أدوات أو قنوات جديدة.",
+        "عيّن مسؤولاً واحداً في الشركة الهندسية وموعداً للمراجعة.",
+        "اختبر التغيير مع استفسارات حقيقية تخص الشركة الهندسية وسجّل النتيجة."
+      ],
+      "websiteImplication": "Make message clarity for decision-makers explicit at the page and decision point where it matters.",
+      "websiteImplicationAr": "أظهر وضوح الرسالة لمتخذ القرار بوضوح في الصفحة ونقطة القرار المناسبة.",
+      "systemImplication": "Use the smallest engineering firm tracking method that proves ownership before considering automation.",
+      "systemImplicationAr": "استخدم أبسط وسيلة متابعة في الشركة الهندسية تثبت المسؤولية قبل التفكير في الأتمتة.",
+      "dominaseFit": "DOMINASE can run a focused clarity and flow correction before any larger build.",
+      "dominaseFitAr": "يمكن لـ DOMINASE تنفيذ تصحيح مركز للوضوح والمسار قبل أي بناء أكبر.",
+      "riskNotes": "Do not publish engineering firm evidence, capacity, availability, prices, or outcomes that cannot be verified.",
+      "riskNotesAr": "لا تنشر أدلة أو طاقة استيعابية أو توفراً أو أسعاراً أو نتائج تخص الشركة الهندسية ما لم يمكن إثباتها."
+    },
+    {
+      "id": "engineering-improve-eng_message_clarity",
+      "category": "websiteStructure",
+      "conditions": {
+        "topicId": "eng_message_clarity",
+        "currentMin": 2.5,
+        "currentMax": 4.5,
+        "targetMin": 3.5,
+        "gapMin": 1
+      },
+      "mode": "improve",
+      "priority": 3,
+      "dedupeGroup": "engineering-eng_message_clarity",
+      "impact": 3,
+      "effort": 2,
+      "urgency": 3,
+      "evidenceTags": [
+        "cognitive-ease",
+        "clarity",
+        "cta-clarity",
+        "engineering"
+      ],
+      "title": "Strengthen message clarity for decision-makers with one controlled change",
+      "titleAr": "طوّر وضوح الرسالة لمتخذ القرار بخطوة منضبطة",
+      "why": "Message clarity for decision-makers directly shapes whether the right prospect understands, trusts, and advances with the engineering firm.",
+      "whyAr": "يؤثر وضوح الرسالة لمتخذ القرار مباشرة في فهم العميل المناسب وثقته وانتقاله إلى الخطوة التالية مع الشركة الهندسية.",
+      "how": [
+        "Test one focused improvement for the engineering firm before adding more tools or channels.",
+        "Assign one engineering firm owner and a review date.",
+        "Validate the change with real engineering firm inquiries and record what happened."
+      ],
+      "howAr": [
+        "اختبر تحسيناً واحداً ومحدداً في الشركة الهندسية قبل إضافة أدوات أو قنوات جديدة.",
+        "عيّن مسؤولاً واحداً في الشركة الهندسية وموعداً للمراجعة.",
+        "اختبر التغيير مع استفسارات حقيقية تخص الشركة الهندسية وسجّل النتيجة."
+      ],
+      "websiteImplication": "Make message clarity for decision-makers explicit at the page and decision point where it matters.",
+      "websiteImplicationAr": "أظهر وضوح الرسالة لمتخذ القرار بوضوح في الصفحة ونقطة القرار المناسبة.",
+      "systemImplication": "Use the smallest engineering firm tracking method that proves ownership before considering automation.",
+      "systemImplicationAr": "استخدم أبسط وسيلة متابعة في الشركة الهندسية تثبت المسؤولية قبل التفكير في الأتمتة.",
+      "dominaseFit": "DOMINASE can prototype and measure this improvement without forcing a rebuild.",
+      "dominaseFitAr": "يمكن لـ DOMINASE اختبار هذا التحسين وقياسه دون فرض إعادة بناء.",
+      "riskNotes": "Do not publish engineering firm evidence, capacity, availability, prices, or outcomes that cannot be verified.",
+      "riskNotesAr": "لا تنشر أدلة أو طاقة استيعابية أو توفراً أو أسعاراً أو نتائج تخص الشركة الهندسية ما لم يمكن إثباتها."
+    },
+    {
+      "id": "engineering-repair-eng_process_explanation",
+      "category": "conversionPath",
+      "conditions": {
+        "topicId": "eng_process_explanation",
+        "currentMax": 2.5,
+        "targetMin": 3,
+        "gapMin": 1
+      },
+      "mode": "repair",
+      "priority": 5,
+      "dedupeGroup": "engineering-eng_process_explanation",
+      "impact": 5,
+      "effort": 3,
+      "urgency": 5,
+      "evidenceTags": [
+        "service-marketing",
+        "tangibility",
+        "engineering:process-explanation"
+      ],
+      "title": "Repair process explanation at the source",
+      "titleAr": "عالج أساس شرح العملية",
+      "why": "Process explanation directly shapes whether the right prospect understands, trusts, and advances with the engineering firm.",
+      "whyAr": "يؤثر شرح العملية مباشرة في فهم العميل المناسب وثقته وانتقاله إلى الخطوة التالية مع الشركة الهندسية.",
+      "how": [
+        "Fix the missing foundation for the engineering firm before adding more tools or channels.",
+        "Assign one engineering firm owner and a review date.",
+        "Validate the change with real engineering firm inquiries and record what happened."
+      ],
+      "howAr": [
+        "عالج الأساس الناقص في الشركة الهندسية قبل إضافة أدوات أو قنوات جديدة.",
+        "عيّن مسؤولاً واحداً في الشركة الهندسية وموعداً للمراجعة.",
+        "اختبر التغيير مع استفسارات حقيقية تخص الشركة الهندسية وسجّل النتيجة."
+      ],
+      "websiteImplication": "Make process explanation explicit at the page and decision point where it matters.",
+      "websiteImplicationAr": "أظهر شرح العملية بوضوح في الصفحة ونقطة القرار المناسبة.",
+      "systemImplication": "Use the smallest engineering firm tracking method that proves ownership before considering automation.",
+      "systemImplicationAr": "استخدم أبسط وسيلة متابعة في الشركة الهندسية تثبت المسؤولية قبل التفكير في الأتمتة.",
+      "dominaseFit": "DOMINASE can run a focused clarity and flow correction before any larger build.",
+      "dominaseFitAr": "يمكن لـ DOMINASE تنفيذ تصحيح مركز للوضوح والمسار قبل أي بناء أكبر.",
+      "riskNotes": "Do not publish engineering firm evidence, capacity, availability, prices, or outcomes that cannot be verified.",
+      "riskNotesAr": "لا تنشر أدلة أو طاقة استيعابية أو توفراً أو أسعاراً أو نتائج تخص الشركة الهندسية ما لم يمكن إثباتها."
+    },
+    {
+      "id": "engineering-improve-eng_process_explanation",
+      "category": "conversionPath",
+      "conditions": {
+        "topicId": "eng_process_explanation",
+        "currentMin": 2.5,
+        "currentMax": 4.5,
+        "targetMin": 3.5,
+        "gapMin": 2
+      },
+      "mode": "improve",
+      "priority": 3,
+      "dedupeGroup": "engineering-eng_process_explanation",
+      "impact": 3,
+      "effort": 2,
+      "urgency": 3,
+      "evidenceTags": [
+        "service-marketing",
+        "tangibility",
+        "engineering:process-explanation"
+      ],
+      "title": "Strengthen process explanation with one controlled change",
+      "titleAr": "طوّر شرح العملية بخطوة منضبطة",
+      "why": "Process explanation directly shapes whether the right prospect understands, trusts, and advances with the engineering firm.",
+      "whyAr": "يؤثر شرح العملية مباشرة في فهم العميل المناسب وثقته وانتقاله إلى الخطوة التالية مع الشركة الهندسية.",
+      "how": [
+        "Test one focused improvement for the engineering firm before adding more tools or channels.",
+        "Assign one engineering firm owner and a review date.",
+        "Validate the change with real engineering firm inquiries and record what happened."
+      ],
+      "howAr": [
+        "اختبر تحسيناً واحداً ومحدداً في الشركة الهندسية قبل إضافة أدوات أو قنوات جديدة.",
+        "عيّن مسؤولاً واحداً في الشركة الهندسية وموعداً للمراجعة.",
+        "اختبر التغيير مع استفسارات حقيقية تخص الشركة الهندسية وسجّل النتيجة."
+      ],
+      "websiteImplication": "Make process explanation explicit at the page and decision point where it matters.",
+      "websiteImplicationAr": "أظهر شرح العملية بوضوح في الصفحة ونقطة القرار المناسبة.",
+      "systemImplication": "Use the smallest engineering firm tracking method that proves ownership before considering automation.",
+      "systemImplicationAr": "استخدم أبسط وسيلة متابعة في الشركة الهندسية تثبت المسؤولية قبل التفكير في الأتمتة.",
+      "dominaseFit": "DOMINASE can prototype and measure this improvement without forcing a rebuild.",
+      "dominaseFitAr": "يمكن لـ DOMINASE اختبار هذا التحسين وقياسه دون فرض إعادة بناء.",
+      "riskNotes": "Do not publish engineering firm evidence, capacity, availability, prices, or outcomes that cannot be verified.",
+      "riskNotesAr": "لا تنشر أدلة أو طاقة استيعابية أو توفراً أو أسعاراً أو نتائج تخص الشركة الهندسية ما لم يمكن إثباتها."
+    },
+    {
+      "id": "engineering-repair-eng_quote_flow",
+      "category": "conversionPath",
+      "conditions": {
+        "topicId": "eng_quote_flow",
+        "currentMax": 2.5,
+        "targetMin": 3,
+        "gapMin": 1
+      },
+      "mode": "repair",
+      "priority": 5,
+      "dedupeGroup": "engineering-eng_quote_flow",
+      "impact": 5,
+      "effort": 3,
+      "urgency": 5,
+      "evidenceTags": [
+        "booking-friction",
+        "contact-flow",
+        "discovery",
+        "engineering:request-quote"
+      ],
+      "title": "Repair request-quote flow at the source",
+      "titleAr": "عالج أساس مسار طلب العرض",
+      "why": "Request-quote flow directly shapes whether the right prospect understands, trusts, and advances with the engineering firm.",
+      "whyAr": "يؤثر مسار طلب العرض مباشرة في فهم العميل المناسب وثقته وانتقاله إلى الخطوة التالية مع الشركة الهندسية.",
+      "how": [
+        "Fix the missing foundation for the engineering firm before adding more tools or channels.",
+        "Assign one engineering firm owner and a review date.",
+        "Validate the change with real engineering firm inquiries and record what happened."
+      ],
+      "howAr": [
+        "عالج الأساس الناقص في الشركة الهندسية قبل إضافة أدوات أو قنوات جديدة.",
+        "عيّن مسؤولاً واحداً في الشركة الهندسية وموعداً للمراجعة.",
+        "اختبر التغيير مع استفسارات حقيقية تخص الشركة الهندسية وسجّل النتيجة."
+      ],
+      "websiteImplication": "Make request-quote flow explicit at the page and decision point where it matters.",
+      "websiteImplicationAr": "أظهر مسار طلب العرض بوضوح في الصفحة ونقطة القرار المناسبة.",
+      "systemImplication": "Use the smallest engineering firm tracking method that proves ownership before considering automation.",
+      "systemImplicationAr": "استخدم أبسط وسيلة متابعة في الشركة الهندسية تثبت المسؤولية قبل التفكير في الأتمتة.",
+      "dominaseFit": "DOMINASE can run a focused clarity and flow correction before any larger build.",
+      "dominaseFitAr": "يمكن لـ DOMINASE تنفيذ تصحيح مركز للوضوح والمسار قبل أي بناء أكبر.",
+      "riskNotes": "Do not publish engineering firm evidence, capacity, availability, prices, or outcomes that cannot be verified.",
+      "riskNotesAr": "لا تنشر أدلة أو طاقة استيعابية أو توفراً أو أسعاراً أو نتائج تخص الشركة الهندسية ما لم يمكن إثباتها."
+    },
+    {
+      "id": "engineering-improve-eng_quote_flow",
+      "category": "conversionPath",
+      "conditions": {
+        "topicId": "eng_quote_flow",
+        "currentMin": 2.5,
+        "currentMax": 4.5,
+        "targetMin": 3.5,
+        "gapMin": 2
+      },
+      "mode": "improve",
+      "priority": 3,
+      "dedupeGroup": "engineering-eng_quote_flow",
+      "impact": 3,
+      "effort": 2,
+      "urgency": 3,
+      "evidenceTags": [
+        "booking-friction",
+        "contact-flow",
+        "discovery",
+        "engineering:request-quote"
+      ],
+      "title": "Strengthen request-quote flow with one controlled change",
+      "titleAr": "طوّر مسار طلب العرض بخطوة منضبطة",
+      "why": "Request-quote flow directly shapes whether the right prospect understands, trusts, and advances with the engineering firm.",
+      "whyAr": "يؤثر مسار طلب العرض مباشرة في فهم العميل المناسب وثقته وانتقاله إلى الخطوة التالية مع الشركة الهندسية.",
+      "how": [
+        "Test one focused improvement for the engineering firm before adding more tools or channels.",
+        "Assign one engineering firm owner and a review date.",
+        "Validate the change with real engineering firm inquiries and record what happened."
+      ],
+      "howAr": [
+        "اختبر تحسيناً واحداً ومحدداً في الشركة الهندسية قبل إضافة أدوات أو قنوات جديدة.",
+        "عيّن مسؤولاً واحداً في الشركة الهندسية وموعداً للمراجعة.",
+        "اختبر التغيير مع استفسارات حقيقية تخص الشركة الهندسية وسجّل النتيجة."
+      ],
+      "websiteImplication": "Make request-quote flow explicit at the page and decision point where it matters.",
+      "websiteImplicationAr": "أظهر مسار طلب العرض بوضوح في الصفحة ونقطة القرار المناسبة.",
+      "systemImplication": "Use the smallest engineering firm tracking method that proves ownership before considering automation.",
+      "systemImplicationAr": "استخدم أبسط وسيلة متابعة في الشركة الهندسية تثبت المسؤولية قبل التفكير في الأتمتة.",
+      "dominaseFit": "DOMINASE can prototype and measure this improvement without forcing a rebuild.",
+      "dominaseFitAr": "يمكن لـ DOMINASE اختبار هذا التحسين وقياسه دون فرض إعادة بناء.",
+      "riskNotes": "Do not publish engineering firm evidence, capacity, availability, prices, or outcomes that cannot be verified.",
+      "riskNotesAr": "لا تنشر أدلة أو طاقة استيعابية أو توفراً أو أسعاراً أو نتائج تخص الشركة الهندسية ما لم يمكن إثباتها."
+    },
+    {
+      "id": "engineering-repair-eng_cost_factors",
+      "category": "customerProfile",
+      "conditions": {
+        "topicId": "eng_cost_factors",
+        "currentMax": 2.5,
+        "targetMin": 3,
+        "gapMin": 1
+      },
+      "mode": "repair",
+      "priority": 5,
+      "dedupeGroup": "engineering-eng_cost_factors",
+      "impact": 5,
+      "effort": 3,
+      "urgency": 5,
+      "evidenceTags": [
+        "pricing-transparency",
+        "pricing-content",
+        "trust-barrier",
+        "engineering"
+      ],
+      "title": "Repair cost factor clarity at the source",
+      "titleAr": "عالج أساس وضوح عوامل التكلفة",
+      "why": "Cost factor clarity directly shapes whether the right prospect understands, trusts, and advances with the engineering firm.",
+      "whyAr": "يؤثر وضوح عوامل التكلفة مباشرة في فهم العميل المناسب وثقته وانتقاله إلى الخطوة التالية مع الشركة الهندسية.",
+      "how": [
+        "Fix the missing foundation for the engineering firm before adding more tools or channels.",
+        "Assign one engineering firm owner and a review date.",
+        "Validate the change with real engineering firm inquiries and record what happened."
+      ],
+      "howAr": [
+        "عالج الأساس الناقص في الشركة الهندسية قبل إضافة أدوات أو قنوات جديدة.",
+        "عيّن مسؤولاً واحداً في الشركة الهندسية وموعداً للمراجعة.",
+        "اختبر التغيير مع استفسارات حقيقية تخص الشركة الهندسية وسجّل النتيجة."
+      ],
+      "websiteImplication": "Make cost factor clarity explicit at the page and decision point where it matters.",
+      "websiteImplicationAr": "أظهر وضوح عوامل التكلفة بوضوح في الصفحة ونقطة القرار المناسبة.",
+      "systemImplication": "Use the smallest engineering firm tracking method that proves ownership before considering automation.",
+      "systemImplicationAr": "استخدم أبسط وسيلة متابعة في الشركة الهندسية تثبت المسؤولية قبل التفكير في الأتمتة.",
+      "dominaseFit": "DOMINASE can run a focused clarity and flow correction before any larger build.",
+      "dominaseFitAr": "يمكن لـ DOMINASE تنفيذ تصحيح مركز للوضوح والمسار قبل أي بناء أكبر.",
+      "riskNotes": "Do not publish engineering firm evidence, capacity, availability, prices, or outcomes that cannot be verified.",
+      "riskNotesAr": "لا تنشر أدلة أو طاقة استيعابية أو توفراً أو أسعاراً أو نتائج تخص الشركة الهندسية ما لم يمكن إثباتها."
+    },
+    {
+      "id": "engineering-improve-eng_cost_factors",
+      "category": "customerProfile",
+      "conditions": {
+        "topicId": "eng_cost_factors",
+        "currentMin": 2.5,
+        "currentMax": 4.5,
+        "targetMin": 3.5,
+        "gapMin": 2
+      },
+      "mode": "improve",
+      "priority": 3,
+      "dedupeGroup": "engineering-eng_cost_factors",
+      "impact": 3,
+      "effort": 2,
+      "urgency": 3,
+      "evidenceTags": [
+        "pricing-transparency",
+        "pricing-content",
+        "trust-barrier",
+        "engineering"
+      ],
+      "title": "Strengthen cost factor clarity with one controlled change",
+      "titleAr": "طوّر وضوح عوامل التكلفة بخطوة منضبطة",
+      "why": "Cost factor clarity directly shapes whether the right prospect understands, trusts, and advances with the engineering firm.",
+      "whyAr": "يؤثر وضوح عوامل التكلفة مباشرة في فهم العميل المناسب وثقته وانتقاله إلى الخطوة التالية مع الشركة الهندسية.",
+      "how": [
+        "Test one focused improvement for the engineering firm before adding more tools or channels.",
+        "Assign one engineering firm owner and a review date.",
+        "Validate the change with real engineering firm inquiries and record what happened."
+      ],
+      "howAr": [
+        "اختبر تحسيناً واحداً ومحدداً في الشركة الهندسية قبل إضافة أدوات أو قنوات جديدة.",
+        "عيّن مسؤولاً واحداً في الشركة الهندسية وموعداً للمراجعة.",
+        "اختبر التغيير مع استفسارات حقيقية تخص الشركة الهندسية وسجّل النتيجة."
+      ],
+      "websiteImplication": "Make cost factor clarity explicit at the page and decision point where it matters.",
+      "websiteImplicationAr": "أظهر وضوح عوامل التكلفة بوضوح في الصفحة ونقطة القرار المناسبة.",
+      "systemImplication": "Use the smallest engineering firm tracking method that proves ownership before considering automation.",
+      "systemImplicationAr": "استخدم أبسط وسيلة متابعة في الشركة الهندسية تثبت المسؤولية قبل التفكير في الأتمتة.",
+      "dominaseFit": "DOMINASE can prototype and measure this improvement without forcing a rebuild.",
+      "dominaseFitAr": "يمكن لـ DOMINASE اختبار هذا التحسين وقياسه دون فرض إعادة بناء.",
+      "riskNotes": "Do not publish engineering firm evidence, capacity, availability, prices, or outcomes that cannot be verified.",
+      "riskNotesAr": "لا تنشر أدلة أو طاقة استيعابية أو توفراً أو أسعاراً أو نتائج تخص الشركة الهندسية ما لم يمكن إثباتها."
+    },
+    {
+      "id": "engineering-repair-eng_proposal_followup",
+      "category": "salesFollowUp",
+      "conditions": {
+        "topicId": "eng_proposal_followup",
+        "currentMax": 2.5,
+        "targetMin": 3,
+        "gapMin": 1
+      },
+      "mode": "repair",
+      "priority": 5,
+      "dedupeGroup": "engineering-eng_proposal_followup",
+      "impact": 5,
+      "effort": 3,
+      "urgency": 5,
+      "evidenceTags": [
+        "weak-follow-up",
+        "follow-up",
+        "cadence",
+        "engineering:lead-follow-up"
+      ],
+      "title": "Repair proposal follow-up at the source",
+      "titleAr": "عالج أساس متابعة العروض",
+      "why": "Proposal follow-up directly shapes whether the right prospect understands, trusts, and advances with the engineering firm.",
+      "whyAr": "يؤثر متابعة العروض مباشرة في فهم العميل المناسب وثقته وانتقاله إلى الخطوة التالية مع الشركة الهندسية.",
+      "how": [
+        "Fix the missing foundation for the engineering firm before adding more tools or channels.",
+        "Assign one engineering firm owner and a review date.",
+        "Validate the change with real engineering firm inquiries and record what happened."
+      ],
+      "howAr": [
+        "عالج الأساس الناقص في الشركة الهندسية قبل إضافة أدوات أو قنوات جديدة.",
+        "عيّن مسؤولاً واحداً في الشركة الهندسية وموعداً للمراجعة.",
+        "اختبر التغيير مع استفسارات حقيقية تخص الشركة الهندسية وسجّل النتيجة."
+      ],
+      "websiteImplication": "Make proposal follow-up explicit at the page and decision point where it matters.",
+      "websiteImplicationAr": "أظهر متابعة العروض بوضوح في الصفحة ونقطة القرار المناسبة.",
+      "systemImplication": "Use the smallest engineering firm tracking method that proves ownership before considering automation.",
+      "systemImplicationAr": "استخدم أبسط وسيلة متابعة في الشركة الهندسية تثبت المسؤولية قبل التفكير في الأتمتة.",
+      "dominaseFit": "DOMINASE can run a focused clarity and flow correction before any larger build.",
+      "dominaseFitAr": "يمكن لـ DOMINASE تنفيذ تصحيح مركز للوضوح والمسار قبل أي بناء أكبر.",
+      "riskNotes": "Do not publish engineering firm evidence, capacity, availability, prices, or outcomes that cannot be verified.",
+      "riskNotesAr": "لا تنشر أدلة أو طاقة استيعابية أو توفراً أو أسعاراً أو نتائج تخص الشركة الهندسية ما لم يمكن إثباتها."
+    },
+    {
+      "id": "engineering-improve-eng_proposal_followup",
+      "category": "salesFollowUp",
+      "conditions": {
+        "topicId": "eng_proposal_followup",
+        "currentMin": 2.5,
+        "currentMax": 4.5,
+        "targetMin": 3.5,
+        "gapMin": 2
+      },
+      "mode": "improve",
+      "priority": 3,
+      "dedupeGroup": "engineering-eng_proposal_followup",
+      "impact": 3,
+      "effort": 2,
+      "urgency": 3,
+      "evidenceTags": [
+        "weak-follow-up",
+        "follow-up",
+        "cadence",
+        "engineering:lead-follow-up"
+      ],
+      "title": "Strengthen proposal follow-up with one controlled change",
+      "titleAr": "طوّر متابعة العروض بخطوة منضبطة",
+      "why": "Proposal follow-up directly shapes whether the right prospect understands, trusts, and advances with the engineering firm.",
+      "whyAr": "يؤثر متابعة العروض مباشرة في فهم العميل المناسب وثقته وانتقاله إلى الخطوة التالية مع الشركة الهندسية.",
+      "how": [
+        "Test one focused improvement for the engineering firm before adding more tools or channels.",
+        "Assign one engineering firm owner and a review date.",
+        "Validate the change with real engineering firm inquiries and record what happened."
+      ],
+      "howAr": [
+        "اختبر تحسيناً واحداً ومحدداً في الشركة الهندسية قبل إضافة أدوات أو قنوات جديدة.",
+        "عيّن مسؤولاً واحداً في الشركة الهندسية وموعداً للمراجعة.",
+        "اختبر التغيير مع استفسارات حقيقية تخص الشركة الهندسية وسجّل النتيجة."
+      ],
+      "websiteImplication": "Make proposal follow-up explicit at the page and decision point where it matters.",
+      "websiteImplicationAr": "أظهر متابعة العروض بوضوح في الصفحة ونقطة القرار المناسبة.",
+      "systemImplication": "Use the smallest engineering firm tracking method that proves ownership before considering automation.",
+      "systemImplicationAr": "استخدم أبسط وسيلة متابعة في الشركة الهندسية تثبت المسؤولية قبل التفكير في الأتمتة.",
+      "dominaseFit": "DOMINASE can prototype and measure this improvement without forcing a rebuild.",
+      "dominaseFitAr": "يمكن لـ DOMINASE اختبار هذا التحسين وقياسه دون فرض إعادة بناء.",
+      "riskNotes": "Do not publish engineering firm evidence, capacity, availability, prices, or outcomes that cannot be verified.",
+      "riskNotesAr": "لا تنشر أدلة أو طاقة استيعابية أو توفراً أو أسعاراً أو نتائج تخص الشركة الهندسية ما لم يمكن إثباتها."
+    },
+    {
+      "id": "engineering-repair-eng_lead_tracking",
+      "category": "salesFollowUp",
+      "conditions": {
+        "topicId": "eng_lead_tracking",
+        "currentMax": 2.5,
+        "targetMin": 3,
+        "gapMin": 1
+      },
+      "mode": "repair",
+      "priority": 5,
+      "dedupeGroup": "engineering-eng_lead_tracking",
+      "impact": 5,
+      "effort": 3,
+      "urgency": 5,
+      "evidenceTags": [
+        "crm",
+        "pipeline",
+        "tracking",
+        "engineering"
+      ],
+      "title": "Repair lead and proposal tracking at the source",
+      "titleAr": "عالج أساس تتبع العملاء والعروض",
+      "why": "Lead and proposal tracking directly shapes whether the right prospect understands, trusts, and advances with the engineering firm.",
+      "whyAr": "يؤثر تتبع العملاء والعروض مباشرة في فهم العميل المناسب وثقته وانتقاله إلى الخطوة التالية مع الشركة الهندسية.",
+      "how": [
+        "Fix the missing foundation for the engineering firm before adding more tools or channels.",
+        "Assign one engineering firm owner and a review date.",
+        "Validate the change with real engineering firm inquiries and record what happened."
+      ],
+      "howAr": [
+        "عالج الأساس الناقص في الشركة الهندسية قبل إضافة أدوات أو قنوات جديدة.",
+        "عيّن مسؤولاً واحداً في الشركة الهندسية وموعداً للمراجعة.",
+        "اختبر التغيير مع استفسارات حقيقية تخص الشركة الهندسية وسجّل النتيجة."
+      ],
+      "websiteImplication": "Make lead and proposal tracking explicit at the page and decision point where it matters.",
+      "websiteImplicationAr": "أظهر تتبع العملاء والعروض بوضوح في الصفحة ونقطة القرار المناسبة.",
+      "systemImplication": "Use the smallest engineering firm tracking method that proves ownership before considering automation.",
+      "systemImplicationAr": "استخدم أبسط وسيلة متابعة في الشركة الهندسية تثبت المسؤولية قبل التفكير في الأتمتة.",
+      "dominaseFit": "DOMINASE can run a focused clarity and flow correction before any larger build.",
+      "dominaseFitAr": "يمكن لـ DOMINASE تنفيذ تصحيح مركز للوضوح والمسار قبل أي بناء أكبر.",
+      "riskNotes": "Do not publish engineering firm evidence, capacity, availability, prices, or outcomes that cannot be verified.",
+      "riskNotesAr": "لا تنشر أدلة أو طاقة استيعابية أو توفراً أو أسعاراً أو نتائج تخص الشركة الهندسية ما لم يمكن إثباتها."
+    },
+    {
+      "id": "engineering-improve-eng_lead_tracking",
+      "category": "salesFollowUp",
+      "conditions": {
+        "topicId": "eng_lead_tracking",
+        "currentMin": 2.5,
+        "currentMax": 4.5,
+        "targetMin": 3.5,
+        "gapMin": 2
+      },
+      "mode": "improve",
+      "priority": 3,
+      "dedupeGroup": "engineering-eng_lead_tracking",
+      "impact": 3,
+      "effort": 2,
+      "urgency": 3,
+      "evidenceTags": [
+        "crm",
+        "pipeline",
+        "tracking",
+        "engineering"
+      ],
+      "title": "Strengthen lead and proposal tracking with one controlled change",
+      "titleAr": "طوّر تتبع العملاء والعروض بخطوة منضبطة",
+      "why": "Lead and proposal tracking directly shapes whether the right prospect understands, trusts, and advances with the engineering firm.",
+      "whyAr": "يؤثر تتبع العملاء والعروض مباشرة في فهم العميل المناسب وثقته وانتقاله إلى الخطوة التالية مع الشركة الهندسية.",
+      "how": [
+        "Test one focused improvement for the engineering firm before adding more tools or channels.",
+        "Assign one engineering firm owner and a review date.",
+        "Validate the change with real engineering firm inquiries and record what happened."
+      ],
+      "howAr": [
+        "اختبر تحسيناً واحداً ومحدداً في الشركة الهندسية قبل إضافة أدوات أو قنوات جديدة.",
+        "عيّن مسؤولاً واحداً في الشركة الهندسية وموعداً للمراجعة.",
+        "اختبر التغيير مع استفسارات حقيقية تخص الشركة الهندسية وسجّل النتيجة."
+      ],
+      "websiteImplication": "Make lead and proposal tracking explicit at the page and decision point where it matters.",
+      "websiteImplicationAr": "أظهر تتبع العملاء والعروض بوضوح في الصفحة ونقطة القرار المناسبة.",
+      "systemImplication": "Use the smallest engineering firm tracking method that proves ownership before considering automation.",
+      "systemImplicationAr": "استخدم أبسط وسيلة متابعة في الشركة الهندسية تثبت المسؤولية قبل التفكير في الأتمتة.",
+      "dominaseFit": "DOMINASE can prototype and measure this improvement without forcing a rebuild.",
+      "dominaseFitAr": "يمكن لـ DOMINASE اختبار هذا التحسين وقياسه دون فرض إعادة بناء.",
+      "riskNotes": "Do not publish engineering firm evidence, capacity, availability, prices, or outcomes that cannot be verified.",
+      "riskNotesAr": "لا تنشر أدلة أو طاقة استيعابية أو توفراً أو أسعاراً أو نتائج تخص الشركة الهندسية ما لم يمكن إثباتها."
+    },
+    {
+      "id": "engineering-repair-eng_digital_readiness",
+      "category": "dominaseNextStep",
+      "conditions": {
+        "topicId": "eng_digital_readiness",
+        "currentMax": 2.5,
+        "targetMin": 3,
+        "gapMin": 1
+      },
+      "mode": "repair",
+      "priority": 5,
+      "dedupeGroup": "engineering-eng_digital_readiness",
+      "impact": 5,
+      "effort": 3,
+      "urgency": 5,
+      "evidenceTags": [
+        "digital-readiness",
+        "system",
+        "automation",
+        "engineering"
+      ],
+      "title": "Repair connected digital system at the source",
+      "titleAr": "عالج أساس النظام الرقمي المترابط",
+      "why": "Connected digital system directly shapes whether the right prospect understands, trusts, and advances with the engineering firm.",
+      "whyAr": "يؤثر النظام الرقمي المترابط مباشرة في فهم العميل المناسب وثقته وانتقاله إلى الخطوة التالية مع الشركة الهندسية.",
+      "how": [
+        "Fix the missing foundation for the engineering firm before adding more tools or channels.",
+        "Assign one engineering firm owner and a review date.",
+        "Validate the change with real engineering firm inquiries and record what happened."
+      ],
+      "howAr": [
+        "عالج الأساس الناقص في الشركة الهندسية قبل إضافة أدوات أو قنوات جديدة.",
+        "عيّن مسؤولاً واحداً في الشركة الهندسية وموعداً للمراجعة.",
+        "اختبر التغيير مع استفسارات حقيقية تخص الشركة الهندسية وسجّل النتيجة."
+      ],
+      "websiteImplication": "Make connected digital system explicit at the page and decision point where it matters.",
+      "websiteImplicationAr": "أظهر النظام الرقمي المترابط بوضوح في الصفحة ونقطة القرار المناسبة.",
+      "systemImplication": "Use the smallest engineering firm tracking method that proves ownership before considering automation.",
+      "systemImplicationAr": "استخدم أبسط وسيلة متابعة في الشركة الهندسية تثبت المسؤولية قبل التفكير في الأتمتة.",
+      "dominaseFit": "DOMINASE can run a focused clarity and flow correction before any larger build.",
+      "dominaseFitAr": "يمكن لـ DOMINASE تنفيذ تصحيح مركز للوضوح والمسار قبل أي بناء أكبر.",
+      "riskNotes": "Do not publish engineering firm evidence, capacity, availability, prices, or outcomes that cannot be verified.",
+      "riskNotesAr": "لا تنشر أدلة أو طاقة استيعابية أو توفراً أو أسعاراً أو نتائج تخص الشركة الهندسية ما لم يمكن إثباتها."
+    },
+    {
+      "id": "engineering-improve-eng_digital_readiness",
+      "category": "dominaseNextStep",
+      "conditions": {
+        "topicId": "eng_digital_readiness",
+        "currentMin": 2.5,
+        "currentMax": 4.5,
+        "targetMin": 3.5,
+        "gapMin": 2
+      },
+      "mode": "improve",
+      "priority": 3,
+      "dedupeGroup": "engineering-eng_digital_readiness",
+      "impact": 3,
+      "effort": 2,
+      "urgency": 3,
+      "evidenceTags": [
+        "digital-readiness",
+        "system",
+        "automation",
+        "engineering"
+      ],
+      "title": "Strengthen connected digital system with one controlled change",
+      "titleAr": "طوّر النظام الرقمي المترابط بخطوة منضبطة",
+      "why": "Connected digital system directly shapes whether the right prospect understands, trusts, and advances with the engineering firm.",
+      "whyAr": "يؤثر النظام الرقمي المترابط مباشرة في فهم العميل المناسب وثقته وانتقاله إلى الخطوة التالية مع الشركة الهندسية.",
+      "how": [
+        "Test one focused improvement for the engineering firm before adding more tools or channels.",
+        "Assign one engineering firm owner and a review date.",
+        "Validate the change with real engineering firm inquiries and record what happened."
+      ],
+      "howAr": [
+        "اختبر تحسيناً واحداً ومحدداً في الشركة الهندسية قبل إضافة أدوات أو قنوات جديدة.",
+        "عيّن مسؤولاً واحداً في الشركة الهندسية وموعداً للمراجعة.",
+        "اختبر التغيير مع استفسارات حقيقية تخص الشركة الهندسية وسجّل النتيجة."
+      ],
+      "websiteImplication": "Make connected digital system explicit at the page and decision point where it matters.",
+      "websiteImplicationAr": "أظهر النظام الرقمي المترابط بوضوح في الصفحة ونقطة القرار المناسبة.",
+      "systemImplication": "Use the smallest engineering firm tracking method that proves ownership before considering automation.",
+      "systemImplicationAr": "استخدم أبسط وسيلة متابعة في الشركة الهندسية تثبت المسؤولية قبل التفكير في الأتمتة.",
+      "dominaseFit": "DOMINASE can prototype and measure this improvement without forcing a rebuild.",
+      "dominaseFitAr": "يمكن لـ DOMINASE اختبار هذا التحسين وقياسه دون فرض إعادة بناء.",
+      "riskNotes": "Do not publish engineering firm evidence, capacity, availability, prices, or outcomes that cannot be verified.",
+      "riskNotesAr": "لا تنشر أدلة أو طاقة استيعابية أو توفراً أو أسعاراً أو نتائج تخص الشركة الهندسية ما لم يمكن إثباتها."
+    },
+    {
+      "id": "engineering-maintain-eng_project_focus",
+      "category": "strategicDiagnosis",
+      "conditions": {
+        "topicId": "eng_project_focus",
+        "currentMin": 4.5,
+        "gapMax": 0.5
+      },
+      "notConditions": [
+        {
+          "topicId": "eng_project_focus",
+          "gapMin": 2
+        },
+        {
+          "topicId": "eng_target_client",
+          "gapMin": 2
+        },
+        {
+          "topicId": "eng_local_positioning",
+          "gapMin": 2
+        },
+        {
+          "topicId": "eng_portfolio_proof",
+          "gapMin": 2
+        },
+        {
+          "topicId": "eng_expertise_content",
+          "gapMin": 2
+        },
+        {
+          "topicId": "eng_licensing_visibility",
+          "gapMin": 2
+        },
+        {
+          "topicId": "eng_message_clarity",
+          "gapMin": 2
+        },
+        {
+          "topicId": "eng_process_explanation",
+          "gapMin": 2
+        },
+        {
+          "topicId": "eng_quote_flow",
+          "gapMin": 2
+        },
+        {
+          "topicId": "eng_cost_factors",
+          "gapMin": 2
+        },
+        {
+          "topicId": "eng_proposal_followup",
+          "gapMin": 2
+        },
+        {
+          "topicId": "eng_lead_tracking",
+          "gapMin": 2
+        },
+        {
+          "topicId": "eng_digital_readiness",
+          "gapMin": 2
+        }
+      ],
+      "mode": "maintain",
+      "priority": 2,
+      "dedupeGroup": "engineering-eng_project_focus",
+      "impact": 3,
+      "effort": 1,
+      "urgency": 2,
+      "evidenceTags": [
+        "positioning",
+        "niche",
+        "targeting",
+        "engineering:project-focus"
+      ],
+      "title": "Protect the proven project-type focus standard",
+      "titleAr": "حافظ على مستوى تركيز نوع المشروع",
+      "why": "Project-type focus directly shapes whether the right prospect understands, trusts, and advances with the engineering firm.",
+      "whyAr": "يؤثر تركيز نوع المشروع مباشرة في فهم العميل المناسب وثقته وانتقاله إلى الخطوة التالية مع الشركة الهندسية.",
+      "how": [
+        "Document and monitor the working standard for the engineering firm before adding more tools or channels.",
+        "Assign one engineering firm owner and a review date.",
+        "Validate the change with real engineering firm inquiries and record what happened."
+      ],
+      "howAr": [
+        "وثّق المعيار الناجح وراقبه في الشركة الهندسية قبل إضافة أدوات أو قنوات جديدة.",
+        "عيّن مسؤولاً واحداً في الشركة الهندسية وموعداً للمراجعة.",
+        "اختبر التغيير مع استفسارات حقيقية تخص الشركة الهندسية وسجّل النتيجة."
+      ],
+      "websiteImplication": "Make project-type focus explicit at the page and decision point where it matters.",
+      "websiteImplicationAr": "أظهر تركيز نوع المشروع بوضوح في الصفحة ونقطة القرار المناسبة.",
+      "systemImplication": "Keep engineering firm measurement lightweight; no new system is justified without drift.",
+      "systemImplicationAr": "حافظ على قياس بسيط في الشركة الهندسية؛ لا حاجة لنظام جديد دون تراجع واضح.",
+      "dominaseFit": "DOMINASE can review the existing standard and identify the next evidence-based optimization.",
+      "dominaseFitAr": "يمكن لـ DOMINASE مراجعة المعيار الحالي وتحديد التحسين التالي المبني على الدليل.",
+      "riskNotes": "Do not publish engineering firm evidence, capacity, availability, prices, or outcomes that cannot be verified.",
+      "riskNotesAr": "لا تنشر أدلة أو طاقة استيعابية أو توفراً أو أسعاراً أو نتائج تخص الشركة الهندسية ما لم يمكن إثباتها."
+    },
+    {
+      "id": "engineering-maintain-eng_portfolio_proof",
+      "category": "contentAndTrust",
+      "conditions": {
+        "topicId": "eng_portfolio_proof",
+        "currentMin": 4.5,
+        "gapMax": 0.5
+      },
+      "notConditions": [
+        {
+          "topicId": "eng_project_focus",
+          "gapMin": 2
+        },
+        {
+          "topicId": "eng_target_client",
+          "gapMin": 2
+        },
+        {
+          "topicId": "eng_local_positioning",
+          "gapMin": 2
+        },
+        {
+          "topicId": "eng_portfolio_proof",
+          "gapMin": 2
+        },
+        {
+          "topicId": "eng_expertise_content",
+          "gapMin": 2
+        },
+        {
+          "topicId": "eng_licensing_visibility",
+          "gapMin": 2
+        },
+        {
+          "topicId": "eng_message_clarity",
+          "gapMin": 2
+        },
+        {
+          "topicId": "eng_process_explanation",
+          "gapMin": 2
+        },
+        {
+          "topicId": "eng_quote_flow",
+          "gapMin": 2
+        },
+        {
+          "topicId": "eng_cost_factors",
+          "gapMin": 2
+        },
+        {
+          "topicId": "eng_proposal_followup",
+          "gapMin": 2
+        },
+        {
+          "topicId": "eng_lead_tracking",
+          "gapMin": 2
+        },
+        {
+          "topicId": "eng_digital_readiness",
+          "gapMin": 2
+        }
+      ],
+      "mode": "maintain",
+      "priority": 2,
+      "dedupeGroup": "engineering-eng_portfolio_proof",
+      "impact": 3,
+      "effort": 1,
+      "urgency": 2,
+      "evidenceTags": [
+        "portfolio",
+        "case-studies",
+        "visual-trust",
+        "engineering:portfolio-proof"
+      ],
+      "title": "Protect the proven portfolio and before-after proof standard",
+      "titleAr": "حافظ على مستوى معرض الأعمال وإثبات قبل/بعد",
+      "why": "Portfolio and before-after proof directly shapes whether the right prospect understands, trusts, and advances with the engineering firm.",
+      "whyAr": "يؤثر معرض الأعمال وإثبات قبل/بعد مباشرة في فهم العميل المناسب وثقته وانتقاله إلى الخطوة التالية مع الشركة الهندسية.",
+      "how": [
+        "Document and monitor the working standard for the engineering firm before adding more tools or channels.",
+        "Assign one engineering firm owner and a review date.",
+        "Validate the change with real engineering firm inquiries and record what happened."
+      ],
+      "howAr": [
+        "وثّق المعيار الناجح وراقبه في الشركة الهندسية قبل إضافة أدوات أو قنوات جديدة.",
+        "عيّن مسؤولاً واحداً في الشركة الهندسية وموعداً للمراجعة.",
+        "اختبر التغيير مع استفسارات حقيقية تخص الشركة الهندسية وسجّل النتيجة."
+      ],
+      "websiteImplication": "Make portfolio and before-after proof explicit at the page and decision point where it matters.",
+      "websiteImplicationAr": "أظهر معرض الأعمال وإثبات قبل/بعد بوضوح في الصفحة ونقطة القرار المناسبة.",
+      "systemImplication": "Keep engineering firm measurement lightweight; no new system is justified without drift.",
+      "systemImplicationAr": "حافظ على قياس بسيط في الشركة الهندسية؛ لا حاجة لنظام جديد دون تراجع واضح.",
+      "dominaseFit": "DOMINASE can review the existing standard and identify the next evidence-based optimization.",
+      "dominaseFitAr": "يمكن لـ DOMINASE مراجعة المعيار الحالي وتحديد التحسين التالي المبني على الدليل.",
+      "riskNotes": "Do not publish engineering firm evidence, capacity, availability, prices, or outcomes that cannot be verified.",
+      "riskNotesAr": "لا تنشر أدلة أو طاقة استيعابية أو توفراً أو أسعاراً أو نتائج تخص الشركة الهندسية ما لم يمكن إثباتها."
+    },
+    {
+      "id": "engineering-maintain-eng_process_explanation",
+      "category": "conversionPath",
+      "conditions": {
+        "topicId": "eng_process_explanation",
+        "currentMin": 4.5,
+        "gapMax": 0.5
+      },
+      "notConditions": [
+        {
+          "topicId": "eng_project_focus",
+          "gapMin": 2
+        },
+        {
+          "topicId": "eng_target_client",
+          "gapMin": 2
+        },
+        {
+          "topicId": "eng_local_positioning",
+          "gapMin": 2
+        },
+        {
+          "topicId": "eng_portfolio_proof",
+          "gapMin": 2
+        },
+        {
+          "topicId": "eng_expertise_content",
+          "gapMin": 2
+        },
+        {
+          "topicId": "eng_licensing_visibility",
+          "gapMin": 2
+        },
+        {
+          "topicId": "eng_message_clarity",
+          "gapMin": 2
+        },
+        {
+          "topicId": "eng_process_explanation",
+          "gapMin": 2
+        },
+        {
+          "topicId": "eng_quote_flow",
+          "gapMin": 2
+        },
+        {
+          "topicId": "eng_cost_factors",
+          "gapMin": 2
+        },
+        {
+          "topicId": "eng_proposal_followup",
+          "gapMin": 2
+        },
+        {
+          "topicId": "eng_lead_tracking",
+          "gapMin": 2
+        },
+        {
+          "topicId": "eng_digital_readiness",
+          "gapMin": 2
+        }
+      ],
+      "mode": "maintain",
+      "priority": 2,
+      "dedupeGroup": "engineering-eng_process_explanation",
+      "impact": 3,
+      "effort": 1,
+      "urgency": 2,
+      "evidenceTags": [
+        "service-marketing",
+        "tangibility",
+        "engineering:process-explanation"
+      ],
+      "title": "Protect the proven process explanation standard",
+      "titleAr": "حافظ على مستوى شرح العملية",
+      "why": "Process explanation directly shapes whether the right prospect understands, trusts, and advances with the engineering firm.",
+      "whyAr": "يؤثر شرح العملية مباشرة في فهم العميل المناسب وثقته وانتقاله إلى الخطوة التالية مع الشركة الهندسية.",
+      "how": [
+        "Document and monitor the working standard for the engineering firm before adding more tools or channels.",
+        "Assign one engineering firm owner and a review date.",
+        "Validate the change with real engineering firm inquiries and record what happened."
+      ],
+      "howAr": [
+        "وثّق المعيار الناجح وراقبه في الشركة الهندسية قبل إضافة أدوات أو قنوات جديدة.",
+        "عيّن مسؤولاً واحداً في الشركة الهندسية وموعداً للمراجعة.",
+        "اختبر التغيير مع استفسارات حقيقية تخص الشركة الهندسية وسجّل النتيجة."
+      ],
+      "websiteImplication": "Make process explanation explicit at the page and decision point where it matters.",
+      "websiteImplicationAr": "أظهر شرح العملية بوضوح في الصفحة ونقطة القرار المناسبة.",
+      "systemImplication": "Keep engineering firm measurement lightweight; no new system is justified without drift.",
+      "systemImplicationAr": "حافظ على قياس بسيط في الشركة الهندسية؛ لا حاجة لنظام جديد دون تراجع واضح.",
+      "dominaseFit": "DOMINASE can review the existing standard and identify the next evidence-based optimization.",
+      "dominaseFitAr": "يمكن لـ DOMINASE مراجعة المعيار الحالي وتحديد التحسين التالي المبني على الدليل.",
+      "riskNotes": "Do not publish engineering firm evidence, capacity, availability, prices, or outcomes that cannot be verified.",
+      "riskNotesAr": "لا تنشر أدلة أو طاقة استيعابية أو توفراً أو أسعاراً أو نتائج تخص الشركة الهندسية ما لم يمكن إثباتها."
+    },
+    {
+      "id": "engineering-maintain-eng_proposal_followup",
+      "category": "salesFollowUp",
+      "conditions": {
+        "topicId": "eng_proposal_followup",
+        "currentMin": 4.5,
+        "gapMax": 0.5
+      },
+      "notConditions": [
+        {
+          "topicId": "eng_project_focus",
+          "gapMin": 2
+        },
+        {
+          "topicId": "eng_target_client",
+          "gapMin": 2
+        },
+        {
+          "topicId": "eng_local_positioning",
+          "gapMin": 2
+        },
+        {
+          "topicId": "eng_portfolio_proof",
+          "gapMin": 2
+        },
+        {
+          "topicId": "eng_expertise_content",
+          "gapMin": 2
+        },
+        {
+          "topicId": "eng_licensing_visibility",
+          "gapMin": 2
+        },
+        {
+          "topicId": "eng_message_clarity",
+          "gapMin": 2
+        },
+        {
+          "topicId": "eng_process_explanation",
+          "gapMin": 2
+        },
+        {
+          "topicId": "eng_quote_flow",
+          "gapMin": 2
+        },
+        {
+          "topicId": "eng_cost_factors",
+          "gapMin": 2
+        },
+        {
+          "topicId": "eng_proposal_followup",
+          "gapMin": 2
+        },
+        {
+          "topicId": "eng_lead_tracking",
+          "gapMin": 2
+        },
+        {
+          "topicId": "eng_digital_readiness",
+          "gapMin": 2
+        }
+      ],
+      "mode": "maintain",
+      "priority": 2,
+      "dedupeGroup": "engineering-eng_proposal_followup",
+      "impact": 3,
+      "effort": 1,
+      "urgency": 2,
+      "evidenceTags": [
+        "weak-follow-up",
+        "follow-up",
+        "cadence",
+        "engineering:lead-follow-up"
+      ],
+      "title": "Protect the proven proposal follow-up standard",
+      "titleAr": "حافظ على مستوى متابعة العروض",
+      "why": "Proposal follow-up directly shapes whether the right prospect understands, trusts, and advances with the engineering firm.",
+      "whyAr": "يؤثر متابعة العروض مباشرة في فهم العميل المناسب وثقته وانتقاله إلى الخطوة التالية مع الشركة الهندسية.",
+      "how": [
+        "Document and monitor the working standard for the engineering firm before adding more tools or channels.",
+        "Assign one engineering firm owner and a review date.",
+        "Validate the change with real engineering firm inquiries and record what happened."
+      ],
+      "howAr": [
+        "وثّق المعيار الناجح وراقبه في الشركة الهندسية قبل إضافة أدوات أو قنوات جديدة.",
+        "عيّن مسؤولاً واحداً في الشركة الهندسية وموعداً للمراجعة.",
+        "اختبر التغيير مع استفسارات حقيقية تخص الشركة الهندسية وسجّل النتيجة."
+      ],
+      "websiteImplication": "Make proposal follow-up explicit at the page and decision point where it matters.",
+      "websiteImplicationAr": "أظهر متابعة العروض بوضوح في الصفحة ونقطة القرار المناسبة.",
+      "systemImplication": "Keep engineering firm measurement lightweight; no new system is justified without drift.",
+      "systemImplicationAr": "حافظ على قياس بسيط في الشركة الهندسية؛ لا حاجة لنظام جديد دون تراجع واضح.",
+      "dominaseFit": "DOMINASE can review the existing standard and identify the next evidence-based optimization.",
+      "dominaseFitAr": "يمكن لـ DOMINASE مراجعة المعيار الحالي وتحديد التحسين التالي المبني على الدليل.",
+      "riskNotes": "Do not publish engineering firm evidence, capacity, availability, prices, or outcomes that cannot be verified.",
+      "riskNotesAr": "لا تنشر أدلة أو طاقة استيعابية أو توفراً أو أسعاراً أو نتائج تخص الشركة الهندسية ما لم يمكن إثباتها."
+    },
+    {
+      "id": "engineering-steady-low-1",
+      "title": "Strengthen project-type focus with one controlled change",
+      "titleAr": "طوّر تركيز نوع المشروع بخطوة منضبطة",
+      "category": "strategicDiagnosis",
+      "conditions": {
+        "topicId": "eng_project_focus",
+        "currentMax": 1.5,
+        "gapMax": 0.5
+      },
+      "mode": "strategic",
+      "priority": 4,
+      "dedupeGroup": "engineering-steady-0",
+      "impact": 4,
+      "effort": 2,
+      "urgency": 3,
+      "evidenceTags": [
+        "positioning",
+        "niche",
+        "targeting",
+        "engineering:project-focus"
+      ],
+      "why": "Project-type focus directly shapes whether the right prospect understands, trusts, and advances with the engineering firm.",
+      "whyAr": "يؤثر تركيز نوع المشروع مباشرة في فهم العميل المناسب وثقته وانتقاله إلى الخطوة التالية مع الشركة الهندسية.",
+      "how": [
+        "Test one focused improvement for the engineering firm before adding more tools or channels.",
+        "Assign one engineering firm owner and a review date.",
+        "Validate the change with real engineering firm inquiries and record what happened."
+      ],
+      "howAr": [
+        "اختبر تحسيناً واحداً ومحدداً في الشركة الهندسية قبل إضافة أدوات أو قنوات جديدة.",
+        "عيّن مسؤولاً واحداً في الشركة الهندسية وموعداً للمراجعة.",
+        "اختبر التغيير مع استفسارات حقيقية تخص الشركة الهندسية وسجّل النتيجة."
+      ],
+      "websiteImplication": "Make project-type focus explicit at the page and decision point where it matters.",
+      "websiteImplicationAr": "أظهر تركيز نوع المشروع بوضوح في الصفحة ونقطة القرار المناسبة.",
+      "systemImplication": "Use the smallest engineering firm tracking method that proves ownership before considering automation.",
+      "systemImplicationAr": "استخدم أبسط وسيلة متابعة في الشركة الهندسية تثبت المسؤولية قبل التفكير في الأتمتة.",
+      "dominaseFit": "DOMINASE can prototype and measure this improvement without forcing a rebuild.",
+      "dominaseFitAr": "يمكن لـ DOMINASE اختبار هذا التحسين وقياسه دون فرض إعادة بناء.",
+      "riskNotes": "Do not publish engineering firm evidence, capacity, availability, prices, or outcomes that cannot be verified.",
+      "riskNotesAr": "لا تنشر أدلة أو طاقة استيعابية أو توفراً أو أسعاراً أو نتائج تخص الشركة الهندسية ما لم يمكن إثباتها."
+    },
+    {
+      "id": "engineering-steady-low-2",
+      "title": "Strengthen target client clarity with one controlled change",
+      "titleAr": "طوّر وضوح العميل المستهدف بخطوة منضبطة",
+      "category": "customerProfile",
+      "conditions": {
+        "topicId": "eng_target_client",
+        "currentMax": 1.5,
+        "gapMax": 0.5
+      },
+      "mode": "strategic",
+      "priority": 4,
+      "dedupeGroup": "engineering-steady-1",
+      "impact": 4,
+      "effort": 2,
+      "urgency": 3,
+      "evidenceTags": [
+        "segmentation",
+        "targeting",
+        "positioning",
+        "engineering"
+      ],
+      "why": "Target client clarity directly shapes whether the right prospect understands, trusts, and advances with the engineering firm.",
+      "whyAr": "يؤثر وضوح العميل المستهدف مباشرة في فهم العميل المناسب وثقته وانتقاله إلى الخطوة التالية مع الشركة الهندسية.",
+      "how": [
+        "Test one focused improvement for the engineering firm before adding more tools or channels.",
+        "Assign one engineering firm owner and a review date.",
+        "Validate the change with real engineering firm inquiries and record what happened."
+      ],
+      "howAr": [
+        "اختبر تحسيناً واحداً ومحدداً في الشركة الهندسية قبل إضافة أدوات أو قنوات جديدة.",
+        "عيّن مسؤولاً واحداً في الشركة الهندسية وموعداً للمراجعة.",
+        "اختبر التغيير مع استفسارات حقيقية تخص الشركة الهندسية وسجّل النتيجة."
+      ],
+      "websiteImplication": "Make target client clarity explicit at the page and decision point where it matters.",
+      "websiteImplicationAr": "أظهر وضوح العميل المستهدف بوضوح في الصفحة ونقطة القرار المناسبة.",
+      "systemImplication": "Use the smallest engineering firm tracking method that proves ownership before considering automation.",
+      "systemImplicationAr": "استخدم أبسط وسيلة متابعة في الشركة الهندسية تثبت المسؤولية قبل التفكير في الأتمتة.",
+      "dominaseFit": "DOMINASE can prototype and measure this improvement without forcing a rebuild.",
+      "dominaseFitAr": "يمكن لـ DOMINASE اختبار هذا التحسين وقياسه دون فرض إعادة بناء.",
+      "riskNotes": "Do not publish engineering firm evidence, capacity, availability, prices, or outcomes that cannot be verified.",
+      "riskNotesAr": "لا تنشر أدلة أو طاقة استيعابية أو توفراً أو أسعاراً أو نتائج تخص الشركة الهندسية ما لم يمكن إثباتها."
+    },
+    {
+      "id": "engineering-steady-low-3",
+      "title": "Strengthen local market positioning with one controlled change",
+      "titleAr": "طوّر التموضع في السوق المحلي بخطوة منضبطة",
+      "category": "websiteStructure",
+      "conditions": {
+        "topicId": "eng_local_positioning",
+        "currentMax": 1.5,
+        "gapMax": 0.5
+      },
+      "mode": "strategic",
+      "priority": 4,
+      "dedupeGroup": "engineering-steady-2",
+      "impact": 4,
+      "effort": 2,
+      "urgency": 3,
+      "evidenceTags": [
+        "local-positioning",
+        "unity",
+        "engineering"
+      ],
+      "why": "Local market positioning directly shapes whether the right prospect understands, trusts, and advances with the engineering firm.",
+      "whyAr": "يؤثر التموضع في السوق المحلي مباشرة في فهم العميل المناسب وثقته وانتقاله إلى الخطوة التالية مع الشركة الهندسية.",
+      "how": [
+        "Test one focused improvement for the engineering firm before adding more tools or channels.",
+        "Assign one engineering firm owner and a review date.",
+        "Validate the change with real engineering firm inquiries and record what happened."
+      ],
+      "howAr": [
+        "اختبر تحسيناً واحداً ومحدداً في الشركة الهندسية قبل إضافة أدوات أو قنوات جديدة.",
+        "عيّن مسؤولاً واحداً في الشركة الهندسية وموعداً للمراجعة.",
+        "اختبر التغيير مع استفسارات حقيقية تخص الشركة الهندسية وسجّل النتيجة."
+      ],
+      "websiteImplication": "Make local market positioning explicit at the page and decision point where it matters.",
+      "websiteImplicationAr": "أظهر التموضع في السوق المحلي بوضوح في الصفحة ونقطة القرار المناسبة.",
+      "systemImplication": "Use the smallest engineering firm tracking method that proves ownership before considering automation.",
+      "systemImplicationAr": "استخدم أبسط وسيلة متابعة في الشركة الهندسية تثبت المسؤولية قبل التفكير في الأتمتة.",
+      "dominaseFit": "DOMINASE can prototype and measure this improvement without forcing a rebuild.",
+      "dominaseFitAr": "يمكن لـ DOMINASE اختبار هذا التحسين وقياسه دون فرض إعادة بناء.",
+      "riskNotes": "Do not publish engineering firm evidence, capacity, availability, prices, or outcomes that cannot be verified.",
+      "riskNotesAr": "لا تنشر أدلة أو طاقة استيعابية أو توفراً أو أسعاراً أو نتائج تخص الشركة الهندسية ما لم يمكن إثباتها."
+    },
+    {
+      "id": "engineering-steady-mid-1",
+      "title": "Strengthen portfolio and before-after proof with one controlled change",
+      "titleAr": "طوّر معرض الأعمال وإثبات قبل/بعد بخطوة منضبطة",
+      "category": "websiteStructure",
+      "conditions": {
+        "topicId": "eng_portfolio_proof",
+        "currentMin": 2.5,
+        "currentMax": 4.4,
+        "gapMax": 0.5
+      },
+      "notConditions": [
+        {
+          "topicId": "eng_project_focus",
+          "gapMin": 2
+        },
+        {
+          "topicId": "eng_target_client",
+          "gapMin": 2
+        },
+        {
+          "topicId": "eng_local_positioning",
+          "gapMin": 2
+        },
+        {
+          "topicId": "eng_portfolio_proof",
+          "gapMin": 2
+        },
+        {
+          "topicId": "eng_expertise_content",
+          "gapMin": 2
+        },
+        {
+          "topicId": "eng_licensing_visibility",
+          "gapMin": 2
+        },
+        {
+          "topicId": "eng_message_clarity",
+          "gapMin": 2
+        },
+        {
+          "topicId": "eng_process_explanation",
+          "gapMin": 2
+        },
+        {
+          "topicId": "eng_quote_flow",
+          "gapMin": 2
+        },
+        {
+          "topicId": "eng_cost_factors",
+          "gapMin": 2
+        },
+        {
+          "topicId": "eng_proposal_followup",
+          "gapMin": 2
+        },
+        {
+          "topicId": "eng_lead_tracking",
+          "gapMin": 2
+        },
+        {
+          "topicId": "eng_digital_readiness",
+          "gapMin": 2
+        }
+      ],
+      "mode": "improve",
+      "priority": 2,
+      "dedupeGroup": "engineering-steady-mid-0",
+      "impact": 3,
+      "effort": 2,
+      "urgency": 2,
+      "evidenceTags": [
+        "portfolio",
+        "case-studies",
+        "visual-trust",
+        "engineering:portfolio-proof"
+      ],
+      "why": "Portfolio and before-after proof directly shapes whether the right prospect understands, trusts, and advances with the engineering firm.",
+      "whyAr": "يؤثر معرض الأعمال وإثبات قبل/بعد مباشرة في فهم العميل المناسب وثقته وانتقاله إلى الخطوة التالية مع الشركة الهندسية.",
+      "how": [
+        "Test one focused improvement for the engineering firm before adding more tools or channels.",
+        "Assign one engineering firm owner and a review date.",
+        "Validate the change with real engineering firm inquiries and record what happened."
+      ],
+      "howAr": [
+        "اختبر تحسيناً واحداً ومحدداً في الشركة الهندسية قبل إضافة أدوات أو قنوات جديدة.",
+        "عيّن مسؤولاً واحداً في الشركة الهندسية وموعداً للمراجعة.",
+        "اختبر التغيير مع استفسارات حقيقية تخص الشركة الهندسية وسجّل النتيجة."
+      ],
+      "websiteImplication": "Make portfolio and before-after proof explicit at the page and decision point where it matters.",
+      "websiteImplicationAr": "أظهر معرض الأعمال وإثبات قبل/بعد بوضوح في الصفحة ونقطة القرار المناسبة.",
+      "systemImplication": "Use the smallest engineering firm tracking method that proves ownership before considering automation.",
+      "systemImplicationAr": "استخدم أبسط وسيلة متابعة في الشركة الهندسية تثبت المسؤولية قبل التفكير في الأتمتة.",
+      "dominaseFit": "DOMINASE can prototype and measure this improvement without forcing a rebuild.",
+      "dominaseFitAr": "يمكن لـ DOMINASE اختبار هذا التحسين وقياسه دون فرض إعادة بناء.",
+      "riskNotes": "Do not publish engineering firm evidence, capacity, availability, prices, or outcomes that cannot be verified.",
+      "riskNotesAr": "لا تنشر أدلة أو طاقة استيعابية أو توفراً أو أسعاراً أو نتائج تخص الشركة الهندسية ما لم يمكن إثباتها."
+    },
+    {
+      "id": "engineering-steady-mid-2",
+      "title": "Strengthen demonstrated expertise with one controlled change",
+      "titleAr": "طوّر الخبرة المبرهنة بخطوة منضبطة",
+      "category": "conversionPath",
+      "conditions": {
+        "topicId": "eng_expertise_content",
+        "currentMin": 2.5,
+        "currentMax": 4.4,
+        "gapMax": 0.5
+      },
+      "notConditions": [
+        {
+          "topicId": "eng_project_focus",
+          "gapMin": 2
+        },
+        {
+          "topicId": "eng_target_client",
+          "gapMin": 2
+        },
+        {
+          "topicId": "eng_local_positioning",
+          "gapMin": 2
+        },
+        {
+          "topicId": "eng_portfolio_proof",
+          "gapMin": 2
+        },
+        {
+          "topicId": "eng_expertise_content",
+          "gapMin": 2
+        },
+        {
+          "topicId": "eng_licensing_visibility",
+          "gapMin": 2
+        },
+        {
+          "topicId": "eng_message_clarity",
+          "gapMin": 2
+        },
+        {
+          "topicId": "eng_process_explanation",
+          "gapMin": 2
+        },
+        {
+          "topicId": "eng_quote_flow",
+          "gapMin": 2
+        },
+        {
+          "topicId": "eng_cost_factors",
+          "gapMin": 2
+        },
+        {
+          "topicId": "eng_proposal_followup",
+          "gapMin": 2
+        },
+        {
+          "topicId": "eng_lead_tracking",
+          "gapMin": 2
+        },
+        {
+          "topicId": "eng_digital_readiness",
+          "gapMin": 2
+        }
+      ],
+      "mode": "improve",
+      "priority": 2,
+      "dedupeGroup": "engineering-steady-mid-1",
+      "impact": 3,
+      "effort": 2,
+      "urgency": 2,
+      "evidenceTags": [
+        "authority",
+        "thought-leadership",
+        "credibility",
+        "engineering"
+      ],
+      "why": "Demonstrated expertise directly shapes whether the right prospect understands, trusts, and advances with the engineering firm.",
+      "whyAr": "يؤثر الخبرة المبرهنة مباشرة في فهم العميل المناسب وثقته وانتقاله إلى الخطوة التالية مع الشركة الهندسية.",
+      "how": [
+        "Test one focused improvement for the engineering firm before adding more tools or channels.",
+        "Assign one engineering firm owner and a review date.",
+        "Validate the change with real engineering firm inquiries and record what happened."
+      ],
+      "howAr": [
+        "اختبر تحسيناً واحداً ومحدداً في الشركة الهندسية قبل إضافة أدوات أو قنوات جديدة.",
+        "عيّن مسؤولاً واحداً في الشركة الهندسية وموعداً للمراجعة.",
+        "اختبر التغيير مع استفسارات حقيقية تخص الشركة الهندسية وسجّل النتيجة."
+      ],
+      "websiteImplication": "Make demonstrated expertise explicit at the page and decision point where it matters.",
+      "websiteImplicationAr": "أظهر الخبرة المبرهنة بوضوح في الصفحة ونقطة القرار المناسبة.",
+      "systemImplication": "Use the smallest engineering firm tracking method that proves ownership before considering automation.",
+      "systemImplicationAr": "استخدم أبسط وسيلة متابعة في الشركة الهندسية تثبت المسؤولية قبل التفكير في الأتمتة.",
+      "dominaseFit": "DOMINASE can prototype and measure this improvement without forcing a rebuild.",
+      "dominaseFitAr": "يمكن لـ DOMINASE اختبار هذا التحسين وقياسه دون فرض إعادة بناء.",
+      "riskNotes": "Do not publish engineering firm evidence, capacity, availability, prices, or outcomes that cannot be verified.",
+      "riskNotesAr": "لا تنشر أدلة أو طاقة استيعابية أو توفراً أو أسعاراً أو نتائج تخص الشركة الهندسية ما لم يمكن إثباتها."
+    },
+    {
+      "id": "engineering-steady-mid-3",
+      "title": "Strengthen licensing and credentials visibility with one controlled change",
+      "titleAr": "طوّر ظهور التراخيص والاعتمادات بخطوة منضبطة",
+      "category": "contentAndTrust",
+      "conditions": {
+        "topicId": "eng_licensing_visibility",
+        "currentMin": 2.5,
+        "currentMax": 4.4,
+        "gapMax": 0.5
+      },
+      "notConditions": [
+        {
+          "topicId": "eng_project_focus",
+          "gapMin": 2
+        },
+        {
+          "topicId": "eng_target_client",
+          "gapMin": 2
+        },
+        {
+          "topicId": "eng_local_positioning",
+          "gapMin": 2
+        },
+        {
+          "topicId": "eng_portfolio_proof",
+          "gapMin": 2
+        },
+        {
+          "topicId": "eng_expertise_content",
+          "gapMin": 2
+        },
+        {
+          "topicId": "eng_licensing_visibility",
+          "gapMin": 2
+        },
+        {
+          "topicId": "eng_message_clarity",
+          "gapMin": 2
+        },
+        {
+          "topicId": "eng_process_explanation",
+          "gapMin": 2
+        },
+        {
+          "topicId": "eng_quote_flow",
+          "gapMin": 2
+        },
+        {
+          "topicId": "eng_cost_factors",
+          "gapMin": 2
+        },
+        {
+          "topicId": "eng_proposal_followup",
+          "gapMin": 2
+        },
+        {
+          "topicId": "eng_lead_tracking",
+          "gapMin": 2
+        },
+        {
+          "topicId": "eng_digital_readiness",
+          "gapMin": 2
+        }
+      ],
+      "mode": "improve",
+      "priority": 2,
+      "dedupeGroup": "engineering-steady-mid-2",
+      "impact": 3,
+      "effort": 2,
+      "urgency": 2,
+      "evidenceTags": [
+        "authority",
+        "trust-signal",
+        "credibility",
+        "engineering:licensing-trust"
+      ],
+      "why": "Licensing and credentials visibility directly shapes whether the right prospect understands, trusts, and advances with the engineering firm.",
+      "whyAr": "يؤثر ظهور التراخيص والاعتمادات مباشرة في فهم العميل المناسب وثقته وانتقاله إلى الخطوة التالية مع الشركة الهندسية.",
+      "how": [
+        "Test one focused improvement for the engineering firm before adding more tools or channels.",
+        "Assign one engineering firm owner and a review date.",
+        "Validate the change with real engineering firm inquiries and record what happened."
+      ],
+      "howAr": [
+        "اختبر تحسيناً واحداً ومحدداً في الشركة الهندسية قبل إضافة أدوات أو قنوات جديدة.",
+        "عيّن مسؤولاً واحداً في الشركة الهندسية وموعداً للمراجعة.",
+        "اختبر التغيير مع استفسارات حقيقية تخص الشركة الهندسية وسجّل النتيجة."
+      ],
+      "websiteImplication": "Make licensing and credentials visibility explicit at the page and decision point where it matters.",
+      "websiteImplicationAr": "أظهر ظهور التراخيص والاعتمادات بوضوح في الصفحة ونقطة القرار المناسبة.",
+      "systemImplication": "Use the smallest engineering firm tracking method that proves ownership before considering automation.",
+      "systemImplicationAr": "استخدم أبسط وسيلة متابعة في الشركة الهندسية تثبت المسؤولية قبل التفكير في الأتمتة.",
+      "dominaseFit": "DOMINASE can prototype and measure this improvement without forcing a rebuild.",
+      "dominaseFitAr": "يمكن لـ DOMINASE اختبار هذا التحسين وقياسه دون فرض إعادة بناء.",
+      "riskNotes": "Do not publish engineering firm evidence, capacity, availability, prices, or outcomes that cannot be verified.",
+      "riskNotesAr": "لا تنشر أدلة أو طاقة استيعابية أو توفراً أو أسعاراً أو نتائج تخص الشركة الهندسية ما لم يمكن إثباتها."
+    },
+    {
+      "id": "engineering-steady-mid-4",
+      "title": "Strengthen message clarity for decision-makers with one controlled change",
+      "titleAr": "طوّر وضوح الرسالة لمتخذ القرار بخطوة منضبطة",
+      "category": "salesFollowUp",
+      "conditions": {
+        "topicId": "eng_message_clarity",
+        "currentMin": 2.5,
+        "currentMax": 4.4,
+        "gapMax": 0.5
+      },
+      "notConditions": [
+        {
+          "topicId": "eng_project_focus",
+          "gapMin": 2
+        },
+        {
+          "topicId": "eng_target_client",
+          "gapMin": 2
+        },
+        {
+          "topicId": "eng_local_positioning",
+          "gapMin": 2
+        },
+        {
+          "topicId": "eng_portfolio_proof",
+          "gapMin": 2
+        },
+        {
+          "topicId": "eng_expertise_content",
+          "gapMin": 2
+        },
+        {
+          "topicId": "eng_licensing_visibility",
+          "gapMin": 2
+        },
+        {
+          "topicId": "eng_message_clarity",
+          "gapMin": 2
+        },
+        {
+          "topicId": "eng_process_explanation",
+          "gapMin": 2
+        },
+        {
+          "topicId": "eng_quote_flow",
+          "gapMin": 2
+        },
+        {
+          "topicId": "eng_cost_factors",
+          "gapMin": 2
+        },
+        {
+          "topicId": "eng_proposal_followup",
+          "gapMin": 2
+        },
+        {
+          "topicId": "eng_lead_tracking",
+          "gapMin": 2
+        },
+        {
+          "topicId": "eng_digital_readiness",
+          "gapMin": 2
+        }
+      ],
+      "mode": "improve",
+      "priority": 2,
+      "dedupeGroup": "engineering-steady-mid-3",
+      "impact": 3,
+      "effort": 2,
+      "urgency": 2,
+      "evidenceTags": [
+        "cognitive-ease",
+        "clarity",
+        "cta-clarity",
+        "engineering"
+      ],
+      "why": "Message clarity for decision-makers directly shapes whether the right prospect understands, trusts, and advances with the engineering firm.",
+      "whyAr": "يؤثر وضوح الرسالة لمتخذ القرار مباشرة في فهم العميل المناسب وثقته وانتقاله إلى الخطوة التالية مع الشركة الهندسية.",
+      "how": [
+        "Test one focused improvement for the engineering firm before adding more tools or channels.",
+        "Assign one engineering firm owner and a review date.",
+        "Validate the change with real engineering firm inquiries and record what happened."
+      ],
+      "howAr": [
+        "اختبر تحسيناً واحداً ومحدداً في الشركة الهندسية قبل إضافة أدوات أو قنوات جديدة.",
+        "عيّن مسؤولاً واحداً في الشركة الهندسية وموعداً للمراجعة.",
+        "اختبر التغيير مع استفسارات حقيقية تخص الشركة الهندسية وسجّل النتيجة."
+      ],
+      "websiteImplication": "Make message clarity for decision-makers explicit at the page and decision point where it matters.",
+      "websiteImplicationAr": "أظهر وضوح الرسالة لمتخذ القرار بوضوح في الصفحة ونقطة القرار المناسبة.",
+      "systemImplication": "Use the smallest engineering firm tracking method that proves ownership before considering automation.",
+      "systemImplicationAr": "استخدم أبسط وسيلة متابعة في الشركة الهندسية تثبت المسؤولية قبل التفكير في الأتمتة.",
+      "dominaseFit": "DOMINASE can prototype and measure this improvement without forcing a rebuild.",
+      "dominaseFitAr": "يمكن لـ DOMINASE اختبار هذا التحسين وقياسه دون فرض إعادة بناء.",
+      "riskNotes": "Do not publish engineering firm evidence, capacity, availability, prices, or outcomes that cannot be verified.",
+      "riskNotesAr": "لا تنشر أدلة أو طاقة استيعابية أو توفراً أو أسعاراً أو نتائج تخص الشركة الهندسية ما لم يمكن إثباتها."
+    },
+    {
+      "id": "engineering-steady-mid-5",
+      "title": "Strengthen process explanation with one controlled change",
+      "titleAr": "طوّر شرح العملية بخطوة منضبطة",
+      "category": "quickWins",
+      "conditions": {
+        "topicId": "eng_process_explanation",
+        "currentMin": 2.5,
+        "currentMax": 4.4,
+        "gapMin": 0.5,
+        "gapMax": 0.5
+      },
+      "notConditions": [
+        {
+          "topicId": "eng_project_focus",
+          "gapMin": 2
+        },
+        {
+          "topicId": "eng_target_client",
+          "gapMin": 2
+        },
+        {
+          "topicId": "eng_local_positioning",
+          "gapMin": 2
+        },
+        {
+          "topicId": "eng_portfolio_proof",
+          "gapMin": 2
+        },
+        {
+          "topicId": "eng_expertise_content",
+          "gapMin": 2
+        },
+        {
+          "topicId": "eng_licensing_visibility",
+          "gapMin": 2
+        },
+        {
+          "topicId": "eng_message_clarity",
+          "gapMin": 2
+        },
+        {
+          "topicId": "eng_process_explanation",
+          "gapMin": 2
+        },
+        {
+          "topicId": "eng_quote_flow",
+          "gapMin": 2
+        },
+        {
+          "topicId": "eng_cost_factors",
+          "gapMin": 2
+        },
+        {
+          "topicId": "eng_proposal_followup",
+          "gapMin": 2
+        },
+        {
+          "topicId": "eng_lead_tracking",
+          "gapMin": 2
+        },
+        {
+          "topicId": "eng_digital_readiness",
+          "gapMin": 2
+        }
+      ],
+      "mode": "improve",
+      "priority": 2,
+      "dedupeGroup": "engineering-steady-mid-4",
+      "impact": 3,
+      "effort": 2,
+      "urgency": 2,
+      "evidenceTags": [
+        "service-marketing",
+        "tangibility",
+        "engineering:process-explanation"
+      ],
+      "why": "Process explanation directly shapes whether the right prospect understands, trusts, and advances with the engineering firm.",
+      "whyAr": "يؤثر شرح العملية مباشرة في فهم العميل المناسب وثقته وانتقاله إلى الخطوة التالية مع الشركة الهندسية.",
+      "how": [
+        "Test one focused improvement for the engineering firm before adding more tools or channels.",
+        "Assign one engineering firm owner and a review date.",
+        "Validate the change with real engineering firm inquiries and record what happened."
+      ],
+      "howAr": [
+        "اختبر تحسيناً واحداً ومحدداً في الشركة الهندسية قبل إضافة أدوات أو قنوات جديدة.",
+        "عيّن مسؤولاً واحداً في الشركة الهندسية وموعداً للمراجعة.",
+        "اختبر التغيير مع استفسارات حقيقية تخص الشركة الهندسية وسجّل النتيجة."
+      ],
+      "websiteImplication": "Make process explanation explicit at the page and decision point where it matters.",
+      "websiteImplicationAr": "أظهر شرح العملية بوضوح في الصفحة ونقطة القرار المناسبة.",
+      "systemImplication": "Use the smallest engineering firm tracking method that proves ownership before considering automation.",
+      "systemImplicationAr": "استخدم أبسط وسيلة متابعة في الشركة الهندسية تثبت المسؤولية قبل التفكير في الأتمتة.",
+      "dominaseFit": "DOMINASE can prototype and measure this improvement without forcing a rebuild.",
+      "dominaseFitAr": "يمكن لـ DOMINASE اختبار هذا التحسين وقياسه دون فرض إعادة بناء.",
+      "riskNotes": "Do not publish engineering firm evidence, capacity, availability, prices, or outcomes that cannot be verified.",
+      "riskNotesAr": "لا تنشر أدلة أو طاقة استيعابية أو توفراً أو أسعاراً أو نتائج تخص الشركة الهندسية ما لم يمكن إثباتها."
+    },
+    {
+      "id": "engineering-steady-mid-6",
+      "title": "Strengthen request-quote flow with one controlled change",
+      "titleAr": "طوّر مسار طلب العرض بخطوة منضبطة",
+      "category": "dominaseNextStep",
+      "conditions": {
+        "topicId": "eng_quote_flow",
+        "currentMin": 2.5,
+        "currentMax": 4.4,
+        "gapMin": 0.5,
+        "gapMax": 0.5
+      },
+      "notConditions": [
+        {
+          "topicId": "eng_project_focus",
+          "gapMin": 2
+        },
+        {
+          "topicId": "eng_target_client",
+          "gapMin": 2
+        },
+        {
+          "topicId": "eng_local_positioning",
+          "gapMin": 2
+        },
+        {
+          "topicId": "eng_portfolio_proof",
+          "gapMin": 2
+        },
+        {
+          "topicId": "eng_expertise_content",
+          "gapMin": 2
+        },
+        {
+          "topicId": "eng_licensing_visibility",
+          "gapMin": 2
+        },
+        {
+          "topicId": "eng_message_clarity",
+          "gapMin": 2
+        },
+        {
+          "topicId": "eng_process_explanation",
+          "gapMin": 2
+        },
+        {
+          "topicId": "eng_quote_flow",
+          "gapMin": 2
+        },
+        {
+          "topicId": "eng_cost_factors",
+          "gapMin": 2
+        },
+        {
+          "topicId": "eng_proposal_followup",
+          "gapMin": 2
+        },
+        {
+          "topicId": "eng_lead_tracking",
+          "gapMin": 2
+        },
+        {
+          "topicId": "eng_digital_readiness",
+          "gapMin": 2
+        }
+      ],
+      "mode": "improve",
+      "priority": 2,
+      "dedupeGroup": "engineering-steady-mid-5",
+      "impact": 3,
+      "effort": 2,
+      "urgency": 2,
+      "evidenceTags": [
+        "booking-friction",
+        "contact-flow",
+        "discovery",
+        "engineering:request-quote"
+      ],
+      "why": "Request-quote flow directly shapes whether the right prospect understands, trusts, and advances with the engineering firm.",
+      "whyAr": "يؤثر مسار طلب العرض مباشرة في فهم العميل المناسب وثقته وانتقاله إلى الخطوة التالية مع الشركة الهندسية.",
+      "how": [
+        "Test one focused improvement for the engineering firm before adding more tools or channels.",
+        "Assign one engineering firm owner and a review date.",
+        "Validate the change with real engineering firm inquiries and record what happened."
+      ],
+      "howAr": [
+        "اختبر تحسيناً واحداً ومحدداً في الشركة الهندسية قبل إضافة أدوات أو قنوات جديدة.",
+        "عيّن مسؤولاً واحداً في الشركة الهندسية وموعداً للمراجعة.",
+        "اختبر التغيير مع استفسارات حقيقية تخص الشركة الهندسية وسجّل النتيجة."
+      ],
+      "websiteImplication": "Make request-quote flow explicit at the page and decision point where it matters.",
+      "websiteImplicationAr": "أظهر مسار طلب العرض بوضوح في الصفحة ونقطة القرار المناسبة.",
+      "systemImplication": "Use the smallest engineering firm tracking method that proves ownership before considering automation.",
+      "systemImplicationAr": "استخدم أبسط وسيلة متابعة في الشركة الهندسية تثبت المسؤولية قبل التفكير في الأتمتة.",
+      "dominaseFit": "DOMINASE can prototype and measure this improvement without forcing a rebuild.",
+      "dominaseFitAr": "يمكن لـ DOMINASE اختبار هذا التحسين وقياسه دون فرض إعادة بناء.",
+      "riskNotes": "Do not publish engineering firm evidence, capacity, availability, prices, or outcomes that cannot be verified.",
+      "riskNotesAr": "لا تنشر أدلة أو طاقة استيعابية أو توفراً أو أسعاراً أو نتائج تخص الشركة الهندسية ما لم يمكن إثباتها."
+    },
+    {
+      "id": "engineering-strategic-1",
+      "title": "Strengthen cost factor clarity with one controlled change",
+      "titleAr": "طوّر وضوح عوامل التكلفة بخطوة منضبطة",
+      "category": "salesFollowUp",
+      "conditions": {
+        "tags": [
+          "positioning",
+          "segmentation",
+          "local-positioning",
+          "portfolio"
+        ],
+        "targetMin": 4,
+        "gapMin": 2
+      },
+      "mode": "strategic",
+      "priority": 4,
+      "dedupeGroup": "engineering-strategic-0",
+      "impact": 4,
+      "effort": 3,
+      "urgency": 4,
+      "evidenceTags": [
+        "positioning",
+        "niche",
+        "targeting",
+        "engineering:project-focus",
+        "segmentation",
+        "targeting",
+        "positioning",
+        "engineering",
+        "local-positioning",
+        "unity",
+        "engineering",
+        "portfolio",
+        "case-studies",
+        "visual-trust",
+        "engineering:portfolio-proof"
+      ],
+      "why": "Cost factor clarity directly shapes whether the right prospect understands, trusts, and advances with the engineering firm.",
+      "whyAr": "يؤثر وضوح عوامل التكلفة مباشرة في فهم العميل المناسب وثقته وانتقاله إلى الخطوة التالية مع الشركة الهندسية.",
+      "how": [
+        "Test one focused improvement for the engineering firm before adding more tools or channels.",
+        "Assign one engineering firm owner and a review date.",
+        "Validate the change with real engineering firm inquiries and record what happened."
+      ],
+      "howAr": [
+        "اختبر تحسيناً واحداً ومحدداً في الشركة الهندسية قبل إضافة أدوات أو قنوات جديدة.",
+        "عيّن مسؤولاً واحداً في الشركة الهندسية وموعداً للمراجعة.",
+        "اختبر التغيير مع استفسارات حقيقية تخص الشركة الهندسية وسجّل النتيجة."
+      ],
+      "websiteImplication": "Make cost factor clarity explicit at the page and decision point where it matters.",
+      "websiteImplicationAr": "أظهر وضوح عوامل التكلفة بوضوح في الصفحة ونقطة القرار المناسبة.",
+      "systemImplication": "Use the smallest engineering firm tracking method that proves ownership before considering automation.",
+      "systemImplicationAr": "استخدم أبسط وسيلة متابعة في الشركة الهندسية تثبت المسؤولية قبل التفكير في الأتمتة.",
+      "dominaseFit": "DOMINASE can prototype and measure this improvement without forcing a rebuild.",
+      "dominaseFitAr": "يمكن لـ DOMINASE اختبار هذا التحسين وقياسه دون فرض إعادة بناء.",
+      "riskNotes": "Do not publish engineering firm evidence, capacity, availability, prices, or outcomes that cannot be verified.",
+      "riskNotesAr": "لا تنشر أدلة أو طاقة استيعابية أو توفراً أو أسعاراً أو نتائج تخص الشركة الهندسية ما لم يمكن إثباتها."
+    },
+    {
+      "id": "engineering-strategic-2",
+      "title": "Strengthen proposal follow-up with one controlled change",
+      "titleAr": "طوّر متابعة العروض بخطوة منضبطة",
+      "category": "quickWins",
+      "conditions": {
+        "tags": [
+          "authority",
+          "authority",
+          "cognitive-ease"
+        ],
+        "targetMin": 4,
+        "gapMin": 2
+      },
+      "mode": "strategic",
+      "priority": 4,
+      "dedupeGroup": "engineering-strategic-1",
+      "impact": 4,
+      "effort": 3,
+      "urgency": 4,
+      "evidenceTags": [
+        "authority",
+        "thought-leadership",
+        "credibility",
+        "engineering",
+        "authority",
+        "trust-signal",
+        "credibility",
+        "engineering:licensing-trust",
+        "cognitive-ease",
+        "clarity",
+        "cta-clarity",
+        "engineering"
+      ],
+      "why": "Proposal follow-up directly shapes whether the right prospect understands, trusts, and advances with the engineering firm.",
+      "whyAr": "يؤثر متابعة العروض مباشرة في فهم العميل المناسب وثقته وانتقاله إلى الخطوة التالية مع الشركة الهندسية.",
+      "how": [
+        "Test one focused improvement for the engineering firm before adding more tools or channels.",
+        "Assign one engineering firm owner and a review date.",
+        "Validate the change with real engineering firm inquiries and record what happened."
+      ],
+      "howAr": [
+        "اختبر تحسيناً واحداً ومحدداً في الشركة الهندسية قبل إضافة أدوات أو قنوات جديدة.",
+        "عيّن مسؤولاً واحداً في الشركة الهندسية وموعداً للمراجعة.",
+        "اختبر التغيير مع استفسارات حقيقية تخص الشركة الهندسية وسجّل النتيجة."
+      ],
+      "websiteImplication": "Make proposal follow-up explicit at the page and decision point where it matters.",
+      "websiteImplicationAr": "أظهر متابعة العروض بوضوح في الصفحة ونقطة القرار المناسبة.",
+      "systemImplication": "Use the smallest engineering firm tracking method that proves ownership before considering automation.",
+      "systemImplicationAr": "استخدم أبسط وسيلة متابعة في الشركة الهندسية تثبت المسؤولية قبل التفكير في الأتمتة.",
+      "dominaseFit": "DOMINASE can prototype and measure this improvement without forcing a rebuild.",
+      "dominaseFitAr": "يمكن لـ DOMINASE اختبار هذا التحسين وقياسه دون فرض إعادة بناء.",
+      "riskNotes": "Do not publish engineering firm evidence, capacity, availability, prices, or outcomes that cannot be verified.",
+      "riskNotesAr": "لا تنشر أدلة أو طاقة استيعابية أو توفراً أو أسعاراً أو نتائج تخص الشركة الهندسية ما لم يمكن إثباتها."
+    },
+    {
+      "id": "engineering-strategic-3",
+      "title": "Strengthen lead and proposal tracking with one controlled change",
+      "titleAr": "طوّر تتبع العملاء والعروض بخطوة منضبطة",
+      "category": "dominaseNextStep",
+      "conditions": {
+        "tags": [
+          "service-marketing",
+          "booking-friction",
+          "pricing-transparency"
+        ],
+        "targetMin": 4,
+        "gapMin": 2
+      },
+      "mode": "strategic",
+      "priority": 4,
+      "dedupeGroup": "engineering-strategic-2",
+      "impact": 4,
+      "effort": 3,
+      "urgency": 4,
+      "evidenceTags": [
+        "service-marketing",
+        "tangibility",
+        "engineering:process-explanation",
+        "booking-friction",
+        "contact-flow",
+        "discovery",
+        "engineering:request-quote",
+        "pricing-transparency",
+        "pricing-content",
+        "trust-barrier",
+        "engineering"
+      ],
+      "why": "Lead and proposal tracking directly shapes whether the right prospect understands, trusts, and advances with the engineering firm.",
+      "whyAr": "يؤثر تتبع العملاء والعروض مباشرة في فهم العميل المناسب وثقته وانتقاله إلى الخطوة التالية مع الشركة الهندسية.",
+      "how": [
+        "Test one focused improvement for the engineering firm before adding more tools or channels.",
+        "Assign one engineering firm owner and a review date.",
+        "Validate the change with real engineering firm inquiries and record what happened."
+      ],
+      "howAr": [
+        "اختبر تحسيناً واحداً ومحدداً في الشركة الهندسية قبل إضافة أدوات أو قنوات جديدة.",
+        "عيّن مسؤولاً واحداً في الشركة الهندسية وموعداً للمراجعة.",
+        "اختبر التغيير مع استفسارات حقيقية تخص الشركة الهندسية وسجّل النتيجة."
+      ],
+      "websiteImplication": "Make lead and proposal tracking explicit at the page and decision point where it matters.",
+      "websiteImplicationAr": "أظهر تتبع العملاء والعروض بوضوح في الصفحة ونقطة القرار المناسبة.",
+      "systemImplication": "Use the smallest engineering firm tracking method that proves ownership before considering automation.",
+      "systemImplicationAr": "استخدم أبسط وسيلة متابعة في الشركة الهندسية تثبت المسؤولية قبل التفكير في الأتمتة.",
+      "dominaseFit": "DOMINASE can prototype and measure this improvement without forcing a rebuild.",
+      "dominaseFitAr": "يمكن لـ DOMINASE اختبار هذا التحسين وقياسه دون فرض إعادة بناء.",
+      "riskNotes": "Do not publish engineering firm evidence, capacity, availability, prices, or outcomes that cannot be verified.",
+      "riskNotesAr": "لا تنشر أدلة أو طاقة استيعابية أو توفراً أو أسعاراً أو نتائج تخص الشركة الهندسية ما لم يمكن إثباتها."
+    },
+    {
+      "id": "engineering-strategic-4",
+      "title": "Strengthen connected digital system with one controlled change",
+      "titleAr": "طوّر النظام الرقمي المترابط بخطوة منضبطة",
+      "category": "strategicDiagnosis",
+      "conditions": {
+        "tags": [
+          "weak-follow-up",
+          "crm",
+          "digital-readiness"
+        ],
+        "targetMin": 4,
+        "gapMin": 2
+      },
+      "mode": "strategic",
+      "priority": 4,
+      "dedupeGroup": "engineering-strategic-3",
+      "impact": 4,
+      "effort": 3,
+      "urgency": 4,
+      "evidenceTags": [
+        "weak-follow-up",
+        "follow-up",
+        "cadence",
+        "engineering:lead-follow-up",
+        "crm",
+        "pipeline",
+        "tracking",
+        "engineering",
+        "digital-readiness",
+        "system",
+        "automation",
+        "engineering"
+      ],
+      "why": "Connected digital system directly shapes whether the right prospect understands, trusts, and advances with the engineering firm.",
+      "whyAr": "يؤثر النظام الرقمي المترابط مباشرة في فهم العميل المناسب وثقته وانتقاله إلى الخطوة التالية مع الشركة الهندسية.",
+      "how": [
+        "Test one focused improvement for the engineering firm before adding more tools or channels.",
+        "Assign one engineering firm owner and a review date.",
+        "Validate the change with real engineering firm inquiries and record what happened."
+      ],
+      "howAr": [
+        "اختبر تحسيناً واحداً ومحدداً في الشركة الهندسية قبل إضافة أدوات أو قنوات جديدة.",
+        "عيّن مسؤولاً واحداً في الشركة الهندسية وموعداً للمراجعة.",
+        "اختبر التغيير مع استفسارات حقيقية تخص الشركة الهندسية وسجّل النتيجة."
+      ],
+      "websiteImplication": "Make connected digital system explicit at the page and decision point where it matters.",
+      "websiteImplicationAr": "أظهر النظام الرقمي المترابط بوضوح في الصفحة ونقطة القرار المناسبة.",
+      "systemImplication": "Use the smallest engineering firm tracking method that proves ownership before considering automation.",
+      "systemImplicationAr": "استخدم أبسط وسيلة متابعة في الشركة الهندسية تثبت المسؤولية قبل التفكير في الأتمتة.",
+      "dominaseFit": "DOMINASE can prototype and measure this improvement without forcing a rebuild.",
+      "dominaseFitAr": "يمكن لـ DOMINASE اختبار هذا التحسين وقياسه دون فرض إعادة بناء.",
+      "riskNotes": "Do not publish engineering firm evidence, capacity, availability, prices, or outcomes that cannot be verified.",
+      "riskNotesAr": "لا تنشر أدلة أو طاقة استيعابية أو توفراً أو أسعاراً أو نتائج تخص الشركة الهندسية ما لم يمكن إثباتها."
+    },
+    {
+      "id": "engineering-controlled-path-1",
+      "title": "Strengthen demonstrated expertise with one controlled change",
+      "titleAr": "طوّر الخبرة المبرهنة بخطوة منضبطة",
+      "category": "customerProfile",
+      "conditions": {
+        "topicId": "eng_expertise_content",
+        "currentMin": 2,
+        "targetMin": 4,
+        "gapMin": 2
+      },
+      "mode": "improve",
+      "priority": 3,
+      "dedupeGroup": "engineering-controlled-0",
+      "impact": 3,
+      "effort": 3,
+      "urgency": 3,
+      "evidenceTags": [
+        "authority",
+        "thought-leadership",
+        "credibility",
+        "engineering"
+      ],
+      "why": "Demonstrated expertise directly shapes whether the right prospect understands, trusts, and advances with the engineering firm.",
+      "whyAr": "يؤثر الخبرة المبرهنة مباشرة في فهم العميل المناسب وثقته وانتقاله إلى الخطوة التالية مع الشركة الهندسية.",
+      "how": [
+        "Test one focused improvement for the engineering firm before adding more tools or channels.",
+        "Assign one engineering firm owner and a review date.",
+        "Validate the change with real engineering firm inquiries and record what happened."
+      ],
+      "howAr": [
+        "اختبر تحسيناً واحداً ومحدداً في الشركة الهندسية قبل إضافة أدوات أو قنوات جديدة.",
+        "عيّن مسؤولاً واحداً في الشركة الهندسية وموعداً للمراجعة.",
+        "اختبر التغيير مع استفسارات حقيقية تخص الشركة الهندسية وسجّل النتيجة."
+      ],
+      "websiteImplication": "Make demonstrated expertise explicit at the page and decision point where it matters.",
+      "websiteImplicationAr": "أظهر الخبرة المبرهنة بوضوح في الصفحة ونقطة القرار المناسبة.",
+      "systemImplication": "Use the smallest engineering firm tracking method that proves ownership before considering automation.",
+      "systemImplicationAr": "استخدم أبسط وسيلة متابعة في الشركة الهندسية تثبت المسؤولية قبل التفكير في الأتمتة.",
+      "dominaseFit": "DOMINASE can prototype and measure this improvement without forcing a rebuild.",
+      "dominaseFitAr": "يمكن لـ DOMINASE اختبار هذا التحسين وقياسه دون فرض إعادة بناء.",
+      "riskNotes": "Do not publish engineering firm evidence, capacity, availability, prices, or outcomes that cannot be verified.",
+      "riskNotesAr": "لا تنشر أدلة أو طاقة استيعابية أو توفراً أو أسعاراً أو نتائج تخص الشركة الهندسية ما لم يمكن إثباتها."
+    },
+    {
+      "id": "engineering-controlled-path-2",
+      "title": "Strengthen licensing and credentials visibility with one controlled change",
+      "titleAr": "طوّر ظهور التراخيص والاعتمادات بخطوة منضبطة",
+      "category": "websiteStructure",
+      "conditions": {
+        "topicId": "eng_licensing_visibility",
+        "currentMin": 2,
+        "targetMin": 4,
+        "gapMin": 2
+      },
+      "mode": "improve",
+      "priority": 3,
+      "dedupeGroup": "engineering-controlled-1",
+      "impact": 3,
+      "effort": 3,
+      "urgency": 3,
+      "evidenceTags": [
+        "authority",
+        "trust-signal",
+        "credibility",
+        "engineering:licensing-trust"
+      ],
+      "why": "Licensing and credentials visibility directly shapes whether the right prospect understands, trusts, and advances with the engineering firm.",
+      "whyAr": "يؤثر ظهور التراخيص والاعتمادات مباشرة في فهم العميل المناسب وثقته وانتقاله إلى الخطوة التالية مع الشركة الهندسية.",
+      "how": [
+        "Test one focused improvement for the engineering firm before adding more tools or channels.",
+        "Assign one engineering firm owner and a review date.",
+        "Validate the change with real engineering firm inquiries and record what happened."
+      ],
+      "howAr": [
+        "اختبر تحسيناً واحداً ومحدداً في الشركة الهندسية قبل إضافة أدوات أو قنوات جديدة.",
+        "عيّن مسؤولاً واحداً في الشركة الهندسية وموعداً للمراجعة.",
+        "اختبر التغيير مع استفسارات حقيقية تخص الشركة الهندسية وسجّل النتيجة."
+      ],
+      "websiteImplication": "Make licensing and credentials visibility explicit at the page and decision point where it matters.",
+      "websiteImplicationAr": "أظهر ظهور التراخيص والاعتمادات بوضوح في الصفحة ونقطة القرار المناسبة.",
+      "systemImplication": "Use the smallest engineering firm tracking method that proves ownership before considering automation.",
+      "systemImplicationAr": "استخدم أبسط وسيلة متابعة في الشركة الهندسية تثبت المسؤولية قبل التفكير في الأتمتة.",
+      "dominaseFit": "DOMINASE can prototype and measure this improvement without forcing a rebuild.",
+      "dominaseFitAr": "يمكن لـ DOMINASE اختبار هذا التحسين وقياسه دون فرض إعادة بناء.",
+      "riskNotes": "Do not publish engineering firm evidence, capacity, availability, prices, or outcomes that cannot be verified.",
+      "riskNotesAr": "لا تنشر أدلة أو طاقة استيعابية أو توفراً أو أسعاراً أو نتائج تخص الشركة الهندسية ما لم يمكن إثباتها."
+    },
+    {
+      "id": "engineering-controlled-path-3",
+      "title": "Strengthen message clarity for decision-makers with one controlled change",
+      "titleAr": "طوّر وضوح الرسالة لمتخذ القرار بخطوة منضبطة",
+      "category": "conversionPath",
+      "conditions": {
+        "topicId": "eng_message_clarity",
+        "currentMin": 2,
+        "targetMin": 4,
+        "gapMin": 2
+      },
+      "mode": "improve",
+      "priority": 3,
+      "dedupeGroup": "engineering-controlled-2",
+      "impact": 3,
+      "effort": 3,
+      "urgency": 3,
+      "evidenceTags": [
+        "cognitive-ease",
+        "clarity",
+        "cta-clarity",
+        "engineering"
+      ],
+      "why": "Message clarity for decision-makers directly shapes whether the right prospect understands, trusts, and advances with the engineering firm.",
+      "whyAr": "يؤثر وضوح الرسالة لمتخذ القرار مباشرة في فهم العميل المناسب وثقته وانتقاله إلى الخطوة التالية مع الشركة الهندسية.",
+      "how": [
+        "Test one focused improvement for the engineering firm before adding more tools or channels.",
+        "Assign one engineering firm owner and a review date.",
+        "Validate the change with real engineering firm inquiries and record what happened."
+      ],
+      "howAr": [
+        "اختبر تحسيناً واحداً ومحدداً في الشركة الهندسية قبل إضافة أدوات أو قنوات جديدة.",
+        "عيّن مسؤولاً واحداً في الشركة الهندسية وموعداً للمراجعة.",
+        "اختبر التغيير مع استفسارات حقيقية تخص الشركة الهندسية وسجّل النتيجة."
+      ],
+      "websiteImplication": "Make message clarity for decision-makers explicit at the page and decision point where it matters.",
+      "websiteImplicationAr": "أظهر وضوح الرسالة لمتخذ القرار بوضوح في الصفحة ونقطة القرار المناسبة.",
+      "systemImplication": "Use the smallest engineering firm tracking method that proves ownership before considering automation.",
+      "systemImplicationAr": "استخدم أبسط وسيلة متابعة في الشركة الهندسية تثبت المسؤولية قبل التفكير في الأتمتة.",
+      "dominaseFit": "DOMINASE can prototype and measure this improvement without forcing a rebuild.",
+      "dominaseFitAr": "يمكن لـ DOMINASE اختبار هذا التحسين وقياسه دون فرض إعادة بناء.",
+      "riskNotes": "Do not publish engineering firm evidence, capacity, availability, prices, or outcomes that cannot be verified.",
+      "riskNotesAr": "لا تنشر أدلة أو طاقة استيعابية أو توفراً أو أسعاراً أو نتائج تخص الشركة الهندسية ما لم يمكن إثباتها."
+    },
+    {
+      "id": "engineering-controlled-path-4",
+      "title": "Strengthen process explanation with one controlled change",
+      "titleAr": "طوّر شرح العملية بخطوة منضبطة",
+      "category": "contentAndTrust",
+      "conditions": {
+        "topicId": "eng_process_explanation",
+        "currentMin": 2,
+        "targetMin": 4,
+        "gapMin": 2
+      },
+      "mode": "improve",
+      "priority": 3,
+      "dedupeGroup": "engineering-controlled-3",
+      "impact": 3,
+      "effort": 3,
+      "urgency": 3,
+      "evidenceTags": [
+        "service-marketing",
+        "tangibility",
+        "engineering:process-explanation"
+      ],
+      "why": "Process explanation directly shapes whether the right prospect understands, trusts, and advances with the engineering firm.",
+      "whyAr": "يؤثر شرح العملية مباشرة في فهم العميل المناسب وثقته وانتقاله إلى الخطوة التالية مع الشركة الهندسية.",
+      "how": [
+        "Test one focused improvement for the engineering firm before adding more tools or channels.",
+        "Assign one engineering firm owner and a review date.",
+        "Validate the change with real engineering firm inquiries and record what happened."
+      ],
+      "howAr": [
+        "اختبر تحسيناً واحداً ومحدداً في الشركة الهندسية قبل إضافة أدوات أو قنوات جديدة.",
+        "عيّن مسؤولاً واحداً في الشركة الهندسية وموعداً للمراجعة.",
+        "اختبر التغيير مع استفسارات حقيقية تخص الشركة الهندسية وسجّل النتيجة."
+      ],
+      "websiteImplication": "Make process explanation explicit at the page and decision point where it matters.",
+      "websiteImplicationAr": "أظهر شرح العملية بوضوح في الصفحة ونقطة القرار المناسبة.",
+      "systemImplication": "Use the smallest engineering firm tracking method that proves ownership before considering automation.",
+      "systemImplicationAr": "استخدم أبسط وسيلة متابعة في الشركة الهندسية تثبت المسؤولية قبل التفكير في الأتمتة.",
+      "dominaseFit": "DOMINASE can prototype and measure this improvement without forcing a rebuild.",
+      "dominaseFitAr": "يمكن لـ DOMINASE اختبار هذا التحسين وقياسه دون فرض إعادة بناء.",
+      "riskNotes": "Do not publish engineering firm evidence, capacity, availability, prices, or outcomes that cannot be verified.",
+      "riskNotesAr": "لا تنشر أدلة أو طاقة استيعابية أو توفراً أو أسعاراً أو نتائج تخص الشركة الهندسية ما لم يمكن إثباتها."
+    },
+    {
+      "id": "engineering-controlled-path-5",
+      "title": "Strengthen request-quote flow with one controlled change",
+      "titleAr": "طوّر مسار طلب العرض بخطوة منضبطة",
+      "category": "salesFollowUp",
+      "conditions": {
+        "topicId": "eng_quote_flow",
+        "currentMin": 2,
+        "targetMin": 4,
+        "gapMin": 2
+      },
+      "mode": "improve",
+      "priority": 3,
+      "dedupeGroup": "engineering-controlled-4",
+      "impact": 3,
+      "effort": 3,
+      "urgency": 3,
+      "evidenceTags": [
+        "booking-friction",
+        "contact-flow",
+        "discovery",
+        "engineering:request-quote"
+      ],
+      "why": "Request-quote flow directly shapes whether the right prospect understands, trusts, and advances with the engineering firm.",
+      "whyAr": "يؤثر مسار طلب العرض مباشرة في فهم العميل المناسب وثقته وانتقاله إلى الخطوة التالية مع الشركة الهندسية.",
+      "how": [
+        "Test one focused improvement for the engineering firm before adding more tools or channels.",
+        "Assign one engineering firm owner and a review date.",
+        "Validate the change with real engineering firm inquiries and record what happened."
+      ],
+      "howAr": [
+        "اختبر تحسيناً واحداً ومحدداً في الشركة الهندسية قبل إضافة أدوات أو قنوات جديدة.",
+        "عيّن مسؤولاً واحداً في الشركة الهندسية وموعداً للمراجعة.",
+        "اختبر التغيير مع استفسارات حقيقية تخص الشركة الهندسية وسجّل النتيجة."
+      ],
+      "websiteImplication": "Make request-quote flow explicit at the page and decision point where it matters.",
+      "websiteImplicationAr": "أظهر مسار طلب العرض بوضوح في الصفحة ونقطة القرار المناسبة.",
+      "systemImplication": "Use the smallest engineering firm tracking method that proves ownership before considering automation.",
+      "systemImplicationAr": "استخدم أبسط وسيلة متابعة في الشركة الهندسية تثبت المسؤولية قبل التفكير في الأتمتة.",
+      "dominaseFit": "DOMINASE can prototype and measure this improvement without forcing a rebuild.",
+      "dominaseFitAr": "يمكن لـ DOMINASE اختبار هذا التحسين وقياسه دون فرض إعادة بناء.",
+      "riskNotes": "Do not publish engineering firm evidence, capacity, availability, prices, or outcomes that cannot be verified.",
+      "riskNotesAr": "لا تنشر أدلة أو طاقة استيعابية أو توفراً أو أسعاراً أو نتائج تخص الشركة الهندسية ما لم يمكن إثباتها."
+    }
+  ],
+  "reportTemplates": {
+    "intro": {
+      "title": "Engineering Growth Diagnosis Report",
+      "titleAr": "تقرير تشخيص نمو شركات هندسية",
+      "fallback": "Your results show solid foundations with a few practical opportunities to improve clarity, trust, conversion, and follow-up.",
+      "fallbackAr": "تظهر نتيجتك أساسا جيدا مع فرص عملية لتحسين الوضوح والثقة ومسار التواصل والمتابعة."
+    },
+    "sections": [
+      {
+        "id": "strategicDiagnosis",
+        "category": "strategicDiagnosis",
+        "title": "Strategic diagnosis",
+        "titleAr": "التشخيص الاستراتيجي",
+        "purpose": "Summarize the highest-leverage business gaps without blame.",
+        "purposeAr": "تلخيص الفجوات الأعلى أثرا دون لوم."
+      },
+      {
+        "id": "customerProfile",
+        "category": "customerProfile",
+        "title": "Customer profile",
+        "titleAr": "ملف العميل",
+        "purpose": "Clarify which customer type the business should prioritize.",
+        "purposeAr": "توضيح نوع العميل الذي يستحق الأولوية."
+      },
+      {
+        "id": "websiteStructure",
+        "category": "websiteStructure",
+        "title": "Website structure",
+        "titleAr": "هيكل الموقع",
+        "purpose": "Turn clarity and trust gaps into practical website structure changes.",
+        "purposeAr": "تحويل فجوات الوضوح والثقة إلى تعديلات عملية في هيكل الموقع."
+      },
+      {
+        "id": "conversionPath",
+        "category": "conversionPath",
+        "title": "Conversion path",
+        "titleAr": "مسار التحويل",
+        "purpose": "Improve the path from interest to contact, booking, or quote request.",
+        "purposeAr": "تحسين المسار من الاهتمام إلى التواصل أو الحجز أو طلب العرض."
+      },
+      {
+        "id": "contentAndTrust",
+        "category": "contentAndTrust",
+        "title": "Content and trust",
+        "titleAr": "المحتوى والثقة",
+        "purpose": "Recommend proof, FAQ, pricing, and credibility assets.",
+        "purposeAr": "اقتراح أصول الإثبات والأسئلة والتسعير والمصداقية."
+      },
+      {
+        "id": "salesFollowUp",
+        "category": "salesFollowUp",
+        "title": "Sales follow-up",
+        "titleAr": "متابعة المبيعات",
+        "purpose": "Improve capture, tracking, WhatsApp, CRM, and follow-up rhythm.",
+        "purposeAr": "تحسين الالتقاط والتتبع وواتساب و CRM وإيقاع المتابعة."
+      },
+      {
+        "id": "quickWins",
+        "category": "quickWins",
+        "title": "Quick wins",
+        "titleAr": "مكاسب سريعة",
+        "purpose": "Name small fixes that can be done before a full build.",
+        "purposeAr": "تحديد إصلاحات صغيرة يمكن تنفيذها قبل أي بناء كبير."
+      },
+      {
+        "id": "dominaseNextStep",
+        "category": "dominaseNextStep",
+        "title": "DOMINASE next step",
+        "titleAr": "خطوة DOMINASE التالية",
+        "purpose": "Suggest one honest, proportionate DOMINASE build direction.",
+        "purposeAr": "اقتراح اتجاه بناء واحد من DOMINASE بصدق وتناسب."
+      }
+    ]
+  },
+  "contextForm": {
+    "title": "Engineering company context",
+    "titleAr": "سياق الشركة الهندسية",
+    "description": "These fields personalize the report only and require frontend support later. They are not required for scoring.",
+    "descriptionAr": "هذه الحقول لتخصيص التقرير فقط وتتطلب دعما لاحقا في الواجهة. لا تعتمد عليها عملية التسجيل.",
+    "requiresFrontendSupport": true,
+    "fields": [
+      {
+        "id": "institutionName",
+        "label": "Company name",
+        "labelAr": "اسم الشركة",
+        "type": "text",
+        "required": true,
+        "options": [],
+        "optionsAr": [],
+        "whyNeeded": "Personalize the report",
+        "whyNeededAr": "تخصيص التقرير",
+        "reportUse": "Header"
+      },
+      {
+        "id": "cityOrArea",
+        "label": "City / area",
+        "labelAr": "المدينة / المنطقة",
+        "type": "text",
+        "required": true,
+        "options": [],
+        "optionsAr": [],
+        "whyNeeded": "Local market context",
+        "whyNeededAr": "سياق السوق المحلي",
+        "reportUse": "StrategicDiagnosis"
+      },
+      {
+        "id": "mainProjectType",
+        "label": "Main project type",
+        "labelAr": "نوع المشروع الرئيسي",
+        "type": "select",
+        "required": true,
+        "options": [
+          "Design",
+          "Construction",
+          "MEP",
+          "Consulting",
+          "Contracting",
+          "Fabrication",
+          "Mixed"
+        ],
+        "optionsAr": [
+          "تصميم",
+          "إنشاء",
+          "كهروميكانيك",
+          "استشارات",
+          "مقاولات",
+          "تصنيع",
+          "مختلط"
+        ],
+        "whyNeeded": "Center project focus",
+        "whyNeededAr": "تركيز تشخيص نوع المشروع",
+        "reportUse": "StrategicDiagnosis"
+      },
+      {
+        "id": "serviceArea",
+        "label": "Service area / region",
+        "labelAr": "منطقة الخدمة",
+        "type": "text",
+        "required": true,
+        "options": [],
+        "optionsAr": [],
+        "whyNeeded": "Local positioning",
+        "whyNeededAr": "التموضع المحلي",
+        "reportUse": "StrategicDiagnosis"
+      },
+      {
+        "id": "quoteMethod",
+        "label": "How quotes are handled now",
+        "labelAr": "كيف تدار العروض الآن؟",
+        "type": "select",
+        "required": true,
+        "options": [
+          "Phone/email",
+          "WhatsApp",
+          "Website form",
+          "CRM pipeline",
+          "Referral only"
+        ],
+        "optionsAr": [
+          "هاتف/بريد",
+          "واتساب",
+          "نموذج موقع",
+          "خط CRM",
+          "إحالات فقط"
+        ],
+        "whyNeeded": "Baseline quote-flow friction",
+        "whyNeededAr": "خط أساس لاحتكاك طلب العرض",
+        "reportUse": "ConversionPath"
+      },
+      {
+        "id": "projectBudgetRange",
+        "label": "Typical budget range",
+        "labelAr": "نطاق الميزانية المعتاد",
+        "type": "select",
+        "required": false,
+        "options": [
+          "Small",
+          "Mid-size",
+          "Large",
+          "Varies widely",
+          "Prefer not to say"
+        ],
+        "optionsAr": [
+          "صغير",
+          "متوسط",
+          "كبير",
+          "يتفاوت كثيرا",
+          "أفضل عدم الإجابة"
+        ],
+        "whyNeeded": "Inform cost-factor content",
+        "whyNeededAr": "إثراء محتوى عوامل التكلفة",
+        "reportUse": "ContentAndTrust"
+      },
+      {
+        "id": "optionalNotes",
+        "label": "Anything else",
+        "labelAr": "ملاحظات إضافية",
+        "type": "textarea",
+        "required": false,
+        "options": [],
+        "optionsAr": [],
+        "whyNeeded": "Capture nuance",
+        "whyNeededAr": "التقاط التفاصيل",
+        "reportUse": "Context"
+      }
+    ]
+  }
+}

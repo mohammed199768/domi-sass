@@ -1,0 +1,3785 @@
+{
+  "meta": {
+    "id": "venue-growth-diagnosis",
+    "version": "2.0.0-multi-domain-local",
+    "title": "Venue Growth Diagnosis",
+    "titleAr": "تشخيص نمو القاعة",
+    "description": "A strategic self-assessment for visual trust, package clarity, availability inquiry, lead follow-up, and digital readiness.",
+    "descriptionAr": "تقييم ذاتي استراتيجي للثقة البصرية ووضوح الباقات واستفسار التوفر والمتابعة والجاهزية الرقمية.",
+    "disclaimer": "This is a strategic self-assessment for business readiness. It is not a guarantee of results and is not a substitute for professional legal, financial, medical, or operational advice. It does not guarantee bookings. Availability, seasonal offers, and testimonials must be truthful, permissioned, and free from fake scarcity.",
+    "disclaimerAr": "هذا تقييم ذاتي استراتيجي لجاهزية النشاط. لا يضمن النتائج ولا يغني عن الاستشارة المهنية القانونية أو المالية أو الطبية أو التشغيلية عند الحاجة. لا يضمن الحجوزات. يجب أن يكون التوفر والعروض الموسمية والشهادات صادقة ومصرحا بها وخالية من الندرة المصطنعة.",
+    "scale": {
+      "min": 1,
+      "max": 5,
+      "step": 0.5
+    },
+    "domain": "venue",
+    "domainAr": "قاعات ومواقع مناسبات",
+    "estimatedMinutes": 8,
+    "sourceNote": "Generated from 04_STRATEGY_MAPS/venue_strategy_map.md, question_blueprints.json, DOMINASE_EXTRACTION_MATRIX.json, DOMINASE_TAG_TAXONOMY.md, and DOMINASE_RECOMMENDATION_BANK.md. question_blueprints.json was used only as planning index.",
+    "ethicsNote": "Value-first, advisor-like self-assessment. No fabricated statistics, no guarantees, no manipulative urgency, no copied book text, and no recommendation to build systems the business will not realistically use."
+  },
+  "dimensions": [
+    {
+      "id": "D1",
+      "dimensionKey": "visual-trust-experience",
+      "title": "Visual Trust & Experience",
+      "titleAr": "الثقة البصرية والتجربة",
+      "description": "Whether couples can picture their event and trust the venue visually.",
+      "descriptionAr": "هل يستطيع الأزواج تخيل مناسبتهم والثقة بالقاعه بصريا.",
+      "orderIndex": 1,
+      "weight": 5,
+      "topics": [
+        {
+          "id": "venue_gallery_strength",
+          "topicKey": "gallery-strength",
+          "label": "Gallery strength",
+          "labelAr": "قوة المعرض",
+          "prompt": "Can a couple browse enough strong, real-event photos to clearly picture their own day at your venue?",
+          "promptAr": "هل يستطيع الزوجان تصفح صور حقيقية وقوية كافية لتخيل يومهما في قاعتك بوضوح؟",
+          "answerMode": "current-target",
+          "orderIndex": 1,
+          "weight": 5,
+          "tags": [
+            "gallery",
+            "visual-trust",
+            "portfolio",
+            "venue:gallery-strength"
+          ],
+          "levelAnchors": [
+            "1 - Few or weak photos",
+            "2 - Photos exist but feel generic",
+            "3 - Decent gallery with limited event variety",
+            "4 - Strong real-event gallery",
+            "5 - Curated galleries show atmosphere, details, and real celebrations"
+          ],
+          "levelAnchorsAr": [
+            "1 - صور قليلة أو ضعيفة",
+            "2 - الصور موجودة لكنها عامة",
+            "3 - معرض مقبول بتنوع محدود",
+            "4 - معرض قوي من مناسبات حقيقية",
+            "5 - معارض منسقة تظهر الأجواء والتفاصيل والاحتفالات الحقيقية"
+          ]
+        },
+        {
+          "id": "venue_experience_story",
+          "topicKey": "experience-story",
+          "label": "Guest experience conveyed",
+          "labelAr": "نقل تجربة الضيوف",
+          "prompt": "Does your site convey the flow, atmosphere, and guest experience, not just static room photos?",
+          "promptAr": "هل ينقل موقعك تسلسل اليوم والأجواء وتجربة الضيوف وليس فقط صورا ثابتة للمكان؟",
+          "answerMode": "current-target",
+          "orderIndex": 2,
+          "weight": 3,
+          "tags": [
+            "service-marketing",
+            "tangibility",
+            "storytelling",
+            "venue:guest-experience"
+          ],
+          "levelAnchors": [
+            "1 - Only static space photos",
+            "2 - Some descriptive text",
+            "3 - Some event moments are shown",
+            "4 - The event flow is fairly clear",
+            "5 - Stories, video, or galleries make the experience tangible"
+          ],
+          "levelAnchorsAr": [
+            "1 - صور ثابتة للمكان فقط",
+            "2 - بعض الوصف النصي",
+            "3 - تظهر بعض لحظات المناسبات",
+            "4 - تسلسل التجربة واضح إلى حد جيد",
+            "5 - القصص أو الفيديو أو المعارض تجعل التجربة ملموسة"
+          ]
+        },
+        {
+          "id": "venue_couple_testimonials",
+          "topicKey": "couple-testimonials",
+          "label": "Couple testimonials",
+          "labelAr": "شهادات الأزواج",
+          "prompt": "Can couples see real testimonials or stories from events similar to theirs?",
+          "promptAr": "هل يرى الزوجان شهادات أو قصصا حقيقية من مناسبات قريبة من مناسبتهم؟",
+          "answerMode": "current-target",
+          "orderIndex": 9,
+          "weight": 3,
+          "tags": [
+            "social-proof",
+            "testimonials",
+            "weak-proof",
+            "venue"
+          ],
+          "levelAnchors": [
+            "1 - No testimonials",
+            "2 - A few generic compliments",
+            "3 - Testimonials exist but are not linked to event types",
+            "4 - Relevant testimonials appear near packages or galleries",
+            "5 - Stories and testimonials reduce risk at key decision points"
+          ],
+          "levelAnchorsAr": [
+            "1 - لا توجد شهادات",
+            "2 - بعض المديح العام",
+            "3 - الشهادات موجودة لكنها غير مرتبطة بأنواع المناسبات",
+            "4 - شهادات مناسبة تظهر قرب الباقات أو المعارض",
+            "5 - القصص والشهادات تقلل المخاطرة في مواضع القرار"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "D2",
+      "dimensionKey": "package-price-clarity",
+      "title": "Package & Price Clarity",
+      "titleAr": "وضوح الباقات والسعر",
+      "description": "How clearly packages, ranges, capacity, and logistics are communicated.",
+      "descriptionAr": "مدى وضوح الباقات والنطاقات والسعة والتفاصيل العملية.",
+      "orderIndex": 2,
+      "weight": 4,
+      "topics": [
+        {
+          "id": "venue_package_clarity",
+          "topicKey": "package-clarity",
+          "label": "Package clarity",
+          "labelAr": "وضوح الباقات",
+          "prompt": "Are packages and inclusions clear enough that couples understand their options without messaging first?",
+          "promptAr": "هل الباقات وما تتضمنه واضحة بما يكفي ليفهم الزوجان خياراتهما دون مراسلتك أولا؟",
+          "answerMode": "current-target",
+          "orderIndex": 3,
+          "weight": 4,
+          "tags": [
+            "packaging",
+            "choice-overload",
+            "offer-clarity",
+            "venue:package-clarity"
+          ],
+          "levelAnchors": [
+            "1 - No packages shown",
+            "2 - Packages are vague",
+            "3 - Packages listed but confusing or too many",
+            "4 - A few clear packages with inclusions",
+            "5 - Clear tiers guide the right couple to the right option"
+          ],
+          "levelAnchorsAr": [
+            "1 - لا توجد باقات معروضة",
+            "2 - الباقات غامضة",
+            "3 - الباقات مذكورة لكنها مربكة أو كثيرة",
+            "4 - باقات قليلة واضحة مع المشمولات",
+            "5 - مستويات واضحة توجه الزوجين للخيار المناسب"
+          ]
+        },
+        {
+          "id": "venue_price_ranges",
+          "topicKey": "price-ranges",
+          "label": "Price range transparency",
+          "labelAr": "شفافية النطاق السعري",
+          "prompt": "Does your site give couples a realistic sense of package price ranges so the right couples inquire?",
+          "promptAr": "هل يمنح موقعك الزوجين تصورا واقعيا لنطاقات أسعار الباقات كي يتواصل المناسبون؟",
+          "answerMode": "current-target",
+          "orderIndex": 4,
+          "weight": 3,
+          "tags": [
+            "pricing-transparency",
+            "pricing-content",
+            "trust-barrier",
+            "venue"
+          ],
+          "levelAnchors": [
+            "1 - No price guidance",
+            "2 - Only contact us for price",
+            "3 - Very vague starting guidance",
+            "4 - Starting ranges or cost factors are clear",
+            "5 - Honest ranges qualify fit without fake pressure"
+          ],
+          "levelAnchorsAr": [
+            "1 - لا يوجد توجيه سعري",
+            "2 - فقط تواصل للسعر",
+            "3 - توجيه مبدئي غامض جدا",
+            "4 - نطاقات البداية أو عوامل التكلفة واضحة",
+            "5 - نطاقات صادقة تؤهل الملاءمة دون ضغط مصطنع"
+          ]
+        },
+        {
+          "id": "venue_location_capacity",
+          "topicKey": "location-capacity",
+          "label": "Location and capacity clarity",
+          "labelAr": "وضوح الموقع والسعة",
+          "prompt": "Are capacity, location, parking, and logistics clear before someone asks?",
+          "promptAr": "هل السعة والموقع والمواقف والتفاصيل اللوجستية واضحة قبل أن يسأل أحد؟",
+          "answerMode": "current-target",
+          "orderIndex": 10,
+          "weight": 3,
+          "tags": [
+            "local-positioning",
+            "contact-flow",
+            "venue"
+          ],
+          "levelAnchors": [
+            "1 - Capacity or location is unclear",
+            "2 - Only basic information is listed",
+            "3 - Capacity and location are listed with gaps",
+            "4 - Key logistics are clear",
+            "5 - Capacity, location, parking, and fit are easy to evaluate"
+          ],
+          "levelAnchorsAr": [
+            "1 - السعة أو الموقع غير واضح",
+            "2 - معلومات أساسية فقط",
+            "3 - السعة والموقع مذكوران مع فجوات",
+            "4 - التفاصيل اللوجستية المهمة واضحة",
+            "5 - السعة والموقع والمواقف والملاءمة سهلة التقييم"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "D3",
+      "dimensionKey": "availability-inquiry-flow",
+      "title": "Availability & Inquiry Flow",
+      "titleAr": "التوفر ومسار الاستفسار",
+      "description": "How easily date-locked couples can inquire and receive a real response.",
+      "descriptionAr": "مدى سهولة استفسار أصحاب التاريخ المحدد وحصولهم على رد حقيقي.",
+      "orderIndex": 3,
+      "weight": 5,
+      "topics": [
+        {
+          "id": "venue_availability_check",
+          "topicKey": "availability-check",
+          "label": "Availability and date-check flow",
+          "labelAr": "مسار التحقق من التاريخ",
+          "prompt": "Can a couple easily ask about their specific date and get a fast, organized response?",
+          "promptAr": "هل يستطيع الزوجان بسهولة السؤال عن تاريخهما المحدد والحصول على رد سريع ومنظم؟",
+          "answerMode": "current-target",
+          "orderIndex": 5,
+          "weight": 5,
+          "tags": [
+            "availability",
+            "booking-friction",
+            "contact-flow",
+            "venue:availability-inquiry"
+          ],
+          "levelAnchors": [
+            "1 - Must message and wait",
+            "2 - Date requests are handled manually",
+            "3 - A form exists but follow-up is inconsistent",
+            "4 - Date-check is clear with expected response",
+            "5 - Availability inquiry is structured, fast, and tracked"
+          ],
+          "levelAnchorsAr": [
+            "1 - يجب المراسلة والانتظار",
+            "2 - طلبات التاريخ تدار يدويا",
+            "3 - يوجد نموذج لكن المتابعة غير منتظمة",
+            "4 - التحقق من التاريخ واضح مع توقع وقت الرد",
+            "5 - استفسار التوفر منظم وسريع وقابل للتتبع"
+          ]
+        },
+        {
+          "id": "venue_seasonal_offers",
+          "topicKey": "seasonal-offers",
+          "label": "Seasonal and off-peak offers",
+          "labelAr": "العروض الموسمية وخارج الذروة",
+          "prompt": "Do you use honest seasonal or off-peak offers to fill dates that would otherwise stay empty?",
+          "promptAr": "هل تستخدم عروضا موسمية أو خارج الذروة بصدق لملء تواريخ قد تبقى فارغة؟",
+          "answerMode": "current-target",
+          "orderIndex": 11,
+          "weight": 2,
+          "tags": [
+            "framing",
+            "anchoring",
+            "venue:seasonal-offers"
+          ],
+          "levelAnchors": [
+            "1 - No seasonal strategy",
+            "2 - Occasional unplanned discounts",
+            "3 - Some seasonal offers but unclear logic",
+            "4 - Planned honest offers for real off-peak dates",
+            "5 - Seasonal offers are clear, truthful, and linked to follow-up"
+          ],
+          "levelAnchorsAr": [
+            "1 - لا توجد استراتيجية موسمية",
+            "2 - خصومات عارضة غير مخططة",
+            "3 - بعض العروض الموسمية لكن منطقها غير واضح",
+            "4 - عروض صادقة مخططة لتواريخ خارج الذروة فعلا",
+            "5 - عروض موسمية واضحة وصادقة ومرتبطة بالمتابعة"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "D4",
+      "dimensionKey": "lead-followup-channels",
+      "title": "Lead Follow-up & Channels",
+      "titleAr": "متابعة العملاء والقنوات",
+      "description": "Whether inquiries are captured, organized, and followed up across channels.",
+      "descriptionAr": "هل يتم التقاط الاستفسارات وتنظيمها ومتابعتها عبر القنوات.",
+      "orderIndex": 4,
+      "weight": 5,
+      "topics": [
+        {
+          "id": "venue_inquiry_followup",
+          "topicKey": "inquiry-followup",
+          "label": "Inquiry follow-up speed",
+          "labelAr": "سرعة متابعة الاستفسارات",
+          "prompt": "Do serious inquiries get a timely, consistent follow-up sequence until the couple decides?",
+          "promptAr": "هل تحصل الاستفسارات الجادة على متابعة سريعة ومنتظمة حتى يتخذ الزوجان قرارهما؟",
+          "answerMode": "current-target",
+          "orderIndex": 6,
+          "weight": 5,
+          "tags": [
+            "weak-follow-up",
+            "follow-up",
+            "cadence",
+            "venue"
+          ],
+          "levelAnchors": [
+            "1 - Replies are ad hoc or late",
+            "2 - First reply happens but follow-up is rare",
+            "3 - Some follow-up reminders exist",
+            "4 - Follow-up is timely and mostly consistent",
+            "5 - A respectful cadence keeps every serious inquiry warm"
+          ],
+          "levelAnchorsAr": [
+            "1 - الردود عشوائية أو متأخرة",
+            "2 - يوجد رد أول لكن المتابعة نادرة",
+            "3 - توجد بعض تذكيرات المتابعة",
+            "4 - المتابعة سريعة ومنتظمة غالبا",
+            "5 - إيقاع محترم يحافظ على كل استفسار جاد"
+          ]
+        },
+        {
+          "id": "venue_whatsapp_channels",
+          "topicKey": "whatsapp-channels",
+          "label": "WhatsApp and channel control",
+          "labelAr": "تنظيم واتساب والقنوات",
+          "prompt": "Are WhatsApp, Instagram, calls, and forms unified into one inquiry view?",
+          "promptAr": "هل واتساب وإنستغرام والاتصالات والنماذج موحدة في عرض واحد للاستفسارات؟",
+          "answerMode": "current-target",
+          "orderIndex": 7,
+          "weight": 4,
+          "tags": [
+            "whatsapp",
+            "messaging",
+            "crm",
+            "venue:whatsapp-overload"
+          ],
+          "levelAnchors": [
+            "1 - Channels are scattered",
+            "2 - Some messages are copied manually",
+            "3 - One or two channels are tracked",
+            "4 - Most channels feed a shared list",
+            "5 - All serious inquiries are captured in one pipeline"
+          ],
+          "levelAnchorsAr": [
+            "1 - القنوات مبعثرة",
+            "2 - يتم نقل بعض الرسائل يدويا",
+            "3 - تتبع قناة أو قناتان فقط",
+            "4 - معظم القنوات تغذي قائمة مشتركة",
+            "5 - كل الاستفسارات الجادة تدخل خط متابعة واحد"
+          ]
+        },
+        {
+          "id": "venue_lead_capture",
+          "topicKey": "lead-capture",
+          "label": "Capturing browsing couples",
+          "labelAr": "التقاط الأزواج المتصفحين",
+          "prompt": "Beyond DM or phone, is there a low-pressure way for browsing couples to get planning info and stay in touch?",
+          "promptAr": "خلاف الرسائل أو الهاتف، هل توجد طريقة منخفضة الضغط للمتصفحين للحصول على معلومات تخطيط والبقاء على تواصل؟",
+          "answerMode": "current-target",
+          "orderIndex": 12,
+          "weight": 3,
+          "tags": [
+            "capture",
+            "lead-magnet",
+            "reciprocity",
+            "venue"
+          ],
+          "levelAnchors": [
+            "1 - Only DM or phone",
+            "2 - Basic form with no value",
+            "3 - Some useful content but no capture",
+            "4 - Planning guide or update capture exists",
+            "5 - Browsers get useful planning value and enter respectful follow-up"
+          ],
+          "levelAnchorsAr": [
+            "1 - رسائل أو هاتف فقط",
+            "2 - نموذج أساسي دون قيمة",
+            "3 - محتوى مفيد دون التقاط",
+            "4 - يوجد دليل تخطيط أو التقاط تحديثات",
+            "5 - المتصفحون يحصلون على قيمة ويدخلون متابعة محترمة"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "D5",
+      "dimensionKey": "first-impression-message",
+      "title": "First Impression & Message",
+      "titleAr": "الانطباع الأول والرسالة",
+      "description": "Whether the venue style, fit, and next step are clear immediately.",
+      "descriptionAr": "هل أسلوب القاعة وملاءمتها والخطوة التالية واضحة فورا.",
+      "orderIndex": 5,
+      "weight": 3,
+      "topics": [
+        {
+          "id": "venue_first_impression",
+          "topicKey": "first-impression",
+          "label": "First impression",
+          "labelAr": "الانطباع الأول",
+          "prompt": "Does the first screen immediately communicate the venue's style, fit, and next step?",
+          "promptAr": "هل تنقل الشاشة الأولى فورا أسلوب القاعة وملاءمتها والخطوة التالية؟",
+          "answerMode": "current-target",
+          "orderIndex": 8,
+          "weight": 3,
+          "tags": [
+            "first-impression",
+            "hero-clarity",
+            "visual-trust",
+            "venue"
+          ],
+          "levelAnchors": [
+            "1 - Opening feels generic or weak",
+            "2 - Style is visible but next step is unclear",
+            "3 - Good first impression with some clutter",
+            "4 - Style and inquiry path are clear",
+            "5 - The first screen sells the feel and guides action"
+          ],
+          "levelAnchorsAr": [
+            "1 - الافتتاحية عامة أو ضعيفة",
+            "2 - الأسلوب ظاهر لكن الخطوة التالية غير واضحة",
+            "3 - انطباع جيد مع بعض الازدحام",
+            "4 - الأسلوب ومسار الاستفسار واضحان",
+            "5 - الشاشة الأولى تنقل الشعور وتوجه للتصرف"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "D6",
+      "dimensionKey": "digital-addons-readiness",
+      "title": "Digital Add-ons & Readiness",
+      "titleAr": "الإضافات الرقمية والجاهزية",
+      "description": "Whether inquiry systems are connected and can support useful guest add-ons.",
+      "descriptionAr": "هل أنظمة الاستفسار مترابطة وقادرة على دعم إضافات ضيوف مفيدة.",
+      "orderIndex": 6,
+      "weight": 3,
+      "topics": [
+        {
+          "id": "venue_digital_readiness",
+          "topicKey": "digital-readiness",
+          "label": "Connected systems and add-ons",
+          "labelAr": "الأنظمة المترابطة والإضافات الرقمية",
+          "prompt": "Do site, inquiries, and follow-up work as one tracked system, with room for useful digital add-ons like RSVP if relevant?",
+          "promptAr": "هل يعمل الموقع والاستفسارات والمتابعة كنظام واحد متتبع مع إمكانية إضافات رقمية مفيدة مثل RSVP عند مناسبتها؟",
+          "answerMode": "current-target",
+          "orderIndex": 13,
+          "weight": 3,
+          "tags": [
+            "digital-readiness",
+            "system",
+            "service-marketing",
+            "venue"
+          ],
+          "levelAnchors": [
+            "1 - Disconnected tools and no add-ons",
+            "2 - Some manual lists exist",
+            "3 - Partly connected tools",
+            "4 - Core inquiry journey is connected",
+            "5 - Connected pipeline can support useful guest-experience add-ons"
+          ],
+          "levelAnchorsAr": [
+            "1 - أدوات منفصلة ولا إضافات",
+            "2 - توجد بعض القوائم اليدوية",
+            "3 - أدوات مترابطة جزئيا",
+            "4 - رحلة الاستفسار الأساسية مترابطة",
+            "5 - خط متابعة مترابط يمكن أن يدعم إضافات مفيدة لتجربة الضيوف"
+          ]
+        }
+      ]
+    }
+  ],
+  "scoring": {
+    "model": "current-target-gap",
+    "gapFormula": "gap = max(target - current, 0)",
+    "priorityDimensionIds": [
+      "D1",
+      "D3",
+      "D4"
+    ],
+    "profiles": [
+      {
+        "id": "venue-positive-maintenance",
+        "title": "Strong Foundation — Controlled Optimization",
+        "titleAr": "أساس قوي — تحسين منضبط",
+        "summary": "Core areas are working well. Protect what is proven and improve only where evidence shows leverage.",
+        "summaryAr": "تعمل المجالات الأساسية جيداً. حافظ على ما ثبت نجاحه وحسّن فقط حيث يظهر الدليل فرصة واضحة.",
+        "conditions": {
+          "dimensionMin": {
+            "D1": 4.5,
+            "D2": 4.5,
+            "D3": 4.5,
+            "D4": 4.5,
+            "D5": 4.5,
+            "D6": 4.5
+          }
+        },
+        "relatedDimensions": [
+          "D1",
+          "D2",
+          "D3",
+          "D4",
+          "D5",
+          "D6"
+        ],
+        "riskNote": "Avoid unnecessary rebuilds or automation.",
+        "riskNoteAr": "تجنب إعادة البناء أو الأتمتة غير الضرورية.",
+        "profilePriority": 50
+      },
+      {
+        "id": "venue-profile-01",
+        "title": "Reputation And Digital Presentation",
+        "titleAr": "نمط القاعة: أولوية 1",
+        "summary": "The closest pattern combines reputation and digital presentation; sequence the governing constraint before expanding the system.",
+        "summaryAr": "يشير هذا النمط إلى عائق واضح في القاعة؛ ابدأ به قبل توسيع الأدوات أو النظام.",
+        "conditions": [
+          {
+            "dimensionId": "D1",
+            "gapMin": 1
+          },
+          {
+            "dimensionId": "D3",
+            "currentMin": 3
+          }
+        ],
+        "relatedDimensions": [
+          "D1",
+          "D3"
+        ],
+        "riskNote": "Keep the venue response proportional to observed evidence and operating capacity.",
+        "riskNoteAr": "اجعل استجابة القاعة متناسبة مع الأدلة والقدرة التشغيلية.",
+        "profilePriority": 20
+      },
+      {
+        "id": "venue-profile-02",
+        "title": "Gallery And Package Clarity",
+        "titleAr": "نمط القاعة: أولوية 2",
+        "summary": "The closest pattern combines gallery and package clarity; sequence the governing constraint before expanding the system.",
+        "summaryAr": "يشير هذا النمط إلى عائق واضح في القاعة؛ ابدأ به قبل توسيع الأدوات أو النظام.",
+        "conditions": [
+          {
+            "dimensionId": "D2",
+            "gapMin": 1
+          },
+          {
+            "dimensionId": "D4",
+            "currentMin": 3
+          }
+        ],
+        "relatedDimensions": [
+          "D2",
+          "D4"
+        ],
+        "riskNote": "Keep the venue response proportional to observed evidence and operating capacity.",
+        "riskNoteAr": "اجعل استجابة القاعة متناسبة مع الأدلة والقدرة التشغيلية.",
+        "profilePriority": 19
+      },
+      {
+        "id": "venue-profile-03",
+        "title": "Packages And Availability Inquiry",
+        "titleAr": "نمط القاعة: أولوية 3",
+        "summary": "The closest pattern combines packages and availability inquiry; sequence the governing constraint before expanding the system.",
+        "summaryAr": "يشير هذا النمط إلى عائق واضح في القاعة؛ ابدأ به قبل توسيع الأدوات أو النظام.",
+        "conditions": [
+          {
+            "dimensionId": "D3",
+            "gapMin": 1
+          },
+          {
+            "dimensionId": "D5",
+            "currentMin": 3
+          }
+        ],
+        "relatedDimensions": [
+          "D3",
+          "D5"
+        ],
+        "riskNote": "Keep the venue response proportional to observed evidence and operating capacity.",
+        "riskNoteAr": "اجعل استجابة القاعة متناسبة مع الأدلة والقدرة التشغيلية.",
+        "profilePriority": 18
+      },
+      {
+        "id": "venue-profile-04",
+        "title": "WhatsApp Follow-Up",
+        "titleAr": "نمط القاعة: أولوية 4",
+        "summary": "The closest pattern combines WhatsApp follow-up; sequence the governing constraint before expanding the system.",
+        "summaryAr": "يشير هذا النمط إلى عائق واضح في القاعة؛ ابدأ به قبل توسيع الأدوات أو النظام.",
+        "conditions": [
+          {
+            "dimensionId": "D4",
+            "gapMin": 1
+          },
+          {
+            "dimensionId": "D6",
+            "currentMin": 3
+          }
+        ],
+        "relatedDimensions": [
+          "D4",
+          "D6"
+        ],
+        "riskNote": "Keep the venue response proportional to observed evidence and operating capacity.",
+        "riskNoteAr": "اجعل استجابة القاعة متناسبة مع الأدلة والقدرة التشغيلية.",
+        "profilePriority": 17
+      },
+      {
+        "id": "venue-profile-05",
+        "title": "Deposit And Confirmation",
+        "titleAr": "نمط القاعة: أولوية 5",
+        "summary": "The closest pattern combines deposit and confirmation; sequence the governing constraint before expanding the system.",
+        "summaryAr": "يشير هذا النمط إلى عائق واضح في القاعة؛ ابدأ به قبل توسيع الأدوات أو النظام.",
+        "conditions": [
+          {
+            "dimensionId": "D5",
+            "gapMin": 1
+          },
+          {
+            "dimensionId": "D1",
+            "currentMin": 3
+          }
+        ],
+        "relatedDimensions": [
+          "D5",
+          "D1"
+        ],
+        "riskNote": "Keep the venue response proportional to observed evidence and operating capacity.",
+        "riskNoteAr": "اجعل استجابة القاعة متناسبة مع الأدلة والقدرة التشغيلية.",
+        "profilePriority": 16
+      },
+      {
+        "id": "venue-profile-06",
+        "title": "Hall And Package Choice",
+        "titleAr": "نمط القاعة: أولوية 6",
+        "summary": "The closest pattern combines hall and package choice; sequence the governing constraint before expanding the system.",
+        "summaryAr": "يشير هذا النمط إلى عائق واضح في القاعة؛ ابدأ به قبل توسيع الأدوات أو النظام.",
+        "conditions": [
+          {
+            "dimensionId": "D6",
+            "gapMin": 1
+          },
+          {
+            "dimensionId": "D2",
+            "currentMin": 3
+          }
+        ],
+        "relatedDimensions": [
+          "D6",
+          "D2"
+        ],
+        "riskNote": "Keep the venue response proportional to observed evidence and operating capacity.",
+        "riskNoteAr": "اجعل استجابة القاعة متناسبة مع الأدلة والقدرة التشغيلية.",
+        "profilePriority": 15
+      },
+      {
+        "id": "venue-profile-07",
+        "title": "Booking Flow And Trust",
+        "titleAr": "نمط القاعة: أولوية 7",
+        "summary": "The closest pattern combines booking flow and trust; sequence the governing constraint before expanding the system.",
+        "summaryAr": "يشير هذا النمط إلى عائق واضح في القاعة؛ ابدأ به قبل توسيع الأدوات أو النظام.",
+        "conditions": [
+          {
+            "dimensionId": "D1",
+            "gapMin": 1
+          },
+          {
+            "dimensionId": "D3",
+            "currentMin": 3
+          }
+        ],
+        "relatedDimensions": [
+          "D1",
+          "D3"
+        ],
+        "riskNote": "Keep the venue response proportional to observed evidence and operating capacity.",
+        "riskNoteAr": "اجعل استجابة القاعة متناسبة مع الأدلة والقدرة التشغيلية.",
+        "profilePriority": 14
+      },
+      {
+        "id": "venue-profile-08",
+        "title": "Social Reach And Owned Conversion",
+        "titleAr": "نمط القاعة: أولوية 8",
+        "summary": "The closest pattern combines social reach and owned conversion; sequence the governing constraint before expanding the system.",
+        "summaryAr": "يشير هذا النمط إلى عائق واضح في القاعة؛ ابدأ به قبل توسيع الأدوات أو النظام.",
+        "conditions": [
+          {
+            "dimensionId": "D2",
+            "gapMin": 1
+          },
+          {
+            "dimensionId": "D4",
+            "currentMin": 3
+          }
+        ],
+        "relatedDimensions": [
+          "D2",
+          "D4"
+        ],
+        "riskNote": "Keep the venue response proportional to observed evidence and operating capacity.",
+        "riskNoteAr": "اجعل استجابة القاعة متناسبة مع الأدلة والقدرة التشغيلية.",
+        "profilePriority": 13
+      },
+      {
+        "id": "venue-profile-09",
+        "title": "Early-Stage Essentials",
+        "titleAr": "نمط القاعة: أولوية 9",
+        "summary": "The closest pattern combines early-stage essentials; sequence the governing constraint before expanding the system.",
+        "summaryAr": "يشير هذا النمط إلى عائق واضح في القاعة؛ ابدأ به قبل توسيع الأدوات أو النظام.",
+        "conditions": [
+          {
+            "dimensionId": "D3",
+            "currentMax": 2,
+            "gapMax": 0.5
+          },
+          {
+            "dimensionId": "D5",
+            "currentMax": 2,
+            "gapMax": 0.5
+          }
+        ],
+        "relatedDimensions": [
+          "D3",
+          "D5"
+        ],
+        "riskNote": "Keep the venue response proportional to observed evidence and operating capacity.",
+        "riskNoteAr": "اجعل استجابة القاعة متناسبة مع الأدلة والقدرة التشغيلية.",
+        "profilePriority": 12
+      },
+      {
+        "id": "venue-profile-10",
+        "title": "Measurement And Optimization",
+        "titleAr": "نمط القاعة: أولوية 10",
+        "summary": "The closest pattern combines measurement and optimization; sequence the governing constraint before expanding the system.",
+        "summaryAr": "يشير هذا النمط إلى عائق واضح في القاعة؛ ابدأ به قبل توسيع الأدوات أو النظام.",
+        "conditions": [
+          {
+            "dimensionId": "D4",
+            "gapMin": 1
+          },
+          {
+            "dimensionId": "D6",
+            "currentMin": 3
+          }
+        ],
+        "relatedDimensions": [
+          "D4",
+          "D6"
+        ],
+        "riskNote": "Keep the venue response proportional to observed evidence and operating capacity.",
+        "riskNoteAr": "اجعل استجابة القاعة متناسبة مع الأدلة والقدرة التشغيلية.",
+        "profilePriority": 11
+      },
+      {
+        "id": "venue-profile-11",
+        "title": "Seasonal Follow-Up",
+        "titleAr": "نمط القاعة: أولوية 11",
+        "summary": "The closest pattern combines seasonal follow-up; sequence the governing constraint before expanding the system.",
+        "summaryAr": "يشير هذا النمط إلى عائق واضح في القاعة؛ ابدأ به قبل توسيع الأدوات أو النظام.",
+        "conditions": [
+          {
+            "dimensionId": "D5",
+            "currentMax": 2,
+            "gapMax": 0.5
+          },
+          {
+            "dimensionId": "D1",
+            "currentMax": 2,
+            "gapMax": 0.5
+          }
+        ],
+        "relatedDimensions": [
+          "D5",
+          "D1"
+        ],
+        "riskNote": "Keep the venue response proportional to observed evidence and operating capacity.",
+        "riskNoteAr": "اجعل استجابة القاعة متناسبة مع الأدلة والقدرة التشغيلية.",
+        "profilePriority": 10
+      },
+      {
+        "id": "venue-profile-12",
+        "title": "Visit Scheduling",
+        "titleAr": "نمط القاعة: أولوية 12",
+        "summary": "The closest pattern combines visit scheduling; sequence the governing constraint before expanding the system.",
+        "summaryAr": "يشير هذا النمط إلى عائق واضح في القاعة؛ ابدأ به قبل توسيع الأدوات أو النظام.",
+        "conditions": [
+          {
+            "dimensionId": "D6",
+            "currentMin": 4,
+            "gapMax": 1
+          },
+          {
+            "dimensionId": "D2",
+            "currentMin": 4,
+            "gapMax": 1
+          }
+        ],
+        "relatedDimensions": [
+          "D6",
+          "D2"
+        ],
+        "riskNote": "Keep the venue response proportional to observed evidence and operating capacity.",
+        "riskNoteAr": "اجعل استجابة القاعة متناسبة مع الأدلة والقدرة التشغيلية.",
+        "profilePriority": 9
+      },
+      {
+        "id": "venue-profile-13",
+        "title": "Capacity Parking And Access Clarity",
+        "titleAr": "نمط القاعة: أولوية 13",
+        "summary": "The closest pattern combines capacity parking and access clarity; sequence the governing constraint before expanding the system.",
+        "summaryAr": "يشير هذا النمط إلى عائق واضح في القاعة؛ ابدأ به قبل توسيع الأدوات أو النظام.",
+        "conditions": [
+          {
+            "dimensionId": "D1",
+            "gapMin": 1
+          },
+          {
+            "dimensionId": "D3",
+            "currentMin": 3
+          }
+        ],
+        "relatedDimensions": [
+          "D1",
+          "D3"
+        ],
+        "riskNote": "Keep the venue response proportional to observed evidence and operating capacity.",
+        "riskNoteAr": "اجعل استجابة القاعة متناسبة مع الأدلة والقدرة التشغيلية.",
+        "profilePriority": 8
+      },
+      {
+        "id": "venue-balanced-evidence-map",
+        "title": "Balanced Evidence Map",
+        "titleAr": "خريطة أدلة متوازنة",
+        "summary": "No single constraint dominates; use the ranked evidence to choose one proportionate next move.",
+        "summaryAr": "لا يهيمن عائق واحد؛ استخدم الأدلة المرتبة لاختيار خطوة تالية متناسبة.",
+        "conditions": {
+          "dimensionId": "D1",
+          "currentMin": 1
+        },
+        "relatedDimensions": [
+          "D1",
+          "D2",
+          "D3",
+          "D4",
+          "D5",
+          "D6"
+        ],
+        "riskNote": "Do not turn a mixed result into a full-system prescription.",
+        "riskNoteAr": "لا تحوّل النتيجة المختلطة إلى وصفة لنظام كامل.",
+        "profilePriority": -10
+      }
+    ]
+  },
+  "recommendations": [
+    {
+      "id": "venue-repair-venue_gallery_strength",
+      "category": "contentAndTrust",
+      "conditions": {
+        "topicId": "venue_gallery_strength",
+        "currentMax": 2.5,
+        "targetMin": 3,
+        "gapMin": 1
+      },
+      "mode": "repair",
+      "priority": 5,
+      "dedupeGroup": "venue-venue_gallery_strength",
+      "impact": 5,
+      "effort": 3,
+      "urgency": 5,
+      "evidenceTags": [
+        "gallery",
+        "visual-trust",
+        "portfolio",
+        "venue:gallery-strength"
+      ],
+      "title": "Repair gallery strength at the source",
+      "titleAr": "عالج أساس قوة المعرض",
+      "why": "Gallery strength directly shapes whether the right prospect understands, trusts, and advances with the venue.",
+      "whyAr": "يؤثر قوة المعرض مباشرة في فهم العميل المناسب وثقته وانتقاله إلى الخطوة التالية مع القاعة.",
+      "how": [
+        "Fix the missing foundation for the venue before adding more tools or channels.",
+        "Assign one venue owner and a review date.",
+        "Validate the change with real venue inquiries and record what happened."
+      ],
+      "howAr": [
+        "عالج الأساس الناقص في القاعة قبل إضافة أدوات أو قنوات جديدة.",
+        "عيّن مسؤولاً واحداً في القاعة وموعداً للمراجعة.",
+        "اختبر التغيير مع استفسارات حقيقية تخص القاعة وسجّل النتيجة."
+      ],
+      "websiteImplication": "Make gallery strength explicit at the page and decision point where it matters.",
+      "websiteImplicationAr": "أظهر قوة المعرض بوضوح في الصفحة ونقطة القرار المناسبة.",
+      "systemImplication": "Use the smallest venue tracking method that proves ownership before considering automation.",
+      "systemImplicationAr": "استخدم أبسط وسيلة متابعة في القاعة تثبت المسؤولية قبل التفكير في الأتمتة.",
+      "dominaseFit": "DOMINASE can run a focused clarity and flow correction before any larger build.",
+      "dominaseFitAr": "يمكن لـ DOMINASE تنفيذ تصحيح مركز للوضوح والمسار قبل أي بناء أكبر.",
+      "riskNotes": "Do not publish venue evidence, capacity, availability, prices, or outcomes that cannot be verified.",
+      "riskNotesAr": "لا تنشر أدلة أو طاقة استيعابية أو توفراً أو أسعاراً أو نتائج تخص القاعة ما لم يمكن إثباتها."
+    },
+    {
+      "id": "venue-improve-venue_gallery_strength",
+      "category": "contentAndTrust",
+      "conditions": {
+        "topicId": "venue_gallery_strength",
+        "currentMin": 2.5,
+        "currentMax": 4.5,
+        "targetMin": 3.5,
+        "gapMin": 1
+      },
+      "mode": "improve",
+      "priority": 3,
+      "dedupeGroup": "venue-venue_gallery_strength",
+      "impact": 3,
+      "effort": 2,
+      "urgency": 3,
+      "evidenceTags": [
+        "gallery",
+        "visual-trust",
+        "portfolio",
+        "venue:gallery-strength"
+      ],
+      "title": "Strengthen gallery strength with one controlled change",
+      "titleAr": "طوّر قوة المعرض بخطوة منضبطة",
+      "why": "Gallery strength directly shapes whether the right prospect understands, trusts, and advances with the venue.",
+      "whyAr": "يؤثر قوة المعرض مباشرة في فهم العميل المناسب وثقته وانتقاله إلى الخطوة التالية مع القاعة.",
+      "how": [
+        "Test one focused improvement for the venue before adding more tools or channels.",
+        "Assign one venue owner and a review date.",
+        "Validate the change with real venue inquiries and record what happened."
+      ],
+      "howAr": [
+        "اختبر تحسيناً واحداً ومحدداً في القاعة قبل إضافة أدوات أو قنوات جديدة.",
+        "عيّن مسؤولاً واحداً في القاعة وموعداً للمراجعة.",
+        "اختبر التغيير مع استفسارات حقيقية تخص القاعة وسجّل النتيجة."
+      ],
+      "websiteImplication": "Make gallery strength explicit at the page and decision point where it matters.",
+      "websiteImplicationAr": "أظهر قوة المعرض بوضوح في الصفحة ونقطة القرار المناسبة.",
+      "systemImplication": "Use the smallest venue tracking method that proves ownership before considering automation.",
+      "systemImplicationAr": "استخدم أبسط وسيلة متابعة في القاعة تثبت المسؤولية قبل التفكير في الأتمتة.",
+      "dominaseFit": "DOMINASE can prototype and measure this improvement without forcing a rebuild.",
+      "dominaseFitAr": "يمكن لـ DOMINASE اختبار هذا التحسين وقياسه دون فرض إعادة بناء.",
+      "riskNotes": "Do not publish venue evidence, capacity, availability, prices, or outcomes that cannot be verified.",
+      "riskNotesAr": "لا تنشر أدلة أو طاقة استيعابية أو توفراً أو أسعاراً أو نتائج تخص القاعة ما لم يمكن إثباتها."
+    },
+    {
+      "id": "venue-repair-venue_experience_story",
+      "category": "websiteStructure",
+      "conditions": {
+        "topicId": "venue_experience_story",
+        "currentMax": 2.5,
+        "targetMin": 3,
+        "gapMin": 1
+      },
+      "mode": "repair",
+      "priority": 5,
+      "dedupeGroup": "venue-venue_experience_story",
+      "impact": 5,
+      "effort": 3,
+      "urgency": 5,
+      "evidenceTags": [
+        "service-marketing",
+        "tangibility",
+        "storytelling",
+        "venue:guest-experience"
+      ],
+      "title": "Repair guest experience conveyed at the source",
+      "titleAr": "عالج أساس نقل تجربة الضيوف",
+      "why": "Guest experience conveyed directly shapes whether the right prospect understands, trusts, and advances with the venue.",
+      "whyAr": "يؤثر نقل تجربة الضيوف مباشرة في فهم العميل المناسب وثقته وانتقاله إلى الخطوة التالية مع القاعة.",
+      "how": [
+        "Fix the missing foundation for the venue before adding more tools or channels.",
+        "Assign one venue owner and a review date.",
+        "Validate the change with real venue inquiries and record what happened."
+      ],
+      "howAr": [
+        "عالج الأساس الناقص في القاعة قبل إضافة أدوات أو قنوات جديدة.",
+        "عيّن مسؤولاً واحداً في القاعة وموعداً للمراجعة.",
+        "اختبر التغيير مع استفسارات حقيقية تخص القاعة وسجّل النتيجة."
+      ],
+      "websiteImplication": "Make guest experience conveyed explicit at the page and decision point where it matters.",
+      "websiteImplicationAr": "أظهر نقل تجربة الضيوف بوضوح في الصفحة ونقطة القرار المناسبة.",
+      "systemImplication": "Use the smallest venue tracking method that proves ownership before considering automation.",
+      "systemImplicationAr": "استخدم أبسط وسيلة متابعة في القاعة تثبت المسؤولية قبل التفكير في الأتمتة.",
+      "dominaseFit": "DOMINASE can run a focused clarity and flow correction before any larger build.",
+      "dominaseFitAr": "يمكن لـ DOMINASE تنفيذ تصحيح مركز للوضوح والمسار قبل أي بناء أكبر.",
+      "riskNotes": "Do not publish venue evidence, capacity, availability, prices, or outcomes that cannot be verified.",
+      "riskNotesAr": "لا تنشر أدلة أو طاقة استيعابية أو توفراً أو أسعاراً أو نتائج تخص القاعة ما لم يمكن إثباتها."
+    },
+    {
+      "id": "venue-improve-venue_experience_story",
+      "category": "websiteStructure",
+      "conditions": {
+        "topicId": "venue_experience_story",
+        "currentMin": 2.5,
+        "currentMax": 4.5,
+        "targetMin": 3.5,
+        "gapMin": 1
+      },
+      "mode": "improve",
+      "priority": 3,
+      "dedupeGroup": "venue-venue_experience_story",
+      "impact": 3,
+      "effort": 2,
+      "urgency": 3,
+      "evidenceTags": [
+        "service-marketing",
+        "tangibility",
+        "storytelling",
+        "venue:guest-experience"
+      ],
+      "title": "Strengthen guest experience conveyed with one controlled change",
+      "titleAr": "طوّر نقل تجربة الضيوف بخطوة منضبطة",
+      "why": "Guest experience conveyed directly shapes whether the right prospect understands, trusts, and advances with the venue.",
+      "whyAr": "يؤثر نقل تجربة الضيوف مباشرة في فهم العميل المناسب وثقته وانتقاله إلى الخطوة التالية مع القاعة.",
+      "how": [
+        "Test one focused improvement for the venue before adding more tools or channels.",
+        "Assign one venue owner and a review date.",
+        "Validate the change with real venue inquiries and record what happened."
+      ],
+      "howAr": [
+        "اختبر تحسيناً واحداً ومحدداً في القاعة قبل إضافة أدوات أو قنوات جديدة.",
+        "عيّن مسؤولاً واحداً في القاعة وموعداً للمراجعة.",
+        "اختبر التغيير مع استفسارات حقيقية تخص القاعة وسجّل النتيجة."
+      ],
+      "websiteImplication": "Make guest experience conveyed explicit at the page and decision point where it matters.",
+      "websiteImplicationAr": "أظهر نقل تجربة الضيوف بوضوح في الصفحة ونقطة القرار المناسبة.",
+      "systemImplication": "Use the smallest venue tracking method that proves ownership before considering automation.",
+      "systemImplicationAr": "استخدم أبسط وسيلة متابعة في القاعة تثبت المسؤولية قبل التفكير في الأتمتة.",
+      "dominaseFit": "DOMINASE can prototype and measure this improvement without forcing a rebuild.",
+      "dominaseFitAr": "يمكن لـ DOMINASE اختبار هذا التحسين وقياسه دون فرض إعادة بناء.",
+      "riskNotes": "Do not publish venue evidence, capacity, availability, prices, or outcomes that cannot be verified.",
+      "riskNotesAr": "لا تنشر أدلة أو طاقة استيعابية أو توفراً أو أسعاراً أو نتائج تخص القاعة ما لم يمكن إثباتها."
+    },
+    {
+      "id": "venue-repair-venue_couple_testimonials",
+      "category": "contentAndTrust",
+      "conditions": {
+        "topicId": "venue_couple_testimonials",
+        "currentMax": 2.5,
+        "targetMin": 3,
+        "gapMin": 1
+      },
+      "mode": "repair",
+      "priority": 5,
+      "dedupeGroup": "venue-venue_couple_testimonials",
+      "impact": 5,
+      "effort": 3,
+      "urgency": 5,
+      "evidenceTags": [
+        "social-proof",
+        "testimonials",
+        "weak-proof",
+        "venue"
+      ],
+      "title": "Repair couple testimonials at the source",
+      "titleAr": "عالج أساس شهادات الأزواج",
+      "why": "Couple testimonials directly shapes whether the right prospect understands, trusts, and advances with the venue.",
+      "whyAr": "يؤثر شهادات الأزواج مباشرة في فهم العميل المناسب وثقته وانتقاله إلى الخطوة التالية مع القاعة.",
+      "how": [
+        "Fix the missing foundation for the venue before adding more tools or channels.",
+        "Assign one venue owner and a review date.",
+        "Validate the change with real venue inquiries and record what happened."
+      ],
+      "howAr": [
+        "عالج الأساس الناقص في القاعة قبل إضافة أدوات أو قنوات جديدة.",
+        "عيّن مسؤولاً واحداً في القاعة وموعداً للمراجعة.",
+        "اختبر التغيير مع استفسارات حقيقية تخص القاعة وسجّل النتيجة."
+      ],
+      "websiteImplication": "Make couple testimonials explicit at the page and decision point where it matters.",
+      "websiteImplicationAr": "أظهر شهادات الأزواج بوضوح في الصفحة ونقطة القرار المناسبة.",
+      "systemImplication": "Use the smallest venue tracking method that proves ownership before considering automation.",
+      "systemImplicationAr": "استخدم أبسط وسيلة متابعة في القاعة تثبت المسؤولية قبل التفكير في الأتمتة.",
+      "dominaseFit": "DOMINASE can run a focused clarity and flow correction before any larger build.",
+      "dominaseFitAr": "يمكن لـ DOMINASE تنفيذ تصحيح مركز للوضوح والمسار قبل أي بناء أكبر.",
+      "riskNotes": "Do not publish venue evidence, capacity, availability, prices, or outcomes that cannot be verified.",
+      "riskNotesAr": "لا تنشر أدلة أو طاقة استيعابية أو توفراً أو أسعاراً أو نتائج تخص القاعة ما لم يمكن إثباتها."
+    },
+    {
+      "id": "venue-improve-venue_couple_testimonials",
+      "category": "contentAndTrust",
+      "conditions": {
+        "topicId": "venue_couple_testimonials",
+        "currentMin": 2.5,
+        "currentMax": 4.5,
+        "targetMin": 3.5,
+        "gapMin": 1
+      },
+      "mode": "improve",
+      "priority": 3,
+      "dedupeGroup": "venue-venue_couple_testimonials",
+      "impact": 3,
+      "effort": 2,
+      "urgency": 3,
+      "evidenceTags": [
+        "social-proof",
+        "testimonials",
+        "weak-proof",
+        "venue"
+      ],
+      "title": "Strengthen couple testimonials with one controlled change",
+      "titleAr": "طوّر شهادات الأزواج بخطوة منضبطة",
+      "why": "Couple testimonials directly shapes whether the right prospect understands, trusts, and advances with the venue.",
+      "whyAr": "يؤثر شهادات الأزواج مباشرة في فهم العميل المناسب وثقته وانتقاله إلى الخطوة التالية مع القاعة.",
+      "how": [
+        "Test one focused improvement for the venue before adding more tools or channels.",
+        "Assign one venue owner and a review date.",
+        "Validate the change with real venue inquiries and record what happened."
+      ],
+      "howAr": [
+        "اختبر تحسيناً واحداً ومحدداً في القاعة قبل إضافة أدوات أو قنوات جديدة.",
+        "عيّن مسؤولاً واحداً في القاعة وموعداً للمراجعة.",
+        "اختبر التغيير مع استفسارات حقيقية تخص القاعة وسجّل النتيجة."
+      ],
+      "websiteImplication": "Make couple testimonials explicit at the page and decision point where it matters.",
+      "websiteImplicationAr": "أظهر شهادات الأزواج بوضوح في الصفحة ونقطة القرار المناسبة.",
+      "systemImplication": "Use the smallest venue tracking method that proves ownership before considering automation.",
+      "systemImplicationAr": "استخدم أبسط وسيلة متابعة في القاعة تثبت المسؤولية قبل التفكير في الأتمتة.",
+      "dominaseFit": "DOMINASE can prototype and measure this improvement without forcing a rebuild.",
+      "dominaseFitAr": "يمكن لـ DOMINASE اختبار هذا التحسين وقياسه دون فرض إعادة بناء.",
+      "riskNotes": "Do not publish venue evidence, capacity, availability, prices, or outcomes that cannot be verified.",
+      "riskNotesAr": "لا تنشر أدلة أو طاقة استيعابية أو توفراً أو أسعاراً أو نتائج تخص القاعة ما لم يمكن إثباتها."
+    },
+    {
+      "id": "venue-repair-venue_package_clarity",
+      "category": "customerProfile",
+      "conditions": {
+        "topicId": "venue_package_clarity",
+        "currentMax": 2.5,
+        "targetMin": 3,
+        "gapMin": 1
+      },
+      "mode": "repair",
+      "priority": 5,
+      "dedupeGroup": "venue-venue_package_clarity",
+      "impact": 5,
+      "effort": 3,
+      "urgency": 5,
+      "evidenceTags": [
+        "packaging",
+        "choice-overload",
+        "offer-clarity",
+        "venue:package-clarity"
+      ],
+      "title": "Repair package clarity at the source",
+      "titleAr": "عالج أساس وضوح الباقات",
+      "why": "Package clarity directly shapes whether the right prospect understands, trusts, and advances with the venue.",
+      "whyAr": "يؤثر وضوح الباقات مباشرة في فهم العميل المناسب وثقته وانتقاله إلى الخطوة التالية مع القاعة.",
+      "how": [
+        "Fix the missing foundation for the venue before adding more tools or channels.",
+        "Assign one venue owner and a review date.",
+        "Validate the change with real venue inquiries and record what happened."
+      ],
+      "howAr": [
+        "عالج الأساس الناقص في القاعة قبل إضافة أدوات أو قنوات جديدة.",
+        "عيّن مسؤولاً واحداً في القاعة وموعداً للمراجعة.",
+        "اختبر التغيير مع استفسارات حقيقية تخص القاعة وسجّل النتيجة."
+      ],
+      "websiteImplication": "Make package clarity explicit at the page and decision point where it matters.",
+      "websiteImplicationAr": "أظهر وضوح الباقات بوضوح في الصفحة ونقطة القرار المناسبة.",
+      "systemImplication": "Use the smallest venue tracking method that proves ownership before considering automation.",
+      "systemImplicationAr": "استخدم أبسط وسيلة متابعة في القاعة تثبت المسؤولية قبل التفكير في الأتمتة.",
+      "dominaseFit": "DOMINASE can run a focused clarity and flow correction before any larger build.",
+      "dominaseFitAr": "يمكن لـ DOMINASE تنفيذ تصحيح مركز للوضوح والمسار قبل أي بناء أكبر.",
+      "riskNotes": "Do not publish venue evidence, capacity, availability, prices, or outcomes that cannot be verified.",
+      "riskNotesAr": "لا تنشر أدلة أو طاقة استيعابية أو توفراً أو أسعاراً أو نتائج تخص القاعة ما لم يمكن إثباتها."
+    },
+    {
+      "id": "venue-improve-venue_package_clarity",
+      "category": "customerProfile",
+      "conditions": {
+        "topicId": "venue_package_clarity",
+        "currentMin": 2.5,
+        "currentMax": 4.5,
+        "targetMin": 3.5,
+        "gapMin": 1
+      },
+      "mode": "improve",
+      "priority": 3,
+      "dedupeGroup": "venue-venue_package_clarity",
+      "impact": 3,
+      "effort": 2,
+      "urgency": 3,
+      "evidenceTags": [
+        "packaging",
+        "choice-overload",
+        "offer-clarity",
+        "venue:package-clarity"
+      ],
+      "title": "Strengthen package clarity with one controlled change",
+      "titleAr": "طوّر وضوح الباقات بخطوة منضبطة",
+      "why": "Package clarity directly shapes whether the right prospect understands, trusts, and advances with the venue.",
+      "whyAr": "يؤثر وضوح الباقات مباشرة في فهم العميل المناسب وثقته وانتقاله إلى الخطوة التالية مع القاعة.",
+      "how": [
+        "Test one focused improvement for the venue before adding more tools or channels.",
+        "Assign one venue owner and a review date.",
+        "Validate the change with real venue inquiries and record what happened."
+      ],
+      "howAr": [
+        "اختبر تحسيناً واحداً ومحدداً في القاعة قبل إضافة أدوات أو قنوات جديدة.",
+        "عيّن مسؤولاً واحداً في القاعة وموعداً للمراجعة.",
+        "اختبر التغيير مع استفسارات حقيقية تخص القاعة وسجّل النتيجة."
+      ],
+      "websiteImplication": "Make package clarity explicit at the page and decision point where it matters.",
+      "websiteImplicationAr": "أظهر وضوح الباقات بوضوح في الصفحة ونقطة القرار المناسبة.",
+      "systemImplication": "Use the smallest venue tracking method that proves ownership before considering automation.",
+      "systemImplicationAr": "استخدم أبسط وسيلة متابعة في القاعة تثبت المسؤولية قبل التفكير في الأتمتة.",
+      "dominaseFit": "DOMINASE can prototype and measure this improvement without forcing a rebuild.",
+      "dominaseFitAr": "يمكن لـ DOMINASE اختبار هذا التحسين وقياسه دون فرض إعادة بناء.",
+      "riskNotes": "Do not publish venue evidence, capacity, availability, prices, or outcomes that cannot be verified.",
+      "riskNotesAr": "لا تنشر أدلة أو طاقة استيعابية أو توفراً أو أسعاراً أو نتائج تخص القاعة ما لم يمكن إثباتها."
+    },
+    {
+      "id": "venue-repair-venue_price_ranges",
+      "category": "customerProfile",
+      "conditions": {
+        "topicId": "venue_price_ranges",
+        "currentMax": 2.5,
+        "targetMin": 3,
+        "gapMin": 1
+      },
+      "mode": "repair",
+      "priority": 5,
+      "dedupeGroup": "venue-venue_price_ranges",
+      "impact": 5,
+      "effort": 3,
+      "urgency": 5,
+      "evidenceTags": [
+        "pricing-transparency",
+        "pricing-content",
+        "trust-barrier",
+        "venue"
+      ],
+      "title": "Repair price range transparency at the source",
+      "titleAr": "عالج أساس شفافية النطاق السعري",
+      "why": "Price range transparency directly shapes whether the right prospect understands, trusts, and advances with the venue.",
+      "whyAr": "يؤثر شفافية النطاق السعري مباشرة في فهم العميل المناسب وثقته وانتقاله إلى الخطوة التالية مع القاعة.",
+      "how": [
+        "Fix the missing foundation for the venue before adding more tools or channels.",
+        "Assign one venue owner and a review date.",
+        "Validate the change with real venue inquiries and record what happened."
+      ],
+      "howAr": [
+        "عالج الأساس الناقص في القاعة قبل إضافة أدوات أو قنوات جديدة.",
+        "عيّن مسؤولاً واحداً في القاعة وموعداً للمراجعة.",
+        "اختبر التغيير مع استفسارات حقيقية تخص القاعة وسجّل النتيجة."
+      ],
+      "websiteImplication": "Make price range transparency explicit at the page and decision point where it matters.",
+      "websiteImplicationAr": "أظهر شفافية النطاق السعري بوضوح في الصفحة ونقطة القرار المناسبة.",
+      "systemImplication": "Use the smallest venue tracking method that proves ownership before considering automation.",
+      "systemImplicationAr": "استخدم أبسط وسيلة متابعة في القاعة تثبت المسؤولية قبل التفكير في الأتمتة.",
+      "dominaseFit": "DOMINASE can run a focused clarity and flow correction before any larger build.",
+      "dominaseFitAr": "يمكن لـ DOMINASE تنفيذ تصحيح مركز للوضوح والمسار قبل أي بناء أكبر.",
+      "riskNotes": "Do not publish venue evidence, capacity, availability, prices, or outcomes that cannot be verified.",
+      "riskNotesAr": "لا تنشر أدلة أو طاقة استيعابية أو توفراً أو أسعاراً أو نتائج تخص القاعة ما لم يمكن إثباتها."
+    },
+    {
+      "id": "venue-improve-venue_price_ranges",
+      "category": "customerProfile",
+      "conditions": {
+        "topicId": "venue_price_ranges",
+        "currentMin": 2.5,
+        "currentMax": 4.5,
+        "targetMin": 3.5,
+        "gapMin": 1
+      },
+      "mode": "improve",
+      "priority": 3,
+      "dedupeGroup": "venue-venue_price_ranges",
+      "impact": 3,
+      "effort": 2,
+      "urgency": 3,
+      "evidenceTags": [
+        "pricing-transparency",
+        "pricing-content",
+        "trust-barrier",
+        "venue"
+      ],
+      "title": "Strengthen price range transparency with one controlled change",
+      "titleAr": "طوّر شفافية النطاق السعري بخطوة منضبطة",
+      "why": "Price range transparency directly shapes whether the right prospect understands, trusts, and advances with the venue.",
+      "whyAr": "يؤثر شفافية النطاق السعري مباشرة في فهم العميل المناسب وثقته وانتقاله إلى الخطوة التالية مع القاعة.",
+      "how": [
+        "Test one focused improvement for the venue before adding more tools or channels.",
+        "Assign one venue owner and a review date.",
+        "Validate the change with real venue inquiries and record what happened."
+      ],
+      "howAr": [
+        "اختبر تحسيناً واحداً ومحدداً في القاعة قبل إضافة أدوات أو قنوات جديدة.",
+        "عيّن مسؤولاً واحداً في القاعة وموعداً للمراجعة.",
+        "اختبر التغيير مع استفسارات حقيقية تخص القاعة وسجّل النتيجة."
+      ],
+      "websiteImplication": "Make price range transparency explicit at the page and decision point where it matters.",
+      "websiteImplicationAr": "أظهر شفافية النطاق السعري بوضوح في الصفحة ونقطة القرار المناسبة.",
+      "systemImplication": "Use the smallest venue tracking method that proves ownership before considering automation.",
+      "systemImplicationAr": "استخدم أبسط وسيلة متابعة في القاعة تثبت المسؤولية قبل التفكير في الأتمتة.",
+      "dominaseFit": "DOMINASE can prototype and measure this improvement without forcing a rebuild.",
+      "dominaseFitAr": "يمكن لـ DOMINASE اختبار هذا التحسين وقياسه دون فرض إعادة بناء.",
+      "riskNotes": "Do not publish venue evidence, capacity, availability, prices, or outcomes that cannot be verified.",
+      "riskNotesAr": "لا تنشر أدلة أو طاقة استيعابية أو توفراً أو أسعاراً أو نتائج تخص القاعة ما لم يمكن إثباتها."
+    },
+    {
+      "id": "venue-repair-venue_location_capacity",
+      "category": "websiteStructure",
+      "conditions": {
+        "topicId": "venue_location_capacity",
+        "currentMax": 2.5,
+        "targetMin": 3,
+        "gapMin": 1
+      },
+      "mode": "repair",
+      "priority": 5,
+      "dedupeGroup": "venue-venue_location_capacity",
+      "impact": 5,
+      "effort": 3,
+      "urgency": 5,
+      "evidenceTags": [
+        "local-positioning",
+        "contact-flow",
+        "venue"
+      ],
+      "title": "Repair location and capacity clarity at the source",
+      "titleAr": "عالج أساس وضوح الموقع والسعة",
+      "why": "Location and capacity clarity directly shapes whether the right prospect understands, trusts, and advances with the venue.",
+      "whyAr": "يؤثر وضوح الموقع والسعة مباشرة في فهم العميل المناسب وثقته وانتقاله إلى الخطوة التالية مع القاعة.",
+      "how": [
+        "Fix the missing foundation for the venue before adding more tools or channels.",
+        "Assign one venue owner and a review date.",
+        "Validate the change with real venue inquiries and record what happened."
+      ],
+      "howAr": [
+        "عالج الأساس الناقص في القاعة قبل إضافة أدوات أو قنوات جديدة.",
+        "عيّن مسؤولاً واحداً في القاعة وموعداً للمراجعة.",
+        "اختبر التغيير مع استفسارات حقيقية تخص القاعة وسجّل النتيجة."
+      ],
+      "websiteImplication": "Make location and capacity clarity explicit at the page and decision point where it matters.",
+      "websiteImplicationAr": "أظهر وضوح الموقع والسعة بوضوح في الصفحة ونقطة القرار المناسبة.",
+      "systemImplication": "Use the smallest venue tracking method that proves ownership before considering automation.",
+      "systemImplicationAr": "استخدم أبسط وسيلة متابعة في القاعة تثبت المسؤولية قبل التفكير في الأتمتة.",
+      "dominaseFit": "DOMINASE can run a focused clarity and flow correction before any larger build.",
+      "dominaseFitAr": "يمكن لـ DOMINASE تنفيذ تصحيح مركز للوضوح والمسار قبل أي بناء أكبر.",
+      "riskNotes": "Do not publish venue evidence, capacity, availability, prices, or outcomes that cannot be verified.",
+      "riskNotesAr": "لا تنشر أدلة أو طاقة استيعابية أو توفراً أو أسعاراً أو نتائج تخص القاعة ما لم يمكن إثباتها."
+    },
+    {
+      "id": "venue-improve-venue_location_capacity",
+      "category": "websiteStructure",
+      "conditions": {
+        "topicId": "venue_location_capacity",
+        "currentMin": 2.5,
+        "currentMax": 4.5,
+        "targetMin": 3.5,
+        "gapMin": 1
+      },
+      "mode": "improve",
+      "priority": 3,
+      "dedupeGroup": "venue-venue_location_capacity",
+      "impact": 3,
+      "effort": 2,
+      "urgency": 3,
+      "evidenceTags": [
+        "local-positioning",
+        "contact-flow",
+        "venue"
+      ],
+      "title": "Strengthen location and capacity clarity with one controlled change",
+      "titleAr": "طوّر وضوح الموقع والسعة بخطوة منضبطة",
+      "why": "Location and capacity clarity directly shapes whether the right prospect understands, trusts, and advances with the venue.",
+      "whyAr": "يؤثر وضوح الموقع والسعة مباشرة في فهم العميل المناسب وثقته وانتقاله إلى الخطوة التالية مع القاعة.",
+      "how": [
+        "Test one focused improvement for the venue before adding more tools or channels.",
+        "Assign one venue owner and a review date.",
+        "Validate the change with real venue inquiries and record what happened."
+      ],
+      "howAr": [
+        "اختبر تحسيناً واحداً ومحدداً في القاعة قبل إضافة أدوات أو قنوات جديدة.",
+        "عيّن مسؤولاً واحداً في القاعة وموعداً للمراجعة.",
+        "اختبر التغيير مع استفسارات حقيقية تخص القاعة وسجّل النتيجة."
+      ],
+      "websiteImplication": "Make location and capacity clarity explicit at the page and decision point where it matters.",
+      "websiteImplicationAr": "أظهر وضوح الموقع والسعة بوضوح في الصفحة ونقطة القرار المناسبة.",
+      "systemImplication": "Use the smallest venue tracking method that proves ownership before considering automation.",
+      "systemImplicationAr": "استخدم أبسط وسيلة متابعة في القاعة تثبت المسؤولية قبل التفكير في الأتمتة.",
+      "dominaseFit": "DOMINASE can prototype and measure this improvement without forcing a rebuild.",
+      "dominaseFitAr": "يمكن لـ DOMINASE اختبار هذا التحسين وقياسه دون فرض إعادة بناء.",
+      "riskNotes": "Do not publish venue evidence, capacity, availability, prices, or outcomes that cannot be verified.",
+      "riskNotesAr": "لا تنشر أدلة أو طاقة استيعابية أو توفراً أو أسعاراً أو نتائج تخص القاعة ما لم يمكن إثباتها."
+    },
+    {
+      "id": "venue-repair-venue_availability_check",
+      "category": "conversionPath",
+      "conditions": {
+        "topicId": "venue_availability_check",
+        "currentMax": 2.5,
+        "targetMin": 3,
+        "gapMin": 1
+      },
+      "mode": "repair",
+      "priority": 5,
+      "dedupeGroup": "venue-venue_availability_check",
+      "impact": 5,
+      "effort": 3,
+      "urgency": 5,
+      "evidenceTags": [
+        "availability",
+        "booking-friction",
+        "contact-flow",
+        "venue:availability-inquiry"
+      ],
+      "title": "Repair availability and date-check flow at the source",
+      "titleAr": "عالج أساس مسار التحقق من التاريخ",
+      "why": "Availability and date-check flow directly shapes whether the right prospect understands, trusts, and advances with the venue.",
+      "whyAr": "يؤثر مسار التحقق من التاريخ مباشرة في فهم العميل المناسب وثقته وانتقاله إلى الخطوة التالية مع القاعة.",
+      "how": [
+        "Fix the missing foundation for the venue before adding more tools or channels.",
+        "Assign one venue owner and a review date.",
+        "Validate the change with real venue inquiries and record what happened."
+      ],
+      "howAr": [
+        "عالج الأساس الناقص في القاعة قبل إضافة أدوات أو قنوات جديدة.",
+        "عيّن مسؤولاً واحداً في القاعة وموعداً للمراجعة.",
+        "اختبر التغيير مع استفسارات حقيقية تخص القاعة وسجّل النتيجة."
+      ],
+      "websiteImplication": "Make availability and date-check flow explicit at the page and decision point where it matters.",
+      "websiteImplicationAr": "أظهر مسار التحقق من التاريخ بوضوح في الصفحة ونقطة القرار المناسبة.",
+      "systemImplication": "Use the smallest venue tracking method that proves ownership before considering automation.",
+      "systemImplicationAr": "استخدم أبسط وسيلة متابعة في القاعة تثبت المسؤولية قبل التفكير في الأتمتة.",
+      "dominaseFit": "DOMINASE can run a focused clarity and flow correction before any larger build.",
+      "dominaseFitAr": "يمكن لـ DOMINASE تنفيذ تصحيح مركز للوضوح والمسار قبل أي بناء أكبر.",
+      "riskNotes": "Do not publish venue evidence, capacity, availability, prices, or outcomes that cannot be verified.",
+      "riskNotesAr": "لا تنشر أدلة أو طاقة استيعابية أو توفراً أو أسعاراً أو نتائج تخص القاعة ما لم يمكن إثباتها."
+    },
+    {
+      "id": "venue-improve-venue_availability_check",
+      "category": "conversionPath",
+      "conditions": {
+        "topicId": "venue_availability_check",
+        "currentMin": 2.5,
+        "currentMax": 4.5,
+        "targetMin": 3.5,
+        "gapMin": 1
+      },
+      "mode": "improve",
+      "priority": 3,
+      "dedupeGroup": "venue-venue_availability_check",
+      "impact": 3,
+      "effort": 2,
+      "urgency": 3,
+      "evidenceTags": [
+        "availability",
+        "booking-friction",
+        "contact-flow",
+        "venue:availability-inquiry"
+      ],
+      "title": "Strengthen availability and date-check flow with one controlled change",
+      "titleAr": "طوّر مسار التحقق من التاريخ بخطوة منضبطة",
+      "why": "Availability and date-check flow directly shapes whether the right prospect understands, trusts, and advances with the venue.",
+      "whyAr": "يؤثر مسار التحقق من التاريخ مباشرة في فهم العميل المناسب وثقته وانتقاله إلى الخطوة التالية مع القاعة.",
+      "how": [
+        "Test one focused improvement for the venue before adding more tools or channels.",
+        "Assign one venue owner and a review date.",
+        "Validate the change with real venue inquiries and record what happened."
+      ],
+      "howAr": [
+        "اختبر تحسيناً واحداً ومحدداً في القاعة قبل إضافة أدوات أو قنوات جديدة.",
+        "عيّن مسؤولاً واحداً في القاعة وموعداً للمراجعة.",
+        "اختبر التغيير مع استفسارات حقيقية تخص القاعة وسجّل النتيجة."
+      ],
+      "websiteImplication": "Make availability and date-check flow explicit at the page and decision point where it matters.",
+      "websiteImplicationAr": "أظهر مسار التحقق من التاريخ بوضوح في الصفحة ونقطة القرار المناسبة.",
+      "systemImplication": "Use the smallest venue tracking method that proves ownership before considering automation.",
+      "systemImplicationAr": "استخدم أبسط وسيلة متابعة في القاعة تثبت المسؤولية قبل التفكير في الأتمتة.",
+      "dominaseFit": "DOMINASE can prototype and measure this improvement without forcing a rebuild.",
+      "dominaseFitAr": "يمكن لـ DOMINASE اختبار هذا التحسين وقياسه دون فرض إعادة بناء.",
+      "riskNotes": "Do not publish venue evidence, capacity, availability, prices, or outcomes that cannot be verified.",
+      "riskNotesAr": "لا تنشر أدلة أو طاقة استيعابية أو توفراً أو أسعاراً أو نتائج تخص القاعة ما لم يمكن إثباتها."
+    },
+    {
+      "id": "venue-repair-venue_seasonal_offers",
+      "category": "quickWins",
+      "conditions": {
+        "topicId": "venue_seasonal_offers",
+        "currentMax": 2.5,
+        "targetMin": 3,
+        "gapMin": 1
+      },
+      "mode": "repair",
+      "priority": 5,
+      "dedupeGroup": "venue-venue_seasonal_offers",
+      "impact": 5,
+      "effort": 3,
+      "urgency": 5,
+      "evidenceTags": [
+        "framing",
+        "anchoring",
+        "venue:seasonal-offers"
+      ],
+      "title": "Repair seasonal and off-peak offers at the source",
+      "titleAr": "عالج أساس العروض الموسمية وخارج الذروة",
+      "why": "Seasonal and off-peak offers directly shapes whether the right prospect understands, trusts, and advances with the venue.",
+      "whyAr": "يؤثر العروض الموسمية وخارج الذروة مباشرة في فهم العميل المناسب وثقته وانتقاله إلى الخطوة التالية مع القاعة.",
+      "how": [
+        "Fix the missing foundation for the venue before adding more tools or channels.",
+        "Assign one venue owner and a review date.",
+        "Validate the change with real venue inquiries and record what happened."
+      ],
+      "howAr": [
+        "عالج الأساس الناقص في القاعة قبل إضافة أدوات أو قنوات جديدة.",
+        "عيّن مسؤولاً واحداً في القاعة وموعداً للمراجعة.",
+        "اختبر التغيير مع استفسارات حقيقية تخص القاعة وسجّل النتيجة."
+      ],
+      "websiteImplication": "Make seasonal and off-peak offers explicit at the page and decision point where it matters.",
+      "websiteImplicationAr": "أظهر العروض الموسمية وخارج الذروة بوضوح في الصفحة ونقطة القرار المناسبة.",
+      "systemImplication": "Use the smallest venue tracking method that proves ownership before considering automation.",
+      "systemImplicationAr": "استخدم أبسط وسيلة متابعة في القاعة تثبت المسؤولية قبل التفكير في الأتمتة.",
+      "dominaseFit": "DOMINASE can run a focused clarity and flow correction before any larger build.",
+      "dominaseFitAr": "يمكن لـ DOMINASE تنفيذ تصحيح مركز للوضوح والمسار قبل أي بناء أكبر.",
+      "riskNotes": "Do not publish venue evidence, capacity, availability, prices, or outcomes that cannot be verified.",
+      "riskNotesAr": "لا تنشر أدلة أو طاقة استيعابية أو توفراً أو أسعاراً أو نتائج تخص القاعة ما لم يمكن إثباتها."
+    },
+    {
+      "id": "venue-improve-venue_seasonal_offers",
+      "category": "quickWins",
+      "conditions": {
+        "topicId": "venue_seasonal_offers",
+        "currentMin": 2.5,
+        "currentMax": 4.5,
+        "targetMin": 3.5,
+        "gapMin": 2
+      },
+      "mode": "improve",
+      "priority": 3,
+      "dedupeGroup": "venue-venue_seasonal_offers",
+      "impact": 3,
+      "effort": 2,
+      "urgency": 3,
+      "evidenceTags": [
+        "framing",
+        "anchoring",
+        "venue:seasonal-offers"
+      ],
+      "title": "Strengthen seasonal and off-peak offers with one controlled change",
+      "titleAr": "طوّر العروض الموسمية وخارج الذروة بخطوة منضبطة",
+      "why": "Seasonal and off-peak offers directly shapes whether the right prospect understands, trusts, and advances with the venue.",
+      "whyAr": "يؤثر العروض الموسمية وخارج الذروة مباشرة في فهم العميل المناسب وثقته وانتقاله إلى الخطوة التالية مع القاعة.",
+      "how": [
+        "Test one focused improvement for the venue before adding more tools or channels.",
+        "Assign one venue owner and a review date.",
+        "Validate the change with real venue inquiries and record what happened."
+      ],
+      "howAr": [
+        "اختبر تحسيناً واحداً ومحدداً في القاعة قبل إضافة أدوات أو قنوات جديدة.",
+        "عيّن مسؤولاً واحداً في القاعة وموعداً للمراجعة.",
+        "اختبر التغيير مع استفسارات حقيقية تخص القاعة وسجّل النتيجة."
+      ],
+      "websiteImplication": "Make seasonal and off-peak offers explicit at the page and decision point where it matters.",
+      "websiteImplicationAr": "أظهر العروض الموسمية وخارج الذروة بوضوح في الصفحة ونقطة القرار المناسبة.",
+      "systemImplication": "Use the smallest venue tracking method that proves ownership before considering automation.",
+      "systemImplicationAr": "استخدم أبسط وسيلة متابعة في القاعة تثبت المسؤولية قبل التفكير في الأتمتة.",
+      "dominaseFit": "DOMINASE can prototype and measure this improvement without forcing a rebuild.",
+      "dominaseFitAr": "يمكن لـ DOMINASE اختبار هذا التحسين وقياسه دون فرض إعادة بناء.",
+      "riskNotes": "Do not publish venue evidence, capacity, availability, prices, or outcomes that cannot be verified.",
+      "riskNotesAr": "لا تنشر أدلة أو طاقة استيعابية أو توفراً أو أسعاراً أو نتائج تخص القاعة ما لم يمكن إثباتها."
+    },
+    {
+      "id": "venue-repair-venue_inquiry_followup",
+      "category": "salesFollowUp",
+      "conditions": {
+        "topicId": "venue_inquiry_followup",
+        "currentMax": 2.5,
+        "targetMin": 3,
+        "gapMin": 1
+      },
+      "mode": "repair",
+      "priority": 5,
+      "dedupeGroup": "venue-venue_inquiry_followup",
+      "impact": 5,
+      "effort": 3,
+      "urgency": 5,
+      "evidenceTags": [
+        "weak-follow-up",
+        "follow-up",
+        "cadence",
+        "venue"
+      ],
+      "title": "Repair inquiry follow-up speed at the source",
+      "titleAr": "عالج أساس سرعة متابعة الاستفسارات",
+      "why": "Inquiry follow-up speed directly shapes whether the right prospect understands, trusts, and advances with the venue.",
+      "whyAr": "يؤثر سرعة متابعة الاستفسارات مباشرة في فهم العميل المناسب وثقته وانتقاله إلى الخطوة التالية مع القاعة.",
+      "how": [
+        "Fix the missing foundation for the venue before adding more tools or channels.",
+        "Assign one venue owner and a review date.",
+        "Validate the change with real venue inquiries and record what happened."
+      ],
+      "howAr": [
+        "عالج الأساس الناقص في القاعة قبل إضافة أدوات أو قنوات جديدة.",
+        "عيّن مسؤولاً واحداً في القاعة وموعداً للمراجعة.",
+        "اختبر التغيير مع استفسارات حقيقية تخص القاعة وسجّل النتيجة."
+      ],
+      "websiteImplication": "Make inquiry follow-up speed explicit at the page and decision point where it matters.",
+      "websiteImplicationAr": "أظهر سرعة متابعة الاستفسارات بوضوح في الصفحة ونقطة القرار المناسبة.",
+      "systemImplication": "Use the smallest venue tracking method that proves ownership before considering automation.",
+      "systemImplicationAr": "استخدم أبسط وسيلة متابعة في القاعة تثبت المسؤولية قبل التفكير في الأتمتة.",
+      "dominaseFit": "DOMINASE can run a focused clarity and flow correction before any larger build.",
+      "dominaseFitAr": "يمكن لـ DOMINASE تنفيذ تصحيح مركز للوضوح والمسار قبل أي بناء أكبر.",
+      "riskNotes": "Do not publish venue evidence, capacity, availability, prices, or outcomes that cannot be verified.",
+      "riskNotesAr": "لا تنشر أدلة أو طاقة استيعابية أو توفراً أو أسعاراً أو نتائج تخص القاعة ما لم يمكن إثباتها."
+    },
+    {
+      "id": "venue-improve-venue_inquiry_followup",
+      "category": "salesFollowUp",
+      "conditions": {
+        "topicId": "venue_inquiry_followup",
+        "currentMin": 2.5,
+        "currentMax": 4.5,
+        "targetMin": 3.5,
+        "gapMin": 2
+      },
+      "mode": "improve",
+      "priority": 3,
+      "dedupeGroup": "venue-venue_inquiry_followup",
+      "impact": 3,
+      "effort": 2,
+      "urgency": 3,
+      "evidenceTags": [
+        "weak-follow-up",
+        "follow-up",
+        "cadence",
+        "venue"
+      ],
+      "title": "Strengthen inquiry follow-up speed with one controlled change",
+      "titleAr": "طوّر سرعة متابعة الاستفسارات بخطوة منضبطة",
+      "why": "Inquiry follow-up speed directly shapes whether the right prospect understands, trusts, and advances with the venue.",
+      "whyAr": "يؤثر سرعة متابعة الاستفسارات مباشرة في فهم العميل المناسب وثقته وانتقاله إلى الخطوة التالية مع القاعة.",
+      "how": [
+        "Test one focused improvement for the venue before adding more tools or channels.",
+        "Assign one venue owner and a review date.",
+        "Validate the change with real venue inquiries and record what happened."
+      ],
+      "howAr": [
+        "اختبر تحسيناً واحداً ومحدداً في القاعة قبل إضافة أدوات أو قنوات جديدة.",
+        "عيّن مسؤولاً واحداً في القاعة وموعداً للمراجعة.",
+        "اختبر التغيير مع استفسارات حقيقية تخص القاعة وسجّل النتيجة."
+      ],
+      "websiteImplication": "Make inquiry follow-up speed explicit at the page and decision point where it matters.",
+      "websiteImplicationAr": "أظهر سرعة متابعة الاستفسارات بوضوح في الصفحة ونقطة القرار المناسبة.",
+      "systemImplication": "Use the smallest venue tracking method that proves ownership before considering automation.",
+      "systemImplicationAr": "استخدم أبسط وسيلة متابعة في القاعة تثبت المسؤولية قبل التفكير في الأتمتة.",
+      "dominaseFit": "DOMINASE can prototype and measure this improvement without forcing a rebuild.",
+      "dominaseFitAr": "يمكن لـ DOMINASE اختبار هذا التحسين وقياسه دون فرض إعادة بناء.",
+      "riskNotes": "Do not publish venue evidence, capacity, availability, prices, or outcomes that cannot be verified.",
+      "riskNotesAr": "لا تنشر أدلة أو طاقة استيعابية أو توفراً أو أسعاراً أو نتائج تخص القاعة ما لم يمكن إثباتها."
+    },
+    {
+      "id": "venue-repair-venue_whatsapp_channels",
+      "category": "salesFollowUp",
+      "conditions": {
+        "topicId": "venue_whatsapp_channels",
+        "currentMax": 2.5,
+        "targetMin": 3,
+        "gapMin": 1
+      },
+      "mode": "repair",
+      "priority": 5,
+      "dedupeGroup": "venue-venue_whatsapp_channels",
+      "impact": 5,
+      "effort": 3,
+      "urgency": 5,
+      "evidenceTags": [
+        "whatsapp",
+        "messaging",
+        "crm",
+        "venue:whatsapp-overload"
+      ],
+      "title": "Repair whatsapp and channel control at the source",
+      "titleAr": "عالج أساس تنظيم واتساب والقنوات",
+      "why": "WhatsApp and channel control directly shapes whether the right prospect understands, trusts, and advances with the venue.",
+      "whyAr": "يؤثر تنظيم واتساب والقنوات مباشرة في فهم العميل المناسب وثقته وانتقاله إلى الخطوة التالية مع القاعة.",
+      "how": [
+        "Fix the missing foundation for the venue before adding more tools or channels.",
+        "Assign one venue owner and a review date.",
+        "Validate the change with real venue inquiries and record what happened."
+      ],
+      "howAr": [
+        "عالج الأساس الناقص في القاعة قبل إضافة أدوات أو قنوات جديدة.",
+        "عيّن مسؤولاً واحداً في القاعة وموعداً للمراجعة.",
+        "اختبر التغيير مع استفسارات حقيقية تخص القاعة وسجّل النتيجة."
+      ],
+      "websiteImplication": "Make whatsapp and channel control explicit at the page and decision point where it matters.",
+      "websiteImplicationAr": "أظهر تنظيم واتساب والقنوات بوضوح في الصفحة ونقطة القرار المناسبة.",
+      "systemImplication": "Use the smallest venue tracking method that proves ownership before considering automation.",
+      "systemImplicationAr": "استخدم أبسط وسيلة متابعة في القاعة تثبت المسؤولية قبل التفكير في الأتمتة.",
+      "dominaseFit": "DOMINASE can run a focused clarity and flow correction before any larger build.",
+      "dominaseFitAr": "يمكن لـ DOMINASE تنفيذ تصحيح مركز للوضوح والمسار قبل أي بناء أكبر.",
+      "riskNotes": "Do not publish venue evidence, capacity, availability, prices, or outcomes that cannot be verified.",
+      "riskNotesAr": "لا تنشر أدلة أو طاقة استيعابية أو توفراً أو أسعاراً أو نتائج تخص القاعة ما لم يمكن إثباتها."
+    },
+    {
+      "id": "venue-improve-venue_whatsapp_channels",
+      "category": "salesFollowUp",
+      "conditions": {
+        "topicId": "venue_whatsapp_channels",
+        "currentMin": 2.5,
+        "currentMax": 4.5,
+        "targetMin": 3.5,
+        "gapMin": 2
+      },
+      "mode": "improve",
+      "priority": 3,
+      "dedupeGroup": "venue-venue_whatsapp_channels",
+      "impact": 3,
+      "effort": 2,
+      "urgency": 3,
+      "evidenceTags": [
+        "whatsapp",
+        "messaging",
+        "crm",
+        "venue:whatsapp-overload"
+      ],
+      "title": "Strengthen whatsapp and channel control with one controlled change",
+      "titleAr": "طوّر تنظيم واتساب والقنوات بخطوة منضبطة",
+      "why": "WhatsApp and channel control directly shapes whether the right prospect understands, trusts, and advances with the venue.",
+      "whyAr": "يؤثر تنظيم واتساب والقنوات مباشرة في فهم العميل المناسب وثقته وانتقاله إلى الخطوة التالية مع القاعة.",
+      "how": [
+        "Test one focused improvement for the venue before adding more tools or channels.",
+        "Assign one venue owner and a review date.",
+        "Validate the change with real venue inquiries and record what happened."
+      ],
+      "howAr": [
+        "اختبر تحسيناً واحداً ومحدداً في القاعة قبل إضافة أدوات أو قنوات جديدة.",
+        "عيّن مسؤولاً واحداً في القاعة وموعداً للمراجعة.",
+        "اختبر التغيير مع استفسارات حقيقية تخص القاعة وسجّل النتيجة."
+      ],
+      "websiteImplication": "Make whatsapp and channel control explicit at the page and decision point where it matters.",
+      "websiteImplicationAr": "أظهر تنظيم واتساب والقنوات بوضوح في الصفحة ونقطة القرار المناسبة.",
+      "systemImplication": "Use the smallest venue tracking method that proves ownership before considering automation.",
+      "systemImplicationAr": "استخدم أبسط وسيلة متابعة في القاعة تثبت المسؤولية قبل التفكير في الأتمتة.",
+      "dominaseFit": "DOMINASE can prototype and measure this improvement without forcing a rebuild.",
+      "dominaseFitAr": "يمكن لـ DOMINASE اختبار هذا التحسين وقياسه دون فرض إعادة بناء.",
+      "riskNotes": "Do not publish venue evidence, capacity, availability, prices, or outcomes that cannot be verified.",
+      "riskNotesAr": "لا تنشر أدلة أو طاقة استيعابية أو توفراً أو أسعاراً أو نتائج تخص القاعة ما لم يمكن إثباتها."
+    },
+    {
+      "id": "venue-repair-venue_lead_capture",
+      "category": "conversionPath",
+      "conditions": {
+        "topicId": "venue_lead_capture",
+        "currentMax": 2.5,
+        "targetMin": 3,
+        "gapMin": 1
+      },
+      "mode": "repair",
+      "priority": 5,
+      "dedupeGroup": "venue-venue_lead_capture",
+      "impact": 5,
+      "effort": 3,
+      "urgency": 5,
+      "evidenceTags": [
+        "capture",
+        "lead-magnet",
+        "reciprocity",
+        "venue"
+      ],
+      "title": "Repair capturing browsing couples at the source",
+      "titleAr": "عالج أساس التقاط الأزواج المتصفحين",
+      "why": "Capturing browsing couples directly shapes whether the right prospect understands, trusts, and advances with the venue.",
+      "whyAr": "يؤثر التقاط الأزواج المتصفحين مباشرة في فهم العميل المناسب وثقته وانتقاله إلى الخطوة التالية مع القاعة.",
+      "how": [
+        "Fix the missing foundation for the venue before adding more tools or channels.",
+        "Assign one venue owner and a review date.",
+        "Validate the change with real venue inquiries and record what happened."
+      ],
+      "howAr": [
+        "عالج الأساس الناقص في القاعة قبل إضافة أدوات أو قنوات جديدة.",
+        "عيّن مسؤولاً واحداً في القاعة وموعداً للمراجعة.",
+        "اختبر التغيير مع استفسارات حقيقية تخص القاعة وسجّل النتيجة."
+      ],
+      "websiteImplication": "Make capturing browsing couples explicit at the page and decision point where it matters.",
+      "websiteImplicationAr": "أظهر التقاط الأزواج المتصفحين بوضوح في الصفحة ونقطة القرار المناسبة.",
+      "systemImplication": "Use the smallest venue tracking method that proves ownership before considering automation.",
+      "systemImplicationAr": "استخدم أبسط وسيلة متابعة في القاعة تثبت المسؤولية قبل التفكير في الأتمتة.",
+      "dominaseFit": "DOMINASE can run a focused clarity and flow correction before any larger build.",
+      "dominaseFitAr": "يمكن لـ DOMINASE تنفيذ تصحيح مركز للوضوح والمسار قبل أي بناء أكبر.",
+      "riskNotes": "Do not publish venue evidence, capacity, availability, prices, or outcomes that cannot be verified.",
+      "riskNotesAr": "لا تنشر أدلة أو طاقة استيعابية أو توفراً أو أسعاراً أو نتائج تخص القاعة ما لم يمكن إثباتها."
+    },
+    {
+      "id": "venue-improve-venue_lead_capture",
+      "category": "conversionPath",
+      "conditions": {
+        "topicId": "venue_lead_capture",
+        "currentMin": 2.5,
+        "currentMax": 4.5,
+        "targetMin": 3.5,
+        "gapMin": 2
+      },
+      "mode": "improve",
+      "priority": 3,
+      "dedupeGroup": "venue-venue_lead_capture",
+      "impact": 3,
+      "effort": 2,
+      "urgency": 3,
+      "evidenceTags": [
+        "capture",
+        "lead-magnet",
+        "reciprocity",
+        "venue"
+      ],
+      "title": "Strengthen capturing browsing couples with one controlled change",
+      "titleAr": "طوّر التقاط الأزواج المتصفحين بخطوة منضبطة",
+      "why": "Capturing browsing couples directly shapes whether the right prospect understands, trusts, and advances with the venue.",
+      "whyAr": "يؤثر التقاط الأزواج المتصفحين مباشرة في فهم العميل المناسب وثقته وانتقاله إلى الخطوة التالية مع القاعة.",
+      "how": [
+        "Test one focused improvement for the venue before adding more tools or channels.",
+        "Assign one venue owner and a review date.",
+        "Validate the change with real venue inquiries and record what happened."
+      ],
+      "howAr": [
+        "اختبر تحسيناً واحداً ومحدداً في القاعة قبل إضافة أدوات أو قنوات جديدة.",
+        "عيّن مسؤولاً واحداً في القاعة وموعداً للمراجعة.",
+        "اختبر التغيير مع استفسارات حقيقية تخص القاعة وسجّل النتيجة."
+      ],
+      "websiteImplication": "Make capturing browsing couples explicit at the page and decision point where it matters.",
+      "websiteImplicationAr": "أظهر التقاط الأزواج المتصفحين بوضوح في الصفحة ونقطة القرار المناسبة.",
+      "systemImplication": "Use the smallest venue tracking method that proves ownership before considering automation.",
+      "systemImplicationAr": "استخدم أبسط وسيلة متابعة في القاعة تثبت المسؤولية قبل التفكير في الأتمتة.",
+      "dominaseFit": "DOMINASE can prototype and measure this improvement without forcing a rebuild.",
+      "dominaseFitAr": "يمكن لـ DOMINASE اختبار هذا التحسين وقياسه دون فرض إعادة بناء.",
+      "riskNotes": "Do not publish venue evidence, capacity, availability, prices, or outcomes that cannot be verified.",
+      "riskNotesAr": "لا تنشر أدلة أو طاقة استيعابية أو توفراً أو أسعاراً أو نتائج تخص القاعة ما لم يمكن إثباتها."
+    },
+    {
+      "id": "venue-repair-venue_first_impression",
+      "category": "strategicDiagnosis",
+      "conditions": {
+        "topicId": "venue_first_impression",
+        "currentMax": 2.5,
+        "targetMin": 3,
+        "gapMin": 1
+      },
+      "mode": "repair",
+      "priority": 5,
+      "dedupeGroup": "venue-venue_first_impression",
+      "impact": 5,
+      "effort": 3,
+      "urgency": 5,
+      "evidenceTags": [
+        "first-impression",
+        "hero-clarity",
+        "visual-trust",
+        "venue"
+      ],
+      "title": "Repair first impression at the source",
+      "titleAr": "عالج أساس الانطباع الأول",
+      "why": "First impression directly shapes whether the right prospect understands, trusts, and advances with the venue.",
+      "whyAr": "يؤثر الانطباع الأول مباشرة في فهم العميل المناسب وثقته وانتقاله إلى الخطوة التالية مع القاعة.",
+      "how": [
+        "Fix the missing foundation for the venue before adding more tools or channels.",
+        "Assign one venue owner and a review date.",
+        "Validate the change with real venue inquiries and record what happened."
+      ],
+      "howAr": [
+        "عالج الأساس الناقص في القاعة قبل إضافة أدوات أو قنوات جديدة.",
+        "عيّن مسؤولاً واحداً في القاعة وموعداً للمراجعة.",
+        "اختبر التغيير مع استفسارات حقيقية تخص القاعة وسجّل النتيجة."
+      ],
+      "websiteImplication": "Make first impression explicit at the page and decision point where it matters.",
+      "websiteImplicationAr": "أظهر الانطباع الأول بوضوح في الصفحة ونقطة القرار المناسبة.",
+      "systemImplication": "Use the smallest venue tracking method that proves ownership before considering automation.",
+      "systemImplicationAr": "استخدم أبسط وسيلة متابعة في القاعة تثبت المسؤولية قبل التفكير في الأتمتة.",
+      "dominaseFit": "DOMINASE can run a focused clarity and flow correction before any larger build.",
+      "dominaseFitAr": "يمكن لـ DOMINASE تنفيذ تصحيح مركز للوضوح والمسار قبل أي بناء أكبر.",
+      "riskNotes": "Do not publish venue evidence, capacity, availability, prices, or outcomes that cannot be verified.",
+      "riskNotesAr": "لا تنشر أدلة أو طاقة استيعابية أو توفراً أو أسعاراً أو نتائج تخص القاعة ما لم يمكن إثباتها."
+    },
+    {
+      "id": "venue-improve-venue_first_impression",
+      "category": "strategicDiagnosis",
+      "conditions": {
+        "topicId": "venue_first_impression",
+        "currentMin": 2.5,
+        "currentMax": 4.5,
+        "targetMin": 3.5,
+        "gapMin": 2
+      },
+      "mode": "improve",
+      "priority": 3,
+      "dedupeGroup": "venue-venue_first_impression",
+      "impact": 3,
+      "effort": 2,
+      "urgency": 3,
+      "evidenceTags": [
+        "first-impression",
+        "hero-clarity",
+        "visual-trust",
+        "venue"
+      ],
+      "title": "Strengthen first impression with one controlled change",
+      "titleAr": "طوّر الانطباع الأول بخطوة منضبطة",
+      "why": "First impression directly shapes whether the right prospect understands, trusts, and advances with the venue.",
+      "whyAr": "يؤثر الانطباع الأول مباشرة في فهم العميل المناسب وثقته وانتقاله إلى الخطوة التالية مع القاعة.",
+      "how": [
+        "Test one focused improvement for the venue before adding more tools or channels.",
+        "Assign one venue owner and a review date.",
+        "Validate the change with real venue inquiries and record what happened."
+      ],
+      "howAr": [
+        "اختبر تحسيناً واحداً ومحدداً في القاعة قبل إضافة أدوات أو قنوات جديدة.",
+        "عيّن مسؤولاً واحداً في القاعة وموعداً للمراجعة.",
+        "اختبر التغيير مع استفسارات حقيقية تخص القاعة وسجّل النتيجة."
+      ],
+      "websiteImplication": "Make first impression explicit at the page and decision point where it matters.",
+      "websiteImplicationAr": "أظهر الانطباع الأول بوضوح في الصفحة ونقطة القرار المناسبة.",
+      "systemImplication": "Use the smallest venue tracking method that proves ownership before considering automation.",
+      "systemImplicationAr": "استخدم أبسط وسيلة متابعة في القاعة تثبت المسؤولية قبل التفكير في الأتمتة.",
+      "dominaseFit": "DOMINASE can prototype and measure this improvement without forcing a rebuild.",
+      "dominaseFitAr": "يمكن لـ DOMINASE اختبار هذا التحسين وقياسه دون فرض إعادة بناء.",
+      "riskNotes": "Do not publish venue evidence, capacity, availability, prices, or outcomes that cannot be verified.",
+      "riskNotesAr": "لا تنشر أدلة أو طاقة استيعابية أو توفراً أو أسعاراً أو نتائج تخص القاعة ما لم يمكن إثباتها."
+    },
+    {
+      "id": "venue-repair-venue_digital_readiness",
+      "category": "dominaseNextStep",
+      "conditions": {
+        "topicId": "venue_digital_readiness",
+        "currentMax": 2.5,
+        "targetMin": 3,
+        "gapMin": 1
+      },
+      "mode": "repair",
+      "priority": 5,
+      "dedupeGroup": "venue-venue_digital_readiness",
+      "impact": 5,
+      "effort": 3,
+      "urgency": 5,
+      "evidenceTags": [
+        "digital-readiness",
+        "system",
+        "service-marketing",
+        "venue"
+      ],
+      "title": "Repair connected systems and add-ons at the source",
+      "titleAr": "عالج أساس الأنظمة المترابطة والإضافات الرقمية",
+      "why": "Connected systems and add-ons directly shapes whether the right prospect understands, trusts, and advances with the venue.",
+      "whyAr": "يؤثر الأنظمة المترابطة والإضافات الرقمية مباشرة في فهم العميل المناسب وثقته وانتقاله إلى الخطوة التالية مع القاعة.",
+      "how": [
+        "Fix the missing foundation for the venue before adding more tools or channels.",
+        "Assign one venue owner and a review date.",
+        "Validate the change with real venue inquiries and record what happened."
+      ],
+      "howAr": [
+        "عالج الأساس الناقص في القاعة قبل إضافة أدوات أو قنوات جديدة.",
+        "عيّن مسؤولاً واحداً في القاعة وموعداً للمراجعة.",
+        "اختبر التغيير مع استفسارات حقيقية تخص القاعة وسجّل النتيجة."
+      ],
+      "websiteImplication": "Make connected systems and add-ons explicit at the page and decision point where it matters.",
+      "websiteImplicationAr": "أظهر الأنظمة المترابطة والإضافات الرقمية بوضوح في الصفحة ونقطة القرار المناسبة.",
+      "systemImplication": "Use the smallest venue tracking method that proves ownership before considering automation.",
+      "systemImplicationAr": "استخدم أبسط وسيلة متابعة في القاعة تثبت المسؤولية قبل التفكير في الأتمتة.",
+      "dominaseFit": "DOMINASE can run a focused clarity and flow correction before any larger build.",
+      "dominaseFitAr": "يمكن لـ DOMINASE تنفيذ تصحيح مركز للوضوح والمسار قبل أي بناء أكبر.",
+      "riskNotes": "Do not publish venue evidence, capacity, availability, prices, or outcomes that cannot be verified.",
+      "riskNotesAr": "لا تنشر أدلة أو طاقة استيعابية أو توفراً أو أسعاراً أو نتائج تخص القاعة ما لم يمكن إثباتها."
+    },
+    {
+      "id": "venue-improve-venue_digital_readiness",
+      "category": "dominaseNextStep",
+      "conditions": {
+        "topicId": "venue_digital_readiness",
+        "currentMin": 2.5,
+        "currentMax": 4.5,
+        "targetMin": 3.5,
+        "gapMin": 2
+      },
+      "mode": "improve",
+      "priority": 3,
+      "dedupeGroup": "venue-venue_digital_readiness",
+      "impact": 3,
+      "effort": 2,
+      "urgency": 3,
+      "evidenceTags": [
+        "digital-readiness",
+        "system",
+        "service-marketing",
+        "venue"
+      ],
+      "title": "Strengthen connected systems and add-ons with one controlled change",
+      "titleAr": "طوّر الأنظمة المترابطة والإضافات الرقمية بخطوة منضبطة",
+      "why": "Connected systems and add-ons directly shapes whether the right prospect understands, trusts, and advances with the venue.",
+      "whyAr": "يؤثر الأنظمة المترابطة والإضافات الرقمية مباشرة في فهم العميل المناسب وثقته وانتقاله إلى الخطوة التالية مع القاعة.",
+      "how": [
+        "Test one focused improvement for the venue before adding more tools or channels.",
+        "Assign one venue owner and a review date.",
+        "Validate the change with real venue inquiries and record what happened."
+      ],
+      "howAr": [
+        "اختبر تحسيناً واحداً ومحدداً في القاعة قبل إضافة أدوات أو قنوات جديدة.",
+        "عيّن مسؤولاً واحداً في القاعة وموعداً للمراجعة.",
+        "اختبر التغيير مع استفسارات حقيقية تخص القاعة وسجّل النتيجة."
+      ],
+      "websiteImplication": "Make connected systems and add-ons explicit at the page and decision point where it matters.",
+      "websiteImplicationAr": "أظهر الأنظمة المترابطة والإضافات الرقمية بوضوح في الصفحة ونقطة القرار المناسبة.",
+      "systemImplication": "Use the smallest venue tracking method that proves ownership before considering automation.",
+      "systemImplicationAr": "استخدم أبسط وسيلة متابعة في القاعة تثبت المسؤولية قبل التفكير في الأتمتة.",
+      "dominaseFit": "DOMINASE can prototype and measure this improvement without forcing a rebuild.",
+      "dominaseFitAr": "يمكن لـ DOMINASE اختبار هذا التحسين وقياسه دون فرض إعادة بناء.",
+      "riskNotes": "Do not publish venue evidence, capacity, availability, prices, or outcomes that cannot be verified.",
+      "riskNotesAr": "لا تنشر أدلة أو طاقة استيعابية أو توفراً أو أسعاراً أو نتائج تخص القاعة ما لم يمكن إثباتها."
+    },
+    {
+      "id": "venue-maintain-venue_gallery_strength",
+      "category": "contentAndTrust",
+      "conditions": {
+        "topicId": "venue_gallery_strength",
+        "currentMin": 4.5,
+        "gapMax": 0.5
+      },
+      "notConditions": [
+        {
+          "topicId": "venue_gallery_strength",
+          "gapMin": 2
+        },
+        {
+          "topicId": "venue_experience_story",
+          "gapMin": 2
+        },
+        {
+          "topicId": "venue_couple_testimonials",
+          "gapMin": 2
+        },
+        {
+          "topicId": "venue_package_clarity",
+          "gapMin": 2
+        },
+        {
+          "topicId": "venue_price_ranges",
+          "gapMin": 2
+        },
+        {
+          "topicId": "venue_location_capacity",
+          "gapMin": 2
+        },
+        {
+          "topicId": "venue_availability_check",
+          "gapMin": 2
+        },
+        {
+          "topicId": "venue_seasonal_offers",
+          "gapMin": 2
+        },
+        {
+          "topicId": "venue_inquiry_followup",
+          "gapMin": 2
+        },
+        {
+          "topicId": "venue_whatsapp_channels",
+          "gapMin": 2
+        },
+        {
+          "topicId": "venue_lead_capture",
+          "gapMin": 2
+        },
+        {
+          "topicId": "venue_first_impression",
+          "gapMin": 2
+        },
+        {
+          "topicId": "venue_digital_readiness",
+          "gapMin": 2
+        }
+      ],
+      "mode": "maintain",
+      "priority": 2,
+      "dedupeGroup": "venue-venue_gallery_strength",
+      "impact": 3,
+      "effort": 1,
+      "urgency": 2,
+      "evidenceTags": [
+        "gallery",
+        "visual-trust",
+        "portfolio",
+        "venue:gallery-strength"
+      ],
+      "title": "Protect the proven gallery strength standard",
+      "titleAr": "حافظ على مستوى قوة المعرض",
+      "why": "Gallery strength directly shapes whether the right prospect understands, trusts, and advances with the venue.",
+      "whyAr": "يؤثر قوة المعرض مباشرة في فهم العميل المناسب وثقته وانتقاله إلى الخطوة التالية مع القاعة.",
+      "how": [
+        "Document and monitor the working standard for the venue before adding more tools or channels.",
+        "Assign one venue owner and a review date.",
+        "Validate the change with real venue inquiries and record what happened."
+      ],
+      "howAr": [
+        "وثّق المعيار الناجح وراقبه في القاعة قبل إضافة أدوات أو قنوات جديدة.",
+        "عيّن مسؤولاً واحداً في القاعة وموعداً للمراجعة.",
+        "اختبر التغيير مع استفسارات حقيقية تخص القاعة وسجّل النتيجة."
+      ],
+      "websiteImplication": "Make gallery strength explicit at the page and decision point where it matters.",
+      "websiteImplicationAr": "أظهر قوة المعرض بوضوح في الصفحة ونقطة القرار المناسبة.",
+      "systemImplication": "Keep venue measurement lightweight; no new system is justified without drift.",
+      "systemImplicationAr": "حافظ على قياس بسيط في القاعة؛ لا حاجة لنظام جديد دون تراجع واضح.",
+      "dominaseFit": "DOMINASE can review the existing standard and identify the next evidence-based optimization.",
+      "dominaseFitAr": "يمكن لـ DOMINASE مراجعة المعيار الحالي وتحديد التحسين التالي المبني على الدليل.",
+      "riskNotes": "Do not publish venue evidence, capacity, availability, prices, or outcomes that cannot be verified.",
+      "riskNotesAr": "لا تنشر أدلة أو طاقة استيعابية أو توفراً أو أسعاراً أو نتائج تخص القاعة ما لم يمكن إثباتها."
+    },
+    {
+      "id": "venue-maintain-venue_package_clarity",
+      "category": "customerProfile",
+      "conditions": {
+        "topicId": "venue_package_clarity",
+        "currentMin": 4.5,
+        "gapMax": 0.5
+      },
+      "notConditions": [
+        {
+          "topicId": "venue_gallery_strength",
+          "gapMin": 2
+        },
+        {
+          "topicId": "venue_experience_story",
+          "gapMin": 2
+        },
+        {
+          "topicId": "venue_couple_testimonials",
+          "gapMin": 2
+        },
+        {
+          "topicId": "venue_package_clarity",
+          "gapMin": 2
+        },
+        {
+          "topicId": "venue_price_ranges",
+          "gapMin": 2
+        },
+        {
+          "topicId": "venue_location_capacity",
+          "gapMin": 2
+        },
+        {
+          "topicId": "venue_availability_check",
+          "gapMin": 2
+        },
+        {
+          "topicId": "venue_seasonal_offers",
+          "gapMin": 2
+        },
+        {
+          "topicId": "venue_inquiry_followup",
+          "gapMin": 2
+        },
+        {
+          "topicId": "venue_whatsapp_channels",
+          "gapMin": 2
+        },
+        {
+          "topicId": "venue_lead_capture",
+          "gapMin": 2
+        },
+        {
+          "topicId": "venue_first_impression",
+          "gapMin": 2
+        },
+        {
+          "topicId": "venue_digital_readiness",
+          "gapMin": 2
+        }
+      ],
+      "mode": "maintain",
+      "priority": 2,
+      "dedupeGroup": "venue-venue_package_clarity",
+      "impact": 3,
+      "effort": 1,
+      "urgency": 2,
+      "evidenceTags": [
+        "packaging",
+        "choice-overload",
+        "offer-clarity",
+        "venue:package-clarity"
+      ],
+      "title": "Protect the proven package clarity standard",
+      "titleAr": "حافظ على مستوى وضوح الباقات",
+      "why": "Package clarity directly shapes whether the right prospect understands, trusts, and advances with the venue.",
+      "whyAr": "يؤثر وضوح الباقات مباشرة في فهم العميل المناسب وثقته وانتقاله إلى الخطوة التالية مع القاعة.",
+      "how": [
+        "Document and monitor the working standard for the venue before adding more tools or channels.",
+        "Assign one venue owner and a review date.",
+        "Validate the change with real venue inquiries and record what happened."
+      ],
+      "howAr": [
+        "وثّق المعيار الناجح وراقبه في القاعة قبل إضافة أدوات أو قنوات جديدة.",
+        "عيّن مسؤولاً واحداً في القاعة وموعداً للمراجعة.",
+        "اختبر التغيير مع استفسارات حقيقية تخص القاعة وسجّل النتيجة."
+      ],
+      "websiteImplication": "Make package clarity explicit at the page and decision point where it matters.",
+      "websiteImplicationAr": "أظهر وضوح الباقات بوضوح في الصفحة ونقطة القرار المناسبة.",
+      "systemImplication": "Keep venue measurement lightweight; no new system is justified without drift.",
+      "systemImplicationAr": "حافظ على قياس بسيط في القاعة؛ لا حاجة لنظام جديد دون تراجع واضح.",
+      "dominaseFit": "DOMINASE can review the existing standard and identify the next evidence-based optimization.",
+      "dominaseFitAr": "يمكن لـ DOMINASE مراجعة المعيار الحالي وتحديد التحسين التالي المبني على الدليل.",
+      "riskNotes": "Do not publish venue evidence, capacity, availability, prices, or outcomes that cannot be verified.",
+      "riskNotesAr": "لا تنشر أدلة أو طاقة استيعابية أو توفراً أو أسعاراً أو نتائج تخص القاعة ما لم يمكن إثباتها."
+    },
+    {
+      "id": "venue-maintain-venue_seasonal_offers",
+      "category": "quickWins",
+      "conditions": {
+        "topicId": "venue_seasonal_offers",
+        "currentMin": 4.5,
+        "gapMax": 0.5
+      },
+      "notConditions": [
+        {
+          "topicId": "venue_gallery_strength",
+          "gapMin": 2
+        },
+        {
+          "topicId": "venue_experience_story",
+          "gapMin": 2
+        },
+        {
+          "topicId": "venue_couple_testimonials",
+          "gapMin": 2
+        },
+        {
+          "topicId": "venue_package_clarity",
+          "gapMin": 2
+        },
+        {
+          "topicId": "venue_price_ranges",
+          "gapMin": 2
+        },
+        {
+          "topicId": "venue_location_capacity",
+          "gapMin": 2
+        },
+        {
+          "topicId": "venue_availability_check",
+          "gapMin": 2
+        },
+        {
+          "topicId": "venue_seasonal_offers",
+          "gapMin": 2
+        },
+        {
+          "topicId": "venue_inquiry_followup",
+          "gapMin": 2
+        },
+        {
+          "topicId": "venue_whatsapp_channels",
+          "gapMin": 2
+        },
+        {
+          "topicId": "venue_lead_capture",
+          "gapMin": 2
+        },
+        {
+          "topicId": "venue_first_impression",
+          "gapMin": 2
+        },
+        {
+          "topicId": "venue_digital_readiness",
+          "gapMin": 2
+        }
+      ],
+      "mode": "maintain",
+      "priority": 2,
+      "dedupeGroup": "venue-venue_seasonal_offers",
+      "impact": 3,
+      "effort": 1,
+      "urgency": 2,
+      "evidenceTags": [
+        "framing",
+        "anchoring",
+        "venue:seasonal-offers"
+      ],
+      "title": "Protect the proven seasonal and off-peak offers standard",
+      "titleAr": "حافظ على مستوى العروض الموسمية وخارج الذروة",
+      "why": "Seasonal and off-peak offers directly shapes whether the right prospect understands, trusts, and advances with the venue.",
+      "whyAr": "يؤثر العروض الموسمية وخارج الذروة مباشرة في فهم العميل المناسب وثقته وانتقاله إلى الخطوة التالية مع القاعة.",
+      "how": [
+        "Document and monitor the working standard for the venue before adding more tools or channels.",
+        "Assign one venue owner and a review date.",
+        "Validate the change with real venue inquiries and record what happened."
+      ],
+      "howAr": [
+        "وثّق المعيار الناجح وراقبه في القاعة قبل إضافة أدوات أو قنوات جديدة.",
+        "عيّن مسؤولاً واحداً في القاعة وموعداً للمراجعة.",
+        "اختبر التغيير مع استفسارات حقيقية تخص القاعة وسجّل النتيجة."
+      ],
+      "websiteImplication": "Make seasonal and off-peak offers explicit at the page and decision point where it matters.",
+      "websiteImplicationAr": "أظهر العروض الموسمية وخارج الذروة بوضوح في الصفحة ونقطة القرار المناسبة.",
+      "systemImplication": "Keep venue measurement lightweight; no new system is justified without drift.",
+      "systemImplicationAr": "حافظ على قياس بسيط في القاعة؛ لا حاجة لنظام جديد دون تراجع واضح.",
+      "dominaseFit": "DOMINASE can review the existing standard and identify the next evidence-based optimization.",
+      "dominaseFitAr": "يمكن لـ DOMINASE مراجعة المعيار الحالي وتحديد التحسين التالي المبني على الدليل.",
+      "riskNotes": "Do not publish venue evidence, capacity, availability, prices, or outcomes that cannot be verified.",
+      "riskNotesAr": "لا تنشر أدلة أو طاقة استيعابية أو توفراً أو أسعاراً أو نتائج تخص القاعة ما لم يمكن إثباتها."
+    },
+    {
+      "id": "venue-maintain-venue_lead_capture",
+      "category": "conversionPath",
+      "conditions": {
+        "topicId": "venue_lead_capture",
+        "currentMin": 4.5,
+        "gapMax": 0.5
+      },
+      "notConditions": [
+        {
+          "topicId": "venue_gallery_strength",
+          "gapMin": 2
+        },
+        {
+          "topicId": "venue_experience_story",
+          "gapMin": 2
+        },
+        {
+          "topicId": "venue_couple_testimonials",
+          "gapMin": 2
+        },
+        {
+          "topicId": "venue_package_clarity",
+          "gapMin": 2
+        },
+        {
+          "topicId": "venue_price_ranges",
+          "gapMin": 2
+        },
+        {
+          "topicId": "venue_location_capacity",
+          "gapMin": 2
+        },
+        {
+          "topicId": "venue_availability_check",
+          "gapMin": 2
+        },
+        {
+          "topicId": "venue_seasonal_offers",
+          "gapMin": 2
+        },
+        {
+          "topicId": "venue_inquiry_followup",
+          "gapMin": 2
+        },
+        {
+          "topicId": "venue_whatsapp_channels",
+          "gapMin": 2
+        },
+        {
+          "topicId": "venue_lead_capture",
+          "gapMin": 2
+        },
+        {
+          "topicId": "venue_first_impression",
+          "gapMin": 2
+        },
+        {
+          "topicId": "venue_digital_readiness",
+          "gapMin": 2
+        }
+      ],
+      "mode": "maintain",
+      "priority": 2,
+      "dedupeGroup": "venue-venue_lead_capture",
+      "impact": 3,
+      "effort": 1,
+      "urgency": 2,
+      "evidenceTags": [
+        "capture",
+        "lead-magnet",
+        "reciprocity",
+        "venue"
+      ],
+      "title": "Protect the proven capturing browsing couples standard",
+      "titleAr": "حافظ على مستوى التقاط الأزواج المتصفحين",
+      "why": "Capturing browsing couples directly shapes whether the right prospect understands, trusts, and advances with the venue.",
+      "whyAr": "يؤثر التقاط الأزواج المتصفحين مباشرة في فهم العميل المناسب وثقته وانتقاله إلى الخطوة التالية مع القاعة.",
+      "how": [
+        "Document and monitor the working standard for the venue before adding more tools or channels.",
+        "Assign one venue owner and a review date.",
+        "Validate the change with real venue inquiries and record what happened."
+      ],
+      "howAr": [
+        "وثّق المعيار الناجح وراقبه في القاعة قبل إضافة أدوات أو قنوات جديدة.",
+        "عيّن مسؤولاً واحداً في القاعة وموعداً للمراجعة.",
+        "اختبر التغيير مع استفسارات حقيقية تخص القاعة وسجّل النتيجة."
+      ],
+      "websiteImplication": "Make capturing browsing couples explicit at the page and decision point where it matters.",
+      "websiteImplicationAr": "أظهر التقاط الأزواج المتصفحين بوضوح في الصفحة ونقطة القرار المناسبة.",
+      "systemImplication": "Keep venue measurement lightweight; no new system is justified without drift.",
+      "systemImplicationAr": "حافظ على قياس بسيط في القاعة؛ لا حاجة لنظام جديد دون تراجع واضح.",
+      "dominaseFit": "DOMINASE can review the existing standard and identify the next evidence-based optimization.",
+      "dominaseFitAr": "يمكن لـ DOMINASE مراجعة المعيار الحالي وتحديد التحسين التالي المبني على الدليل.",
+      "riskNotes": "Do not publish venue evidence, capacity, availability, prices, or outcomes that cannot be verified.",
+      "riskNotesAr": "لا تنشر أدلة أو طاقة استيعابية أو توفراً أو أسعاراً أو نتائج تخص القاعة ما لم يمكن إثباتها."
+    },
+    {
+      "id": "venue-steady-low-1",
+      "title": "Strengthen gallery strength with one controlled change",
+      "titleAr": "طوّر قوة المعرض بخطوة منضبطة",
+      "category": "strategicDiagnosis",
+      "conditions": {
+        "topicId": "venue_gallery_strength",
+        "currentMax": 1.5,
+        "gapMax": 0.5
+      },
+      "mode": "strategic",
+      "priority": 4,
+      "dedupeGroup": "venue-steady-0",
+      "impact": 4,
+      "effort": 2,
+      "urgency": 3,
+      "evidenceTags": [
+        "gallery",
+        "visual-trust",
+        "portfolio",
+        "venue:gallery-strength"
+      ],
+      "why": "Gallery strength directly shapes whether the right prospect understands, trusts, and advances with the venue.",
+      "whyAr": "يؤثر قوة المعرض مباشرة في فهم العميل المناسب وثقته وانتقاله إلى الخطوة التالية مع القاعة.",
+      "how": [
+        "Test one focused improvement for the venue before adding more tools or channels.",
+        "Assign one venue owner and a review date.",
+        "Validate the change with real venue inquiries and record what happened."
+      ],
+      "howAr": [
+        "اختبر تحسيناً واحداً ومحدداً في القاعة قبل إضافة أدوات أو قنوات جديدة.",
+        "عيّن مسؤولاً واحداً في القاعة وموعداً للمراجعة.",
+        "اختبر التغيير مع استفسارات حقيقية تخص القاعة وسجّل النتيجة."
+      ],
+      "websiteImplication": "Make gallery strength explicit at the page and decision point where it matters.",
+      "websiteImplicationAr": "أظهر قوة المعرض بوضوح في الصفحة ونقطة القرار المناسبة.",
+      "systemImplication": "Use the smallest venue tracking method that proves ownership before considering automation.",
+      "systemImplicationAr": "استخدم أبسط وسيلة متابعة في القاعة تثبت المسؤولية قبل التفكير في الأتمتة.",
+      "dominaseFit": "DOMINASE can prototype and measure this improvement without forcing a rebuild.",
+      "dominaseFitAr": "يمكن لـ DOMINASE اختبار هذا التحسين وقياسه دون فرض إعادة بناء.",
+      "riskNotes": "Do not publish venue evidence, capacity, availability, prices, or outcomes that cannot be verified.",
+      "riskNotesAr": "لا تنشر أدلة أو طاقة استيعابية أو توفراً أو أسعاراً أو نتائج تخص القاعة ما لم يمكن إثباتها."
+    },
+    {
+      "id": "venue-steady-low-2",
+      "title": "Strengthen guest experience conveyed with one controlled change",
+      "titleAr": "طوّر نقل تجربة الضيوف بخطوة منضبطة",
+      "category": "customerProfile",
+      "conditions": {
+        "topicId": "venue_experience_story",
+        "currentMax": 1.5,
+        "gapMax": 0.5
+      },
+      "mode": "strategic",
+      "priority": 4,
+      "dedupeGroup": "venue-steady-1",
+      "impact": 4,
+      "effort": 2,
+      "urgency": 3,
+      "evidenceTags": [
+        "service-marketing",
+        "tangibility",
+        "storytelling",
+        "venue:guest-experience"
+      ],
+      "why": "Guest experience conveyed directly shapes whether the right prospect understands, trusts, and advances with the venue.",
+      "whyAr": "يؤثر نقل تجربة الضيوف مباشرة في فهم العميل المناسب وثقته وانتقاله إلى الخطوة التالية مع القاعة.",
+      "how": [
+        "Test one focused improvement for the venue before adding more tools or channels.",
+        "Assign one venue owner and a review date.",
+        "Validate the change with real venue inquiries and record what happened."
+      ],
+      "howAr": [
+        "اختبر تحسيناً واحداً ومحدداً في القاعة قبل إضافة أدوات أو قنوات جديدة.",
+        "عيّن مسؤولاً واحداً في القاعة وموعداً للمراجعة.",
+        "اختبر التغيير مع استفسارات حقيقية تخص القاعة وسجّل النتيجة."
+      ],
+      "websiteImplication": "Make guest experience conveyed explicit at the page and decision point where it matters.",
+      "websiteImplicationAr": "أظهر نقل تجربة الضيوف بوضوح في الصفحة ونقطة القرار المناسبة.",
+      "systemImplication": "Use the smallest venue tracking method that proves ownership before considering automation.",
+      "systemImplicationAr": "استخدم أبسط وسيلة متابعة في القاعة تثبت المسؤولية قبل التفكير في الأتمتة.",
+      "dominaseFit": "DOMINASE can prototype and measure this improvement without forcing a rebuild.",
+      "dominaseFitAr": "يمكن لـ DOMINASE اختبار هذا التحسين وقياسه دون فرض إعادة بناء.",
+      "riskNotes": "Do not publish venue evidence, capacity, availability, prices, or outcomes that cannot be verified.",
+      "riskNotesAr": "لا تنشر أدلة أو طاقة استيعابية أو توفراً أو أسعاراً أو نتائج تخص القاعة ما لم يمكن إثباتها."
+    },
+    {
+      "id": "venue-steady-low-3",
+      "title": "Strengthen couple testimonials with one controlled change",
+      "titleAr": "طوّر شهادات الأزواج بخطوة منضبطة",
+      "category": "websiteStructure",
+      "conditions": {
+        "topicId": "venue_couple_testimonials",
+        "currentMax": 1.5,
+        "gapMax": 0.5
+      },
+      "mode": "strategic",
+      "priority": 4,
+      "dedupeGroup": "venue-steady-2",
+      "impact": 4,
+      "effort": 2,
+      "urgency": 3,
+      "evidenceTags": [
+        "social-proof",
+        "testimonials",
+        "weak-proof",
+        "venue"
+      ],
+      "why": "Couple testimonials directly shapes whether the right prospect understands, trusts, and advances with the venue.",
+      "whyAr": "يؤثر شهادات الأزواج مباشرة في فهم العميل المناسب وثقته وانتقاله إلى الخطوة التالية مع القاعة.",
+      "how": [
+        "Test one focused improvement for the venue before adding more tools or channels.",
+        "Assign one venue owner and a review date.",
+        "Validate the change with real venue inquiries and record what happened."
+      ],
+      "howAr": [
+        "اختبر تحسيناً واحداً ومحدداً في القاعة قبل إضافة أدوات أو قنوات جديدة.",
+        "عيّن مسؤولاً واحداً في القاعة وموعداً للمراجعة.",
+        "اختبر التغيير مع استفسارات حقيقية تخص القاعة وسجّل النتيجة."
+      ],
+      "websiteImplication": "Make couple testimonials explicit at the page and decision point where it matters.",
+      "websiteImplicationAr": "أظهر شهادات الأزواج بوضوح في الصفحة ونقطة القرار المناسبة.",
+      "systemImplication": "Use the smallest venue tracking method that proves ownership before considering automation.",
+      "systemImplicationAr": "استخدم أبسط وسيلة متابعة في القاعة تثبت المسؤولية قبل التفكير في الأتمتة.",
+      "dominaseFit": "DOMINASE can prototype and measure this improvement without forcing a rebuild.",
+      "dominaseFitAr": "يمكن لـ DOMINASE اختبار هذا التحسين وقياسه دون فرض إعادة بناء.",
+      "riskNotes": "Do not publish venue evidence, capacity, availability, prices, or outcomes that cannot be verified.",
+      "riskNotesAr": "لا تنشر أدلة أو طاقة استيعابية أو توفراً أو أسعاراً أو نتائج تخص القاعة ما لم يمكن إثباتها."
+    },
+    {
+      "id": "venue-steady-mid-1",
+      "title": "Strengthen package clarity with one controlled change",
+      "titleAr": "طوّر وضوح الباقات بخطوة منضبطة",
+      "category": "websiteStructure",
+      "conditions": {
+        "topicId": "venue_package_clarity",
+        "currentMin": 2.5,
+        "currentMax": 4.4,
+        "gapMax": 0.5
+      },
+      "notConditions": [
+        {
+          "topicId": "venue_gallery_strength",
+          "gapMin": 2
+        },
+        {
+          "topicId": "venue_experience_story",
+          "gapMin": 2
+        },
+        {
+          "topicId": "venue_couple_testimonials",
+          "gapMin": 2
+        },
+        {
+          "topicId": "venue_package_clarity",
+          "gapMin": 2
+        },
+        {
+          "topicId": "venue_price_ranges",
+          "gapMin": 2
+        },
+        {
+          "topicId": "venue_location_capacity",
+          "gapMin": 2
+        },
+        {
+          "topicId": "venue_availability_check",
+          "gapMin": 2
+        },
+        {
+          "topicId": "venue_seasonal_offers",
+          "gapMin": 2
+        },
+        {
+          "topicId": "venue_inquiry_followup",
+          "gapMin": 2
+        },
+        {
+          "topicId": "venue_whatsapp_channels",
+          "gapMin": 2
+        },
+        {
+          "topicId": "venue_lead_capture",
+          "gapMin": 2
+        },
+        {
+          "topicId": "venue_first_impression",
+          "gapMin": 2
+        },
+        {
+          "topicId": "venue_digital_readiness",
+          "gapMin": 2
+        }
+      ],
+      "mode": "improve",
+      "priority": 2,
+      "dedupeGroup": "venue-steady-mid-0",
+      "impact": 3,
+      "effort": 2,
+      "urgency": 2,
+      "evidenceTags": [
+        "packaging",
+        "choice-overload",
+        "offer-clarity",
+        "venue:package-clarity"
+      ],
+      "why": "Package clarity directly shapes whether the right prospect understands, trusts, and advances with the venue.",
+      "whyAr": "يؤثر وضوح الباقات مباشرة في فهم العميل المناسب وثقته وانتقاله إلى الخطوة التالية مع القاعة.",
+      "how": [
+        "Test one focused improvement for the venue before adding more tools or channels.",
+        "Assign one venue owner and a review date.",
+        "Validate the change with real venue inquiries and record what happened."
+      ],
+      "howAr": [
+        "اختبر تحسيناً واحداً ومحدداً في القاعة قبل إضافة أدوات أو قنوات جديدة.",
+        "عيّن مسؤولاً واحداً في القاعة وموعداً للمراجعة.",
+        "اختبر التغيير مع استفسارات حقيقية تخص القاعة وسجّل النتيجة."
+      ],
+      "websiteImplication": "Make package clarity explicit at the page and decision point where it matters.",
+      "websiteImplicationAr": "أظهر وضوح الباقات بوضوح في الصفحة ونقطة القرار المناسبة.",
+      "systemImplication": "Use the smallest venue tracking method that proves ownership before considering automation.",
+      "systemImplicationAr": "استخدم أبسط وسيلة متابعة في القاعة تثبت المسؤولية قبل التفكير في الأتمتة.",
+      "dominaseFit": "DOMINASE can prototype and measure this improvement without forcing a rebuild.",
+      "dominaseFitAr": "يمكن لـ DOMINASE اختبار هذا التحسين وقياسه دون فرض إعادة بناء.",
+      "riskNotes": "Do not publish venue evidence, capacity, availability, prices, or outcomes that cannot be verified.",
+      "riskNotesAr": "لا تنشر أدلة أو طاقة استيعابية أو توفراً أو أسعاراً أو نتائج تخص القاعة ما لم يمكن إثباتها."
+    },
+    {
+      "id": "venue-steady-mid-2",
+      "title": "Strengthen price range transparency with one controlled change",
+      "titleAr": "طوّر شفافية النطاق السعري بخطوة منضبطة",
+      "category": "conversionPath",
+      "conditions": {
+        "topicId": "venue_price_ranges",
+        "currentMin": 2.5,
+        "currentMax": 4.4,
+        "gapMax": 0.5
+      },
+      "notConditions": [
+        {
+          "topicId": "venue_gallery_strength",
+          "gapMin": 2
+        },
+        {
+          "topicId": "venue_experience_story",
+          "gapMin": 2
+        },
+        {
+          "topicId": "venue_couple_testimonials",
+          "gapMin": 2
+        },
+        {
+          "topicId": "venue_package_clarity",
+          "gapMin": 2
+        },
+        {
+          "topicId": "venue_price_ranges",
+          "gapMin": 2
+        },
+        {
+          "topicId": "venue_location_capacity",
+          "gapMin": 2
+        },
+        {
+          "topicId": "venue_availability_check",
+          "gapMin": 2
+        },
+        {
+          "topicId": "venue_seasonal_offers",
+          "gapMin": 2
+        },
+        {
+          "topicId": "venue_inquiry_followup",
+          "gapMin": 2
+        },
+        {
+          "topicId": "venue_whatsapp_channels",
+          "gapMin": 2
+        },
+        {
+          "topicId": "venue_lead_capture",
+          "gapMin": 2
+        },
+        {
+          "topicId": "venue_first_impression",
+          "gapMin": 2
+        },
+        {
+          "topicId": "venue_digital_readiness",
+          "gapMin": 2
+        }
+      ],
+      "mode": "improve",
+      "priority": 2,
+      "dedupeGroup": "venue-steady-mid-1",
+      "impact": 3,
+      "effort": 2,
+      "urgency": 2,
+      "evidenceTags": [
+        "pricing-transparency",
+        "pricing-content",
+        "trust-barrier",
+        "venue"
+      ],
+      "why": "Price range transparency directly shapes whether the right prospect understands, trusts, and advances with the venue.",
+      "whyAr": "يؤثر شفافية النطاق السعري مباشرة في فهم العميل المناسب وثقته وانتقاله إلى الخطوة التالية مع القاعة.",
+      "how": [
+        "Test one focused improvement for the venue before adding more tools or channels.",
+        "Assign one venue owner and a review date.",
+        "Validate the change with real venue inquiries and record what happened."
+      ],
+      "howAr": [
+        "اختبر تحسيناً واحداً ومحدداً في القاعة قبل إضافة أدوات أو قنوات جديدة.",
+        "عيّن مسؤولاً واحداً في القاعة وموعداً للمراجعة.",
+        "اختبر التغيير مع استفسارات حقيقية تخص القاعة وسجّل النتيجة."
+      ],
+      "websiteImplication": "Make price range transparency explicit at the page and decision point where it matters.",
+      "websiteImplicationAr": "أظهر شفافية النطاق السعري بوضوح في الصفحة ونقطة القرار المناسبة.",
+      "systemImplication": "Use the smallest venue tracking method that proves ownership before considering automation.",
+      "systemImplicationAr": "استخدم أبسط وسيلة متابعة في القاعة تثبت المسؤولية قبل التفكير في الأتمتة.",
+      "dominaseFit": "DOMINASE can prototype and measure this improvement without forcing a rebuild.",
+      "dominaseFitAr": "يمكن لـ DOMINASE اختبار هذا التحسين وقياسه دون فرض إعادة بناء.",
+      "riskNotes": "Do not publish venue evidence, capacity, availability, prices, or outcomes that cannot be verified.",
+      "riskNotesAr": "لا تنشر أدلة أو طاقة استيعابية أو توفراً أو أسعاراً أو نتائج تخص القاعة ما لم يمكن إثباتها."
+    },
+    {
+      "id": "venue-steady-mid-3",
+      "title": "Strengthen location and capacity clarity with one controlled change",
+      "titleAr": "طوّر وضوح الموقع والسعة بخطوة منضبطة",
+      "category": "contentAndTrust",
+      "conditions": {
+        "topicId": "venue_location_capacity",
+        "currentMin": 2.5,
+        "currentMax": 4.4,
+        "gapMax": 0.5
+      },
+      "notConditions": [
+        {
+          "topicId": "venue_gallery_strength",
+          "gapMin": 2
+        },
+        {
+          "topicId": "venue_experience_story",
+          "gapMin": 2
+        },
+        {
+          "topicId": "venue_couple_testimonials",
+          "gapMin": 2
+        },
+        {
+          "topicId": "venue_package_clarity",
+          "gapMin": 2
+        },
+        {
+          "topicId": "venue_price_ranges",
+          "gapMin": 2
+        },
+        {
+          "topicId": "venue_location_capacity",
+          "gapMin": 2
+        },
+        {
+          "topicId": "venue_availability_check",
+          "gapMin": 2
+        },
+        {
+          "topicId": "venue_seasonal_offers",
+          "gapMin": 2
+        },
+        {
+          "topicId": "venue_inquiry_followup",
+          "gapMin": 2
+        },
+        {
+          "topicId": "venue_whatsapp_channels",
+          "gapMin": 2
+        },
+        {
+          "topicId": "venue_lead_capture",
+          "gapMin": 2
+        },
+        {
+          "topicId": "venue_first_impression",
+          "gapMin": 2
+        },
+        {
+          "topicId": "venue_digital_readiness",
+          "gapMin": 2
+        }
+      ],
+      "mode": "improve",
+      "priority": 2,
+      "dedupeGroup": "venue-steady-mid-2",
+      "impact": 3,
+      "effort": 2,
+      "urgency": 2,
+      "evidenceTags": [
+        "local-positioning",
+        "contact-flow",
+        "venue"
+      ],
+      "why": "Location and capacity clarity directly shapes whether the right prospect understands, trusts, and advances with the venue.",
+      "whyAr": "يؤثر وضوح الموقع والسعة مباشرة في فهم العميل المناسب وثقته وانتقاله إلى الخطوة التالية مع القاعة.",
+      "how": [
+        "Test one focused improvement for the venue before adding more tools or channels.",
+        "Assign one venue owner and a review date.",
+        "Validate the change with real venue inquiries and record what happened."
+      ],
+      "howAr": [
+        "اختبر تحسيناً واحداً ومحدداً في القاعة قبل إضافة أدوات أو قنوات جديدة.",
+        "عيّن مسؤولاً واحداً في القاعة وموعداً للمراجعة.",
+        "اختبر التغيير مع استفسارات حقيقية تخص القاعة وسجّل النتيجة."
+      ],
+      "websiteImplication": "Make location and capacity clarity explicit at the page and decision point where it matters.",
+      "websiteImplicationAr": "أظهر وضوح الموقع والسعة بوضوح في الصفحة ونقطة القرار المناسبة.",
+      "systemImplication": "Use the smallest venue tracking method that proves ownership before considering automation.",
+      "systemImplicationAr": "استخدم أبسط وسيلة متابعة في القاعة تثبت المسؤولية قبل التفكير في الأتمتة.",
+      "dominaseFit": "DOMINASE can prototype and measure this improvement without forcing a rebuild.",
+      "dominaseFitAr": "يمكن لـ DOMINASE اختبار هذا التحسين وقياسه دون فرض إعادة بناء.",
+      "riskNotes": "Do not publish venue evidence, capacity, availability, prices, or outcomes that cannot be verified.",
+      "riskNotesAr": "لا تنشر أدلة أو طاقة استيعابية أو توفراً أو أسعاراً أو نتائج تخص القاعة ما لم يمكن إثباتها."
+    },
+    {
+      "id": "venue-steady-mid-4",
+      "title": "Strengthen availability and date-check flow with one controlled change",
+      "titleAr": "طوّر مسار التحقق من التاريخ بخطوة منضبطة",
+      "category": "salesFollowUp",
+      "conditions": {
+        "topicId": "venue_availability_check",
+        "currentMin": 2.5,
+        "currentMax": 4.4,
+        "gapMax": 0.5
+      },
+      "notConditions": [
+        {
+          "topicId": "venue_gallery_strength",
+          "gapMin": 2
+        },
+        {
+          "topicId": "venue_experience_story",
+          "gapMin": 2
+        },
+        {
+          "topicId": "venue_couple_testimonials",
+          "gapMin": 2
+        },
+        {
+          "topicId": "venue_package_clarity",
+          "gapMin": 2
+        },
+        {
+          "topicId": "venue_price_ranges",
+          "gapMin": 2
+        },
+        {
+          "topicId": "venue_location_capacity",
+          "gapMin": 2
+        },
+        {
+          "topicId": "venue_availability_check",
+          "gapMin": 2
+        },
+        {
+          "topicId": "venue_seasonal_offers",
+          "gapMin": 2
+        },
+        {
+          "topicId": "venue_inquiry_followup",
+          "gapMin": 2
+        },
+        {
+          "topicId": "venue_whatsapp_channels",
+          "gapMin": 2
+        },
+        {
+          "topicId": "venue_lead_capture",
+          "gapMin": 2
+        },
+        {
+          "topicId": "venue_first_impression",
+          "gapMin": 2
+        },
+        {
+          "topicId": "venue_digital_readiness",
+          "gapMin": 2
+        }
+      ],
+      "mode": "improve",
+      "priority": 2,
+      "dedupeGroup": "venue-steady-mid-3",
+      "impact": 3,
+      "effort": 2,
+      "urgency": 2,
+      "evidenceTags": [
+        "availability",
+        "booking-friction",
+        "contact-flow",
+        "venue:availability-inquiry"
+      ],
+      "why": "Availability and date-check flow directly shapes whether the right prospect understands, trusts, and advances with the venue.",
+      "whyAr": "يؤثر مسار التحقق من التاريخ مباشرة في فهم العميل المناسب وثقته وانتقاله إلى الخطوة التالية مع القاعة.",
+      "how": [
+        "Test one focused improvement for the venue before adding more tools or channels.",
+        "Assign one venue owner and a review date.",
+        "Validate the change with real venue inquiries and record what happened."
+      ],
+      "howAr": [
+        "اختبر تحسيناً واحداً ومحدداً في القاعة قبل إضافة أدوات أو قنوات جديدة.",
+        "عيّن مسؤولاً واحداً في القاعة وموعداً للمراجعة.",
+        "اختبر التغيير مع استفسارات حقيقية تخص القاعة وسجّل النتيجة."
+      ],
+      "websiteImplication": "Make availability and date-check flow explicit at the page and decision point where it matters.",
+      "websiteImplicationAr": "أظهر مسار التحقق من التاريخ بوضوح في الصفحة ونقطة القرار المناسبة.",
+      "systemImplication": "Use the smallest venue tracking method that proves ownership before considering automation.",
+      "systemImplicationAr": "استخدم أبسط وسيلة متابعة في القاعة تثبت المسؤولية قبل التفكير في الأتمتة.",
+      "dominaseFit": "DOMINASE can prototype and measure this improvement without forcing a rebuild.",
+      "dominaseFitAr": "يمكن لـ DOMINASE اختبار هذا التحسين وقياسه دون فرض إعادة بناء.",
+      "riskNotes": "Do not publish venue evidence, capacity, availability, prices, or outcomes that cannot be verified.",
+      "riskNotesAr": "لا تنشر أدلة أو طاقة استيعابية أو توفراً أو أسعاراً أو نتائج تخص القاعة ما لم يمكن إثباتها."
+    },
+    {
+      "id": "venue-steady-mid-5",
+      "title": "Strengthen seasonal and off-peak offers with one controlled change",
+      "titleAr": "طوّر العروض الموسمية وخارج الذروة بخطوة منضبطة",
+      "category": "quickWins",
+      "conditions": {
+        "topicId": "venue_seasonal_offers",
+        "currentMin": 2.5,
+        "currentMax": 4.4,
+        "gapMin": 0.5,
+        "gapMax": 0.5
+      },
+      "notConditions": [
+        {
+          "topicId": "venue_gallery_strength",
+          "gapMin": 2
+        },
+        {
+          "topicId": "venue_experience_story",
+          "gapMin": 2
+        },
+        {
+          "topicId": "venue_couple_testimonials",
+          "gapMin": 2
+        },
+        {
+          "topicId": "venue_package_clarity",
+          "gapMin": 2
+        },
+        {
+          "topicId": "venue_price_ranges",
+          "gapMin": 2
+        },
+        {
+          "topicId": "venue_location_capacity",
+          "gapMin": 2
+        },
+        {
+          "topicId": "venue_availability_check",
+          "gapMin": 2
+        },
+        {
+          "topicId": "venue_seasonal_offers",
+          "gapMin": 2
+        },
+        {
+          "topicId": "venue_inquiry_followup",
+          "gapMin": 2
+        },
+        {
+          "topicId": "venue_whatsapp_channels",
+          "gapMin": 2
+        },
+        {
+          "topicId": "venue_lead_capture",
+          "gapMin": 2
+        },
+        {
+          "topicId": "venue_first_impression",
+          "gapMin": 2
+        },
+        {
+          "topicId": "venue_digital_readiness",
+          "gapMin": 2
+        }
+      ],
+      "mode": "improve",
+      "priority": 2,
+      "dedupeGroup": "venue-steady-mid-4",
+      "impact": 3,
+      "effort": 2,
+      "urgency": 2,
+      "evidenceTags": [
+        "framing",
+        "anchoring",
+        "venue:seasonal-offers"
+      ],
+      "why": "Seasonal and off-peak offers directly shapes whether the right prospect understands, trusts, and advances with the venue.",
+      "whyAr": "يؤثر العروض الموسمية وخارج الذروة مباشرة في فهم العميل المناسب وثقته وانتقاله إلى الخطوة التالية مع القاعة.",
+      "how": [
+        "Test one focused improvement for the venue before adding more tools or channels.",
+        "Assign one venue owner and a review date.",
+        "Validate the change with real venue inquiries and record what happened."
+      ],
+      "howAr": [
+        "اختبر تحسيناً واحداً ومحدداً في القاعة قبل إضافة أدوات أو قنوات جديدة.",
+        "عيّن مسؤولاً واحداً في القاعة وموعداً للمراجعة.",
+        "اختبر التغيير مع استفسارات حقيقية تخص القاعة وسجّل النتيجة."
+      ],
+      "websiteImplication": "Make seasonal and off-peak offers explicit at the page and decision point where it matters.",
+      "websiteImplicationAr": "أظهر العروض الموسمية وخارج الذروة بوضوح في الصفحة ونقطة القرار المناسبة.",
+      "systemImplication": "Use the smallest venue tracking method that proves ownership before considering automation.",
+      "systemImplicationAr": "استخدم أبسط وسيلة متابعة في القاعة تثبت المسؤولية قبل التفكير في الأتمتة.",
+      "dominaseFit": "DOMINASE can prototype and measure this improvement without forcing a rebuild.",
+      "dominaseFitAr": "يمكن لـ DOMINASE اختبار هذا التحسين وقياسه دون فرض إعادة بناء.",
+      "riskNotes": "Do not publish venue evidence, capacity, availability, prices, or outcomes that cannot be verified.",
+      "riskNotesAr": "لا تنشر أدلة أو طاقة استيعابية أو توفراً أو أسعاراً أو نتائج تخص القاعة ما لم يمكن إثباتها."
+    },
+    {
+      "id": "venue-steady-mid-6",
+      "title": "Strengthen inquiry follow-up speed with one controlled change",
+      "titleAr": "طوّر سرعة متابعة الاستفسارات بخطوة منضبطة",
+      "category": "dominaseNextStep",
+      "conditions": {
+        "topicId": "venue_inquiry_followup",
+        "currentMin": 2.5,
+        "currentMax": 4.4,
+        "gapMin": 0.5,
+        "gapMax": 0.5
+      },
+      "notConditions": [
+        {
+          "topicId": "venue_gallery_strength",
+          "gapMin": 2
+        },
+        {
+          "topicId": "venue_experience_story",
+          "gapMin": 2
+        },
+        {
+          "topicId": "venue_couple_testimonials",
+          "gapMin": 2
+        },
+        {
+          "topicId": "venue_package_clarity",
+          "gapMin": 2
+        },
+        {
+          "topicId": "venue_price_ranges",
+          "gapMin": 2
+        },
+        {
+          "topicId": "venue_location_capacity",
+          "gapMin": 2
+        },
+        {
+          "topicId": "venue_availability_check",
+          "gapMin": 2
+        },
+        {
+          "topicId": "venue_seasonal_offers",
+          "gapMin": 2
+        },
+        {
+          "topicId": "venue_inquiry_followup",
+          "gapMin": 2
+        },
+        {
+          "topicId": "venue_whatsapp_channels",
+          "gapMin": 2
+        },
+        {
+          "topicId": "venue_lead_capture",
+          "gapMin": 2
+        },
+        {
+          "topicId": "venue_first_impression",
+          "gapMin": 2
+        },
+        {
+          "topicId": "venue_digital_readiness",
+          "gapMin": 2
+        }
+      ],
+      "mode": "improve",
+      "priority": 2,
+      "dedupeGroup": "venue-steady-mid-5",
+      "impact": 3,
+      "effort": 2,
+      "urgency": 2,
+      "evidenceTags": [
+        "weak-follow-up",
+        "follow-up",
+        "cadence",
+        "venue"
+      ],
+      "why": "Inquiry follow-up speed directly shapes whether the right prospect understands, trusts, and advances with the venue.",
+      "whyAr": "يؤثر سرعة متابعة الاستفسارات مباشرة في فهم العميل المناسب وثقته وانتقاله إلى الخطوة التالية مع القاعة.",
+      "how": [
+        "Test one focused improvement for the venue before adding more tools or channels.",
+        "Assign one venue owner and a review date.",
+        "Validate the change with real venue inquiries and record what happened."
+      ],
+      "howAr": [
+        "اختبر تحسيناً واحداً ومحدداً في القاعة قبل إضافة أدوات أو قنوات جديدة.",
+        "عيّن مسؤولاً واحداً في القاعة وموعداً للمراجعة.",
+        "اختبر التغيير مع استفسارات حقيقية تخص القاعة وسجّل النتيجة."
+      ],
+      "websiteImplication": "Make inquiry follow-up speed explicit at the page and decision point where it matters.",
+      "websiteImplicationAr": "أظهر سرعة متابعة الاستفسارات بوضوح في الصفحة ونقطة القرار المناسبة.",
+      "systemImplication": "Use the smallest venue tracking method that proves ownership before considering automation.",
+      "systemImplicationAr": "استخدم أبسط وسيلة متابعة في القاعة تثبت المسؤولية قبل التفكير في الأتمتة.",
+      "dominaseFit": "DOMINASE can prototype and measure this improvement without forcing a rebuild.",
+      "dominaseFitAr": "يمكن لـ DOMINASE اختبار هذا التحسين وقياسه دون فرض إعادة بناء.",
+      "riskNotes": "Do not publish venue evidence, capacity, availability, prices, or outcomes that cannot be verified.",
+      "riskNotesAr": "لا تنشر أدلة أو طاقة استيعابية أو توفراً أو أسعاراً أو نتائج تخص القاعة ما لم يمكن إثباتها."
+    },
+    {
+      "id": "venue-strategic-1",
+      "title": "Strengthen whatsapp and channel control with one controlled change",
+      "titleAr": "طوّر تنظيم واتساب والقنوات بخطوة منضبطة",
+      "category": "salesFollowUp",
+      "conditions": {
+        "tags": [
+          "gallery",
+          "service-marketing",
+          "social-proof",
+          "packaging"
+        ],
+        "targetMin": 4,
+        "gapMin": 2
+      },
+      "mode": "strategic",
+      "priority": 4,
+      "dedupeGroup": "venue-strategic-0",
+      "impact": 4,
+      "effort": 3,
+      "urgency": 4,
+      "evidenceTags": [
+        "gallery",
+        "visual-trust",
+        "portfolio",
+        "venue:gallery-strength",
+        "service-marketing",
+        "tangibility",
+        "storytelling",
+        "venue:guest-experience",
+        "social-proof",
+        "testimonials",
+        "weak-proof",
+        "venue",
+        "packaging",
+        "choice-overload",
+        "offer-clarity",
+        "venue:package-clarity"
+      ],
+      "why": "WhatsApp and channel control directly shapes whether the right prospect understands, trusts, and advances with the venue.",
+      "whyAr": "يؤثر تنظيم واتساب والقنوات مباشرة في فهم العميل المناسب وثقته وانتقاله إلى الخطوة التالية مع القاعة.",
+      "how": [
+        "Test one focused improvement for the venue before adding more tools or channels.",
+        "Assign one venue owner and a review date.",
+        "Validate the change with real venue inquiries and record what happened."
+      ],
+      "howAr": [
+        "اختبر تحسيناً واحداً ومحدداً في القاعة قبل إضافة أدوات أو قنوات جديدة.",
+        "عيّن مسؤولاً واحداً في القاعة وموعداً للمراجعة.",
+        "اختبر التغيير مع استفسارات حقيقية تخص القاعة وسجّل النتيجة."
+      ],
+      "websiteImplication": "Make whatsapp and channel control explicit at the page and decision point where it matters.",
+      "websiteImplicationAr": "أظهر تنظيم واتساب والقنوات بوضوح في الصفحة ونقطة القرار المناسبة.",
+      "systemImplication": "Use the smallest venue tracking method that proves ownership before considering automation.",
+      "systemImplicationAr": "استخدم أبسط وسيلة متابعة في القاعة تثبت المسؤولية قبل التفكير في الأتمتة.",
+      "dominaseFit": "DOMINASE can prototype and measure this improvement without forcing a rebuild.",
+      "dominaseFitAr": "يمكن لـ DOMINASE اختبار هذا التحسين وقياسه دون فرض إعادة بناء.",
+      "riskNotes": "Do not publish venue evidence, capacity, availability, prices, or outcomes that cannot be verified.",
+      "riskNotesAr": "لا تنشر أدلة أو طاقة استيعابية أو توفراً أو أسعاراً أو نتائج تخص القاعة ما لم يمكن إثباتها."
+    },
+    {
+      "id": "venue-strategic-2",
+      "title": "Strengthen capturing browsing couples with one controlled change",
+      "titleAr": "طوّر التقاط الأزواج المتصفحين بخطوة منضبطة",
+      "category": "quickWins",
+      "conditions": {
+        "tags": [
+          "pricing-transparency",
+          "local-positioning",
+          "availability"
+        ],
+        "targetMin": 4,
+        "gapMin": 2
+      },
+      "mode": "strategic",
+      "priority": 4,
+      "dedupeGroup": "venue-strategic-1",
+      "impact": 4,
+      "effort": 3,
+      "urgency": 4,
+      "evidenceTags": [
+        "pricing-transparency",
+        "pricing-content",
+        "trust-barrier",
+        "venue",
+        "local-positioning",
+        "contact-flow",
+        "venue",
+        "availability",
+        "booking-friction",
+        "contact-flow",
+        "venue:availability-inquiry"
+      ],
+      "why": "Capturing browsing couples directly shapes whether the right prospect understands, trusts, and advances with the venue.",
+      "whyAr": "يؤثر التقاط الأزواج المتصفحين مباشرة في فهم العميل المناسب وثقته وانتقاله إلى الخطوة التالية مع القاعة.",
+      "how": [
+        "Test one focused improvement for the venue before adding more tools or channels.",
+        "Assign one venue owner and a review date.",
+        "Validate the change with real venue inquiries and record what happened."
+      ],
+      "howAr": [
+        "اختبر تحسيناً واحداً ومحدداً في القاعة قبل إضافة أدوات أو قنوات جديدة.",
+        "عيّن مسؤولاً واحداً في القاعة وموعداً للمراجعة.",
+        "اختبر التغيير مع استفسارات حقيقية تخص القاعة وسجّل النتيجة."
+      ],
+      "websiteImplication": "Make capturing browsing couples explicit at the page and decision point where it matters.",
+      "websiteImplicationAr": "أظهر التقاط الأزواج المتصفحين بوضوح في الصفحة ونقطة القرار المناسبة.",
+      "systemImplication": "Use the smallest venue tracking method that proves ownership before considering automation.",
+      "systemImplicationAr": "استخدم أبسط وسيلة متابعة في القاعة تثبت المسؤولية قبل التفكير في الأتمتة.",
+      "dominaseFit": "DOMINASE can prototype and measure this improvement without forcing a rebuild.",
+      "dominaseFitAr": "يمكن لـ DOMINASE اختبار هذا التحسين وقياسه دون فرض إعادة بناء.",
+      "riskNotes": "Do not publish venue evidence, capacity, availability, prices, or outcomes that cannot be verified.",
+      "riskNotesAr": "لا تنشر أدلة أو طاقة استيعابية أو توفراً أو أسعاراً أو نتائج تخص القاعة ما لم يمكن إثباتها."
+    },
+    {
+      "id": "venue-strategic-3",
+      "title": "Strengthen first impression with one controlled change",
+      "titleAr": "طوّر الانطباع الأول بخطوة منضبطة",
+      "category": "dominaseNextStep",
+      "conditions": {
+        "tags": [
+          "framing",
+          "weak-follow-up",
+          "whatsapp"
+        ],
+        "targetMin": 4,
+        "gapMin": 2
+      },
+      "mode": "strategic",
+      "priority": 4,
+      "dedupeGroup": "venue-strategic-2",
+      "impact": 4,
+      "effort": 3,
+      "urgency": 4,
+      "evidenceTags": [
+        "framing",
+        "anchoring",
+        "venue:seasonal-offers",
+        "weak-follow-up",
+        "follow-up",
+        "cadence",
+        "venue",
+        "whatsapp",
+        "messaging",
+        "crm",
+        "venue:whatsapp-overload"
+      ],
+      "why": "First impression directly shapes whether the right prospect understands, trusts, and advances with the venue.",
+      "whyAr": "يؤثر الانطباع الأول مباشرة في فهم العميل المناسب وثقته وانتقاله إلى الخطوة التالية مع القاعة.",
+      "how": [
+        "Test one focused improvement for the venue before adding more tools or channels.",
+        "Assign one venue owner and a review date.",
+        "Validate the change with real venue inquiries and record what happened."
+      ],
+      "howAr": [
+        "اختبر تحسيناً واحداً ومحدداً في القاعة قبل إضافة أدوات أو قنوات جديدة.",
+        "عيّن مسؤولاً واحداً في القاعة وموعداً للمراجعة.",
+        "اختبر التغيير مع استفسارات حقيقية تخص القاعة وسجّل النتيجة."
+      ],
+      "websiteImplication": "Make first impression explicit at the page and decision point where it matters.",
+      "websiteImplicationAr": "أظهر الانطباع الأول بوضوح في الصفحة ونقطة القرار المناسبة.",
+      "systemImplication": "Use the smallest venue tracking method that proves ownership before considering automation.",
+      "systemImplicationAr": "استخدم أبسط وسيلة متابعة في القاعة تثبت المسؤولية قبل التفكير في الأتمتة.",
+      "dominaseFit": "DOMINASE can prototype and measure this improvement without forcing a rebuild.",
+      "dominaseFitAr": "يمكن لـ DOMINASE اختبار هذا التحسين وقياسه دون فرض إعادة بناء.",
+      "riskNotes": "Do not publish venue evidence, capacity, availability, prices, or outcomes that cannot be verified.",
+      "riskNotesAr": "لا تنشر أدلة أو طاقة استيعابية أو توفراً أو أسعاراً أو نتائج تخص القاعة ما لم يمكن إثباتها."
+    },
+    {
+      "id": "venue-strategic-4",
+      "title": "Strengthen connected systems and add-ons with one controlled change",
+      "titleAr": "طوّر الأنظمة المترابطة والإضافات الرقمية بخطوة منضبطة",
+      "category": "strategicDiagnosis",
+      "conditions": {
+        "tags": [
+          "capture",
+          "first-impression",
+          "digital-readiness"
+        ],
+        "targetMin": 4,
+        "gapMin": 2
+      },
+      "mode": "strategic",
+      "priority": 4,
+      "dedupeGroup": "venue-strategic-3",
+      "impact": 4,
+      "effort": 3,
+      "urgency": 4,
+      "evidenceTags": [
+        "capture",
+        "lead-magnet",
+        "reciprocity",
+        "venue",
+        "first-impression",
+        "hero-clarity",
+        "visual-trust",
+        "venue",
+        "digital-readiness",
+        "system",
+        "service-marketing",
+        "venue"
+      ],
+      "why": "Connected systems and add-ons directly shapes whether the right prospect understands, trusts, and advances with the venue.",
+      "whyAr": "يؤثر الأنظمة المترابطة والإضافات الرقمية مباشرة في فهم العميل المناسب وثقته وانتقاله إلى الخطوة التالية مع القاعة.",
+      "how": [
+        "Test one focused improvement for the venue before adding more tools or channels.",
+        "Assign one venue owner and a review date.",
+        "Validate the change with real venue inquiries and record what happened."
+      ],
+      "howAr": [
+        "اختبر تحسيناً واحداً ومحدداً في القاعة قبل إضافة أدوات أو قنوات جديدة.",
+        "عيّن مسؤولاً واحداً في القاعة وموعداً للمراجعة.",
+        "اختبر التغيير مع استفسارات حقيقية تخص القاعة وسجّل النتيجة."
+      ],
+      "websiteImplication": "Make connected systems and add-ons explicit at the page and decision point where it matters.",
+      "websiteImplicationAr": "أظهر الأنظمة المترابطة والإضافات الرقمية بوضوح في الصفحة ونقطة القرار المناسبة.",
+      "systemImplication": "Use the smallest venue tracking method that proves ownership before considering automation.",
+      "systemImplicationAr": "استخدم أبسط وسيلة متابعة في القاعة تثبت المسؤولية قبل التفكير في الأتمتة.",
+      "dominaseFit": "DOMINASE can prototype and measure this improvement without forcing a rebuild.",
+      "dominaseFitAr": "يمكن لـ DOMINASE اختبار هذا التحسين وقياسه دون فرض إعادة بناء.",
+      "riskNotes": "Do not publish venue evidence, capacity, availability, prices, or outcomes that cannot be verified.",
+      "riskNotesAr": "لا تنشر أدلة أو طاقة استيعابية أو توفراً أو أسعاراً أو نتائج تخص القاعة ما لم يمكن إثباتها."
+    },
+    {
+      "id": "venue-controlled-path-1",
+      "title": "Strengthen price range transparency with one controlled change",
+      "titleAr": "طوّر شفافية النطاق السعري بخطوة منضبطة",
+      "category": "customerProfile",
+      "conditions": {
+        "topicId": "venue_price_ranges",
+        "currentMin": 2,
+        "targetMin": 4,
+        "gapMin": 2
+      },
+      "mode": "improve",
+      "priority": 3,
+      "dedupeGroup": "venue-controlled-0",
+      "impact": 3,
+      "effort": 3,
+      "urgency": 3,
+      "evidenceTags": [
+        "pricing-transparency",
+        "pricing-content",
+        "trust-barrier",
+        "venue"
+      ],
+      "why": "Price range transparency directly shapes whether the right prospect understands, trusts, and advances with the venue.",
+      "whyAr": "يؤثر شفافية النطاق السعري مباشرة في فهم العميل المناسب وثقته وانتقاله إلى الخطوة التالية مع القاعة.",
+      "how": [
+        "Test one focused improvement for the venue before adding more tools or channels.",
+        "Assign one venue owner and a review date.",
+        "Validate the change with real venue inquiries and record what happened."
+      ],
+      "howAr": [
+        "اختبر تحسيناً واحداً ومحدداً في القاعة قبل إضافة أدوات أو قنوات جديدة.",
+        "عيّن مسؤولاً واحداً في القاعة وموعداً للمراجعة.",
+        "اختبر التغيير مع استفسارات حقيقية تخص القاعة وسجّل النتيجة."
+      ],
+      "websiteImplication": "Make price range transparency explicit at the page and decision point where it matters.",
+      "websiteImplicationAr": "أظهر شفافية النطاق السعري بوضوح في الصفحة ونقطة القرار المناسبة.",
+      "systemImplication": "Use the smallest venue tracking method that proves ownership before considering automation.",
+      "systemImplicationAr": "استخدم أبسط وسيلة متابعة في القاعة تثبت المسؤولية قبل التفكير في الأتمتة.",
+      "dominaseFit": "DOMINASE can prototype and measure this improvement without forcing a rebuild.",
+      "dominaseFitAr": "يمكن لـ DOMINASE اختبار هذا التحسين وقياسه دون فرض إعادة بناء.",
+      "riskNotes": "Do not publish venue evidence, capacity, availability, prices, or outcomes that cannot be verified.",
+      "riskNotesAr": "لا تنشر أدلة أو طاقة استيعابية أو توفراً أو أسعاراً أو نتائج تخص القاعة ما لم يمكن إثباتها."
+    },
+    {
+      "id": "venue-controlled-path-2",
+      "title": "Strengthen location and capacity clarity with one controlled change",
+      "titleAr": "طوّر وضوح الموقع والسعة بخطوة منضبطة",
+      "category": "websiteStructure",
+      "conditions": {
+        "topicId": "venue_location_capacity",
+        "currentMin": 2,
+        "targetMin": 4,
+        "gapMin": 2
+      },
+      "mode": "improve",
+      "priority": 3,
+      "dedupeGroup": "venue-controlled-1",
+      "impact": 3,
+      "effort": 3,
+      "urgency": 3,
+      "evidenceTags": [
+        "local-positioning",
+        "contact-flow",
+        "venue"
+      ],
+      "why": "Location and capacity clarity directly shapes whether the right prospect understands, trusts, and advances with the venue.",
+      "whyAr": "يؤثر وضوح الموقع والسعة مباشرة في فهم العميل المناسب وثقته وانتقاله إلى الخطوة التالية مع القاعة.",
+      "how": [
+        "Test one focused improvement for the venue before adding more tools or channels.",
+        "Assign one venue owner and a review date.",
+        "Validate the change with real venue inquiries and record what happened."
+      ],
+      "howAr": [
+        "اختبر تحسيناً واحداً ومحدداً في القاعة قبل إضافة أدوات أو قنوات جديدة.",
+        "عيّن مسؤولاً واحداً في القاعة وموعداً للمراجعة.",
+        "اختبر التغيير مع استفسارات حقيقية تخص القاعة وسجّل النتيجة."
+      ],
+      "websiteImplication": "Make location and capacity clarity explicit at the page and decision point where it matters.",
+      "websiteImplicationAr": "أظهر وضوح الموقع والسعة بوضوح في الصفحة ونقطة القرار المناسبة.",
+      "systemImplication": "Use the smallest venue tracking method that proves ownership before considering automation.",
+      "systemImplicationAr": "استخدم أبسط وسيلة متابعة في القاعة تثبت المسؤولية قبل التفكير في الأتمتة.",
+      "dominaseFit": "DOMINASE can prototype and measure this improvement without forcing a rebuild.",
+      "dominaseFitAr": "يمكن لـ DOMINASE اختبار هذا التحسين وقياسه دون فرض إعادة بناء.",
+      "riskNotes": "Do not publish venue evidence, capacity, availability, prices, or outcomes that cannot be verified.",
+      "riskNotesAr": "لا تنشر أدلة أو طاقة استيعابية أو توفراً أو أسعاراً أو نتائج تخص القاعة ما لم يمكن إثباتها."
+    },
+    {
+      "id": "venue-controlled-path-3",
+      "title": "Strengthen availability and date-check flow with one controlled change",
+      "titleAr": "طوّر مسار التحقق من التاريخ بخطوة منضبطة",
+      "category": "conversionPath",
+      "conditions": {
+        "topicId": "venue_availability_check",
+        "currentMin": 2,
+        "targetMin": 4,
+        "gapMin": 2
+      },
+      "mode": "improve",
+      "priority": 3,
+      "dedupeGroup": "venue-controlled-2",
+      "impact": 3,
+      "effort": 3,
+      "urgency": 3,
+      "evidenceTags": [
+        "availability",
+        "booking-friction",
+        "contact-flow",
+        "venue:availability-inquiry"
+      ],
+      "why": "Availability and date-check flow directly shapes whether the right prospect understands, trusts, and advances with the venue.",
+      "whyAr": "يؤثر مسار التحقق من التاريخ مباشرة في فهم العميل المناسب وثقته وانتقاله إلى الخطوة التالية مع القاعة.",
+      "how": [
+        "Test one focused improvement for the venue before adding more tools or channels.",
+        "Assign one venue owner and a review date.",
+        "Validate the change with real venue inquiries and record what happened."
+      ],
+      "howAr": [
+        "اختبر تحسيناً واحداً ومحدداً في القاعة قبل إضافة أدوات أو قنوات جديدة.",
+        "عيّن مسؤولاً واحداً في القاعة وموعداً للمراجعة.",
+        "اختبر التغيير مع استفسارات حقيقية تخص القاعة وسجّل النتيجة."
+      ],
+      "websiteImplication": "Make availability and date-check flow explicit at the page and decision point where it matters.",
+      "websiteImplicationAr": "أظهر مسار التحقق من التاريخ بوضوح في الصفحة ونقطة القرار المناسبة.",
+      "systemImplication": "Use the smallest venue tracking method that proves ownership before considering automation.",
+      "systemImplicationAr": "استخدم أبسط وسيلة متابعة في القاعة تثبت المسؤولية قبل التفكير في الأتمتة.",
+      "dominaseFit": "DOMINASE can prototype and measure this improvement without forcing a rebuild.",
+      "dominaseFitAr": "يمكن لـ DOMINASE اختبار هذا التحسين وقياسه دون فرض إعادة بناء.",
+      "riskNotes": "Do not publish venue evidence, capacity, availability, prices, or outcomes that cannot be verified.",
+      "riskNotesAr": "لا تنشر أدلة أو طاقة استيعابية أو توفراً أو أسعاراً أو نتائج تخص القاعة ما لم يمكن إثباتها."
+    },
+    {
+      "id": "venue-controlled-path-4",
+      "title": "Strengthen seasonal and off-peak offers with one controlled change",
+      "titleAr": "طوّر العروض الموسمية وخارج الذروة بخطوة منضبطة",
+      "category": "contentAndTrust",
+      "conditions": {
+        "topicId": "venue_seasonal_offers",
+        "currentMin": 2,
+        "targetMin": 4,
+        "gapMin": 2
+      },
+      "mode": "improve",
+      "priority": 3,
+      "dedupeGroup": "venue-controlled-3",
+      "impact": 3,
+      "effort": 3,
+      "urgency": 3,
+      "evidenceTags": [
+        "framing",
+        "anchoring",
+        "venue:seasonal-offers"
+      ],
+      "why": "Seasonal and off-peak offers directly shapes whether the right prospect understands, trusts, and advances with the venue.",
+      "whyAr": "يؤثر العروض الموسمية وخارج الذروة مباشرة في فهم العميل المناسب وثقته وانتقاله إلى الخطوة التالية مع القاعة.",
+      "how": [
+        "Test one focused improvement for the venue before adding more tools or channels.",
+        "Assign one venue owner and a review date.",
+        "Validate the change with real venue inquiries and record what happened."
+      ],
+      "howAr": [
+        "اختبر تحسيناً واحداً ومحدداً في القاعة قبل إضافة أدوات أو قنوات جديدة.",
+        "عيّن مسؤولاً واحداً في القاعة وموعداً للمراجعة.",
+        "اختبر التغيير مع استفسارات حقيقية تخص القاعة وسجّل النتيجة."
+      ],
+      "websiteImplication": "Make seasonal and off-peak offers explicit at the page and decision point where it matters.",
+      "websiteImplicationAr": "أظهر العروض الموسمية وخارج الذروة بوضوح في الصفحة ونقطة القرار المناسبة.",
+      "systemImplication": "Use the smallest venue tracking method that proves ownership before considering automation.",
+      "systemImplicationAr": "استخدم أبسط وسيلة متابعة في القاعة تثبت المسؤولية قبل التفكير في الأتمتة.",
+      "dominaseFit": "DOMINASE can prototype and measure this improvement without forcing a rebuild.",
+      "dominaseFitAr": "يمكن لـ DOMINASE اختبار هذا التحسين وقياسه دون فرض إعادة بناء.",
+      "riskNotes": "Do not publish venue evidence, capacity, availability, prices, or outcomes that cannot be verified.",
+      "riskNotesAr": "لا تنشر أدلة أو طاقة استيعابية أو توفراً أو أسعاراً أو نتائج تخص القاعة ما لم يمكن إثباتها."
+    },
+    {
+      "id": "venue-controlled-path-5",
+      "title": "Strengthen inquiry follow-up speed with one controlled change",
+      "titleAr": "طوّر سرعة متابعة الاستفسارات بخطوة منضبطة",
+      "category": "salesFollowUp",
+      "conditions": {
+        "topicId": "venue_inquiry_followup",
+        "currentMin": 2,
+        "targetMin": 4,
+        "gapMin": 2
+      },
+      "mode": "improve",
+      "priority": 3,
+      "dedupeGroup": "venue-controlled-4",
+      "impact": 3,
+      "effort": 3,
+      "urgency": 3,
+      "evidenceTags": [
+        "weak-follow-up",
+        "follow-up",
+        "cadence",
+        "venue"
+      ],
+      "why": "Inquiry follow-up speed directly shapes whether the right prospect understands, trusts, and advances with the venue.",
+      "whyAr": "يؤثر سرعة متابعة الاستفسارات مباشرة في فهم العميل المناسب وثقته وانتقاله إلى الخطوة التالية مع القاعة.",
+      "how": [
+        "Test one focused improvement for the venue before adding more tools or channels.",
+        "Assign one venue owner and a review date.",
+        "Validate the change with real venue inquiries and record what happened."
+      ],
+      "howAr": [
+        "اختبر تحسيناً واحداً ومحدداً في القاعة قبل إضافة أدوات أو قنوات جديدة.",
+        "عيّن مسؤولاً واحداً في القاعة وموعداً للمراجعة.",
+        "اختبر التغيير مع استفسارات حقيقية تخص القاعة وسجّل النتيجة."
+      ],
+      "websiteImplication": "Make inquiry follow-up speed explicit at the page and decision point where it matters.",
+      "websiteImplicationAr": "أظهر سرعة متابعة الاستفسارات بوضوح في الصفحة ونقطة القرار المناسبة.",
+      "systemImplication": "Use the smallest venue tracking method that proves ownership before considering automation.",
+      "systemImplicationAr": "استخدم أبسط وسيلة متابعة في القاعة تثبت المسؤولية قبل التفكير في الأتمتة.",
+      "dominaseFit": "DOMINASE can prototype and measure this improvement without forcing a rebuild.",
+      "dominaseFitAr": "يمكن لـ DOMINASE اختبار هذا التحسين وقياسه دون فرض إعادة بناء.",
+      "riskNotes": "Do not publish venue evidence, capacity, availability, prices, or outcomes that cannot be verified.",
+      "riskNotesAr": "لا تنشر أدلة أو طاقة استيعابية أو توفراً أو أسعاراً أو نتائج تخص القاعة ما لم يمكن إثباتها."
+    }
+  ],
+  "reportTemplates": {
+    "intro": {
+      "title": "Venue Growth Diagnosis Report",
+      "titleAr": "تقرير تشخيص نمو قاعات ومواقع مناسبات",
+      "fallback": "Your results show solid foundations with a few practical opportunities to improve clarity, trust, conversion, and follow-up.",
+      "fallbackAr": "تظهر نتيجتك أساسا جيدا مع فرص عملية لتحسين الوضوح والثقة ومسار التواصل والمتابعة."
+    },
+    "sections": [
+      {
+        "id": "strategicDiagnosis",
+        "category": "strategicDiagnosis",
+        "title": "Strategic diagnosis",
+        "titleAr": "التشخيص الاستراتيجي",
+        "purpose": "Summarize the highest-leverage business gaps without blame.",
+        "purposeAr": "تلخيص الفجوات الأعلى أثرا دون لوم."
+      },
+      {
+        "id": "customerProfile",
+        "category": "customerProfile",
+        "title": "Customer profile",
+        "titleAr": "ملف العميل",
+        "purpose": "Clarify which customer type the business should prioritize.",
+        "purposeAr": "توضيح نوع العميل الذي يستحق الأولوية."
+      },
+      {
+        "id": "websiteStructure",
+        "category": "websiteStructure",
+        "title": "Website structure",
+        "titleAr": "هيكل الموقع",
+        "purpose": "Turn clarity and trust gaps into practical website structure changes.",
+        "purposeAr": "تحويل فجوات الوضوح والثقة إلى تعديلات عملية في هيكل الموقع."
+      },
+      {
+        "id": "conversionPath",
+        "category": "conversionPath",
+        "title": "Conversion path",
+        "titleAr": "مسار التحويل",
+        "purpose": "Improve the path from interest to contact, booking, or quote request.",
+        "purposeAr": "تحسين المسار من الاهتمام إلى التواصل أو الحجز أو طلب العرض."
+      },
+      {
+        "id": "contentAndTrust",
+        "category": "contentAndTrust",
+        "title": "Content and trust",
+        "titleAr": "المحتوى والثقة",
+        "purpose": "Recommend proof, FAQ, pricing, and credibility assets.",
+        "purposeAr": "اقتراح أصول الإثبات والأسئلة والتسعير والمصداقية."
+      },
+      {
+        "id": "salesFollowUp",
+        "category": "salesFollowUp",
+        "title": "Sales follow-up",
+        "titleAr": "متابعة المبيعات",
+        "purpose": "Improve capture, tracking, WhatsApp, CRM, and follow-up rhythm.",
+        "purposeAr": "تحسين الالتقاط والتتبع وواتساب و CRM وإيقاع المتابعة."
+      },
+      {
+        "id": "quickWins",
+        "category": "quickWins",
+        "title": "Quick wins",
+        "titleAr": "مكاسب سريعة",
+        "purpose": "Name small fixes that can be done before a full build.",
+        "purposeAr": "تحديد إصلاحات صغيرة يمكن تنفيذها قبل أي بناء كبير."
+      },
+      {
+        "id": "dominaseNextStep",
+        "category": "dominaseNextStep",
+        "title": "DOMINASE next step",
+        "titleAr": "خطوة DOMINASE التالية",
+        "purpose": "Suggest one honest, proportionate DOMINASE build direction.",
+        "purposeAr": "اقتراح اتجاه بناء واحد من DOMINASE بصدق وتناسب."
+      }
+    ]
+  },
+  "contextForm": {
+    "title": "Venue context",
+    "titleAr": "سياق القاعة",
+    "description": "These fields personalize the report only and require frontend support later. They are not required for scoring.",
+    "descriptionAr": "هذه الحقول لتخصيص التقرير فقط وتتطلب دعما لاحقا في الواجهة. لا تعتمد عليها عملية التسجيل.",
+    "requiresFrontendSupport": true,
+    "fields": [
+      {
+        "id": "institutionName",
+        "label": "Venue name",
+        "labelAr": "اسم القاعة",
+        "type": "text",
+        "required": true,
+        "options": [],
+        "optionsAr": [],
+        "whyNeeded": "Personalize the report",
+        "whyNeededAr": "تخصيص التقرير",
+        "reportUse": "Header"
+      },
+      {
+        "id": "cityOrArea",
+        "label": "City / area",
+        "labelAr": "المدينة / المنطقة",
+        "type": "text",
+        "required": true,
+        "options": [],
+        "optionsAr": [],
+        "whyNeeded": "Add local context",
+        "whyNeededAr": "إضافة سياق محلي",
+        "reportUse": "Location notes"
+      },
+      {
+        "id": "venueCapacity",
+        "label": "Guest capacity",
+        "labelAr": "سعة الضيوف",
+        "type": "select",
+        "required": true,
+        "options": [
+          "Under 100",
+          "100-250",
+          "250-500",
+          "500+"
+        ],
+        "optionsAr": [
+          "أقل من 100",
+          "100-250",
+          "250-500",
+          "500+"
+        ],
+        "whyNeeded": "Fit and capacity clarity",
+        "whyNeededAr": "وضوح السعة والملاءمة",
+        "reportUse": "WebsiteStructure"
+      },
+      {
+        "id": "mainEventType",
+        "label": "Main event type",
+        "labelAr": "نوع المناسبة الرئيسي",
+        "type": "select",
+        "required": true,
+        "options": [
+          "Weddings",
+          "Engagements",
+          "Corporate",
+          "Mixed events"
+        ],
+        "optionsAr": [
+          "أعراس",
+          "خطوبة",
+          "شركات",
+          "مناسبات متنوعة"
+        ],
+        "whyNeeded": "Tailor customer profile",
+        "whyNeededAr": "تخصيص ملف العميل",
+        "reportUse": "CustomerProfile"
+      },
+      {
+        "id": "currentMainChannel",
+        "label": "Main inquiry channel",
+        "labelAr": "قناة الاستفسار الرئيسية",
+        "type": "select",
+        "required": true,
+        "options": [
+          "WhatsApp",
+          "Instagram",
+          "Phone",
+          "Website",
+          "Referrals"
+        ],
+        "optionsAr": [
+          "واتساب",
+          "إنستغرام",
+          "هاتف",
+          "الموقع",
+          "إحالات"
+        ],
+        "whyNeeded": "Reveal channel reliance",
+        "whyNeededAr": "كشف الاعتماد على القناة",
+        "reportUse": "SalesFollowUp"
+      },
+      {
+        "id": "bookingSeasonality",
+        "label": "Peak/off-peak pattern",
+        "labelAr": "نمط الذروة وخارج الذروة",
+        "type": "select",
+        "required": false,
+        "options": [
+          "Strong peak season",
+          "Even year-round",
+          "Many off-peak gaps",
+          "Not sure"
+        ],
+        "optionsAr": [
+          "ذروة قوية",
+          "متوازن طوال السنة",
+          "فراغات كثيرة خارج الذروة",
+          "غير متأكد"
+        ],
+        "whyNeeded": "Inform seasonal guidance",
+        "whyNeededAr": "إثراء إرشاد العروض الموسمية",
+        "reportUse": "QuickWins"
+      },
+      {
+        "id": "optionalNotes",
+        "label": "Anything else",
+        "labelAr": "ملاحظات إضافية",
+        "type": "textarea",
+        "required": false,
+        "options": [],
+        "optionsAr": [],
+        "whyNeeded": "Capture nuance",
+        "whyNeededAr": "التقاط التفاصيل",
+        "reportUse": "Context"
+      }
+    ]
+  }
+}

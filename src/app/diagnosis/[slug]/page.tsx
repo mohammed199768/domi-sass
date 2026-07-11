@@ -5,8 +5,10 @@ import type { DiagnosisSlug } from "@/features/diagnosis/lib/types";
 import DiagnosisAssessmentClient from "@/features/diagnosis/components/DiagnosisAssessmentClient";
 import JsonLd from "@/components/JsonLd";
 import { SITE_URL, BRAND } from "@/config/seo";
+import { getDiagnosisEngineVersion, isDiagnosisQaEnabled } from "@/features/diagnosis/runtime/engineConfig";
+import { getDiagnosisAssessment } from "@/features/diagnosis/runtime/diagnosisRegistryRouter";
 
-type PageProps = { params: Promise<{ slug: string }> };
+type PageProps = { params: Promise<{ slug: string }>; searchParams: Promise<{ engine?: string }> };
 
 export function generateStaticParams() {
   return Object.keys(diagnosisRegistry).map((slug) => ({ slug }));
@@ -42,10 +44,13 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   };
 }
 
-export default async function DiagnosisSlugPage({ params }: PageProps) {
+export default async function DiagnosisSlugPage({ params, searchParams }: PageProps) {
   const { slug } = await params;
   const entry = diagnosisRegistry[slug as DiagnosisSlug];
   if (!entry) notFound();
+  const { engine } = await searchParams;
+  const engineVersion = getDiagnosisEngineVersion(entry.slug, engine);
+  const assessment = getDiagnosisAssessment(entry.slug, engineVersion);
 
   return (
     <>
@@ -82,7 +87,7 @@ export default async function DiagnosisSlugPage({ params }: PageProps) {
           },
         }}
       />
-      <DiagnosisAssessmentClient slug={entry.slug} assessment={entry.data} />
+      <DiagnosisAssessmentClient slug={entry.slug} assessment={assessment} engineVersion={engineVersion} qaEnabled={isDiagnosisQaEnabled()} />
     </>
   );
 }
