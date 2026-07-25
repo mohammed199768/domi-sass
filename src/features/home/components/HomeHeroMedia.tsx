@@ -1072,8 +1072,19 @@ export default function HomeHeroMedia({
         });
     };
 
-    engineRef.current = {
-      setProgress({ hero, transition }) {
+    let targetHero = 0;
+    let targetTransition = 0;
+    let renderedHero = 0;
+    let renderedTransition = 0;
+    let easeRaf = 0;
+    let lastEaseTs = 0;
+    // Film-scrub easing time constant (ms). Native page scroll is untouched;
+    // only the rendered frame + canvas surface glide toward the scroll-defined
+    // target, so the 49-frame film no longer steps between discrete wheel
+    // deltas. Larger = softer/slower catch-up, smaller = snappier.
+    const SMOOTH_TAU_MS = 95;
+
+    const renderScene = (hero: number, transition: number) => {
         const filmProgress = clamp01(hero / HERO_FRAME_SEQUENCE_END);
         const transitionProgress = transition;
         const state = computeHeroProgress(filmProgress, FRAME_COUNT);
@@ -1158,6 +1169,53 @@ export default function HomeHeroMedia({
         ensurePerceptualSegment(currentIndex, frameDirection);
         draw(currentIndex);
         renderCanvasSurface();
+    };
+
+    const settle = () => {
+      easeRaf = 0;
+      if (disposed) return;
+      const now = performance.now();
+      const dt = lastEaseTs ? Math.min(64, now - lastEaseTs) : 16;
+      lastEaseTs = now;
+      const k = 1 - Math.exp(-dt / SMOOTH_TAU_MS);
+      renderedHero += (targetHero - renderedHero) * k;
+      renderedTransition += (targetTransition - renderedTransition) * k;
+      if (
+        Math.abs(targetHero - renderedHero) < 0.0002 &&
+        Math.abs(targetTransition - renderedTransition) < 0.0002
+      ) {
+        renderedHero = targetHero;
+        renderedTransition = targetTransition;
+        renderScene(renderedHero, renderedTransition);
+        lastEaseTs = 0;
+        return;
+      }
+      renderScene(renderedHero, renderedTransition);
+      easeRaf = requestAnimationFrame(settle);
+    };
+
+    engineRef.current = {
+      setProgress({ hero, transition, snap }) {
+        targetHero = hero;
+        targetTransition = transition;
+        // Discontinuities (initial paint, resize, viewport enter/leave,
+        // tab visibility) jump straight to the target — no easing lag.
+        if (snap) {
+          renderedHero = hero;
+          renderedTransition = transition;
+          if (easeRaf) {
+            cancelAnimationFrame(easeRaf);
+            easeRaf = 0;
+          }
+          lastEaseTs = 0;
+          renderScene(renderedHero, renderedTransition);
+          return;
+        }
+        // Continuous scroll: glide the rendered frame toward the target.
+        if (!easeRaf) {
+          lastEaseTs = 0;
+          easeRaf = requestAnimationFrame(settle);
+        }
       },
       snap: snapRenderer,
     };
@@ -1175,6 +1233,7 @@ export default function HomeHeroMedia({
 
     return () => {
       disposed = true;
+      if (easeRaf) cancelAnimationFrame(easeRaf);
       canvasReadyRef.current = false;
       if (preloadHandle) {
         if (preloadUsesIdleCallback) {
