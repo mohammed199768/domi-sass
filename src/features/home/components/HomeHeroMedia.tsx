@@ -435,9 +435,10 @@ export default function HomeHeroMedia({
 
   useEffect(() => {
     const motion = window.matchMedia("(prefers-reduced-motion: reduce)");
-    const capability = window.matchMedia(
-      "(min-width: 901px) and (min-height: 560px)",
-    );
+    // The cinematic film + water now runs on capable phones too, not just
+    // desktop — gated on viewport height, memory and cores (still disabled
+    // for reduced-motion and low-end devices) so mobile stays smooth.
+    const capability = window.matchMedia("(min-height: 480px)");
     const navigatorWithMemory = navigator as Navigator & {
       deviceMemory?: number;
     };
@@ -445,14 +446,22 @@ export default function HomeHeroMedia({
     const sync = () => {
       const enoughMemory =
         navigatorWithMemory.deviceMemory === undefined ||
-        navigatorWithMemory.deviceMemory > 4;
+        navigatorWithMemory.deviceMemory >= 4;
       const enoughParticleMemory =
         navigatorWithMemory.deviceMemory === undefined ||
         navigatorWithMemory.deviceMemory > 2;
-      if (motion.matches || !capability.matches || !enoughMemory) {
+      const enoughCores = (navigator.hardwareConcurrency || 8) >= 4;
+      if (
+        motion.matches ||
+        !capability.matches ||
+        !enoughMemory ||
+        !enoughCores
+      ) {
         engineRef.current?.snap();
       }
-      setEnhanced(!motion.matches && capability.matches && enoughMemory);
+      setEnhanced(
+        !motion.matches && capability.matches && enoughMemory && enoughCores,
+      );
       setParticlesEnabled(
         !motion.matches &&
           enoughParticleMemory &&

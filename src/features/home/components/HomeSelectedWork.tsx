@@ -161,8 +161,10 @@ export default function HomeSelectedWork() {
   const { language, dir } = useLanguage();
   const copy = sectionCopy[language];
   const reducedMotion = useReducedMotion();
-  const isDesktop = useMediaQuery("(min-width: 901px)");
-  const enhanced = isDesktop && !reducedMotion;
+  // Orbit now animates on capable phones too (not desktop-only), gated on a
+  // sane viewport height so it stays smooth; reduced-motion still opts out.
+  const capableViewport = useMediaQuery("(min-height: 480px)");
+  const enhanced = capableViewport && !reducedMotion;
   const orbitRef = useRef<HTMLElement>(null);
   const cardRefs = useRef<(HTMLElement | null)[]>([]);
   const videoRefs = useRef<(HTMLVideoElement | null)[]>([]);

@@ -3624,3 +3624,67 @@
   word-spacing: 0.018em;
   text-transform: none;
 }
+
+/* ── Mobile life: cinematic hero film + Work orbit on capable phones ─────
+   Scoped to [data-enhanced="true"], set by the JS capability gate. Desktop,
+   reduced-motion, and low-end phones (data-enhanced="false") keep the static
+   fallbacks untouched. */
+@media (max-width: 900px) {
+  /* Hero: restore the pinned scroll-scrubbed film instead of the static story */
+  .home-hero:has(.home-hero-media[data-enhanced="true"]) {
+    height: 300svh;
+  }
+
+  .home-hero:has(.home-hero-media[data-enhanced="true"]) .home-hero__sticky {
+    position: sticky;
+    inset-block-start: 0;
+    height: 100svh;
+    min-height: 0;
+  }
+
+  .home-hero:has(.home-hero-media[data-enhanced="true"]) .home-hero__mobile-story {
+    display: none;
+  }
+
+  /* live water field takes over from the static composition */
+  .home-hero:has(.home-hero-media[data-enhanced="true"]) .home-water-stage--transition {
+    display: block;
+  }
+
+  .home-hero:has(.home-hero-media[data-enhanced="true"]) .home-water-stage--static {
+    display: none;
+  }
+
+  /* The Work: run the orbit, sized for a phone */
+  .home-portfolio__orbit[data-enhanced="true"] {
+    height: 520svh;
+  }
+
+  .home-portfolio__orbit[data-enhanced="true"] .home-portfolio__orbit-sticky {
+    position: sticky;
+    inset-block-start: 0;
+    height: 100svh;
+    min-height: 0;
+  }
+
+  .home-portfolio__orbit[data-enhanced="true"] .home-portfolio__orbit-heading {
+    inset-block-start: 1.75rem;
+    inset-inline-start: 1.25rem;
+    width: min(21rem, 74vw);
+  }
+
+  .home-portfolio__orbit[data-enhanced="true"] .home-portfolio__cards {
+    display: block;
+  }
+
+  .home-portfolio__orbit[data-enhanced="true"] .home-portfolio-card {
+    inset-block-start: 57%;
+    inset-inline-start: 50%;
+    width: min(84vw, 30rem);
+    height: min(54vh, 30rem);
+  }
+
+  [dir="rtl"] .home-portfolio__orbit[data-enhanced="true"] .home-portfolio-card {
+    inset-inline-start: 50%;
+  }
+}
