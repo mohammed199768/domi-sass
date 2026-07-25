@@ -84,8 +84,8 @@ export const productStories: Record<string, ProductStory> = {
       ar: "تجربة العضو + تشغيل النادي",
     },
     summary: {
-      en: "A connected gym-management product spanning training, nutrition, coaching, access, membership, and staff operations.",
-      ar: "منتج مترابط لإدارة النادي يجمع التدريب والتغذية والتواصل مع المدرب والدخول والعضويات وتشغيل الفريق.",
+      en: "One place to run the whole gym — training, coaching, memberships, and the front desk — so the team can breathe and members feel looked after.",
+      ar: "مكان واحد لإدارة النادي كله — التدريب والتغذية والعضويات ومكتب الاستقبال — ليرتاح الفريق ويشعر العضو أنه في رعاية.",
     },
     opening: {
       en: "One product world for the people training and the people keeping the gym moving.",
@@ -249,8 +249,8 @@ export const productStories: Record<string, ProductStory> = {
       ar: "رحلة الرعاية العامة + التشغيل السريري",
     },
     summary: {
-      en: "A healthcare ecosystem connecting public guidance, booking, patient tools, clinical follow-up, reports, and daily administration.",
-      ar: "منظومة رعاية صحية تربط الإرشاد العام والحجز وأدوات المريض والمتابعة السريرية والتقارير والإدارة اليومية.",
+      en: "A calm, connected clinic — from a patient's very first question to booking, follow-up, and the quiet daily work behind the scenes.",
+      ar: "عيادة هادئة ومترابطة — من أول سؤال للمريض إلى الحجز والمتابعة والعمل اليومي الهادئ خلف الكواليس.",
     },
     opening: {
       en: "A public healthcare experience and the operational system behind every visit.",
@@ -483,8 +483,8 @@ export const productStories: Record<string, ProductStory> = {
       ar: "هوية مهنية + معرض أعمال تحريري",
     },
     summary: {
-      en: "A premium personal identity shaped around marketing leadership, selected work, capability, and an editorial rhythm.",
-      ar: "هوية شخصية مهنية تعرض القيادة التسويقية والأعمال والخبرات بإيقاع تحريري مستقل ومقصود.",
+      en: "A personal brand that carries the weight of real marketing leadership — work and presence, told with editorial calm.",
+      ar: "علامة شخصية تليق بقيادة تسويقية حقيقية — أعمالٌ وحضور، تُروى بهدوء تحريري.",
     },
     opening: {
       en: "A personal portfolio built to read like a point of view, not a résumé template.",
@@ -660,8 +660,8 @@ export const productStories: Record<string, ProductStory> = {
       ar: "عرض القاعة + الحجز + رحلة الضيف",
     },
     summary: {
-      en: "A bilingual venue product connecting public presentation, booking intent, invitations, RSVP, and digital memory moments.",
-      ar: "منتج ثنائي اللغة يربط عرض القاعة ونية الحجز والدعوات وتأكيد الحضور والذكريات الرقمية.",
+      en: "A wedding venue's whole story — from the first look and the booking to the invitation and the memories that stay long after the night ends.",
+      ar: "قصة قاعة أفراح كاملة — من النظرة الأولى والحجز إلى الدعوة والذكريات التي تبقى بعد انتهاء الليلة.",
     },
     opening: {
       en: "A paper-led venue process becomes a public, operational, and guest-facing digital journey.",
@@ -793,8 +793,8 @@ export const productStories: Record<string, ProductStory> = {
       ar: "استبيان + نظام تقييم للأعمال",
     },
     summary: {
-      en: "A structured assessment product that turns focused inputs into a clearer view of organizational readiness.",
-      ar: "منتج تقييم منظم يحول المدخلات المركزة إلى قراءة أوضح لجاهزية المؤسسة.",
+      en: "A few focused questions that turn into a clear, honest picture of where a business truly stands.",
+      ar: "أسئلة قليلة مركّزة تتحوّل إلى صورة واضحة وصادقة عن موقع العمل الحقيقي.",
     },
     opening: {
       en: "A focused assessment experience that gives every question and result a clear place.",
@@ -898,8 +898,8 @@ export const productStories: Record<string, ProductStory> = {
       ar: "منصة تدريب + تشغيل تجربة التعلم",
     },
     summary: {
-      en: "A bilingual training platform organizing courses, student access, attendance, trailers, and learning content in one place.",
-      ar: "منصة تدريب ثنائية اللغة تنظم الدورات ودخول الطلاب والحضور والمقاطع التعريفية والمحتوى التعليمي في مكان واحد.",
+      en: "A bilingual home for a trainer's world — courses, students, and content in one place that finally feels effortless to teach from.",
+      ar: "بيت ثنائي اللغة لعالم مدرّبة — الدورات والطلاب والمحتوى في مكان واحد يجعل التدريس سهلاً بلا عناء.",
     },
     opening: {
       en: "Scattered courses, files, and manual follow-up become one ordered learning environment.",
@@ -1051,8 +1051,8 @@ export const productStories: Record<string, ProductStory> = {
       ar: "تجربة رقمية للرعاية الصحية",
     },
     summary: {
-      en: "A healthcare product world built around calm service discovery, care requests, patient confidence, and operational depth.",
-      ar: "عالم منتج صحي مبني حول اكتشاف الخدمات بهدوء وطلبات الرعاية وثقة المريض والعمق التشغيلي.",
+      en: "A healthcare world built to feel calm and trustworthy — where finding care and asking for help feels simple, human, and safe.",
+      ar: "عالم رعاية صحية مبني ليكون هادئاً وجديراً بالثقة — حيث يصبح إيجاد الرعاية وطلب المساعدة بسيطاً وإنسانياً وآمناً.",
     },
     opening: {
       en: "A healthcare experience where calm hierarchy and professional credibility support every care decision.",

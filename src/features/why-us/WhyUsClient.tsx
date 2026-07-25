@@ -127,7 +127,7 @@ const COPY = {
     ctaTitle: "This is not a traditional purchase. It is a partnership to build one of your company’s assets.",
     ctaBody:
       "If you are tired of temporary solutions and slow websites, and you are ready to work with a team that understands the language of your business and executes it technically with precision, we are ready.",
-    ctaPrimary: "Start a build conversation",
+    ctaPrimary: "Book a consultation",
     ctaSecondary: "Why change?",
     ctaAria: "Next step links",
   },
@@ -230,7 +230,7 @@ const COPY = {
     ctaTitle: "هذه ليست عملية شراء تقليدية.. إنها شراكة لبناء أصل من أصول شركتك.",
     ctaBody:
       "إذا كنت متعباً من الحلول المؤقتة والمواقع البطيئة، ومستعداً للعمل مع فريق يفهم لغة أعمالك وينفذها تقنياً ببراعة، فنحن جاهزون.",
-    ctaPrimary: "ابدأ محادثة بناء",
+    ctaPrimary: "احجز استشارة",
     ctaSecondary: "لماذا التغيير؟",
     ctaAria: "روابط الخطوة التالية",
   },

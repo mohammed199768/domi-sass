@@ -324,7 +324,7 @@ export const studioMedia: StudioMedia[] = [
     tab: "posts",
     aspect: "portrait",
     inGrid: false,
-    title: { en: "Start a Build", ar: "ابدأ مشروعك" },
+    title: { en: "Book a consultation", ar: "احجز استشارة" },
     caption: {
       en: "When presence becomes a working product.",
       ar: "حين يتحول الحضور إلى منتج يعمل.",
@@ -393,7 +393,7 @@ export const studioProfile = {
   domain: "dominase.art",
   avatar: `${P}/avatar.webp`,
   actions: {
-    primary: { label: { en: "Start a Build", ar: "ابدأ مشروعك" }, href: "/contact" },
+    primary: { label: { en: "Book a consultation", ar: "احجز استشارة" }, href: "/contact" },
     secondary: { label: { en: "Diagnosis", ar: "التشخيص" }, href: "/diagnosis" },
     editorial: { label: { en: "View Work", ar: "الأعمال" }, href: "/work" },
   },

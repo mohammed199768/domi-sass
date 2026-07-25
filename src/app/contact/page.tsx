@@ -6,14 +6,14 @@ import { SITE_URL, BRAND } from "@/config/seo";
 export const metadata: Metadata = {
   title: "Contact",
   description:
-    "Start a project conversation with DOMINASE — reach Mohammed Aldomi through WhatsApp, phone, email, or the contact form to discuss your digital product.",
+    "Book a consultation with DOMINASE — reach Mohammed Aldomi through WhatsApp, phone, email, or the contact form to discuss your digital product.",
   alternates: {
     canonical: "/contact",
   },
   openGraph: {
     title: "Contact — DOMINASE",
     description:
-      "Start a project conversation with DOMINASE — reach Mohammed Aldomi through WhatsApp, phone, email, or the contact form.",
+      "Book a consultation with DOMINASE — reach Mohammed Aldomi through WhatsApp, phone, email, or the contact form.",
     url: `${SITE_URL}/contact`,
     siteName: BRAND.siteName,
     type: "website",
@@ -22,7 +22,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Contact — DOMINASE",
     description:
-      "Start a project conversation with DOMINASE — reach Mohammed Aldomi through WhatsApp, phone, email, or the contact form.",
+      "Book a consultation with DOMINASE — reach Mohammed Aldomi through WhatsApp, phone, email, or the contact form.",
   },
 };
 
@@ -36,7 +36,7 @@ export default function ContactPage() {
           name: "Contact — DOMINASE",
           url: `${SITE_URL}/contact`,
           description:
-            "Start a project conversation with DOMINASE through WhatsApp, phone, email, or the contact form.",
+            "Book a consultation with DOMINASE through WhatsApp, phone, email, or the contact form.",
           isPartOf: { "@id": `${SITE_URL}/#website` },
           breadcrumb: {
             "@type": "BreadcrumbList",

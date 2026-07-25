@@ -102,12 +102,12 @@ export default function TransformationTreeClient() {
       </section>
 
       <section className="work-index__close">
-        <p>{isAr ? "لديك احتكاك يحتاج إلى نظام؟" : "Have friction that needs a system?"}</p>
+        <p>{isAr ? "عندك فكرة تستحق أن تصير حقيقة؟" : "Have an idea that deserves to come alive?"}</p>
         <h2>
-          {isAr ? "ابدأ بالتشخيص." : "Start with a diagnosis."}
+          {isAr ? "لنكتشف من أين نبدأ." : "Let's find where to begin."}
         </h2>
         <Link className="domi-action domi-action--primary" href="/diagnosis">
-          {isAr ? "شخّص مشروعك" : "Diagnose your project"}
+          {isAr ? "اكتشف خطوتك الأولى" : "Find your first move"}
           <span aria-hidden="true">↗</span>
         </Link>
       </section>

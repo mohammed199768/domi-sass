@@ -10,14 +10,14 @@ export const content = {
             diagnosis: "Diagnosis",
             testimonials: "Signals",
             contact: "Contact",
-            cta: "Start a Build",
+            cta: "Book a consultation",
         },
         hero: {
             title: "Digital Product Studio",
             headline: "Digital systems that simplify your work and move you forward.",
             subheading: "We build websites, workspaces, and dashboards that turn technological complexity into a smooth experience. Our goal is to give you the clarity and confidence to make decisions and get work done with ease.",
             supportingLine: "",
-            primaryCTA: "Start a focused build",
+            primaryCTA: "Book a consultation",
             secondaryCTA: "See the method",
         },
         about: {
@@ -51,13 +51,13 @@ export const content = {
                     icon: "marketing",
                 },
             ],
-            cta: "Start a project conversation",
+            cta: "Book a consultation",
         },
         beneathInterface: {
             eyebrow: "Beneath the interface",
             title: "Beyond the screen.",
             intro: "DOMINASE reveals the hidden architecture that drives serious digital experiences.",
-            cta: "Discuss a Project",
+            cta: "Book a consultation",
             scenes: [
                 {
                     id: "surface",
@@ -163,7 +163,7 @@ export const content = {
                     role: "Owner, Engineering Company",
                 },
             ],
-            cta: "Start a project conversation",
+            cta: "Book a consultation",
         },
         contact: {
             title: "Tell me what needs to become clearer.",
@@ -253,7 +253,7 @@ export const content = {
         finalCTA: {
             title: "Does your digital presence feel smaller than the business behind it?",
             subtext: "Bring the offer, the workflow, and the points where customers hesitate. DOMINASE will help shape them into a clearer digital experience.",
-            primaryCTA: "Start a project conversation",
+            primaryCTA: "Book a consultation",
             secondaryCTA: "View the work",
             reassurance: "Best fit for focused websites, booking paths, product interfaces, and operational screens.",
         },
@@ -274,14 +274,14 @@ export const content = {
             diagnosis: "التشخيص",
             testimonials: "إشارات الثقة",
             contact: "تواصل",
-            cta: "ابدأ مشروعك",
+            cta: "احجز استشارة",
         },
         hero: {
             title: "استوديو منتجات رقمية",
             headline: "أنظمة رقمية تُسهّل عملك، وتدفعك للأمام.",
             subheading: "نبني مواقع، مساحات عمل، ولوحات تحكم تحوّل التعقيد التكنولوجي إلى تجربة سلسة. هدفنا؟ أن نمنحك الوضوح التام والثقة لتتخذ قراراتك وتنجز مهامك براحة.",
             supportingLine: "",
-            primaryCTA: "ابدأ بناءً مركزاً",
+            primaryCTA: "احجز استشارة",
             secondaryCTA: "شاهد المنهجية",
         },
         about: {
@@ -315,13 +315,13 @@ export const content = {
                     icon: "marketing",
                 },
             ],
-            cta: "ابدأ محادثة مشروع",
+            cta: "احجز استشارة",
         },
         beneathInterface: {
             eyebrow: "خلف الواجهة",
             title: "ما وراء الشاشة.",
             intro: "يكشف DOMINASE عن المعمارية الخفية التي تقود التجارب الرقمية الجادة.",
-            cta: "ناقش مشروعك",
+            cta: "احجز استشارة",
             scenes: [
                 {
                     id: "surface",
@@ -427,7 +427,7 @@ export const content = {
                     role: "صاحب شركة هندسية",
                 },
             ],
-            cta: "ابدأ محادثة مشروع",
+            cta: "احجز استشارة",
         },
         contact: {
             title: "أخبرني ما الذي يحتاج أن يصبح أوضح.",
@@ -517,7 +517,7 @@ export const content = {
         finalCTA: {
             title: "هل يبدو حضورك الرقمي أصغر من العمل الذي يقف خلفه؟",
             subtext: "أحضر العرض، مسار العمل، والنقاط التي يتردد عندها العملاء. ستساعدك DOMINASE في تحويلها إلى تجربة رقمية أوضح.",
-            primaryCTA: "ابدأ محادثة مشروع",
+            primaryCTA: "احجز استشارة",
             secondaryCTA: "شاهد الأعمال",
             reassurance: "مناسب للمواقع المركزة، مسارات الحجز، واجهات المنتجات، والشاشات التشغيلية.",
         },
