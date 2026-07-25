@@ -2746,7 +2746,7 @@
     font-size: clamp(2.55rem, 11vw, 4.8rem);
   }
 
-  .home-water__bubbles {
+  .home-water-stage--static .home-water__bubbles {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     gap: 1rem;
@@ -2754,8 +2754,8 @@
     padding: 22rem 1rem 8rem;
   }
 
-  .home-water__bubbles li,
-  [dir="rtl"] .home-water__bubbles li {
+  .home-water-stage--static .home-water__bubbles li,
+  [dir="rtl"] .home-water-stage--static .home-water__bubbles li {
     position: relative;
     inset: auto;
     width: 100%;
@@ -2765,20 +2765,20 @@
     transform: none !important;
   }
 
-  .home-water__bubbles li:nth-child(1),
-  .home-water__bubbles li:nth-child(2),
-  .home-water__bubbles li:nth-child(3),
-  .home-water__bubbles li:nth-child(4),
-  [dir="rtl"] .home-water__bubbles li:nth-child(1),
-  [dir="rtl"] .home-water__bubbles li:nth-child(2),
-  [dir="rtl"] .home-water__bubbles li:nth-child(3),
-  [dir="rtl"] .home-water__bubbles li:nth-child(4) {
+  .home-water-stage--static .home-water__bubbles li:nth-child(1),
+  .home-water-stage--static .home-water__bubbles li:nth-child(2),
+  .home-water-stage--static .home-water__bubbles li:nth-child(3),
+  .home-water-stage--static .home-water__bubbles li:nth-child(4),
+  [dir="rtl"] .home-water-stage--static .home-water__bubbles li:nth-child(1),
+  [dir="rtl"] .home-water-stage--static .home-water__bubbles li:nth-child(2),
+  [dir="rtl"] .home-water-stage--static .home-water__bubbles li:nth-child(3),
+  [dir="rtl"] .home-water-stage--static .home-water__bubbles li:nth-child(4) {
     inset-inline-start: auto;
     inset-inline-end: auto;
   }
 
-  .home-water__bubbles li:nth-child(2),
-  .home-water__bubbles li:nth-child(4) {
+  .home-water-stage--static .home-water__bubbles li:nth-child(2),
+  .home-water-stage--static .home-water__bubbles li:nth-child(4) {
     margin-block-start: 3rem;
   }
 
@@ -3678,13 +3678,68 @@
   }
 
   .home-portfolio__orbit[data-enhanced="true"] .home-portfolio-card {
-    inset-block-start: 57%;
+    inset-block-start: 50%;
     inset-inline-start: 50%;
-    width: min(84vw, 30rem);
-    height: min(54vh, 30rem);
+    width: min(84vw, 29rem);
+    height: min(52vh, 28rem);
   }
 
   [dir="rtl"] .home-portfolio__orbit[data-enhanced="true"] .home-portfolio-card {
     inset-inline-start: 50%;
+  }
+
+  /* The Work on phones: show only the project name as a clean bottom caption —
+     hide the category/summary/proof body copy that was overlapping the images. */
+  .home-portfolio__orbit[data-enhanced="true"] .home-portfolio__active-copy {
+    inset-inline: 1.25rem;
+    inset-block-end: 7rem;
+    width: auto;
+    max-width: none;
+    pointer-events: none;
+    text-align: center;
+  }
+
+  .home-portfolio__orbit[data-enhanced="true"] .home-portfolio__active-copy > p,
+  .home-portfolio__orbit[data-enhanced="true"] .home-portfolio__active-copy > span,
+  .home-portfolio__orbit[data-enhanced="true"] .home-portfolio__active-copy > small {
+    display: none;
+  }
+
+  .home-portfolio__orbit[data-enhanced="true"] .home-portfolio__active-copy h3 {
+    margin: 0;
+    font-size: clamp(2rem, 9vw, 3.1rem);
+    line-height: 1;
+    text-shadow: 0 0.15rem 1.4rem rgba(2, 8, 6, 0.75);
+  }
+
+  .home-portfolio__orbit[data-enhanced="true"] .home-portfolio__active-actions {
+    justify-content: center;
+    margin-block-start: 0.9rem;
+    pointer-events: auto;
+  }
+
+  /* Live underwater word bubbles stay round + scroll-animated on phones
+     (the flat 2-column grid is only for the static / reduced-motion fallback). */
+  .home-water-stage--transition .home-water__bubbles li {
+    width: min(var(--word-size), 5rem);
+    height: min(var(--word-size), 5rem);
+    inset-block-start: 58%;
+  }
+
+  .home-water-stage--transition .home-water__bubbles li:nth-child(1) {
+    left: 7%;
+  }
+  .home-water-stage--transition .home-water__bubbles li:nth-child(2) {
+    left: 64%;
+  }
+  .home-water-stage--transition .home-water__bubbles li:nth-child(3) {
+    left: 15%;
+  }
+  .home-water-stage--transition .home-water__bubbles li:nth-child(4) {
+    left: 60%;
+  }
+
+  .home-water-stage--transition .home-water__bubbles li > strong {
+    font-size: clamp(0.66rem, 3.2vw, 0.9rem);
   }
 }
