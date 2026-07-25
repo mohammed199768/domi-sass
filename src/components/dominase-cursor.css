@@ -122,13 +122,14 @@
 /* ── Native cursor handling (only while the custom cursor is active) ─────────
  * `.domi-cursor-on` is added to <html> by the component ONLY on precise-
  * pointer, motion-safe devices. Text fields keep their native cursor so
- * caret placement and readability are never harmed. */
-html.domi-cursor-on body,
-html.domi-cursor-on a,
-html.domi-cursor-on button,
-html.domi-cursor-on [role="button"],
-html.domi-cursor-on summary,
-html.domi-cursor-on label {
+ * caret placement and readability are never harmed. A body-level media viewer
+ * portal suspends cursor replacement so every popup uses the system cursor. */
+html.domi-cursor-on body:not(:has(> [data-media-viewer-root])),
+html.domi-cursor-on body:not(:has(> [data-media-viewer-root])) a,
+html.domi-cursor-on body:not(:has(> [data-media-viewer-root])) button,
+html.domi-cursor-on body:not(:has(> [data-media-viewer-root])) [role="button"],
+html.domi-cursor-on body:not(:has(> [data-media-viewer-root])) summary,
+html.domi-cursor-on body:not(:has(> [data-media-viewer-root])) label {
   cursor: none;
 }
 

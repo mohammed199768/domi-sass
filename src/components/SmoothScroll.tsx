@@ -9,12 +9,17 @@ export default function SmoothScroll({ children }: { children: ReactNode }) {
     useEffect(() => {
         registerMotionPlugins();
 
+        // Native scrolling for wheel, trackpad, and touch across the whole
+        // site (no interception, no catch-up lag, and the scroll-scrubbed hero
+        // responds 1:1 to the document scroll position). Lenis is retained only
+        // for programmatic anchor navigation via lenis.scrollTo(), which still
+        // uses this duration/easing.
         const lenis = new Lenis({
-            duration: 1.2,
+            duration: 0.9,
             easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
             orientation: 'vertical',
             gestureOrientation: 'vertical',
-            smoothWheel: true,
+            smoothWheel: false,
         });
 
         setActiveLenis(lenis);

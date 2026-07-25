@@ -6,6 +6,9 @@ import {
   Noto_Sans_Arabic,
 } from "next/font/google";
 import "@/styles/globals.css";
+import "@/components/media/dominase-media-viewer.css";
+import "@/components/media/studio-viewer.css";
+import "@/features/product-stories/product-story.css";
 import { ThemeProvider } from "@/components/ThemeProvider";
 import SmoothScroll from "@/components/SmoothScroll";
 import MobileNav from "@/components/MobileNav";

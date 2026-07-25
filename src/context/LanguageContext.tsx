@@ -49,6 +49,11 @@ export function LanguageProvider({ children }: { children: ReactNode }) {
     const t = content[language];
     const dir = language === "ar" ? "rtl" : "ltr";
 
+    useEffect(() => {
+        document.documentElement.lang = language;
+        document.documentElement.dir = dir;
+    }, [dir, language]);
+
     return (
         <LanguageContext.Provider value={{ language, toggleLanguage, t, dir }}>
             <div dir={dir} lang={language} className={language === "ar" ? "font-arabic" : "font-sans"}>

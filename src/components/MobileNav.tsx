@@ -135,7 +135,7 @@ function MobileNavInner({ pathname }: { pathname: string }) {
                 aria-expanded={open}
                 aria-controls="mobile-nav-panel"
                 onClick={() => setOpen((v) => !v)}
-                className="premium-surface fixed inset-x-0 z-50 mx-auto flex h-12 w-fit items-center gap-3 rounded-full px-6 font-display text-xs font-black uppercase tracking-[0.2em] text-foreground transition-[transform,border-color,color] duration-200 hover:border-primary-theme hover:text-primary-theme focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary-theme active:scale-[0.98]"
+                className="premium-surface domi-setting-control fixed inset-x-0 z-50 mx-auto flex h-12 w-fit items-center gap-3 px-6 font-display text-xs font-black uppercase tracking-[0.2em] text-foreground transition-[transform,border-color,color] duration-200 hover:border-primary-theme hover:text-primary-theme focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary-theme active:scale-[0.98]"
                 style={{ bottom: "calc(env(safe-area-inset-bottom, 0px) + 1.25rem)" }}
             >
                 {/* Minimal two-line mark that folds into an X (transform only). */}

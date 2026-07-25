@@ -316,7 +316,7 @@ export default function FloatingSiteChat() {
             }}
             aria-label={copy.close}
             tabIndex={open ? 0 : -1}
-            className="grid h-9 w-9 shrink-0 place-items-center rounded-full border border-border text-muted transition-colors duration-200 hover:border-primary-theme hover:text-primary-theme focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary-theme"
+            className="grid h-11 w-11 shrink-0 place-items-center rounded-full border border-border text-muted transition-colors duration-200 hover:border-primary-theme hover:text-primary-theme focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary-theme"
           >
             <X className="h-4 w-4" />
           </button>
@@ -341,7 +341,7 @@ export default function FloatingSiteChat() {
                 suppressHydrationWarning
                 tabIndex={open ? 0 : -1}
                 onClick={() => ask(s.question)}
-                className="shrink-0 rounded-full border border-border bg-surface-hover px-3.5 py-1.5 text-xs font-semibold text-muted transition-colors duration-200 hover:border-primary-theme/60 hover:text-primary-theme focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary-theme"
+                className="inline-flex min-h-11 shrink-0 items-center rounded-full border border-border bg-surface-hover px-3.5 py-1.5 text-xs font-semibold text-muted transition-colors duration-200 hover:border-primary-theme/60 hover:text-primary-theme focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary-theme"
               >
                 {s.label}
               </button>
@@ -360,14 +360,14 @@ export default function FloatingSiteChat() {
             aria-label={copy.inputLabel}
             placeholder={copy.placeholder}
             tabIndex={open ? 0 : -1}
-            className="min-w-0 flex-1 rounded-full border border-border bg-surface-hover px-4 py-2.5 text-sm text-foreground outline-none transition-colors duration-200 placeholder:text-muted/60 focus:border-primary-theme focus:ring-2 focus:ring-primary-theme/25"
+            className="min-h-11 min-w-0 flex-1 rounded-full border border-border bg-surface-hover px-4 py-2.5 text-sm text-foreground outline-none transition-colors duration-200 placeholder:text-muted/60 focus:border-primary-theme focus:ring-2 focus:ring-primary-theme/25"
           />
           <button
             type="submit"
             suppressHydrationWarning
             aria-label={copy.send}
             tabIndex={open ? 0 : -1}
-            className="grid h-10 w-10 shrink-0 place-items-center rounded-full border border-[color-mix(in_srgb,var(--domi-accent)_35%,var(--domi-border-strong))] bg-surface text-primary-theme transition-colors duration-200 hover:border-primary-theme hover:text-secondary-theme focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary-theme"
+            className="grid h-11 w-11 shrink-0 place-items-center rounded-full border border-[color-mix(in_srgb,var(--domi-accent)_35%,var(--domi-border-strong))] bg-surface text-primary-theme transition-colors duration-200 hover:border-primary-theme hover:text-secondary-theme focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary-theme"
           >
             <Send className="h-4 w-4" />
           </button>

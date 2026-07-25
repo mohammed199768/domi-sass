@@ -1,10 +1,11 @@
 import type { MetadataRoute } from "next";
 import { SITE_URL } from "@/config/seo";
+import { productStoryOrder } from "@/features/product-stories/productStories";
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const now = new Date().toISOString();
 
-  return [
+  const pages: MetadataRoute.Sitemap = [
     {
       url: SITE_URL,
       lastModified: now,
@@ -66,4 +67,13 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 0.75,
     },
   ];
+
+  const stories: MetadataRoute.Sitemap = productStoryOrder.map((slug) => ({
+    url: `${SITE_URL}/work/${slug}`,
+    lastModified: now,
+    changeFrequency: "monthly",
+    priority: 0.75,
+  }));
+
+  return [...pages, ...stories];
 }

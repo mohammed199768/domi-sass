@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import TransformationTreeClient from "@/features/work/TransformationTreeClient";
 import JsonLd from "@/components/JsonLd";
 import { SITE_URL, BRAND } from "@/config/seo";
+import { orderedProductStories } from "@/features/product-stories/productStories";
 
 export const metadata: Metadata = {
   title: "Selected Work",
@@ -36,32 +37,12 @@ export default function WorkIndexPage() {
     "isPartOf": { "@id": `${SITE_URL}/#website` },
     "mainEntity": {
       "@type": "ItemList",
-      "itemListElement": [
-        {
-          "@type": "ListItem",
-          "position": 1,
-          "url": `${SITE_URL}/work/manal-alhihi`,
-          "name": "Manal Alhihi Educational Platform"
-        },
-        {
-          "@type": "ListItem",
-          "position": 2,
-          "url": `${SITE_URL}/work/qasr-alfarah`,
-          "name": "Qasr Al-Farah"
-        },
-        {
-          "@type": "ListItem",
-          "position": 3,
-          "url": `${SITE_URL}/work/curevie`,
-          "name": "Curevie"
-        },
-        {
-          "@type": "ListItem",
-          "position": 4,
-          "url": `${SITE_URL}/work/horvath-survey`,
-          "name": "Horvath Survey"
-        }
-      ]
+      "itemListElement": orderedProductStories.map((story, index) => ({
+        "@type": "ListItem",
+        "position": index + 1,
+        "url": `${SITE_URL}/work/${story.slug}`,
+        "name": story.title
+      }))
     }
   };
 

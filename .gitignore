@@ -47,3 +47,6 @@ next-env.d.ts
 
 # media
 *.mp4
+
+.playwright-mcp/
+.claude/settings.local.json

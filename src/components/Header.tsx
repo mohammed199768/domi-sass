@@ -21,9 +21,12 @@ export default function Header() {
     }, []);
 
     const pathname = usePathname();
+    const overlaysHomeHero = pathname === "/" && !scrolled;
+    const isHome = pathname === "/";
+
     return (
         <header
-            className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${scrolled ? "border-b border-border bg-surface/95 py-3 shadow-[0_14px_34px_-30px_var(--cool-shadow)]" : "bg-transparent py-5"
+            className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${isHome ? "home-page-header" : ""} ${overlaysHomeHero ? "home-hero-header" : ""} ${scrolled ? "border-b border-border bg-surface/95 py-3 shadow-[0_14px_34px_-30px_var(--cool-shadow)]" : "bg-transparent py-5"
                 }`}
         >
             <div className="mx-auto flex max-w-7xl items-center justify-between px-5 sm:px-6">
@@ -50,7 +53,7 @@ export default function Header() {
                                 key={item.id}
                                 href={item.href}
                                 aria-current={isActive ? "page" : undefined}
-                                className={`rounded-full px-4 py-2 text-sm font-bold transition-[background-color,color,box-shadow] duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary-theme ${
+                                className={`inline-flex min-h-11 items-center rounded-full px-4 py-2 text-sm font-bold transition-[background-color,color,box-shadow] duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary-theme ${
                                     isActive
                                         ? "bg-[color-mix(in_srgb,var(--primary)_13%,var(--surface-hover))] text-primary-theme shadow-[inset_0_0_0_1px_color-mix(in_srgb,var(--primary)_24%,transparent)]"
                                         : "text-muted hover:bg-surface-hover hover:text-foreground"
@@ -68,7 +71,7 @@ export default function Header() {
                         onClick={toggleLanguage}
                         suppressHydrationWarning
                         aria-label="Switch language"
-                        className="premium-surface premium-interactive flex min-h-11 items-center gap-2 rounded-full px-3.5 py-1.5 text-xs font-black text-primary-theme hover:border-primary-theme"
+                        className="premium-surface premium-interactive domi-setting-control flex min-h-11 items-center gap-2 px-3.5 py-1.5 text-xs font-black text-primary-theme hover:border-primary-theme"
                     >
                         <Globe className="h-3.5 w-3.5" />
                         {language === "en" ? "AR" : "EN"}

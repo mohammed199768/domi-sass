@@ -61,16 +61,20 @@ export default function Footer() {
                     </div>
 
                     <div className="flex flex-wrap justify-center gap-x-6 gap-y-3 text-sm">
-                        <Link href="/why-us" className="premium-link font-semibold focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary-theme">
+                        <Link href="/why-us" className="premium-link inline-flex min-h-11 items-center font-semibold focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary-theme">
                             {language === "ar" ? "لماذا نحن؟" : "Why Us?"}
                         </Link>
-                        <Link href="/why-change" className="premium-link font-semibold focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary-theme">
+                        <Link href="/why-change" className="premium-link inline-flex min-h-11 items-center font-semibold focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary-theme">
                             {language === "ar" ? "لماذا التغيير؟" : "Why Change?"}
                         </Link>
                         {t.footer.links.map((link, index) => (
-                            <a key={index} href="#" className="premium-link font-semibold focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary-theme">
+                            <Link
+                                key={link}
+                                href={index === 0 ? "/work" : "/contact"}
+                                className="premium-link inline-flex min-h-11 items-center font-semibold focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary-theme"
+                            >
                                 {link}
-                            </a>
+                            </Link>
                         ))}
                     </div>
                 </div>

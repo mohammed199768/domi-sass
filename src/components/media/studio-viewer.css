@@ -1,0 +1,396 @@
+/* DOMINASE studio media viewer — Story / Carousel / Film-Reel.
+   Reuses the shared .domi-media-overlay / .domi-media-dialog / .domi-control
+   shell + control language; adds a premium social-post layout. */
+
+.studio-viewer__dialog {
+  display: flex;
+  width: min(94vw, 68rem);
+  max-height: min(100dvh - 2rem, 58rem);
+  flex-direction: column;
+  overflow: hidden;
+  padding: 0;
+}
+
+.studio-viewer__dialog[data-aspect="reel"],
+.studio-viewer__dialog[data-aspect="portrait"] {
+  width: min(94vw, 27rem);
+}
+
+.studio-viewer__dialog[data-aspect="wide"] {
+  width: min(94vw, 74rem);
+}
+
+/* segmented story progress */
+.studio-viewer__segments {
+  display: flex;
+  gap: 0.28rem;
+  padding: 0.7rem clamp(0.8rem, 2vw, 1.2rem) 0;
+}
+
+.studio-viewer__segments span {
+  position: relative;
+  height: 0.18rem;
+  flex: 1;
+  overflow: hidden;
+  border-radius: 999px;
+  background: rgba(233, 246, 239, 0.2);
+}
+
+.studio-viewer__segments span[data-state="done"] {
+  background: #8af0cd;
+}
+
+.studio-viewer__segments span i {
+  position: absolute;
+  inset: 0;
+  display: block;
+  border-radius: 999px;
+  background: #8af0cd;
+  transform-origin: left;
+  transform: scaleX(0);
+}
+
+[dir="rtl"] .studio-viewer__segments span i {
+  transform-origin: right;
+}
+
+.studio-viewer__segments span[data-state="active"] i {
+  animation: studio-seg linear forwards;
+}
+
+@keyframes studio-seg {
+  from {
+    transform: scaleX(0);
+  }
+  to {
+    transform: scaleX(1);
+  }
+}
+
+/* identity header */
+.studio-viewer__head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 0.85rem clamp(0.8rem, 2vw, 1.2rem);
+}
+
+.studio-viewer__identity {
+  display: flex;
+  min-width: 0;
+  align-items: center;
+  gap: 0.7rem;
+}
+
+.studio-viewer__avatar {
+  display: grid;
+  width: 2.5rem;
+  height: 2.5rem;
+  flex: none;
+  place-items: center;
+  overflow: hidden;
+  border: 1px solid rgba(138, 240, 205, 0.45);
+  border-radius: 999px;
+}
+
+.studio-viewer__avatar img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.studio-viewer__identity strong {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.32rem;
+  color: #f3f8f5;
+  font-family: var(--font-en-display), system-ui, sans-serif;
+  font-size: 0.92rem;
+  font-weight: 600;
+}
+
+.studio-verified {
+  width: 0.95rem;
+  height: 0.95rem;
+  fill: #8af0cd;
+}
+
+.studio-viewer__identity small {
+  display: block;
+  overflow: hidden;
+  color: #9db0a7;
+  font-size: 0.72rem;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+/* media stage */
+.studio-viewer__stage {
+  position: relative;
+  display: grid;
+  overflow: hidden;
+  flex: 1;
+  place-items: center;
+  min-height: 0;
+  background: #04120c;
+  isolation: isolate;
+}
+
+.studio-viewer__stage[data-aspect="portrait"] {
+  aspect-ratio: 4 / 5;
+}
+
+.studio-viewer__stage[data-aspect="reel"] {
+  aspect-ratio: 9 / 16;
+  max-height: 68vh;
+}
+
+.studio-viewer__stage[data-aspect="landscape"] {
+  aspect-ratio: 16 / 9;
+}
+
+.studio-viewer__stage[data-aspect="wide"] {
+  aspect-ratio: 21 / 9;
+}
+
+.studio-viewer__slide {
+  object-fit: contain;
+}
+
+.studio-viewer__stage video {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  background: #000;
+}
+
+.studio-viewer__stage[data-aspect="reel"] video {
+  object-fit: cover;
+}
+
+/* central play affordance */
+.studio-viewer__tap {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  display: grid;
+  place-items: center;
+  border: 0;
+  background: transparent;
+  cursor: auto;
+}
+
+.studio-viewer__tap > span {
+  display: grid;
+  width: clamp(3.2rem, 7vw, 4.2rem);
+  aspect-ratio: 1;
+  place-items: center;
+  border: 1px solid rgba(239, 250, 244, 0.3);
+  border-radius: 999px;
+  background: rgba(1, 8, 5, 0.5);
+  backdrop-filter: blur(6px);
+  opacity: 0;
+  transition: opacity var(--domi-motion-base) ease;
+}
+
+.studio-viewer__stage[data-controls="shown"] .studio-viewer__tap > span,
+.studio-viewer__stage[data-playing="false"] .studio-viewer__tap > span {
+  opacity: 1;
+}
+
+.studio-viewer__tap svg {
+  width: 1.4rem;
+  height: 1.4rem;
+  color: #f3fbf7;
+}
+
+/* prev / next zones */
+.studio-viewer__zone {
+  position: absolute;
+  inset-block: 0;
+  z-index: 3;
+  display: grid;
+  width: clamp(2.6rem, 12%, 4.5rem);
+  place-items: center;
+  border: 0;
+  color: #eef7f2;
+  background: transparent;
+  cursor: pointer;
+  opacity: 0;
+  transition: opacity var(--domi-motion-fast) ease;
+}
+
+.studio-viewer__zone svg {
+  width: 1.6rem;
+  height: 1.6rem;
+  filter: drop-shadow(0 1px 3px rgba(0, 0, 0, 0.6));
+}
+
+.studio-viewer__zone--prev {
+  inset-inline-start: 0;
+  justify-content: start;
+  padding-inline-start: 0.5rem;
+}
+
+.studio-viewer__zone--next {
+  inset-inline-end: 0;
+  justify-content: end;
+  padding-inline-end: 0.5rem;
+}
+
+.studio-viewer__stage:hover .studio-viewer__zone,
+.studio-viewer__zone:focus-visible {
+  opacity: 0.9;
+}
+
+/* footer: caption + controls / dots */
+.studio-viewer__foot {
+  display: flex;
+  min-height: 3.4rem;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 0.7rem clamp(0.8rem, 2vw, 1.2rem) 0.9rem;
+}
+
+.studio-viewer__meta {
+  min-width: 0;
+}
+
+.studio-viewer__meta p {
+  overflow: hidden;
+  color: #cdd9d2;
+  font-size: 0.82rem;
+  line-height: 1.45;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+}
+
+.studio-viewer__project {
+  display: inline-block;
+  margin-block-start: 0.25rem;
+  color: #8af0cd;
+  font-size: 0.66rem;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+}
+
+.studio-viewer__controls {
+  flex: 1;
+  max-width: 40rem;
+  transition:
+    opacity var(--domi-motion-base) ease,
+    transform var(--domi-motion-base) var(--domi-ease);
+}
+
+.studio-viewer__controls[data-hidden="true"] {
+  opacity: 0;
+}
+
+.studio-viewer__stage[data-playing="false"] ~ .studio-viewer__foot .studio-viewer__controls[data-hidden="true"] {
+  opacity: 1;
+}
+
+.studio-viewer__post-actions {
+  display: flex;
+  flex: none;
+  align-items: center;
+  gap: 1rem;
+}
+
+.studio-viewer__dots {
+  display: flex;
+  gap: 0.35rem;
+}
+
+.studio-viewer__dots span {
+  width: 0.42rem;
+  height: 0.42rem;
+  border-radius: 999px;
+  background: rgba(233, 246, 239, 0.3);
+  transition: background-color var(--domi-motion-fast) ease;
+}
+
+.studio-viewer__dots span[data-active="true"] {
+  background: #8af0cd;
+}
+
+@media (max-width: 720px) {
+  .studio-viewer__dialog,
+  .studio-viewer__dialog[data-aspect="wide"] {
+    width: 100%;
+    max-height: calc(100dvh - 0.7rem);
+  }
+
+  .studio-viewer__controls .domi-media-dialog__volume-slider {
+    display: none;
+  }
+
+  .studio-viewer__zone {
+    opacity: 0.7;
+  }
+}
+
+@media (hover: none) {
+  .studio-viewer__zone {
+    opacity: 0.65;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .studio-viewer__segments span[data-state="active"] i {
+    animation: none;
+    transform: scaleX(1);
+  }
+}
+
+/* Native system-cursor boundary for story, carousel, and film surfaces.
+   The navigation zones are stage children, so their hit areas cannot overlap
+   the sibling header or footer control bar. */
+[data-media-viewer-root="studio"],
+[data-media-viewer-root="studio"] :where(
+    .studio-viewer__dialog,
+    .studio-viewer__head,
+    .studio-viewer__stage,
+    .studio-viewer__stage video,
+    .studio-viewer__slide
+  ),
+[data-media-viewer-root="studio"]
+  .studio-viewer__stage:is([data-playing], [data-controls]),
+[data-media-viewer-root="studio"]
+  .studio-viewer__stage:is([data-playing], [data-controls])
+  video,
+[data-media-viewer-root="studio"] .studio-viewer__stage:fullscreen,
+[data-media-viewer-root="studio"] .studio-viewer__stage:fullscreen video {
+  cursor: auto;
+}
+
+[data-media-viewer-root="studio"] :where(
+    .domi-control,
+    .studio-viewer__zone,
+    a[href],
+    button:not(.studio-viewer__tap)
+  ) {
+  cursor: pointer;
+}
+
+[data-media-viewer-root="studio"] .studio-viewer__tap,
+[data-media-viewer-root="studio"]
+  .studio-viewer__stage:is([data-playing], [data-controls])
+  .studio-viewer__tap,
+[data-media-viewer-root="studio"]
+  .studio-viewer__stage:fullscreen
+  .studio-viewer__tap {
+  cursor: auto;
+}
+
+[data-media-viewer-root="studio"] .domi-media-dialog__scrubber {
+  cursor: ew-resize;
+}
+
+[data-media-viewer-root="studio"] .domi-media-dialog__volume-slider {
+  cursor: pointer;
+}

@@ -66,6 +66,21 @@
 
   --atmo-glow-1: color-mix(in srgb, var(--domi-accent-bright) 12%, transparent);
   --atmo-glow-2: color-mix(in srgb, var(--domi-accent) 8%, transparent);
+
+  /* DOMINASE geometry + interaction scale */
+  --domi-radius-compact: 0.75rem;
+  --domi-radius-control: 1rem;
+  /* Primary + secondary actions read as soft capsules; icon controls as circles. */
+  --domi-radius-button: 999px;
+  --domi-radius-pill: 999px;
+  --domi-radius-device: 1.4rem;
+  --domi-radius-media: 1.75rem;
+  --domi-radius-cinema: clamp(2rem, 3.6vw, 3.5rem);
+  --domi-radius-modal: clamp(1.5rem, 2.8vw, 2.75rem);
+  --domi-control-height: 3rem;
+  --domi-motion-fast: 180ms;
+  --domi-motion-base: 240ms;
+  --domi-ease: cubic-bezier(0.22, 1, 0.36, 1);
 }
 
 [data-theme="light"] {
@@ -637,16 +652,148 @@ body.domi-booting :where(main, header, footer, .mobile-nav-shell) {
    Scoped to @layer components so per-call-site utilities (radius, weight)
    override predictably. */
 @layer components {
+.domi-action {
+  position: relative;
+  display: inline-flex;
+  min-height: var(--domi-control-height);
+  align-items: center;
+  justify-content: center;
+  gap: 0.65rem;
+  overflow: hidden;
+  border: 1px solid transparent;
+  border-radius: var(--domi-radius-button);
+  padding: 0.7rem 1.15rem;
+  font-size: 0.875rem;
+  font-weight: 750;
+  line-height: 1;
+  text-decoration: none;
+  cursor: pointer;
+  transition:
+    color var(--domi-motion-fast) ease,
+    border-color var(--domi-motion-fast) ease,
+    background-color var(--domi-motion-fast) ease,
+    box-shadow var(--domi-motion-base) ease,
+    transform var(--domi-motion-base) var(--domi-ease);
+}
+
+.domi-action::before {
+  position: absolute;
+  inset: 0;
+  content: "";
+  opacity: 0;
+  background: linear-gradient(105deg, transparent 18%, rgba(255, 255, 255, 0.2) 50%, transparent 82%);
+  transform: translateX(-110%);
+  transition:
+    transform 360ms var(--domi-ease),
+    opacity 160ms ease;
+  pointer-events: none;
+}
+
+.domi-action:hover::before {
+  opacity: 1;
+  transform: translateX(110%);
+}
+
+.domi-action:active {
+  transform: scale(0.985);
+}
+
+.domi-action:disabled,
+.domi-action[aria-disabled="true"] {
+  opacity: 0.44;
+  pointer-events: none;
+  cursor: not-allowed;
+}
+
+.domi-action svg {
+  width: 1.05rem;
+  height: 1.05rem;
+  flex: none;
+  transition: transform var(--domi-motion-fast) var(--domi-ease);
+}
+
+.domi-action:hover svg {
+  transform: translateX(0.18rem);
+}
+
+[dir="rtl"] .domi-action:hover svg {
+  transform: translateX(-0.18rem);
+}
+
+.domi-action--primary {
+  color: #02110b;
+  background: var(--domi-accent-bright);
+  box-shadow: 0 16px 34px -22px color-mix(in srgb, var(--domi-accent-bright) 74%, transparent);
+}
+
+.domi-action--primary:hover {
+  background: color-mix(in srgb, var(--domi-accent-bright) 88%, #ffffff);
+  box-shadow: 0 20px 40px -22px color-mix(in srgb, var(--domi-accent-bright) 86%, transparent);
+}
+
+.domi-action--secondary {
+  color: var(--fg);
+  border-color: color-mix(in srgb, var(--primary) 24%, var(--border));
+  background: color-mix(in srgb, var(--surface) 76%, transparent);
+}
+
+.domi-action--secondary:hover {
+  border-color: color-mix(in srgb, var(--secondary) 56%, var(--border));
+  background: var(--surface-hover);
+}
+
+.domi-action--editorial {
+  min-height: 2.75rem;
+  overflow: visible;
+  border: 0;
+  border-radius: 0;
+  padding-inline: 0;
+  color: var(--fg);
+  background: transparent;
+}
+
+.domi-action--editorial::after {
+  position: absolute;
+  inset-inline: 0;
+  inset-block-end: 0.25rem;
+  height: 1px;
+  content: "";
+  background: linear-gradient(90deg, var(--primary), color-mix(in srgb, var(--primary) 20%, transparent));
+  transform: scaleX(0.28);
+  transform-origin: left;
+  transition: transform var(--domi-motion-base) var(--domi-ease);
+}
+
+[dir="rtl"] .domi-action--editorial::after {
+  transform-origin: right;
+}
+
+.domi-action--editorial:hover::after {
+  transform: scaleX(1);
+}
+
+.domi-action--media {
+  color: #f4f8f5;
+  border-color: rgba(235, 248, 241, 0.22);
+  background: rgba(5, 12, 9, 0.72);
+  box-shadow: inset 0 1px rgba(255, 255, 255, 0.08);
+}
+
+.domi-setting-control {
+  border-radius: var(--domi-radius-pill) !important;
+}
+
 .btn-primary {
-  @apply inline-flex items-center justify-center rounded-full font-bold transition-all duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary-theme focus-visible:ring-offset-2 focus-visible:ring-offset-background;
-  color: var(--primary-contrast);
-  background-image: linear-gradient(
-    135deg,
-    color-mix(in srgb, var(--primary) 88%, #ffffff) 0%,
-    var(--primary) 52%,
-    color-mix(in srgb, var(--primary) 70%, var(--secondary)) 100%
-  );
+  @apply inline-flex items-center justify-center font-bold focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary-theme focus-visible:ring-offset-2 focus-visible:ring-offset-background;
+  min-height: var(--domi-control-height);
+  border-radius: var(--domi-radius-button);
+  color: #02110b;
+  background: var(--secondary);
   box-shadow: 0 14px 30px -18px color-mix(in srgb, var(--primary) 58%, transparent);
+  transition:
+    transform var(--domi-motion-base) var(--domi-ease),
+    background-color var(--domi-motion-fast) ease,
+    box-shadow var(--domi-motion-base) ease;
 }
 
 .btn-primary:hover {
@@ -659,10 +806,16 @@ body.domi-booting :where(main, header, footer, .mobile-nav-shell) {
 }
 
 .btn-secondary {
-  @apply inline-flex items-center justify-center rounded-full font-bold transition-all duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-secondary-theme focus-visible:ring-offset-2 focus-visible:ring-offset-background;
+  @apply inline-flex items-center justify-center font-bold focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-secondary-theme focus-visible:ring-offset-2 focus-visible:ring-offset-background;
+  min-height: var(--domi-control-height);
+  border-radius: var(--domi-radius-button);
   color: var(--fg);
   background-color: color-mix(in srgb, var(--surface) 55%, transparent);
   border: 1px solid color-mix(in srgb, var(--primary) 22%, var(--border));
+  transition:
+    transform var(--domi-motion-base) var(--domi-ease),
+    background-color var(--domi-motion-fast) ease,
+    border-color var(--domi-motion-fast) ease;
 }
 
 .btn-secondary:hover {
@@ -679,7 +832,7 @@ body.domi-booting :where(main, header, footer, .mobile-nav-shell) {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  border-radius: 9999px;
+  border-radius: var(--domi-radius-button);
   font-weight: 700;
   color: var(--hero-primary-contrast);
   background-image: linear-gradient(
