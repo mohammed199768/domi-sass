@@ -37,16 +37,16 @@ type PortfolioProject = (typeof projects)[number];
 const sectionCopy = {
   en: {
     chapter: "The Work / 03",
-    title: "Seven living systems.",
-    body: "Each resolves a different real-world friction.",
+    title: "Ideas, brought to life.",
+    body: "Each one began as a real problem — and grew into something people rely on.",
     viewStory: "Open the product story",
     watchFilm: "Watch preview",
     progress: "Product story index",
   },
   ar: {
     chapter: "أعمالنا / ٠٣",
-    title: "سبعة أنظمة حيّة.",
-    body: "يعالج كلّ منها احتكاكاً حقيقياً مختلفاً.",
+    title: "أفكار… صارت حقيقة.",
+    body: "كل واحدة بدأت كمشكلة حقيقية، وصارت منتجاً يعتمد عليه الناس.",
     viewStory: "افتح قصة المنتج",
     watchFilm: "شاهد المعاينة",
     progress: "فهرس قصص المنتجات",

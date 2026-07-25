@@ -10,29 +10,29 @@ export const homeContent = {
     },
     method: {
       eyebrow: "The Method",
-      title: "Built to Move.",
+      title: "Where ideas learn to move.",
       intro:
-        "Diagnose the friction, align the path, and build a system that keeps learning.",
+        "We listen for what holds you back, find the way through, and build something that grows with you.",
       stages: [
         {
           index: "01",
           title: "Diagnosis",
-          description: "Find the business and customer friction.",
+          description: "We listen closely — to your business, and to the people you serve.",
         },
         {
           index: "02",
           title: "Trust Architecture",
-          description: "Make information and next actions obvious.",
+          description: "We make every next step feel clear, simple, and safe.",
         },
         {
           index: "03",
           title: "Living Build",
-          description: "Turn the path into a site, interface, or workflow.",
+          description: "We turn the plan into something real you can see and touch.",
         },
         {
           index: "04",
           title: "Continuous Improvement",
-          description: "Refine the system through real use.",
+          description: "We keep shaping it as real people bring it to life.",
         },
       ],
     },
@@ -115,16 +115,16 @@ export const homeContent = {
     },
     trust: {
       eyebrow: "Proof",
-      title: "Built on trust.",
+      title: "Built by people who care.",
       intro:
-        "Founder-led delivery keeps decisions close to the people making the product.",
+        "Led by the founder — the people who build your product are the ones who care about it most.",
       selectorLabel: "Choose a testimonial",
     },
     action: {
       eyebrow: "Begin",
-      diagnosisCTA: "Start the diagnosis",
+      diagnosisCTA: "Find your first move",
       diagnosisSupport:
-        "Find the clearest first intervention.",
+        "In minutes, see the one change that moves everything forward.",
     },
   },
   ar: {
@@ -136,29 +136,29 @@ export const homeContent = {
     },
     method: {
       eyebrow: "المنهج",
-      title: "نبني للتقدّم.",
+      title: "حيث تتعلّم الفكرة أن تمشي.",
       intro:
-        "نشخّص الاحتكاك، ونوضّح المسار، ثم نبني نظاماً يتعلّم مع الاستخدام.",
+        "نصغي لما يعيقك، ونجد لك الطريق، ونبني شيئاً ينمو معك.",
       stages: [
         {
           index: "01",
           title: "التشخيص",
-          description: "نحدّد احتكاك العمل والعميل.",
+          description: "نصغي جيداً — لعملك، وللناس الذين تخدمهم.",
         },
         {
           index: "02",
           title: "معمارية الثقة",
-          description: "ننظّم المعلومات لتتّضح الخطوة التالية.",
+          description: "نجعل كل خطوة تالية واضحة وبسيطة ومطمئنة.",
         },
         {
           index: "03",
           title: "البناء الحي",
-          description: "نحوّل المسار إلى موقع أو واجهة أو نظام عمل.",
+          description: "نحوّل الخطة إلى شيء حقيقي تراه وتلمسه.",
         },
         {
           index: "04",
           title: "التحسين المستمر",
-          description: "نحسّن النظام بما يعلّمنا الاستخدام.",
+          description: "نستمر في صقله بينما يبثّ فيه الناس الحياة.",
         },
       ],
     },
@@ -241,16 +241,16 @@ export const homeContent = {
     },
     trust: {
       eyebrow: "الدليل",
-      title: "الثقة أساس البناء.",
+      title: "نبنيه بأيدٍ تهتمّ.",
       intro:
-        "يقود المؤسس التنفيذ لتبقى القرارات قريبة ممن يصنعون المنتج.",
+        "يقود المؤسس التنفيذ — فمن يبنون منتجك هم أكثر من يهتمّ به.",
       selectorLabel: "اختر شهادة",
     },
     action: {
       eyebrow: "ابدأ",
-      diagnosisCTA: "ابدأ التشخيص",
+      diagnosisCTA: "اكتشف خطوتك الأولى",
       diagnosisSupport:
-        "حدّد أوضح نقطة تدخّل أولى.",
+        "بدقائق، شوف التغيير الأول الذي يحرّك كل شيء.",
     },
   },
 } as const satisfies Record<HomeLanguage, Record<string, unknown>>;

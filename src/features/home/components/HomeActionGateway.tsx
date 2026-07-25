@@ -10,7 +10,7 @@ import HomeTextMotion from "./HomeTextMotion";
 const gatewayCopy = {
   en: {
     chapter: "Begin / 05",
-    title: "Choose your first move.",
+    title: "Begin your story.",
     body: "",
     consultation: "Book a consultation",
     consultationBody: "Bring the product and the result you need.",
@@ -24,7 +24,7 @@ const gatewayCopy = {
   },
   ar: {
     chapter: "ابدأ / ٠٥",
-    title: "اختر خطوتك الأولى.",
+    title: "لنبدأ قصتك.",
     body: "",
     consultation: "احجز استشارة",
     consultationBody: "أحضر المنتج والنتيجة التي تريدها.",

@@ -387,8 +387,8 @@ export const studioProfile = {
   name: "DOMINASE",
   category: { en: "Digital Product Studio", ar: "استوديو منتجات رقمية" },
   bio: {
-    en: "Vague ideas become working digital products.",
-    ar: "نحوّل الفكرة الغامضة إلى منتج رقمي يعمل.",
+    en: "We turn unclear ideas into products people love to use.",
+    ar: "نحوّل الأفكار الغامضة إلى منتجات يحبّها الناس.",
   },
   domain: "dominase.art",
   avatar: `${P}/avatar.webp`,

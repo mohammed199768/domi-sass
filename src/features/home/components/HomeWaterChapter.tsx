@@ -7,16 +7,16 @@ const waterCopy = {
   en: {
     chapter: "Beneath the surface / 01",
     title: "Clarity surfaces.",
-    body: "Signals align.",
+    body: "The noise fades. Direction appears.",
     words: ["Clarity", "Direction", "Trust", "Momentum"],
-    release: "Living system.",
+    release: "A product that breathes.",
   },
   ar: {
     chapter: "تحت السطح / ٠١",
     title: "يظهر الوضوح.",
-    body: "تتّحد الإشارات.",
+    body: "يهدأ الضجيج، فيظهر الاتجاه.",
     words: ["وضوح", "اتجاه", "ثقة", "تقدّم"],
-    release: "نظام حيّ.",
+    release: "منتج ينبض بالحياة.",
   },
 } as const;
 

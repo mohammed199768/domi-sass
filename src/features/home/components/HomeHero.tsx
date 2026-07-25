@@ -13,26 +13,26 @@ const story = {
     chapter: "Signal / 00",
     role: "Digital Product Studio",
     title: "Signal.",
-    support: "Direction gives the idea form.",
+    support: "Where a vague idea starts to breathe.",
     cue: "Direct the film",
     beats: [
       {
         index: "01",
         eyebrow: "Request",
         title: "Unformed.",
-        body: "A need, not yet a product.",
+        body: "Just a feeling that something could be better.",
       },
       {
         index: "02",
         eyebrow: "Shift",
         title: "Direction.",
-        body: "Decisions align into one path.",
+        body: "Scattered thoughts settle into one clear path.",
       },
       {
         index: "03",
         eyebrow: "Outcome",
-        title: "Built to Move.",
-        body: "A working system, ready to improve.",
+        title: "Alive.",
+        body: "A real product, out in the world — and growing.",
       },
     ],
     mobileFrames: [
@@ -62,26 +62,26 @@ const story = {
     chapter: "إشارة / ٠٠",
     role: "استوديو منتجات رقمية",
     title: "إشارة.",
-    support: "يمنح الاتجاه الفكرة شكلاً.",
+    support: "حيث تبدأ الفكرة الغامضة أن تتنفّس.",
     cue: "قُد المشهد",
     beats: [
       {
         index: "٠١",
         eyebrow: "الطلب",
         title: "بلا ملامح.",
-        body: "حاجة لم تصبح منتجاً بعد.",
+        body: "مجرّد إحساس أن شيئاً ما يمكن أن يكون أفضل.",
       },
       {
         index: "٠٢",
         eyebrow: "التحول",
         title: "اتجاه.",
-        body: "تنتظم القرارات في مسار واحد.",
+        body: "تتجمّع الأفكار المبعثرة في مسار واحد واضح.",
       },
       {
         index: "٠٣",
         eyebrow: "النتيجة",
-        title: "نبني للتقدّم.",
-        body: "نظام يعمل ويتحسّن.",
+        title: "حيّ.",
+        body: "منتج حقيقي في الحياة… وينمو.",
       },
     ],
     mobileFrames: [
