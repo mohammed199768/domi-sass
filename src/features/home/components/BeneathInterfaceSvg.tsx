@@ -216,7 +216,7 @@ export default function BeneathInterfaceSvg({
           fill="var(--primary)" opacity="0.75" />
 
         <text x={PX + PW - 16} y={PY + 22} textAnchor="end"
-          fontSize="8" fontFamily="var(--font-sans, monospace)" fontWeight="700"
+          fontSize="8" fontFamily="var(--font-sans, system-ui, sans-serif)" fontWeight="700"
           fill="var(--primary)" opacity="0.75" letterSpacing="0.12em">
           PRESENTATION
         </text>
@@ -238,7 +238,7 @@ export default function BeneathInterfaceSvg({
         <rect x={PX + 18} y={PY + 12} width={64} height="11" rx="4"
           fill="var(--secondary)" opacity="0.50" />
         <text x={PX + PW - 16} y={PY + 22} textAnchor="end"
-          fontSize="8" fontFamily="var(--font-sans, monospace)" fontWeight="700"
+          fontSize="8" fontFamily="var(--font-sans, system-ui, sans-serif)" fontWeight="700"
           fill="var(--secondary)" opacity="0.72" letterSpacing="0.12em">
           INTERACTION
         </text>
@@ -267,7 +267,7 @@ export default function BeneathInterfaceSvg({
                 fill={active ? "var(--secondary)" : "var(--border)"}
                 opacity={active ? 0.88 : 0.45} />
               <text x={sx + 14} y={sy + 18} textAnchor="middle"
-                fontSize="8" fontFamily="var(--font-sans, monospace)" fontWeight="800"
+                fontSize="8" fontFamily="var(--font-sans, system-ui, sans-serif)" fontWeight="800"
                 fill={active ? "var(--primary-contrast)" : "var(--fg)"} opacity={active ? 0.95 : 0.5}>
                 {i + 1}
               </text>
@@ -329,7 +329,7 @@ export default function BeneathInterfaceSvg({
         <rect x={PX + 18} y={PY + 12} width={44} height="11" rx="4"
           fill="var(--primary)" opacity="0.52" />
         <text x={PX + PW - 16} y={PY + 22} textAnchor="end"
-          fontSize="8" fontFamily="var(--font-sans, monospace)" fontWeight="700"
+          fontSize="8" fontFamily="var(--font-sans, system-ui, sans-serif)" fontWeight="700"
           fill="var(--primary)" opacity="0.72" letterSpacing="0.12em">
           LOGIC
         </text>
@@ -459,7 +459,7 @@ export default function BeneathInterfaceSvg({
         ))}
 
         <text x={PX + PW - 16} y={PY + 22} textAnchor="end"
-          fontSize="8" fontFamily="var(--font-sans, monospace)" fontWeight="700"
+          fontSize="8" fontFamily="var(--font-sans, system-ui, sans-serif)" fontWeight="700"
           fill="var(--secondary)" opacity="0.72" letterSpacing="0.12em">
           OPERATIONS
         </text>
@@ -508,7 +508,7 @@ export default function BeneathInterfaceSvg({
                       fill={layer.dot} opacity="0.80"
                       />
                     <text x={lx + 14} y={ly + 20}
-                      fontSize="8" fontFamily="var(--font-sans, monospace)" fontWeight="800"
+                      fontSize="8" fontFamily="var(--font-sans, system-ui, sans-serif)" fontWeight="800"
                       fill={layer.color} opacity="0.88" letterSpacing="0.1em">
                       {layer.label.toUpperCase()}
                     </text>

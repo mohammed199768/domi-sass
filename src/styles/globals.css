@@ -14,6 +14,15 @@
   --font-sans: var(--font-en-body), system-ui, sans-serif;
   --font-arabic: var(--font-ar-body), system-ui, sans-serif;
 
+  /* Pinned, not inherited. `font-mono` is used on technical eyebrow labels
+     (HomeCinematicScrollStage, ScrollReelTestimonials). Until now it fell
+     through to Tailwind's built-in default, so the rendered face changed from
+     machine to machine. This is that exact default written down — same pixels,
+     but the stack is now ours to change. If these labels should ever move onto
+     the brand's technical face, swap this to var(--font-en-display). */
+  --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas,
+    "Liberation Mono", "Courier New", monospace;
+
   /* Semantic Theme Tokens */
   --color-background: var(--bg);
   --color-foreground: var(--fg);
@@ -28,6 +37,60 @@
   /* Preserve original color names for compatibility */
   --color-primary: var(--primary);
   --color-secondary: var(--secondary);
+
+  /* ── Manal case-study palette ─────────────────────────────────────────────
+   * A deliberate departure from the DOMINASE emerald system: the Manal case
+   * study is presented in the client's own cream/gold/forest identity so the
+   * work reads as theirs, not ours. It is intentionally NOT theme-reactive —
+   * this page is light-only by design and must not flip with the site toggle,
+   * which is why these are flat values rather than `var(--…)` indirections.
+   *
+   * Registered here purely so the palette is nameable and centrally editable.
+   * Every value is byte-identical to the literal it replaced, and `bg-manal-x/10`
+   * compiles to the same `color-mix()` that `bg-[#hex]/10` did.
+   * Scope: src/features/case-study-lab/manal/** only. Nothing else may use these. */
+
+  /* Surfaces — warm paper tones, lightest first */
+  --color-manal-canvas: #f3f0e9;
+  --color-manal-canvas-warm: #f9f7f2;
+  --color-manal-canvas-raised: #f5f3ed;
+  --color-manal-canvas-sand: #e9e2d8;
+  --color-manal-canvas-mist: #e8ede8;
+  --color-manal-canvas-sage: #e4ece7;
+
+  /* Forest greens — structure, rules, dark sections */
+  --color-manal-deep: #0d2926;
+  --color-manal-ink: #102f2b;
+  --color-manal-green: #174c44;
+  --color-manal-green-mid: #173d38;
+  --color-manal-green-muted: #31534e;
+  --color-manal-green-soft: #46635e;
+
+  /* Gold — the accent that carries emphasis through the whole story */
+  --color-manal-gold: #d39c62;
+  --color-manal-gold-deep: #aa7440;
+  --color-manal-gold-light: #d7aa78;
+
+  /* Warm browns — body copy on the "before" side of the comparison */
+  --color-manal-brown: #805c4b;
+  --color-manal-brown-soft: #664e44;
+  --color-manal-brown-faint: #6f4b3e;
+
+  /* Cream text set, used on the dark forest sections */
+  --color-manal-cream: #f8f5ee;
+  --color-manal-cream-warm: #f7f3eb;
+
+  /* Hero wash — the three stops of the diagonal gradient behind the opening */
+  --color-manal-wash-1: #f8f6f0;
+  --color-manal-wash-2: #f1ede4;
+  --color-manal-wash-3: #e5eee9;
+
+  /* SVG-only tones inside the chaos→platform illustration */
+  --color-manal-paper: #f7f2e8;
+  --color-manal-paper-edge: #dfe9e3;
+  --color-manal-grid: #dce9e3;
+  --color-manal-dot: #eaf2ed;
+  --color-manal-shadow: #061512;
 }
 
 :root,
@@ -81,6 +144,54 @@
   --domi-motion-fast: 180ms;
   --domi-motion-base: 240ms;
   --domi-ease: cubic-bezier(0.22, 1, 0.36, 1);
+
+  /* ── DOMINASE spacing scale ───────────────────────────────────────────────
+   * Theme-independent rhythm. Deliberately NOT named `--spacing-*` /
+   * `--leading-*` / `--tracking-*`: those are reserved Tailwind v4 namespaces
+   * and redefining them would silently retune every `leading-snug`,
+   * `tracking-wide`, `gap-4` … already in the TSX.
+   *
+   * Every value below is one that the codebase already uses verbatim, so
+   * adopting a token is always a byte-for-byte swap — never a visual change.
+   * Off-scale literals still exist; see docs/BRAND_CONSISTENCY_AUDIT.md for
+   * the remaining list and what each one would snap to. */
+  --domi-space-3xs: 0.25rem;
+  --domi-space-2xs: 0.5rem;
+  --domi-space-xs: 0.75rem;
+  --domi-space-sm: 1rem;
+  --domi-space-md: 1.5rem;
+  --domi-space-lg: 2rem;
+  --domi-space-xl: 3rem;
+  --domi-space-2xl: 4rem;
+  --domi-space-3xl: 6rem;
+  --domi-space-4xl: 8rem;
+
+  /* Leading. `--domi-lh-arabic` is the Noto Sans Arabic body value — Arabic
+     needs more leading than Latin because of its tall ascenders/descenders. */
+  --domi-lh-none: 1;
+  --domi-lh-tight: 1.15;
+  --domi-lh-snug: 1.3;
+  --domi-lh-base: 1.5;
+  --domi-lh-relaxed: 1.65;
+  --domi-lh-loose: 1.75;
+  --domi-lh-arabic: 1.85;
+
+  /* Tracking. `--domi-track-none` is load-bearing: Arabic must never be
+     letter-spaced, so RTL rules reset to it rather than to a literal 0. */
+  --domi-track-tight: -0.06em;
+  --domi-track-none: 0;
+  --domi-track-label: 0.14em;
+  --domi-track-wide: 0.2em;
+  --domi-track-eyebrow: 0.22em;
+
+  /* Decorative serif for the oversized quotation glyph in `.home-trust__quote`
+     — the one place the design asks for a serif. Lives here rather than in
+     `@theme` because the sibling stylesheets are plain CSS: Tailwind
+     tree-shakes unused `@theme` entries, and a var declared only there would
+     vanish before those files could read it. Georgia is a system font missing
+     on most Linux/Android devices, so the chain now names two widely
+     installed metric-compatible fallbacks before the generic keyword. */
+  --domi-font-quote: Georgia, "Times New Roman", "Liberation Serif", serif;
 }
 
 [data-theme="light"] {
@@ -186,7 +297,7 @@
   }
 
   [dir="rtl"] h2, [dir="rtl"] h3 {
-    line-height: 1.5 !important;
+    line-height: var(--domi-lh-base)!important;
     word-break: break-word;
   }
 
@@ -194,7 +305,7 @@
      Arabic has tall ascenders/descenders. Keep tracking neutral. */
   [dir="rtl"] p,
   [lang="ar"] p {
-    line-height: 1.85;
+    line-height: var(--domi-lh-arabic);
     letter-spacing: 0;
   }
 }
@@ -226,7 +337,7 @@ body.domi-booting :where(main, header, footer, .mobile-nav-shell) {
 }
 
 :where(#about, #services, #portfolio, #testimonials) {
-  scroll-margin-top: 6rem;
+  scroll-margin-top: var(--domi-space-3xl);
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -375,8 +486,8 @@ body.domi-booting :where(main, header, footer, .mobile-nav-shell) {
   --hero-bg: #f2f6f3;
   --hero-bg-soft: #eaf1ed;
   --hero-bg-deep: #e3ece7;
-  --hero-surface: #fbfdfc;
-  --hero-surface-elevated: #ffffff;
+  --hero-surface: var(--domi-surface);
+  --hero-surface-elevated: var(--domi-surface-elevated);
   --hero-surface-strong: #e6efea;
   --hero-foreground: #061710;
   --hero-muted: #40534a;
@@ -390,7 +501,7 @@ body.domi-booting :where(main, header, footer, .mobile-nav-shell) {
   --hero-violet: #6961b8;
   --hero-cyan: #167f8d;
   --hero-shadow: rgba(15, 57, 40, 0.12);
-  --hero-primary-contrast: #ffffff;
+  --hero-primary-contrast: var(--primary-contrast);
   --hero-shader-intensity: 0.2;
   --hero-gradient:
     radial-gradient(circle at 16% 12%, color-mix(in srgb, var(--hero-emerald) 12%, transparent), transparent 30rem),
@@ -580,7 +691,7 @@ body.domi-booting :where(main, header, footer, .mobile-nav-shell) {
 }
 
 [data-theme="dark"] .home-cinematic-stage {
-  --cine-bg: #020403;
+  --cine-bg: var(--domi-bg);
   --cine-surface: #070907;
   --cine-foreground: #f4f7f2;
   --cine-muted: #b9c2ba;
@@ -665,7 +776,7 @@ body.domi-booting :where(main, header, footer, .mobile-nav-shell) {
   padding: 0.7rem 1.15rem;
   font-size: 0.875rem;
   font-weight: 750;
-  line-height: 1;
+  line-height: var(--domi-lh-none);
   text-decoration: none;
   cursor: pointer;
   transition:
@@ -946,7 +1057,7 @@ body.domi-booting :where(main, header, footer, .mobile-nav-shell) {
   --diag-track: color-mix(in srgb, var(--fg) 9%, transparent);
   --muted: #c3cec6;
   --color-muted: var(--muted);
-  line-height: 1.65;
+  line-height: var(--domi-lh-relaxed);
 }
 
 [data-theme="light"] .diagnosis-scope {

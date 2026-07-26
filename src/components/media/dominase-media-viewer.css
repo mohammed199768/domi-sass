@@ -188,7 +188,7 @@
   min-height: 5.25rem;
   align-items: center;
   justify-content: space-between;
-  gap: 1rem;
+  gap: var(--domi-space-sm);
   padding: 1rem clamp(1rem, 2.5vw, 2rem);
 }
 
@@ -201,7 +201,7 @@
 }
 
 .domi-media-dialog__header h2 {
-  margin: 0.25rem 0 0;
+  margin: var(--domi-space-3xs) 0 0;
   color: #f3f7f4;
   font-family: var(--font-en-display), system-ui, sans-serif;
   font-size: clamp(1.1rem, 2vw, 1.65rem);

@@ -65,7 +65,7 @@
 }
 
 :global([dir="rtl"]) .page :global(h2) {
-  line-height: 1.3;
+  line-height: var(--domi-lh-snug);
   letter-spacing: 0;
 }
 
@@ -172,7 +172,7 @@
   font-size: 6.5px;
   font-weight: 800;
   text-transform: uppercase;
-  letter-spacing: 0.14em;
+  letter-spacing: var(--domi-track-label);
 }
 
 .page :global(.wm-engine__stages) {
@@ -256,7 +256,7 @@
   bottom: 5%;
   display: flex;
   justify-content: space-between;
-  gap: 1rem;
+  gap: var(--domi-space-sm);
   padding-top: 0.6rem;
   border-top: 1px solid var(--domi-border);
   color: var(--domi-text-faint);
@@ -341,7 +341,7 @@
   display: grid;
   grid-template-columns: repeat(4, minmax(0, 1fr));
   gap: clamp(1.2rem, 2.5vw, 2.5rem);
-  margin-top: 1rem;
+  margin-top: var(--domi-space-sm);
 }
 
 .page :global(.wm-method__stages li) {
@@ -393,7 +393,7 @@
   margin-top: 0.6rem;
   color: var(--domi-text-muted);
   font-size: 0.88rem;
-  line-height: 1.75;
+  line-height: var(--domi-lh-loose);
 }
 
 /* ── 3. The DOMINASE commitment ───────────────────────────────────────────── */
@@ -416,12 +416,12 @@
   margin-top: 1.25rem;
   color: var(--domi-text-muted);
   font-size: 1rem;
-  line-height: 1.85;
+  line-height: var(--domi-lh-arabic);
 }
 
 .page :global(.wm-commitment__list) {
   display: grid;
-  gap: 1rem;
+  gap: var(--domi-space-sm);
 }
 
 .page :global(.wm-commitment__list li) {
@@ -457,14 +457,14 @@
 }
 
 :global([dir="rtl"]) .page :global(.wm-commitment__list h3) {
-  line-height: 1.5;
+  line-height: var(--domi-lh-base);
 }
 
 .page :global(.wm-commitment__list p) {
   margin-top: 0.7rem;
   color: var(--domi-text-muted);
   font-size: 0.92rem;
-  line-height: 1.75;
+  line-height: var(--domi-lh-loose);
 }
 
 /* ── 4. What makes this different ─────────────────────────────────────────── */
@@ -527,7 +527,7 @@
   color: var(--domi-accent);
   font-size: 0.62rem;
   font-weight: 800;
-  line-height: 1.3;
+  line-height: var(--domi-lh-snug);
   letter-spacing: 0;
   text-transform: uppercase;
 }
@@ -542,7 +542,7 @@
 
 :global([dir="rtl"]) .page :global(.wm-diff__list h3) {
   letter-spacing: 0;
-  line-height: 1.5;
+  line-height: var(--domi-lh-base);
 }
 
 .page :global(.wm-diff__list p) {
@@ -578,7 +578,7 @@
 
 .page :global(.wm-disc__list li) {
   min-width: 0;
-  padding-top: 1rem;
+  padding-top: var(--domi-space-sm);
   border-top: 1px solid var(--domi-border);
   transition: border-color 0.24s ease;
 }
@@ -612,7 +612,7 @@
   margin-top: 0.45rem;
   color: var(--domi-text-muted);
   font-size: 0.8rem;
-  line-height: 1.65;
+  line-height: var(--domi-lh-relaxed);
 }
 
 /* ── 6. Closing CTA ───────────────────────────────────────────────────────── */
@@ -651,7 +651,7 @@
 .page :global(.wm-final__body) {
   max-width: 42rem;
   margin: 1.2rem auto 2.2rem;
-  line-height: 1.85;
+  line-height: var(--domi-lh-arabic);
   opacity: 0.82;
 }
 
@@ -723,7 +723,7 @@
     grid-template-columns: 1fr;
     min-height: 0;
     padding-top: 8.5rem;
-    gap: 3rem;
+    gap: var(--domi-space-xl);
   }
 
   .page :global(.wm-hero::before) {

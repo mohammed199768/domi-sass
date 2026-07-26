@@ -6,7 +6,7 @@ import ResultStatementScene from "./ResultStatementScene";
 
 export default function ManalCaseStudyLabPage() {
   return (
-    <main lang="ar" dir="rtl" className="min-h-screen overflow-clip bg-[#f3f0e9] font-arabic text-[#102f2b] selection:bg-[#d39c62]/35">
+    <main lang="ar" dir="rtl" className="min-h-screen overflow-clip bg-manal-canvas font-arabic text-manal-ink selection:bg-manal-gold/35">
       <ManalHeroScene />
       <ChaosToPlatformSvgScene />
       <BeforeAfterStickyScene />

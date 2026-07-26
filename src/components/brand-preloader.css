@@ -31,7 +31,7 @@
   flex-direction: column;
   align-items: center;
   gap: 1.6rem;
-  padding: 1.5rem;
+  padding: var(--domi-space-md);
   text-align: center;
 }
 
@@ -89,7 +89,7 @@
   padding-inline-start: 0.34em;
   font-size: clamp(1.4rem, 5vw, 2.1rem);
   color: var(--fg);
-  line-height: 1;
+  line-height: var(--domi-lh-none);
 }
 
 /* ── System status line ──────────────────────────────────────────────────── */

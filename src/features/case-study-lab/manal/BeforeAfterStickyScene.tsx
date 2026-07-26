@@ -29,25 +29,25 @@ export default function BeforeAfterStickyScene() {
   }, [isMobile, reducedMotion]);
 
   return (
-    <section ref={sectionRef} dir="rtl" className={`relative bg-[#f3f0e9] px-5 py-24 sm:px-8 lg:px-12 ${reducedMotion ? "" : "md:min-h-[220vh] md:py-0"}`}>
+    <section ref={sectionRef} dir="rtl" className={`relative bg-manal-canvas px-5 py-24 sm:px-8 lg:px-12 ${reducedMotion ? "" : "md:min-h-[220vh] md:py-0"}`}>
       <div className="mx-auto max-w-7xl md:sticky md:top-0 md:flex md:min-h-screen md:items-center">
         <div className="w-full">
-          <p className="text-xs font-bold tracking-[.26em] text-[#aa7440]">BEFORE / AFTER</p>
+          <p className="text-xs font-bold tracking-[.26em] text-manal-gold-deep">BEFORE / AFTER</p>
           <h2 className="mt-4 max-w-3xl text-4xl font-black leading-tight sm:text-6xl">التنظيم لم يغيّر الشكل فقط، بل غيّر طريقة العمل.</h2>
           <div className="relative mt-14 grid gap-8 md:grid-cols-2 md:gap-20">
-            <div className="rounded-[1.8rem] border border-[#6f4b3e]/12 bg-[#e9e2d8] p-6 sm:p-8">
-              <p className="text-sm font-black text-[#805c4b]">قبل المنصة</p>
+            <div className="rounded-[1.8rem] border border-manal-brown-faint/12 bg-manal-canvas-sand p-6 sm:p-8">
+              <p className="text-sm font-black text-manal-brown">قبل المنصة</p>
               <ul className="mt-6 grid gap-3">
-                {before.map((item, i) => <li key={item} data-before-item className="flex items-center justify-between border-b border-[#805c4b]/10 pb-3 text-base text-[#664e44]"><span>{item}</span><span className="text-xs opacity-40">0{i + 1}</span></li>)}
+                {before.map((item, i) => <li key={item} data-before-item className="flex items-center justify-between border-b border-manal-brown/10 pb-3 text-base text-manal-brown-soft"><span>{item}</span><span className="text-xs opacity-40">0{i + 1}</span></li>)}
               </ul>
             </div>
-            <div className="rounded-[1.8rem] border border-[#174c44]/14 bg-[#e4ece7] p-6 shadow-[0_24px_70px_rgba(23,76,68,.08)] sm:p-8">
-              <p className="text-sm font-black text-[#174c44]">بعد المنصة</p>
+            <div className="rounded-[1.8rem] border border-manal-green/14 bg-manal-canvas-sage p-6 shadow-[0_24px_70px_rgba(23,76,68,.08)] sm:p-8">
+              <p className="text-sm font-black text-manal-green">بعد المنصة</p>
               <ul className="mt-6 grid gap-3">
-                {after.map((item, i) => <li key={item} data-after-item className="flex items-center justify-between border-b border-[#174c44]/10 pb-3 text-base text-[#31534e]"><span>{item}</span><span className="grid h-6 w-6 place-items-center rounded-full bg-[#174c44] text-[10px] text-white">{i + 1}</span></li>)}
+                {after.map((item, i) => <li key={item} data-after-item className="flex items-center justify-between border-b border-manal-green/10 pb-3 text-base text-manal-green-muted"><span>{item}</span><span className="grid h-6 w-6 place-items-center rounded-full bg-manal-green text-[10px] text-white">{i + 1}</span></li>)}
               </ul>
             </div>
-            <div className="absolute bottom-4 left-1/2 top-4 hidden w-px -translate-x-1/2 bg-[#174c44]/10 md:block"><span data-divider-fill className="block h-full w-full bg-[#d39c62]" /></div>
+            <div className="absolute bottom-4 left-1/2 top-4 hidden w-px -translate-x-1/2 bg-manal-green/10 md:block"><span data-divider-fill className="block h-full w-full bg-manal-gold" /></div>
           </div>
         </div>
       </div>
