@@ -2,6 +2,7 @@
 
 import React, { useState, useEffect } from "react";
 import Link from "next/link";
+import ConsultationTrigger from "@/components/consultation/ConsultationTrigger";
 import { useLanguage } from "@/context/LanguageContext";
 import { Globe } from "lucide-react";
 import { usePathname } from "next/navigation";
@@ -37,7 +38,7 @@ export default function Header() {
                 >
                     <span className="font-display text-2xl font-black tracking-wide transition-colors group-hover:text-secondary-theme">DOMINASE</span>
                     <span className="font-display hidden text-[10px] font-black uppercase tracking-[0.2em] text-muted sm:inline">
-                        Digital Product Studio
+                        Software & Digital Products
                     </span>
                     <div className="mt-1 h-2 w-2 rounded-full bg-primary-theme transition-colors group-hover:bg-secondary-theme" />
                 </Link>
@@ -76,9 +77,7 @@ export default function Header() {
                         <Globe className="h-3.5 w-3.5" />
                         {language === "en" ? "AR" : "EN"}
                     </button>
-                    <Link href="/contact" className="btn-primary min-h-11 px-6 py-2.5 text-sm">
-                        {t.nav.cta}
-                    </Link>
+                    <ConsultationTrigger ctaLocation="header_desktop" originType="global_navigation" className="btn-primary min-h-11 px-6 py-2.5 text-sm" />
                 </div>
 
                 {/* Mobile Top Bar (Just Logo + Language) */}

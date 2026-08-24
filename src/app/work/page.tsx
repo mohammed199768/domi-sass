@@ -3,11 +3,12 @@ import TransformationTreeClient from "@/features/work/TransformationTreeClient";
 import JsonLd from "@/components/JsonLd";
 import { SITE_URL, BRAND } from "@/config/seo";
 import { orderedProductStories } from "@/features/product-stories/productStories";
+import "@/components/interactive-showcase.css";
 
 export const metadata: Metadata = {
-  title: "Selected Work",
+  title: "أعمال DOMINASE | مواقع وأنظمة ومنصات",
   description:
-    "Digital product case studies by DOMINASE — websites, dashboards, booking platforms, and operational systems built around real business friction.",
+    "دراسات حالة وأعمال DOMINASE في تطوير المواقع، المنصات التعليمية، أنظمة الحجز، لوحات الإدارة والمنتجات الرقمية في الأردن والسعودية.",
   alternates: {
     canonical: "/work",
   },

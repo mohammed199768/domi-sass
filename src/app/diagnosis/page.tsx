@@ -4,9 +4,9 @@ import JsonLd from "@/components/JsonLd";
 import { SITE_URL, BRAND } from "@/config/seo";
 
 export const metadata: Metadata = {
-  title: "Growth Diagnosis",
+  title: "تشخيص الحضور الرقمي ومسار العميل",
   description:
-    "Before building a new website, find where the customer journey leaks. A short, private self-assessment across clarity, trust, conversion, follow-up, and digital readiness for clinics, venues, engineering firms, and other businesses. Runs on your device — no sign-up.",
+    "تشخيص رقمي مجاني من DOMINASE يساعد الشركات والعيادات والأعمال على اكتشاف نقاط التسرب في الوضوح، الثقة، CTA، الحجز، المتابعة والاستعداد الرقمي قبل بناء الموقع أو النظام.",
   alternates: {
     canonical: "/diagnosis",
   },

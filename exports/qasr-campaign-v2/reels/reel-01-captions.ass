@@ -1,0 +1,19 @@
+[Script Info]
+ScriptType: v4.00+
+PlayResX: 1080
+PlayResY: 1920
+WrapStyle: 2
+ScaledBorderAndShadow: yes
+
+[V4+ Styles]
+Format: Name, Fontname, Fontsize, PrimaryColour, SecondaryColour, OutlineColour, BackColour, Bold, Italic, Underline, StrikeOut, ScaleX, ScaleY, Spacing, Angle, BorderStyle, Outline, Shadow, Alignment, MarginL, MarginR, MarginV, Encoding
+Style: Caption,Arial,58,&H00FFF8ED,&H000000FF,&H00140B06,&H900B0704,-1,0,0,0,100,100,0,0,1,8,0,2,70,70,155,1
+
+[Events]
+Format: Layer, Start, End, Style, Name, MarginL, MarginR, MarginV, Effect, Text
+Dialogue: 0,0:00:05.30,0:00:07.20,Caption,,0,0,0,,من هنا بدأ البناء الحقيقي.
+Dialogue: 0,0:00:07.20,0:00:09.50,Caption,,0,0,0,,واجهة + API + منطق تشغيل.
+Dialogue: 0,0:00:09.50,0:00:12.10,Caption,,0,0,0,,أولًا: تجربة تعرض قيمة القاعة.
+Dialogue: 0,0:00:12.10,0:00:14.90,Caption,,0,0,0,,خدمات واضحة بدل الشرح المتكرر.
+Dialogue: 0,0:00:14.90,0:00:17.70,Caption,,0,0,0,,صور تجعل الزائر يتخيّل المناسبة.
+Dialogue: 0,0:00:17.70,0:00:20.70,Caption,,0,0,0,,ثم حجز منظم بالتاريخ والتفاصيل.

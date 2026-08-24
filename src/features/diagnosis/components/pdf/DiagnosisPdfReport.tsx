@@ -94,6 +94,9 @@ const DiagnosisPdfReport = forwardRef<HTMLDivElement, DiagnosisPdfReportProps>(f
   const recPages = buildRecommendationPages(result, isArabic);
 
   const qr = qrDataUrl ? (
+    // The QR code is an in-memory data URL rendered into an off-screen PDF layout;
+    // Next/Image optimization and LCP handling do not apply here.
+    // eslint-disable-next-line @next/next/no-img-element
     <img
       src={qrDataUrl}
       alt="dominase.art"

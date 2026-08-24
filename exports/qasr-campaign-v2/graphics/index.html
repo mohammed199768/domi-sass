@@ -1,0 +1,112 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Qasr Al-Farah Reel Graphics</title>
+  <style>
+    @font-face { font-family: "Qasr Arabic"; src: url("assets/ibm-plex-arabic-700.woff2") format("woff2"); font-weight: 700; }
+    @font-face { font-family: "Qasr Arabic"; src: url("assets/ibm-plex-arabic-600.woff2") format("woff2"); font-weight: 600; }
+    @font-face { font-family: "Qasr English"; src: url("assets/space-grotesk.woff2") format("woff2"); font-weight: 400 700; }
+    :root { --cream:#f7f1e8; --paper:#fffaf2; --ink:#17110d; --brown:#2b1a10; --gold:#d3a45a; --gold-soft:#efcc91; --muted:#b9aa97; }
+    * { box-sizing: border-box; }
+    html,body { margin:0; background:#1a120d; }
+    body { display:flex; flex-direction:column; align-items:center; gap:30px; padding:30px; }
+    .page { position:relative; width:1080px; height:1920px; overflow:hidden; background:var(--ink); color:var(--cream); font-family:"Qasr Arabic",sans-serif; isolation:isolate; }
+    .page::after { content:""; position:absolute; inset:38px; border:1px solid rgba(239,204,145,.24); border-radius:40px; pointer-events:none; z-index:20; }
+    .photo { position:absolute; inset:0; width:100%; height:100%; object-fit:cover; }
+    .shade { position:absolute; inset:0; background:linear-gradient(180deg,rgba(10,6,4,.68) 0%,rgba(10,6,4,.05) 36%,rgba(10,6,4,.28) 65%,rgba(10,6,4,.86) 100%); }
+    .brand { position:absolute; top:82px; left:78px; z-index:6; display:flex; align-items:center; gap:14px; direction:ltr; font-family:"Qasr English",sans-serif; font-size:20px; font-weight:700; letter-spacing:.15em; }
+    .brand i { width:11px; height:11px; border-radius:50%; background:var(--gold-soft); box-shadow:0 0 24px rgba(239,204,145,.75); }
+    .chapter { position:absolute; top:86px; right:78px; z-index:6; font-family:"Qasr English",sans-serif; font-size:13px; letter-spacing:.18em; color:var(--gold-soft); direction:ltr; }
+    .eyebrow { color:var(--gold-soft); font-family:"Qasr English",sans-serif; font-size:15px; font-weight:700; letter-spacing:.22em; direction:ltr; }
+    h1,h2,p { margin:0; }
+
+    .inquiry .copy { position:absolute; top:250px; right:84px; left:84px; z-index:5; }
+    .inquiry h1 { margin-top:24px; max-width:850px; font-size:86px; line-height:1.18; text-shadow:0 8px 36px rgba(0,0,0,.46); }
+    .message { position:absolute; left:84px; right:84px; bottom:150px; z-index:7; padding:34px 38px 36px; border:1px solid rgba(255,255,255,.14); border-radius:34px; background:rgba(20,13,9,.86); backdrop-filter:blur(24px); box-shadow:0 38px 90px -40px #000; direction:ltr; }
+    .message .meta { display:flex; align-items:center; justify-content:space-between; color:#b8ad9f; font-family:"Qasr English",sans-serif; font-size:15px; letter-spacing:.12em; }
+    .message .meta b { color:var(--gold-soft); }
+    .message .text { margin-top:20px; color:white; font-family:"Qasr English",sans-serif; font-size:58px; font-weight:700; letter-spacing:-.02em; }
+
+    .problem .shade { background:linear-gradient(180deg,rgba(8,5,3,.90),rgba(8,5,3,.12) 44%,rgba(8,5,3,.50)); }
+    .problem .copy { position:absolute; top:205px; right:84px; left:84px; z-index:5; }
+    .problem h2 { margin-top:25px; font-size:82px; line-height:1.22; }
+    .problem h2 span { color:var(--gold-soft); }
+    .problem .facts { position:absolute; left:84px; right:84px; bottom:126px; z-index:6; display:grid; grid-template-columns:repeat(3,1fr); gap:14px; direction:rtl; }
+    .fact { min-height:172px; padding:24px; border:1px solid rgba(239,204,145,.20); border-radius:26px; background:rgba(20,13,9,.82); backdrop-filter:blur(16px); }
+    .fact b { display:block; color:var(--gold-soft); font-family:"Qasr English",sans-serif; font-size:16px; letter-spacing:.12em; }
+    .fact span { display:block; margin-top:28px; font-size:24px; line-height:1.45; }
+
+    .venue .shade { background:linear-gradient(180deg,rgba(7,4,2,.82),rgba(7,4,2,.12) 47%,rgba(7,4,2,.76)); }
+    .venue .copy { position:absolute; top:220px; right:82px; left:82px; z-index:5; text-align:center; }
+    .venue h2 { margin-top:22px; font-size:88px; line-height:1.18; }
+    .venue h2 span { display:block; color:var(--gold-soft); }
+    .venue p { position:absolute; bottom:130px; right:150px; left:150px; z-index:5; color:#e5d8c5; font-size:27px; line-height:1.7; text-align:center; }
+
+    .system { background:radial-gradient(circle at 50% 18%,rgba(211,164,90,.14),transparent 30%),linear-gradient(150deg,#24150d,#0e0906 62%); }
+    .system::before { content:""; position:absolute; inset:0; opacity:.32; background-image:linear-gradient(rgba(239,204,145,.05) 1px,transparent 1px),linear-gradient(90deg,rgba(239,204,145,.05) 1px,transparent 1px); background-size:90px 90px; }
+    .system .copy { position:absolute; top:210px; right:84px; left:84px; z-index:3; }
+    .system h2 { margin-top:24px; font-size:76px; line-height:1.22; }
+    .system h2 span { color:var(--gold-soft); }
+    .zones { position:absolute; top:620px; right:84px; left:84px; display:grid; gap:18px; z-index:4; }
+    .zone { min-height:250px; padding:30px 32px; border:1px solid rgba(239,204,145,.17); border-radius:30px; background:linear-gradient(100deg,rgba(43,26,16,.96),rgba(17,11,7,.86)); display:grid; grid-template-columns:112px 1fr; gap:26px; align-items:center; direction:ltr; }
+    .zone .num { color:var(--gold-soft); font-family:"Qasr English",sans-serif; font-size:38px; font-weight:700; }
+    .zone h3 { margin:0; font-size:38px; direction:rtl; text-align:right; }
+    .zone p { margin-top:12px; color:#c8baa8; font-size:20px; line-height:1.65; direction:rtl; text-align:right; }
+    .modules { position:absolute; right:84px; left:84px; bottom:120px; z-index:5; display:flex; flex-wrap:wrap; gap:12px; justify-content:center; }
+    .modules span { padding:12px 18px 14px; border:1px solid rgba(239,204,145,.25); border-radius:999px; color:#eadbc7; background:rgba(13,8,5,.7); font-size:18px; }
+
+    .final { background:radial-gradient(circle at 50% 38%,rgba(211,164,90,.16),transparent 33%),linear-gradient(160deg,#24150d,#0c0705 65%); text-align:center; }
+    .final .arch { position:absolute; width:720px; height:940px; left:180px; top:280px; border:1px solid rgba(239,204,145,.24); border-radius:360px 360px 38px 38px; box-shadow:0 0 130px rgba(211,164,90,.08),inset 0 0 90px rgba(211,164,90,.04); }
+    .final .arch::before { content:""; position:absolute; inset:90px; border:1px solid rgba(239,204,145,.10); border-radius:280px 280px 20px 20px; }
+    .final .copy { position:absolute; top:430px; right:100px; left:100px; z-index:4; }
+    .final .mark { margin:0 auto 58px; width:120px; height:120px; border:1px solid rgba(239,204,145,.32); border-radius:50%; display:flex; align-items:center; justify-content:center; color:var(--gold-soft); font-family:"Qasr English",sans-serif; font-size:46px; font-weight:700; }
+    .final h2 { font-size:88px; line-height:1.18; }
+    .final h2 span { display:block; color:var(--gold-soft); }
+    .final p { margin:44px auto 0; max-width:720px; color:#c8baa8; font-size:26px; line-height:1.7; }
+    .final .cta { display:inline-flex; margin-top:58px; padding:17px 34px 20px; border-radius:999px; color:#21140c; background:var(--gold-soft); font-size:25px; font-weight:700; }
+    .final .footer { position:absolute; bottom:82px; left:84px; right:84px; z-index:4; display:flex; justify-content:space-between; direction:ltr; color:#8f806e; font-family:"Qasr English",sans-serif; font-size:13px; letter-spacing:.15em; }
+  </style>
+</head>
+<body>
+  <section class="page inquiry" data-document-role="page" data-label="Inquiry Hook">
+    <img class="photo" src="assets/01-inquiry-hook.png" alt="" /><div class="shade"></div>
+    <div class="brand"><i></i>DOMINASE × QASR AL-FARAH</div><div class="chapter">THE MESSAGE / 01</div>
+    <div class="copy"><div class="eyebrow">EVERY PRODUCT STARTS SOMEWHERE</div><h1>بدأت الحكاية<br />برسالة قصيرة.</h1></div>
+    <div class="message"><div class="meta"><b>NEW INQUIRY</b><span>NOW</span></div><div class="text">I need a website.</div></div>
+  </section>
+
+  <section class="page problem" data-document-role="page" data-label="Manual Problem">
+    <img class="photo" src="assets/02-paper-chaos.png" alt="" /><div class="shade"></div>
+    <div class="brand"><i></i>DOMINASE × QASR AL-FARAH</div><div class="chapter">THE REAL PROBLEM / 02</div>
+    <div class="copy"><div class="eyebrow">IT WAS NEVER ONLY A WEBSITE</div><h2>لكن المشكلة لم تكن<br /><span>في الموقع فقط.</span></h2></div>
+    <div class="facts"><div class="fact"><b>01</b><span>حجوزات على الورق</span></div><div class="fact"><b>02</b><span>تفاصيل موزعة</span></div><div class="fact"><b>03</b><span>مكالمات متكررة</span></div></div>
+  </section>
+
+  <section class="page venue" data-document-role="page" data-label="Venue Hook">
+    <img class="photo" src="assets/03-venue-reveal.png" alt="" /><div class="shade"></div>
+    <div class="brand"><i></i>DOMINASE × QASR AL-FARAH</div><div class="chapter">THE SHIFT / 03</div>
+    <div class="copy"><div class="eyebrow">A VENUE IS AN OPERATING SYSTEM</div><h2>صالة الأفراح لا تحتاج<br /><span>موقعًا فقط.</span></h2></div>
+    <p>تحتاج رحلة مترابطة من أول زيارة، إلى الحجز والدعوة، وحتى آخر ذكرى.</p>
+  </section>
+
+  <section class="page system" data-document-role="page" data-label="System Architecture">
+    <div class="brand"><i></i>DOMINASE × QASR AL-FARAH</div><div class="chapter">THE PLATFORM / 04</div>
+    <div class="copy"><div class="eyebrow">THREE EXPERIENCES. ONE JOURNEY.</div><h2>منصة تخدم <span>ثلاثة أطراف</span><br />بدون تشتيت.</h2></div>
+    <div class="zones">
+      <article class="zone"><div class="num">01</div><div><h3>الزائر والعميل</h3><p>يستكشف القاعة، يفهم الخدمات، ويرسل طلب الحجز.</p></div></article>
+      <article class="zone"><div class="num">02</div><div><h3>إدارة القاعة</h3><p>تنظم الطلبات، التاريخ، وبيانات المناسبة في مكان واحد.</p></div></article>
+      <article class="zone"><div class="num">03</div><div><h3>العروسان والضيوف</h3><p>دعوة مخصصة، RSVP، رسائل، صور ودفتر ذكريات.</p></div></article>
+    </div>
+    <div class="modules"><span>الحجز</span><span>لوحة الإدارة</span><span>الدعوات</span><span>RSVP</span><span>رفع الصور</span><span>دفتر الذكريات</span></div>
+  </section>
+
+  <section class="page final" data-document-role="page" data-label="Final CTA">
+    <div class="brand"><i></i>DOMINASE × QASR AL-FARAH</div><div class="chapter">FROM MESSAGE TO PRODUCT / 05</div>
+    <div class="arch"></div>
+    <div class="copy"><div class="mark">QF</div><h2>من أول زيارة<span>إلى آخر ذكرى.</span></h2><p>بدأت برسالة: “I need a website.”<br />وانتهت بمنصة تدير رحلة المناسبة.</p><div class="cta">هل عملك يحتاج نظامًا، لا مجرد موقع؟</div></div>
+    <div class="footer"><span>DOMINASE.ART</span><span>BUILT AROUND THE REAL WORKFLOW</span></div>
+  </section>
+</body>
+</html>

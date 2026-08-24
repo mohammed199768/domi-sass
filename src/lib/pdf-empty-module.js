@@ -8,4 +8,6 @@
  * we alias canvg to this no-op module. If SVG-in-PDF is ever needed, remove the
  * alias in next.config.ts and ensure canvg/core-js are fully installed.
  */
-export default {};
+const canvgStub = {};
+
+export default canvgStub;

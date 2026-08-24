@@ -1,0 +1,15 @@
+.related-pathways { width: min(calc(100% - 2rem), 76rem); margin: clamp(5rem, 8vw, 8rem) auto; padding: clamp(1.5rem, 3vw, 2.5rem); border: 1px solid var(--border); border-radius: var(--domi-radius-cinema); background: var(--surface); }
+.related-pathways > header p { margin: 0; color: var(--primary); font-size: .7rem; font-weight: 820; }
+.related-pathways > header h2 { margin: .45rem 0 0; font-size: clamp(1.8rem, 3vw, 2.8rem); }
+.related-pathways__grid { display: grid; grid-template-columns: 1fr 1fr; gap: .7rem; margin-top: 1.5rem; }
+.related-pathways__grid > a { display: flex; min-height: 12rem; flex-direction: column; padding: 1.25rem; border: 1px solid var(--border); border-radius: var(--domi-radius-media); color: inherit; background: var(--surface-elevated); text-decoration: none; transition: border-color var(--domi-motion-fast) ease, transform var(--domi-motion-base) var(--domi-ease); }
+.related-pathways__grid > a:hover { border-color: color-mix(in srgb, var(--primary) 35%, var(--border)); transform: translateY(-2px); }
+.related-pathways__grid > a:focus-visible { outline: 2px solid var(--primary); outline-offset: 3px; }
+.related-pathways__grid span { color: var(--primary); font-size: .66rem; font-weight: 820; }
+.related-pathways__grid h3 { margin: .65rem 0 0; font-size: 1.25rem; }
+.related-pathways__grid p { margin: .5rem 0 0; color: var(--muted); font-size: .82rem; line-height: 1.65; }
+.related-pathways__grid small { display: inline-flex; align-items: center; gap: .35rem; margin-top: auto; padding-top: 1rem; color: var(--primary); font-size: .72rem; font-weight: 800; }
+.related-pathways__grid small svg { width: .9rem; height: .9rem; }
+.related-pathways > .domi-action { margin-top: 1.25rem; }
+@media (max-width: 650px) { .related-pathways { width: calc(100% - 1.5rem); } .related-pathways__grid { grid-template-columns: 1fr; } .related-pathways__grid > a { min-height: 10.5rem; } }
+@media (prefers-reduced-motion: reduce) { .related-pathways__grid > a { transition: none; } .related-pathways__grid > a:hover { transform: none; } }

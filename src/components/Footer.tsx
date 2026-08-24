@@ -1,84 +1,146 @@
 "use client";
 
-import React from "react";
 import Link from "next/link";
+import { Github, Linkedin, Briefcase, ArrowUpRight } from "lucide-react";
 import { useLanguage } from "@/context/LanguageContext";
-import { Github, Linkedin, Briefcase } from "lucide-react";
+import ConsultationTrigger from "@/components/consultation/ConsultationTrigger";
+
+const columns = {
+  en: [
+    {
+      title: "Services",
+      links: [
+        ["Web development", "/services/web-development"],
+        ["Custom systems", "/services/custom-systems"],
+        ["Education platforms", "/services/education-platforms"],
+        ["Clinic websites & systems", "/services/clinic-websites"],
+      ],
+    },
+    {
+      title: "Work & insights",
+      links: [
+        ["Work", "/work"],
+        ["Insights", "/insights"],
+        ["PULSE Gym", "/work/pulse-gym"],
+        ["Our Clinic", "/work/our-clinic"],
+      ],
+    },
+    {
+      title: "Solutions",
+      links: [
+        ["Education platforms", "/services/education-platforms"],
+        ["Clinic systems", "/services/clinic-websites"],
+        ["Business systems", "/services/custom-systems"],
+        ["Websites", "/services/web-development"],
+      ],
+    },
+    {
+      title: "Company",
+      links: [
+        ["About", "/about"],
+        ["Why DOMINASE?", "/why-us"],
+        ["Digital diagnosis", "/diagnosis"],
+        ["Jordan", "/markets/jordan"],
+        ["Saudi Arabia", "/markets/saudi-arabia"],
+        ["Contact", "/contact"],
+      ],
+    },
+  ],
+  ar: [
+    {
+      title: "الخدمات",
+      links: [
+        ["برمجة وتطوير المواقع", "/services/web-development"],
+        ["الأنظمة المخصصة", "/services/custom-systems"],
+        ["المنصات التعليمية", "/services/education-platforms"],
+        ["مواقع وأنظمة العيادات", "/services/clinic-websites"],
+      ],
+    },
+    {
+      title: "الأعمال والمقالات",
+      links: [
+        ["الأعمال", "/work"],
+        ["المقالات", "/insights"],
+        ["PULSE Gym", "/work/pulse-gym"],
+        ["Our Clinic", "/work/our-clinic"],
+      ],
+    },
+    {
+      title: "الحلول",
+      links: [
+        ["المنصات التعليمية", "/services/education-platforms"],
+        ["أنظمة العيادات", "/services/clinic-websites"],
+        ["أنظمة الأعمال", "/services/custom-systems"],
+        ["المواقع", "/services/web-development"],
+      ],
+    },
+    {
+      title: "الشركة",
+      links: [
+        ["من نحن", "/about"],
+        ["لماذا DOMINASE؟", "/why-us"],
+        ["التشخيص الرقمي", "/diagnosis"],
+        ["الأردن", "/markets/jordan"],
+        ["السعودية", "/markets/saudi-arabia"],
+        ["التواصل", "/contact"],
+      ],
+    },
+  ],
+} as const;
 
 export default function Footer() {
-    const { t, language } = useLanguage();
+  const { language } = useLanguage();
+  const copy = language === "ar"
+    ? {
+        line: "شركة برمجة ومنتجات رقمية من عمّان، نعمل مع مشاريع في الأردن والسعودية. نبسّط المواقع، المنصات، الأنظمة وتجارب العملاء حتى تصبح أوضح وأسهل في الاستخدام والإدارة.",
+        cta: "احجز استشارة",
+        rights: "© 2026 DOMINASE. Software & Digital Products.",
+      }
+    : {
+        line: "A software and digital product company from Amman, working with businesses in Jordan and Saudi Arabia. We simplify websites, platforms, systems, and customer journeys so they are easier to use and operate.",
+        cta: "Book a consultation",
+        rights: "© 2026 DOMINASE. Software & Digital Products.",
+      };
 
-    return (
-        <footer className="border-t border-border bg-surface-muted px-5 py-12 text-foreground transition-colors duration-300 sm:px-6 lg:py-16">
-            <div className="mx-auto max-w-7xl">
-                <div className="mb-8 flex flex-col items-center justify-between gap-8 border-b border-border pb-8 md:flex-row">
-                    {/* Logo/Brand */}
-                    <div className="flex flex-col items-center gap-1 text-primary-theme md:items-start">
-                        <div className="font-display flex items-center gap-2 text-3xl font-black tracking-wide">
-                            <span>DOMINASE</span>
-                            <div className="mt-2 h-2 w-2 rounded-full bg-secondary-theme" />
-                        </div>
-                        <p className="font-display text-xs font-bold uppercase tracking-[0.22em] text-muted">
-                            Digital Product Studio
-                        </p>
-                    </div>
-
-                    {/* Socials */}
-                    <div className="flex gap-3">
-                        <a
-                            href="https://github.com/mohammed199768"
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            aria-label="GitHub"
-                            className="premium-surface premium-interactive flex h-11 w-11 items-center justify-center rounded-full text-muted hover:border-primary-theme hover:text-primary-theme focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary-theme"
-                        >
-                            <Github className="w-5 h-5" />
-                        </a>
-                        <a
-                            href="https://www.upwork.com/freelancers/~012bcb31d6467e2e71?mp_source=share"
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            aria-label="Upwork"
-                            className="premium-surface premium-interactive flex h-11 w-11 items-center justify-center rounded-full text-muted hover:border-primary-theme hover:text-primary-theme focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary-theme"
-                        >
-                            <Briefcase className="w-5 h-5" />
-                        </a>
-                        <a
-                            href="https://linkedin.com/in/mohammed199768"
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            aria-label="LinkedIn"
-                            className="premium-surface premium-interactive flex h-11 w-11 items-center justify-center rounded-full text-muted hover:border-primary-theme hover:text-primary-theme focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary-theme"
-                        >
-                            <Linkedin className="w-5 h-5" />
-                        </a>
-                    </div>
-                </div>
-
-                <div className="flex flex-col items-center justify-between gap-6 md:flex-row">
-                    <div className="text-center text-sm leading-6 text-muted md:text-start">
-                        {t.footer.rights}
-                    </div>
-
-                    <div className="flex flex-wrap justify-center gap-x-6 gap-y-3 text-sm">
-                        <Link href="/why-us" className="premium-link inline-flex min-h-11 items-center font-semibold focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary-theme">
-                            {language === "ar" ? "لماذا نحن؟" : "Why Us?"}
-                        </Link>
-                        <Link href="/why-change" className="premium-link inline-flex min-h-11 items-center font-semibold focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary-theme">
-                            {language === "ar" ? "لماذا التغيير؟" : "Why Change?"}
-                        </Link>
-                        {t.footer.links.map((link, index) => (
-                            <Link
-                                key={link}
-                                href={index === 0 ? "/work" : "/contact"}
-                                className="premium-link inline-flex min-h-11 items-center font-semibold focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary-theme"
-                            >
-                                {link}
-                            </Link>
-                        ))}
-                    </div>
-                </div>
+  return (
+    <footer className="border-t border-border bg-surface-muted px-5 py-14 text-foreground sm:px-6 lg:py-20">
+      <div className="mx-auto max-w-7xl">
+        <div className="grid gap-10 border-b border-border pb-12 lg:grid-cols-[1.2fr_1fr]">
+          <div>
+            <div className="font-display flex items-center gap-2 text-3xl font-black tracking-wide text-primary-theme">
+              <span>DOMINASE</span><span className="mt-2 h-2 w-2 rounded-full bg-secondary-theme" />
             </div>
-        </footer>
-    );
+            <p className="mt-4 max-w-xl text-base leading-8 text-muted">{copy.line}</p>
+            <ConsultationTrigger ctaLocation="footer_primary" originType="footer" className="domi-action domi-action--primary mt-6 inline-flex">
+              {copy.cta}<ArrowUpRight className="h-4 w-4" aria-hidden="true" />
+            </ConsultationTrigger>
+          </div>
+
+          <div className="grid gap-8 sm:grid-cols-2 xl:grid-cols-4">
+            {columns[language].map((column) => (
+              <div key={column.title}>
+                <h2 className="text-xs font-black uppercase tracking-[0.16em] text-primary-theme">{column.title}</h2>
+                <ul className="mt-4 space-y-2.5">
+                  {column.links.map(([label, href]) => (
+                    <li key={href}>
+                      <Link className="premium-link text-sm font-semibold" href={href}>{label}</Link>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        <div className="flex flex-col items-center justify-between gap-6 pt-8 md:flex-row">
+          <p className="text-sm text-muted">{copy.rights}</p>
+          <div className="flex gap-3">
+            <a href="https://github.com/mohammed199768" target="_blank" rel="noopener noreferrer" aria-label="GitHub" className="premium-surface grid h-11 w-11 place-items-center rounded-full text-muted hover:text-primary-theme"><Github className="h-5 w-5" /></a>
+            <a href="https://www.upwork.com/freelancers/~012bcb31d6467e2e71?mp_source=share" target="_blank" rel="noopener noreferrer" aria-label="Upwork" className="premium-surface grid h-11 w-11 place-items-center rounded-full text-muted hover:text-primary-theme"><Briefcase className="h-5 w-5" /></a>
+            <a href="https://linkedin.com/in/mohammed199768" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" className="premium-surface grid h-11 w-11 place-items-center rounded-full text-muted hover:text-primary-theme"><Linkedin className="h-5 w-5" /></a>
+          </div>
+        </div>
+      </div>
+    </footer>
+  );
 }

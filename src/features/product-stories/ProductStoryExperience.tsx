@@ -25,6 +25,8 @@ import {
   type ProductStory,
   type StoryMedia,
 } from "./productStories";
+import RelatedPathways from "@/components/RelatedPathways";
+import { workRelationships } from "@/data/contentRelationships";
 
 function StoryMediaFrame({
   item,
@@ -215,6 +217,14 @@ export default function ProductStoryExperience({
           </div>
         </nav>
 
+        {workRelationships[story.slug] ? (
+          <RelatedPathways
+            items={workRelationships[story.slug].items}
+            ctaLocation={`work_${story.slug}`}
+            serviceInterest={workRelationships[story.slug].serviceInterest}
+          />
+        ) : null}
+
         <section
           ref={(node) => {
             chapterRefs.current[0] = node;
@@ -305,12 +315,6 @@ export default function ProductStoryExperience({
                   aria-hidden="true"
                   className={dir === "rtl" ? "-scale-x-100" : ""}
                 />
-              </Link>
-              <Link
-                href="/diagnosis"
-                className="domi-action domi-action--secondary"
-              >
-                {language === "ar" ? "ابدأ بالتشخيص" : "Start with diagnosis"}
               </Link>
             </div>
           </div>

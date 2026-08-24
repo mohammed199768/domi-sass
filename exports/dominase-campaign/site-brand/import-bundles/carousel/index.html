@@ -1,0 +1,309 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>DOMINASE — Selected Work Carousel</title>
+  <style>
+    @font-face { font-family: "Domi Arabic Display"; src: url("assets/fonts/ibm-plex-arabic-700.woff2") format("woff2"); font-weight: 700; }
+    @font-face { font-family: "Domi Arabic Display"; src: url("assets/fonts/ibm-plex-arabic-600.woff2") format("woff2"); font-weight: 600; }
+    @font-face { font-family: "Domi Arabic Body"; src: url("assets/fonts/noto-sans-arabic.woff2") format("woff2"); font-weight: 400 700; }
+    @font-face { font-family: "Domi English"; src: url("assets/fonts/space-grotesk.woff2") format("woff2"); font-weight: 400 700; }
+
+    :root {
+      --ink: #020403;
+      --ink-soft: #050807;
+      --surface: #090d0c;
+      --surface-up: #101614;
+      --pearl: #f3f7f4;
+      --silver: #b4beb8;
+      --faint: #77847d;
+      --signal: #2bbf89;
+      --signal-bright: #74e6c9;
+      --line: rgba(243,247,244,.12);
+      --line-strong: rgba(243,247,244,.20);
+    }
+
+    * { box-sizing: border-box; }
+    html, body { margin: 0; background: #151a18; }
+    body { display: flex; flex-direction: column; align-items: center; gap: 36px; padding: 36px; }
+
+    .page {
+      width: 1080px;
+      height: 1350px;
+      position: relative;
+      overflow: hidden;
+      color: var(--pearl);
+      background:
+        radial-gradient(circle at 13% 18%, rgba(116,230,201,.10), transparent 28%),
+        radial-gradient(circle at 88% 82%, rgba(43,191,137,.07), transparent 32%),
+        linear-gradient(145deg, var(--ink-soft), var(--ink) 62%);
+      font-family: "Domi Arabic Body", sans-serif;
+      isolation: isolate;
+    }
+
+    .page::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      z-index: -1;
+      opacity: .42;
+      background-image:
+        linear-gradient(rgba(243,247,244,.038) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(243,247,244,.038) 1px, transparent 1px);
+      background-size: 90px 90px;
+      mask-image: linear-gradient(180deg, rgba(0,0,0,.85), transparent 78%);
+    }
+
+    .page::after {
+      content: "";
+      position: absolute;
+      inset: 38px;
+      border: 1px solid var(--line);
+      border-radius: 34px;
+      pointer-events: none;
+    }
+
+    .topbar {
+      position: absolute;
+      top: 72px;
+      left: 76px;
+      right: 76px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      direction: ltr;
+      z-index: 5;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      font-family: "Domi English", sans-serif;
+      font-size: 22px;
+      font-weight: 700;
+      letter-spacing: .16em;
+    }
+
+    .brand img { width: 34px; height: 38px; object-fit: contain; }
+    .chapter { display: flex; align-items: center; gap: 12px; color: var(--silver); font-family: "Domi English", sans-serif; font-size: 14px; font-weight: 600; letter-spacing: .16em; }
+    .chapter b { color: var(--signal-bright); font-weight: 600; }
+    .chapter-dot { width: 8px; height: 8px; border-radius: 50%; background: var(--signal-bright); box-shadow: 0 0 20px rgba(116,230,201,.6); }
+
+    .footerline {
+      position: absolute;
+      left: 76px;
+      right: 76px;
+      bottom: 64px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      direction: ltr;
+      color: var(--faint);
+      font-family: "Domi English", sans-serif;
+      font-size: 13px;
+      letter-spacing: .12em;
+    }
+
+    .footerline::before { content: ""; position: absolute; left: 0; right: 0; top: -24px; height: 1px; background: var(--line); }
+    .signal-rule { width: 86px; height: 5px; border-radius: 999px; background: linear-gradient(90deg, transparent, var(--signal-bright)); box-shadow: 0 0 22px rgba(116,230,201,.36); }
+
+    h1, h2, p { margin: 0; }
+    .ar-display { font-family: "Domi Arabic Display", sans-serif; font-weight: 700; letter-spacing: 0; }
+    .en-display { font-family: "Domi English", sans-serif; }
+    .muted { color: var(--silver); }
+    .faint { color: var(--faint); }
+
+    .pill {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 54px;
+      padding: 11px 24px 13px;
+      border: 1px solid rgba(116,230,201,.42);
+      border-radius: 999px;
+      color: #03110b;
+      background: var(--signal-bright);
+      font-family: "Domi Arabic Body", sans-serif;
+      font-size: 22px;
+      font-weight: 700;
+      box-shadow: 0 16px 44px -24px rgba(116,230,201,.85);
+    }
+
+    .media-frame {
+      position: relative;
+      overflow: hidden;
+      border: 1px solid var(--line-strong);
+      border-radius: 30px;
+      background: var(--surface);
+      box-shadow: 0 58px 120px -64px rgba(0,0,0,.95), inset 0 1px rgba(255,255,255,.08);
+    }
+
+    .media-frame::after { content: ""; position: absolute; inset: 0; pointer-events: none; background: linear-gradient(180deg, rgba(255,255,255,.04), transparent 24%, rgba(2,4,3,.08)); }
+    .media-frame img { width: 100%; height: 100%; display: block; object-fit: cover; }
+    .media-frame.contain img { object-fit: contain; }
+
+    .tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 9px 15px;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      color: var(--silver);
+      background: rgba(9,13,12,.78);
+      backdrop-filter: blur(14px);
+      font-family: "Domi English", sans-serif;
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: .13em;
+      text-transform: uppercase;
+    }
+
+    .tag i { width: 7px; height: 7px; border-radius: 50%; background: var(--signal-bright); box-shadow: 0 0 12px rgba(116,230,201,.65); }
+
+    /* Cover */
+    .cover .hero-copy { position: absolute; top: 250px; right: 84px; width: 850px; text-align: right; }
+    .cover .hero-copy .eyebrow { margin-bottom: 34px; color: var(--signal-bright); font-family: "Domi English", sans-serif; font-size: 15px; font-weight: 700; letter-spacing: .22em; direction: ltr; }
+    .cover h1 { font-size: 92px; line-height: 1.14; }
+    .cover h1 span { display: block; }
+    .cover h1 .soft { color: var(--silver); font-weight: 600; }
+    .cover .promise { margin-top: 44px; }
+    .cover .cover-d { position: absolute; left: 58px; bottom: 104px; width: 390px; opacity: .14; filter: drop-shadow(0 0 42px rgba(116,230,201,.14)); }
+    .cover .orbit { position: absolute; left: -140px; bottom: -150px; width: 590px; height: 590px; border: 1px solid rgba(116,230,201,.18); border-radius: 50%; box-shadow: 0 0 120px rgba(43,191,137,.07), inset 0 0 80px rgba(43,191,137,.05); }
+    .cover .swipe { position: absolute; right: 84px; bottom: 156px; color: var(--silver); font-size: 20px; }
+    .cover .swipe b { color: var(--signal-bright); }
+
+    /* Project pages */
+    .project-copy { position: absolute; top: 214px; right: 76px; left: 76px; display: flex; align-items: flex-end; justify-content: space-between; gap: 50px; }
+    .project-copy .copy { max-width: 690px; text-align: right; }
+    .project-copy .num { color: rgba(243,247,244,.10); font-family: "Domi English", sans-serif; font-size: 130px; font-weight: 700; line-height: .78; }
+    .project-title { color: var(--signal-bright); font-family: "Domi English", sans-serif; font-size: 22px; font-weight: 700; letter-spacing: .16em; direction: ltr; }
+    .project-headline { margin-top: 17px; font-family: "Domi Arabic Display", sans-serif; font-size: 54px; font-weight: 700; line-height: 1.3; }
+    .project-sub { margin-top: 12px; color: var(--silver); font-size: 21px; line-height: 1.7; }
+    .project .media-frame { position: absolute; left: 76px; right: 76px; top: 480px; height: 700px; }
+    .project .floating-tag { position: absolute; left: 104px; top: 514px; z-index: 3; }
+    .project.image-contain .media-frame { background: radial-gradient(circle at 50% 45%, rgba(43,191,137,.09), transparent 46%), #050807; }
+    .project.image-contain .media-frame img { object-fit: contain; padding: 28px; }
+
+    /* Qasr variation */
+    .project.warm .media-frame { background: radial-gradient(circle at 50% 45%, rgba(183,140,87,.12), transparent 48%), #090806; }
+    .project.warm .media-frame img { object-fit: contain; padding: 18px; }
+    .project.warm .tag i { background: #d6b07c; box-shadow: 0 0 12px rgba(214,176,124,.5); }
+
+    /* Dual work */
+    .dual .intro { position: absolute; top: 210px; right: 78px; width: 750px; text-align: right; }
+    .dual .intro h2 { font-family: "Domi Arabic Display", sans-serif; font-size: 60px; line-height: 1.28; }
+    .dual .intro p { margin-top: 16px; color: var(--silver); font-size: 22px; }
+    .dual-grid { position: absolute; top: 478px; left: 76px; right: 76px; display: grid; grid-template-columns: 1fr 1fr; gap: 24px; direction: ltr; }
+    .dual-card { height: 660px; padding: 18px; border: 1px solid var(--line); border-radius: 30px; background: rgba(9,13,12,.84); box-shadow: 0 42px 92px -54px rgba(0,0,0,.9); }
+    .dual-card .shot { height: 480px; overflow: hidden; border-radius: 20px; background: #050807; }
+    .dual-card .shot img { width: 100%; height: 100%; object-fit: cover; }
+    .dual-card .meta { padding: 24px 10px 0; }
+    .dual-card h3 { margin: 0; color: var(--pearl); font-family: "Domi English", sans-serif; font-size: 28px; letter-spacing: .05em; }
+    .dual-card p { margin-top: 8px; color: var(--faint); font-size: 16px; direction: rtl; text-align: left; }
+
+    /* Process */
+    .process .process-title { position: absolute; top: 214px; right: 78px; width: 800px; }
+    .process .process-title h2 { font-family: "Domi Arabic Display", sans-serif; font-size: 72px; line-height: 1.22; }
+    .process .process-title p { margin-top: 16px; color: var(--silver); font-size: 22px; }
+    .process-list { position: absolute; top: 550px; right: 128px; left: 128px; display: grid; grid-template-columns: repeat(5, 1fr); gap: 20px; direction: rtl; }
+    .step { position: relative; min-height: 420px; padding: 34px 24px; border: 1px solid var(--line); border-radius: 28px; background: linear-gradient(180deg, rgba(16,22,20,.96), rgba(5,8,7,.88)); overflow: hidden; }
+    .step::before { content: ""; position: absolute; inset: 0; background: radial-gradient(circle at 50% 0%, rgba(116,230,201,.11), transparent 38%); }
+    .step .n { position: relative; color: var(--signal-bright); font-family: "Domi English", sans-serif; font-size: 16px; letter-spacing: .14em; }
+    .step h3 { position: absolute; right: 22px; bottom: 104px; margin: 0; font-family: "Domi Arabic Display", sans-serif; font-size: 34px; writing-mode: vertical-rl; transform: rotate(180deg); }
+    .step small { position: absolute; right: 23px; bottom: 28px; color: var(--faint); font-family: "Domi English", sans-serif; font-size: 11px; letter-spacing: .12em; writing-mode: vertical-rl; transform: rotate(180deg); }
+    .process-signal { position: absolute; left: 126px; right: 126px; top: 1025px; height: 2px; background: linear-gradient(90deg, transparent, var(--signal), var(--signal-bright), transparent); box-shadow: 0 0 28px rgba(116,230,201,.38); }
+
+    /* CTA */
+    .cta .cta-orbit { position: absolute; width: 720px; height: 720px; left: 180px; top: 220px; border: 1px solid rgba(116,230,201,.15); border-radius: 50%; box-shadow: 0 0 160px rgba(43,191,137,.08), inset 0 0 110px rgba(43,191,137,.04); }
+    .cta .cta-orbit::before, .cta .cta-orbit::after { content: ""; position: absolute; border-radius: 50%; border: 1px solid rgba(243,247,244,.07); }
+    .cta .cta-orbit::before { inset: 74px; }
+    .cta .cta-orbit::after { inset: 172px; border-color: rgba(116,230,201,.18); }
+    .cta .cta-content { position: absolute; top: 238px; left: 110px; right: 110px; text-align: center; z-index: 2; }
+    .cta .mark { width: 200px; height: 214px; object-fit: contain; margin-bottom: 44px; filter: drop-shadow(0 20px 55px rgba(0,0,0,.7)); }
+    .cta h2 { font-family: "Domi Arabic Display", sans-serif; font-size: 80px; line-height: 1.2; }
+    .cta .question { color: var(--silver); }
+    .cta .url { margin-top: 28px; color: var(--signal-bright); font-family: "Domi English", sans-serif; font-size: 34px; font-weight: 600; letter-spacing: .08em; direction: ltr; }
+    .cta .pill { margin-top: 42px; min-width: 260px; font-size: 24px; }
+    .cta .note { margin-top: 42px; color: var(--faint); font-size: 18px; }
+  </style>
+</head>
+<body>
+  <section class="page cover" data-document-role="page" data-label="01 — Cover">
+    <div class="topbar"><div class="brand"><img src="assets/logo.png" alt="" />DOMINASE</div><div class="chapter"><span class="chapter-dot"></span>SELECTED WORK <b>01/08</b></div></div>
+    <div class="hero-copy">
+      <div class="eyebrow">DIGITAL PRODUCTS / SYSTEMS / EXPERIENCES</div>
+      <h1 class="ar-display"><span>فكرتك تستحق</span><span class="soft">أكثر من موقع جميل</span></h1>
+      <div class="promise"><span class="pill">تستحق تجربة تعمل.</span></div>
+    </div>
+    <img class="cover-d" src="assets/logo.png" alt="" /><div class="orbit"></div>
+    <div class="swipe">اسحب لترى <b>أعمالاً حقيقية</b> ←</div>
+    <div class="footerline"><span>DOMINASE.ART</span><span class="signal-rule"></span></div>
+  </section>
+
+  <section class="page project" data-document-role="page" data-label="02 — Our Clinic">
+    <div class="topbar"><div class="brand"><img src="assets/logo.png" alt="" />DOMINASE</div><div class="chapter"><span class="chapter-dot"></span>HEALTHCARE <b>02/08</b></div></div>
+    <div class="project-copy"><div class="copy"><div class="project-title">OUR CLINIC</div><h2 class="project-headline">من رحلة صحية مشتتة<br />إلى منصة مترابطة.</h2><p class="project-sub">حجز، محتوى، متابعة وإدارة في تجربة واحدة واضحة.</p></div><div class="num">01</div></div>
+    <div class="media-frame"><img src="assets/our-clinic.webp" alt="واجهة مشروع Our Clinic" /></div>
+    <div class="tag floating-tag"><i></i>PRODUCT EXPERIENCE</div>
+    <div class="footerline"><span>DOMINASE / CASE STUDY</span><span>CLARITY → TRUST → ACTION</span></div>
+  </section>
+
+  <section class="page project image-contain" data-document-role="page" data-label="03 — CureVie">
+    <div class="topbar"><div class="brand"><img src="assets/logo.png" alt="" />DOMINASE</div><div class="chapter"><span class="chapter-dot"></span>HOME HEALTHCARE <b>03/08</b></div></div>
+    <div class="project-copy"><div class="copy"><div class="project-title">CUREVIE</div><h2 class="project-headline">الثقة تبدأ قبل وصول<br />مقدم الرعاية.</h2><p class="project-sub">خدمات صحية معقدة تحولت إلى مسار مفهوم ومطمئن.</p></div><div class="num">02</div></div>
+    <div class="media-frame"><img src="assets/curevie.webp" alt="واجهة مشروع CureVie" /></div>
+    <div class="tag floating-tag"><i></i>SERVICE DESIGN</div>
+    <div class="footerline"><span>DOMINASE / CASE STUDY</span><span>CARE, MADE CLEAR</span></div>
+  </section>
+
+  <section class="page project image-contain warm" data-document-role="page" data-label="04 — Qasr Al-Farah">
+    <div class="topbar"><div class="brand"><img src="assets/logo.png" alt="" />DOMINASE</div><div class="chapter"><span class="chapter-dot"></span>HOSPITALITY <b>04/08</b></div></div>
+    <div class="project-copy"><div class="copy"><div class="project-title">QASR AL-FARAH</div><h2 class="project-headline">الحجز أسهل.<br />والتجربة أفخم.</h2><p class="project-sub">رحلة رقمية تليق بالمناسبة قبل أن تبدأ.</p></div><div class="num">03</div></div>
+    <div class="media-frame"><img src="assets/qasr.webp" alt="واجهة مشروع Qasr Al-Farah" /></div>
+    <div class="tag floating-tag"><i></i>BOOKING JOURNEY</div>
+    <div class="footerline"><span>DOMINASE / CASE STUDY</span><span>DISCOVER → BOOK → REMEMBER</span></div>
+  </section>
+
+  <section class="page project image-contain" data-document-role="page" data-label="05 — Manal LMS">
+    <div class="topbar"><div class="brand"><img src="assets/logo.png" alt="" />DOMINASE</div><div class="chapter"><span class="chapter-dot"></span>EDTECH <b>05/08</b></div></div>
+    <div class="project-copy"><div class="copy"><div class="project-title">MANAL LMS</div><h2 class="project-headline">التعلم الواضح يصنع<br />تقدماً حقيقياً.</h2><p class="project-sub">هيكلة المحتوى حول رحلة الطالب، لا حول ازدحام الدروس.</p></div><div class="num">04</div></div>
+    <div class="media-frame"><img src="assets/manal.webp" alt="واجهة مشروع Manal LMS" /></div>
+    <div class="tag floating-tag"><i></i>LEARNING SYSTEM</div>
+    <div class="footerline"><span>DOMINASE / CASE STUDY</span><span>LEARN → PRACTICE → PROGRESS</span></div>
+  </section>
+
+  <section class="page dual" data-document-role="page" data-label="06 — More Systems">
+    <div class="topbar"><div class="brand"><img src="assets/logo.png" alt="" />DOMINASE</div><div class="chapter"><span class="chapter-dot"></span>SELECTED SYSTEMS <b>06/08</b></div></div>
+    <div class="intro"><h2>لكل مجال تجربة<br />مصممة حول جمهوره.</h2><p>استراتيجية وهوية في مشروع. ووضوح وقياس في مشروع آخر.</p></div>
+    <div class="dual-grid">
+      <article class="dual-card"><div class="shot"><img src="assets/sultan.webp" alt="واجهة Sultan Shadi" /></div><div class="meta"><h3>SULTAN SHADI</h3><p>حضور رقمي يشرح الخبرة ويصنع الانتباه.</p></div></article>
+      <article class="dual-card"><div class="shot"><img src="assets/horvath.webp" alt="واجهة Horvath" /></div><div class="meta"><h3>HORVATH</h3><p>تجربة تقييم مركزة تحول البيانات إلى اتجاه.</p></div></article>
+    </div>
+    <div class="footerline"><span>STRATEGY / IDENTITY / SYSTEMS</span><span class="signal-rule"></span></div>
+  </section>
+
+  <section class="page process" data-document-role="page" data-label="07 — Process">
+    <div class="topbar"><div class="brand"><img src="assets/logo.png" alt="" />DOMINASE</div><div class="chapter"><span class="chapter-dot"></span>THE METHOD <b>07/08</b></div></div>
+    <div class="process-title"><h2>من الفكرة<br />إلى منتج يعمل.</h2><p>كل مرحلة تقلل الغموض وتقرّب القرار الصحيح.</p></div>
+    <div class="process-list">
+      <div class="step"><div class="n">01</div><h3>نفهم</h3><small>DISCOVERY</small></div>
+      <div class="step"><div class="n">02</div><h3>نصمم</h3><small>DESIGN</small></div>
+      <div class="step"><div class="n">03</div><h3>نبني</h3><small>BUILD</small></div>
+      <div class="step"><div class="n">04</div><h3>نختبر</h3><small>TEST</small></div>
+      <div class="step"><div class="n">05</div><h3>نطلق</h3><small>LAUNCH</small></div>
+    </div>
+    <div class="process-signal"></div>
+    <div class="footerline"><span>FROM INTENT TO IMPACT</span><span>DOMINASE METHOD / 05 STEPS</span></div>
+  </section>
+
+  <section class="page cta" data-document-role="page" data-label="08 — CTA">
+    <div class="topbar"><div class="brand"><img src="assets/logo.png" alt="" />DOMINASE</div><div class="chapter"><span class="chapter-dot"></span>START A PROJECT <b>08/08</b></div></div>
+    <div class="cta-orbit"></div>
+    <div class="cta-content"><img class="mark" src="assets/logo.png" alt="" /><h2><span class="question">جاهز</span> نبني فكرتك؟</h2><div class="url">dominase.art</div><div><span class="pill">ابدأ مشروعك</span></div><p class="note">مواقع، منصات وأنظمة رقمية مصممة حول عملك.</p></div>
+    <div class="footerline"><span>YOUR IDEA. OUR NEXT BUILD.</span><span class="signal-rule"></span></div>
+  </section>
+</body>
+</html>

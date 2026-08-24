@@ -1,105 +1,75 @@
 "use client";
 
-import Image from "next/image";
 import Link from "next/link";
-import type { CSSProperties } from "react";
 import Footer from "@/components/Footer";
 import Header from "@/components/Header";
+import InteractiveShowcase, {
+  type InteractivePanelItem,
+} from "@/components/InteractiveShowcase";
 import { useLanguage } from "@/context/LanguageContext";
 import { orderedProductStories } from "@/features/product-stories/productStories";
 
 export default function TransformationTreeClient() {
   const { language } = useLanguage();
   const isAr = language === "ar";
+  const dir = isAr ? "rtl" : "ltr";
+  const items: InteractivePanelItem[] = orderedProductStories.map((story, index) => ({
+    id: story.slug,
+    label: story.title,
+    title: story.title,
+    description: story.opening[language],
+    image: story.cover,
+    imageAlt: `${story.title} — ${story.category[language]}`,
+    eyebrow: story.category[language],
+    meta: String(index + 1).padStart(2, "0"),
+    href: `/work/${story.slug}`,
+    accent: story.accent,
+  }));
 
   return (
     <main
       className="work-index"
       lang={language}
-      dir={isAr ? "rtl" : "ltr"}
+      dir={dir}
     >
       <Header />
 
       <section className="work-index__hero" aria-labelledby="work-index-title">
-        <div className="work-index__hero-line" aria-hidden="true" />
-        <p>{isAr ? "أعمال مختارة / 07" : "Selected work / 07"}</p>
-        <h1 id="work-index-title">
-          {isAr ? (
-            <>
-              منتجات حقيقية.
-              <br />
-              أنظمة مترابطة.
-            </>
-          ) : (
-            <>
-              Real products.
-              <br />
-              Connected systems.
-            </>
-          )}
-        </h1>
-        <div className="work-index__hero-note">
-          <span>
-            {isAr
-              ? "سبع قصص منتج تُظهر التجربة العامة والعمليات التي تعمل خلفها."
-              : "Seven product stories connecting the visible experience to the operations behind it."}
-          </span>
-          <small>{isAr ? "مرّر للاستكشاف" : "Scroll to explore"}</small>
+        <div className="work-index__hero-card">
+          <p>{isAr ? "DOMINASE / الأعمال" : "DOMINASE / Work"}</p>
+          <h1 id="work-index-title">
+            {isAr ? (
+              <>
+                منتجات ومنصات
+                <br />
+                وأنظمة مختارة.
+              </>
+            ) : (
+              <>
+                Selected digital products,
+                <br />
+                platforms and systems.
+              </>
+            )}
+          </h1>
+          <div className="work-index__hero-note">
+            <span>
+              {isAr
+                ? "تصفّح سبع تجارب تربط ما يراه المستخدم بطريقة عمل المنتج خلف الشاشة."
+                : "Browse seven projects that connect the visible experience to the product logic behind it."}
+            </span>
+            <small>{isAr ? "07 مشاريع" : "07 projects"}</small>
+          </div>
         </div>
       </section>
 
-      <section
-        className="work-index__grid"
-        aria-label={isAr ? "قصص المنتجات" : "Product stories"}
-      >
-        {orderedProductStories.map((story, index) => (
-          <article
-            className="work-index__item"
-            key={story.slug}
-            style={
-              {
-                "--work-accent": story.accent,
-                "--work-soft": story.accentSoft,
-                "--work-backdrop": story.backdrop,
-              } as CSSProperties
-            }
-          >
-            <Link
-              className="work-index__card"
-              href={`/work/${story.slug}`}
-              aria-label={`${isAr ? "عرض قصة" : "View story"}: ${story.title}`}
-            >
-              <figure>
-                <Image
-                  alt={story.category[language]}
-                  fill
-                  priority={index < 2}
-                  sizes={
-                    index === 0
-                      ? "(max-width: 900px) 100vw, 66vw"
-                      : "(max-width: 900px) 100vw, 50vw"
-                  }
-                  src={story.homepage.primary}
-                />
-                <span className="work-index__image-wash" aria-hidden="true" />
-                <span className="work-index__sequence" aria-hidden="true">
-                  {String(index + 1).padStart(2, "0")}
-                </span>
-              </figure>
-
-              <div className="work-index__copy">
-                <p>{story.category[language]}</p>
-                <h2>{story.title}</h2>
-                <span>{story.summary[language]}</span>
-                <span className="domi-action domi-action--editorial">
-                  {isAr ? "استكشف القصة" : "Explore the story"}
-                  <b aria-hidden="true">↗</b>
-                </span>
-              </div>
-            </Link>
-          </article>
-        ))}
-      </section>
+      <InteractiveShowcase
+        items={items}
+        ariaLabel={isAr ? "تصفّح مشاريع DOMINASE" : "Browse DOMINASE projects"}
+        ctaLabel={isAr ? "شاهد المشروع" : "View project"}
+        dir={dir}
+        variant="work"
+      />
 
       <section className="work-index__close">
         <p>{isAr ? "عندك فكرة تستحق أن تصير حقيقة؟" : "Have an idea that deserves to come alive?"}</p>

@@ -93,7 +93,55 @@
   --color-manal-shadow: #061512;
 }
 
-:root,
+/* Absolute utility tokens used for masks/highlights; theme surfaces remain semantic. */
+ :root {
+  --domi-absolute-white: #ffffff;
+  --domi-mask-solid: #000000;
+  --domi-transparent-black: #00000000;
+  --domi-danger: #c54242;
+
+  /* Theme-independent geometry and motion tokens. These must live at :root,
+     not inside dark mode, so Light and Dark render the exact same control shape. */
+  --domi-radius-compact: 0.75rem;
+  --domi-radius-control: 1rem;
+  --domi-radius-button: 999px;
+  --domi-radius-pill: 999px;
+  --domi-radius-device: 1.4rem;
+  --domi-radius-media: 1.75rem;
+  --domi-radius-cinema: clamp(2rem, 3.6vw, 3.5rem);
+  --domi-radius-modal: clamp(1.5rem, 2.8vw, 2.75rem);
+  --domi-control-height: 3rem;
+  --domi-motion-fast: 180ms;
+  --domi-motion-base: 240ms;
+  --domi-ease: cubic-bezier(0.22, 1, 0.36, 1);
+
+  --domi-space-3xs: 0.25rem;
+  --domi-space-2xs: 0.5rem;
+  --domi-space-xs: 0.75rem;
+  --domi-space-sm: 1rem;
+  --domi-space-md: 1.5rem;
+  --domi-space-lg: 2rem;
+  --domi-space-xl: 3rem;
+  --domi-space-2xl: 4rem;
+  --domi-space-3xl: 6rem;
+  --domi-space-4xl: 8rem;
+
+  --domi-lh-none: 1;
+  --domi-lh-tight: 1.15;
+  --domi-lh-snug: 1.3;
+  --domi-lh-base: 1.5;
+  --domi-lh-relaxed: 1.65;
+  --domi-lh-loose: 1.75;
+  --domi-lh-arabic: 1.85;
+
+  --domi-track-tight: -0.06em;
+  --domi-track-none: 0;
+  --domi-track-label: 0.14em;
+  --domi-track-wide: 0.2em;
+  --domi-track-eyebrow: 0.22em;
+  --domi-font-quote: Georgia, "Times New Roman", "Liberation Serif", serif;
+}
+
 [data-theme="dark"] {
   --domi-bg: #020403;
   --domi-bg-soft: #050807;
@@ -118,6 +166,7 @@
   --bg: var(--domi-bg);
   --fg: var(--domi-text);
   --surface: var(--domi-surface);
+  --surface-elevated: var(--domi-surface-elevated);
   --surface-hover: var(--domi-surface-elevated);
   --surface-muted: var(--domi-bg-soft);
   --border: var(--domi-border);
@@ -130,94 +179,34 @@
   --atmo-glow-1: color-mix(in srgb, var(--domi-accent-bright) 12%, transparent);
   --atmo-glow-2: color-mix(in srgb, var(--domi-accent) 8%, transparent);
 
-  /* DOMINASE geometry + interaction scale */
-  --domi-radius-compact: 0.75rem;
-  --domi-radius-control: 1rem;
-  /* Primary + secondary actions read as soft capsules; icon controls as circles. */
-  --domi-radius-button: 999px;
-  --domi-radius-pill: 999px;
-  --domi-radius-device: 1.4rem;
-  --domi-radius-media: 1.75rem;
-  --domi-radius-cinema: clamp(2rem, 3.6vw, 3.5rem);
-  --domi-radius-modal: clamp(1.5rem, 2.8vw, 2.75rem);
-  --domi-control-height: 3rem;
-  --domi-motion-fast: 180ms;
-  --domi-motion-base: 240ms;
-  --domi-ease: cubic-bezier(0.22, 1, 0.36, 1);
-
-  /* ── DOMINASE spacing scale ───────────────────────────────────────────────
-   * Theme-independent rhythm. Deliberately NOT named `--spacing-*` /
-   * `--leading-*` / `--tracking-*`: those are reserved Tailwind v4 namespaces
-   * and redefining them would silently retune every `leading-snug`,
-   * `tracking-wide`, `gap-4` … already in the TSX.
-   *
-   * Every value below is one that the codebase already uses verbatim, so
-   * adopting a token is always a byte-for-byte swap — never a visual change.
-   * Off-scale literals still exist; see docs/BRAND_CONSISTENCY_AUDIT.md for
-   * the remaining list and what each one would snap to. */
-  --domi-space-3xs: 0.25rem;
-  --domi-space-2xs: 0.5rem;
-  --domi-space-xs: 0.75rem;
-  --domi-space-sm: 1rem;
-  --domi-space-md: 1.5rem;
-  --domi-space-lg: 2rem;
-  --domi-space-xl: 3rem;
-  --domi-space-2xl: 4rem;
-  --domi-space-3xl: 6rem;
-  --domi-space-4xl: 8rem;
-
-  /* Leading. `--domi-lh-arabic` is the Noto Sans Arabic body value — Arabic
-     needs more leading than Latin because of its tall ascenders/descenders. */
-  --domi-lh-none: 1;
-  --domi-lh-tight: 1.15;
-  --domi-lh-snug: 1.3;
-  --domi-lh-base: 1.5;
-  --domi-lh-relaxed: 1.65;
-  --domi-lh-loose: 1.75;
-  --domi-lh-arabic: 1.85;
-
-  /* Tracking. `--domi-track-none` is load-bearing: Arabic must never be
-     letter-spaced, so RTL rules reset to it rather than to a literal 0. */
-  --domi-track-tight: -0.06em;
-  --domi-track-none: 0;
-  --domi-track-label: 0.14em;
-  --domi-track-wide: 0.2em;
-  --domi-track-eyebrow: 0.22em;
-
-  /* Decorative serif for the oversized quotation glyph in `.home-trust__quote`
-     — the one place the design asks for a serif. Lives here rather than in
-     `@theme` because the sibling stylesheets are plain CSS: Tailwind
-     tree-shakes unused `@theme` entries, and a var declared only there would
-     vanish before those files could read it. Georgia is a system font missing
-     on most Linux/Android devices, so the chain now names two widely
-     installed metric-compatible fallbacks before the generic keyword. */
-  --domi-font-quote: Georgia, "Times New Roman", "Liberation Serif", serif;
 }
 
+:root:not([data-theme="dark"]),
 [data-theme="light"] {
-  --domi-bg: #f2f5f3;
-  --domi-bg-soft: #e9efec;
-  --domi-surface: #fbfdfc;
-  --domi-surface-elevated: #ffffff;
+  --domi-bg: #f4f1e8;
+  --domi-bg-soft: #ede8dd;
+  --domi-surface: #f8f5ee;
+  --domi-surface-elevated: #fcfaf5;
 
   --domi-text: #071610;
-  --domi-text-muted: #405149;
-  --domi-text-faint: #6d7d75;
+  --domi-text-muted: #4b584f;
+  --domi-text-faint: #757d76;
 
-  --domi-border: rgba(7, 32, 22, 0.12);
-  --domi-border-strong: rgba(7, 32, 22, 0.2);
+  --domi-border: rgba(45, 42, 32, 0.12);
+  --domi-border-strong: rgba(31, 43, 35, 0.2);
 
   --domi-accent: #0b8f63;
   --domi-accent-bright: #20b681;
   --domi-accent-soft: #dcefe7;
   --domi-accent-deep: #073d2e;
-  --domi-accent-shadow: rgba(12, 42, 30, 0.11);
+  --domi-accent-shadow: rgba(44, 41, 31, 0.11);
   --domi-cyan: #147d8c;
   --domi-violet: #6961b6;
 
   --bg: var(--domi-bg);
   --fg: var(--domi-text);
   --surface: var(--domi-surface);
+  --surface-elevated: var(--domi-surface-elevated);
   --surface-hover: var(--domi-surface-elevated);
   --surface-muted: var(--domi-bg-soft);
   --border: var(--domi-border);
@@ -225,7 +214,7 @@
   --secondary: var(--domi-accent-bright);
   --muted: var(--domi-text-muted);
   --primary-contrast: #ffffff;
-  --cool-shadow: rgba(12, 42, 30, 0.11);
+  --cool-shadow: rgba(44, 41, 31, 0.11);
 
   --atmo-glow-1: color-mix(in srgb, var(--domi-accent-bright) 12%, transparent);
   --atmo-glow-2: color-mix(in srgb, var(--domi-accent) 7%, transparent);
@@ -1199,4 +1188,19 @@ body.domi-booting :where(main, header, footer, .mobile-nav-shell) {
       scrollbar-width: none;
     }
   }
+}
+
+/* Signature V3: action geometry is theme-independent. Dark-mode capsule geometry
+   is the canonical shape for every real CTA in both themes. */
+:where(
+  .btn-primary,
+  .btn-secondary,
+  .domi-action:not(.domi-action--editorial),
+  .signature-pill,
+  .motion-pill,
+  .contact-redesign__back,
+  .contact-redesign__next,
+  .contact-redesign__success button
+) {
+  border-radius: var(--domi-radius-pill) !important;
 }

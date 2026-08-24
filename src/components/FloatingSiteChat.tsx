@@ -76,7 +76,7 @@ const KB: KbEntry[] = [
       ar: ["يميزكم", "لماذا أنتم", "لماذا دومينيس", "مختلف", "أفضل"],
     },
     answer: {
-      en: "DOMINASE does not sell ready-made templates — it builds an engine for business growth. The method is founder-led and direct: diagnosis before code, trust architecture in planning, cinematic execution, and continuous improvement after launch. Bilingual (Arabic/English) thinking is built in from the start.",
+      en: "DOMINASE does not sell ready-made templates — it builds an engine for business growth. The method is product-led and direct: diagnosis before code, trust architecture in planning, cinematic execution, and continuous improvement after launch. Bilingual (Arabic/English) thinking is built in from the start.",
       ar: "DOMINASE لا يبيع قوالب جاهزة — بل يبني محركاً لنمو عملك. المنهجية مباشرة وبقيادة المؤسس: تشخيص قبل الكود، وهندسة ثقة في التخطيط، وتنفيذ سينمائي، وتحسين مستمر بعد الإطلاق. التفكير ثنائي اللغة (عربي/إنجليزي) جزء أساسي من البناء.",
     },
     links: (lang) => [{ label: lang === "ar" ? "لماذا نحن؟" : "Why Us?", href: "/why-us" }],

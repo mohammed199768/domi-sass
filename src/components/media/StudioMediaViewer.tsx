@@ -176,11 +176,13 @@ export default function StudioMediaViewer({
           break;
         case "ArrowRight":
           e.preventDefault();
-          rtl ? prev() : next();
+          if (rtl) prev();
+          else next();
           break;
         case "ArrowLeft":
           e.preventDefault();
-          rtl ? next() : prev();
+          if (rtl) next();
+          else prev();
           break;
         case " ":
         case "k":
@@ -260,8 +262,11 @@ export default function StudioMediaViewer({
     // Only handle deliberate swipes here; tap navigation is owned by the
     // explicit prev/next zone buttons (avoids double navigation).
     if (Math.abs(dx) > SWIPE_PX) {
-      if (dx < 0) rtl ? prev() : next();
-      else rtl ? next() : prev();
+      if (dx < 0) {
+        if (rtl) prev();
+        else next();
+      } else if (rtl) next();
+      else prev();
     }
   };
 

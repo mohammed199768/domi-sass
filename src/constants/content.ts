@@ -2,8 +2,11 @@ export const content = {
     en: {
         nav: {
             home: "Home",
+            about: "About",
+            studio: "Studio",
+            insights: "Insights",
             whyUs: "Why Us?",
-            services: "Expertise",
+            services: "Services",
             portfolio: "Work",
             whyChange: "Why Change?",
             caseStudies: "Case Studies",
@@ -199,7 +202,7 @@ export const content = {
                 success: {
                     eyebrow: "Message received",
                     title: "Your message was sent",
-                    body: "Mohammed will review the context and reply with the next useful step.",
+                    body: "Our team will review the context and reply with the next useful step.",
                     button: "Send another message",
                 },
                 channels: {
@@ -231,7 +234,7 @@ export const content = {
         socialProof: {
             trustedBy: "Built around real project surfaces",
             testimonial: "\"A strong digital product should feel premium on the surface and practical underneath.\"",
-            attribution: "- Mohammed Aldomi, Founder",
+            attribution: "- DOMINASE",
         },
         solution: {
             title: "A Studio Built Around Working Digital Systems",
@@ -258,16 +261,19 @@ export const content = {
             reassurance: "Best fit for focused websites, booking paths, product interfaces, and operational screens.",
         },
         footer: {
-            tagline: "DOMINASE — Digital Product Studio by Mohammed Aldomi.",
-            rights: "© 2026 DOMINASE. Built by Mohammed Aldomi.",
+            tagline: "DOMINASE — Software & Digital Products — Make it simple.",
+            rights: "© 2026 DOMINASE. Software & Digital Products.",
             links: ["Portfolio", "Contact"],
         },
     },
     ar: {
         nav: {
             home: "الرئيسية",
+            about: "من نحن",
+            studio: "الاستوديو",
+            insights: "المقالات",
             whyUs: "لماذا نحن؟",
-            services: "الخبرات",
+            services: "الخدمات",
             portfolio: "الأعمال",
             whyChange: "لماذا التغيير؟",
             caseStudies: "دراسات الحالة",
@@ -463,7 +469,7 @@ export const content = {
                 success: {
                     eyebrow: "تم استلام الرسالة",
                     title: "تم إرسال رسالتك",
-                    body: "سيراجع Mohammed السياق ويرد عليك بالخطوة التالية المفيدة.",
+                    body: "سيراجع فريقنا التفاصيل ويرد عليك بالخطوة التالية المناسبة.",
                     button: "إرسال رسالة أخرى",
                 },
                 channels: {
@@ -495,7 +501,7 @@ export const content = {
         socialProof: {
             trustedBy: "مبني حول واجهات مشاريع حقيقية",
             testimonial: "\"المنتج الرقمي القوي يجب أن يبدو فاخراً على السطح وعملياً في الداخل.\"",
-            attribution: "- Mohammed Aldomi، المؤسس",
+            attribution: "- DOMINASE",
         },
         solution: {
             title: "استوديو مبني حول أنظمة رقمية تعمل",
@@ -522,8 +528,8 @@ export const content = {
             reassurance: "مناسب للمواقع المركزة، مسارات الحجز، واجهات المنتجات، والشاشات التشغيلية.",
         },
         footer: {
-            tagline: "DOMINASE — Digital Product Studio by Mohammed Aldomi.",
-            rights: "© 2026 DOMINASE. Built by Mohammed Aldomi.",
+            tagline: "DOMINASE — Software & Digital Products — Make it simple.",
+            rights: "© 2026 DOMINASE. Software & Digital Products.",
             links: ["الأعمال", "تواصل"],
         },
     },

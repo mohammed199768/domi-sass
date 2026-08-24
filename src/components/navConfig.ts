@@ -1,10 +1,10 @@
 export const NAV_ITEMS = [
     { id: "home", labelKey: "home", href: "/" },
     { id: "work", labelKey: "portfolio", href: "/work" },
-    { id: "diagnosis", labelKey: "diagnosis", href: "/diagnosis" },
-    { id: "why-change", labelKey: "whyChange", href: "/why-change" },
-    { id: "why-us", labelKey: "whyUs", href: "/why-us" },
-    { id: "contact", labelKey: "contact", href: "/contact" },
+    { id: "services", labelKey: "services", href: "/services" },
+    { id: "studio", labelKey: "studio", href: "/studio" },
+    { id: "insights", labelKey: "insights", href: "/insights" },
+    { id: "about", labelKey: "about", href: "/about" },
 ] as const;
 
 export type NavItem = (typeof NAV_ITEMS)[number];

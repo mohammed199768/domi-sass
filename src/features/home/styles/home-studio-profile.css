@@ -427,3 +427,36 @@
     transition: none;
   }
 }
+
+/* Light-first standalone Studio treatment. The archive keeps the same media
+   language while inheriting the site theme instead of forcing dark mode. */
+[data-theme="light"] .home-studio {
+  color: var(--fg);
+  background:
+    radial-gradient(90% 54% at 50% -8%, color-mix(in srgb, var(--primary) 9%, transparent), transparent 62%),
+    linear-gradient(180deg, var(--bg) 0, var(--surface-muted) 42%, var(--bg) 100%);
+}
+[data-theme="light"] .home-studio__eyebrow,
+[data-theme="light"] .home-studio__verified { color: var(--primary); fill: var(--primary); }
+[data-theme="light"] .home-studio__profile,
+[data-theme="light"] .home-studio__tabs { border-color: var(--border); }
+[data-theme="light"] .home-studio__avatar { background: linear-gradient(145deg, var(--secondary), color-mix(in srgb, var(--primary) 26%, transparent) 55%, var(--border)); }
+[data-theme="light"] .home-studio__avatar img,
+[data-theme="light"] .home-studio__highlight-ring img { background: var(--surface); }
+[data-theme="light"] .home-studio__name-row h2,
+[data-theme="light"] .home-studio__stats strong,
+[data-theme="light"] .home-studio__tab[data-active="true"] { color: var(--fg); }
+[data-theme="light"] .home-studio__category,
+[data-theme="light"] .home-studio__stats li,
+[data-theme="light"] .home-studio__bio,
+[data-theme="light"] .home-studio__highlights button,
+[data-theme="light"] .home-studio__line { color: var(--muted); }
+[data-theme="light"] .home-studio__bio a,
+[data-theme="light"] .home-studio__tab[data-active="true"] { color: var(--primary); }
+[data-theme="light"] .home-studio__highlight-ring { background: linear-gradient(150deg, color-mix(in srgb, var(--secondary) 72%, transparent), var(--border)); }
+[data-theme="light"] .home-studio__tab { color: color-mix(in srgb, var(--muted) 72%, transparent); }
+[data-theme="light"] .home-studio__tab:hover { color: var(--fg); }
+[data-theme="light"] .home-studio__tab[data-active="true"] { border-block-start-color: var(--primary); }
+[data-theme="light"] .studio-tile { border-color: var(--border); background: var(--surface); box-shadow: 0 20px 55px -42px var(--cool-shadow); }
+[data-theme="light"] .studio-tile:hover,
+[data-theme="light"] .studio-tile:focus-visible { border-color: color-mix(in srgb, var(--primary) 40%, var(--border)); }

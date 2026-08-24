@@ -117,7 +117,7 @@ export const homeContent = {
       eyebrow: "Proof",
       title: "Built by people who care.",
       intro:
-        "Led by the founder — the people who build your product are the ones who care about it most.",
+        "The same product-minded team stays close to the problem, the build, and the details that make the result useful.",
       selectorLabel: "Choose a testimonial",
     },
     action: {
@@ -250,7 +250,7 @@ export const homeContent = {
       eyebrow: "ابدأ",
       diagnosisCTA: "اكتشف خطوتك الأولى",
       diagnosisSupport:
-        "بدقائق، شوف التغيير الأول الذي يحرّك كل شيء.",
+        "خلال دقائق، اكتشف التغيير الأول الذي يحرّك كل شيء.",
     },
   },
 } as const satisfies Record<HomeLanguage, Record<string, unknown>>;

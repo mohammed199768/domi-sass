@@ -101,6 +101,12 @@ export default function DominaseMediaViewer({
     if (document.fullscreenElement) {
       document.exitFullscreen?.().catch(() => undefined);
     }
+    playingRef.current = false;
+    setPlaying(false);
+    setCurrentTime(0);
+    setDuration(0);
+    setControlsVisible(true);
+    setIsFullscreen(false);
     setOpen(false);
   }, []);
 
@@ -261,18 +267,6 @@ export default function DominaseMediaViewer({
     revealControls,
     clearIdleTimer,
   ]);
-
-  // Reset transient state each time the viewer opens.
-  useEffect(() => {
-    if (!open) {
-      playingRef.current = false;
-      setPlaying(false);
-      setCurrentTime(0);
-      setDuration(0);
-      setControlsVisible(true);
-      setIsFullscreen(false);
-    }
-  }, [open]);
 
   const onDialogKeyDown = (event: ReactKeyboardEvent<HTMLDivElement>) => {
     if (event.key !== "Tab") return;

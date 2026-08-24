@@ -1,0 +1,49 @@
+.services-page,.service-detail{color:var(--fg);background:var(--bg)}.services-page>header,.service-detail__hero{width:min(100% - 2rem,76rem);margin:auto;padding:clamp(9rem,15vh,12rem) 0 5rem}.services-page>header>p{display:inline-flex;align-items:center;gap:.5rem;color:var(--primary);font-size:.75rem;font-weight:850}.services-page>header>p svg{width:1rem;height:1rem}.services-page>header h1,.service-detail__hero h1{max-width:14ch;margin-top:1rem;font-size:clamp(3.4rem,7vw,7rem);line-height:1;letter-spacing:-.06em;font-weight:620}[dir="rtl"] :is(.services-page>header h1,.service-detail__hero h1){max-width:13ch;line-height:1.32!important;letter-spacing:0}.services-page>header>span,.service-detail__hero>span{display:block;max-width:54rem;margin-top:1.2rem;color:var(--muted);font-size:1.08rem;line-height:1.9}.services-grid{display:grid;width:min(100% - 2rem,76rem);margin:auto;grid-template-columns:1fr 1fr;gap:.8rem;padding-bottom:7rem}.services-grid article{display:flex;min-height:28rem;flex-direction:column;padding:1.6rem;border:1px solid var(--border);border-radius:1.7rem;background:var(--surface)}.services-grid article>svg{width:1.7rem;height:1.7rem;color:var(--primary)}.services-grid article>p{margin-top:auto;color:var(--primary);font-size:.72rem;font-weight:850}.services-grid h2{max-width:17ch;margin-top:.7rem;font-size:clamp(2rem,3.3vw,3.6rem);line-height:1.12;letter-spacing:-.045em}[dir="rtl"] .services-grid h2{line-height:1.45!important;letter-spacing:0}.services-grid article>span{margin-top:.7rem;color:var(--muted);font-size:.9rem;line-height:1.8}.services-grid article>a{display:inline-flex;align-items:center;gap:.5rem;width:fit-content;margin-top:1.2rem;color:var(--primary);font-size:.8rem;font-weight:850;text-decoration:none}.services-grid article>a svg{width:1rem;height:1rem}.services-cta{width:min(100% - 2rem,76rem);margin:0 auto 7rem;padding:clamp(1.6rem,4vw,3rem);border:1px solid color-mix(in srgb,var(--primary) 20%,var(--border));border-radius:1.7rem;background:color-mix(in srgb,var(--primary) 6%,var(--surface))}.services-cta h2{font-size:clamp(2rem,4vw,3.8rem)}.services-cta p{max-width:45rem;margin-top:.6rem;color:var(--muted);line-height:1.8}.services-cta .domi-action{margin-top:1.2rem}
+.service-detail__hero>p{color:var(--primary);font-size:.78rem;font-weight:850}.service-detail__hero .domi-action{margin-top:1.6rem}.service-detail>section:not(.service-detail__final){display:grid;width:min(100% - 2rem,76rem);margin:auto;grid-template-columns:minmax(15rem,.65fr) minmax(0,1.35fr);gap:clamp(2rem,7vw,7rem);padding:clamp(5rem,9vw,8rem) 0;border-top:1px solid var(--border)}.service-detail section>header>p{color:var(--primary);font-family:var(--font-en-display);font-size:.68rem;font-weight:800}.service-detail section>header h2{margin-top:.6rem;font-size:clamp(2.3rem,4.2vw,4.3rem);line-height:1.08;letter-spacing:-.05em}[dir="rtl"] .service-detail section>header h2{line-height:1.42!important;letter-spacing:0}.service-detail__problems ul{display:grid;gap:.7rem}.service-detail__problems li{display:flex;gap:.7rem;padding:1rem;border:1px solid var(--border);border-radius:1rem;background:var(--surface);color:var(--muted);line-height:1.7}.service-detail__problems svg{width:1.1rem;height:1.1rem;flex:none;margin-top:.2rem;color:var(--primary)}.service-detail__outcomes>div{display:grid;grid-template-columns:1fr 1fr;gap:.7rem}.service-detail__outcomes article{padding:1.2rem;border:1px solid var(--border);border-radius:1.1rem;background:var(--surface)}.service-detail__outcomes h3{font-size:1.15rem}.service-detail__outcomes p{margin-top:.5rem;color:var(--muted);font-size:.88rem;line-height:1.75}.service-detail__process ol{border-top:1px solid var(--border)}.service-detail__process li{display:grid;grid-template-columns:3rem 1fr;gap:.8rem;padding:1rem .3rem;border-bottom:1px solid var(--border)}.service-detail__process li span{color:var(--primary);font-family:var(--font-en-display);font-size:.65rem}.service-detail__process li strong{font-size:1rem}.service-detail__faq>div{display:grid;gap:.6rem}.service-detail__faq details{border:1px solid var(--border);border-radius:1rem;background:var(--surface);padding:1rem}.service-detail__faq summary{cursor:pointer;font-weight:850}.service-detail__faq details p{margin-top:.75rem;color:var(--muted);line-height:1.8}.service-detail__final{display:flex;width:min(100% - 2rem,76rem);margin:0 auto 7rem;align-items:end;justify-content:space-between;gap:2rem;padding:2rem;border:1px solid color-mix(in srgb,var(--primary) 20%,var(--border));border-radius:1.6rem;background:color-mix(in srgb,var(--primary) 6%,var(--surface))}.service-detail__final span{color:var(--primary);font-size:.7rem;font-weight:850}.service-detail__final h2{margin-top:.5rem;font-size:2rem}.service-detail__final>div:last-child{display:flex;flex-wrap:wrap;gap:.6rem}
+@media(max-width:800px){.services-grid{grid-template-columns:1fr}.service-detail>section:not(.service-detail__final){grid-template-columns:1fr}.service-detail__final{align-items:flex-start;flex-direction:column}.service-detail__outcomes>div{grid-template-columns:1fr}}@media(max-width:560px){.services-page>header h1,.service-detail__hero h1{font-size:clamp(2.8rem,12vw,4.5rem)}}
+
+/* Services shares Work's editorial surface language, with its own text-led wash. */
+.services-page > .services-intro-card {
+  width: min(calc(100% - 2rem), 76rem);
+  margin: clamp(8rem, 12vw, 10rem) auto clamp(3.5rem, 6vw, 5rem);
+  padding: clamp(2rem, 4.5vw, 4rem);
+  border: 1px solid var(--border);
+  border-radius: clamp(1.8rem, 3.5vw, 3rem);
+  background:
+    radial-gradient(circle at 92% 8%, color-mix(in srgb, var(--primary) 7%, transparent), transparent 24rem),
+    var(--surface);
+  box-shadow: 0 34px 90px -68px var(--cool-shadow);
+}
+
+.services-page > .services-intro-card h1 {
+  max-width: 15ch;
+  font-size: clamp(3.3rem, 6vw, 6rem);
+  line-height: 1.02;
+}
+
+[dir="rtl"] .services-page > .services-intro-card h1 { max-width: 13ch; line-height: 1.32 !important; }
+.services-page > .services-intro-card > span { max-width: 48rem; }
+
+@media (max-width: 560px) {
+  .services-page > .services-intro-card {
+    width: calc(100% - 1.5rem);
+    margin-top: 7.5rem;
+    margin-bottom: 3rem;
+    padding: 1.5rem;
+    border-radius: 1.6rem;
+  }
+  .services-page > .services-intro-card h1 { font-size: clamp(2.65rem, 11vw, 4rem); }
+}
+
+/* Interactive service discovery follows immediately after the concise intro. */
+.services-page > .services-intro-card {
+  margin-top: clamp(7.5rem, 10vw, 9rem);
+  margin-bottom: clamp(2.5rem, 4vw, 3.75rem);
+  padding: clamp(1.8rem, 3.5vw, 3.25rem);
+}
+
+.services-page > .services-intro-card h1 { font-size: clamp(3.1rem, 5.2vw, 5.25rem); }
+
+@media (max-width: 560px) {
+  .services-page > .services-intro-card { margin-top: 7.25rem; margin-bottom: 2.5rem; padding: 1.5rem; }
+}

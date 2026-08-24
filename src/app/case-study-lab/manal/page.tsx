@@ -3,6 +3,7 @@ import ManalCaseStudyLabPage from "@/features/case-study-lab/manal/ManalCaseStud
 
 export const metadata: Metadata = {
   title: "منال الحيحي — مختبر دراسة حالة",
+  robots: { index: false, follow: false },
   description: "تجربة حركية لتحويل دورات مبعثرة إلى منصة تدريب منظمة.",
 };
 

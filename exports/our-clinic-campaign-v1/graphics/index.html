@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Our Clinic — Reel Graphics</title>
+  <style>
+    @font-face{font-family:ClinicArabic;src:url("assets/ibm-plex-arabic-700.woff2") format("woff2");font-weight:700}
+    @font-face{font-family:ClinicArabic;src:url("assets/ibm-plex-arabic-600.woff2") format("woff2");font-weight:600}
+    @font-face{font-family:ClinicEnglish;src:url("assets/space-grotesk.woff2") format("woff2");font-weight:400 700}
+    :root{--blue:#83afff;--blue-soft:#d7e4ff;--navy:#08101e;--navy-2:#101d32;--white:#f7faff;--muted:#a9bad3;--line:rgba(131,175,255,.25)}
+    *{box-sizing:border-box}html,body{margin:0;background:#050b14}body{display:flex;flex-direction:column;align-items:center;gap:30px;padding:30px}
+    h1,h2,h3,p{margin:0}.page{position:relative;width:1080px;height:1920px;overflow:hidden;background:var(--navy);color:var(--white);font-family:ClinicArabic,sans-serif;isolation:isolate}
+    .page:after{content:"";position:absolute;inset:38px;border:1px solid var(--line);border-radius:42px;z-index:20;pointer-events:none}
+    .page:before{content:"";position:absolute;inset:0;opacity:.28;background-image:linear-gradient(rgba(131,175,255,.05) 1px,transparent 1px),linear-gradient(90deg,rgba(131,175,255,.05) 1px,transparent 1px);background-size:90px 90px}
+    .photo{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}.shade{position:absolute;inset:0;background:linear-gradient(180deg,rgba(8,16,30,.82),rgba(8,16,30,.08) 45%,rgba(8,16,30,.9))}
+    .brand{position:absolute;top:82px;left:78px;z-index:6;display:flex;align-items:center;gap:14px;direction:ltr;font-family:ClinicEnglish,sans-serif;font-size:20px;font-weight:700;letter-spacing:.14em}
+    .brand i{width:11px;height:11px;border-radius:50%;background:var(--blue);box-shadow:0 0 26px rgba(131,175,255,.85)}
+    .chapter{position:absolute;top:86px;right:78px;z-index:6;color:var(--blue-soft);font-family:ClinicEnglish,sans-serif;font-size:13px;letter-spacing:.18em;direction:ltr}
+    .eyebrow{color:var(--blue);font-family:ClinicEnglish,sans-serif;font-size:15px;font-weight:700;letter-spacing:.2em;direction:ltr}
+    .copy{position:absolute;right:84px;left:84px;z-index:5}.inquiry .copy{top:245px}.inquiry h1{margin-top:24px;font-size:86px;line-height:1.18;text-shadow:0 8px 38px rgba(0,0,0,.52)}
+    .message{position:absolute;right:84px;left:84px;bottom:150px;z-index:7;padding:34px 38px 38px;border:1px solid rgba(255,255,255,.16);border-radius:34px;background:rgba(8,16,30,.88);backdrop-filter:blur(24px);direction:ltr}
+    .message .meta{display:flex;justify-content:space-between;color:var(--muted);font-family:ClinicEnglish,sans-serif;font-size:15px;letter-spacing:.12em}.message .meta b{color:var(--blue)}
+    .message .text{margin-top:20px;color:white;font-family:ClinicEnglish,sans-serif;font-size:52px;font-weight:700;line-height:1.08}
+    .problem .shade{background:linear-gradient(180deg,rgba(5,11,20,.96),rgba(5,11,20,.08) 47%,rgba(5,11,20,.82))}.problem .copy{top:205px}.problem h2{margin-top:25px;font-size:82px;line-height:1.2}.problem h2 span{color:var(--blue)}
+    .facts{position:absolute;right:84px;left:84px;bottom:126px;z-index:6;display:grid;grid-template-columns:repeat(3,1fr);gap:14px}.fact{min-height:178px;padding:24px;border:1px solid var(--line);border-radius:26px;background:rgba(8,16,30,.88);backdrop-filter:blur(18px)}
+    .fact b{display:block;color:var(--blue);font-family:ClinicEnglish,sans-serif;font-size:16px}.fact span{display:block;margin-top:28px;font-size:23px;line-height:1.45}
+    .reveal .shade{background:linear-gradient(180deg,rgba(8,16,30,.76),rgba(8,16,30,.06) 55%,rgba(8,16,30,.84))}.reveal .copy{top:230px;text-align:center}.reveal h2{margin-top:22px;font-size:82px;line-height:1.2}.reveal h2 span{display:block;color:var(--blue)}
+    .reveal p{position:absolute;right:150px;left:150px;bottom:130px;z-index:5;text-align:center;color:#e5edfa;font-size:27px;line-height:1.72}
+    .system{background:radial-gradient(circle at 50% 16%,rgba(131,175,255,.18),transparent 32%),linear-gradient(155deg,#111f36,#050b14 70%)}.system .copy{top:210px}.system h2{margin-top:24px;font-size:73px;line-height:1.22}.system h2 span{color:var(--blue)}
+    .zones{position:absolute;top:600px;right:84px;left:84px;z-index:4;display:grid;gap:18px}.zone{min-height:260px;padding:30px 32px;border:1px solid var(--line);border-radius:30px;background:linear-gradient(100deg,rgba(19,35,58,.98),rgba(7,14,25,.9));display:grid;grid-template-columns:112px 1fr;gap:26px;align-items:center;direction:ltr}
+    .zone .num{color:var(--blue);font-family:ClinicEnglish,sans-serif;font-size:38px;font-weight:700}.zone h3{font-size:38px;direction:rtl;text-align:right}.zone p{margin-top:12px;color:#bdcbe0;font-size:20px;line-height:1.62;direction:rtl;text-align:right}
+    .modules{position:absolute;right:84px;left:84px;bottom:120px;z-index:5;display:flex;flex-wrap:wrap;gap:12px;justify-content:center}.modules span{padding:12px 18px 14px;border:1px solid var(--line);border-radius:999px;color:#e8f0ff;background:rgba(7,14,25,.72);font-size:18px}
+    .final{background:radial-gradient(circle at 50% 38%,rgba(131,175,255,.2),transparent 34%),linear-gradient(160deg,#111f36,#050b14 68%);text-align:center}.final .arch{position:absolute;width:720px;height:940px;left:180px;top:280px;border:1px solid rgba(131,175,255,.28);border-radius:360px 360px 38px 38px;box-shadow:0 0 130px rgba(131,175,255,.09),inset 0 0 90px rgba(131,175,255,.05)}
+    .final .arch:before{content:"";position:absolute;inset:90px;border:1px solid rgba(131,175,255,.12);border-radius:280px 280px 22px 22px}.final .copy{top:430px}.mark{margin:0 auto 58px;width:120px;height:120px;border:1px solid rgba(131,175,255,.35);border-radius:50%;display:flex;align-items:center;justify-content:center;color:var(--blue);font-family:ClinicEnglish,sans-serif;font-size:38px;font-weight:700}
+    .final h2{font-size:84px;line-height:1.18}.final h2 span{display:block;color:var(--blue)}.final p{margin:44px auto 0;max-width:740px;color:#c4d1e4;font-size:26px;line-height:1.72}.cta{display:inline-flex;margin-top:58px;padding:17px 34px 20px;border-radius:999px;color:var(--navy);background:var(--blue);font-size:25px;font-weight:700}
+    .footer{position:absolute;bottom:82px;left:84px;right:84px;z-index:4;display:flex;justify-content:space-between;direction:ltr;color:#7890af;font-family:ClinicEnglish,sans-serif;font-size:13px;letter-spacing:.15em}
+  </style>
+</head>
+<body>
+  <section class="page inquiry">
+    <img class="photo" src="../assets/generated/01-inquiry-hook.png" alt=""/><div class="shade"></div>
+    <div class="brand"><i></i>DOMINASE × OUR CLINIC</div><div class="chapter">THE MESSAGE / 01</div>
+    <div class="copy"><div class="eyebrow">EVERY PRODUCT STARTS SOMEWHERE</div><h1>بدأت الحكاية<br/>برسالة قصيرة.</h1></div>
+    <div class="message"><div class="meta"><b>NEW INQUIRY</b><span>NOW</span></div><div class="text">We need a website<br/>for our clinic.</div></div>
+  </section>
+  <section class="page problem">
+    <img class="photo" src="../assets/generated/02-reception-chaos.png" alt=""/><div class="shade"></div>
+    <div class="brand"><i></i>DOMINASE × OUR CLINIC</div><div class="chapter">THE REAL PROBLEM / 02</div>
+    <div class="copy"><div class="eyebrow">IT WAS NEVER ONLY A WEBSITE</div><h2>لكن المشكلة لم تكن<br/><span>في الموقع فقط.</span></h2></div>
+    <div class="facts"><div class="fact"><b>01</b><span>مواعيد موزعة</span></div><div class="fact"><b>02</b><span>متابعة منفصلة</span></div><div class="fact"><b>03</b><span>أسئلة تتكرر يوميًا</span></div></div>
+  </section>
+  <section class="page reveal">
+    <img class="photo" src="../assets/generated/03-clinic-reveal.png" alt=""/><div class="shade"></div>
+    <div class="brand"><i></i>DOMINASE × OUR CLINIC</div><div class="chapter">THE SHIFT / 03</div>
+    <div class="copy"><div class="eyebrow">A CLINIC IS A CONNECTED JOURNEY</div><h2>العيادة لا تحتاج<br/><span>موقعًا فقط.</span></h2></div>
+    <p>تحتاج رحلة مترابطة من أول سؤال للمريض، إلى الحجز والزيارة والمتابعة والتقارير.</p>
+  </section>
+  <section class="page system">
+    <div class="brand"><i></i>DOMINASE × OUR CLINIC</div><div class="chapter">THE PLATFORM / 04</div>
+    <div class="copy"><div class="eyebrow">THREE EXPERIENCES. ONE PATIENT JOURNEY.</div><h2>منصة تخدم <span>ثلاثة أطراف</span><br/>بدون تشتيت.</h2></div>
+    <div class="zones">
+      <article class="zone"><div class="num">01</div><div><h3>المريض والعائلة</h3><p>يفهمون الخدمات، يحجزون، ويصلون إلى أدوات واضحة قبل الزيارة وبعدها.</p></div></article>
+      <article class="zone"><div class="num">02</div><div><h3>الفريق السريري</h3><p>يرى المواعيد ومعلومات الزيارة والمتابعة ضمن مسار واحد.</p></div></article>
+      <article class="zone"><div class="num">03</div><div><h3>إدارة العيادة</h3><p>تدير المرضى والمواعيد والعمليات والتقارير من لوحة مركزية.</p></div></article>
+    </div>
+    <div class="modules"><span>الخدمات</span><span>الحجز</span><span>أدوات المريض</span><span>المساعد</span><span>المتابعة</span><span>التقارير</span></div>
+  </section>
+  <section class="page final">
+    <div class="brand"><i></i>DOMINASE × OUR CLINIC</div><div class="chapter">FROM MESSAGE TO PRODUCT / 05</div>
+    <div class="arch"></div><div class="copy"><div class="mark">OC</div><h2>من أول سؤال<span>إلى متابعة واضحة.</span></h2><p>بدأت برسالة: “We need a website.”<br/>وانتهت بمنصة تربط المريض بالعيادة في رحلة واحدة.</p><div class="cta">هل عيادتك تحتاج نظامًا، لا مجرد موقع؟</div></div>
+    <div class="footer"><span>DOMINASE.ART</span><span>BUILT AROUND THE REAL CARE JOURNEY</span></div>
+  </section>
+</body>
+</html>

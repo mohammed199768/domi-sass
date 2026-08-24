@@ -4,60 +4,9 @@ import JsonLd from "@/components/JsonLd";
 import { SITE_URL, BRAND } from "@/config/seo";
 
 export const metadata: Metadata = {
-  title: "Why Change?",
-  description:
-    "Standing still is not neutral — a strategic look at how static websites, scattered attention, unclear paths, and weak digital systems create silent loss before customers ever contact you.",
-  alternates: {
-    canonical: "/why-change",
-  },
-  openGraph: {
-    title: "Why Change? — DOMINASE",
-    description:
-      "A strategic look at how static websites, scattered attention, and weak digital systems create silent loss before customers ever contact you.",
-    url: `${SITE_URL}/why-change`,
-    siteName: BRAND.siteName,
-    type: "article",
-  },
-  twitter: {
-    card: "summary_large_image",
-    title: "Why Change? — DOMINASE",
-    description:
-      "A strategic look at how static websites, scattered attention, and weak digital systems create silent loss before customers ever contact you.",
-  },
+  title: "لماذا تحتاج تطوير موقعك ونظامك الرقمي؟",
+  description: "كيف يضيّع الموقع فرصاً حتى لو كان يعمل؟ دليل DOMINASE عن تجربة العميل، CTA، الحجز، tracking وCRM وتحويل الموقع من صفحات ثابتة إلى مسار يعمل.",
+  alternates:{canonical:"/why-change"},
+  openGraph:{title:"لماذا التغيير؟ — DOMINASE",description:"من موقع موجود إلى مسار رقمي يشرح، يحوّل ويتابع.",url:`${SITE_URL}/why-change`,siteName:BRAND.siteName,type:"article"}
 };
-
-export default function WhyChangePage() {
-  return (
-    <>
-      <JsonLd
-        data={{
-          "@context": "https://schema.org",
-          "@type": "WebPage",
-          name: "Why Change? — DOMINASE",
-          url: `${SITE_URL}/why-change`,
-          description:
-            "A strategic look at how standing still digitally costs clarity, trust, conversion, and follow-up opportunities.",
-          isPartOf: { "@id": `${SITE_URL}/#website` },
-          breadcrumb: {
-            "@type": "BreadcrumbList",
-            itemListElement: [
-              {
-                "@type": "ListItem",
-                position: 1,
-                name: "Home",
-                item: SITE_URL,
-              },
-              {
-                "@type": "ListItem",
-                position: 2,
-                name: "Why Change?",
-                item: `${SITE_URL}/why-change`,
-              },
-            ],
-          },
-        }}
-      />
-      <WhyChangeClient />
-    </>
-  );
-}
+export default function Page(){return <><JsonLd data={{"@context":"https://schema.org","@type":"WebPage",name:"لماذا تحتاج تطوير موقعك ونظامك الرقمي؟",url:`${SITE_URL}/why-change`,about:{"@id":`${SITE_URL}/#organization`},isPartOf:{"@id":`${SITE_URL}/#website`}}}/><WhyChangeClient/></>}

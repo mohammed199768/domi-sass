@@ -75,6 +75,7 @@ export function useViewerShell({
     };
 
     window.addEventListener("keydown", onKeyDown);
+    const restore = restoreRef?.current;
 
     return () => {
       window.removeEventListener("keydown", onKeyDown);
@@ -85,7 +86,6 @@ export function useViewerShell({
       // Restore the current Lenis instance so a route change / unexpected
       // unmount while open can never leave scrolling stopped.
       getActiveLenis()?.start();
-      const restore = restoreRef?.current;
       window.requestAnimationFrame(() => restore?.focus());
     };
   }, [open, dialogRef, overlayRef, restoreRef]);

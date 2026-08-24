@@ -9,6 +9,8 @@ import "@/styles/globals.css";
 import "@/components/media/dominase-media-viewer.css";
 import "@/components/media/studio-viewer.css";
 import "@/features/product-stories/product-story.css";
+import "@/components/consultation/consultation.css";
+import "@/components/related-pathways.css";
 import { ThemeProvider } from "@/components/ThemeProvider";
 import SmoothScroll from "@/components/SmoothScroll";
 import MobileNav from "@/components/MobileNav";
@@ -17,6 +19,7 @@ import BrandPreloader from "@/components/BrandPreloader";
 import DominaseCursor from "@/components/DominaseCursor";
 import { LanguageProvider } from "@/context/LanguageContext";
 import JsonLd from "@/components/JsonLd";
+import { ConsultationProvider } from "@/components/consultation/ConsultationProvider";
 import {
   SITE_URL,
   BRAND,
@@ -30,10 +33,10 @@ const bootClassScript = `
   const themeStorageKey = "dominase-theme";
   try {
     const savedTheme = window.localStorage.getItem(themeStorageKey);
-    const theme = savedTheme === "light" || savedTheme === "dark" ? savedTheme : "dark";
+    const theme = savedTheme === "light" || savedTheme === "dark" ? savedTheme : "light";
     document.documentElement.dataset.theme = theme;
   } catch {
-    document.documentElement.dataset.theme = "dark";
+    document.documentElement.dataset.theme = "light";
   }
 
   try {
@@ -104,11 +107,14 @@ export const metadata: Metadata = {
     siteName: BRAND.siteName,
     type: "website",
     locale: BRAND.locale,
+    alternateLocale: [BRAND.localeAlternate],
+    images: [{ url: META_DEFAULTS.ogImage, width: 1200, height: 630, alt: "DOMINASE — Software & Digital Products" }],
   },
   twitter: {
     card: "summary_large_image",
     title: META_DEFAULTS.title,
     description: META_DEFAULTS.description,
+    images: [META_DEFAULTS.ogImage],
   },
 };
 
@@ -118,7 +124,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" suppressHydrationWarning>
+    <html lang="ar" dir="rtl" suppressHydrationWarning>
       <body
         className={`${enDisplay.variable} ${enBody.variable} ${arDisplay.variable} ${arBody.variable} antialiased`}
       >
@@ -127,15 +133,11 @@ export default function RootLayout({
           data={[
             {
               "@context": "https://schema.org",
-              "@type": "ProfessionalService",
+              "@type": "Organization",
               "@id": `${SITE_URL}/#organization`,
               name: BRAND.brandName,
               url: SITE_URL,
               description: META_DEFAULTS.description,
-              founder: {
-                "@type": "Person",
-                name: BRAND.founderName,
-              },
               contactPoint: {
                 "@type": "ContactPoint",
                 telephone: CONTACT.phone,
@@ -148,6 +150,20 @@ export default function RootLayout({
                 addressLocality: "Amman",
                 addressCountry: "JO",
               },
+              areaServed: [
+                { "@type": "Country", name: "Jordan" },
+                { "@type": "Country", name: "Saudi Arabia" },
+              ],
+              knowsAbout: [
+                "Software development",
+                "Web development",
+                "Custom business systems",
+                "Educational platforms",
+                "Clinic websites and booking systems",
+                "UX/UI design",
+                "SEO",
+                "CRM and customer journeys",
+              ],
               sameAs: [
                 SOCIAL_LINKS.github,
                 SOCIAL_LINKS.linkedin,
@@ -169,20 +185,22 @@ export default function RootLayout({
         <script dangerouslySetInnerHTML={{ __html: bootClassScript }} />
         <ThemeProvider
           attribute="data-theme"
-          defaultTheme="dark"
+          defaultTheme="light"
           enableSystem={false}
           themes={["dark", "light"]}
           storageKey="dominase-theme"
           disableTransitionOnChange
         >
           <LanguageProvider>
-            <BrandPreloader />
-            <SmoothScroll>
-              {children}
-              <MobileNav />
-            </SmoothScroll>
-            <FloatingActions />
-            <DominaseCursor />
+            <ConsultationProvider>
+              <BrandPreloader />
+              <SmoothScroll>
+                {children}
+                <MobileNav />
+              </SmoothScroll>
+              <FloatingActions />
+              <DominaseCursor />
+            </ConsultationProvider>
           </LanguageProvider>
         </ThemeProvider>
       </body>

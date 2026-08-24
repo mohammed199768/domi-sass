@@ -1,0 +1,22 @@
+[Script Info]
+ScriptType: v4.00+
+PlayResX: 1080
+PlayResY: 1920
+WrapStyle: 2
+ScaledBorderAndShadow: yes
+
+[V4+ Styles]
+Format: Name, Fontname, Fontsize, PrimaryColour, SecondaryColour, OutlineColour, BackColour, Bold, Italic, Underline, StrikeOut, ScaleX, ScaleY, Spacing, Angle, BorderStyle, Outline, Shadow, Alignment, MarginL, MarginR, MarginV, Encoding
+Style: Caption,Arial,56,&H00FFFFFF,&H000000FF,&H00101B2E,&H9807111F,-1,0,0,0,100,100,0,0,1,8,0,2,70,70,165,1
+
+[Events]
+Format: Layer, Start, End, Style, Name, MarginL, MarginR, MarginV, Effect, Text
+Dialogue: 0,0:00:05.40,0:00:07.30,Caption,,0,0,0,,فبدأنا بالكود الحقيقي.
+Dialogue: 0,0:00:07.30,0:00:09.60,Caption,,0,0,0,,API، واجهات، ومسارات تشغيل.
+Dialogue: 0,0:00:09.60,0:00:12.53,Caption,,0,0,0,,ثم ظهر المنتج أمامنا.
+Dialogue: 0,0:00:12.53,0:00:14.93,Caption,,0,0,0,,واجهة تطمئن المريض وتشرح له.
+Dialogue: 0,0:00:14.93,0:00:17.23,Caption,,0,0,0,,خدمات واضحة قبل القرار.
+Dialogue: 0,0:00:17.23,0:00:20.03,Caption,,0,0,0,,حجز يجمع المعلومات دون إرباك.
+Dialogue: 0,0:00:20.03,0:00:22.53,Caption,,0,0,0,,ولوحة ترى المواعيد والمرضى.
+Dialogue: 0,0:00:22.53,0:00:24.73,Caption,,0,0,0,,ومتابعة لا تضيع بعد الزيارة.
+

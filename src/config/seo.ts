@@ -1,37 +1,23 @@
-/**
- * Central SEO configuration for DOMINASE.
- *
- * All brand, contact, and social data here is sourced from existing public
- * content already visible on the site (content.ts, contact.ts, Footer.tsx).
- * Nothing is invented or fabricated.
- */
+/** Central SEO configuration for DOMINASE. */
 
-/** Production canonical domain. */
 export const SITE_URL = "https://www.dominase.art";
 
-/** Core brand identity. */
 export const BRAND = {
   siteName: "DOMINASE",
   brandName: "DOMINASE",
-  founderName: "Mohammed Aldomi",
-  tagline: "Digital Product Studio",
-  locale: "en",
-  localeAlternate: "ar",
+  tagline: "Software & Digital Products — Make it simple.",
+  locale: "ar_JO",
+  localeAlternate: "en_US",
 } as const;
 
-/** Default metadata applied via the root layout. */
 export const META_DEFAULTS = {
-  title: "DOMINASE — Digital Product Studio",
-  titleTemplate: "%s — DOMINASE",
+  title: "DOMINASE | شركة برمجة وتطوير أنظمة ومنتجات رقمية",
+  titleTemplate: "%s | DOMINASE",
   description:
-    "DOMINASE builds websites, digital systems, dashboards, booking flows, and product interfaces for businesses that need clarity, trust, and operational depth.",
+    "DOMINASE شركة برمجة ومنتجات رقمية في الأردن تخدم الأردن والسعودية. نطوّر المواقع، الأنظمة المخصصة، المنصات التعليمية، مواقع وأنظمة العيادات، UX/UI، الحجز وCRM — Make it simple.",
   ogImage: "/opengraph-image.png",
 } as const;
 
-/**
- * Public social / professional links.
- * Sourced from Footer.tsx and contact.ts — no invented links.
- */
 export const SOCIAL_LINKS = {
   github: "https://github.com/mohammed199768",
   upwork:
@@ -39,10 +25,6 @@ export const SOCIAL_LINKS = {
   linkedin: "https://linkedin.com/in/mohammed199768",
 } as const;
 
-/**
- * Public contact info.
- * Sourced from content.ts (en.contact.info) — no invented data.
- */
 export const CONTACT = {
   phone: "+962779667168",
   email: "mohammed.aldomi68@gmail.com",

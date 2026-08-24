@@ -31,10 +31,7 @@ export default function HomeTextMotion({
     const node = nodeRef.current;
     if (!node) return;
 
-    if (reducedMotion) {
-      setEntered(true);
-      return;
-    }
+    if (reducedMotion) return;
 
     const observer = new IntersectionObserver(
       ([entry]) => {
@@ -54,7 +51,7 @@ export default function HomeTextMotion({
     <span
       ref={nodeRef}
       className={`home-text-motion home-text-motion--${variant}${className ? ` ${className}` : ""}`}
-      data-visible={entered ? "true" : "false"}
+      data-visible={reducedMotion || entered ? "true" : "false"}
     >
       <span className="home-text-motion__line">{children}</span>
       {variant === "signal" ? (

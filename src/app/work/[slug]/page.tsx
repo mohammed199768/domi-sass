@@ -45,19 +45,27 @@ export default async function WorkProductStoryPage({ params }: PageProps) {
   const story = productStories[slug];
   if (!story) notFound();
 
-  const jsonLd = {
-    "@context": "https://schema.org",
-    "@type": "CreativeWork",
-    name: story.title,
-    description: story.summary.en,
-    url: `${SITE_URL}/work/${slug}`,
-    image: `${SITE_URL}${story.cover}`,
-    creator: {
-      "@type": "Organization",
-      name: "DOMINASE",
+  const jsonLd = [
+    {
+      "@context": "https://schema.org",
+      "@type": "CreativeWork",
+      name: story.title,
+      description: story.summary.en,
+      url: `${SITE_URL}/work/${slug}`,
+      image: `${SITE_URL}${story.cover}`,
+      creator: { "@type": "Organization", "@id": `${SITE_URL}/#organization`, name: "DOMINASE" },
+      inLanguage: ["en", "ar"],
     },
-    inLanguage: ["en", "ar"],
-  };
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      itemListElement: [
+        { "@type": "ListItem", position: 1, name: "DOMINASE", item: SITE_URL },
+        { "@type": "ListItem", position: 2, name: "Work", item: `${SITE_URL}/work` },
+        { "@type": "ListItem", position: 3, name: story.title, item: `${SITE_URL}/work/${slug}` },
+      ],
+    },
+  ];
 
   return (
     <>

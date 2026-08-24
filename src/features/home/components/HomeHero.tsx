@@ -1,218 +1,88 @@
 "use client";
 
 import Image from "next/image";
-import { ArrowDown } from "lucide-react";
-import { useRef } from "react";
+import Link from "next/link";
+import ConsultationTrigger from "@/components/consultation/ConsultationTrigger";
+import { ArrowUpRight } from "lucide-react";
 import { useLanguage } from "@/context/LanguageContext";
-import HomeHeroMedia from "./HomeHeroMedia";
-import HomeTextMotion from "./HomeTextMotion";
-import HomeWaterChapter from "./HomeWaterChapter";
+import { FadeIn, Magnet } from "./HomeMotionPrimitives";
+import HeroFlowField from "./HeroFlowField";
 
-const story = {
-  en: {
-    chapter: "Signal / 00",
-    role: "Digital Product Studio",
-    title: "Signal.",
-    support: "Where a vague idea starts to breathe.",
-    cue: "Direct the film",
-    beats: [
-      {
-        index: "01",
-        eyebrow: "Request",
-        title: "Unformed.",
-        body: "Just a feeling that something could be better.",
-      },
-      {
-        index: "02",
-        eyebrow: "Shift",
-        title: "Direction.",
-        body: "Scattered thoughts settle into one clear path.",
-      },
-      {
-        index: "03",
-        eyebrow: "Outcome",
-        title: "Alive.",
-        body: "A real product, out in the world — and growing.",
-      },
-    ],
-    mobileFrames: [
-      {
-        src: "/assest/home/hero/frames/frame-01.webp",
-        label: "Request",
-        text: "Not yet a product.",
-      },
-      {
-        src: "/assest/home/hero/frames/frame-26.webp",
-        label: "Direction",
-        text: "Decisions align.",
-      },
-      {
-        src: "/assest/home/hero/frames/frame-39.webp",
-        label: "System",
-        text: "The path takes form.",
-      },
-      {
-        src: "/assest/home/hero/frames/frame-49.webp",
-        label: "Product",
-        text: "Ready to move.",
-      },
-    ],
-  },
+const COPY = {
   ar: {
-    chapter: "إشارة / ٠٠",
-    role: "استوديو منتجات رقمية",
-    title: "إشارة.",
-    support: "حيث تبدأ الفكرة الغامضة أن تتنفّس.",
-    cue: "قُد المشهد",
-    beats: [
-      {
-        index: "٠١",
-        eyebrow: "الطلب",
-        title: "بلا ملامح.",
-        body: "مجرّد إحساس أن شيئاً ما يمكن أن يكون أفضل.",
-      },
-      {
-        index: "٠٢",
-        eyebrow: "التحول",
-        title: "اتجاه.",
-        body: "تتجمّع الأفكار المبعثرة في مسار واحد واضح.",
-      },
-      {
-        index: "٠٣",
-        eyebrow: "النتيجة",
-        title: "حيّ.",
-        body: "منتج حقيقي في الحياة… وينمو.",
-      },
-    ],
-    mobileFrames: [
-      {
-        src: "/assest/home/hero/frames/frame-01.webp",
-        label: "طلب",
-        text: "لم تصبح منتجاً بعد.",
-      },
-      {
-        src: "/assest/home/hero/frames/frame-26.webp",
-        label: "اتجاه",
-        text: "تنتظم القرارات.",
-      },
-      {
-        src: "/assest/home/hero/frames/frame-39.webp",
-        label: "نظام",
-        text: "يتّخذ المسار شكلاً.",
-      },
-      {
-        src: "/assest/home/hero/frames/frame-49.webp",
-        label: "منتج",
-        text: "جاهز للتقدّم.",
-      },
-    ],
+    headline: ["نحوّل أفكارك إلى", "منتجات رقمية."],
+    subline: "نبني مواقع، منصات وأنظمة متكاملة حول طريقة عملك.",
+    primary: "احجز استشارة",
+    secondary: "شاهد الأعمال",
+    previewAlt: "واجهة منتج رقمي من أعمال DOMINASE",
+  },
+  en: {
+    headline: ["We turn ideas into", "digital products."],
+    subline: "We build websites, platforms, and integrated systems around the way you work.",
+    primary: "Book a consultation",
+    secondary: "View the work",
+    previewAlt: "A digital product interface built by DOMINASE",
   },
 } as const;
 
 export default function HomeHero() {
-  const sectionRef = useRef<HTMLElement>(null);
-  const waterStageRef = useRef<HTMLDivElement>(null);
-  const waterParticleCanvasRef = useRef<HTMLCanvasElement>(null);
-  const staticWaterParticleCanvasRef = useRef<HTMLCanvasElement>(null);
-  const { language } = useLanguage();
-  const copy = story[language];
-  const filmBeats = copy.beats;
+  const { language, dir } = useLanguage();
+  const copy = COPY[language];
 
   return (
     <section
-      ref={sectionRef}
       id="home"
-      className="home-hero"
-      data-home-hero
-      data-cinematic-chapter
-      data-beat="0"
-      aria-labelledby="home-hero-title"
+      className="signature-hero signature-hero--calm"
+      aria-labelledby="signature-hero-title"
     >
-      <div className="home-hero__sticky">
-        <HomeHeroMedia
-          sectionRef={sectionRef}
-          waterStageRef={waterStageRef}
-          waterParticleCanvasRef={waterParticleCanvasRef}
-          staticWaterParticleCanvasRef={staticWaterParticleCanvasRef}
-        />
+      <HeroFlowField />
 
-        <div className="home-hero__frame-lines" aria-hidden="true">
-          <span />
-          <span />
-          <span />
-          <span />
-        </div>
-
-        <header className="home-hero__opening">
-          <p className="home-hero__chapter">{copy.chapter}</p>
-          <p className="home-hero__brand" dir="ltr">
-            DOMINASE
-          </p>
-          <p className="home-hero__role">{copy.role}</p>
-          <h1 id="home-hero-title">
-            <HomeTextMotion variant="signal">{copy.title}</HomeTextMotion>
+      {/* Content: in-flow, centered by the flex column parent */}
+      <div className="signature-hero__message">
+        <FadeIn delay={0.22} y={28}>
+          <h1 id="signature-hero-title" className="signature-hero__headline">
+            {copy.headline.map((line) => (
+              <span className="signature-hero__headline-line" key={line}>
+                {line}
+              </span>
+            ))}
           </h1>
-          <p className="home-hero__support">{copy.support}</p>
-        </header>
-
-        <ol className="home-hero__beats">
-          {filmBeats.map((beat, index) => (
-            <li key={beat.index} data-film-beat={index + 1}>
-              <p>
-                <span>{beat.index}</span>
-                {beat.eyebrow}
-              </p>
-              <strong>{beat.title}</strong>
-              <span>{beat.body}</span>
-            </li>
-          ))}
-        </ol>
-
-        <div className="home-hero__timeline" aria-hidden="true">
-          <span className="home-hero__timeline-label">00</span>
-          <span className="home-hero__timeline-track">
-            <i />
-          </span>
-          <span className="home-hero__timeline-label">49</span>
-        </div>
-
-        <p className="home-hero__scroll-cue">
-          <ArrowDown aria-hidden="true" />
-          <span>{copy.cue}</span>
-        </p>
-
-      </div>
-
-      <HomeWaterChapter
-        ref={waterStageRef}
-        particleCanvasRef={waterParticleCanvasRef}
-      />
-
-      <div className="home-hero__mobile-story">
-        {copy.mobileFrames.map((frame, index) => (
-          <figure key={frame.src}>
-            <div>
-              <Image
-                src={frame.src}
-                alt=""
-                fill
-                sizes="(max-width: 900px) calc(100vw - 2rem), 68rem"
-                priority={index === 0}
+          <p className="signature-hero__subline">{copy.subline}</p>
+          <div className="signature-hero__actions signature-hero__actions--centered">
+            <ConsultationTrigger ctaLocation="home_hero" originType="home" className="signature-pill signature-pill--primary">
+              <span>{copy.primary}</span>
+              <ArrowUpRight
+                aria-hidden="true"
+                className={dir === "rtl" ? "-scale-x-100" : ""}
               />
-            </div>
-            <figcaption>
-              <span>{String(index + 1).padStart(2, "0")}</span>
-              <strong>{frame.label}</strong>
-              <p>{frame.text}</p>
-            </figcaption>
-          </figure>
-        ))}
+            </ConsultationTrigger>
+            <Link href="#projects" className="signature-pill signature-pill--secondary">
+              <span>{copy.secondary}</span>
+            </Link>
+          </div>
+        </FadeIn>
       </div>
 
-      <HomeWaterChapter
-        staticMode
-        particleCanvasRef={staticWaterParticleCanvasRef}
-      />
+      {/* Product visual: in-flow below copy, soft-cropped by section overflow:hidden */}
+      <div className="signature-hero__stage signature-hero__stage--single">
+        <FadeIn delay={0.48} y={36}>
+          <Magnet
+            padding={150}
+            strength={6}
+            className="signature-hero__magnet signature-hero__magnet--single"
+          >
+            <figure className="signature-product-window">
+              <Image
+                src="/media/product-stories/our-clinic/public-home-wide.webp"
+                alt={copy.previewAlt}
+                fill
+                priority
+                sizes="(max-width: 760px) 92vw, 760px"
+              />
+            </figure>
+          </Magnet>
+        </FadeIn>
+      </div>
     </section>
   );
 }

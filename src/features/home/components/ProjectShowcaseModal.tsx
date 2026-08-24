@@ -343,8 +343,8 @@ export default function ProjectShowcaseModal({ open, slug, onClose }: Props) {
                         )}
                         <div className="text-xs text-muted/50 text-center font-medium">
                             {language === "ar"
-                                ? "مشروع من DOMINASE بقيادة Mohammed Aldomi"
-                                : "A DOMINASE project by Mohammed Aldomi"}
+                                ? "مشروع من DOMINASE — من الفكرة إلى التنفيذ"
+                                : "A DOMINASE project — from idea to execution"}
                         </div>
                     </div>
                 </div>

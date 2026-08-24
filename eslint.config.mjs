@@ -11,6 +11,7 @@ const eslintConfig = defineConfig([
     ".next/**",
     "out/**",
     "build/**",
+    "tmp/**",
     "react-pageflip-master/**",
     "study-profile-assessment/**",
     "final-compatible/**",

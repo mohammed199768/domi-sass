@@ -1,28 +1,29 @@
 import type { Metadata } from "next";
 import ContactOrbitClient from "@/features/contact/ContactOrbitClient";
+import "@/features/contact/contact-redesign.css";
 import JsonLd from "@/components/JsonLd";
 import { SITE_URL, BRAND } from "@/config/seo";
 
 export const metadata: Metadata = {
-  title: "Contact",
+  title: "احجز استشارة | Contact",
   description:
-    "Book a consultation with DOMINASE — reach Mohammed Aldomi through WhatsApp, phone, email, or the contact form to discuss your digital product.",
+    "احجز استشارة مع DOMINASE لمناقشة موقع، منصة تعليمية، نظام عيادة أو نظام أعمال مخصص، مع واتساب واتصال مباشر عند الحاجة.",
   alternates: {
     canonical: "/contact",
   },
   openGraph: {
-    title: "Contact — DOMINASE",
+    title: "Book a Consultation — DOMINASE",
     description:
-      "Book a consultation with DOMINASE — reach Mohammed Aldomi through WhatsApp, phone, email, or the contact form.",
+      "Book a consultation about a website, education platform, clinic system, or custom digital product with DOMINASE.",
     url: `${SITE_URL}/contact`,
     siteName: BRAND.siteName,
     type: "website",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Contact — DOMINASE",
+    title: "Book a Consultation — DOMINASE",
     description:
-      "Book a consultation with DOMINASE — reach Mohammed Aldomi through WhatsApp, phone, email, or the contact form.",
+      "Book a consultation about a website, education platform, clinic system, or custom digital product with DOMINASE.",
   },
 };
 
@@ -33,10 +34,10 @@ export default function ContactPage() {
         data={{
           "@context": "https://schema.org",
           "@type": "WebPage",
-          name: "Contact — DOMINASE",
+          name: "Book a Consultation — DOMINASE",
           url: `${SITE_URL}/contact`,
           description:
-            "Book a consultation with DOMINASE through WhatsApp, phone, email, or the contact form.",
+            "Start a software, education platform, clinic system, website, or custom digital product project with DOMINASE through the guided contact form, with direct channels available when needed.",
           isPartOf: { "@id": `${SITE_URL}/#website` },
           breadcrumb: {
             "@type": "BreadcrumbList",

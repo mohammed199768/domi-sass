@@ -1,0 +1,72 @@
+.contact-redesign { min-height: 100svh; color: var(--fg); background: radial-gradient(50rem 28rem at 50% 12%, color-mix(in srgb, var(--primary) 10%, transparent), transparent 66%), var(--bg); }
+.contact-redesign__hero { padding: clamp(8.5rem, 14vh, 11rem) 1rem 7rem; }
+.contact-redesign__intro { width: min(100%, 64rem); margin-inline: auto; text-align: center; }
+.contact-redesign__intro > p { display: inline-flex; align-items: center; gap: .5rem; color: var(--primary); font-size: .78rem; font-weight: 850; }
+.contact-redesign__intro > p svg { width: 1rem; height: 1rem; }
+.contact-redesign__intro h1 { max-width: 18ch; margin: 1rem auto 0; font-size: clamp(3rem, 6vw, 6.5rem); line-height: 1.02; letter-spacing: -.06em; font-weight: 620; }
+[dir="rtl"] .contact-redesign__intro h1 { max-width: 15ch; line-height: 1.32 !important; letter-spacing: 0; }
+.contact-redesign__intro > span { display: block; max-width: 48rem; margin: 1.25rem auto 0; color: var(--muted); font-size: 1.02rem; line-height: 1.85; }
+.contact-redesign__stage { position: relative; display: grid; width: min(100%, 86rem); margin: 3.5rem auto 0; grid-template-columns: 7rem minmax(0, 1fr) 7rem; gap: 1.5rem; align-items: center; }
+.contact-redesign__form-card { min-height: 39rem; border: 1px solid color-mix(in srgb, var(--primary) 18%, var(--border)); border-radius: clamp(1.6rem, 3vw, 2.6rem); padding: clamp(1.1rem, 2.8vw, 2rem); background: color-mix(in srgb, var(--surface) 94%, transparent); box-shadow: 0 45px 110px -74px var(--cool-shadow), inset 0 1px 0 color-mix(in srgb, var(--domi-absolute-white) 45%, transparent); }
+.contact-redesign__progress { display: grid; grid-template-columns: repeat(3, 1fr); gap: .55rem; }
+.contact-redesign__progress > div { display: flex; align-items: center; gap: .55rem; min-height: 2.8rem; padding: .6rem .75rem; border: 1px solid var(--border); border-radius: .9rem; color: var(--muted); background: var(--surface-muted); font-size: .72rem; font-weight: 750; }
+.contact-redesign__progress i { display: grid; width: 1.45rem; height: 1.45rem; place-items: center; flex: none; border-radius: 50%; background: var(--border); font-style: normal; font-size: .62rem; }
+.contact-redesign__progress > div[data-active="true"] { color: var(--primary); border-color: color-mix(in srgb, var(--primary) 26%, var(--border)); background: color-mix(in srgb, var(--primary) 6%, var(--surface)); }
+.contact-redesign__progress > div[data-active="true"] i { color: var(--primary-contrast); background: var(--primary); }
+.contact-redesign__panel { padding: clamp(1.5rem, 4vw, 3rem) .2rem 1rem; }
+.contact-redesign__panel[hidden] { display: none; }
+.contact-redesign__label { font-size: clamp(1.55rem, 2.7vw, 2.25rem); font-weight: 750; }
+.contact-redesign__help { display: block; margin-top: .45rem; color: var(--muted); font-size: .9rem; }
+.contact-redesign__project-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: .75rem; margin-top: 1.5rem; }
+.contact-redesign__project-grid button { min-height: 7.4rem; border: 1px solid var(--border); border-radius: 1.15rem; padding: 1rem; color: var(--fg); background: var(--surface-muted); cursor: pointer; text-align: start; transition: transform .2s ease, border .2s ease, background .2s ease; }
+.contact-redesign__project-grid button:hover { transform: translateY(-2px); }
+.contact-redesign__project-grid button[data-selected="true"] { border-color: color-mix(in srgb, var(--primary) 52%, var(--border)); background: color-mix(in srgb, var(--primary) 7%, var(--surface)); box-shadow: inset 0 0 0 1px color-mix(in srgb, var(--primary) 12%, transparent); }
+.contact-redesign__project-grid strong { display: block; color: var(--fg); font-size: 1rem; }
+.contact-redesign__project-grid button[data-selected="true"] strong { color: var(--primary); }
+.contact-redesign__project-grid span { display: block; margin-top: .45rem; color: var(--muted); font-size: .78rem; line-height: 1.55; }
+.contact-redesign__panel label { display: block; margin-bottom: 1rem; }
+.contact-redesign__panel label > span { display: block; margin-bottom: .5rem; color: var(--fg); font-size: .84rem; font-weight: 800; }
+.contact-redesign__panel textarea,
+.contact-redesign__panel input { width: 100%; border: 1px solid var(--border); border-radius: 1rem; padding: .9rem 1rem; color: var(--fg); background: var(--surface-muted); outline: none; }
+.contact-redesign__panel textarea { resize: vertical; line-height: 1.7; }
+.contact-redesign__panel :is(textarea,input):focus { border-color: var(--primary); box-shadow: 0 0 0 3px color-mix(in srgb, var(--primary) 12%, transparent); background: var(--surface); }
+.contact-redesign__fields { display: grid; grid-template-columns: 1fr 1fr; gap: .85rem 1rem; }
+.contact-redesign__privacy { color: var(--muted); font-size: .72rem; }
+.contact-redesign__error { margin: 0 0 1rem; color: var(--domi-danger); font-size: .82rem; font-weight: 750; }
+.contact-redesign__form-actions { display: flex; align-items: center; justify-content: space-between; gap: 1rem; border-top: 1px solid var(--border); padding-top: 1rem; }
+.contact-redesign__back,
+.contact-redesign__next { display: inline-flex; min-height: 3rem; align-items: center; justify-content: center; gap: .55rem; border-radius: 999px; padding: .7rem 1.1rem; font-weight: 850; cursor: pointer; }
+.contact-redesign__back { border: 1px solid var(--border); color: var(--fg); background: var(--surface); }
+.contact-redesign__next { border: 1px solid var(--primary); color: var(--primary-contrast); background: var(--primary); }
+.contact-redesign__next svg { width: 1rem; height: 1rem; }
+.contact-redesign__channels { display: flex; flex-direction: column; gap: .7rem; }
+.contact-redesign__channels a { display: flex; min-height: 5.8rem; flex-direction: column; align-items: center; justify-content: center; gap: .45rem; border: 1px solid var(--border); border-radius: 1.25rem; color: var(--muted); background: color-mix(in srgb, var(--surface) 88%, transparent); box-shadow: 0 20px 50px -42px var(--cool-shadow); text-decoration: none; transition: transform .2s ease, color .2s ease, border .2s ease; }
+.contact-redesign__channels a:hover { transform: translateY(-2px) rotate(.5deg); color: var(--primary); border-color: color-mix(in srgb, var(--primary) 36%, var(--border)); }
+.contact-redesign__channels svg { width: 1.35rem; height: 1.35rem; }
+.contact-redesign__channels span { font-size: .7rem; font-weight: 800; }
+.contact-redesign__up { display: grid; width: 1.8rem; height: 1.8rem; place-items: center; border-radius: .55rem; color: var(--primary); background: color-mix(in srgb, var(--primary) 10%, transparent); font-family: var(--font-en-display); font-size: .55rem !important; }
+.contact-redesign__success { display: flex; min-height: 30rem; flex-direction: column; align-items: center; justify-content: center; text-align: center; }
+.contact-redesign__success > svg { width: 4rem; height: 4rem; color: var(--primary); }
+.contact-redesign__success h2 { margin-top: 1rem; font-size: 2.3rem; }
+.contact-redesign__success p { max-width: 34rem; margin-top: .75rem; color: var(--muted); line-height: 1.8; }
+.contact-redesign__success button { margin-top: 1.5rem; border: 1px solid var(--border); border-radius: 999px; padding: .8rem 1.1rem; color: var(--fg); background: var(--surface); cursor: pointer; font-weight: 800; }
+
+@media (max-width: 900px) {
+  .contact-redesign__stage { grid-template-columns: 1fr; }
+  .contact-redesign__channels { flex-direction: row; justify-content: center; order: 2; }
+  .contact-redesign__channels--end { margin-top: -.9rem; }
+  .contact-redesign__channels a { min-height: 4.2rem; min-width: 4.8rem; padding: .5rem; }
+  .contact-redesign__form-card { order: 1; }
+}
+@media (max-width: 640px) {
+  .contact-redesign__hero { padding-inline: .8rem; }
+  .contact-redesign__intro h1 { font-size: clamp(2.6rem, 12vw, 4.2rem); }
+  .contact-redesign__form-card { min-height: 35rem; border-radius: 1.35rem; }
+  .contact-redesign__progress span { display: none; }
+  .contact-redesign__progress > div { justify-content: center; }
+  .contact-redesign__project-grid { grid-template-columns: 1fr; }
+  .contact-redesign__project-grid button { min-height: 5.8rem; }
+  .contact-redesign__fields { grid-template-columns: 1fr; }
+  .contact-redesign__channels { overflow-x: auto; justify-content: flex-start; padding-inline: .2rem; }
+}
+.contact-redesign__next:disabled { opacity: .46; cursor: not-allowed; transform: none; }

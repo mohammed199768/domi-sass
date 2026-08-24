@@ -1,466 +1,109 @@
 "use client";
 
-/**
- * Why Change — "The cost of standing still."
- *
- * A strategic diagnostic experience in five movements:
- *   1. Diagnostic hero      — "Standing still is not neutral."
- *   2. Pressure map         — four forces already in motion
- *   3. The invisible loss   — leakage, with a liquid signal line breaking
- *                             into deterministic loss marks (SVG only)
- *   4. The strategic shift  — editorial before → after pairs
- *   5. Closing CTA          — calm, strong, emerald
- *
- * Motion system: one IntersectionObserver arms [data-reveal] elements with a
- * one-shot data-in attribute (no React state, no animation libraries, no
- * pinning, no scrub). CSS transitions do the rest — opacity/transform only.
- * Reduced motion: nothing is armed; the page renders fully visible & static.
- */
+import EditorialWhyPage, { type EditorialPageCopy } from "@/features/editorial/EditorialWhyPage";
+import "@/features/editorial/editorial-page.css";
 
-import { useEffect, useRef } from "react";
-import Header from "@/components/Header";
-import Footer from "@/components/Footer";
-import WhyPageCtaCluster, { type WhyCtaAction } from "@/components/WhyPageCtaCluster";
-import SectionSignalField from "@/components/SectionSignalField";
-import { useLanguage } from "@/context/LanguageContext";
-import styles from "./why-change.module.css";
-
-/* ── Copy ─────────────────────────────────────────────────────────────────── */
-
-const COPY = {
-  en: {
-    eyebrow: "DOMINASE / Diagnosis",
-    title: "Standing still is not neutral. It is a quiet decline.",
-    subtitle:
-      "The market moves, attention scatters, and customer expectations rise every day. A website that stays the same does not hold its position; it falls behind quietly, and the loss compounds before anyone notices it.",
-    heroMetaA: "WHY / CHANGE",
-    heroMetaB: "SIGNAL / 01",
-    chart: {
-      title: "Conceptual diagnostic chart: customer expectations rise over time while a static website stays flat, and the gap between them is lost opportunity.",
-      axis: "Time / Market movement",
-      expectations: "Customer expectations",
-      staticSite: "Static website",
-      gap: "Lost opportunity",
-      marker: "Gap widens",
-      signals: ["Attention shifts", "Trust becomes visual", "Speed becomes expected"],
+const ar: EditorialPageCopy = {
+  breadcrumb: "DOMINASE / لماذا التغيير؟",
+  title: "موقعك ممكن يشتغل… ويضيّع فرص بنفس الوقت.",
+  lead: "المشكلة ليست دائماً أن الموقع قديم أو معطّل. أحياناً يفتح بسرعة ويبدو مقبولاً، لكنه لا يشرحك بما يكفي، لا يبني الثقة بسرعة، ولا يقود العميل إلى الخطوة التي تريدها. ومع تغيّر السوق، هذه الفجوة تكبر بهدوء.",
+  readTime: "حوالي 6 دقائق",
+  topics: ["تجربة العميل", "التحويل", "النمو الرقمي"],
+  primary: { label: "شخّص موقعك", href: "/diagnosis" },
+  secondary: { label: "شاهد كيف نشتغل", href: "/why-us" },
+  summaryLabel: "الفكرة باختصار",
+  summary: "إذا بقي السوق يتطور وموقعك بقي يقدم نفس التجربة، فأنت لا تحافظ على مكانك فعلياً. المطلوب ليس إعادة تصميم كل سنة؛ المطلوب أن يظل حضورك الرقمي واضحاً، سريعاً، قابلاً للقياس ومتصلاً بما يحدث بعد الزيارة.",
+  summaryPoints: ["العميل يفهمك من أول شاشة.", "يعرف ما الخطوة التالية بدون بحث.", "فريقك يعرف ماذا حدث بعد أن ضغط."],
+  tocLabel: "في هذه الصفحة",
+  sections: [
+    {
+      id: "market",
+      eyebrow: "السوق تحرّك",
+      title: "العميل اليوم لا يعطيك وقتاً طويلاً لتشرح نفسك.",
+      paragraphs: [
+        "العميل في الأردن أو السعودية غالباً يصل من هاتفه: إعلان، Google، Instagram، توصية أو رابط واتساب. وخلال ثوانٍ يبدأ يقارن بينك وبين خيارات أخرى. إذا احتاج أن يبحث عن السعر، الخدمة، طريقة الحجز أو سبب يثق فيك، فأنت تضع مجهوداً إضافياً بينه وبين القرار.",
+        "الموقع لم يعد بروشوراً رقمياً. هو جزء من تجربة البيع والخدمة. طريقة ترتيب المعلومة، سرعة الصفحة، وضوح الزر، ونوعية الإثباتات الموجودة كلها تدخل في قرار العميل حتى قبل أن يتواصل معك.",
+      ],
+      callout: { label: "بكلمات أبسط", text: "وجود الموقع وحده لا يكفي. السؤال الحقيقي: هل يساعد العميل على أن يفهم، يثق ويتحرك؟" },
     },
-    pressureEyebrow: "Four forces reshaping the market",
-    pressureTitle: "The pressure map",
-    pressure: [
-      {
-        title: "Attention has changed",
-        body: "Your customer decides in a few seconds, on a small screen, between dozens of options. Attention is no longer simply given — it has to be earned with merit.",
-      },
-      {
-        title: "Trust became visual",
-        body: "Before anyone reads the details of your offer, they judge the surface that carries it. Design is no longer decoration; it has become the first signal of your competence.",
-      },
-      {
-        title: "Speed became expected",
-        body: "Slow pages and unclear paths are instantly read as neglect. Any hesitation or delay in your website interface becomes hesitation in the customer’s decision.",
-      },
-      {
-        title: "Systems are your reputation",
-        body: "Booking, replying, and following up. Your customers feel the strength or weakness of your internal system through the screen, whether you planned for it or not.",
-      },
-    ],
-    leakEyebrow: "The invisible loss",
-    leakTitle: "You do not see what leaks.",
-    leakBody:
-      "The most damaging losses are the quiet ones that never appear in sales reports. They happen one visitor at a time, in the small gap between interest and action.",
-    leaks: [
-      "Customers who were genuinely interested — but left before they contacted you.",
-      "A strong offer — but it reached the customer one screen too late.",
-      "A weak first impression — one that does not reflect your real professionalism.",
-      "A complicated manual effort for the customer — where one click should have been enough.",
-      "Trust that disappeared completely — before the first conversation even began.",
-    ],
-    leakCaption: "SIGNAL LOSS / UNMEASURED",
-    shiftEyebrow: "The strategic shift",
-    shiftTitle: "From mere presence to a working system.",
-    shiftBefore: "Before",
-    shiftAfter: "After",
-    shifts: [
-      ["From a static digital presence", "to a smart path guided toward action."],
-      ["From design as a visual layer", "to design as trust architecture."],
-      ["From pages that only describe", "to systems that move and respond."],
-      ["From updates treated as a burden", "to continuous improvement that gives you an advantage."],
-    ],
-    ctaEyebrow: "The next step",
-    ctaTitle: "Change is not a luxury or decoration. It is the system your business deserves in order to grow.",
-    ctaBody:
-      "Start a real conversation with us about what your website should be doing, and what its absence is silently costing you today.",
-    ctaPrimary: "Start the diagnosis",
-    ctaSecondary: "See the method",
-    ctaAria: "Next step links",
-  },
-  ar: {
-    eyebrow: "DOMINASE / التّشخيص",
-    title: "الثبات ليس حياداً.. إنه تراجع صامت.",
-    subtitle:
-      "السوق يتحرك، والانتباه يتشتت، وتوقعات العملاء ترتفع كل يوم. الموقع الذي يبقى كما هو لا يحافظ على مكانه؛ بل يتأخر بهدوء، والخسارة تتراكم فيه قبل أن يلاحظها أحد.",
-    heroMetaA: "لماذا / التغيير",
-    heroMetaB: "إشارة / 01",
-    chart: {
-      title: "مخطط تشخيصي مفاهيمي: توقعات العملاء ترتفع مع الزمن بينما يبقى الموقع الثابت كما هو، والفجوة بينهما فرص مهدورة.",
-      axis: "الزمن / حركة السوق",
-      expectations: "توقعات العملاء",
-      staticSite: "موقع ثابت",
-      gap: "فرص مهدورة",
-      marker: "الفجوة تتسع",
-      signals: ["الانتباه يتحول", "الثقة تصبح بصرية", "السرعة تصبح متوقعة"],
+    {
+      id: "pressure",
+      eyebrow: "أربع نقاط ضغط",
+      title: "أين يبدأ الموقع بخسارة الزائر؟",
+      paragraphs: ["الخسارة لا تحدث دائماً في لحظة واحدة. غالباً تبدأ من تفاصيل صغيرة تتجمع فوق بعضها حتى يصبح الخروج أسهل من الاستمرار."],
+      cards: [
+        { title: "الانتباه أقصر", body: "العنوان العام أو الشاشة المزدحمة تجعل العميل يستهلك أول ثوانيه في محاولة فهم ما تقدمه بدل أن يفهم قيمتك." },
+        { title: "الثقة تبدأ بصرياً", body: "قبل أن يقرأ الشهادات أو التفاصيل، يأخذ انطباعاً من التنظيم، اللغة، الصور، السرعة ومدى اتساق الموقع مع مستوى عملك الحقيقي." },
+        { title: "الخطوة التالية يجب أن تكون واضحة", body: "ليس كل زائر يريد واتساب. واحد يريد يحجز، آخر يريد يشوف الأعمال، وثالث يحتاج يحسب أو يختار قبل التواصل." },
+        { title: "ما بعد الـCTA مهم", body: "إذا ضغط العميل ثم دخل في محادثة ضائعة أو نموذج طويل أو متابعة يدوية بدون تسجيل، المشكلة انتقلت من الموقع إلى التشغيل." },
+      ],
     },
-    pressureEyebrow: "أربع قوى تُعيد تشكيل السوق",
-    pressureTitle: "خريطة الضغط",
-    pressure: [
-      {
-        title: "الانتباه تغيّر",
-        body: "عميلك يقرر في ثوانٍ معدودة، على شاشة صغيرة، بين عشرات الخيارات. الانتباه اليوم لم يعد يُمنح ببساطة — بل يجب أن يُنتزع بجدارة.",
-      },
-      {
-        title: "الثقة صارت بصرية",
-        body: "قبل أن يقرأ أي شخص تفاصيل عرضك، فإنه يحكم على السطح الذي يعيش عليه هذا العرض. التصميم لم يعد زينة؛ بل أصبح الدليل الأول على كفاءتك.",
-      },
-      {
-        title: "السرعة صارت متوقعة",
-        body: "الصفحات البطيئة والمسارات الغامضة تُترجم فوراً كإهمال. تذكّر: أي تردد أو بطء في واجهة موقعك، يتحول مباشرة إلى تردد في قرار العميل.",
-      },
-      {
-        title: "الأنظمة هي سُمعتك",
-        body: "الحجز، الرد، والمتابعة. عملاؤك يشعرون بمدى قوة أو ضعف نظامك الداخلي من خلف الشاشة، سواء خططت لذلك أم لا.",
-      },
-    ],
-    leakEyebrow: "الخسارة غير المرئية",
-    leakTitle: "أنت لا ترى ما يتسرب.",
-    leakBody:
-      "الخسائر الأشد فتكاً هي تلك الهادئة التي لا تظهر في تقارير المبيعات. إنها تحدث زائراً تلو الآخر، في تلك الفجوة الصغيرة بين \"الاهتمام\" و\"اتخاذ الخطوة\":",
-    leaks: [
-      "عملاء كانوا مهتمين حقاً — لكنهم غادروا قبل أن يراسلوك.",
-      "عرض قوي — لكنه وصل للعميل متأخراً بشاشة واحدة.",
-      "انطباع أول باهت — لا يعكس أبداً حجم احترافيتك على أرض الواقع.",
-      "جهد يدوي معقد للعميل — في مكان كان يكفي فيه نقرة زر واحدة.",
-      "ثقة تبخرت تماماً — حتى قبل أن تبدأ أول محادثة بينكم.",
-    ],
-    leakCaption: "فقد الإشارة / غير مقاس",
-    shiftEyebrow: "التحول الاستراتيجي",
-    shiftTitle: "من مجرد حضور.. إلى نظام يعمل.",
-    shiftBefore: "قبل",
-    shiftAfter: "بعد",
-    shifts: [
-      ["من حضور رقمي ثابت", "إلى مسار ذكي موجّه نحو الإجراء."],
-      ["من تصميم كواجهة جمالية", "إلى تصميم كهندسة لبناء الثقة."],
-      ["من صفحات تكتفي بالوصف", "إلى أنظمة تُحرّك وتتفاعل."],
-      ["من تحديثات تُعتبر عبئاً", "إلى تطوير مستمر يمنحك الأفضلية."],
-    ],
-    ctaEyebrow: "الخطوة التالية",
-    ctaTitle: "التغيير ليس ترفاً ولا زينة.. إنه النظام الذي يستحقه عملك لينمو.",
-    ctaBody:
-      "ابدأ معنا محادثة حقيقية حول ما يجب أن يفعله موقعك، وما الذي يكلفك فقدانه اليوم بصمت.",
-    ctaPrimary: "ابدأ التّشخيص",
-    ctaSecondary: "شاهد المنهجية",
-    ctaAria: "روابط الخطوة التالية",
-  },
-} as const;
-
-/* ── Gap chart: the strategic diagnostic behind the hero claim ────────────────
- * Conceptual, not analytical: no numbers, no percentages, no fake data.
- * One rising emerald line (customer expectations), one flat muted line
- * (a static website), and the hatched region between them — the quiet,
- * compounding loss. The chart keeps LTR geometry in both languages (time
- * axes read left-to-right universally); only the labels are localized. */
-
-type GapChartCopy = {
-  title: string;
-  axis: string;
-  expectations: string;
-  staticSite: string;
-  gap: string;
-  marker: string;
-  signals: readonly string[];
+    {
+      id: "invisible-loss",
+      eyebrow: "الخسارة غير المرئية",
+      title: "أنت ترى العملاء الذين وصلوا. لا ترى الذين كانوا قريبين ثم خرجوا.",
+      paragraphs: [
+        "تقارير المبيعات تخبرك بمن حجز ومن اتصل. لكنها لا تخبرك دائماً عن الشخص الذي دخل وهو مهتم، قرأ نصف الصفحة، لم يجد الإجابة أو الإجراء المناسب، ثم خرج. هذه الفرص لا تظهر كشكوى ولا كطلب ضائع؛ ببساطة تختفي.",
+        "لهذا السبب لا نقيس نجاح الموقع فقط بعدد الزيارات. نريد أن نعرف من أين أتى المستخدم، ماذا شاهد، أي CTA ضغط، وأين توقف. هذه البيانات تحوّل التحسين من رأي شخصي إلى قرار عملي.",
+      ],
+      callout: { label: "المشكلة", text: "ليس كل شخص لم يراسلك غير مهتم. أحياناً المسار نفسه لم يعطه سبباً كافياً ليكمل." },
+    },
+    {
+      id: "shift",
+      eyebrow: "التحول المطلوب",
+      title: "المطلوب ليس موقعاً أجمل فقط. المطلوب موقع يؤدي وظيفة.",
+      paragraphs: ["التصميم مهم، لكن قيمته الحقيقية تظهر عندما يرتب القرار. نريد أن يعرف الزائر ماذا تقدم، لماذا يثق بك، وما الخطوة المناسبة له الآن — بدون أن يشعر أنه يقرأ عرضاً تقديمياً طويلاً."],
+      pairs: [
+        { before: "صفحات تعرض معلومات فقط.", after: "مسار يشرح ثم يقود إلى إجراء." },
+        { before: "زر تواصل واحد لكل الزوار.", after: "CTA مختلف حسب نية المستخدم والحملة." },
+        { before: "زيارات بدون فهم لما حدث.", after: "Tracking يوضح المصدر والسلوك والتحويل." },
+        { before: "الحجز ينتهي برسالة.", after: "الحجز يدخل في متابعة أو CRM منظم." },
+      ],
+    },
+    {
+      id: "system",
+      eyebrow: "من حضور إلى نظام",
+      title: "أفضل موقع هو الذي يكمل شغلك بعد أن يخرج العميل من الصفحة.",
+      paragraphs: [
+        "إذا كان هدفك حجزاً، طلباً، بيع دورة أو جمع lead، فمنطقي أن يكون الموقع متصلاً بما بعد هذه الخطوة. الحجز يدخل في لوحة إدارة، الطلب يُسند، بيانات العميل تُحفظ، والفريق يعرف من يحتاج متابعة.",
+        "هنا يتحول الموقع من مصروف تسويقي إلى جزء فعلي من طريقة التشغيل. وهذا لا يعني أن كل مشروع يحتاج نظاماً ضخماً؛ أحياناً أبسط تكامل صحيح يوفر ساعات من العمل اليدوي ويمنع فرصاً من الضياع.",
+      ],
+      flow: ["زيارة", "CTA مناسب", "حجز / طلب", "Tracking", "CRM / متابعة"],
+    },
+  ],
+  final: { eyebrow: "الخطوة التالية", title: "قبل ما تعيد تصميم الموقع، اعرف وين فعلياً يضيع العميل.", body: "نراجع معك العرض، رحلة العميل، الـCTA، الحجز والمتابعة، ونحدد ما يحتاج تغييراً وما يمكن أن يبقى كما هو.", primary: "ابدأ التشخيص", secondary: "شاهد أعمالنا" },
 };
 
-function GapChart({ c }: { c: GapChartCopy }) {
-  // Signal dots sitting on the expectations curve, with their micro-labels.
-  const signalDots = [
-    { x: 116, y: 148 },
-    { x: 202, y: 120 },
-    { x: 284, y: 87 },
-  ];
+const en: EditorialPageCopy = {
+  breadcrumb: "DOMINASE / Why change?",
+  title: "A website can work perfectly — and still lose opportunities.",
+  lead: "The problem is not always an old or broken website. Sometimes it loads, looks acceptable, and still fails to explain the business, build trust quickly, or guide a customer to the right next step. As the market evolves, that gap quietly gets wider.",
+  readTime: "About 6 minutes",
+  topics: ["Customer experience", "Conversion", "Digital growth"],
+  primary: { label: "Diagnose your website", href: "/diagnosis" },
+  secondary: { label: "See how we work", href: "/why-us" },
+  summaryLabel: "The idea in brief",
+  summary: "If the market keeps evolving while your site keeps delivering the same experience, you are not really standing still. The goal is not constant redesign; it is a digital presence that stays clear, fast, measurable, and connected to what happens after the visit.",
+  summaryPoints: ["Customers understand you from the first screen.", "They know the next step without searching.", "Your team knows what happened after the click."],
+  tocLabel: "On this page",
+  sections: [
+    { id: "market", eyebrow: "The market moved", title: "Customers no longer give you much time to explain yourself.", paragraphs: ["Customers often arrive on mobile from an ad, Google, Instagram, a referral, or WhatsApp. Within seconds they compare you with alternatives. If they have to hunt for the offer, booking path, or reason to trust you, you are adding friction before the decision.", "A website is no longer a digital brochure. It is part of the sales and service experience. Hierarchy, speed, language, proof, and the action path all shape the decision before a conversation begins."], callout: { label: "In simpler terms", text: "Having a website is not enough. The question is whether it helps people understand, trust, and move." } },
+    { id: "pressure", eyebrow: "Four pressure points", title: "Where does a website start losing the visitor?", paragraphs: ["Loss rarely happens in one dramatic moment. It usually comes from small points of friction stacking up until leaving is easier than continuing."], cards: [
+      { title: "Attention is shorter", body: "A generic headline or crowded first screen makes people spend their first seconds decoding the business instead of seeing the value." },
+      { title: "Trust starts visually", body: "Before details are read, people judge structure, language, imagery, speed, and whether the site feels consistent with the quality of the business." },
+      { title: "The next step must be obvious", body: "Not every visitor wants WhatsApp. One wants to book, another wants proof, and another needs to choose or calculate before contact." },
+      { title: "What happens after the CTA matters", body: "If the click leads to a lost conversation, a long form, or manual follow-up with no tracking, the friction simply moved from the website into operations." },
+    ] },
+    { id: "invisible-loss", eyebrow: "Invisible loss", title: "You see the customers who arrived. You rarely see the ones who almost did.", paragraphs: ["Sales reports show bookings and calls. They do not always show the person who arrived interested, read half the page, could not find the answer or action, and left. Those opportunities do not complain; they disappear.", "That is why we do not judge a site only by traffic. We want to know where users came from, what they viewed, which CTA they clicked, and where they stopped. Measurement turns improvement from opinion into a practical decision."], callout: { label: "The point", text: "Not everyone who did not contact you was uninterested. Sometimes the journey did not give them enough reason to continue." } },
+    { id: "shift", eyebrow: "The required shift", title: "The goal is not a prettier website. It is a website with a job.", paragraphs: ["Design matters, but its real value is in structuring decisions. A visitor should understand what you offer, why to trust you, and which next step fits them now — without feeling like they are reading a long presentation."], pairs: [
+      { before: "Pages that only display information.", after: "A path that explains and leads to action." },
+      { before: "One contact button for everyone.", after: "Different CTAs by intent and campaign." },
+      { before: "Visits with no useful context.", after: "Tracking that shows source, behavior, and conversion." },
+      { before: "A booking ends as a message.", after: "The booking moves into structured follow-up or CRM." },
+    ] },
+    { id: "system", eyebrow: "From presence to system", title: "The best website keeps working after the customer leaves the page.", paragraphs: ["If the goal is a booking, request, course sale, or lead, the site should connect to what happens next. Bookings enter an admin view, requests are assigned, customer context is stored, and the team can see who needs follow-up.", "That is when a website becomes part of operations rather than a marketing expense. It does not mean every project needs a huge platform; sometimes one correct integration removes hours of manual work and prevents opportunities from disappearing."], flow: ["Visit", "Relevant CTA", "Booking / request", "Tracking", "CRM / follow-up"] },
+  ],
+  final: { eyebrow: "Next step", title: "Before redesigning the website, find where the customer is actually getting lost.", body: "We review the offer, journey, CTA, booking, and follow-up so you can see what genuinely needs to change — and what can stay.", primary: "Start the diagnosis", secondary: "View our work" },
+};
 
-  return (
-    <svg
-      className="wc-gap-chart"
-      viewBox="0 0 380 240"
-      role="img"
-      focusable="false"
-      preserveAspectRatio="xMidYMid meet"
-      style={{ direction: "ltr" }}
-    >
-      <title>{c.title}</title>
-      <defs>
-        {/* Diagonal hatch — reads as "unmeasured loss", not as filled data. */}
-        <pattern id="wc-gap-hatch" width="7" height="7" patternUnits="userSpaceOnUse" patternTransform="rotate(45)">
-          <line x1="0" y1="0" x2="0" y2="7" className="wc-gap-hatchline" />
-        </pattern>
-      </defs>
-
-      {/* Axes */}
-      <line className="wc-gap-axis" x1="34" y1="200" x2="352" y2="200" />
-      <line className="wc-gap-axis" x1="34" y1="200" x2="34" y2="34" />
-      {[114, 193, 272].map((x) => (
-        <line key={x} className="wc-gap-axis" x1={x} y1="200" x2={x} y2="204" />
-      ))}
-      <text className="wc-gap-axis-label" x="193" y="222" textAnchor="middle">
-        {c.axis}
-      </text>
-
-      {/* Legend */}
-      <line className="wc-gap-swatch wc-gap-swatch--rise" x1="34" y1="20" x2="54" y2="20" />
-      <text className="wc-gap-legend" x="60" y="23">{c.expectations}</text>
-      <line className="wc-gap-swatch wc-gap-swatch--flat" x1="34" y1="36" x2="54" y2="36" />
-      <text className="wc-gap-legend" x="60" y="39">{c.staticSite}</text>
-
-      {/* The widening gap — hatched, conceptual */}
-      <path
-        className="wc-gap-area"
-        d="M34 164 C 120 154, 210 110, 344 56 L344 158 L34 166 Z"
-        fill="url(#wc-gap-hatch)"
-      />
-      <text className="wc-gap-area-label" x="252" y="136" textAnchor="middle">
-        {c.gap}
-      </text>
-
-      {/* Static website — flat, muted */}
-      <path className="wc-gap-flat" d="M34 164 L344 158" pathLength={1} />
-
-      {/* Customer expectations — rising, emerald */}
-      <path className="wc-gap-rise" d="M34 164 C 120 154, 210 110, 344 56" pathLength={1} />
-
-      {/* Signal points along the rising line */}
-      {signalDots.map((dot, i) => (
-        <g key={dot.x}>
-          <circle className="wc-gap-dot" cx={dot.x} cy={dot.y} r="3" style={{ transitionDelay: `${700 + i * 140}ms` }} />
-          <text className="wc-gap-signal" x={dot.x} y={dot.y - 10} textAnchor="middle">
-            {c.signals[i]}
-          </text>
-        </g>
-      ))}
-
-      {/* Diagnostic marker at the widest point */}
-      <circle className="wc-gap-dot wc-gap-dot--end" cx="344" cy="56" r="3.6" style={{ transitionDelay: "1150ms" }} />
-      <line className="wc-gap-bracket" x1="352" y1="56" x2="352" y2="158" />
-      <line className="wc-gap-bracket" x1="348" y1="56" x2="356" y2="56" />
-      <line className="wc-gap-bracket" x1="348" y1="158" x2="356" y2="158" />
-      <text className="wc-gap-marker" x="352" y="44" textAnchor="end">
-        {c.marker}
-      </text>
-    </svg>
-  );
-}
-
-/* ── Leak signal: a liquid line that breaks into loss marks ───────────────── */
-
-function LeakSignal({ caption }: { caption: string }) {
-  return (
-    <figure className="wc-leak-figure" aria-hidden="true">
-      <svg className="wc-leak-svg" viewBox="0 0 340 210" focusable="false">
-        {/* Healthy signal flowing in */}
-        <path
-          className="wc-leak-flow"
-          d="M8 96 C 60 92, 104 64, 152 70 S 208 96, 224 100"
-          pathLength={1}
-        />
-        {/* Break node */}
-        <circle className="wc-leak-node" cx={224} cy={100} r={3.4} />
-        {/* Weakened continuation */}
-        <path
-          className="wc-leak-fade"
-          d="M224 100 C 252 104, 284 100, 330 92"
-          pathLength={1}
-        />
-        {/* Loss marks scattering below the break — deterministic */}
-        <line className="wc-leak-mark" x1={230} y1={116} x2={236} y2={126} style={{ transitionDelay: "900ms" }} />
-        <line className="wc-leak-mark" x1={246} y1={128} x2={250} y2={138} style={{ transitionDelay: "1020ms" }} />
-        <circle className="wc-leak-drop" cx={238} cy={150} r={2.2} style={{ transitionDelay: "1140ms" }} />
-        <circle className="wc-leak-drop" cx={258} cy={160} r={1.7} style={{ transitionDelay: "1260ms" }} />
-        <circle className="wc-leak-drop" cx={272} cy={146} r={1.4} style={{ transitionDelay: "1380ms" }} />
-        {/* Measurement ticks */}
-        <line className="wc-leak-tick" x1={152} y1={56} x2={152} y2={66} />
-        <line className="wc-leak-tick" x1={90} y1={84} x2={100} y2={84} />
-      </svg>
-      <figcaption className="wc-leak-caption">
-        <span>DOMINASE</span>
-        <span>{caption}</span>
-      </figcaption>
-    </figure>
-  );
-}
-
-/* ── Page ─────────────────────────────────────────────────────────────────── */
-
-export default function WhyChangeClient() {
-  const { language } = useLanguage();
-  const isAr = language === "ar";
-  const t = COPY[isAr ? "ar" : "en"];
-  const rootRef = useRef<HTMLElement>(null);
-
-  const ctaActions: WhyCtaAction[] = [
-    { label: t.ctaPrimary, href: "/contact", intent: "primary" },
-    { label: t.ctaSecondary, href: "/why-us", intent: "secondary" },
-  ];
-
-  /* One-shot reveal system: observer arms [data-reveal] → data-in.
-     Progressive enhancement — without JS (or with reduced motion) the page
-     is fully visible because hiding is scoped to [data-motion="armed"]. */
-  useEffect(() => {
-    const root = rootRef.current;
-    if (!root) return;
-    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
-
-    root.dataset.motion = "armed";
-    const targets = root.querySelectorAll<HTMLElement>("[data-reveal]");
-    const observer = new IntersectionObserver(
-      (entries) => {
-        for (const entry of entries) {
-          if (entry.isIntersecting) {
-            (entry.target as HTMLElement).dataset.in = "true";
-            observer.unobserve(entry.target);
-          }
-        }
-      },
-      { threshold: 0.18, rootMargin: "0px 0px -6% 0px" }
-    );
-    targets.forEach((el) => observer.observe(el));
-
-    return () => {
-      observer.disconnect();
-      delete root.dataset.motion;
-    };
-  }, [language]);
-
-  return (
-    <main
-      ref={rootRef}
-      className={styles.page}
-      lang={language}
-      dir={isAr ? "rtl" : "ltr"}
-    >
-      <Header />
-
-      {/* 1 — Diagnostic hero */}
-      <section className="wc-hero" aria-labelledby="wc-title">
-        <div className="wc-hero__copy">
-          <p className="wc-eyebrow" data-reveal>{t.eyebrow}</p>
-          <h1 id="wc-title" data-reveal style={{ transitionDelay: "90ms" }}>
-            {t.title}
-          </h1>
-          <p className="wc-hero__subtitle" data-reveal style={{ transitionDelay: "180ms" }}>
-            {t.subtitle}
-          </p>
-          <div data-reveal style={{ transitionDelay: "270ms" }}>
-            <WhyPageCtaCluster
-              className="wc-cta-cluster"
-              buttonClassName="wc-button"
-              ariaLabel={t.ctaAria}
-              actions={ctaActions}
-            />
-          </div>
-        </div>
-
-        <div className="wc-hero__visual" data-reveal style={{ transitionDelay: "220ms" }}>
-          <div className="wc-hero__frame">
-            <GapChart c={t.chart} />
-            <div className="wc-hero__meta" aria-hidden="true">
-              <span>{t.heroMetaA}</span>
-              <span>{t.heroMetaB}</span>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* 2 — Pressure map */}
-      <section className="wc-pressure" aria-labelledby="wc-pressure-title">
-        <header data-reveal>
-          <p className="wc-eyebrow">{t.pressureEyebrow}</p>
-          <h2 id="wc-pressure-title">{t.pressureTitle}</h2>
-        </header>
-        <ol className="wc-pressure__list">
-          {t.pressure.map((force, index) => (
-            <li key={force.title} data-reveal style={{ transitionDelay: `${index * 80}ms` }}>
-              <span className="wc-pressure__index" aria-hidden="true">
-                {String(index + 1).padStart(2, "0")}
-              </span>
-              <h3>{force.title}</h3>
-              <p>{force.body}</p>
-            </li>
-          ))}
-        </ol>
-      </section>
-
-      {/* 3 — The invisible loss */}
-      <section className="wc-leak" aria-labelledby="wc-leak-title">
-        <div className="wc-leak__copy">
-          <p className="wc-eyebrow" data-reveal>{t.leakEyebrow}</p>
-          <h2 id="wc-leak-title" data-reveal style={{ transitionDelay: "80ms" }}>
-            {t.leakTitle}
-          </h2>
-          <p className="wc-leak__body" data-reveal style={{ transitionDelay: "160ms" }}>
-            {t.leakBody}
-          </p>
-          <ul className="wc-leak__list">
-            {t.leaks.map((leak, index) => (
-              <li key={leak} data-reveal style={{ transitionDelay: `${200 + index * 70}ms` }}>
-                <span aria-hidden="true" />
-                {leak}
-              </li>
-            ))}
-          </ul>
-        </div>
-        <div className="wc-leak__visual" data-reveal style={{ transitionDelay: "240ms" }}>
-          <LeakSignal caption={t.leakCaption} />
-        </div>
-      </section>
-
-      {/* 4 — The strategic shift */}
-      <section className="wc-shift" aria-labelledby="wc-shift-title">
-        <header data-reveal>
-          <p className="wc-eyebrow">{t.shiftEyebrow}</p>
-          <h2 id="wc-shift-title">{t.shiftTitle}</h2>
-        </header>
-        <dl className="wc-shift__list">
-          {t.shifts.map(([before, after], index) => (
-            <div className="wc-shift__row" key={before} data-reveal style={{ transitionDelay: `${index * 90}ms` }}>
-              <dt>
-                <small>{t.shiftBefore}</small>
-                {before}
-              </dt>
-              <span className="wc-shift__arrow" aria-hidden="true" />
-              <dd>
-                <small>{t.shiftAfter}</small>
-                {after}
-              </dd>
-            </div>
-          ))}
-        </dl>
-      </section>
-
-      {/* 5 — Closing CTA */}
-      <section className="wc-final" aria-labelledby="wc-final-title">
-        <div className="wc-final__panel" data-reveal>
-          <SectionSignalField variant="diagnostic" className="wc-final-signal" />
-          <p className="wc-eyebrow">{t.ctaEyebrow}</p>
-          <h2 id="wc-final-title">{t.ctaTitle}</h2>
-          <p className="wc-final__body">{t.ctaBody}</p>
-          <WhyPageCtaCluster
-            className="wc-cta-cluster wc-cta-cluster--center"
-            buttonClassName="wc-button"
-            ariaLabel={t.ctaAria}
-            actions={ctaActions}
-          />
-        </div>
-      </section>
-
-      <Footer />
-    </main>
-  );
-}
+export default function WhyChangeClient(){ return <EditorialWhyPage copy={{ ar, en }} />; }

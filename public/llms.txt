@@ -1,49 +1,39 @@
-# DOMINASE — Digital Product Studio
+# DOMINASE
 
-> Site: https://www.dominase.art
-> Founded by: Mohammed Aldomi
-> Location: Amman, Jordan
+DOMINASE is a software and digital product company based in Amman, Jordan, serving clients in Jordan and Saudi Arabia.
+Positioning: Software & Digital Products — Make it simple.
 
-## What DOMINASE Is
+## What DOMINASE builds
+- Company and product websites with conversion-focused UX and technical SEO foundations
+- Custom business systems, admin dashboards, workflows, CRM and operational tools
+- Education platforms for instructors and academies
+- Clinic websites, booking journeys, campaign-specific CTAs, tracking and follow-up systems
+- UX/UI and digital product experiences in Arabic and English
 
-DOMINASE is a digital product studio that builds websites, digital systems, dashboards, booking flows, CRM and follow-up workflows, and product interfaces for businesses. The studio focuses on clarity, trust, conversion, and operational depth — not generic templates.
+## Key pages
+- Home: https://www.dominase.art/
+- Services: https://www.dominase.art/services
+- Web development: https://www.dominase.art/services/web-development
+- Custom systems: https://www.dominase.art/services/custom-systems
+- Education platforms: https://www.dominase.art/services/education-platforms
+- Clinic websites and systems: https://www.dominase.art/services/clinic-websites
+- Work: https://www.dominase.art/work
+- Studio: https://www.dominase.art/studio
+- About: https://www.dominase.art/about
+- Why change: https://www.dominase.art/why-change
+- Why DOMINASE: https://www.dominase.art/why-us
+- Diagnosis: https://www.dominase.art/diagnosis
+- Insights: https://www.dominase.art/insights
+- Contact / start a project: https://www.dominase.art/contact
 
-## Services
+## Editorial topics
+DOMINASE publishes practical material about SEO and discoverability, CTA design, websites as systems, customer behavior, analytics/pixels, booking, CRM, UX, and the operational layer behind digital products.
 
-- Websites that explain the offer with strong hierarchy and storytelling
-- Product and dashboard interfaces for admins, teams, and customers
-- Booking, form, and workflow paths (requests, RSVPs, surveys, onboarding, follow-up)
-- Strategic business diagnosis (free self-assessment tool)
-- Bilingual (English / Arabic) digital experiences
-
-## Public Routes
-
-- / — Home page. Overview of DOMINASE, services, selected work, and testimonials.
-- /work — Selected digital product case studies and portfolio.
-- /diagnosis — Free strategic growth diagnosis tool for businesses.
-- /diagnosis/clinic — Clinic-specific diagnosis: website, booking, patient trust, follow-up.
-- /diagnosis/venue — Wedding venue diagnosis: availability, gallery, RSVP, follow-up.
-- /diagnosis/engineering — Engineering company diagnosis: portfolio, quotes, proposals.
-- /diagnosis/general-business — General service business growth diagnosis.
-- /why-change — Why standing still digitally costs clarity, trust, and conversion.
-- /why-us — Why DOMINASE builds custom systems, not generic templates.
-- /contact — Start a project conversation via WhatsApp, phone, email, or contact form.
-
-## Diagnosis Tool
-
-The DOMINASE Growth Diagnosis is a free, web-based strategic self-assessment. It evaluates businesses across clarity, trust, conversion, follow-up, and digital readiness. It is not medical, legal, or financial advice. It provides strategic guidance only.
+## Market and language
+Primary market context: Jordan and Saudi Arabia.
+Primary Arabic style: clear modern business Arabic suitable for both markets, with English content available in the interface.
 
 ## Contact
-
-- Phone / WhatsApp: +962779667168
-- Email: mohammed.aldomi68@gmail.com
-- GitHub: https://github.com/mohammed199768
-- Upwork: https://www.upwork.com/freelancers/~012bcb31d6467e2e71
-- LinkedIn: https://linkedin.com/in/mohammed199768
-
-## Guardrails
-
-- DOMINASE does not guarantee specific business outcomes or rankings.
-- The diagnosis tool is a strategic self-assessment, not professional advice.
-- Testimonials on the site are from real project partners.
-- No fake reviews, stats, locations, or claims exist on this site.
+Email: mohammed.aldomi68@gmail.com
+Phone: +962779667168
+Website: https://www.dominase.art/

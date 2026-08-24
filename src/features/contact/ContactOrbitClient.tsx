@@ -1,266 +1,222 @@
 "use client";
 
-/**
- * /contact — the DOMINASE contact orbit.
- *
- * A slow technical signal ring: six contact actions rotating around the
- * DOMINASE hub. Pure CSS transform animation (see contact-orbit.module.css),
- * no JS animation loop, no per-frame state. Each icon counter-rotates so it
- * stays upright; hover/focus pauses the ring; reduced motion disables it.
- *
- * Contact destinations are the site's existing sources only:
- *   - WhatsApp / phone / email → CONTACT_CHANNELS (src/constants/contact.ts)
- *   - GitHub / Upwork          → GITHUB_URL / UPWORK_URL (same URLs as Footer)
- *   - Message                  → reveals the Formspree form below (same
- *     ContactForm + FORMSPREE_ENDPOINT as the homepage — no second endpoint).
- */
-
-import { useEffect, useRef, useState } from "react";
-import { Github, Mail, Phone, Send } from "lucide-react";
+import { useEffect, useMemo, useState, type FormEvent } from "react";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
-import WhatsAppMark from "@/components/icons/WhatsAppMark";
-import ContactForm from "@/features/home/components/ContactForm";
 import { useLanguage } from "@/context/LanguageContext";
-import { CONTACT_CHANNELS, GITHUB_URL, UPWORK_URL } from "@/constants/contact";
-import { scrollToSection } from "@/lib/motion/scrollToSection";
-import styles from "./contact-orbit.module.css";
-
-/* ── Bilingual page copy (local to this feature, like /why-us) ────────────── */
+import { CONTACT_CHANNELS, GITHUB_URL, UPWORK_URL, FORMSPREE_ENDPOINT } from "@/constants/contact";
+import { ArrowLeft, ArrowRight, CheckCircle2, Github, Mail, Phone, Send } from "lucide-react";
+import WhatsAppMark from "@/components/icons/WhatsAppMark";
 
 const COPY = {
-  en: {
-    eyebrow: "DOMINASE / Contact",
-    title: "One ring. Every way to reach us.",
-    subtitle:
-      "Pick the channel that fits how you work — a direct call, a quick WhatsApp, a formal email, or a written brief through the form.",
-    hubSubtitle: "Digital Product Studio",
-    orbitLabel: "Contact channels orbit",
-    items: {
-      whatsapp: "WhatsApp",
-      phone: "Call",
-      github: "GitHub",
-      upwork: "Upwork",
-      email: "Email",
-      message: "Message",
-    },
-    aria: {
-      whatsapp: "Open WhatsApp chat with DOMINASE",
-      phone: "Call DOMINASE by phone",
-      github: "Open the DOMINASE GitHub profile",
-      upwork: "Open the DOMINASE Upwork profile",
-      email: "Send an email to DOMINASE",
-      message: "Open the message form below",
-    },
-    message: {
-      title: "Start the conversation with DOMINASE",
-      subtitle:
-        "Share the project idea, the current problem, or the digital path you want to improve. We will reply with the next useful step.",
-      submit: "Send message",
-    },
-  },
   ar: {
-    eyebrow: "DOMINASE / تواصل",
-    title: "دائرة واحدة. كل طرق الوصول إلينا.",
-    subtitle:
-      "اختر القناة التي تناسب طريقة عملك — مكالمة مباشرة، رسالة واتساب سريعة، بريد رسمي، أو ملخص مكتوب عبر النموذج.",
-    hubSubtitle: "استوديو منتجات رقمية",
-    orbitLabel: "مدار قنوات التواصل",
-    items: {
-      whatsapp: "واتساب",
-      phone: "اتصال",
-      github: "GitHub",
-      upwork: "Upwork",
-      email: "البريد",
-      message: "رسالة",
-    },
-    aria: {
-      whatsapp: "افتح محادثة واتساب مع DOMINASE",
-      phone: "اتصل بـ DOMINASE هاتفياً",
-      github: "افتح حساب DOMINASE على GitHub",
-      upwork: "افتح حساب DOMINASE على Upwork",
-      email: "أرسل بريداً إلكترونياً إلى DOMINASE",
-      message: "افتح نموذج الرسالة بالأسفل",
-    },
-    message: {
-      title: "ابدأ المحادثة مع DOMINASE",
-      subtitle:
-        "اكتب فكرة المشروع، المشكلة الحالية، أو المسار الرقمي الذي تريد تحسينه. سنرد عليك بالخطوة التالية المناسبة.",
-      submit: "أرسل الرسالة",
-    },
+    eyebrow: "احجز استشارة",
+    title: "احكِ لنا أين تريد أن تصل. ونرتّب الطريق من هناك.",
+    body: "النموذج هو أسرع طريقة لفهم المشروع جيداً. اختر نوع المشروع أولاً، ثم نطلب المعلومات التي تساعدنا على تقديم خطوة مفيدة من أول رد.",
+    steps: ["نوع المشروع", "الهدف", "التواصل"],
+    projectLabel: "ما الذي تريد بناءه؟",
+    projectHelp: "اختيار واحد يكفي كبداية.",
+    projects: [
+      { id: "education", title: "منصة تعليمية", desc: "دورات، طلاب، اختبارات، بيع ومتابعة." },
+      { id: "clinic", title: "موقع أو نظام عيادة", desc: "CTA، حجز، مرضى، متابعة وCRM." },
+      { id: "system", title: "نظام أعمال مخصص", desc: "لوحات تحكم، عمليات، موظفين وتقارير." },
+      { id: "website", title: "موقع شركة أو منتج", desc: "حضور أوضح، SEO ومسار تحويل أقوى." },
+      { id: "other", title: "فكرة مختلفة", desc: "احكِ لنا عنها من دون حصرها في قالب جاهز." },
+    ],
+    goalLabel: "ما أهم نتيجة تريدها من المشروع؟",
+    goalPlaceholder: "مثلاً: زيادة الحجوزات، بيع الدورات، تنظيم العمليات، تحسين الظهور على Google...",
+    currentLabel: "ما الموجود حالياً؟",
+    currentPlaceholder: "موقع قديم، واتساب فقط، Excel، منصة حالية... (اختياري)",
+    name: "الاسم",
+    phone: "رقم الهاتف",
+    company: "الشركة / العيادة / الأكاديمية",
+    email: "البريد الإلكتروني",
+    back: "رجوع",
+    next: "متابعة",
+    submit: "اطلب الاستشارة",
+    sending: "جاري الإرسال...",
+    successTitle: "وصلت التفاصيل.",
+    successBody: "سنراجع السياق ونتواصل معك بالخطوة التالية المناسبة بدلاً من رد عام.",
+    again: "أرسل مشروعاً آخر",
+    error: "تعذر إرسال النموذج. استخدم واتساب أو جرّب مرة ثانية.",
+    sideTitle: "تفضّل طريقة مباشرة؟",
+    whatsapp: "واتساب",
+    call: "اتصال",
+    emailDirect: "إيميل",
+    github: "GitHub",
+    upwork: "Upwork",
+    privacy: "معلوماتك تستخدم فقط لمراجعة المشروع والتواصل معك.",
+  },
+  en: {
+    eyebrow: "Book a consultation",
+    title: "Tell us where you need to get. We will structure the path from there.",
+    body: "The form is the fastest way for us to understand the project properly. Start with the project type, then we only ask for context that helps us make the first reply useful.",
+    steps: ["Project type", "Goal", "Contact"],
+    projectLabel: "What are you building?",
+    projectHelp: "One choice is enough to start.",
+    projects: [
+      { id: "education", title: "Education platform", desc: "Courses, students, assessments, sales, and tracking." },
+      { id: "clinic", title: "Clinic website or system", desc: "CTA, booking, patients, follow-up, and CRM." },
+      { id: "system", title: "Custom business system", desc: "Dashboards, operations, teams, and reporting." },
+      { id: "website", title: "Company or product website", desc: "Clearer presence, SEO, and stronger conversion paths." },
+      { id: "other", title: "Something different", desc: "Tell us without forcing the idea into a template." },
+    ],
+    goalLabel: "What is the most important outcome?",
+    goalPlaceholder: "For example: more bookings, sell courses, organize operations, improve Google visibility...",
+    currentLabel: "What exists today?",
+    currentPlaceholder: "Old website, WhatsApp only, spreadsheets, an existing platform... (optional)",
+    name: "Name",
+    phone: "Phone",
+    company: "Company / clinic / academy",
+    email: "Email",
+    back: "Back",
+    next: "Continue",
+    submit: "Request consultation",
+    sending: "Sending...",
+    successTitle: "Context received.",
+    successBody: "We will review it and reply with a useful next step rather than a generic response.",
+    again: "Send another project",
+    error: "The form could not be sent. Use WhatsApp or try again.",
+    sideTitle: "Prefer a direct route?",
+    whatsapp: "WhatsApp",
+    call: "Call",
+    emailDirect: "Email",
+    github: "GitHub",
+    upwork: "Upwork",
+    privacy: "Your information is used only to review the project and contact you.",
   },
 } as const;
 
-/* ── Orbit geometry (static math, computed once at module load) ───────────── */
-
-type OrbitItemId = "whatsapp" | "phone" | "github" | "upwork" | "email" | "message";
-
-const ORBIT_ORDER: OrbitItemId[] = ["whatsapp", "phone", "github", "upwork", "email", "message"];
-
-/** Physical top/left offsets on the ring; start at 12 o'clock, step 60°. */
-const ORBIT_POSITIONS = ORBIT_ORDER.map((id, index) => {
-  const angle = (Math.PI / 180) * (-90 + (360 / ORBIT_ORDER.length) * index);
-  return { id, cos: Math.cos(angle), sin: Math.sin(angle) };
-});
+type Status = "idle" | "sending" | "success" | "error";
 
 export default function ContactOrbitClient() {
-  const { language } = useLanguage();
+  const { language, dir } = useLanguage();
   const copy = COPY[language];
+  const [step, setStep] = useState(0);
+  const [projectType, setProjectType] = useState("website");
+  const [goal, setGoal] = useState("");
+  const [status, setStatus] = useState<Status>("idle");
 
-  const [messageOpen, setMessageOpen] = useState(false);
-  const messageHeadingRef = useRef<HTMLHeadingElement>(null);
-  const shouldScrollRef = useRef(false);
-
-  // After the message section mounts, scroll to it and move focus to its
-  // heading (keyboard users land where the action took them).
   useEffect(() => {
-    if (!messageOpen || !shouldScrollRef.current) return;
-    shouldScrollRef.current = false;
-    scrollToSection("#contact-message", { updateHash: false });
-    messageHeadingRef.current?.focus({ preventScroll: true });
-  }, [messageOpen]);
+    const requested = new URLSearchParams(window.location.search).get("path");
+    if (requested && copy.projects.some((item) => item.id === requested)) setProjectType(requested);
+  }, [copy.projects]);
 
-  const openMessage = () => {
-    shouldScrollRef.current = true;
-    if (messageOpen) {
-      // Already open — just scroll back to it.
-      scrollToSection("#contact-message", { updateHash: false });
-      shouldScrollRef.current = false;
-      return;
-    }
-    setMessageOpen(true);
-  };
+  const ProgressArrow = dir === "rtl" ? ArrowLeft : ArrowRight;
+  const selected = useMemo(() => copy.projects.find((item) => item.id === projectType) ?? copy.projects[0], [copy.projects, projectType]);
 
-  const externalProps = { target: "_blank", rel: "noopener noreferrer" } as const;
-
-  const renderIcon = (id: OrbitItemId) => {
-    switch (id) {
-      case "whatsapp":
-        return <WhatsAppMark className="h-5 w-5 sm:h-6 sm:w-6" />;
-      case "phone":
-        return <Phone className="h-5 w-5 sm:h-6 sm:w-6" />;
-      case "github":
-        return <Github className="h-5 w-5 sm:h-6 sm:w-6" />;
-      case "upwork":
-        return (
-          <span className={`font-display ${styles.upMark}`} aria-hidden="true">
-            UP
-          </span>
-        );
-      case "email":
-        return <Mail className="h-5 w-5 sm:h-6 sm:w-6" />;
-      case "message":
-        return <Send className="h-5 w-5 sm:h-6 sm:w-6" />;
+  const handleSubmit = async (event: FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
+    if (status === "sending") return;
+    const form = event.currentTarget;
+    const data = new FormData(form);
+    setStatus("sending");
+    try {
+      const payload = new FormData();
+      for (const [key, value] of data.entries()) payload.append(key, value);
+      payload.set("project_type", projectType);
+      payload.set("project_type_label", selected.title);
+      payload.set("_subject", `DOMINASE project request — ${selected.title}`);
+      const response = await fetch(FORMSPREE_ENDPOINT, { method: "POST", body: payload, headers: { Accept: "application/json" } });
+      if (!response.ok) throw new Error("send failed");
+      form.reset();
+      setGoal("");
+      setStatus("success");
+    } catch {
+      setStatus("error");
     }
   };
 
   return (
     <>
       <Header />
-      <main className="min-h-screen bg-background text-foreground transition-colors duration-300">
-        {/* ── Orbit hero ─────────────────────────────────────────────────── */}
-        <section className="relative overflow-x-clip px-5 pb-16 pt-32 sm:px-6 sm:pt-36 lg:pb-24">
-          <div className="mx-auto flex max-w-5xl flex-col items-center text-center">
-            <p className="mb-4 inline-flex items-center gap-2 text-xs font-bold uppercase tracking-[0.22em] text-primary-theme">
-              <span aria-hidden="true" className="h-1.5 w-1.5 rounded-full bg-secondary-theme" />
-              {copy.eyebrow}
-            </p>
-            <h1 className="mb-5 max-w-3xl text-4xl font-black leading-tight md:text-5xl">{copy.title}</h1>
-            <p className="mb-14 max-w-2xl text-base leading-8 text-muted sm:mb-16 sm:text-lg">{copy.subtitle}</p>
+      <main className="contact-redesign">
+        <section className="contact-redesign__hero" aria-labelledby="contact-title">
+          <div className="contact-redesign__intro">
+            <p>{copy.eyebrow}</p>
+            <h1 id="contact-title">{copy.title}</h1>
+            <span>{copy.body}</span>
+          </div>
 
-            {/* The signal ring */}
-            <div className={styles.orbitWrap} role="group" aria-label={copy.orbitLabel}>
-              <div className={styles.rotor}>
-                {ORBIT_POSITIONS.map(({ id, cos, sin }) => {
-                  const shellStyle = {
-                    top: `calc(50% + ${sin.toFixed(4)} * var(--orbit-r))`,
-                    left: `calc(50% + ${cos.toFixed(4)} * var(--orbit-r))`,
-                  };
-                  const label = copy.items[id];
-                  const ariaLabel = copy.aria[id];
+          <div className="contact-redesign__stage">
+            <aside className="contact-redesign__channels contact-redesign__channels--start" aria-label={copy.sideTitle}>
+              <a href={CONTACT_CHANNELS.whatsapp.href} target="_blank" rel="noopener noreferrer"><WhatsAppMark /><span>{copy.whatsapp}</span></a>
+              <a href={CONTACT_CHANNELS.phone.href}><Phone /><span>{copy.call}</span></a>
+              <a href={CONTACT_CHANNELS.email.href}><Mail /><span>{copy.emailDirect}</span></a>
+            </aside>
 
-                  if (id === "message") {
-                    return (
-                      <div key={id} className={styles.itemShell} style={shellStyle}>
-                        <button
-                          type="button"
-                          suppressHydrationWarning
-                          onClick={openMessage}
-                          aria-label={ariaLabel}
-                          aria-expanded={messageOpen}
-                          aria-controls="contact-message"
-                          className={`${styles.itemAction} ${styles.counterSpin}`}
-                        >
-                          {renderIcon(id)}
-                          <span className={`font-display ${styles.itemLabel}`}>{label}</span>
-                        </button>
-                      </div>
-                    );
-                  }
-
-                  const href =
-                    id === "github" ? GITHUB_URL : id === "upwork" ? UPWORK_URL : CONTACT_CHANNELS[id].href;
-                  const isExternal =
-                    id === "github" || id === "upwork" || CONTACT_CHANNELS[id].external;
-
-                  return (
-                    <div key={id} className={styles.itemShell} style={shellStyle}>
-                      <a
-                        href={href}
-                        aria-label={ariaLabel}
-                        {...(isExternal ? externalProps : {})}
-                        className={`${styles.itemAction} ${styles.counterSpin}`}
-                      >
-                        {renderIcon(id)}
-                        <span className={`font-display ${styles.itemLabel}`}>{label}</span>
-                      </a>
-                    </div>
-                  );
-                })}
+            <div className="contact-redesign__form-card">
+              <div className="contact-redesign__progress" aria-label="Form progress">
+                {copy.steps.map((label, index) => (
+                  <div key={label} data-active={index <= step ? "true" : "false"}>
+                    <i>{index + 1}</i><span>{label}</span>
+                  </div>
+                ))}
               </div>
 
-              {/* Static center hub */}
-              <div className={styles.hub}>
-                <div className={styles.hubDisc}>
-                  <span className="font-display flex items-center gap-1.5 text-xl font-black tracking-wide text-primary-theme sm:text-2xl">
-                    DOMINASE
-                    <span aria-hidden="true" className="mt-1 h-1.5 w-1.5 rounded-full bg-secondary-theme" />
-                  </span>
-                  <span className="font-display hidden text-[9px] font-bold uppercase tracking-[0.2em] text-muted min-[380px]:block sm:text-[10px]">
-                    {copy.hubSubtitle}
-                  </span>
+              {status === "success" ? (
+                <div className="contact-redesign__success" aria-live="polite">
+                  <CheckCircle2 aria-hidden="true" />
+                  <h2>{copy.successTitle}</h2>
+                  <p>{copy.successBody}</p>
+                  <button type="button" onClick={() => { setStatus("idle"); setStep(0); }}>{copy.again}</button>
                 </div>
-              </div>
+              ) : (
+                <form onSubmit={handleSubmit}>
+                  <div className="contact-redesign__panel" hidden={step !== 0} aria-hidden={step !== 0}>
+                    <p className="contact-redesign__label">{copy.projectLabel}</p>
+                    <span className="contact-redesign__help">{copy.projectHelp}</span>
+                    <div className="contact-redesign__project-grid">
+                      {copy.projects.map((item) => (
+                        <button key={item.id} type="button" data-selected={projectType === item.id ? "true" : "false"} onClick={() => setProjectType(item.id)}>
+                          <strong>{item.title}</strong><span>{item.desc}</span>
+                        </button>
+                      ))}
+                    </div>
+                  </div>
+
+                  <div className="contact-redesign__panel" hidden={step !== 1} aria-hidden={step !== 1}>
+                    <label>
+                      <span>{copy.goalLabel}</span>
+                      <textarea name="goal" required rows={5} placeholder={copy.goalPlaceholder} value={goal} onChange={(event) => setGoal(event.target.value)} />
+                    </label>
+                    <label>
+                      <span>{copy.currentLabel}</span>
+                      <textarea name="current_state" rows={3} placeholder={copy.currentPlaceholder} />
+                    </label>
+                  </div>
+
+                  <div className="contact-redesign__panel" hidden={step !== 2} aria-hidden={step !== 2}>
+                    <div className="contact-redesign__fields">
+                      <label><span>{copy.name}</span><input name="name" required autoComplete="name" /></label>
+                      <label><span>{copy.phone}</span><input name="phone" required type="tel" autoComplete="tel" /></label>
+                      <label><span>{copy.company}</span><input name="company" autoComplete="organization" /></label>
+                      <label><span>{copy.email}</span><input name="email" type="email" autoComplete="email" /></label>
+                    </div>
+                    <input type="hidden" name="project_type" value={projectType} />
+                    <p className="contact-redesign__privacy">{copy.privacy}</p>
+                  </div>
+
+                  {status === "error" ? <p className="contact-redesign__error" role="alert">{copy.error}</p> : null}
+
+                  <div className="contact-redesign__form-actions">
+                    {step > 0 ? <button type="button" className="contact-redesign__back" onClick={() => setStep((value) => value - 1)}>{copy.back}</button> : <span />}
+                    {step < 2 ? (
+                      <button type="button" className="contact-redesign__next" disabled={step === 1 && !goal.trim()} onClick={() => setStep((value) => value + 1)}>{copy.next}<ProgressArrow aria-hidden="true" /></button>
+                    ) : (
+                      <button type="submit" className="contact-redesign__next" disabled={status === "sending"}>{status === "sending" ? copy.sending : copy.submit}<Send aria-hidden="true" /></button>
+                    )}
+                  </div>
+                </form>
+              )}
             </div>
+
+            <aside className="contact-redesign__channels contact-redesign__channels--end" aria-label={copy.sideTitle}>
+              <a href={GITHUB_URL} target="_blank" rel="noopener noreferrer"><Github /><span>{copy.github}</span></a>
+              <a href={UPWORK_URL} target="_blank" rel="noopener noreferrer"><span className="contact-redesign__up">UP</span><span>{copy.upwork}</span></a>
+            </aside>
           </div>
         </section>
-
-        {/* ── Message section (revealed by the orbit's Message action) ─────── */}
-        {messageOpen && (
-          <section
-            id="contact-message"
-            className="px-6 pb-32 min-[1025px]:pb-24"
-            style={{ scrollMarginTop: "6rem" }}
-          >
-            <div className="mx-auto max-w-2xl">
-              <div className="premium-surface relative overflow-hidden rounded-3xl p-6 sm:p-8">
-                <div className="pointer-events-none absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-primary-theme/35 to-transparent" />
-                <h2
-                  ref={messageHeadingRef}
-                  tabIndex={-1}
-                  className="mb-3 text-2xl font-black leading-snug text-foreground outline-none sm:text-3xl"
-                >
-                  {copy.message.title}
-                </h2>
-                <p className="mb-8 text-base leading-7 text-muted">{copy.message.subtitle}</p>
-                <ContactForm submitLabel={copy.message.submit} />
-              </div>
-            </div>
-          </section>
-        )}
-
-        {/* Bottom breathing room so MobileNav never covers the last control. */}
-        {!messageOpen && <div className="pb-32 min-[1025px]:pb-16" aria-hidden="true" />}
       </main>
       <Footer />
     </>

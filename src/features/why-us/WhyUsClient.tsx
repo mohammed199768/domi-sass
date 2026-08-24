@@ -1,538 +1,97 @@
 "use client";
 
-/**
- * Why Us — "The method behind DOMINASE."
- *
- * A proof/method experience in five movements:
- *   1. Method hero          — "We build an engine for your business growth."
- *   2. The DOMINASE method  — four stages on a liquid process rail (SVG)
- *   3. The DOMINASE commitment — delivery, transparency, support, performance
- *   4. What makes it different — precise claims, no slogans
- *   5. Execution discipline — how the studio actually works
- *   6. Closing CTA          — entering a serious build process
- *
- * Motion: same one-shot IntersectionObserver reveal system as /why-change —
- * no animation libraries, no pinning, no scrub, no per-frame state. The
- * process rail draws once via pathLength and holds. Reduced motion / no JS:
- * everything renders visible and static.
- */
+import EditorialWhyPage, { type EditorialPageCopy } from "@/features/editorial/EditorialWhyPage";
+import "@/features/editorial/editorial-page.css";
 
-import { useEffect, useRef } from "react";
-import Header from "@/components/Header";
-import Footer from "@/components/Footer";
-import WhyPageCtaCluster, { type WhyCtaAction } from "@/components/WhyPageCtaCluster";
-import SectionSignalField from "@/components/SectionSignalField";
-import { useLanguage } from "@/context/LanguageContext";
-import styles from "./why-us.module.css";
-
-/* ── Copy ─────────────────────────────────────────────────────────────────── */
-
-const COPY = {
-  en: {
-    eyebrow: "DOMINASE / Why Us?",
-    title: "We do not sell you a ready-made template. We build an engine for your business growth.",
-    subtitle:
-      "Many websites look beautiful, but fail to bring in customers. The problem? They were designed as artboards, not business systems. At DOMINASE, we do not stop at decoration. We diagnose the challenges your business faces, then build a digital system designed specifically to turn your visitors into real customers.",
-    heroMetaA: "WHY / US",
-    heroMetaB: "METHOD / 04-STAGE",
-    engine: {
-      title: "Growth engine architecture: business inputs flow through the DOMINASE engine — diagnosis, trust architecture, build system — and come out as trust, action, and growth.",
-      input: "Business input",
-      output: "Growth output",
-      inputs: ["Idea", "Problem", "Intent"],
-      outputs: ["Trust", "Action", "Growth"],
-      core: "DOMINASE",
-      coreSub: "Engine",
-      stages: "Diagnosis · Trust architecture · Build system",
+const ar: EditorialPageCopy = {
+  breadcrumb: "DOMINASE / لماذا نحن؟",
+  title: "لأننا لا نعامل الموقع كواجهة منفصلة عن شغلك.",
+  lead: "نشتغل كفريق منتج وبرمجة: نفهم كيف يأتي العميل، ماذا يحتاج أن يرى، ما الإجراء المناسب، وماذا يجب أن يحدث داخل عملك بعد ذلك. التصميم، البرمجة والمحتوى عندنا أجزاء من نفس النظام.",
+  readTime: "حوالي 5 دقائق",
+  topics: ["طريقة العمل", "المنتج", "التطوير"],
+  primary: { label: "احكِ لنا عن مشروعك", href: "/contact" },
+  secondary: { label: "شاهد الأعمال", href: "/work" },
+  summaryLabel: "لماذا DOMINASE؟",
+  summary: "لأننا نحاول أن نحل المشكلة كاملة قدر الإمكان: ما يراه العميل، ما يفعله، وما يحتاجه فريقك بعد ذلك. الهدف منتج أبسط في الاستخدام وأوضح في الإدارة وقابل للتطوير لاحقاً.",
+  summaryPoints: ["نفهم قبل أن نصمم.", "نبني حول رحلة حقيقية لا قالب جاهز.", "نربط الواجهة بالعمليات والقياس."],
+  tocLabel: "كيف نختلف",
+  sections: [
+    {
+      id: "diagnosis",
+      eyebrow: "نبدأ من المشكلة",
+      title: "أول سؤال عندنا ليس: أي تصميم يعجبك؟",
+      paragraphs: [
+        "نريد أن نعرف ماذا يحدث اليوم. كيف يأتي العميل؟ أين يسأل؟ أين يحجز؟ من يتابع معه؟ وأي جزء من هذه الرحلة يستهلك وقتاً أو يسبب تردداً. هذه الأسئلة تعطينا أساساً أقوى من البدء بلون أو style مرجعي.",
+        "بعدها نحول المطلوب إلى أولويات. ليس كل شيء يجب أن يدخل النسخة الأولى، وليس كل فكرة تحتاج feature كاملة. نفضّل أن يكون القرار واضحاً والمشروع قابلاً للنمو بدل أن نكدّس مزايا لا يستخدمها أحد.",
+      ],
+      callout: { label: "طريقة التفكير", text: "المشكلة أولاً، ثم الرحلة، ثم الواجهة والتقنية المناسبة لها." },
     },
-    methodEyebrow: "The DOMINASE method",
-    methodTitle: "Your journey from idea to execution.",
-    method: [
-      {
-        name: "Diagnosis",
-        label: "Understanding before code",
-        body: "Before writing a single line of code, we sit with you to understand: Who is your customer? What stops them from buying today? And what is the one action you want them to take? We design based on your business goals, not only our design preferences.",
-      },
-      {
-        name: "Trust architecture",
-        label: "Planning",
-        body: "We turn your answers into a clear path. Every page, button, and screen is placed for one reason: moving the customer one step closer to a decision and removing any complexity from their way.",
-      },
-      {
-        name: "Living build",
-        label: "Cinematic execution",
-        body: "Here the magic begins. We turn the plans into a living digital experience, fully responsive across screens, and built to the highest standards of speed and performance.",
-      },
-      {
-        name: "Continuous improvement",
-        label: "After launch",
-        body: "Our work does not end when the website is delivered. We monitor how real customers interact with your platform, test and improve performance, and make sure the system works at the highest possible efficiency.",
-      },
-    ],
-    commitmentEyebrow: "The DOMINASE commitment",
-    commitmentTitle: "Promises that are not negotiable.",
-    commitmentIntro:
-      "We know exactly what frustrates business owners when working with development agencies: delays, hidden costs, and disappearing communication. That is why we set strict rules that protect your time and investment.",
-    commitments: [
-      {
-        title: "On-time delivery, no excuses",
-        body: "Your time is money. The timeline we agree on at the beginning is a serious commitment, not a loose estimate.",
-      },
-      {
-        title: "Full transparency, no surprise costs",
-        body: "The price defined after the diagnosis stage is the final price for the agreed scope of work. No hidden fees appear suddenly halfway through.",
-      },
-      {
-        title: "Real support after launch",
-        body: "We do not hand you the keys and disappear. We provide a period of technical support and post-launch monitoring to make sure your system runs efficiently, while training you to manage your platform with ease.",
-      },
-      {
-        title: "Performance without compromise",
-        body: "Before handover, your website goes through strict performance testing to ensure fast loading and a stable experience across devices and screen sizes.",
-      },
-    ],
-    diffEyebrow: "What makes us different?",
-    diffTitle: "How we solve the problems and challenges of your business.",
-    diffs: [
-      {
-        title: "You speak with the minds that build",
-        label: "No middle layers",
-        body: "The biggest pain clients face is losing their ideas as they pass through sales staff. With us, you sit directly with the design and development team. Your idea moves from your mind to the hands of the people executing it immediately, which ensures deep understanding of your vision and fast execution without imaginary promises.",
-      },
-      {
-        title: "Cinematic experiences that do not sacrifice speed",
-        body: "Slow websites kill sales. We combine striking visual motion, cinematic experiences, and three-dimensional depth with fast performance. Every movement on your website has a purpose: guiding the customer’s eye toward the next step without costing your visitors a single second of delay.",
-      },
-      {
-        title: "Systems built to grow",
-        label: "Unlike websites that die quickly",
-        body: "Are you worried you will need to rebuild your website next year? We build your platform on solid foundations that can expand. Whether you add new services or target different markets, your system is ready to absorb your growth without starting from zero.",
-      },
-      {
-        title: "Native bilingual thinking",
-        label: "Arabic and English",
-        body: "We do not treat Arabic as a secondary idea or a reversed translation. We design and build every screen to feel complete and comfortable to the user’s eye, whether they read from right or left.",
-      },
-    ],
-    discEyebrow: "Execution discipline",
-    discTitle: "How the studio works.",
-    disciplines: [
-      ["Clarity before visuals", "The message is settled before the first pixel."],
-      ["Motion with purpose", "Every animation answers to a reason."],
-      ["Responsive from the start", "Small screens are designed, not shrunk."],
-      ["Performance as constraint", "Budgets for weight and motion are set early."],
-      ["Brand consistency", "One visual language across every page and state."],
-    ],
-    ctaEyebrow: "The next step",
-    ctaTitle: "This is not a traditional purchase. It is a partnership to build one of your company’s assets.",
-    ctaBody:
-      "If you are tired of temporary solutions and slow websites, and you are ready to work with a team that understands the language of your business and executes it technically with precision, we are ready.",
-    ctaPrimary: "Book a consultation",
-    ctaSecondary: "Why change?",
-    ctaAria: "Next step links",
-  },
-  ar: {
-    eyebrow: "DOMINASE / لماذا نحن؟",
-    title: "نحن لا نبيعك قالباً جاهزاً.. نحن نبني محركاً لنمو أعمالك.",
-    subtitle:
-      "العديد من المواقع تبدو جميلة، لكنها تفشل في جلب العملاء. المشكلة؟ أنها صُممت كلوحات فنية، لا كأنظمة عمل. في DOMINASE، نحن لا نكتفي بالزينة، بل نشخص التحديات التي يواجهها عملك، ثم نبني نظاماً رقمياً مصمماً خصيصاً ليحول زوارك إلى عملاء حقيقيين.",
-    heroMetaA: "لماذا / نحن",
-    heroMetaB: "منهجية / 4 مراحل",
-    engine: {
-      title: "هندسة محرك النمو: مدخلات العمل تمر عبر محرك DOMINASE — التشخيص، هندسة الثقة، بناء النظام — وتخرج ثقةً وإجراءً ونمواً.",
-      input: "مدخلات العمل",
-      output: "مخرجات النمو",
-      inputs: ["الفكرة", "المشكلة", "الهدف"],
-      outputs: ["الثقة", "الإجراء", "النمو"],
-      core: "DOMINASE",
-      coreSub: "المحرك",
-      stages: "التشخيص · هندسة الثقة · بناء النظام",
+    {
+      id: "product",
+      eyebrow: "نفكر كمنتج",
+      title: "كل شاشة يجب أن تجيب عن سؤال أو تحرّك خطوة.",
+      paragraphs: ["نرتب المحتوى، الـCTA، الحالات، الصلاحيات والتفاعل كجزء واحد. إذا كانت الشاشة جميلة لكنها لا تساعد المستخدم أو الفريق، فهي لم تنتهِ بعد."],
+      cards: [
+        { title: "وضوح العرض", body: "العميل يفهم ماذا تقدم، لمن، ولماذا يختارك بدون فك شيفرة النص أو البحث بين الأقسام." },
+        { title: "CTA حسب النية", body: "الحجز ليس مثل طلب عرض سعر، والمنصة التعليمية ليست مثل عيادة. الإجراء يتغير حسب السياق." },
+        { title: "تشغيل خلف الواجهة", body: "لوحة الإدارة والصلاحيات والمتابعة ليست إضافات لاحقة؛ هي جزء من المنتج إذا كان العمل يحتاجها." },
+        { title: "قابلية التطوير", body: "نبني المكونات والبيانات بحيث تستطيع إضافة مرحلة أو خدمة أو دور جديد لاحقاً بدون إعادة كل شيء من الصفر." },
+      ],
     },
-    methodEyebrow: "منهجية DOMINASE",
-    methodTitle: "رحلتك من الفكرة إلى التنفيذ.",
-    method: [
-      {
-        name: "التشخيص",
-        label: "الفهم قبل الكود",
-        body: "قبل أن نكتب سطراً برمجياً واحداً، نجلس معك لنفهم: من هو عميلك؟ ما الذي يمنعه من الشراء اليوم؟ وما هي الخطوة الوحيدة التي تريد منه اتخاذها؟ نحن نصمم بناءً على أهدافك التجارية، وليس فقط رغباتنا التصميمية.",
-      },
-      {
-        name: "هندسة الثقة",
-        label: "التخطيط",
-        body: "نحول إجاباتك إلى مسار واضح. كل صفحة، كل زر، وكل شاشة تُوضع لسبب واحد: دفع العميل خطوة إضافية نحو اتخاذ القرار، وإزالة أي تعقيد من طريقه.",
-      },
-      {
-        name: "البناء الحي",
-        label: "التنفيذ السينمائي",
-        body: "هنا يبدأ السحر. نحول المخططات إلى تجربة رقمية حية، متجاوبة تماماً مع كل الشاشات، وتعمل بأعلى معايير الأداء والسرعة.",
-      },
-      {
-        name: "التحسين المستمر",
-        label: "ما بعد الإطلاق",
-        body: "عملنا لا ينتهي عند تسليم الموقع. نحن نراقب كيف يتفاعل العملاء الحقيقيون مع منصتك، ونقوم باختبار وتحسين الأداء لضمان أن النظام يعمل بأقصى كفاءة ممكنة.",
-      },
-    ],
-    commitmentEyebrow: "التزام DOMINASE",
-    commitmentTitle: "وعود لا تقبل المساومة.",
-    commitmentIntro:
-      "نحن نعرف تماماً ما يزعج أصحاب الأعمال عند التعامل مع وكالات البرمجة: التأخير، التكاليف المخفية، وانقطاع التواصل. لذلك وضعنا قواعد صارمة تحمي وقتك واستثمارك.",
-    commitments: [
-      {
-        title: "تسليم في الموعد، بلا أعذار",
-        body: "وقتك هو مالك. الجدول الزمني الذي نتفق عليه في البداية هو التزام صارم، وليس مجرد تقدير أولي.",
-      },
-      {
-        title: "شفافية تامة، ولا تكاليف مفاجئة",
-        body: "السعر الذي يتم تحديده بعد مرحلة التشخيص هو السعر النهائي للعمل المتفق عليه. لا توجد رسوم مخفية تظهر فجأة في منتصف الطريق.",
-      },
-      {
-        title: "دعم حقيقي بعد الإطلاق",
-        body: "لن نكتفي بتسليمك المفاتيح ونختفي. نقدم لك فترة دعم فني ومراقبة بعد الإطلاق لضمان أن نظامك يعمل بأقصى كفاءة، مع تدريبك على إدارة منصتك بسهولة تامة.",
-      },
-      {
-        title: "أداء لا يقبل التنازل",
-        body: "نضمن لك قبل استلام المشروع أن موقعك قد خضع لاختبارات أداء صارمة، ليضمن سرعة تحميل فائقة وتجربة خالية من الأخطاء على كافة الأجهزة والشاشات.",
-      },
-    ],
-    diffEyebrow: "ما الذي يجعلنا مختلفين؟",
-    diffTitle: "كيف نعالج مشاكل وتحديات عملك.",
-    diffs: [
-      {
-        title: "أنت تتحدث مع العقول التي تبني",
-        label: "لا يوجد وسطاء",
-        body: "أكبر ألم يواجهه العملاء هو ضياع أفكارهم عند نقلها عبر موظفي المبيعات. معنا، أنت تجلس مباشرة مع فريق التصميم والبرمجة. فكرتك تنتقل من عقلك إلى أيدي من ينفذها فوراً، مما يضمن فهماً عميقاً لرؤيتك وسرعة في التنفيذ بدون أي وعود وهمية.",
-      },
-      {
-        title: "تجارب سينمائية.. لا تضحي بالسرعة",
-        body: "المواقع البطيئة تقتل المبيعات. نحن ندمج بين الحركات البصرية المذهلة والتجارب السينمائية وثلاثية الأبعاد وبين الأداء السريع. كل حركة في موقعك لها هدف: توجيه عين العميل نحو الخطوة التالية دون أن نكلف أجهزة زوارك ثانية واحدة من التأخير.",
-      },
-      {
-        title: "أنظمة قابلة للنمو",
-        label: "عكس المواقع التي تموت سريعاً",
-        body: "هل تخشى أن تضطر لإعادة بناء موقعك العام القادم؟ نحن نبني لك منصة بأساسات صلبة قادرة على التوسع. سواء أضفت خدمات جديدة، أو استهدفت أسواقاً مختلفة، نظامك جاهز لاستيعاب نموك دون الحاجة للبدء من الصفر.",
-      },
-      {
-        title: "تفكير أصيل باللغتين",
-        label: "العربية والإنجليزية",
-        body: "لا نترك اللغة العربية كفكرة ثانوية أو مجرد ترجمة مقلوبة. نحن نصمم ونبني كل شاشة لتكون متكاملة ومريحة لعين المستخدم، سواء كان يقرأ من اليمين أو اليسار.",
-      },
-    ],
-    discEyebrow: "انضباط التنفيذ",
-    discTitle: "كيف يعمل الاستوديو.",
-    disciplines: [
-      ["الوضوح قبل الشكل", "تُحسم الرسالة قبل أول بكسل."],
-      ["حركة لها غاية", "كل حركة تخضع لسبب."],
-      ["تجاوب من البداية", "الشاشات الصغيرة تُصمم، لا تُصغّر."],
-      ["الأداء قيد ملزم", "ميزانيات الوزن والحركة تُحدد مبكرًا."],
-      ["اتساق الهوية", "لغة بصرية واحدة عبر كل صفحة وحالة."],
-    ],
-    ctaEyebrow: "الخطوة التالية",
-    ctaTitle: "هذه ليست عملية شراء تقليدية.. إنها شراكة لبناء أصل من أصول شركتك.",
-    ctaBody:
-      "إذا كنت متعباً من الحلول المؤقتة والمواقع البطيئة، ومستعداً للعمل مع فريق يفهم لغة أعمالك وينفذها تقنياً ببراعة، فنحن جاهزون.",
-    ctaPrimary: "احجز استشارة",
-    ctaSecondary: "لماذا التغيير؟",
-    ctaAria: "روابط الخطوة التالية",
-  },
-} as const;
-
-/* ── Growth engine: the architecture behind the hero claim ────────────────────
- * Input → engine → outcome. Not a template, a system: three business inputs
- * feed the DOMINASE engine core (diagnosis, trust architecture, build system)
- * and emerge as trust, action, and growth. Conceptual only — no numbers, no
- * fake dashboard data. Geometry stays LTR in both languages (system/flow
- * diagrams read left-to-right universally); labels are localized. */
-
-type EngineCopy = {
-  title: string;
-  input: string;
-  output: string;
-  inputs: readonly string[];
-  outputs: readonly string[];
-  core: string;
-  coreSub: string;
-  stages: string;
+    {
+      id: "build",
+      eyebrow: "التصميم والبرمجة معاً",
+      title: "لا نرمي التصميم للمطور ونأمل أن يخرج قريباً منه.",
+      paragraphs: [
+        "عندما تكون قرارات UX، الواجهة والتنفيذ قريبة من بعضها، تقل الفجوة بين الفكرة وما يصل للمستخدم. نختبر responsive behaviour، النص العربي، الحالات الفارغة، التحميل، الأخطاء والتفاعل كجزء من نفس عملية البناء.",
+        "هذا مهم خصوصاً في المشاريع التي فيها لوحات تحكم، بيانات، فيديو، حجز أو flows متعددة. التفاصيل التي تبدو صغيرة في التصميم تتحول بسرعة إلى مشاكل حقيقية إذا لم تُفهم برمجياً من البداية.",
+      ],
+      pairs: [
+        { before: "تصميم منفصل ثم تنفيذ تقريبي.", after: "قرارات تصميم قابلة للتنفيذ من البداية." },
+        { before: "نسخة عربية تُقلب RTL في النهاية.", after: "العربي يُصمم ويُختبر كواجهة أصلية." },
+        { before: "الـmobile نسخة مصغرة من desktop.", after: "الموبايل له أولويات وتفاعل يناسب الشاشة." },
+      ],
+    },
+    {
+      id: "measure",
+      eyebrow: "ما بعد الإطلاق",
+      title: "الإطلاق ليس نهاية المشروع إذا كان الموقع جزءاً من البيع أو التشغيل.",
+      paragraphs: ["بعد الإطلاق نريد أن نعرف ماذا يعمل وماذا يحتاج تعديل. الأداء، أخطاء الاستخدام، مصدر الـleads، الـCTA الذي يتحول أكثر، والصفحات التي يخرج منها الناس كلها إشارات تساعد على تحسين المنتج."],
+      flow: ["إطلاق", "قياس", "مراجعة", "تحسين", "توسّع"],
+      callout: { label: "الفكرة", text: "بدل تحديث الموقع عندما يصبح قديماً جداً، نحافظ على نظام يتطور مع تغير العمل والسوق." },
+    },
+    {
+      id: "fit",
+      eyebrow: "متى نكون خياراً مناسباً؟",
+      title: "لما تحتاج أكثر من تنفيذ طلب حرفي.",
+      paragraphs: ["نحن مناسبون أكثر للمشروع الذي فيه مشكلة تحتاج فهم، أو رحلة تحتاج ترتيب، أو نظام يحتاج تبسيط. إذا كنت تريد جهة تناقش القرار معك، توضح البدائل، ثم تبني ما اتفقنا عليه، هنا تظهر قيمة طريقة عملنا."],
+      cards: [
+        { title: "منصات تعليمية", body: "تجربة الطالب مع إدارة المدرس أو الأكاديمية، المحتوى، الاختبارات والبيع." },
+        { title: "عيادات ومراكز", body: "من الإعلان والبحث إلى الثقة، الحجز، البيانات والمتابعة." },
+        { title: "أنظمة أعمال", body: "تحويل خطوات يدوية ومتفرقة إلى واجهة واضحة وصلاحيات وتقارير." },
+        { title: "مواقع شركات ومنتجات", body: "حضور أقوى، SEO، سرد أوضح ومسارات تحويل يمكن قياسها." },
+      ],
+    },
+  ],
+  final: { eyebrow: "ابدأ من الواقع", title: "ابعث لنا المشكلة كما هي. لا تحتاج تجهّز Brief مثالي.", body: "احكِ لنا عن الشغل الحالي، أين تتعبون، وما النتيجة التي تريدون الوصول لها. من هناك نحدد أول خطوة منطقية.", primary: "احجز استشارة", secondary: "شاهد أعمالنا" },
 };
 
-const ENGINE_PORTS = [70, 112, 154];
+const en: EditorialPageCopy = {
+  breadcrumb: "DOMINASE / Why us?",
+  title: "Because we do not treat the website as something separate from the business.",
+  lead: "We work like a product and software team: understand how customers arrive, what they need to see, which action fits, and what should happen inside the business afterwards. Design, development, and content are parts of the same system.",
+  readTime: "About 5 minutes", topics: ["Approach", "Product", "Development"],
+  primary: { label: "Tell us about your project", href: "/contact" }, secondary: { label: "View the work", href: "/work" },
+  summaryLabel: "Why DOMINASE?", summary: "Because we try to solve the whole problem: what the customer sees, what they do, and what your team needs afterwards. The goal is a product that is simpler to use, clearer to operate, and easier to evolve.",
+  summaryPoints: ["Understand before designing.", "Build around a real journey, not a template.", "Connect the interface to operations and measurement."], tocLabel: "How we work",
+  sections: [
+    { id:"diagnosis", eyebrow:"Start with the problem", title:"Our first question is not: which design style do you like?", paragraphs:["We want to understand what happens today. How do customers arrive, ask, book, get followed up, and where does that journey consume time or create hesitation? Those questions give us a stronger foundation than starting from color or visual references.","Then we turn the brief into priorities. Not everything belongs in version one, and not every idea deserves a full feature. We prefer a clear decision and a product that can grow over a pile of features nobody uses."], callout:{label:"The thinking",text:"Problem first, then journey, then the interface and technology that fit it."}},
+    { id:"product", eyebrow:"Think like a product", title:"Every screen should answer a question or move a step.", paragraphs:["We structure content, CTAs, states, permissions, and interaction as one system. If a screen looks good but does not help the user or the team, it is not finished."], cards:[{title:"Offer clarity",body:"Customers understand what you do, for whom, and why to choose you without decoding the page."},{title:"CTA by intent",body:"A booking is not a quote request, and an education platform is not a clinic. The action changes with context."},{title:"Operations behind the interface",body:"Admin tools, permissions, and follow-up are not afterthoughts when the business depends on them."},{title:"Room to evolve",body:"Components and data are shaped so new services, stages, or roles can be added without rebuilding everything."}]},
+    { id:"build", eyebrow:"Design and development together", title:"We do not throw a design over the wall and hope the implementation looks close.", paragraphs:["When UX, interface, and implementation decisions stay close, the gap between the idea and the shipped product gets smaller. Responsive behavior, Arabic copy, empty states, loading, errors, and interaction are tested as part of the build.","This matters in products with dashboards, data, video, booking, or multiple flows. Small design details quickly become real usability problems when they are not understood technically from the beginning."], pairs:[{before:"Separate design followed by approximate implementation.",after:"Design decisions that are implementation-aware from the start."},{before:"Arabic flipped to RTL at the end.",after:"Arabic designed and tested as a first-class interface."},{before:"Mobile as a smaller desktop.",after:"Mobile priorities and interaction designed for the screen."}]},
+    { id:"measure", eyebrow:"After launch", title:"Launch is not the end when the website is part of sales or operations.", paragraphs:["After launch we want to know what works and what needs adjustment. Performance, usability issues, lead source, CTA conversion, and exit pages are signals that help the product improve."], flow:["Launch","Measure","Review","Improve","Expand"], callout:{label:"The idea",text:"Instead of waiting until the site feels old, keep a system that evolves with the business and the market."}},
+    { id:"fit", eyebrow:"Where do we fit?", title:"When you need more than literal execution.", paragraphs:["We fit best when there is a problem to understand, a journey to structure, or a system to simplify. If you want a partner that discusses the decision, explains tradeoffs, and then builds the agreed direction, that is where our process adds value."], cards:[{title:"Education platforms",body:"Student experience plus instructor or academy operations, content, assessments, and sales."},{title:"Clinics and medical centers",body:"From campaign and search to trust, booking, data, and follow-up."},{title:"Business systems",body:"Turn scattered manual steps into a clear interface with roles and reporting."},{title:"Company and product websites",body:"Stronger presence, SEO, clearer storytelling, and measurable conversion paths."}]},
+  ],
+  final:{eyebrow:"Start from reality",title:"Send us the problem as it is. You do not need a perfect brief.",body:"Tell us how the work happens today, where it is difficult, and what outcome you want. We can define the logical first step from there.",primary:"Book a consultation",secondary:"View our work"},
+};
 
-function GrowthEngineSvg({ c }: { c: EngineCopy }) {
-  const inFlows = [
-    "M46 70 C 92 70, 112 96, 144 100",
-    "M46 112 C 92 112, 108 112, 141 112",
-    "M46 154 C 92 154, 112 128, 144 124",
-  ];
-  const outFlows = [
-    "M236 100 C 268 96, 288 70, 334 70",
-    "M239 112 C 272 112, 292 112, 334 112",
-    "M236 124 C 268 128, 288 154, 334 154",
-  ];
-
-  return (
-    <svg
-      className="wm-engine"
-      viewBox="0 0 380 240"
-      role="img"
-      focusable="false"
-      preserveAspectRatio="xMidYMid meet"
-      style={{ direction: "ltr" }}
-    >
-      <title>{c.title}</title>
-
-      {/* Group headings */}
-      <text className="wm-engine__heading" x="42" y="42" textAnchor="middle">{c.input}</text>
-      <text className="wm-engine__heading" x="338" y="42" textAnchor="middle">{c.output}</text>
-
-      {/* Flow paths */}
-      {inFlows.map((d, i) => (
-        <path key={d} className="wm-engine__flow" d={d} pathLength={1} style={{ transitionDelay: `${200 + i * 120}ms` }} />
-      ))}
-      {outFlows.map((d, i) => (
-        <path key={d} className="wm-engine__flow" d={d} pathLength={1} style={{ transitionDelay: `${800 + i * 120}ms` }} />
-      ))}
-
-      {/* Input / output ports with localized labels */}
-      {ENGINE_PORTS.map((y, i) => (
-        <g key={`in-${y}`}>
-          <circle className="wm-engine__port" cx="42" cy={y} r="4" style={{ transitionDelay: `${150 + i * 110}ms` }} />
-          <text className="wm-engine__label" x="42" y={y + 16} textAnchor="middle">{c.inputs[i]}</text>
-        </g>
-      ))}
-      {ENGINE_PORTS.map((y, i) => (
-        <g key={`out-${y}`}>
-          <circle className="wm-engine__port wm-engine__port--out" cx="338" cy={y} r="4" style={{ transitionDelay: `${1050 + i * 110}ms` }} />
-          <text className="wm-engine__label" x="338" y={y + 16} textAnchor="middle">{c.outputs[i]}</text>
-        </g>
-      ))}
-
-      {/* Engine core */}
-      <circle className="wm-engine__ring" cx="190" cy="112" r="48" />
-      <circle className="wm-engine__ring wm-engine__ring--inner" cx="190" cy="112" r="34" />
-      {/* Module points on the ring: the working parts of the engine */}
-      {[
-        { x: 190, y: 64 },
-        { x: 238, y: 112 },
-        { x: 190, y: 160 },
-        { x: 142, y: 112 },
-      ].map((p, i) => (
-        <circle key={`${p.x}-${p.y}`} className="wm-engine__module" cx={p.x} cy={p.y} r="3" style={{ transitionDelay: `${600 + i * 90}ms` }} />
-      ))}
-      <text className="wm-engine__core" x="190" y="110" textAnchor="middle">{c.core}</text>
-      <text className="wm-engine__coresub" x="190" y="124" textAnchor="middle">{c.coreSub}</text>
-
-      {/* The engine's working stages */}
-      <text className="wm-engine__stages" x="190" y="196" textAnchor="middle">{c.stages}</text>
-    </svg>
-  );
-}
-
-/* ── Process rail: liquid path connecting the four stages (desktop) ───────── */
-
-const RAIL_NODES = [40, 306, 573, 840];
-
-function MethodRail() {
-  return (
-    <svg className="wm-rail" viewBox="0 0 880 110" aria-hidden="true" focusable="false">
-      <path
-        className="wm-rail__path"
-        d="M40 66 C 130 66, 200 40, 306 44 S 470 74, 573 66 S 760 36, 840 44"
-        pathLength={1}
-      />
-      {/* Start ring: makes stage 01 the unmistakable origin of the journey
-          (in RTL the whole rail is mirrored, so this sits on the right). */}
-      <circle className="wm-rail__start" cx={40} cy={66} r={10} />
-      {RAIL_NODES.map((x, i) => (
-        <circle
-          key={x}
-          className="wm-rail__node"
-          cx={x}
-          cy={i === 0 ? 66 : i === 1 ? 44 : i === 2 ? 66 : 44}
-          r={5}
-          style={{ transitionDelay: `${300 + i * 160}ms` }}
-        />
-      ))}
-      {/* measurement ticks */}
-      <line className="wm-rail__tick" x1={173} y1={30} x2={173} y2={40} />
-      <line className="wm-rail__tick" x1={706} y1={78} x2={706} y2={88} />
-    </svg>
-  );
-}
-
-/* ── Page ─────────────────────────────────────────────────────────────────── */
-
-export default function WhyUsClient() {
-  const { language } = useLanguage();
-  const isAr = language === "ar";
-  const t = COPY[isAr ? "ar" : "en"];
-  const rootRef = useRef<HTMLElement>(null);
-
-  const ctaActions: WhyCtaAction[] = [
-    { label: t.ctaPrimary, href: "/contact", intent: "primary" },
-    { label: t.ctaSecondary, href: "/why-change", intent: "secondary" },
-  ];
-
-  useEffect(() => {
-    const root = rootRef.current;
-    if (!root) return;
-    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
-
-    root.dataset.motion = "armed";
-    const targets = root.querySelectorAll<HTMLElement>("[data-reveal]");
-    const observer = new IntersectionObserver(
-      (entries) => {
-        for (const entry of entries) {
-          if (entry.isIntersecting) {
-            (entry.target as HTMLElement).dataset.in = "true";
-            observer.unobserve(entry.target);
-          }
-        }
-      },
-      { threshold: 0.18, rootMargin: "0px 0px -6% 0px" }
-    );
-    targets.forEach((el) => observer.observe(el));
-
-    return () => {
-      observer.disconnect();
-      delete root.dataset.motion;
-    };
-  }, [language]);
-
-  return (
-    <main
-      ref={rootRef}
-      className={styles.page}
-      lang={language}
-      dir={isAr ? "rtl" : "ltr"}
-    >
-      <Header />
-
-      {/* 1 — Method hero */}
-      <section className="wm-hero" aria-labelledby="wm-title">
-        <div className="wm-hero__copy">
-          <p className="wm-eyebrow" data-reveal>{t.eyebrow}</p>
-          <h1 id="wm-title" data-reveal style={{ transitionDelay: "90ms" }}>
-            {t.title}
-          </h1>
-          <p className="wm-hero__subtitle" data-reveal style={{ transitionDelay: "180ms" }}>
-            {t.subtitle}
-          </p>
-          <div data-reveal style={{ transitionDelay: "270ms" }}>
-            <WhyPageCtaCluster
-              className="wm-cta-cluster"
-              buttonClassName="wm-button"
-              ariaLabel={t.ctaAria}
-              actions={ctaActions}
-            />
-          </div>
-        </div>
-        <div className="wm-hero__visual" data-reveal style={{ transitionDelay: "220ms" }}>
-          <div className="wm-hero__frame">
-            <GrowthEngineSvg c={t.engine} />
-            <div className="wm-hero__meta" aria-hidden="true">
-              <span>{t.heroMetaA}</span>
-              <span>{t.heroMetaB}</span>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* 2 — The DOMINASE method */}
-      <section className="wm-method" aria-labelledby="wm-method-title">
-        <header data-reveal>
-          <p className="wm-eyebrow">{t.methodEyebrow}</p>
-          <h2 id="wm-method-title">{t.methodTitle}</h2>
-        </header>
-        <div className="wm-method__rail" data-reveal aria-hidden="true">
-          <MethodRail />
-        </div>
-        <ol className="wm-method__stages">
-          {t.method.map((stage, index) => (
-            <li key={stage.name} data-reveal style={{ transitionDelay: `${index * 110}ms` }}>
-              <span className="wm-method__index" aria-hidden="true">
-                {String(index + 1).padStart(2, "0")}
-              </span>
-              <span className="wm-method__label">{stage.label}</span>
-              <h3>{stage.name}</h3>
-              <p>{stage.body}</p>
-            </li>
-          ))}
-        </ol>
-      </section>
-
-      {/* 3 — The DOMINASE commitment */}
-      <section className="wm-commitment" aria-labelledby="wm-commitment-title">
-        <div className="wm-commitment__intro" data-reveal>
-          <p className="wm-eyebrow">{t.commitmentEyebrow}</p>
-          <h2 id="wm-commitment-title">{t.commitmentTitle}</h2>
-          <p>{t.commitmentIntro}</p>
-        </div>
-        <ol className="wm-commitment__list">
-          {t.commitments.map((commitment, index) => (
-            <li key={commitment.title} data-reveal style={{ transitionDelay: `${index * 85}ms` }}>
-              <span aria-hidden="true">{String(index + 1).padStart(2, "0")}</span>
-              <h3>{commitment.title}</h3>
-              <p>{commitment.body}</p>
-            </li>
-          ))}
-        </ol>
-      </section>
-
-      {/* 4 — What makes this different */}
-      <section className="wm-diff" aria-labelledby="wm-diff-title">
-        <header data-reveal>
-          <p className="wm-eyebrow">{t.diffEyebrow}</p>
-          <h2 id="wm-diff-title">{t.diffTitle}</h2>
-        </header>
-        <ul className="wm-diff__list">
-          {t.diffs.map((diff, index) => (
-            <li key={diff.title} data-reveal style={{ transitionDelay: `${index * 70}ms` }}>
-              <span className="wm-diff__mark" aria-hidden="true" />
-              <div className="wm-diff__claim">
-                {"label" in diff ? <span>{diff.label}</span> : null}
-                <h3>{diff.title}</h3>
-              </div>
-              <p>{diff.body}</p>
-            </li>
-          ))}
-        </ul>
-      </section>
-
-      {/* 5 — Execution discipline */}
-      <section className="wm-disc" aria-labelledby="wm-disc-title">
-        <div className="wm-disc__panel" data-reveal>
-          <header>
-            <p className="wm-eyebrow">{t.discEyebrow}</p>
-            <h2 id="wm-disc-title">{t.discTitle}</h2>
-          </header>
-          <ol className="wm-disc__list">
-            {t.disciplines.map(([rule, note], index) => (
-              <li key={rule}>
-                <span aria-hidden="true">{String(index + 1).padStart(2, "0")}</span>
-                <strong>{rule}</strong>
-                <p>{note}</p>
-              </li>
-            ))}
-          </ol>
-        </div>
-      </section>
-
-      {/* 6 — Closing CTA */}
-      <section className="wm-final" aria-labelledby="wm-final-title">
-        <div className="wm-final__panel" data-reveal>
-          <SectionSignalField variant="method" className="wm-final-signal" />
-          <p className="wm-eyebrow">{t.ctaEyebrow}</p>
-          <h2 id="wm-final-title">{t.ctaTitle}</h2>
-          <p className="wm-final__body">{t.ctaBody}</p>
-          <WhyPageCtaCluster
-            className="wm-cta-cluster wm-cta-cluster--center"
-            buttonClassName="wm-button"
-            ariaLabel={t.ctaAria}
-            actions={ctaActions}
-          />
-        </div>
-      </section>
-
-      <Footer />
-    </main>
-  );
-}
+export default function WhyUsClient(){ return <EditorialWhyPage copy={{ ar, en }} />; }

@@ -4,12 +4,12 @@ import React from "react";
 import Image from "next/image";
 import { motion } from "framer-motion";
 import { useLanguage } from "@/context/LanguageContext";
-import { Sparkles, Users, Minimize2 } from "lucide-react";
+import { Layers3, Users, Minimize2 } from "lucide-react";
 
 export default function SolutionSection() {
     const { t } = useLanguage();
 
-    const icons = [Sparkles, Users, Minimize2];
+    const icons = [Layers3, Users, Minimize2];
 
     return (
         <section className="py-20 bg-background px-6 transition-colors duration-300">
