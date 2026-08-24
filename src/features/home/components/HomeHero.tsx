@@ -39,7 +39,7 @@ export default function HomeHero() {
 
       {/* Content: in-flow, centered by the flex column parent */}
       <div className="signature-hero__message">
-        <FadeIn delay={0.22} y={28}>
+        <div className="signature-hero__content">
           <h1 id="signature-hero-title" className="signature-hero__headline">
             {copy.headline.map((line) => (
               <span className="signature-hero__headline-line" key={line}>
@@ -60,7 +60,7 @@ export default function HomeHero() {
               <span>{copy.secondary}</span>
             </Link>
           </div>
-        </FadeIn>
+        </div>
       </div>
 
       {/* Product visual: in-flow below copy, soft-cropped by section overflow:hidden */}
@@ -76,7 +76,7 @@ export default function HomeHero() {
                 src="/media/product-stories/our-clinic/public-home-wide.webp"
                 alt={copy.previewAlt}
                 fill
-                priority
+                loading="lazy"
                 sizes="(max-width: 760px) 92vw, 760px"
               />
             </figure>

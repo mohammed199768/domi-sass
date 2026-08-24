@@ -19,11 +19,18 @@ export default function HeroFlowField() {
   const canvasRef = useRef<HTMLCanvasElement>(null);
 
   useEffect(() => {
+    let cancelled = false;
+    let firstPaintFrame = 0;
+    let idleHandle = 0;
+    let fallbackTimer = 0;
+    let dispose: () => void = () => undefined;
+
+    const initialize = () => {
     const canvas = canvasRef.current;
-    if (!canvas) return;
+    if (!canvas || cancelled) return () => undefined;
 
     const context = canvas.getContext("2d", { alpha: true });
-    if (!context) return;
+    if (!context) return () => undefined;
 
     const motionQuery = window.matchMedia("(prefers-reduced-motion: reduce)");
     let particles: Particle[] = [];
@@ -204,6 +211,38 @@ export default function HeroFlowField() {
       themeObserver.disconnect();
       document.removeEventListener("visibilitychange", handleVisibility);
       motionQuery.removeEventListener("change", handleMotionChange);
+    };
+    };
+
+    // The flow field is enhancement, not critical content. Let the browser
+    // paint the server-rendered headline first, then initialize the canvas in
+    // idle time with a bounded fallback so the visual still arrives promptly.
+    firstPaintFrame = window.requestAnimationFrame(() => {
+      const run = () => {
+        if (!cancelled) dispose = initialize();
+      };
+      const idleApi = window as unknown as {
+        requestIdleCallback?: (callback: IdleRequestCallback, options?: IdleRequestOptions) => number;
+      };
+
+      if (idleApi.requestIdleCallback) {
+        idleHandle = idleApi.requestIdleCallback(run, { timeout: 700 });
+      } else {
+        fallbackTimer = window.setTimeout(run, 120);
+      }
+    });
+
+    return () => {
+      cancelled = true;
+      window.cancelAnimationFrame(firstPaintFrame);
+      const idleApi = window as unknown as {
+        cancelIdleCallback?: (handle: number) => void;
+      };
+      if (idleHandle && idleApi.cancelIdleCallback) {
+        idleApi.cancelIdleCallback(idleHandle);
+      }
+      window.clearTimeout(fallbackTimer);
+      dispose();
     };
   }, []);
 

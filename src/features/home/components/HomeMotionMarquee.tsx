@@ -73,7 +73,7 @@ function MarqueeRow({
       <div ref={trackRef} className="motion-marquee__track">
         {tripled.map((src, index) => (
           <figure className="motion-marquee__tile" key={`${src}-${index}`}>
-            <Image src={src} alt="" fill sizes="420px" loading="lazy" />
+            <Image src={src} alt="" fill sizes="(max-width: 760px) 260px, 420px" loading="lazy" />
           </figure>
         ))}
       </div>

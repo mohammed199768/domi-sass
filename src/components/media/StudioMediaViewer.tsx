@@ -1,5 +1,6 @@
 "use client";
 
+import "./studio-viewer.css";
 import Image from "next/image";
 import Link from "next/link";
 import {

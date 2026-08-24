@@ -6,11 +6,6 @@ import {
   Noto_Sans_Arabic,
 } from "next/font/google";
 import "@/styles/globals.css";
-import "@/components/media/dominase-media-viewer.css";
-import "@/components/media/studio-viewer.css";
-import "@/features/product-stories/product-story.css";
-import "@/components/consultation/consultation.css";
-import "@/components/related-pathways.css";
 import { ThemeProvider } from "@/components/ThemeProvider";
 import SmoothScroll from "@/components/SmoothScroll";
 import MobileNav from "@/components/MobileNav";
@@ -40,7 +35,10 @@ const bootClassScript = `
   }
 
   try {
-    if (window.sessionStorage.getItem("dominase-boot-shown") !== "1") {
+    if (
+      window.matchMedia("(min-width: 761px)").matches &&
+      window.sessionStorage.getItem("dominase-boot-shown") !== "1"
+    ) {
       document.documentElement.classList.add("domi-booting");
     }
   } catch {
@@ -62,28 +60,30 @@ const enDisplay = Space_Grotesk({
   variable: "--font-en-display",
   subsets: ["latin"],
   display: "swap",
-  weight: ["400", "500", "600", "700"],
+  weight: "variable",
+  preload: false,
 });
 
 const enBody = Manrope({
   variable: "--font-en-body",
   subsets: ["latin"],
   display: "swap",
-  weight: ["400", "500", "600", "700", "800"],
+  weight: "variable",
+  preload: false,
 });
 
 const arDisplay = IBM_Plex_Sans_Arabic({
   variable: "--font-ar-display",
   subsets: ["arabic"],
   display: "swap",
-  weight: ["400", "500", "600", "700"],
+  weight: ["500", "700"],
 });
 
 const arBody = Noto_Sans_Arabic({
   variable: "--font-ar-body",
   subsets: ["arabic"],
   display: "swap",
-  weight: ["400", "500", "600", "700"],
+  weight: "variable",
 });
 
 export const metadata: Metadata = {

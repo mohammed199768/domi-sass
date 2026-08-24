@@ -156,6 +156,7 @@
   --domi-border-strong: rgba(243, 247, 244, 0.2);
 
   --domi-accent: #2bbf89;
+  --domi-accent-readable: #2bbf89;
   --domi-accent-bright: #74e6c9;
   --domi-accent-soft: #d9f1e9;
   --domi-accent-deep: #102f26;
@@ -196,6 +197,7 @@
   --domi-border-strong: rgba(31, 43, 35, 0.2);
 
   --domi-accent: #0b8f63;
+  --domi-accent-readable: #08704f;
   --domi-accent-bright: #20b681;
   --domi-accent-soft: #dcefe7;
   --domi-accent-deep: #073d2e;
@@ -308,21 +310,11 @@
   }
 }
 
-/* Boot gate: keep the app measurable but hidden/protected until ready. */
+/* The branded desktop boot may lock scrolling, but critical page content stays
+   visible in initial CSS instead of waiting for client hydration. */
 html.domi-booting,
 body.domi-booting {
   overflow: hidden;
-}
-
-html.domi-booting :where(main, header, footer, .mobile-nav-shell),
-body.domi-booting :where(main, header, footer, .mobile-nav-shell) {
-  opacity: 0;
-  pointer-events: none;
-  user-select: none;
-}
-
-:where(main, header, footer, .mobile-nav-shell) {
-  transition: opacity 260ms ease;
 }
 
 :where(#about, #services, #portfolio, #testimonials) {

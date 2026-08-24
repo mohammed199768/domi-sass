@@ -148,6 +148,9 @@ export default function BrandPreloader() {
   // client via a lazy initializer (no setState-in-effect cascade).
   const [show, setShow] = useState<boolean>(() => {
     if (typeof window === "undefined") return false;
+    // Compact viewports should paint the server-rendered hero immediately.
+    // The branded boot remains part of the desktop experience.
+    if (window.matchMedia("(max-width: 760px)").matches) return false;
     try {
       if (window.sessionStorage.getItem(SESSION_FLAG) === "1") return false;
     } catch {

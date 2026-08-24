@@ -51,7 +51,7 @@ export default function HomeAboutMotion() {
           duration={0.9}
           className={item.className}
         >
-          <Image src={item.src} alt="" fill sizes="220px" />
+          <Image src={item.src} alt="" fill sizes="(max-width: 760px) 88px, 220px" />
         </FadeIn>
       ))}
 

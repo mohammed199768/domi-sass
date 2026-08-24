@@ -71,7 +71,7 @@ export default function Header() {
                     <button
                         onClick={toggleLanguage}
                         suppressHydrationWarning
-                        aria-label="Switch language"
+                        aria-label={`Switch language — ${language === "en" ? "AR" : "EN"}`}
                         className="premium-surface premium-interactive domi-setting-control flex min-h-11 items-center gap-2 px-3.5 py-1.5 text-xs font-black text-primary-theme hover:border-primary-theme"
                     >
                         <Globe className="h-3.5 w-3.5" />
@@ -85,7 +85,7 @@ export default function Header() {
                     <button
                         onClick={toggleLanguage}
                         suppressHydrationWarning
-                        aria-label="Switch language"
+                        aria-label={`Switch language — ${language === "en" ? "AR" : "EN"}`}
                         className="premium-surface grid h-11 w-11 place-items-center rounded-full text-primary-theme transition-colors hover:border-primary-theme focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary-theme"
                     >
                         <span className="text-xs font-bold">{language === "en" ? "AR" : "EN"}</span>

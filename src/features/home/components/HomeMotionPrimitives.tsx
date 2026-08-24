@@ -136,7 +136,8 @@ export function AnimatedText({
   const range = Math.max(1, units.length - 1);
 
   return (
-    <Tag ref={ref} className={className} aria-label={text}>
+    <Tag ref={ref} className={className}>
+      <span className="sr-only">{text}</span>
       {units.map((unit, index) => {
         const start = (index / range) * 0.78;
         const end = Math.min(1, start + 0.22);

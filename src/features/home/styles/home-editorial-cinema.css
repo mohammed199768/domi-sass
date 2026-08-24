@@ -27,7 +27,7 @@
 }
 
 .home-chapter-label {
-  color: var(--primary);
+  color: var(--domi-accent-readable);
   font-family: var(--font-en-display), system-ui, sans-serif;
   font-size: 0.72rem;
   font-weight: 700;
@@ -2060,7 +2060,7 @@
 }
 
 .home-trust__selectors button > span {
-  color: var(--primary);
+  color: var(--domi-accent-readable);
   font-size: 0.65rem;
 }
 

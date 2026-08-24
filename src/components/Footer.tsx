@@ -119,7 +119,7 @@ export default function Footer() {
           <div className="grid gap-8 sm:grid-cols-2 xl:grid-cols-4">
             {columns[language].map((column) => (
               <div key={column.title}>
-                <h2 className="text-xs font-black uppercase tracking-[0.16em] text-primary-theme">{column.title}</h2>
+                <h2 className="text-xs font-black uppercase tracking-[0.16em] text-[var(--domi-accent-readable)]">{column.title}</h2>
                 <ul className="mt-4 space-y-2.5">
                   {column.links.map(([label, href]) => (
                     <li key={href}>

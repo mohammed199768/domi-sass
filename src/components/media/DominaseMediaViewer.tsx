@@ -1,5 +1,6 @@
 "use client";
 
+import "./dominase-media-viewer.css";
 import Image from "next/image";
 import {
   Maximize2,
