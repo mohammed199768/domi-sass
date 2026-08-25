@@ -338,7 +338,7 @@
   .motion-services__heading { margin-bottom: 1.5rem; text-align: start; }
   .motion-services__heading h2 { margin-inline: 0; font-size: 2.7rem; }
   .motion-services__heading > span { margin-top: .65rem; font-size: .82rem; line-height: 1.55; }
-  .motion-services__list { display: flex; gap: .65rem; overflow-x: auto; padding: .2rem .05rem .8rem; border: 0; scroll-snap-type: x mandatory; scrollbar-width: none; touch-action: pan-x; }
+  .motion-services__list { display: flex; gap: .65rem; overflow-x: auto; padding: .2rem .05rem .8rem; border: 0; scroll-snap-type: x proximity; scrollbar-width: none; touch-action: pan-x pan-y; overscroll-behavior-x: contain; overscroll-behavior-y: auto; -webkit-overflow-scrolling: touch; }
   .motion-services__list::-webkit-scrollbar { display: none; }
   .motion-services__item { min-width: 82vw; min-height: 15.5rem; align-content: space-between; gap: 1rem; padding: 1.2rem; border: 1px solid var(--border); border-radius: 1.35rem; background: var(--surface-muted); scroll-snap-align: start; }
   .motion-services__number { font-size: 3rem; color: var(--primary); }
@@ -350,7 +350,7 @@
   .motion-projects__heading { margin-bottom: 1.5rem; text-align: start; }
   .motion-projects__heading h2 { margin-inline: 0; font-size: 2.7rem; }
   .motion-projects__heading > span { margin-top: .65rem; font-size: .82rem; line-height: 1.55; }
-  .motion-projects__stack { display: flex; gap: .75rem; overflow-x: auto; padding: .15rem .05rem 1rem; scroll-snap-type: x mandatory; scrollbar-width: none; touch-action: pan-x; }
+  .motion-projects__stack { display: flex; gap: .75rem; overflow-x: auto; padding: .15rem .05rem 1rem; scroll-snap-type: x proximity; scrollbar-width: none; touch-action: pan-x pan-y; overscroll-behavior-x: contain; overscroll-behavior-y: auto; -webkit-overflow-scrolling: touch; }
   .motion-projects__stack::-webkit-scrollbar { display: none; }
   .motion-projects__slot { min-width: 87vw; margin: 0; scroll-snap-align: center; }
   .motion-projects__card { height: 28rem; border-radius: 1.4rem; }

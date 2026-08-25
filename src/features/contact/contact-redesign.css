@@ -67,6 +67,6 @@
   .contact-redesign__project-grid { grid-template-columns: 1fr; }
   .contact-redesign__project-grid button { min-height: 5.8rem; }
   .contact-redesign__fields { grid-template-columns: 1fr; }
-  .contact-redesign__channels { overflow-x: auto; justify-content: flex-start; padding-inline: .2rem; }
+  .contact-redesign__channels { overflow-x: auto; justify-content: flex-start; padding-inline: .2rem; touch-action: pan-x pan-y; overscroll-behavior-x: contain; overscroll-behavior-y: auto; -webkit-overflow-scrolling: touch; }
 }
 .contact-redesign__next:disabled { opacity: .46; cursor: not-allowed; transform: none; }

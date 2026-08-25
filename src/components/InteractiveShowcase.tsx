@@ -7,7 +7,6 @@ import {
   AnimatePresence,
   motion,
   useReducedMotion,
-  type PanInfo,
 } from "framer-motion";
 import { useId, useRef, useState, type KeyboardEvent } from "react";
 
@@ -65,12 +64,6 @@ export default function InteractiveShowcase({
       event.preventDefault();
       select((nextIndex + items.length) % items.length, true);
     }
-  };
-
-  const handleDragEnd = (_event: MouseEvent | TouchEvent | PointerEvent, info: PanInfo) => {
-    const intent = info.offset.x + info.velocity.x * 0.12;
-    if (Math.abs(intent) < 70) return;
-    select(activeIndex + (intent < 0 ? 1 : -1));
   };
 
   const activeItem = items[activeIndex];
@@ -143,10 +136,6 @@ export default function InteractiveShowcase({
                     ? { duration: 0 }
                     : { type: "spring", stiffness: 245, damping: 28, mass: .72 }
                 }
-                drag={selected && !reduceMotion ? "x" : false}
-                dragConstraints={{ left: 0, right: 0 }}
-                dragElastic={.08}
-                onDragEnd={handleDragEnd}
                 style={{ pointerEvents: selected ? "auto" : "none" }}
               >
                 <figure className="interactive-showcase__media">

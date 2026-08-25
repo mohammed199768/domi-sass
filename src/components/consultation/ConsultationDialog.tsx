@@ -18,7 +18,7 @@ const COPY = {
       education: [["platform", "بناء منصة تعليمية"], ["sell", "بيع الدورات والمحتوى"], ["operations", "إدارة الطلاب والتقدم"], ["improve", "تحسين منصة موجودة"], ["other", "شيء آخر"]],
       clinic: [["leads", "زيادة الحجوزات"], ["booking", "تنظيم الحجز والمتابعة"], ["operations", "إدارة رحلة المريض"], ["improve", "تحسين تجربة موجودة"], ["other", "شيء آخر"]],
     },
-    name: "الاسم", contact: "واتساب أو الهاتف أو البريد الإلكتروني", note: "ملاحظة قصيرة (اختياري)", notePlaceholder: "أي سياق يساعدنا على فهم المطلوب بسرعة.", back: "رجوع", submit: "اطلب الاستشارة", sending: "جاري الإرسال...", error: "تعذر إرسال الطلب. جرّب مرة أخرى أو استخدم واتساب.", successTitle: "وصلتنا التفاصيل.", successBody: "سنراجعها ونتواصل معك لترتيب الاستشارة.", done: "تم",
+    name: "الاسم", phone: "واتساب أو الهاتف", email: "البريد الإلكتروني", note: "ملاحظة قصيرة (اختياري)", notePlaceholder: "أي سياق يساعدنا على فهم المطلوب بسرعة.", back: "رجوع", submit: "اطلب الاستشارة", sending: "جاري الإرسال...", error: "تعذر إرسال الطلب. جرّب مرة أخرى أو استخدم واتساب.", successTitle: "وصلتنا التفاصيل.", successBody: "سنراجعها ونتواصل معك لترتيب الاستشارة.", done: "تم",
   },
   en: {
     title: "Book a consultation", close: "Close", steps: ["What do you need?", "What is the main goal?", "How should we contact you?"],
@@ -29,7 +29,7 @@ const COPY = {
       education: [["platform", "Build an education platform"], ["sell", "Sell courses and content"], ["operations", "Manage students and progress"], ["improve", "Improve an existing platform"], ["other", "Something else"]],
       clinic: [["leads", "Increase bookings"], ["booking", "Organize booking and follow-up"], ["operations", "Manage the patient journey"], ["improve", "Improve an existing experience"], ["other", "Something else"]],
     },
-    name: "Name", contact: "WhatsApp, phone, or email", note: "Short note (optional)", notePlaceholder: "Any context that helps us understand the need quickly.", back: "Back", submit: "Request consultation", sending: "Sending...", error: "The request could not be sent. Try again or use WhatsApp.", successTitle: "We received the details.", successBody: "We will review them and contact you to arrange the consultation.", done: "Done",
+    name: "Name", phone: "WhatsApp or phone", email: "Email", note: "Short note (optional)", notePlaceholder: "Any context that helps us understand the need quickly.", back: "Back", submit: "Request consultation", sending: "Sending...", error: "The request could not be sent. Try again or use WhatsApp.", successTitle: "We received the details.", successBody: "We will review them and contact you to arrange the consultation.", done: "Done",
   },
 } as const;
 
@@ -77,7 +77,13 @@ export default function ConsultationDialog({ initialService, ctaLocation, origin
     {status === "success" ? <div className="consultation-success" aria-live="polite"><Check aria-hidden="true" /><h3>{copy.successTitle}</h3><p>{copy.successBody}</p><button type="button" className="domi-action domi-action--primary" onClick={onClose}>{copy.done}</button></div> : <form onSubmit={submit}>
       <fieldset hidden={step !== 0}><legend>{copy.steps[0]}</legend><div className="consultation-options consultation-options--services">{copy.services.map(([value, label]) => <button key={value} type="button" aria-pressed={service === value} onClick={() => chooseService(value as ConsultationService)}>{label}</button>)}</div></fieldset>
       <fieldset hidden={step !== 1}><legend>{copy.steps[1]}</legend><div className="consultation-options">{goals.map(([value, label]) => <button key={value} type="button" aria-pressed={objective === value} onClick={() => chooseObjective(value)}>{label}</button>)}</div></fieldset>
-      <fieldset hidden={step !== 2}><legend>{copy.steps[2]}</legend><label><span>{copy.name}</span><input name="name" required autoComplete="name" /></label><label><span>{copy.contact}</span><input name="contact" required autoComplete="tel" /></label><label><span>{copy.note}</span><textarea name="note" rows={3} placeholder={copy.notePlaceholder} /></label></fieldset>
+      <fieldset hidden={step !== 2}>
+        <legend>{copy.steps[2]}</legend>
+        <label><span>{copy.name}</span><input name="name" type="text" inputMode="text" required autoComplete="name" /></label>
+        <label><span>{copy.phone}</span><input name="phone" type="tel" inputMode="tel" required autoComplete="tel" /></label>
+        <label><span>{copy.email}</span><input name="email" type="email" inputMode="email" autoComplete="email" /></label>
+        <label><span>{copy.note}</span><textarea name="note" rows={3} placeholder={copy.notePlaceholder} /></label>
+      </fieldset>
       <div className="consultation-errors" aria-live="assertive">{status === "error" ? copy.error : ""}</div>
       {step > 0 ? <div className="consultation-actions"><button type="button" className="domi-action domi-action--secondary" onClick={() => { setStatus("idle"); setStep((value) => value - 1); }}>{dir === "rtl" ? <ArrowRight aria-hidden="true" /> : <ArrowLeft aria-hidden="true" />}{copy.back}</button>{step === 2 ? <button type="submit" className="domi-action domi-action--primary" disabled={status === "sending"}>{status === "sending" ? copy.sending : copy.submit}</button> : null}</div> : null}
     </form>}
