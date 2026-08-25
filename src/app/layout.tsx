@@ -16,6 +16,7 @@ import DominaseCursor from "@/components/DominaseCursor";
 import { LanguageProvider } from "@/context/LanguageContext";
 import JsonLd from "@/components/JsonLd";
 import { ConsultationProvider } from "@/components/consultation/ConsultationProvider";
+import PwaRegister from "@/components/PwaRegister";
 import {
   SITE_URL,
   BRAND,
@@ -94,6 +95,7 @@ const arBody = Noto_Sans_Arabic({
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
+  manifest: "/manifest.webmanifest",
   title: {
     default: META_DEFAULTS.title,
     template: META_DEFAULTS.titleTemplate,
@@ -122,6 +124,18 @@ export const metadata: Metadata = {
     description: META_DEFAULTS.description,
     images: [META_DEFAULTS.ogImage],
   },
+  icons: {
+    icon: [
+      { url: "/icons/icon-192.png", sizes: "192x192", type: "image/png" },
+      { url: "/icons/icon-512.png", sizes: "512x512", type: "image/png" },
+    ],
+    apple: [{ url: "/apple-touch-icon.png", sizes: "180x180", type: "image/png" }],
+  },
+  appleWebApp: {
+    capable: true,
+    title: "DOMINASE",
+    statusBarStyle: "black-translucent",
+  },
 };
 
 export const viewport: Viewport = {
@@ -144,6 +158,7 @@ export default function RootLayout({
       <body
         className={`${arDisplay.variable} ${arBody.variable} antialiased`}
       >
+        <PwaRegister />
         {/* ── Site-wide structured data (JSON-LD) ── */}
         <JsonLd
           data={[
