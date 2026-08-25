@@ -9,7 +9,7 @@ import HomeProjectsStack from "@/features/home/components/HomeProjectsStack";
 import HomeServicesMotion from "@/features/home/components/HomeServicesMotion";
 import HomeSkipLink from "@/features/home/components/HomeSkipLink";
 import HomeTrust from "@/features/home/components/HomeTrust";
-import "@/features/home/styles/home-editorial-cinema.css";
+import "@/features/home/styles/home-current.css";
 import "@/features/home/styles/home-redesign.css";
 import "@/features/home/styles/home-motion-reference.css";
 
@@ -18,7 +18,11 @@ export default function Home() {
     <>
       <HomeSkipLink />
       <Header />
-      <main id="main-content" className="home-editorial motion-home" tabIndex={-1}>
+      <main
+        id="main-content"
+        className="home-editorial motion-home"
+        tabIndex={-1}
+      >
         <HomeHashScroll />
         <HomeHero />
         <HomeMotionMarquee />

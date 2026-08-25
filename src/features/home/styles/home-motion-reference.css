@@ -1462,6 +1462,23 @@
 }
 
 @media (max-width: 760px) {
+  /* Keep the mobile text-LCP static. The desktop ink drift remains intact,
+     while mobile receives the same premium gradient at its settled midpoint. */
+  .signature-hero--calm .signature-hero__headline {
+    animation: none;
+    background-position: 50% 50%;
+  }
+
+  /* Keep the continuously redrawn canvas on an isolated composited paint layer
+     on mobile so it cannot share paint work with the readable Hero content.
+     Desktop retains the richer blend. */
+  .hero-flow-field {
+    contain: strict;
+    mix-blend-mode: normal;
+    transform: translateZ(0);
+    backface-visibility: hidden;
+  }
+
   .signature-hero--calm .signature-hero__message { width: min(calc(100% - 1.5rem), 37rem); padding-top: .25rem; }
   .signature-hero--calm .signature-hero__headline,
   [dir="rtl"] .signature-hero--calm .signature-hero__headline {

@@ -259,6 +259,16 @@
     font-family: var(--font-ar-body), system-ui, sans-serif;
   }
 
+  /* The initial Arabic tree must not pull the English webfont families just
+     because an English technical label exists below the fold. LanguageContext
+     removes this scope when English is activated, at which point the original
+     next/font variables on <body> become active again. */
+  .font-arabic {
+    --font-en-display: system-ui, sans-serif;
+    --font-en-body: system-ui, sans-serif;
+    font-family: system-ui, sans-serif;
+  }
+
   [dir="rtl"] h1, [dir="rtl"] h2, [dir="rtl"] h3,
   [dir="rtl"] h4, [dir="rtl"] h5, [dir="rtl"] h6,
   [lang="ar"] h1, [lang="ar"] h2, [lang="ar"] h3,

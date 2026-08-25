@@ -21,6 +21,7 @@ export default function HeroFlowField() {
   useEffect(() => {
     let cancelled = false;
     let firstPaintFrame = 0;
+    let postPaintFrame = 0;
     let idleHandle = 0;
     let fallbackTimer = 0;
     let dispose: () => void = () => undefined;
@@ -218,23 +219,26 @@ export default function HeroFlowField() {
     // paint the server-rendered headline first, then initialize the canvas in
     // idle time with a bounded fallback so the visual still arrives promptly.
     firstPaintFrame = window.requestAnimationFrame(() => {
-      const run = () => {
-        if (!cancelled) dispose = initialize();
-      };
-      const idleApi = window as unknown as {
-        requestIdleCallback?: (callback: IdleRequestCallback, options?: IdleRequestOptions) => number;
-      };
+      postPaintFrame = window.requestAnimationFrame(() => {
+        const run = () => {
+          if (!cancelled) dispose = initialize();
+        };
+        const idleApi = window as unknown as {
+          requestIdleCallback?: (callback: IdleRequestCallback, options?: IdleRequestOptions) => number;
+        };
 
-      if (idleApi.requestIdleCallback) {
-        idleHandle = idleApi.requestIdleCallback(run, { timeout: 700 });
-      } else {
-        fallbackTimer = window.setTimeout(run, 120);
-      }
+        if (idleApi.requestIdleCallback) {
+          idleHandle = idleApi.requestIdleCallback(run, { timeout: 700 });
+        } else {
+          fallbackTimer = window.setTimeout(run, 120);
+        }
+      });
     });
 
     return () => {
       cancelled = true;
       window.cancelAnimationFrame(firstPaintFrame);
+      window.cancelAnimationFrame(postPaintFrame);
       const idleApi = window as unknown as {
         cancelIdleCallback?: (handle: number) => void;
       };

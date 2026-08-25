@@ -15,7 +15,13 @@ interface LanguageContextType {
 const LanguageContext = createContext<LanguageContextType | undefined>(undefined);
 const LANGUAGE_STORAGE_KEY = "domi-language";
 
-export function LanguageProvider({ children }: { children: ReactNode }) {
+export function LanguageProvider({
+    children,
+    englishFontVariables,
+}: {
+    children: ReactNode;
+    englishFontVariables?: string;
+}) {
     const [language, setLanguage] = useState<Language>("ar");
 
     useEffect(() => {
@@ -56,7 +62,11 @@ export function LanguageProvider({ children }: { children: ReactNode }) {
 
     return (
         <LanguageContext.Provider value={{ language, toggleLanguage, t, dir }}>
-            <div dir={dir} lang={language} className={language === "ar" ? "font-arabic" : "font-sans"}>
+            <div
+                dir={dir}
+                lang={language}
+                className={language === "ar" ? "font-arabic" : `${englishFontVariables ?? ""} font-sans`}
+            >
                 {children}
             </div>
         </LanguageContext.Provider>

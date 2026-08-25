@@ -75,15 +75,20 @@ const enBody = Manrope({
 const arDisplay = IBM_Plex_Sans_Arabic({
   variable: "--font-ar-display",
   subsets: ["arabic"],
-  display: "swap",
-  weight: ["500", "700"],
+  display: "optional",
+  weight: "700",
+  preload: false,
 });
 
 const arBody = Noto_Sans_Arabic({
   variable: "--font-ar-body",
   subsets: ["arabic"],
-  display: "swap",
+  // The large Arabic variable file is intentionally not a critical preload.
+  // `optional` prioritizes the server-rendered fallback on constrained mobile
+  // connections while still using Noto when it is available early or cached.
+  display: "optional",
   weight: "variable",
+  preload: false,
 });
 
 export const metadata: Metadata = {
@@ -126,7 +131,7 @@ export default function RootLayout({
   return (
     <html lang="ar" dir="rtl" suppressHydrationWarning>
       <body
-        className={`${enDisplay.variable} ${enBody.variable} ${arDisplay.variable} ${arBody.variable} antialiased`}
+        className={`${arDisplay.variable} ${arBody.variable} antialiased`}
       >
         {/* ── Site-wide structured data (JSON-LD) ── */}
         <JsonLd
@@ -191,7 +196,7 @@ export default function RootLayout({
           storageKey="dominase-theme"
           disableTransitionOnChange
         >
-          <LanguageProvider>
+          <LanguageProvider englishFontVariables={`${enDisplay.variable} ${enBody.variable}`}>
             <ConsultationProvider>
               <BrandPreloader />
               <SmoothScroll>

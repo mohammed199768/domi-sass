@@ -11,20 +11,21 @@ Positioning: Software & Digital Products — Make it simple.
 - UX/UI and digital product experiences in Arabic and English
 
 ## Key pages
-- Home: https://www.dominase.art/
-- Services: https://www.dominase.art/services
-- Web development: https://www.dominase.art/services/web-development
-- Custom systems: https://www.dominase.art/services/custom-systems
-- Education platforms: https://www.dominase.art/services/education-platforms
-- Clinic websites and systems: https://www.dominase.art/services/clinic-websites
-- Work: https://www.dominase.art/work
-- Studio: https://www.dominase.art/studio
-- About: https://www.dominase.art/about
-- Why change: https://www.dominase.art/why-change
-- Why DOMINASE: https://www.dominase.art/why-us
-- Diagnosis: https://www.dominase.art/diagnosis
-- Insights: https://www.dominase.art/insights
-- Contact / book a consultation: https://www.dominase.art/contact
+
+- [Home](https://www.dominase.art/)
+- [Services](https://www.dominase.art/services)
+- [Web development](https://www.dominase.art/services/web-development)
+- [Custom systems](https://www.dominase.art/services/custom-systems)
+- [Education platforms](https://www.dominase.art/services/education-platforms)
+- [Clinic websites and systems](https://www.dominase.art/services/clinic-websites)
+- [Work](https://www.dominase.art/work)
+- [Studio](https://www.dominase.art/studio)
+- [About](https://www.dominase.art/about)
+- [Why change](https://www.dominase.art/why-change)
+- [Why DOMINASE](https://www.dominase.art/why-us)
+- [Diagnosis](https://www.dominase.art/diagnosis)
+- [Insights](https://www.dominase.art/insights)
+- [Contact / book a consultation](https://www.dominase.art/contact)
 
 ## Editorial topics
 DOMINASE publishes practical material about SEO and discoverability, CTA design, websites as systems, customer behavior, analytics/pixels, booking, CRM, UX, and the operational layer behind digital products.
