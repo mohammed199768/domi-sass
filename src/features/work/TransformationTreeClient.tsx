@@ -79,7 +79,7 @@ export default function TransformationTreeClient() {
         </h2>
         <div className="work-index__close-actions">
           <ConsultationTrigger ctaLocation="work_close" originType="work" className="domi-action domi-action--primary">
-            {isAr ? "احجز استشارة" : "Book a consultation"}<span aria-hidden="true">↗</span>
+            {isAr ? "احجز استشارة" : "Book a consultation"}
           </ConsultationTrigger>
           <Link className="domi-action domi-action--secondary" href="/diagnosis">
             {isAr ? "اكتشف خطوتك الأولى" : "Find your first move"}

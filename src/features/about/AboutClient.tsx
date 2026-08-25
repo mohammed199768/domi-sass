@@ -171,7 +171,7 @@ export default function AboutClient() {
               <Link href={`/work/${story.slug}`} key={story.slug}>
                 <span>{story.category[language]}</span>
                 <strong>{story.title}</strong>
-                <small>{copy.viewProject} ↗</small>
+                <small>{copy.viewProject}</small>
               </Link>
             ))}
           </div>

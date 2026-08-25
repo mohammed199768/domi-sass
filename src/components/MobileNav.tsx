@@ -3,7 +3,7 @@
 import { useEffect, useRef, useState } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { BriefcaseBusiness, Ellipsis, Home, Lightbulb, PanelsTopLeft, Sparkles, X } from "lucide-react";
+import { BriefcaseBusiness, Ellipsis, Home, Lightbulb, PanelsTopLeft, X } from "lucide-react";
 import { useLanguage } from "@/context/LanguageContext";
 import { useConsultation } from "@/components/consultation/ConsultationProvider";
 
@@ -66,7 +66,7 @@ function MobileNavInner({ pathname }: { pathname: string }) {
         </header>
         {MORE_LINKS.map((item) => (
           <Link key={item.href} href={item.href} aria-current={active(item.href) ? "page" : undefined}>
-            <span>{isAr ? item.ar : item.en}</span><span aria-hidden="true">↗</span>
+            <span>{isAr ? item.ar : item.en}</span>
           </Link>
         ))}
       </div>
@@ -75,7 +75,7 @@ function MobileNavInner({ pathname }: { pathname: string }) {
         className="adaptive-shell__consultation"
         onClick={() => openConsultation({ ctaLocation: "adaptive_shell", originType: "global_navigation" })}
       >
-        <Sparkles aria-hidden="true" /><span>{consultationLabel}</span>
+        <span>{consultationLabel}</span>
       </button>
       <nav className="adaptive-shell__nav" aria-label={navLabel}>
         <Link href="/" className="adaptive-shell__brand" aria-label="DOMINASE home"><span>D</span><strong>DOMINASE</strong></Link>
