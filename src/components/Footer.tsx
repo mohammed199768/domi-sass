@@ -103,7 +103,7 @@ export default function Footer() {
       };
 
   return (
-    <footer className="border-t border-border bg-surface-muted px-5 py-14 text-foreground sm:px-6 lg:py-20">
+    <footer className="site-footer border-t border-border bg-surface-muted px-5 py-14 text-foreground sm:px-6 lg:py-20">
       <div className="mx-auto max-w-7xl">
         <div className="grid gap-10 border-b border-border pb-12 lg:grid-cols-[1.2fr_1fr]">
           <div>
@@ -116,18 +116,18 @@ export default function Footer() {
             </ConsultationTrigger>
           </div>
 
-          <div className="grid gap-8 sm:grid-cols-2 xl:grid-cols-4">
+          <div className="site-footer__links grid gap-8 sm:grid-cols-2 xl:grid-cols-4">
             {columns[language].map((column) => (
-              <div key={column.title}>
-                <h2 className="text-xs font-black uppercase tracking-[0.16em] text-[var(--domi-accent-readable)]">{column.title}</h2>
-                <ul className="mt-4 space-y-2.5">
+              <details className="site-footer__group" key={column.title}>
+                <summary className="text-xs font-black uppercase tracking-[0.16em] text-[var(--domi-accent-readable)]"><span>{column.title}</span><span aria-hidden="true">+</span></summary>
+                <ul className="site-footer__list mt-4 space-y-2.5">
                   {column.links.map(([label, href]) => (
                     <li key={href}>
                       <Link className="premium-link text-sm font-semibold" href={href}>{label}</Link>
                     </li>
                   ))}
                 </ul>
-              </div>
+              </details>
             ))}
           </div>
         </div>

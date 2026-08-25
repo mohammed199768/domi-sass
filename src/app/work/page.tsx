@@ -4,6 +4,7 @@ import JsonLd from "@/components/JsonLd";
 import { SITE_URL, BRAND } from "@/config/seo";
 import { orderedProductStories } from "@/features/product-stories/productStories";
 import "@/components/interactive-showcase.css";
+import "@/features/work/work-index.css";
 
 export const metadata: Metadata = {
   title: "أعمال DOMINASE | مواقع وأنظمة ومنصات",

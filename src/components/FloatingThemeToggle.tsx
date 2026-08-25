@@ -38,6 +38,7 @@ export default function FloatingThemeToggle() {
 
     return (
         <button
+            data-assistance-action="theme"
             type="button"
             suppressHydrationWarning
             onClick={() => setTheme(nextTheme)}

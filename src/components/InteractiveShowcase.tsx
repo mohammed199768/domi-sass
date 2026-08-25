@@ -154,7 +154,7 @@ export default function InteractiveShowcase({
                     src={item.image}
                     alt={selected ? item.imageAlt : ""}
                     fill
-                    priority={selected}
+                    loading="lazy"
                     sizes="(max-width: 760px) 94vw, (max-width: 1100px) 62vw, 760px"
                   />
                 </figure>

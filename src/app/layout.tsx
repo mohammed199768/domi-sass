@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import {
   Space_Grotesk,
   Manrope,
@@ -6,6 +6,7 @@ import {
   Noto_Sans_Arabic,
 } from "next/font/google";
 import "@/styles/globals.css";
+import "@/styles/app-shell.css";
 import { ThemeProvider } from "@/components/ThemeProvider";
 import SmoothScroll from "@/components/SmoothScroll";
 import MobileNav from "@/components/MobileNav";
@@ -28,10 +29,10 @@ const bootClassScript = `
   const themeStorageKey = "dominase-theme";
   try {
     const savedTheme = window.localStorage.getItem(themeStorageKey);
-    const theme = savedTheme === "light" || savedTheme === "dark" ? savedTheme : "light";
+    const theme = savedTheme === "light" || savedTheme === "dark" ? savedTheme : "dark";
     document.documentElement.dataset.theme = theme;
   } catch {
-    document.documentElement.dataset.theme = "light";
+    document.documentElement.dataset.theme = "dark";
   }
 
   try {
@@ -123,13 +124,23 @@ export const metadata: Metadata = {
   },
 };
 
+export const viewport: Viewport = {
+  width: "device-width",
+  initialScale: 1,
+  viewportFit: "cover",
+  themeColor: "#020403",
+};
+
 export default function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="ar" dir="rtl" suppressHydrationWarning>
+    <html lang="en" dir="ltr" data-theme="dark" suppressHydrationWarning>
+      <head>
+        <script dangerouslySetInnerHTML={{ __html: bootClassScript }} />
+      </head>
       <body
         className={`${arDisplay.variable} ${arBody.variable} antialiased`}
       >
@@ -187,10 +198,9 @@ export default function RootLayout({
           ]}
         />
 
-        <script dangerouslySetInnerHTML={{ __html: bootClassScript }} />
         <ThemeProvider
           attribute="data-theme"
-          defaultTheme="light"
+          defaultTheme="dark"
           enableSystem={false}
           themes={["dark", "light"]}
           storageKey="dominase-theme"

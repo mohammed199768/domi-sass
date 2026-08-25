@@ -3,6 +3,7 @@
 import Link from "next/link";
 import Footer from "@/components/Footer";
 import Header from "@/components/Header";
+import ConsultationTrigger from "@/components/consultation/ConsultationTrigger";
 import InteractiveShowcase, {
   type InteractivePanelItem,
 } from "@/components/InteractiveShowcase";
@@ -72,14 +73,18 @@ export default function TransformationTreeClient() {
       />
 
       <section className="work-index__close">
-        <p>{isAr ? "عندك فكرة تستحق أن تصير حقيقة؟" : "Have an idea that deserves to come alive?"}</p>
+        <p>{isAr ? "عندك فكرة تستحق أن تصير حقيقة؟" : "Have something worth building?"}</p>
         <h2>
           {isAr ? "لنكتشف من أين نبدأ." : "Let's find where to begin."}
         </h2>
-        <Link className="domi-action domi-action--primary" href="/diagnosis">
-          {isAr ? "اكتشف خطوتك الأولى" : "Find your first move"}
-          <span aria-hidden="true">↗</span>
-        </Link>
+        <div className="work-index__close-actions">
+          <ConsultationTrigger ctaLocation="work_close" originType="work" className="domi-action domi-action--primary">
+            {isAr ? "احجز استشارة" : "Book a consultation"}<span aria-hidden="true">↗</span>
+          </ConsultationTrigger>
+          <Link className="domi-action domi-action--secondary" href="/diagnosis">
+            {isAr ? "اكتشف خطوتك الأولى" : "Find your first move"}
+          </Link>
+        </div>
       </section>
 
       <Footer />

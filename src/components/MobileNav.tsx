@@ -1,11 +1,25 @@
 "use client";
 
-import React, { useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import { BriefcaseBusiness, Ellipsis, Home, Lightbulb, PanelsTopLeft, Sparkles, X } from "lucide-react";
 import { useLanguage } from "@/context/LanguageContext";
-import { NAV_ITEMS, getNavItemLabel } from "./navConfig";
 import { useConsultation } from "@/components/consultation/ConsultationProvider";
+
+const DESTINATIONS = [
+  { id: "home", href: "/", icon: Home, en: "Home", ar: "الرئيسية" },
+  { id: "work", href: "/work", icon: BriefcaseBusiness, en: "Work", ar: "الأعمال" },
+  { id: "services", href: "/services", icon: PanelsTopLeft, en: "Services", ar: "الخدمات" },
+  { id: "insights", href: "/insights", icon: Lightbulb, en: "Insights", ar: "المقالات" },
+] as const;
+
+const MORE_LINKS = [
+  { href: "/studio", en: "Studio", ar: "الاستوديو" },
+  { href: "/about", en: "About", ar: "من نحن" },
+  { href: "/diagnosis", en: "Digital diagnosis", ar: "التشخيص الرقمي" },
+  { href: "/contact", en: "Contact", ar: "تواصل معنا" },
+] as const;
 
 export default function MobileNav() {
   const pathname = usePathname();
@@ -13,116 +27,73 @@ export default function MobileNav() {
 }
 
 function MobileNavInner({ pathname }: { pathname: string }) {
-  const { t, language } = useLanguage();
+  const { language } = useLanguage();
   const { openConsultation } = useConsultation();
-  const [open, setOpen] = useState(false);
-  const triggerRef = useRef<HTMLButtonElement>(null);
+  const [moreOpen, setMoreOpen] = useState(false);
+  const moreRef = useRef<HTMLButtonElement>(null);
+  const isAr = language === "ar";
 
   useEffect(() => {
-    if (!open) return;
-    const onKey = (event: KeyboardEvent) => {
+    if (!moreOpen) return;
+    const close = (event: KeyboardEvent) => {
       if (event.key === "Escape") {
-        setOpen(false);
-        triggerRef.current?.focus();
+        setMoreOpen(false);
+        moreRef.current?.focus();
       }
     };
-    window.addEventListener("keydown", onKey);
-    return () => window.removeEventListener("keydown", onKey);
-  }, [open]);
+    window.addEventListener("keydown", close);
+    return () => window.removeEventListener("keydown", close);
+  }, [moreOpen]);
 
-  const menuLabel = language === "ar" ? "القائمة" : "Menu";
-  const closeLabel = language === "ar" ? "إغلاق القائمة" : "Close menu";
-  const contactLabel = language === "ar" ? "احجز استشارة" : "Book a consultation";
-
-  const isActive = (href: string) =>
-    href === "/" ? pathname === "/" : pathname.startsWith(href);
+  const active = (href: string) => href === "/" ? pathname === "/" : pathname.startsWith(href);
+  const moreActive = MORE_LINKS.some(({ href }) => pathname.startsWith(href));
+  const navLabel = isAr ? "التنقل الرئيسي" : "Primary navigation";
+  const consultationLabel = isAr ? "احجز استشارة" : "Book a consultation";
 
   return (
-    <div className="mobile-nav-shell min-[1025px]:hidden">
+    <div className="adaptive-shell" dir={isAr ? "rtl" : "ltr"}>
       <button
         type="button"
-        suppressHydrationWarning
-        aria-label={closeLabel}
-        tabIndex={open ? 0 : -1}
-        onClick={() => setOpen(false)}
-        className={`fixed inset-0 z-40 bg-[color-mix(in_srgb,var(--domi-bg)_62%,transparent)] transition-opacity duration-300 ${
-          open ? "opacity-100" : "pointer-events-none opacity-0"
-        }`}
+        className={`adaptive-shell__scrim ${moreOpen ? "is-open" : ""}`}
+        aria-label={isAr ? "إغلاق القائمة" : "Close menu"}
+        tabIndex={moreOpen ? 0 : -1}
+        onClick={() => setMoreOpen(false)}
       />
-
-      <nav
-        id="mobile-nav-panel"
-        aria-label={menuLabel}
-        aria-hidden={!open}
-        inert={!open}
-        className={`premium-surface fixed inset-x-4 z-50 mx-auto max-w-sm rounded-[1.75rem] p-2.5 transition-[opacity,transform] duration-300 ease-out ${
-          open
-            ? "translate-y-0 scale-100 opacity-100"
-            : "pointer-events-none translate-y-5 scale-[0.97] opacity-0"
-        }`}
-        style={{ bottom: "calc(env(safe-area-inset-bottom, 0px) + 5.5rem)" }}
+      <div className={`adaptive-shell__more ${moreOpen ? "is-open" : ""}`} aria-hidden={!moreOpen} inert={!moreOpen}>
+        <header>
+          <span>{isAr ? "المزيد" : "More from DOMINASE"}</span>
+          <button type="button" onClick={() => setMoreOpen(false)} aria-label={isAr ? "إغلاق" : "Close"}><X /></button>
+        </header>
+        {MORE_LINKS.map((item) => (
+          <Link key={item.href} href={item.href} aria-current={active(item.href) ? "page" : undefined}>
+            <span>{isAr ? item.ar : item.en}</span><span aria-hidden="true">↗</span>
+          </Link>
+        ))}
+      </div>
+      <button
+        type="button"
+        className="adaptive-shell__consultation"
+        onClick={() => openConsultation({ ctaLocation: "adaptive_shell", originType: "global_navigation" })}
       >
-        <div className="rounded-[1.25rem] border border-border bg-surface-hover p-1.5">
-          <ul className="flex flex-col">
-            {NAV_ITEMS.map((item) => {
-              const active = isActive(item.href);
-              return (
-                <li key={item.id}>
-                  <Link
-                    href={item.href}
-                    tabIndex={open ? 0 : -1}
-                    aria-current={active ? "page" : undefined}
-                    className={`flex min-h-12 items-center justify-between gap-4 rounded-2xl px-5 py-3 text-[15px] font-bold transition-[background-color,color,transform] duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary-theme active:scale-[0.99] ${
-                      active
-                        ? "bg-[color-mix(in_srgb,var(--primary)_12%,var(--surface))] text-primary-theme"
-                        : "text-foreground hover:bg-surface hover:text-primary-theme"
-                    }`}
-                  >
-                    <span>{getNavItemLabel(t.nav, item)}</span>
-                    <span
-                      aria-hidden="true"
-                      className={`h-1.5 w-1.5 rounded-full ${active ? "bg-secondary-theme" : "bg-border"}`}
-                    />
-                  </Link>
-                </li>
-              );
-            })}
-            <li className="mt-1 border-t border-border pt-1">
-              <button
-                type="button"
-                tabIndex={open ? 0 : -1}
-                onClick={() => {
-                  setOpen(false);
-                  triggerRef.current?.focus();
-                  window.setTimeout(() => openConsultation({ ctaLocation: "mobile_navigation", originType: "global_navigation" }), 0);
-                }}
-                className="flex min-h-12 items-center justify-between rounded-2xl bg-primary-theme px-5 py-3 text-[15px] font-black text-[var(--primary-contrast)]"
-              >
-                <span>{contactLabel}</span>
-                <span aria-hidden="true">↗</span>
-              </button>
-            </li>
-          </ul>
+        <Sparkles aria-hidden="true" /><span>{consultationLabel}</span>
+      </button>
+      <nav className="adaptive-shell__nav" aria-label={navLabel}>
+        <Link href="/" className="adaptive-shell__brand" aria-label="DOMINASE home"><span>D</span><strong>DOMINASE</strong></Link>
+        <div className="adaptive-shell__destinations">
+          {DESTINATIONS.map((item) => {
+            const Icon = item.icon;
+            const selected = active(item.href);
+            return (
+              <Link key={item.id} href={item.href} aria-current={selected ? "page" : undefined} className={selected ? "is-active" : ""}>
+                <Icon aria-hidden="true" /><span>{isAr ? item.ar : item.en}</span>
+              </Link>
+            );
+          })}
+          <button ref={moreRef} type="button" aria-expanded={moreOpen} className={moreActive ? "is-active" : ""} onClick={() => setMoreOpen((value) => !value)}>
+            <Ellipsis aria-hidden="true" /><span>{isAr ? "المزيد" : "More"}</span>
+          </button>
         </div>
       </nav>
-
-      <button
-        ref={triggerRef}
-        type="button"
-        suppressHydrationWarning
-        aria-label={open ? closeLabel : menuLabel}
-        aria-expanded={open}
-        aria-controls="mobile-nav-panel"
-        onClick={() => setOpen((value) => !value)}
-        className="premium-surface domi-setting-control fixed inset-x-0 z-50 mx-auto flex h-12 w-fit items-center gap-3 px-6 font-display text-xs font-black uppercase tracking-[0.18em] text-foreground transition-[transform,border-color,color] duration-200 hover:border-primary-theme hover:text-primary-theme focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary-theme active:scale-[0.98]"
-        style={{ bottom: "calc(env(safe-area-inset-bottom, 0px) + 1.25rem)" }}
-      >
-        <span aria-hidden="true" className="relative block h-3 w-4">
-          <span className={`absolute left-0 top-0.5 block h-px w-4 bg-current transition-transform duration-200 ${open ? "translate-y-[4.5px] rotate-45" : ""}`} />
-          <span className={`absolute bottom-0.5 left-0 block h-px w-4 bg-current transition-transform duration-200 ${open ? "-translate-y-[4.5px] -rotate-45" : ""}`} />
-        </span>
-        {menuLabel}
-      </button>
     </div>
   );
 }

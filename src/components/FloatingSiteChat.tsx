@@ -286,6 +286,7 @@ export default function FloatingSiteChat() {
     <>
       {/* Chat panel — compact floating card, opposite side from WhatsApp. */}
       <section
+        data-assistance-panel="chat"
         dir={dir}
         aria-label={copy.title}
         aria-hidden={!open}
@@ -376,6 +377,7 @@ export default function FloatingSiteChat() {
 
       {/* Trigger — bottom-left, opposite the WhatsApp control. */}
       <button
+        data-assistance-action="chat"
         ref={triggerRef}
         type="button"
         suppressHydrationWarning

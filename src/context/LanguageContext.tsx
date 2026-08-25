@@ -22,7 +22,7 @@ export function LanguageProvider({
     children: ReactNode;
     englishFontVariables?: string;
 }) {
-    const [language, setLanguage] = useState<Language>("ar");
+    const [language, setLanguage] = useState<Language>("en");
 
     useEffect(() => {
         let savedLanguage: string | null = null;

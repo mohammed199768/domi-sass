@@ -19,6 +19,7 @@ export default function FloatingWhatsApp() {
 
     return (
         <a
+            data-assistance-action="whatsapp"
             href={CONTACT_CHANNELS.whatsapp.href}
             target="_blank"
             rel="noopener noreferrer"
