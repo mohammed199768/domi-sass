@@ -1,12 +1,13 @@
 "use client";
 
-import { useEffect, useMemo, useState, type FormEvent } from "react";
+import { useEffect, useRef, useState, type FormEvent } from "react";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { useLanguage } from "@/context/LanguageContext";
-import { CONTACT_CHANNELS, GITHUB_URL, UPWORK_URL, FORMSPREE_ENDPOINT } from "@/constants/contact";
+import { CONTACT_CHANNELS, GITHUB_URL, UPWORK_URL } from "@/constants/contact";
 import { ArrowLeft, ArrowRight, CheckCircle2, Github, Mail, Phone, Send } from "lucide-react";
 import WhatsAppMark from "@/components/icons/WhatsAppMark";
+import { createSubmissionId, getLeadContext, submitLead } from "@/lib/lead-capture";
 
 const COPY = {
   ar: {
@@ -96,15 +97,17 @@ export default function ContactOrbitClient() {
   const [projectType, setProjectType] = useState("website");
   const [goal, setGoal] = useState("");
   const [status, setStatus] = useState<Status>("idle");
+  const submissionId = useRef(createSubmissionId());
 
   useEffect(() => {
-    const requested = new URLSearchParams(window.location.search).get("path");
-    if (requested && copy.projects.some((item) => item.id === requested)) setProjectType(requested);
+    const timer = window.setTimeout(() => {
+      const requested = new URLSearchParams(window.location.search).get("path");
+      if (requested && copy.projects.some((item) => item.id === requested)) setProjectType(requested);
+    }, 0);
+    return () => window.clearTimeout(timer);
   }, [copy.projects]);
 
   const ProgressArrow = dir === "rtl" ? ArrowLeft : ArrowRight;
-  const selected = useMemo(() => copy.projects.find((item) => item.id === projectType) ?? copy.projects[0], [copy.projects, projectType]);
-
   const handleSubmit = async (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     if (status === "sending") return;
@@ -112,13 +115,13 @@ export default function ContactOrbitClient() {
     const data = new FormData(form);
     setStatus("sending");
     try {
-      const payload = new FormData();
-      for (const [key, value] of data.entries()) payload.append(key, value);
-      payload.set("project_type", projectType);
-      payload.set("project_type_label", selected.title);
-      payload.set("_subject", `DOMINASE project request — ${selected.title}`);
-      const response = await fetch(FORMSPREE_ENDPOINT, { method: "POST", body: payload, headers: { Accept: "application/json" } });
-      if (!response.ok) throw new Error("send failed");
+      await submitLead({
+        kind:"contact", submissionId:submissionId.current, name:String(data.get("name") || ""), phone:String(data.get("phone") || ""),
+        email:String(data.get("email") || ""), company:String(data.get("company") || ""), service:projectType,
+        objective:String(data.get("goal") || ""), note:"", currentState:String(data.get("current_state") || ""),
+        websiteUrl:String(data.get("website_url") || ""),
+        context:getLeadContext({ originPath:window.location.pathname, originType:"contact", ctaLocation:"contact_project_form", language }),
+      });
       form.reset();
       setGoal("");
       setStatus("success");
@@ -159,10 +162,11 @@ export default function ContactOrbitClient() {
                   <CheckCircle2 aria-hidden="true" />
                   <h2>{copy.successTitle}</h2>
                   <p>{copy.successBody}</p>
-                  <button type="button" onClick={() => { setStatus("idle"); setStep(0); }}>{copy.again}</button>
+                  <button type="button" onClick={() => { submissionId.current = createSubmissionId(); setStatus("idle"); setStep(0); }}>{copy.again}</button>
                 </div>
               ) : (
                 <form onSubmit={handleSubmit}>
+                  <div aria-hidden="true" className="absolute h-0 w-0 overflow-hidden"><label>Website<input name="website_url" tabIndex={-1} autoComplete="off" /></label></div>
                   <div className="contact-redesign__panel" hidden={step !== 0} aria-hidden={step !== 0}>
                     <p className="contact-redesign__label">{copy.projectLabel}</p>
                     <span className="contact-redesign__help">{copy.projectHelp}</span>

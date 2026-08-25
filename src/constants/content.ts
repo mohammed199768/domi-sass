@@ -197,7 +197,7 @@ export const content = {
                     name: "Please enter your name.",
                     phone: "Please enter a phone number.",
                     submit: "Something did not send. Try again, or use the direct contact options below.",
-                    config: "Contact form is not configured. Set NEXT_PUBLIC_FORMSPREE_ENDPOINT.",
+                    config: "The contact form is temporarily unavailable.",
                 },
                 success: {
                     eyebrow: "Message received",
@@ -464,7 +464,7 @@ export const content = {
                     name: "الرجاء إدخال اسمك.",
                     phone: "الرجاء إدخال رقم الهاتف.",
                     submit: "لم يتم الإرسال. حاول مرة أخرى، أو استخدم طرق التواصل المباشرة بالأسفل.",
-                    config: "نموذج التواصل غير مهيأ. الرجاء ضبط NEXT_PUBLIC_FORMSPREE_ENDPOINT.",
+                    config: "نموذج التواصل غير متاح مؤقتاً.",
                 },
                 success: {
                     eyebrow: "تم استلام الرسالة",

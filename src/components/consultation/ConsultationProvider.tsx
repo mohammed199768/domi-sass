@@ -1,10 +1,11 @@
 "use client";
 
 import dynamic from "next/dynamic";
-import { createContext, useContext, useRef, useState, type ReactNode } from "react";
+import { createContext, useContext, useEffect, useRef, useState, type ReactNode } from "react";
 import { usePathname } from "next/navigation";
 import { useLanguage } from "@/context/LanguageContext";
 import { trackDominaseEvent } from "@/lib/analytics";
+import { captureLandingAttribution } from "@/lib/lead-capture";
 
 export type ConsultationService = "website" | "platform" | "system" | "education" | "clinic" | "ux" | "unsure";
 export type ConsultationOpenOptions = { serviceInterest?: ConsultationService; ctaLocation: string; originType?: string };
@@ -33,6 +34,8 @@ export function ConsultationProvider({ children }: { children: ReactNode }) {
   const pathname = usePathname();
   const [active, setActive] = useState<ActiveConsultation | null>(null);
   const previousFocus = useRef<HTMLElement | null>(null);
+
+  useEffect(() => { captureLandingAttribution(); }, []);
 
   const openConsultation = (options: ConsultationOpenOptions) => {
     previousFocus.current = document.activeElement as HTMLElement | null;

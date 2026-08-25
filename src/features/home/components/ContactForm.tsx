@@ -1,9 +1,9 @@
 "use client";
 
-import { useState, type FormEvent } from "react";
+import { useRef, useState, type FormEvent } from "react";
 import { CheckCircle2 } from "lucide-react";
 import { useLanguage } from "@/context/LanguageContext";
-import { FORMSPREE_ENDPOINT, FORMSPREE_ENDPOINT_MISSING } from "@/constants/contact";
+import { createSubmissionId, getLeadContext, submitLead } from "@/lib/lead-capture";
 
 type SubmitState = "idle" | "submitting" | "success" | "error";
 type FieldErrors = { name?: boolean; phone?: boolean };
@@ -17,13 +17,15 @@ type ContactFormProps = {
 };
 
 export default function ContactForm({ submitLabel }: ContactFormProps = {}) {
-  const { t } = useLanguage();
+  const { t, language } = useLanguage();
   const p = t.contact.portal;
 
   const [state, setState] = useState<SubmitState>("idle");
   const [errors, setErrors] = useState<FieldErrors>({});
+  const submissionId = useRef(createSubmissionId());
 
   const resetForm = () => {
+    submissionId.current = createSubmissionId();
     setState("idle");
     setErrors({});
   };
@@ -55,28 +57,13 @@ export default function ContactForm({ submitLabel }: ContactFormProps = {}) {
     }
     setErrors({});
 
-    if (FORMSPREE_ENDPOINT_MISSING) {
-      // Development safety: never crash, surface a clear configuration error.
-      setState("error");
-      return;
-    }
-
     setState("submitting");
     try {
-      const payload = new FormData();
-      payload.append("name", name);
-      payload.append("phone", phone);
-      if (company) payload.append("company", company);
-      payload.append("_subject", "New DOMINASE project request");
-
-      const response = await fetch(FORMSPREE_ENDPOINT, {
-        method: "POST",
-        body: payload,
-        headers: { Accept: "application/json" },
+      await submitLead({
+        kind:"contact", submissionId:submissionId.current, name, phone, email:"", company, service:"other",
+        objective:"General project inquiry", note:"", currentState:"", websiteUrl:String(data.get("company_url") || ""),
+        context:getLeadContext({ originPath:window.location.pathname, originType:"contact", ctaLocation:"contact_form", language }),
       });
-
-      if (!response.ok) throw new Error("Formspree request failed");
-
       form.reset();
       setState("success");
     } catch {
@@ -109,8 +96,7 @@ export default function ContactForm({ submitLabel }: ContactFormProps = {}) {
     );
   }
 
-  const showConfigError = state === "error" && FORMSPREE_ENDPOINT_MISSING;
-  const showSubmitError = state === "error" && !FORMSPREE_ENDPOINT_MISSING && !errors.name && !errors.phone;
+  const showSubmitError = state === "error" && !errors.name && !errors.phone;
 
   return (
     <form className="space-y-5" onSubmit={handleSubmit} noValidate>
@@ -181,9 +167,9 @@ export default function ContactForm({ submitLabel }: ContactFormProps = {}) {
         />
       </div>
 
-      {(showSubmitError || showConfigError) && (
+      {showSubmitError && (
         <p role="alert" className="text-sm font-semibold text-red-500 dark:text-red-300">
-          {showConfigError ? p.errors.config : p.errors.submit}
+          {p.errors.submit}
         </p>
       )}
 

@@ -4,8 +4,8 @@ import "./consultation.css";
 import { useEffect, useMemo, useRef, useState, type FormEvent } from "react";
 import { ArrowLeft, ArrowRight, Check, X } from "lucide-react";
 import { useLanguage } from "@/context/LanguageContext";
-import { FORMSPREE_ENDPOINT } from "@/constants/contact";
 import { trackDominaseEvent } from "@/lib/analytics";
+import { createSubmissionId, getLeadContext, submitLead } from "@/lib/lead-capture";
 import type { ConsultationService } from "./ConsultationProvider";
 
 const COPY = {
@@ -41,6 +41,7 @@ export default function ConsultationDialog({ initialService, ctaLocation, origin
   const [objective, setObjective] = useState("");
   const [status, setStatus] = useState<"idle" | "sending" | "success" | "error">("idle");
   const dialogRef = useRef<HTMLDivElement>(null);
+  const submissionId = useRef(createSubmissionId());
   const goals = useMemo(() => service === "system" ? copy.goals.system : service === "education" ? copy.goals.education : service === "clinic" ? copy.goals.clinic : copy.goals.common, [copy.goals, service]);
 
   useEffect(() => {
@@ -65,10 +66,17 @@ export default function ConsultationDialog({ initialService, ctaLocation, origin
   const chooseObjective = (value: string) => { setObjective(value); trackDominaseEvent("consultation_step_2_complete", eventContext); setStep(2); };
   const submit = async (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault(); if (!service || !objective || status === "sending") return;
-    const values = new FormData(event.currentTarget); const query = new URLSearchParams(window.location.search);
-    values.set("service_interest", service); values.set("objective", objective); values.set("language", language); values.set("origin_page", pathname); values.set("origin_type", originType); values.set("cta_location", ctaLocation); values.set("utm_source", query.get("utm_source") || ""); values.set("utm_medium", query.get("utm_medium") || ""); values.set("utm_campaign", query.get("utm_campaign") || ""); values.set("referrer", document.referrer || ""); values.set("_subject", `DOMINASE consultation — ${service}`);
+    const values = new FormData(event.currentTarget);
     setStatus("sending"); trackDominaseEvent("consultation_submit", eventContext);
-    try { const response = await fetch(FORMSPREE_ENDPOINT, { method: "POST", body: values, headers: { Accept: "application/json" } }); if (!response.ok) throw new Error("Submission failed"); setStatus("success"); trackDominaseEvent("consultation_success", eventContext); } catch { setStatus("error"); }
+    try {
+      await submitLead({
+        kind:"consultation", submissionId:submissionId.current, name:String(values.get("name") || ""), phone:String(values.get("phone") || ""),
+        email:String(values.get("email") || ""), company:"", service, objective, note:String(values.get("note") || ""), currentState:"",
+        websiteUrl:String(values.get("website_url") || ""),
+        context:getLeadContext({ originPath:pathname, originType, ctaLocation, language }),
+      });
+      setStatus("success"); trackDominaseEvent("consultation_success", eventContext);
+    } catch { setStatus("error"); }
   };
 
   return <div className="consultation-overlay" role="presentation" onMouseDown={(event) => { if (event.target === event.currentTarget) onClose(); }}><div ref={dialogRef} className="consultation-dialog" role="dialog" aria-modal="true" aria-labelledby="consultation-title" dir={dir}>
@@ -79,6 +87,7 @@ export default function ConsultationDialog({ initialService, ctaLocation, origin
       <fieldset hidden={step !== 1}><legend>{copy.steps[1]}</legend><div className="consultation-options">{goals.map(([value, label]) => <button key={value} type="button" aria-pressed={objective === value} onClick={() => chooseObjective(value)}>{label}</button>)}</div></fieldset>
       <fieldset hidden={step !== 2}>
         <legend>{copy.steps[2]}</legend>
+        <div aria-hidden="true" className="absolute h-0 w-0 overflow-hidden"><label>Website<input name="website_url" tabIndex={-1} autoComplete="off" /></label></div>
         <label><span>{copy.name}</span><input name="name" type="text" inputMode="text" required autoComplete="name" /></label>
         <label><span>{copy.phone}</span><input name="phone" type="tel" inputMode="tel" required autoComplete="tel" /></label>
         <label><span>{copy.email}</span><input name="email" type="email" inputMode="email" autoComplete="email" /></label>

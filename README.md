@@ -2,6 +2,10 @@
 
 A fully responsive, bilingual (English/Arabic) landing page for **domi** - Digital Optimization and Management Intelligence SaaS platform.
 
+## CRM lead delivery
+
+Consultation and contact submissions post to the same-origin `/api/leads` route. The server validates and signs each submission before forwarding it to the CRM; browsers never receive the shared secret. Copy `.env.example` to `.env.local` and configure `DOMINASE_CRM_BASE_URL`, `DOMINASE_CRM_INGEST_SECRET`, and the allowed website origins. `FORMSPREE_ENDPOINT` is optional and runs only after the CRM accepts the lead.
+
 ## 🚀 Features
 
 - **Next.js 15** with App Router and TypeScript
