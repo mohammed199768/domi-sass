@@ -89,8 +89,11 @@
 
 .legal-toc nav {
   display: grid;
+  overflow-y: auto;
+  max-height: calc(100vh - 10rem);
   margin-top: 1.25rem;
   border-top: 1px solid var(--border);
+  overscroll-behavior: contain;
 }
 
 .legal-toc a {
@@ -184,6 +187,17 @@
   font-size: .86rem;
 }
 
+.legal-inline-links,
+.legal-related__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: .75rem;
+}
+
+.legal-inline-links { margin-top: 1.35rem; }
+.legal-inline-links .domi-action { min-height: 2.75rem; }
+.legal-related__actions { justify-content: flex-end; }
+
 .legal-contact,
 .legal-related {
   display: grid;
@@ -233,7 +247,7 @@
   .legal-hero { gap: 2.5rem; }
   .legal-layout { gap: 3rem; }
   .legal-toc { position: static; padding-inline-end: 0; }
-  .legal-toc nav { grid-template-columns: 1fr 1fr; }
+  .legal-toc nav { overflow: visible; max-height: none; grid-template-columns: 1fr 1fr; }
   .legal-toc a:nth-child(odd) { padding-inline-end: 1rem; }
   .legal-toc a:nth-child(even) { padding-inline-start: 1rem; border-inline-start: 1px solid var(--border); }
 }
@@ -251,7 +265,9 @@
   .legal-contact,
   .legal-related { grid-template-columns: 1fr; border-radius: 1.5rem; }
   .legal-contact .domi-action,
-  .legal-related .domi-action { width: 100%; white-space: normal; text-align: center; }
+  .legal-related .domi-action,
+  .legal-inline-links .domi-action { width: 100%; white-space: normal; text-align: center; }
+  .legal-related__actions { width: 100%; }
   .legal-contact-line { align-items: flex-start; flex-wrap: wrap; }
   .legal-contact-line svg:last-child { display: none; }
 }

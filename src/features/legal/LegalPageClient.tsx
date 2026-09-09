@@ -6,19 +6,21 @@ import Footer from "@/components/Footer";
 import Header from "@/components/Header";
 import { CONTACT_CHANNELS } from "@/constants/contact";
 import { useLanguage } from "@/context/LanguageContext";
+import { TERMS_COPY } from "@/features/legal/termsCopy";
 
-type Language = "ar" | "en";
-type LegalPageKind = "privacy" | "data-deletion";
+export type Language = "ar" | "en";
+type LegalPageKind = "privacy" | "data-deletion" | "terms";
 
-type LegalSection = {
+export type LegalSection = {
   id: string;
   title: string;
   paragraphs?: string[];
   bullets?: string[];
   note?: string;
+  links?: { href: string; label: string }[];
 };
 
-type LegalCopy = {
+export type LegalCopy = {
   eyebrow: string;
   title: string;
   lead: string;
@@ -34,6 +36,8 @@ type LegalCopy = {
   relatedBody: string;
   relatedCta: string;
   relatedHref: string;
+  relatedAltCta?: string;
+  relatedAltHref?: string;
   contactLabel?: string;
   contactTitle?: string;
   contactBody?: string;
@@ -464,7 +468,11 @@ const DELETION_COPY: Record<Language, LegalCopy> = {
 
 export default function LegalPageClient({ kind }: { kind: LegalPageKind }) {
   const { language, dir } = useLanguage();
-  const copy = kind === "privacy" ? PRIVACY_COPY[language] : DELETION_COPY[language];
+  const copy = kind === "privacy"
+    ? PRIVACY_COPY[language]
+    : kind === "data-deletion"
+      ? DELETION_COPY[language]
+      : TERMS_COPY[language];
   const DirectionArrow = dir === "rtl" ? ArrowLeft : ArrowRight;
   const deletionSubject = language === "ar" ? "طلب حذف بيانات DOMINASE" : "DOMINASE data deletion request";
   const deletionHref = `${CONTACT_CHANNELS.email.href}?subject=${encodeURIComponent(deletionSubject)}`;
@@ -519,6 +527,16 @@ export default function LegalPageClient({ kind }: { kind: LegalPageKind }) {
                   </ul>
                 ) : null}
                 {section.note ? <p className="legal-note">{section.note}</p> : null}
+                {section.links ? (
+                  <div className="legal-inline-links">
+                    {section.links.map((link) => (
+                      <Link className="domi-action domi-action--secondary" href={link.href} key={link.href}>
+                        {link.label}
+                        <DirectionArrow aria-hidden="true" />
+                      </Link>
+                    ))}
+                  </div>
+                ) : null}
               </section>
             ))}
           </article>
@@ -544,10 +562,18 @@ export default function LegalPageClient({ kind }: { kind: LegalPageKind }) {
             <h2 id="legal-related-title">{copy.relatedTitle}</h2>
             <p>{copy.relatedBody}</p>
           </div>
-          <Link className="domi-action domi-action--secondary" href={copy.relatedHref}>
-            {copy.relatedCta}
-            <DirectionArrow aria-hidden="true" />
-          </Link>
+          <div className="legal-related__actions">
+            <Link className="domi-action domi-action--secondary" href={copy.relatedHref}>
+              {copy.relatedCta}
+              <DirectionArrow aria-hidden="true" />
+            </Link>
+            {copy.relatedAltHref && copy.relatedAltCta ? (
+              <Link className="domi-action domi-action--secondary" href={copy.relatedAltHref}>
+                {copy.relatedAltCta}
+                <DirectionArrow aria-hidden="true" />
+              </Link>
+            ) : null}
+          </div>
         </section>
 
         <div className="legal-contact-line">

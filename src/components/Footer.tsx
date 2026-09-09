@@ -95,6 +95,7 @@ export default function Footer() {
         line: "شركة برمجة ومنتجات رقمية من عمّان، نعمل مع مشاريع في الأردن والسعودية. نبسّط المواقع، المنصات، الأنظمة وتجارب العملاء حتى تصبح أوضح وأسهل في الاستخدام والإدارة.",
         cta: "احجز استشارة",
         rights: "© 2026 DOMINASE. Software & Digital Products.",
+        terms: "شروط الخدمة",
         privacy: "سياسة الخصوصية",
         deletion: "حذف البيانات",
       }
@@ -102,6 +103,7 @@ export default function Footer() {
         line: "A software and digital product company from Amman, working with businesses in Jordan and Saudi Arabia. We simplify websites, platforms, systems, and customer journeys so they are easier to use and operate.",
         cta: "Book a consultation",
         rights: "© 2026 DOMINASE. Software & Digital Products.",
+        terms: "Terms of Service",
         privacy: "Privacy Policy",
         deletion: "Data Deletion",
       };
@@ -140,6 +142,7 @@ export default function Footer() {
           <div className="flex flex-col items-center gap-3 md:items-start">
             <p className="text-sm text-muted">{copy.rights}</p>
             <nav className="flex flex-wrap items-center justify-center gap-x-4 gap-y-2 text-xs font-semibold md:justify-start" aria-label={language === "ar" ? "الروابط القانونية" : "Legal links"}>
+              <Link className="premium-link" href="/terms">{copy.terms}</Link>
               <Link className="premium-link" href="/privacy">{copy.privacy}</Link>
               <Link className="premium-link" href="/data-deletion">{copy.deletion}</Link>
             </nav>

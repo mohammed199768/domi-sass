@@ -10,7 +10,7 @@ import { useTheme } from "next-themes";
 import { usePathname } from "next/navigation";
 import { useLanguage } from "@/context/LanguageContext";
 
-const THEME_TOGGLE_ROUTES = ["/contact", "/why-change", "/why-us", "/work", "/diagnosis", "/about", "/studio", "/services", "/insights", "/markets", "/privacy", "/data-deletion"];
+const THEME_TOGGLE_ROUTES = ["/contact", "/why-change", "/why-us", "/work", "/diagnosis", "/about", "/studio", "/services", "/insights", "/markets", "/privacy", "/data-deletion", "/terms"];
 
 export default function FloatingThemeToggle() {
     const { setTheme, resolvedTheme } = useTheme();

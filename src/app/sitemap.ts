@@ -18,6 +18,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     ["/contact", 0.9],
     ["/privacy", 0.7],
     ["/data-deletion", 0.65],
+    ["/terms", 0.7],
     ["/studio", 0.78],
     ["/diagnosis", 0.85],
     ["/why-change", 0.82],
@@ -28,7 +29,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     ["/diagnosis/general-business", 0.75],
   ].map(([path, priority]) => ({
     url: `${SITE_URL}${path}`,
-    lastModified: path === "/privacy" || path === "/data-deletion" ? "2026-09-09" : releaseDate,
+    lastModified: path === "/privacy" || path === "/data-deletion" || path === "/terms" ? "2026-09-09" : releaseDate,
     changeFrequency: "monthly" as const,
     priority: priority as number,
   }));
