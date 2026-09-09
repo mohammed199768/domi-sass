@@ -26,6 +26,8 @@ Positioning: Software & Digital Products — Make it simple.
 - [Diagnosis](https://www.dominase.art/diagnosis)
 - [Insights](https://www.dominase.art/insights)
 - [Contact / book a consultation](https://www.dominase.art/contact)
+- [Privacy Policy](https://www.dominase.art/privacy)
+- [Data Deletion](https://www.dominase.art/data-deletion)
 
 ## Editorial topics
 DOMINASE publishes practical material about SEO and discoverability, CTA design, websites as systems, customer behavior, analytics/pixels, booking, CRM, UX, and the operational layer behind digital products.

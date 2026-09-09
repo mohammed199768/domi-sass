@@ -95,11 +95,15 @@ export default function Footer() {
         line: "شركة برمجة ومنتجات رقمية من عمّان، نعمل مع مشاريع في الأردن والسعودية. نبسّط المواقع، المنصات، الأنظمة وتجارب العملاء حتى تصبح أوضح وأسهل في الاستخدام والإدارة.",
         cta: "احجز استشارة",
         rights: "© 2026 DOMINASE. Software & Digital Products.",
+        privacy: "سياسة الخصوصية",
+        deletion: "حذف البيانات",
       }
     : {
         line: "A software and digital product company from Amman, working with businesses in Jordan and Saudi Arabia. We simplify websites, platforms, systems, and customer journeys so they are easier to use and operate.",
         cta: "Book a consultation",
         rights: "© 2026 DOMINASE. Software & Digital Products.",
+        privacy: "Privacy Policy",
+        deletion: "Data Deletion",
       };
 
   return (
@@ -133,7 +137,13 @@ export default function Footer() {
         </div>
 
         <div className="flex flex-col items-center justify-between gap-6 pt-8 md:flex-row">
-          <p className="text-sm text-muted">{copy.rights}</p>
+          <div className="flex flex-col items-center gap-3 md:items-start">
+            <p className="text-sm text-muted">{copy.rights}</p>
+            <nav className="flex flex-wrap items-center justify-center gap-x-4 gap-y-2 text-xs font-semibold md:justify-start" aria-label={language === "ar" ? "الروابط القانونية" : "Legal links"}>
+              <Link className="premium-link" href="/privacy">{copy.privacy}</Link>
+              <Link className="premium-link" href="/data-deletion">{copy.deletion}</Link>
+            </nav>
+          </div>
           <div className="flex gap-3">
             <a href="https://github.com/mohammed199768" target="_blank" rel="noopener noreferrer" aria-label="GitHub" className="premium-surface grid h-11 w-11 place-items-center rounded-full text-muted hover:text-primary-theme"><Github className="h-5 w-5" /></a>
             <a href="https://www.upwork.com/freelancers/~012bcb31d6467e2e71?mp_source=share" target="_blank" rel="noopener noreferrer" aria-label="Upwork" className="premium-surface grid h-11 w-11 place-items-center rounded-full text-muted hover:text-primary-theme"><Briefcase className="h-5 w-5" /></a>
