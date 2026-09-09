@@ -931,7 +931,7 @@
           "notes": ""
         },
         {
-          "text": "mohammed.aldomi68@gmail.com",
+          "text": "dominase1art@gmail.com",
           "language": "en",
           "route": "/",
           "section": "contact.info.email",
@@ -2441,7 +2441,7 @@
           "notes": ""
         },
         {
-          "text": "mohammed.aldomi68@gmail.com",
+          "text": "dominase1art@gmail.com",
           "language": "ar",
           "route": "/",
           "section": "contact.info.email",
@@ -14915,8 +14915,8 @@
     },
     {
       "key": "content.contact.info.email",
-      "english": "mohammed.aldomi68@gmail.com",
-      "arabic": "mohammed.aldomi68@gmail.com",
+      "english": "dominase1art@gmail.com",
+      "arabic": "dominase1art@gmail.com",
       "status": "Possibly duplicated",
       "filePath": "src/constants/content.ts"
     },

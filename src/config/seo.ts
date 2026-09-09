@@ -27,6 +27,6 @@ export const SOCIAL_LINKS = {
 
 export const CONTACT = {
   phone: "+962779667168",
-  email: "mohammed.aldomi68@gmail.com",
+  email: "dominase1art@gmail.com",
   address: "Amman, Jordan",
 } as const;

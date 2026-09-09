@@ -250,7 +250,7 @@ This table groups the exact current text by source/component. The JSON export co
 | Contact / Footer | contact.title | en | Let's Build Something Useful | src/constants/content.ts |
 | Contact / Footer | contact.subtitle | en | Send a message if your business needs a polished website, a SaaS-style interface, a booking flow, or a sharper digital system. | src/constants/content.ts |
 | Contact / Footer | contact.info.phone | en | +962779667168 | src/constants/content.ts |
-| Contact / Footer | contact.info.email | en | mohammed.aldomi68@gmail.com | src/constants/content.ts |
+| Contact / Footer | contact.info.email | en | dominase1art@gmail.com | src/constants/content.ts |
 | Contact / Footer | contact.info.address | en | Amman, Jordan | src/constants/content.ts |
 | Contact / Footer | contact.form.name | en | Name | src/constants/content.ts |
 | Contact / Footer | contact.form.email | en | Email | src/constants/content.ts |
@@ -288,7 +288,7 @@ This table groups the exact current text by source/component. The JSON export co
 | Contact / Footer | contact.title | ar | لنبنِ شيئاً مفيداً | src/constants/content.ts |
 | Contact / Footer | contact.subtitle | ar | أرسل رسالة إذا كان عملك يحتاج موقعاً مصقولاً، واجهة بأسلوب SaaS، مسار حجز، أو نظاماً رقمياً أوضح. | src/constants/content.ts |
 | Contact / Footer | contact.info.phone | ar | +962779667168 | src/constants/content.ts |
-| Contact / Footer | contact.info.email | ar | mohammed.aldomi68@gmail.com | src/constants/content.ts |
+| Contact / Footer | contact.info.email | ar | dominase1art@gmail.com | src/constants/content.ts |
 | Contact / Footer | contact.info.address | ar | عمّان، الأردن | src/constants/content.ts |
 | Contact / Footer | contact.form.name | ar | الاسم | src/constants/content.ts |
 | Contact / Footer | contact.form.email | ar | البريد الإلكتروني | src/constants/content.ts |
@@ -746,7 +746,7 @@ The main content systems are bilingual across English and Arabic. Rows marked `P
 | Let's Build Something Useful | لنبنِ شيئاً مفيداً | Complete | src/constants/content.ts | content.contact.title |
 | Send a message if your business needs a polished website, a SaaS-style interface, a booking flow, or a sharper digital system. | أرسل رسالة إذا كان عملك يحتاج موقعاً مصقولاً، واجهة بأسلوب SaaS، مسار حجز، أو نظاماً رقمياً أوضح. | Complete | src/constants/content.ts | content.contact.subtitle |
 | +962779667168 | +962779667168 | Possibly duplicated | src/constants/content.ts | content.contact.info.phone |
-| mohammed.aldomi68@gmail.com | mohammed.aldomi68@gmail.com | Possibly duplicated | src/constants/content.ts | content.contact.info.email |
+| dominase1art@gmail.com | dominase1art@gmail.com | Possibly duplicated | src/constants/content.ts | content.contact.info.email |
 | Amman, Jordan | عمّان، الأردن | Complete | src/constants/content.ts | content.contact.info.address |
 | Name | الاسم | Complete | src/constants/content.ts | content.contact.form.name |
 | Email | البريد الإلكتروني | Complete | src/constants/content.ts | content.contact.form.email |

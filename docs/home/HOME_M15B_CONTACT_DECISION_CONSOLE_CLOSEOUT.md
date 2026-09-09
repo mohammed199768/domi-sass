@@ -65,7 +65,7 @@ circles. Light mode is now a warm off-white console instead of a hard black bloc
 Three solid nodes from `CONTACT_CHANNELS` (real hrefs, no fakes):
 - WhatsApp → `https://wa.me/962779667168` (new tab) — "Fastest reply / رد أسرع".
 - Call → `tel:+962779667168` — "Talk directly / تواصل مباشر".
-- Email → `mailto:mohammed.aldomi68@gmail.com` — "Formal details / تفاصيل رسمية".
+- Email → `mailto:dominase1art@gmail.com` — "Formal details / تفاصيل رسمية".
 Lucide icons (existing system), descriptive bilingual `aria-label`s, visible focus ring, on a thin
 SVG decision line that mirrors correctly in RTL (start-anchored). They remain visible in the
 success state.

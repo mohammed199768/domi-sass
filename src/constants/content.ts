@@ -173,7 +173,7 @@ export const content = {
             subtitle: "Share the business, the current digital friction, and the result you want the interface to support.",
             info: {
                 phone: "+962779667168",
-                email: "mohammed.aldomi68@gmail.com",
+                email: "dominase1art@gmail.com",
                 address: "Amman, Jordan",
             },
             form: {
@@ -440,7 +440,7 @@ export const content = {
             subtitle: "شارك طبيعة العمل، الاحتكاك الرقمي الحالي، والنتيجة التي تريد من الواجهة أن تدعمها.",
             info: {
                 phone: "+962779667168",
-                email: "mohammed.aldomi68@gmail.com",
+                email: "dominase1art@gmail.com",
                 address: "عمّان، الأردن",
             },
             form: {

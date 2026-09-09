@@ -63,7 +63,7 @@ the motion-safe `contact-success-in` keyframe (instant under reduced motion).
 ## Contact action circles
 Three circular glass buttons (`ContactActionsOrbit`) for WhatsApp, phone, and email:
 - Real hrefs from `CONTACT_CHANNELS`: `https://wa.me/962779667168` (new tab), `tel:+962779667168`,
-  `mailto:mohammed.aldomi68@gmail.com`. WhatsApp reuses the existing mobile number (no separate
+  `mailto:dominase1art@gmail.com`. WhatsApp reuses the existing mobile number (no separate
   WhatsApp line exists; documented in `contact.ts`).
 - Lucide icons (the project's existing icon system): `MessageCircle`, `Phone`, `Mail`.
 - Row/stacked on mobile, spaced with subtle silver SVG connector lines on ≥ sm; premium
